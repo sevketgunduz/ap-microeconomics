@@ -1,0 +1,1363 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 3 · The Production Possibilities Curve Model · AP Microeconomics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@600;700&display=swap">
+<link rel="stylesheet" href="assets/course.css">
+<style>.page .bar{position:static;background:none;backdrop-filter:none}.page .bar-in{max-width:none;padding-inline:0}.page .wrap{max-width:none;padding-inline:0;padding-block:0 24px}.page .masthead{padding-block:10px 24px}</style></head>
+<body>
+<main class="page">
+<style>
+
+:root{
+  --paper:#f3f5f8;
+  --surface:#ffffff;
+  --surface-2:#eef1f6;
+  --ink:#15181f;
+  --ink-2:#4d5566;
+  --ink-3:#737c8e;
+  --rule:#d6dae2;
+  --rule-strong:#b3bac7;
+  --accent:#1d4e89;
+  --accent-soft:#e6edf7;
+  --down:#a3372a;
+  --down-soft:#fbeeeb;
+  --up:#1a6b55;
+  --up-soft:#e6f2ee;
+  --flag:#7a5310;
+  --flag-soft:#f8f0e0;
+  --shadow:0 1px 2px rgba(21,24,31,.06), 0 8px 24px rgba(21,24,31,.05);
+  --serif:"IBM Plex Serif", Georgia, "Times New Roman", serif;
+  --sans:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0f1218;
+    --surface:#171b23;
+    --surface-2:#1e232d;
+    --ink:#e8ebf1;
+    --ink-2:#a3adc0;
+    --ink-3:#7e8799;
+    --rule:#2c323d;
+    --rule-strong:#3c4351;
+    --accent:#7dabe2;
+    --accent-soft:#1a2634;
+    --down:#e5907f;
+    --down-soft:#2a1d1a;
+    --up:#6cc4a7;
+    --up-soft:#16291f;
+    --flag:#d8b169;
+    --flag-soft:#2a2418;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.28);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0f1218;
+  --surface:#171b23;
+  --surface-2:#1e232d;
+  --ink:#e8ebf1;
+  --ink-2:#a3adc0;
+  --ink-3:#7e8799;
+  --rule:#2c323d;
+  --rule-strong:#3c4351;
+  --accent:#7dabe2;
+  --accent-soft:#1a2634;
+  --down:#e5907f;
+  --down-soft:#2a1d1a;
+  --up:#6cc4a7;
+  --up-soft:#16291f;
+  --flag:#d8b169;
+  --flag-soft:#2a2418;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.28);
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.65;
+  margin:0;
+}
+.wrap{max-width:820px;margin:0 auto;padding-inline:18px;padding-block:0 72px}
+
+/* ---------- sticky bar ---------- */
+.bar{
+  position:sticky;
+  top:env(safe-area-inset-top, 0px);
+  z-index:40;
+  background:color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--rule);
+}
+.bar-in{
+  max-width:820px;margin:0 auto;padding-inline:18px;
+  display:flex;align-items:center;gap:14px;min-height:50px;flex-wrap:wrap;
+}
+.bar-title{font-family:var(--mono);font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-2);white-space:nowrap}
+.progress{flex:1 1 140px;min-width:120px;display:flex;align-items:center;gap:9px}
+.progress-track{flex:1;height:5px;border-radius:3px;background:var(--rule);overflow:hidden}
+.progress-fill{height:100%;width:0;background:var(--accent);transition:width .25s ease}
+.progress-num{font-family:var(--mono);font-size:12px;color:var(--ink-2);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar button{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;
+  background:none;border:1px solid var(--rule-strong);color:var(--ink-2);
+  padding:5px 10px;border-radius:4px;cursor:pointer;
+}
+.bar button:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ---------- masthead ---------- */
+.masthead{padding-block:40px 28px;border-bottom:2px solid var(--ink)}
+.eyebrow{
+  font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);margin:0 0 12px;
+}
+h1{
+  font-family:var(--serif);font-weight:700;font-size:clamp(30px,6.4vw,44px);
+  line-height:1.1;margin:0 0 14px;text-wrap:balance;letter-spacing:-.01em;
+}
+.standfirst{font-size:17.5px;color:var(--ink-2);margin:0;max-width:62ch}
+.source-line{
+  font-family:var(--mono);font-size:12.5px;color:var(--ink-3);margin-top:18px;
+  display:flex;gap:6px 18px;flex-wrap:wrap;
+}
+
+h2{
+  font-family:var(--serif);font-weight:600;font-size:clamp(21px,3.8vw,26px);
+  line-height:1.25;margin:0 0 10px;text-wrap:balance;
+}
+h3{font-family:var(--sans);font-weight:600;font-size:16px;margin:26px 0 8px;letter-spacing:.01em}
+p{margin:0 0 14px}
+a{color:var(--accent)}
+.section{padding-block:34px 4px}
+
+.kicker{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-3);margin:0 0 8px;
+}
+
+/* ---------- entries ---------- */
+.entry{padding-block:34px 10px;border-top:1px solid var(--rule)}
+.entry-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.entry-num{
+  font-family:var(--mono);font-size:13px;font-weight:600;color:var(--accent);
+  font-variant-numeric:tabular-nums;
+}
+.entry h2{margin:0;flex:1 1 auto;min-width:0}
+.mark{
+  font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  padding:3px 8px;border-radius:3px;white-space:nowrap;
+}
+.mark.exam{background:var(--accent-soft);color:var(--accent)}
+.mark.bg{background:var(--surface-2);color:var(--ink-3)}
+.defn{
+  background:var(--surface);border-left:3px solid var(--accent);
+  padding:14px 16px;border-radius:0 5px 5px 0;margin:14px 0 16px;box-shadow:var(--shadow);
+}
+.defn p{margin:0}
+.defn .lbl{
+  display:block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-3);margin-bottom:5px;
+}
+.reading{font-family:var(--mono);font-size:12.5px;color:var(--ink-3);margin:-6px 0 16px}
+
+.watch{
+  background:var(--down-soft);border:1px solid color-mix(in srgb, var(--down) 28%, transparent);
+  border-radius:5px;padding:13px 16px;margin:18px 0;
+}
+.watch p{margin:0;font-size:15.3px}
+.watch b{color:var(--down)}
+
+.notinbook{
+  background:var(--flag-soft);border:1px dashed color-mix(in srgb, var(--flag) 48%, transparent);
+  border-radius:5px;padding:13px 16px;margin:16px 0;
+}
+.notinbook p{margin:0;font-size:15.3px}
+.notinbook b{color:var(--flag)}
+
+.examples{margin:18px 0;display:flex;flex-direction:column;gap:12px}
+.ex{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start}
+.ex-n{
+  font-family:var(--mono);font-size:11px;font-weight:600;color:var(--ink-3);
+  border:1px solid var(--rule-strong);border-radius:3px;padding:1px 6px;margin-top:3px;white-space:nowrap;
+}
+.ex p{margin:0;font-size:15.3px}
+.ex .who{font-weight:600;color:var(--ink)}
+
+.connects{font-size:15.3px;color:var(--ink-2);border-top:1px solid var(--rule);padding-top:12px;margin-top:6px}
+.connects b{color:var(--ink)}
+
+/* ---------- check yourself ---------- */
+.check{margin:20px 0 6px;background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:14px 16px}
+.check > .lbl{
+  font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);display:block;margin-bottom:10px;
+}
+.q{margin-bottom:12px}
+.q:last-child{margin-bottom:0}
+.q > p{margin:0 0 7px;font-size:15.3px}
+.q .qn{font-family:var(--mono);font-weight:600;color:var(--accent);font-size:13.5px;margin-right:4px}
+details.reveal{border-top:1px dashed var(--rule)}
+details.reveal > summary{
+  list-style:none;cursor:pointer;font-family:var(--mono);font-size:11.5px;
+  letter-spacing:.07em;text-transform:uppercase;color:var(--accent);padding:7px 0 0;
+}
+details.reveal > summary::-webkit-details-marker{display:none}
+details.reveal > summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details.reveal[open] > summary::before{content:"▾ "}
+details.reveal > summary:hover{text-decoration:underline}
+details.reveal .ans{font-size:15.3px;color:var(--ink-2);padding:6px 0 4px}
+details.reveal .ans p{margin:0 0 8px}
+details.reveal .ans p:last-child{margin:0}
+
+.got{
+  display:flex;align-items:center;gap:8px;margin-top:16px;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);
+  cursor:pointer;user-select:none;
+}
+.got input{width:15px;height:15px;accent-color:var(--accent);cursor:pointer}
+
+/* ---------- tables ---------- */
+.tablewrap{overflow-x:auto;margin:18px 0;border:1px solid var(--rule);border-radius:6px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:15px;min-width:420px}
+th,td{padding:10px 13px;text-align:left;border-bottom:1px solid var(--rule);vertical-align:top}
+thead th{
+  font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-3);background:var(--surface-2);font-weight:600;
+}
+tbody tr:last-child td{border-bottom:none}
+td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right}
+.tight td,.tight th{padding:8px 12px;font-size:14.5px}
+
+/* ---------- widgets ---------- */
+.widget{
+  background:var(--surface);border:1px solid var(--rule-strong);border-radius:8px;
+  padding:18px;margin:26px 0;box-shadow:var(--shadow);
+}
+.widget-title{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);margin:0 0 4px;
+}
+.widget h3{margin-top:0}
+.widget-note{font-size:14.5px;color:var(--ink-2);margin:12px 0 0}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{
+  font-family:var(--mono);font-size:12px;letter-spacing:.04em;
+  border:1px solid var(--rule-strong);background:var(--surface);color:var(--ink-2);
+  border-radius:16px;padding:5px 13px;cursor:pointer;transition:all .15s;
+}
+.chip:hover{border-color:var(--accent);color:var(--accent)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+:root[data-theme="dark"] .chip[aria-pressed="true"],
+:root:not([data-theme="light"]) .chip[aria-pressed="true"]{color:#0f1218}
+
+.cyclefig{width:100%;height:auto;display:block;overflow:visible}
+.figcap{font-size:14.5px;color:var(--ink-2);margin:10px 0 0;min-height:3em}
+.figcap b{color:var(--ink)}
+
+.svg-dim{opacity:.22;transition:opacity .2s}
+.svg-lit{opacity:1;transition:opacity .2s}
+
+.calc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:14px 0}
+.field label{
+  display:block;font-family:var(--mono);font-size:11px;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--ink-3);margin-bottom:5px;
+}
+.field input[type=number]{
+  width:100%;font-family:var(--mono);font-size:16px;padding:8px 10px;
+  border:1px solid var(--rule-strong);border-radius:5px;background:var(--paper);color:var(--ink);
+}
+.field input[type=range]{width:100%;accent-color:var(--accent)}
+.field input:focus-visible,.chip:focus-visible,button:focus-visible,summary:focus-visible,a:focus-visible{
+  outline:2px solid var(--accent);outline-offset:2px;
+}
+.readouts{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:6px;overflow:hidden;margin-top:6px}
+.ro{background:var(--surface-2);padding:12px 14px}
+.ro .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);display:block;margin-bottom:3px}
+.ro .v{font-family:var(--mono);font-size:22px;font-weight:600;font-variant-numeric:tabular-nums;color:var(--ink)}
+.ro .v.hl{color:var(--accent)}
+
+/* ---------- quiz ---------- */
+.mcq{border-top:1px solid var(--rule);padding-top:18px;margin-top:18px}
+.mcq:first-of-type{border-top:none;padding-top:0;margin-top:0}
+.mcq .stem{font-size:15.6px;margin:0 0 12px}
+.mcq .stem .qn{font-family:var(--mono);font-weight:600;color:var(--accent);margin-right:6px}
+.opts{display:flex;flex-direction:column;gap:7px}
+.opt{
+  display:flex;gap:11px;align-items:flex-start;text-align:left;width:100%;
+  font-family:var(--sans);font-size:15.2px;line-height:1.5;color:var(--ink);
+  background:var(--surface);border:1px solid var(--rule);border-radius:6px;
+  padding:10px 13px;cursor:pointer;transition:border-color .15s,background .15s;
+}
+.opt:hover{border-color:var(--accent)}
+.opt .ltr{font-family:var(--mono);font-weight:600;color:var(--ink-3);flex:0 0 auto}
+.opt .why{display:block;font-size:14.3px;color:var(--ink-2);margin-top:6px}
+.opt[data-state="right"]{border-color:var(--up);background:var(--up-soft)}
+.opt[data-state="right"] .ltr{color:var(--up)}
+.opt[data-state="wrong"]{border-color:var(--down);background:var(--down-soft)}
+.opt[data-state="wrong"] .ltr{color:var(--down)}
+.opt[disabled]{cursor:default}
+.score{
+  font-family:var(--mono);font-size:13px;color:var(--ink-2);
+  border:1px solid var(--rule-strong);border-radius:6px;padding:11px 14px;margin-top:20px;
+  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;
+}
+.score b{color:var(--ink);font-size:15px}
+
+.frq{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:15px 17px;margin:16px 0}
+.frq .stem{margin:0 0 6px;font-size:15.6px}
+.frq .pts{font-family:var(--mono);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3)}
+.rubric{margin:8px 0 0;padding:0;list-style:none}
+.rubric li{display:grid;grid-template-columns:auto 1fr;gap:10px;padding:7px 0;border-top:1px dotted var(--rule);font-size:15.2px}
+.rubric li .pt{font-family:var(--mono);font-size:11.5px;color:var(--up);white-space:nowrap;padding-top:3px}
+
+.closing{background:var(--accent-soft);border-radius:8px;padding:20px 22px;margin-top:28px}
+.closing h2{margin-top:0}
+.closing ol{margin:0;padding-left:20px}
+.closing li{margin-bottom:10px;font-size:15.5px}
+.closing li:last-child{margin-bottom:0}
+
+.toc{columns:2 220px;column-gap:26px;margin:16px 0 0;padding:0;list-style:none}
+.toc li{break-inside:avoid;padding:3px 0;font-size:15px}
+.toc a{text-decoration:none;color:var(--ink)}
+.toc a:hover{color:var(--accent);text-decoration:underline}
+.toc .n{font-family:var(--mono);font-size:12.5px;color:var(--ink-3);margin-right:7px;font-variant-numeric:tabular-nums}
+.toc .m{font-size:11px;color:var(--ink-3);margin-left:5px}
+
+.footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--rule);font-family:var(--mono);font-size:12px;color:var(--ink-3);line-height:1.8}
+
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+@media print{
+  .bar,.got,.chips{display:none}
+  body{background:#fff}
+  details.reveal > *{display:block!important}
+  .entry{break-inside:avoid-page}
+}
+@media (max-width:520px){
+  .toc{columns:1}
+  .ro .v{font-size:19px}
+}
+
+/* ---------- Module 3 supplement ---------- */
+.mark.flag{background:var(--flag-soft);color:var(--flag)}
+.ppc-wrap{display:grid;grid-template-columns:1fr;gap:14px}
+@media (min-width:720px){.ppc-wrap{grid-template-columns:1fr 210px}}
+.ppc-svg{width:100%;height:auto;display:block;background:var(--surface);
+  border:1px solid var(--rule);border-radius:6px;cursor:crosshair;touch-action:none}
+.ppc-side{display:flex;flex-direction:column;gap:10px}
+.status{font-family:var(--mono);font-size:12.5px;padding:9px 11px;border-radius:5px;
+  border:1px solid var(--rule-strong);background:var(--surface-2);line-height:1.45}
+.status[data-s="on"]{border-color:color-mix(in srgb,var(--up) 45%,transparent);background:var(--up-soft);color:var(--up)}
+.status[data-s="in"]{border-color:var(--rule-strong);color:var(--ink-2)}
+.status[data-s="out"]{border-color:color-mix(in srgb,var(--down) 45%,transparent);background:var(--down-soft);color:var(--down)}
+.ppc-legend{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);line-height:1.6}
+.ppc-legend b{color:var(--ink-2);font-weight:600}
+.chips.tight{gap:6px}
+.tbl{overflow-x:auto;max-width:100%}
+.sumtable{width:100%;border-collapse:collapse;font-size:14.5px;margin:16px 0}
+.sumtable th,.sumtable td{border-bottom:1px solid var(--rule);padding:8px 10px;text-align:left;vertical-align:top}
+.sumtable th{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+.sumtable td.mk{font-family:var(--mono);font-size:12px;white-space:nowrap;color:var(--accent)}
+.sumtable td.mk.bgm{color:var(--ink-3)}
+.sumtable td.mk.flagm{color:var(--flag)}
+.final{background:var(--surface);border:1px solid var(--rule);border-radius:6px;
+  padding:18px 20px;margin:22px 0;box-shadow:var(--shadow)}
+.final ol{margin:0;padding-left:20px}
+.final li{margin:0 0 9px}
+.final li:last-child{margin-bottom:0}
+
+/* ---------- PPC explorer svg ---------- */
+.ppc-svg .ax{stroke:var(--ink);stroke-width:1.6}
+.ppc-svg .tick{stroke:var(--ink-3);stroke-width:1.1}
+.ppc-svg .tl{font-family:var(--mono);font-size:11px;fill:var(--ink-3)}
+.ppc-svg .al{font-family:var(--sans);font-size:12px;font-weight:600;fill:var(--ink-2)}
+.ppc-svg .curve{fill:none;stroke:var(--accent);stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round}
+.ppc-svg .ghost{fill:none;stroke:var(--rule-strong);stroke-width:1.8;stroke-dasharray:6 5}
+.ppc-svg .cl{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--accent)}
+.ppc-svg .drop{stroke:var(--rule-strong);stroke-width:1;stroke-dasharray:3 3}
+.ppc-svg .pt{stroke:var(--surface);stroke-width:2}
+.ppc-svg .pt-on{fill:var(--up)}
+.ppc-svg .pt-in{fill:var(--ink-3)}
+.ppc-svg .pt-out{fill:var(--down)}
+
+</style>
+
+
+<div class="bar">
+  <div class="bar-in">
+    <span class="bar-title">Micro · Module 3</span>
+    <div class="progress">
+      <div class="progress-track"><div class="progress-fill" id="pfill"></div></div>
+      <span class="progress-num" id="pnum">0 / 14</span>
+    </div>
+    <button type="button" id="resetBtn">Reset</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+<p class="eyebrow">AP Microeconomics · Unit 1 · Student guide</p>
+  <h1>The Production Possibilities Curve Model</h1>
+  <p class="standfirst">Fourteen terms from Module 3 of <i>Krugman&rsquo;s Economics for AP</i>, in the
+  order that makes them easiest to learn — and one diagram that carries all of them. This is where
+  graphs start. Topic 1.3 is one learning objective with five essential knowledge statements, and this
+  single curve has to illustrate every one of them.</p>
+  <div class="source-line">
+    <span>Textbook pages 16–22</span><span>·</span><span>14 terms</span><span>·</span>
+    <span>2 required terms your book leaves out</span><span>·</span><span>Topic 1.3</span>
+  </div>
+<section class="section" id="howto">
+  <h2>How to use this guide</h2>
+  <p>Read Module 3 in your textbook first, then work through these entries in order — each one uses the
+  ones above it. For every entry:</p>
+  <ol>
+    <li>Read the definition, cover it, and say it back in your own words.</li>
+    <li>Read the <b>Watch out</b> box. That is the mistake most students make on that term.</li>
+    <li>Use the explorer. For this module the diagram <i>is</i> the concept.</li>
+    <li>Answer the two <b>Check yourself</b> questions before revealing the answers.</li>
+    <li>Tick <b>Got it</b>. The bar at the top remembers your progress on this device.</li>
+  </ol>
+
+  <p><b>One habit to build now.</b> From here to the end of the course you will be drawing, reading and
+  shifting curves, and the marks are real: you lose them for an unlabelled axis even when the economics
+  is right. <b>Label both axes and label every curve, every single time.</b></p>
+
+  <div class="notinbook"><p><b>Two of these terms are not in your textbook.</b> Entries 9 and 12 —
+  decreasing opportunity cost and contraction — are required by the framework and either missing
+  entirely or given one sentence. They are written out for you here and marked <b>★ ⚑</b>.</p></div>
+</section>
+
+<section class="section" id="explorer">
+  <p class="kicker">The one diagram this module is built on</p>
+  <h2>PPC explorer</h2>
+  <p>Everything in Module 3 is this picture. Click anywhere on the chart to place a production point and
+  the box will tell you whether it is efficient, wasteful or impossible. Change the shape to see what
+  happens to opportunity cost. Press a scenario to move the whole curve.</p>
+
+  <div class="widget">
+    <p class="widget-title">Tom&rsquo;s island · fish and coconuts</p>
+
+    <div class="chips tight" role="group" aria-label="Curve shape">
+      <button type="button" class="chip" data-shape="const" aria-pressed="true">Constant cost</button>
+      <button type="button" class="chip" data-shape="inc" aria-pressed="false">Increasing cost</button>
+      <button type="button" class="chip" data-shape="dec" aria-pressed="false">Decreasing cost</button>
+    </div>
+    <div class="chips tight" role="group" aria-label="Scenario">
+      <button type="button" class="chip" data-scen="base" aria-pressed="true">Starting point</button>
+      <button type="button" class="chip" data-scen="growth" aria-pressed="false">Growth +40%</button>
+      <button type="button" class="chip" data-scen="contract" aria-pressed="false">Contraction −30%</button>
+      <button type="button" class="chip" data-scen="hook" aria-pressed="false">Fishing hook</button>
+    </div>
+
+    <div class="ppc-wrap">
+      <svg class="ppc-svg" id="ppcSvg" viewBox="0 0 560 380" role="img"
+           aria-label="Production possibilities curve. Click to place a production point."></svg>
+      <div class="ppc-side">
+        <div class="status" id="ppcStatus" data-s="on">Click the chart to place a point.</div>
+        <div class="readouts">
+          <div class="ro"><span class="k">Max fish</span><span class="v" id="outF">40</span></div>
+          <div class="ro"><span class="k">Max coconuts</span><span class="v" id="outC">30</span></div>
+          <div class="ro"><span class="k">1 fish costs</span><span class="v hl" id="outOC">0.75 coconuts</span></div>
+          <div class="ro"><span class="k">1 coconut costs</span><span class="v" id="outOC2">1.33 fish</span></div>
+        </div>
+        <p class="ppc-legend"><b>Dashed grey</b> is where the curve started, so you can see it move.
+        The cost readout is measured over the next 5 fish from wherever your point sits — on a curved
+        PPC it changes as you move.</p>
+      </div>
+    </div>
+
+    <p class="widget-note" id="ppcNote">A straight line means every fish costs the same number of
+    coconuts, everywhere on the curve.</p>
+  </div>
+</section>
+
+
+<article class="entry" id="e1">
+  <div class="entry-head"><span class="entry-num">01</span><h2>Trade-off</h2><span class="mark exam">★ Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>You make a <b>trade-off</b> when you give up something in order to have something else.</p></div>
+  <p class="reading">Textbook page 16.</p>
+
+  <p>Module 1 told you resources are scarce. A trade-off is what scarcity looks like once you have
+  to act: more of one thing means less of another. Your textbook is careful to say this holds for
+  <i>any</i> economy — "whether it contains one person or millions of people."</p>
+
+  <p>Keep two ideas apart from the start. The <b>trade-off</b> is the relationship: more fish means
+  fewer coconuts. The <b>opportunity cost</b> is the amount — <i>how many</i> coconuts per fish. You
+  will put a number on the second one in entry 6.</p>
+  <div class="watch"><p><b>Watch out.</b> A trade-off is not a mistake and not evidence that somebody chose badly. It is what a world with limited resources is like. No amount of effort or good intention removes one.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">The castaway.</span> If Tom puts more effort into catching fish he catches more fish — but that same time and effort cannot go on coconuts, so the trade-off is fewer coconuts.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Two numbers are the whole trade-off.</span> Tom can catch at most 40 fish a week, or gather at most 30 coconuts. Every fish costs him some coconuts, at a rate you will calculate exactly in entry 6.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">A national budget.</span> A government with a fixed budget decides between hospitals and roads. Wanting both does not make the trade-off disappear; it only decides which side of it you take.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It comes from <b>scarcity</b> (Module 1). It is drawn as the <a href="#e2">production possibilities curve</a> (entry 2) and measured by <a href="#e6">opportunity cost</a> (entry 6).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">1.1</span> Name a trade-off you faced this week, and say what was on both sides of it.</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Any real one, as long as both halves are named — &ldquo;I went to practice, so I gave up two hours of revision.&rdquo; Naming what you <i>gave up</i> is the part that matters.</p></div></details></div>
+    <div class="q"><p><span class="qn">1.2</span> Why can a country not escape trade-offs by simply working harder?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Working harder can add resources, which shifts the curve outward — but you still have to pick a point on the <i>new</i> curve. More resources move the trade-off; they never remove it.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got1"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e2">
+  <div class="entry-head"><span class="entry-num">02</span><h2>Production possibilities curve (PPC)</h2><span class="mark exam">★ Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The <b>production possibilities curve</b> shows the trade-offs facing an economy that produces only two goods. It shows the <b>maximum</b> quantity of one good that can be produced for each possible quantity of the other.</p></div>
+  <p class="reading">Textbook pages 16–17, Figure 3.1.</p>
+
+  <p>This is the first real model in the course, and it does four jobs at once. It shows what is
+  possible and what is not. It shows what using all your resources looks like. Its <b>steepness</b>
+  gives you the opportunity cost. And when it <b>moves</b>, that is economic growth.</p>
+
+  <p>You will object that no economy makes only two goods. Correct — and that is the point. Your
+  textbook explains why: "in a model with many goods, it would be much harder to study trade-offs,
+  efficiency, and economic growth." Cutting the world down to two goods is exactly what turns a
+  trade-off into a line you can measure. Everything you learn from it survives in a world of millions
+  of goods.</p>
+
+  <p>One thing to notice now, because entry 5 depends on it: the curve represents what could be
+  produced <b>with all its resources in use</b>. A point below it therefore means something is idle.
+  Hold that thought.</p>
+  <div class="watch"><p><b>Watch out.</b> The top of the curve is not &ldquo;what the economy produces.&rdquo; <i>Every</i> point on the curve is equally producible. Which one gets chosen is a separate question.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Figure 3.1.</span> Tom can catch 40 fish if he gathers no coconuts, or gather 30 coconuts if he catches no fish. The curve answers questions of the form &ldquo;what is the most fish Tom can catch if he also gathers 15 coconuts?&rdquo;</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">The same curve as a table.</span> 0 fish → 30 coconuts · 20 fish → 15 · 28 fish → 9 · 40 fish → 0. Get used to both forms; the exam supplies data either way.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">It is not only about islands.</span> A country choosing between capital goods and consumer goods faces the same diagram, and so does a single firm choosing between two products. Entry 13 comes back to the first of those.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It draws the <a href="#e1">trade-off</a> (entry 1). It has three regions (<a href="#e3">entry 3</a>), its steepness is the <a href="#e6">opportunity cost</a> (entry 6), and it <b>shifts</b> with <a href="#e10">growth</a> (entry 10) and <a href="#e12">contraction</a> (entry 12).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">2.1</span> Using the table above, what is the most coconuts Tom can have if he catches 28 fish?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>9 coconuts. Read it straight off — the curve gives the <i>maximum</i> of one good for a given quantity of the other.</p></div></details></div>
+    <div class="q"><p><span class="qn">2.2</span> Why does the curve slope downward? What would an upward-sloping &ldquo;PPC&rdquo; mean?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>It slopes down because resources are fixed: more of one good means less of the other. An upward slope would mean you could get more of both at once — which would mean you were not on the frontier at all.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got2"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e3">
+  <div class="entry-head"><span class="entry-num">03</span><h2>Feasible and not feasible</h2><span class="mark exam">★ Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A production point is <b>feasible</b> if it lies <b>inside or on</b> the curve. It is <b>not feasible</b> if it lies <b>outside</b> the curve.</p></div>
+  <p class="reading">Textbook page 17.</p>
+
+  <p>Your textbook calls this "a crucial distinction," and it is the first thing to get solid,
+  because three other ideas are defined against it. Use the explorer above: click inside the curve,
+  on it, and beyond it, and read what the status box says each time.</p>
+
+  <p>One word needs care. A point outside the curve is not impossible <i>forever</i> — it is
+  impossible <b>now</b>, with the resources and technology this economy currently has. Growth
+  (entry 10) is precisely the event that turns an outside point into an inside one.</p>
+  <div class="watch"><p><b>Watch out.</b> This is the single most-missed idea in the module, and your textbook has a true/false question built to catch it. Points <b>inside</b> the curve are <i>wasteful but possible</i>. Points <b>outside</b> are <i>impossible</i>. Students reverse these constantly.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Points C and D.</span> C — 20 fish and 9 coconuts — is feasible, because at 20 fish Tom could manage as many as 15 coconuts, so 9 is well within reach. D — 40 fish <i>and</i> 30 coconuts — is not feasible at all.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Test any bundle against the curve.</span> Tom&rsquo;s curve is coconuts = 30 − ¾ × fish. At 24 fish it allows 30 − 18 = 12 coconuts. So (24, 14) is <b>not feasible</b>; (24, 10) is feasible but wasteful; (24, 12) is on the curve.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">A hospital.</span> With a fixed number of theatres and surgeons it can do 12 knee operations in a day, or 8 heart operations, or a mix. Twelve of <i>each</i> is not an ambitious target — it is arithmetically impossible until the hospital gets more of something.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> These are the regions of the <a href="#e2">PPC</a> (entry 2). On the curve means <a href="#e4">efficient in production</a> (entry 4); inside it means <a href="#e5">resources are underutilized</a> (entry 5). <a href="#e10">Growth</a> (entry 10) turns not-feasible points into feasible ones.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">3.1</span> Tom&rsquo;s curve is coconuts = 30 − ¾ × fish. Is 24 fish and 14 coconuts feasible? Show your working.</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>At 24 fish the curve allows 30 − ¾(24) = 30 − 18 = <b>12</b> coconuts. The bundle asks for 14, which is more than 12, so it is <b>not feasible</b>.</p></div></details></div>
+    <div class="q"><p><span class="qn">3.2</span> True or false: &ldquo;points inside the curve are efficient and points outside are inefficient.&rdquo;</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>False, and both halves are backwards. Points inside are possible but <i>wasteful</i>. Points outside are not possible at all with current resources and technology.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got3"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e4">
+  <div class="entry-head"><span class="entry-num">04</span><h2>Efficient in production</h2><span class="mark exam">★ Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>An economy is <b>efficient</b> if there is no way to make anyone better off without making at least one person worse off. An economy producing <b>on</b> its PPC is <b>efficient in production</b> — it cannot get more of one good without giving up some of the other.</p></div>
+  <p class="reading">Textbook pages 17–18.</p>
+
+  <p>&ldquo;Efficient in production&rdquo; and &ldquo;on the curve&rdquo; are the same statement.
+  Say that to yourself until it feels obvious, because a large share of the questions in this module
+  are testing it.</p>
+
+  <p>Your textbook&rsquo;s example is a good one. A class meets in a room too small for it while a
+  bigger room stands empty during the same period. Nothing about the school&rsquo;s resources changed
+  — they are simply badly arranged. Somebody could be made better off and nobody worse off, so the
+  situation is inefficient.</p>
+  <div class="watch"><p><b>Watch out.</b> An efficient economy is not automatically a <b>good</b> one, and certainly not a fair one. Efficiency says nothing about which mix was chosen or who gets what. Tom gathering 30 coconuts and catching no fish at all is perfectly efficient in production — and very hungry.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">The crowded classroom.</span> Also Tom at point A: &ldquo;the 15 coconuts he gathers are the maximum quantity he can get given that he has chosen to catch 20 fish.&rdquo; Nothing is wasted, so A is efficient in production.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">On the curve, nothing is free.</span> A (20 fish, 15 coconuts) and B (28, 9) are both on the curve, so both are efficient. Moving from A to B gains 8 fish and costs 6 coconuts. That is a real trade — and that is the test.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">A delivery firm.</span> It reorganises its routes and delivers 40 more parcels a day with the same vans, drivers and fuel. Before, it was inside its curve; now it is on it. It gained nothing new — it stopped wasting what it had.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It means being <b>on</b> the <a href="#e2">PPC</a> (entry 2). Its opposite is <a href="#e5">underutilized resources</a> (entry 5). A different and broader idea, <a href="#e14">allocative efficiency</a> (entry 14), is background in this course.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">4.1</span> You are producing on the curve and want more fish. What must happen, and why?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>You must give up some coconuts. On the curve there is no spare capacity, so more of one good can only come from less of the other.</p></div></details></div>
+    <div class="q"><p><span class="qn">4.2</span> Is a point on the curve where the economy produces only one good still efficient in production?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Yes. An end point is still on the curve, so nothing is wasted. It may be a terrible <i>choice</i> — but that is a question about the mix, not about productive efficiency.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got4"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e5">
+  <div class="entry-head"><span class="entry-num">05</span><h2>Underutilized resources</h2><span class="mark exam">★ Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Resources are <b>underutilized</b> when production sits at a point <b>inside</b> the PPC: some resources are available and are not being used, so more of both goods could be had at no cost.</p></div>
+  <p class="reading">Textbook page 18. Topic 1.3, MKT-1.C.2.</p>
+
+  <div class="notinbook"><p><b>⚑ The word your book uses is not the word your framework uses.</b>
+  <b>MKT-1.C.2</b> lists what the PPC illustrates: &ldquo;scarcity, opportunity cost, efficiency,
+  <b>underutilized resources</b>, and economic growth or contraction.&rdquo; <i>Underutilized</i> is
+  the examinable term. Krugman writes about unemployment and full employment here because the same
+  chapter serves AP Macroeconomics, where those are topics in their own right. In this course they are
+  not — write <b>underutilized resources</b> and you are always safe.</p></div>
+
+  <p>The textbook sentence, with that translation in mind:</p>
+
+  <blockquote><p>&ldquo;The production possibilities curve shows the amount that can possibly be
+  produced <b>if all resources are fully employed</b>. In other words, changes in unemployment move
+  the economy closer to, or further away from, the production possibilities curve. But the curve
+  itself is determined by what would be possible if there were <b>full employment</b> in the
+  economy.&rdquo;</p></blockquote>
+
+  <p>Read it as a statement about <b>utilisation</b> and it is exactly right for this course: the
+  frontier assumes every resource is being used, so anything that leaves resources idle puts production
+  below it. The further inside the point, the more is idle.</p>
+
+  <p>The test is arithmetic, not vocabulary. At a point inside the curve you can get more of one good
+  <b>without giving up any</b> of the other — the only place in this whole course where that is
+  true.</p>
+  <div class="watch"><p><b>Watch out.</b> Do not confuse inside with outside. <b>Inside</b> the curve = wasteful but possible. <b>Outside</b> = impossible. And do not confuse a point inside the curve with the curve itself moving — that second thing is contraction, entry 12.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Point C.</span> Producing 20 fish and 9 coconuts &ldquo;would definitely not be efficient in production… it is missing the opportunity to produce more of both goods.&rdquo;</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">The free gain.</span> At 20 fish the curve allows 15 coconuts. At C, Tom has 9. Six coconuts are available <b>for free</b> — no fish given up at all. That free gain is the fingerprint of underutilisation, and it can never happen on the curve.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">A half-empty factory.</span> A plant runs one shift instead of three. The machines exist, the workers exist, the raw materials exist. Nothing was destroyed and nothing became scarcer — it is simply not being used. Production has moved <i>inside</i> the curve, and the curve has not moved at all.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It means being <b>inside</b> the <a href="#e2">PPC</a> (entry 2), the opposite of <a href="#e4">efficiency in production</a> (entry 4). Distinguish it sharply from <a href="#e12">contraction</a> (entry 12), where the curve itself moves. The same distinction — a movement along against a shift of the whole line — is the single most-tested idea of Unit 2.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">5.1</span> How can you tell, just by looking at a point, that resources are underutilized?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>If you could get more of one good <b>without giving up any</b> of the other, resources are idle. On the curve that is impossible; inside it, it is always possible.</p></div></details></div>
+    <div class="q"><p><span class="qn">5.2</span> A hurricane destroys a quarter of a country&rsquo;s factories. Is that underutilisation, or something else?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Something else. Underutilisation leaves the curve where it is and moves production inside it. Destroyed factories move the <i>curve</i> itself inward — a contraction (entry 12).</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got5"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e6">
+  <div class="entry-head"><span class="entry-num">06</span><h2>Opportunity cost on a PPC</h2><span class="mark exam">★ Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>On a PPC, the <b>opportunity cost</b> of one more unit of the good on the horizontal axis is the quantity of the other good given up. On a <b>straight-line</b> PPC that is the <b>slope</b>.</p></div>
+  <p class="reading">Textbook page 19.</p>
+
+  <p>This is the calculation the exam actually asks for — the learning objective says
+  &ldquo;calculate&rdquo; in so many words — and your textbook states the key fact once, almost in
+  passing, so it is easy to read past:</p>
+
+  <blockquote><p>The slope of a straight-line PPC <b>is</b> the opportunity cost — the cost of the
+  horizontal good, measured in the vertical good.</p></blockquote>
+
+  <p>The method never changes: pick two points, find the change in each good, divide. Then say what
+  the answer <b>means in words</b> — &ldquo;one fish costs three-quarters of a coconut&rdquo; — because
+  the exam wants units and this is where marks are lost.</p>
+
+  <p><b>Always do it both ways.</b> If one fish costs ¾ of a coconut, then one coconut costs 4/3 of a
+  fish. They are reciprocals. Module 4 leans on this constantly, so get fluent now.</p>
+  <div class="watch"><p><b>Watch out.</b> Flipping the ratio is the most common error in the module. Anchor yourself with one question: <b>cost of what, in what?</b> The cost of the horizontal good, measured in the vertical good. Write the units every time and you will not go wrong.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">A to B.</span> Tom &ldquo;will produce 8 more fish but 6 fewer coconuts. So the opportunity cost of those 8 fish is the 6 coconuts not gathered. Since 8 extra fish have an opportunity cost of 6 coconuts, 1 fish has an opportunity cost of 6/8 = 3/4 of a coconut.&rdquo;</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Same answer three times.</span> A→B: 6 ÷ 8 = ¾ coconut per fish. B→the axis: 9 ÷ 12 = ¾. The whole curve: 30 ÷ 40 = ¾. That sameness is what &ldquo;straight line&rdquo; means. And in reverse, one coconut costs 40 ÷ 30 = <b>4/3 of a fish</b>.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Say it the natural way round.</span> A bakery&rsquo;s curve runs from 200 loaves to 50 cakes. One loaf costs ¼ of a cake; one cake costs 4 loaves. Notice how much more natural the second sounds — which is exactly why you should always work out both.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It measures the <a href="#e1">trade-off</a> (entry 1) and is read off the <a href="#e2">PPC</a> (entry 2) as its slope. Whether it stays the same depends on the curve&rsquo;s shape — entries <a href="#e7">7</a>, <a href="#e8">8</a> and <a href="#e9">9</a>. In Module 4 it becomes the definition of comparative advantage.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">6.1</span> A PPC runs from 60 pizzas to 20 cakes. What is the opportunity cost of one cake? And of one pizza?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>One cake costs 60 ÷ 20 = <b>3 pizzas</b>. One pizza costs 20 ÷ 60 = <b>1/3 of a cake</b>. Always state the units.</p></div></details></div>
+    <div class="q"><p><span class="qn">6.2</span> A student writes &ldquo;the opportunity cost is 0.75.&rdquo; Why is that incomplete?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>It has no units and does not say the cost <i>of what, in what</i>. The full answer is &ldquo;one fish costs 0.75 of a coconut.&rdquo;</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got6"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e7">
+  <div class="entry-head"><span class="entry-num">07</span><h2>Constant opportunity cost</h2><span class="mark exam">★ Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Opportunity cost is <b>constant</b> when one more unit of a good always costs the same amount of the other good. The PPC is then a <b>straight line</b>.</p></div>
+  <p class="reading">Textbook page 19.</p>
+
+  <p>The straight line is an <b>assumption</b>, and your textbook says so plainly: "whenever we
+  assume that the opportunity cost of an additional unit of a good doesn't change regardless of the
+  output mix, the production possibilities curve is a straight line."</p>
+
+  <p>What it means in real terms is that your resources are equally good at both jobs, so swapping
+  them over always trades at the same rate, in either direction.</p>
+
+  <p>Switch the explorer at the top to each of the three shapes in turn. One question identifies any
+  of them: <b>moving right along the curve, does it get steeper, stay straight, or get flatter?</b></p>
+  <div class="watch"><p><b>Watch out.</b> Do not assume every PPC is straight just because the first one you met was. Your textbook says that in reality &ldquo;opportunity costs are typically increasing.&rdquo; A curved PPC in a question is checking whether you noticed.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Figure 3.1.</span> It has &ldquo;a constant slope of −3/4, implying that Tom faces a constant opportunity cost per fish equal to 3/4 of a coconut.&rdquo;</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Equal steps cost equal amounts.</span> 0→10 fish costs 7.5 coconuts. 10→20 costs 7.5. 20→30 costs 7.5. 30→40 costs 7.5. That is the test.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">A print shop.</span> Its workers make posters or flyers and everyone is equally quick at both. Moving one worker across always trades the same numbers, whichever direction you move them. Straight line.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is one possible shape of the <a href="#e2">PPC</a> (entry 2) and makes the <a href="#e6">opportunity cost</a> (entry 6) the same everywhere. Compare <a href="#e8">entry 8</a> and <a href="#e9">entry 9</a>. Module 4 assumes this case throughout.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">7.1</span> Looking at the explorer set to <i>Constant</i>, how can you tell the cost never changes without doing arithmetic?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>The curve is a straight line, and a straight line has the same steepness everywhere — so one more fish always costs the same number of coconuts.</p></div></details></div>
+    <div class="q"><p><span class="qn">7.2</span> What does a constant opportunity cost tell you about how well suited your resources are to the two goods?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>That they are equally suited to both, so switching them across always trades at the same rate.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got7"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e8">
+  <div class="entry-head"><span class="entry-num">08</span><h2>Increasing opportunity cost</h2><span class="mark exam">★ Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Opportunity cost is <b>increasing</b> when each extra unit of a good costs <b>more</b> of the other good than the last one did. The PPC is <b>bowed outward</b> — away from the origin.</p></div>
+  <p class="reading">Textbook pages 19–20, Figure 3.2.</p>
+
+  <p>The reason behind the shape is the part worth remembering, because it turns an arbitrary
+  curve into something obvious. When you make only a little of a good, you use the resources
+  <b>best suited</b> to it, so you sacrifice very little. Push further and you must bring in resources
+  that are bad at that job and good at the other — so every extra unit costs more.</p>
+
+  <p>Your textbook&rsquo;s farming example makes it concrete. Grow a little corn and you plant it
+  where the soil suits corn and not wheat, giving up almost no wheat. Grow a great deal of corn and
+  you are planting it on land that was excellent for wheat.</p>
+
+  <p>This is the realistic case, and your textbook says so: &ldquo;economists believe that in reality,
+  opportunity costs are typically increasing.&rdquo;</p>
+  <div class="watch"><p><b>Watch out.</b> &ldquo;Bowed outward&rdquo; is not &ldquo;shifted outward.&rdquo; Bowed is about the <b>shape</b> — how costs behave along the curve. Shifted is about <b>movement</b> — the whole curve moving because capacity changed. Both contain the word outward and they are unrelated.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Figure 3.2.</span> &ldquo;To go from producing zero fish to producing 20 fish, he has to give up 5 coconuts… But to increase his fish production from 20 to 40 — that is, to produce an additional 20 fish — he must give up 25 more coconuts, a much higher opportunity cost.&rdquo;</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">The same step, priced twice.</span> First 20 fish: 5 coconuts, so ¼ coconut each. Next 20 fish: 25 coconuts, so 1¼ coconuts each. <b>Five times as expensive</b> for exactly the same increase in fish.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Farmland to biofuel.</span> The first fields a country converts are the ones poor for food anyway. Keep going and it is converting prime wheat land, so every extra litre of biofuel costs progressively more food.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is one possible shape of the <a href="#e2">PPC</a> (entry 2). It makes the <a href="#e6">opportunity cost</a> (entry 6) different at every point, so you must always say <i>over which interval</i> you measured it. Compare <a href="#e7">entry 7</a> and <a href="#e9">entry 9</a>.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">8.1</span> A PPC is bowed outward. Moving right, does it get steeper or flatter, and what does that mean about cost?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p><b>Steeper.</b> A steeper curve means each extra unit of the horizontal good costs more of the vertical good — increasing opportunity cost.</p></div></details></div>
+    <div class="q"><p><span class="qn">8.2</span> Why does moving resources into a good you already produce a lot of tend to cost more than the first move did?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because you have already used the resources best at that good. To make more you must bring in resources that are poor at it and good at the other one, so you give up more of the other good each time.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got8"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e9">
+  <div class="entry-head"><span class="entry-num">09</span><h2>Decreasing opportunity cost</h2><span class="mark flag">★ ⚑</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Opportunity cost is <b>decreasing</b> when each extra unit of a good costs <b>less</b> of the other good than the last one did. The PPC is <b>bowed inward</b> — toward the origin.</p></div>
+  <p class="reading">Not in your textbook.</p>
+
+  <div class="notinbook"><p><b>Not in your textbook.</b> The phrase &ldquo;decreasing opportunity cost&rdquo; appears <b>zero times</b> in all 927 pages of your textbook, and no bowed-inward curve is ever drawn. The framework requires all three shapes, so this one is written for you here.</p></div>
+  <p>The logic is entry 8 <b>run backwards</b>. If your resources get <i>better</i> suited to a
+  good the more of it you make, then each extra unit costs less of the other good. The curve bends
+  toward the origin, and it gets <b>flatter</b> as you move right.</p>
+
+  <p>Be clear about what you are being asked. This case is unusual in the real world — it needs
+  specialisation or learning-by-doing, which are exactly what the resource argument in entry 8 rules
+  out. On the exam it appears as a <b>shape-recognition</b> question, not as a claim about how
+  economies usually behave.</p>
+
+  <p><b>The whole skill in one question.</b> Move right along the curve. Getting <b>steeper</b> means
+  increasing cost. <b>Straight</b> means constant. Getting <b>flatter</b> means decreasing. Set the
+  explorer at the top to each shape in turn and watch the opportunity-cost readout change — or not.</p>
+  <div class="watch"><p><b>Watch out.</b> A bowed-inward PPC is <b>not</b> inefficient, even though it sits below the straight line. Every point on any PPC is efficient in production. The bow describes the <i>pattern of costs</i>, not how well the economy is doing.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">There isn't one.</span> The phrase does not occur anywhere in the book, and no bowed-inward curve is drawn. That is why this entry exists.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">The mirror image of entry 8.</span> First 20 fish: about 21 coconuts, so roughly 1 coconut each. Next 20 fish: about 9 coconuts, under ½ each. Same axes, same end points, <b>opposite pattern</b> — and telling those two apart is exactly what the exam tests.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Why it could happen.</span> A software company splits engineers between two products. As more move onto one product they specialise, share tools and reuse code — so each additional engineer moved costs <i>less</i> output on the other product than the one before.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the third possible shape of the <a href="#e2">PPC</a> (entry 2), making the <a href="#e6">opportunity cost</a> (entry 6) fall as you produce more of the horizontal good. Compare <a href="#e7">entry 7</a> and <a href="#e8">entry 8</a>.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">9.1</span> Sketch a bowed-inward PPC with fish on the horizontal axis. Where is a fish expensive, and where is it cheap?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>The curve is steep on the left and flat on the right. Fish are <b>expensive</b> where it is steep (few fish produced) and <b>cheap</b> where it is flat (many fish produced).</p></div></details></div>
+    <div class="q"><p><span class="qn">9.2</span> Your friend says a bowed-inward PPC shows an inefficient economy because it lies below the straight line. Why is that wrong?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Every point on <i>any</i> PPC is efficient in production — nothing is wasted anywhere on it. The bow describes how costs change as you move along the curve, not how well the economy performs.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got9"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e10">
+  <div class="entry-head"><span class="entry-num">10</span><h2>Economic growth</h2><span class="mark exam">★ Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p><b>Economic growth</b> is an expansion of what the economy is able to produce — it can produce more of everything. On the diagram it is an <b>outward shift</b> of the whole PPC.</p></div>
+  <p class="reading">Textbook pages 20–21, Figure 3.3.</p>
+
+  <p>The distinction to nail here will follow you all year: <b>moving along the curve versus
+  shifting the curve.</b></p>
+
+  <ul>
+    <li><b>Along</b> the curve — you changed the <i>mix</i> of what you produce. Resources unchanged.</li>
+    <li><b>Shifting</b> the curve — what is <i>possible</i> changed. That is growth.</li>
+  </ul>
+
+  <p><b>Two causes</b>, and you need both: more resources (labour, land, capital, entrepreneurship),
+  or better technology. Press <b>Growth</b> in the explorer to see the whole frontier move out.</p>
+
+  <p>One subtlety worth keeping. Growth does not force the economy to produce more of everything, only
+  to be <b>able</b> to. As your textbook says, "what the economy actually produces depends on the
+  choices people make." Tom might get a fishing net and live on fish alone. His economy still grew.</p>
+  <div class="watch"><p><b>Watch out.</b> Not every increase in output is growth. Moving from <i>inside</i> the curve onto it raises output with no growth at all — that is just putting underutilized resources back to work (entry 5). Growth means the frontier itself moved.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Figure 3.3.</span> If Tom starts at A with 20 fish and 25 coconuts, growth means &ldquo;he could move to point E (25 fish and 30 coconuts). Point E lies outside the original curve.&rdquo; The cause in the story is concrete — he finds a fishing net washed up on the beach.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">A 40% rise in resources.</span> The curve moves from 40 fish / 30 coconuts to 56 / 42. The bundle <i>28 fish and 21 coconuts</i> was impossible before and is available now. The slope is unchanged at −¾, because both ends grew in the same proportion.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">A hospital opens a new wing.</span> It can now do more knee operations <i>and</i> more heart operations than before. It did not reorganise anything; its frontier moved out.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It shifts the <a href="#e2">PPC</a> (entry 2) outward. Its causes are more resources or better <a href="#e11">technology</a> (entry 11). It turns <a href="#e3">not-feasible</a> points (entry 3) into feasible ones. Its opposite is <a href="#e12">contraction</a> (entry 12), and it is <i>not</i> the same as putting <a href="#e5">underutilized resources</a> (entry 5) back to work. <a href="#e13">Capital goods</a> (entry 13) are how a country buys it.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">10.1</span> An economy moves from a point inside its curve to a point on it. Has it grown?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. Its frontier did not move — it simply stopped wasting resources. Growth means the curve itself shifts outward.</p></div></details></div>
+    <div class="q"><p><span class="qn">10.2</span> Name the two causes of growth and give a real example of each.</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>More resources — a rising population, or discovering oil. Better technology — a new farming method, or a faster machine.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got10"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e11">
+  <div class="entry-head"><span class="entry-num">11</span><h2>Technology</h2><span class="mark exam">★ Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p><b>Technology</b> is the technical means for producing goods and services.</p></div>
+  <p class="reading">Textbook page 21.</p>
+
+  <p>Technology is the second cause of growth, and it works differently from the first. More
+  resources means having <i>more stuff</i>. Better technology means getting <i>more out of the stuff
+  you already have</i>. The definition covers methods and know-how, not just machines.</p>
+
+  <p>Here is the subtle bit, and it is a favourite of exam writers. <b>Technology that helps only one
+  good tilts the curve rather than shifting all of it.</b> Your textbook explains why: "a fishing hook
+  will be of no use if Tom produces nothing but coconuts. So the point on the PPC that represents the
+  number of coconuts that can be produced if there is no fishing will not change."</p>
+
+  <p>Press <b>Fishing hook</b> in the explorer. Watch the coconut end stay exactly where it is while
+  the fish end moves out, and watch the opportunity cost readout change as a result.</p>
+  <div class="watch"><p><b>Watch out.</b> Do not assume every technological improvement shifts the whole curve outward. Always ask: <i>which good does this help?</i> If it helps only one, the other end of the curve stays exactly where it was.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">A hook, or a wagon.</span> Either &ldquo;would shift his production possibilities curve outward. However, the shift would not be a simple outward expansion of every point along the PPC.&rdquo;</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">The pivot.</span> A hook doubles Tom&rsquo;s fishing and does nothing for coconuts: 40 fish → 80, coconuts stay at 30. The slope changes from −¾ to −⅜. One fish now costs only 3/8 of a coconut.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">A robotic surgical system.</span> Used only for knee operations, it raises knee capacity sharply and leaves heart capacity exactly as it was. On the graph, one end moves and the other does not.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is one of the two causes of <a href="#e10">economic growth</a> (entry 10) and shifts — or pivots — the <a href="#e2">PPC</a> (entry 2). Losing it causes <a href="#e12">contraction</a> (entry 12). It changes the <a href="#e6">opportunity cost</a> (entry 6) whenever it pivots the curve.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">11.1</span> A new fertiliser doubles wheat yields and does nothing for cars. Describe what happens to a wheat-and-cars PPC.</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>The wheat end moves out; the cars end stays exactly where it was. The curve pivots around the cars intercept and becomes flatter in the wheat direction.</p></div></details></div>
+    <div class="q"><p><span class="qn">11.2</span> What is the difference between &ldquo;more resources&rdquo; and &ldquo;better technology&rdquo; as causes of growth?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>More resources means a larger quantity of inputs. Better technology means more output from the same inputs. Both shift the curve outward, but technology helping only one good pivots it instead of moving all of it.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got11"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e12">
+  <div class="entry-head"><span class="entry-num">12</span><h2>Contraction</h2><span class="mark flag">★ ⚑</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A <b>contraction</b> is an <b>inward shift</b> of the PPC — the economy has become smaller and can now produce less than before. It is caused by losing resources or losing technology.</p></div>
+  <p class="reading">One sentence on textbook page 21, and no diagram.</p>
+
+  <div class="notinbook"><p><b>Not in your textbook.</b> The word &ldquo;contraction&rdquo; appears <b>zero times</b> in this module — your textbook gives the idea one sentence and draws no diagram, against a full section and a figure for growth. The framework treats growth and contraction as equally important, so the missing half is supplied here.</p></div>
+  <p>It is entry 10 in reverse. Lose resources or lose technology and the frontier moves in.
+  Your textbook names the causes in its single sentence: &ldquo;war or a natural disaster.&rdquo;</p>
+
+  <p><b>The point to really understand:</b> after a contraction, a bundle the economy <b>used to be
+  able to produce is now impossible</b>. Press <b>Contraction</b> in the explorer with a point sitting
+  on the old curve and watch the status box flip from <i>efficient</i> to <i>unattainable</i>. That is
+  completely different from underutilisation (entry 5), where the bundle was always available and
+  simply was not being produced.</p>
+  <div class="watch"><p><b>Watch out.</b> Do not use a point inside the curve to show a contraction. <b>Losing resources moves the curve. Leaving resources idle moves the production point.</b> Keep those apart and you will get every shift-versus-movement question right — here, and in every supply-and-demand question in Unit 2.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">The one sentence.</span> &ldquo;This could happen if the economy loses resources or technology (for example, if it experiences war or a natural disaster).&rdquo; That is the entire treatment.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">A storm takes 30%.</span> The curve moves from 40 fish / 30 coconuts to 28 / 21. Point A (20 fish, 15 coconuts) used to be <i>on</i> the curve and is now <b>outside</b> the new one. The best Tom can manage at 20 fish is now 6 coconuts.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Two factories, two different stories.</span> One is flooded and its machines destroyed — that is a <b>contraction</b>, the curve moved in. Another idles a shift in a slow month — that is <b>underutilisation</b>, the curve is unchanged and the production point moved inside. Rebuilding fixes the first; simply using what you have fixes the second.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It shifts the <a href="#e2">PPC</a> (entry 2) inward, caused by losing resources or <a href="#e11">technology</a> (entry 11). It is the opposite of <a href="#e10">economic growth</a> (entry 10) and must not be confused with <a href="#e5">underutilized resources</a> (entry 5). Both growth and contraction are named in MKT-1.C.2.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">12.1</span> An earthquake destroys a quarter of a country&rsquo;s factories. Describe and label what happens to its PPC.</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>The whole curve shifts <b>inward</b>, toward the origin. Label the original curve and the new one, and label both axes.</p></div></details></div>
+    <div class="q"><p><span class="qn">12.2</span> Explain the difference between a contraction and underutilized resources, using the word &ldquo;curve&rdquo; in each answer.</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>A contraction means the <b>curve</b> itself moves inward, so some bundles become impossible. Underutilisation means the <b>curve</b> stays where it is and the production point sits inside it, so nothing has become impossible — it is just not being produced.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got12"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e13">
+  <div class="entry-head"><span class="entry-num">13</span><h2>Capital goods and future growth</h2><span class="mark exam">★ Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p><b>Capital goods</b> are manufactured goods used to produce other goods. Producing more of them today means fewer consumer goods today — and a further-out PPC tomorrow.</p></div>
+  <p class="reading">Textbook page 22, the AP Review graph and MCQ 5.</p>
+
+  <p>Everything so far used fish and coconuts. Your textbook&rsquo;s own review questions switch to a
+  different pair, and it is the pair the exam is most likely to hand you: <b>capital goods against
+  consumer goods</b>.</p>
+
+  <p>The reason is that this version of the diagram has a second story built into it. Consumer goods
+  are enjoyed now and then gone. Capital goods — machines, factories, tools — are themselves
+  <i>resources</i>, so producing more of them today increases what the economy can produce in every
+  future year. Your textbook puts it plainly in MCQ 5: &ldquo;since capital goods are a resource, an
+  increase in the production of capital goods today will increase the economy&rsquo;s production
+  possibilities in the future.&rdquo;</p>
+
+  <p>So a country choosing a point far up the capital-goods axis is choosing less consumption now for
+  a bigger curve later. This is also the cleanest illustration of <b>MKT-1.C.4</b>: the PPC shifts when
+  the factors of production change, and capital is a factor of production you can choose to make more
+  of.</p>
+  <div class="watch"><p><b>Watch out.</b> This does not mean capital goods are &ldquo;better&rdquo; than consumer goods. An economy that produced nothing but capital goods would have nothing to eat. It is a trade-off between present and future consumption, not a ranking.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">MCQ 5.</span> Given a capital-goods/consumer-goods PPC, you are asked which point today produces the largest outward shift in the future. The answer is the point with the most capital goods — and the reasoning, not the letter, is what to take away.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Two countries, same curve.</span> Both can make 100 machines or 400 meals. One chooses 20 machines and 320 meals; the other 60 machines and 160 meals. Ten years later the second country&rsquo;s curve is much further out — and its people ate far less along the way.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">A farmer choosing.</span> Eat all the grain this winter, or keep some back as seed. Seed is capital: it is grain not consumed now, and it is why there is a harvest next year.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the <a href="#e1">trade-off</a> (entry 1) again, drawn on the same <a href="#e2">PPC</a> (entry 2), with time as the second axis. Choosing more capital goods today causes <a href="#e10">economic growth</a> (entry 10) tomorrow. Capital is also one of the three resources named by MKT-1.A.2, which is what makes this work.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">13.1</span> Why does producing more capital goods today shift tomorrow&rsquo;s PPC outward, when producing more consumer goods does not?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because capital goods are themselves resources — machines and factories are used to make other things. Consumer goods are used up. Adding to the stock of resources is exactly what moves the frontier.</p></div></details></div>
+    <div class="q"><p><span class="qn">13.2</span> Is a country producing at the maximum-capital-goods end of its PPC making the best choice?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Not necessarily. It would have the fastest growth and nothing to consume. The right point balances consumption now against capacity later — which is a choice about values, not a fact the diagram settles.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got13"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e14">
+  <div class="entry-head"><span class="entry-num">14</span><h2>Efficient in allocation</h2><span class="mark exam">★ Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>An economy is <b>efficient in allocation</b> when it produces the <b>mix</b> of goods that makes people as well off as possible — not merely the largest quantity.</p></div>
+  <p class="reading">Textbook page 18. Returns as Topic 3.7, PRD-3.A.5.</p>
+
+  <p>Entry 4 said being on the curve means nothing is wasted. Your textbook adds that this is only
+  half of being efficient — the economy must also make the <i>right things</i>.</p>
+
+  <p>Points A and B are both on the curve, so neither wastes anything. But if Tom would much rather
+  have 28 fish and 9 coconuts than 20 fish and 15, then A is inefficient <i>for the economy as a
+  whole</i>, because you could make him better off without making anyone worse off.</p>
+
+  <div class="notinbook"><p><b>⚑ This one is not background — it is the destination.</b> Allocative
+  efficiency is where a large part of this course is heading. <b>PRD-3.A.5</b> makes it precise: at a
+  competitive equilibrium the price &ldquo;equals both the private marginal benefit received by the
+  last unit consumed and the private marginal cost incurred to produce the last unit, thus achieving
+  allocative efficiency.&rdquo; <b>PRD-3.A.9</b> then states that a perfectly competitive market in
+  long-run equilibrium is &ldquo;allocatively and productively efficient.&rdquo;</p>
+  <p style="margin-top:8px">You meet it here as a shape on a curve. In Unit 3 it becomes a condition
+  you can check, in Unit 4 the thing monopoly destroys, and in Unit 6 the thing externalities
+  break.</p></div>
+  <div class="watch"><p><b>Watch out.</b> On a <b>PPC</b> question, &ldquo;efficient&rdquo; almost always means <b>on the curve</b> — efficient in production. Allocative efficiency needs information the PPC does not contain: what people actually want. Do not claim a point is allocatively efficient from the diagram alone.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Points A and B.</span> Both productively efficient. If Tom prefers B, then A is allocatively inefficient even though nothing is being wasted.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Producing hard, producing the wrong thing.</span> A country runs its factories flat out making goods nobody wants. Productively efficient; allocatively hopeless.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">A school timetable.</span> Every room and every teaching hour is used, but the school offers six sections of Latin and none of computer science. Nothing is idle. The mix is wrong.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is broader than <a href="#e4">efficiency in production</a> (entry 4) — it adds the question of <i>which</i> point on the <a href="#e2">curve</a> to pick. Answering that question is what marginal benefit and marginal cost (Module 1, entries 6 and 7) are for, and it is the whole argument of Topic 3.7.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">14.1</span> Can an economy be efficient in production and inefficient in allocation at the same time?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Yes. Being on the curve means nothing is wasted, but the particular mix chosen may not be the one people most want.</p></div></details></div>
+    <div class="q"><p><span class="qn">14.2</span> In this course, a question asks &ldquo;is point B efficient?&rdquo; What is it asking?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Whether point B lies <b>on</b> the curve — efficient in production, nothing wasted. The diagram cannot tell you whether the mix at B is the one people want, so it cannot settle allocative efficiency.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got14"> Got it</label>
+  </div>
+</article>
+
+
+<section class="section" id="quiz">
+  <h2>Tackle the test — multiple choice</h2>
+  <p>The five questions from your textbook&rsquo;s Module 3 AP Review, rewritten so they stand on their
+  own without the printed graph. Click an option to see why it is right or wrong. Every option is
+  explained, because on the exam you gain as much from knowing why the other four fail.</p>
+  <p class="widget-note">Your score counts your <b>first</b> click on each question.
+  <span class="num" id="scoreOut">0 / 5</span></p>
+
+  <div class="widget">
+    <div class="mcq" data-key="C">
+      <p class="stem"><span class="qn">1</span> Which point(s) on the graph represent efficiency in production?</p>
+      <div class="opts">
+        <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>B and C only<span class="why" hidden>✗ Efficiency in production means <i>on</i> the curve. This picks one point on it and one inside it.</span></span></button>
+        <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>A and D only<span class="why" hidden>✗ Both are on the curve, but so are others. The question asks for all of them.</span></span></button>
+        <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>A, B, C and D — every point lying on the curve<span class="why" hidden>✓ Correct. Every point on the frontier is efficient in production: you cannot get more of one good without giving up some of the other. Which of them is <i>best</i> is a different question.</span></span></button>
+        <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>A, B, C, D and E<span class="why" hidden>✗ E lies inside the curve. Resources are underutilized there, so more of both goods is available.</span></span></button>
+        <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>Every labelled point, including F<span class="why" hidden>✗ F lies outside the curve. It is not efficient; it is not even attainable.</span></span></button>
+      </div>
+    </div>
+
+    <div class="mcq" data-key="D">
+      <p class="stem"><span class="qn">2</span> An increase in the quantity of capital goods produced <b>without</b> any decrease in consumer goods produced is possible when the economy —</p>
+      <div class="opts">
+        <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>cannot happen, because there is always an opportunity cost<span class="why" hidden>✗ True only <i>on</i> the curve. From inside it, both goods can rise at once — which is exactly what putting idle resources to work does.</span></span></button>
+        <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>moves along the curve from one efficient point to another<span class="why" hidden>✗ Moving along the curve is the definition of a trade-off: more of one good, less of the other.</span></span></button>
+        <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>puts idle resources to work while already producing on the curve<span class="why" hidden>✗ If it is already on the curve, no resources are idle. The two halves of this option contradict each other.</span></span></button>
+        <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>starts from a point inside the curve, or its curve shifts outward<span class="why" hidden>✓ Correct. Both routes give more of both goods: putting idle resources back to work moves you <i>to</i> the curve, and growth moves the curve itself.</span></span></button>
+        <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>improves technology in the consumer-goods industry only<span class="why" hidden>✗ That pivots the curve outward on the consumer-goods axis alone. It does not by itself allow more capital goods.</span></span></button>
+      </div>
+    </div>
+
+    <div class="mcq" data-key="B">
+      <p class="stem"><span class="qn">3</span> An increase in underutilized resources is best represented by a movement —</p>
+      <div class="opts">
+        <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>from a point on the curve to another point on the curve<span class="why" hidden>✗ That is a change in the <i>mix</i> of output with all resources still employed.</span></span></button>
+        <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>from a point on the curve to a point inside the curve<span class="why" hidden>✓ Correct. Underutilisation means resources sitting idle, so output falls below what the economy could produce with everything in use — a point further inside the frontier.</span></span></button>
+        <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>from a point inside the curve to a point on the curve<span class="why" hidden>✗ That is underutilisation <i>falling</i>, not rising.</span></span></button>
+        <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>of the whole curve inward<span class="why" hidden>✗ That is a contraction — resources or technology lost. Under underutilisation the resources still exist; they are not being used.</span></span></button>
+        <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>from a point inside the curve to a point outside it<span class="why" hidden>✗ Points outside are unattainable. Nothing moves an economy there except growth.</span></span></button>
+      </div>
+    </div>
+
+    <div class="mcq" data-key="E">
+      <p class="stem"><span class="qn">4</span> Which of the following could move this economy from a point inside its curve to a point beyond the original curve?</p>
+      <div class="opts">
+        <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>more workers entering the labour force<span class="why" hidden>✗ True but incomplete — this is one of several things that would work, and the question asks which of the listed options could.</span></span></button>
+        <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>the discovery of new mineral deposits<span class="why" hidden>✗ Also true and also incomplete. Read on before choosing.</span></span></button>
+        <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>building new factories<span class="why" hidden>✗ Also true and also incomplete.</span></span></button>
+        <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>technological advances<span class="why" hidden>✗ Also true and also incomplete. Each of A–D shifts the curve outward on its own.</span></span></button>
+        <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>all of the above<span class="why" hidden>✓ Correct. More labour, more land, more capital and better technology are precisely the two causes of growth from entries 10 and 11 — more resources, or better technology.</span></span></button>
+      </div>
+    </div>
+
+    <div class="mcq" data-key="A">
+      <p class="stem"><span class="qn">5</span> This PPC shows the trade-off between consumer goods and capital goods. All other things equal, producing at which point <b>today</b> produces the largest outward shift <b>tomorrow</b>?</p>
+      <div class="opts">
+        <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>the attainable point with the most capital goods<span class="why" hidden>✓ Correct. Capital goods are themselves resources, so the more of them an economy builds today, the more it can produce in every future year. The cost is consumption forgone now.</span></span></button>
+        <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>the point with the most consumer goods<span class="why" hidden>✗ This maximises enjoyment today and adds nothing to future capacity. Consumer goods are used up.</span></span></button>
+        <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>the midpoint of the curve, balancing both<span class="why" hidden>✗ A reasonable <i>policy</i> choice, but the question asks which maximises the future shift, and that is unambiguously the capital-goods end.</span></span></button>
+        <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>any point inside the curve, since resources are held in reserve<span class="why" hidden>✗ Idle resources are not held in reserve; they produce nothing and build nothing. Inside the curve is worse on both counts.</span></span></button>
+        <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>a point outside the curve, since it produces the most of everything<span class="why" hidden>✗ Points outside the curve cannot be produced at all. This is the module&rsquo;s most basic error appearing in a growth question.</span></span></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="frq">
+  <h2>Tackle the test — free response</h2>
+  <p>Your textbook&rsquo;s FRQ 2 is the single best piece of Skill 4.A practice in Unit 1. Do it on
+  paper, then check yourself against the list below.</p>
+
+  <div class="widget">
+    <p class="stem">Assume an economy produces food and shelter at a <b>constant</b> opportunity cost.
+    Draw a correctly labelled production possibilities curve. On your graph:</p>
+    <ol>
+      <li>Label a point <b>E</b> that is efficient in production.</li>
+      <li>Label a point <b>U</b> where resources are underutilized.</li>
+      <li>Label a point <b>I</b> that is not feasible.</li>
+    </ol>
+    <details class="reveal"><summary>Show what earns the marks</summary><div class="ans">
+      <ul>
+        <li><b>Both axes labelled</b> with the goods and, ideally, the units. This is where most marks
+        are lost, and it costs nothing to get right.</li>
+        <li><b>The curve labelled</b> — write PPC on it.</li>
+        <li><b>A straight line</b>, because the question says constant opportunity cost. A bowed curve
+        loses the mark even if everything else is perfect.</li>
+        <li><b>E anywhere on the line.</b> Every point on it is efficient in production.</li>
+        <li><b>U strictly inside</b> the line — resources idle, output below what they could produce.</li>
+        <li><b>I strictly outside</b> the line — unattainable with current resources and technology.</li>
+      </ul>
+      <p>Your textbook&rsquo;s own answer writes <i>unemployment</i> here, because the same chapter
+      serves AP Macroeconomics. On an AP Microeconomics paper write <b>underutilized resources</b>
+      instead — it is the framework&rsquo;s own word (MKT-1.C.2) and it cannot be marked wrong.</p>
+    </div></details>
+  </div>
+</section>
+
+<section class="section" id="summary">
+  <h2>One-page summary</h2>
+  <p>For revision once you already know the terms — not for learning them the first time.</p>
+  <div class="tbl"><table class="sumtable">
+    <thead><tr><th>#</th><th>Term</th><th></th><th>In one line</th></tr></thead>
+    <tbody>
+      <tr><td class="mk">01</td><td><b>Trade-off</b></td><td class="mk ">★</td><td>Giving up one thing to have another</td></tr>
+      <tr><td class="mk">02</td><td><b>Production possibilities curve</b></td><td class="mk ">★</td><td>The maximum of one good for each quantity of the other</td></tr>
+      <tr><td class="mk">03</td><td><b>Feasible / not feasible</b></td><td class="mk ">★</td><td>Inside or on = possible. Outside = impossible</td></tr>
+      <tr><td class="mk">04</td><td><b>Efficient in production</b></td><td class="mk ">★</td><td>On the curve: no more of one good without less of the other</td></tr>
+      <tr><td class="mk">05</td><td><b>Underutilized resources</b></td><td class="mk ">★</td><td>Inside the curve: more of both goods available for free</td></tr>
+      <tr><td class="mk">06</td><td><b>Opportunity cost on a PPC</b></td><td class="mk ">★</td><td>What you give up per extra unit — the slope, if the curve is straight</td></tr>
+      <tr><td class="mk">07</td><td><b>Constant opportunity cost</b></td><td class="mk ">★</td><td>Same cost throughout → straight line</td></tr>
+      <tr><td class="mk">08</td><td><b>Increasing opportunity cost</b></td><td class="mk ">★</td><td>Rising cost → bowed <b>outward</b>; the realistic case</td></tr>
+      <tr><td class="mk">09</td><td><b>Decreasing opportunity cost</b></td><td class="mk flagm">★ ⚑</td><td>Falling cost → bowed <b>inward</b>; not in your textbook</td></tr>
+      <tr><td class="mk">10</td><td><b>Economic growth</b></td><td class="mk ">★</td><td>The whole curve shifts <b>outward</b> — more resources or better technology</td></tr>
+      <tr><td class="mk">11</td><td><b>Technology</b></td><td class="mk ">★</td><td>The means of production; helps one good only → the curve pivots</td></tr>
+      <tr><td class="mk">12</td><td><b>Contraction</b></td><td class="mk flagm">★ ⚑</td><td>The whole curve shifts <b>inward</b>; the word is absent from this module</td></tr>
+      <tr><td class="mk">13</td><td><b>Capital goods and future growth</b></td><td class="mk ">★</td><td>Less consumption now, a bigger curve later</td></tr>
+      <tr><td class="mk">14</td><td><b>Efficient in allocation</b></td><td class="mk ">★</td><td>Producing the right <i>mix</i>; assessed formally in Topic 3.7</td></tr>
+    </tbody>
+  </table></div>
+  <p class="widget-note"><b>★</b> exam term — all fourteen are, in this course ·
+  <b>★ ⚑</b> required by the framework but not in your textbook</p>
+</section>
+
+<section class="section" id="final">
+  <h2>The five things to get right from Module 3</h2>
+  <div class="final">
+    <ol>
+      <li><b>Label both axes and the curve. Every time.</b> These are free marks and they are the ones
+      most often dropped.</li>
+      <li><b>Inside = wasteful but possible. Outside = impossible.</b> Never the other way round.</li>
+      <li><b>Say &ldquo;underutilized resources&rdquo;, not &ldquo;unemployment&rdquo;.</b> Your book
+      uses the second because it also serves the macro course. MKT-1.C.2 uses the first.</li>
+      <li><b>The slope of a straight PPC <i>is</i> the opportunity cost</b> — and always state it both
+      ways round, with units.</li>
+      <li><b>Moving along the curve is not the same as shifting the curve.</b> A shift means resources
+      or technology changed. This distinction returns in every later unit.</li>
+    </ol>
+  </div>
+</section>
+
+</div>
+
+<script>
+
+(function(){
+  "use strict";
+
+  /* ---------- progress ---------- */
+  var KEY = "micro-mod3-progress";
+  var boxes = Array.prototype.slice.call(document.querySelectorAll(".gotbox"));
+  var fill = document.getElementById("pfill");
+  var num  = document.getElementById("pnum");
+
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch(e){ return {}; } }
+  function save(s){ try { localStorage.setItem(KEY, JSON.stringify(s)); } catch(e){} }
+  function paint(){
+    var done = boxes.filter(function(b){ return b.checked; }).length;
+    fill.style.width = (done / boxes.length * 100) + "%";
+    num.textContent = done + " / " + boxes.length;
+  }
+  var state = load();
+  boxes.forEach(function(b){
+    if (state[b.id]) b.checked = true;
+    b.addEventListener("change", function(){ var s = load(); s[b.id] = b.checked; save(s); paint(); });
+  });
+  paint();
+  document.getElementById("resetBtn").addEventListener("click", function(){
+    boxes.forEach(function(b){ b.checked = false; });
+    save({}); paint();
+  });
+
+  /* ---------- PPC explorer ---------- */
+  var BASE_F = 40, BASE_C = 30;
+  var shape = "const", F = BASE_F, C = BASE_C, px = 20, py = 15, placed = false;
+
+  var svg   = document.getElementById("ppcSvg");
+  var stat  = document.getElementById("ppcStatus");
+  var oF = document.getElementById("outF"),   oC  = document.getElementById("outC");
+  var oOC = document.getElementById("outOC"), oOC2 = document.getElementById("outOC2");
+  var note = document.getElementById("ppcNote");
+
+  var VB = { w:560, h:380, L:64, R:26, T:28, B:56 };
+  var XMAX = 88, YMAX = 66;                       /* fixed data window so shifts are visible */
+
+  function sx(x){ return VB.L + (x / XMAX) * (VB.w - VB.L - VB.R); }
+  function sy(y){ return (VB.h - VB.B) - (y / YMAX) * (VB.h - VB.B - VB.T); }
+  function ix(px_){ return (px_ - VB.L) / (VB.w - VB.L - VB.R) * XMAX; }
+  function iy(py_){ return ((VB.h - VB.B) - py_) / (VB.h - VB.B - VB.T) * YMAX; }
+
+  function curve(x, f, c){
+    if (x <= 0) return c;
+    if (x >= f) return 0;
+    if (shape === "inc") return c * Math.sqrt(Math.max(0, 1 - Math.pow(x / f, 2)));
+    if (shape === "dec") return c * (1 - Math.sqrt(x / f));
+    return c * (1 - x / f);
+  }
+
+  function path(f, c){
+    var pts = [], n = 60;
+    for (var k = 0; k <= n; k++){
+      var x = f * k / n;
+      pts.push(sx(x).toFixed(1) + "," + sy(curve(x, f, c)).toFixed(1));
+    }
+    return pts.join(" ");
+  }
+
+  function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+
+  function draw(){
+    var g = [];
+    var x0 = sx(0), y0 = sy(0), yTop = sy(YMAX), xRight = sx(XMAX);
+
+    /* axes */
+    g.push('<line x1="'+x0+'" y1="'+y0+'" x2="'+x0+'" y2="'+yTop+'" class="ax"/>');
+    g.push('<line x1="'+x0+'" y1="'+y0+'" x2="'+xRight+'" y2="'+y0+'" class="ax"/>');
+    [0,20,40,60,80].forEach(function(t){
+      g.push('<line x1="'+sx(t)+'" y1="'+y0+'" x2="'+sx(t)+'" y2="'+(y0+5)+'" class="tick"/>');
+      g.push('<text x="'+sx(t)+'" y="'+(y0+20)+'" class="tl" text-anchor="middle">'+t+'</text>');
+    });
+    [0,15,30,45,60].forEach(function(t){
+      g.push('<line x1="'+(x0-5)+'" y1="'+sy(t)+'" x2="'+x0+'" y2="'+sy(t)+'" class="tick"/>');
+      g.push('<text x="'+(x0-10)+'" y="'+(sy(t)+4)+'" class="tl" text-anchor="end">'+t+'</text>');
+    });
+    g.push('<text x="'+xRight+'" y="'+(y0+40)+'" class="al" text-anchor="end">Quantity of fish</text>');
+    g.push('<text x="'+(x0-44)+'" y="'+(yTop-8)+'" class="al">Quantity of coconuts</text>');
+
+    /* original curve, for reference */
+    if (F !== BASE_F || C !== BASE_C){
+      g.push('<polyline points="'+path(BASE_F, BASE_C)+'" class="ghost"/>');
+    }
+    g.push('<polyline points="'+path(F, C)+'" class="curve"/>');
+    g.push('<text x="'+sx(F*0.62)+'" y="'+(sy(curve(F*0.62,F,C))-12)+'" class="cl">PPC</text>');
+
+    /* the student's point */
+    if (placed){
+      var onC = curve(px, F, C), d = py - onC, st;
+      if (Math.abs(d) <= 0.8) st = "on"; else if (d < 0) st = "in"; else st = "out";
+      g.push('<line x1="'+sx(px)+'" y1="'+sy(0)+'" x2="'+sx(px)+'" y2="'+sy(py)+'" class="drop"/>');
+      g.push('<line x1="'+sx(0)+'" y1="'+sy(py)+'" x2="'+sx(px)+'" y2="'+sy(py)+'" class="drop"/>');
+      g.push('<circle cx="'+sx(px)+'" cy="'+sy(py)+'" r="7" class="pt pt-'+st+'"/>');
+    }
+    svg.innerHTML = g.join("");
+  }
+
+  function report(){
+    oF.textContent = F.toFixed(0);
+    oC.textContent = C.toFixed(0);
+
+    var at = placed ? Math.min(px, F) : F / 2;
+    var step = 5, x2 = Math.min(F, at + step);
+    var dy = curve(at, F, C) - curve(x2, F, C);
+    var dx = x2 - at;
+    var perFish = dx > 0 ? dy / dx : 0;
+    oOC.textContent  = perFish > 0 ? perFish.toFixed(2) + " coconuts" : "—";
+    oOC2.textContent = perFish > 0 ? (1 / perFish).toFixed(2) + " fish" : "—";
+
+    if (!placed){
+      stat.dataset.s = "on";
+      stat.textContent = "Click the chart to place a production point.";
+      return;
+    }
+    var onC = curve(px, F, C), d = py - onC;
+    if (Math.abs(d) <= 0.8){
+      stat.dataset.s = "on";
+      stat.innerHTML = "<b>On the curve.</b> Efficient in production — every resource in use. More " +
+                       "fish only by giving up coconuts.";
+    } else if (d < 0){
+      stat.dataset.s = "in";
+      stat.innerHTML = "<b>Inside the curve.</b> Resources are underutilized. " +
+                       esc((onC - py).toFixed(1)) + " coconuts are available for free, with no fish given up.";
+    } else {
+      stat.dataset.s = "out";
+      stat.innerHTML = "<b>Outside the curve.</b> Not attainable with current resources and technology. " +
+                       "Only growth can put this within reach.";
+    }
+  }
+
+  var NOTES = {
+    const: "A straight line means every fish costs the same number of coconuts, everywhere on the curve.",
+    inc:   "Bowed outward: the curve gets steeper as you move right, so each extra fish costs more coconuts than the last.",
+    dec:   "Bowed inward: the curve gets flatter as you move right, so each extra fish costs fewer coconuts than the last. This shape is not in your textbook."
+  };
+  var SCEN = {
+    base:     { f: BASE_F,   c: BASE_C,   n: "The starting point: 40 fish or 30 coconuts." },
+    growth:   { f: BASE_F*1.4, c: BASE_C*1.4, n: "Growth: 40% more resources. Both ends move out, the slope is unchanged, and points that were impossible are now reachable." },
+    contract: { f: BASE_F*0.7, c: BASE_C*0.7, n: "Contraction: 30% of resources lost. The whole curve moves in, and bundles the island used to produce are now impossible." },
+    hook:     { f: BASE_F*2,   c: BASE_C,     n: "A fishing hook doubles fishing and does nothing for coconuts. The coconut end does not move — the curve pivots and gets flatter." }
+  };
+
+  function update(){ draw(); report(); }
+
+  document.querySelectorAll("[data-shape]").forEach(function(b){
+    b.addEventListener("click", function(){
+      shape = b.dataset.shape;
+      document.querySelectorAll("[data-shape]").forEach(function(o){ o.setAttribute("aria-pressed","false"); });
+      b.setAttribute("aria-pressed","true");
+      note.textContent = NOTES[shape];
+      update();
+    });
+  });
+
+  document.querySelectorAll("[data-scen]").forEach(function(b){
+    b.addEventListener("click", function(){
+      var s = SCEN[b.dataset.scen];
+      F = s.f; C = s.c;
+      document.querySelectorAll("[data-scen]").forEach(function(o){ o.setAttribute("aria-pressed","false"); });
+      b.setAttribute("aria-pressed","true");
+      note.textContent = s.n;
+      update();
+    });
+  });
+
+  function place(ev){
+    var r = svg.getBoundingClientRect();
+    var cx = (ev.clientX - r.left) / r.width * VB.w;
+    var cy = (ev.clientY - r.top) / r.height * VB.h;
+    var x = ix(cx), y = iy(cy);
+    if (x < 0 || y < 0 || x > XMAX || y > YMAX) return;
+    px = x; py = y; placed = true;
+    update();
+  }
+  svg.addEventListener("click", place);
+  svg.addEventListener("keydown", function(e){
+    if (e.key === "Enter" || e.key === " "){ e.preventDefault(); placed = true; update(); }
+  });
+
+  update();
+
+  /* ---------- multiple choice ---------- */
+  var correct = 0;
+  var scoreOut = document.getElementById("scoreOut");
+  document.querySelectorAll(".mcq").forEach(function(q){
+    var key = q.dataset.key, scored = false;
+    q.querySelectorAll(".opt").forEach(function(opt){
+      opt.addEventListener("click", function(){
+        var right = opt.dataset.l === key;
+        opt.dataset.state = right ? "right" : "wrong";
+        var why = opt.querySelector(".why");
+        if (why) why.hidden = false;
+        if (!scored){
+          scored = true;
+          if (right) correct++;
+          scoreOut.textContent = correct + " / 5";
+        }
+        if (right){
+          q.querySelectorAll(".opt").forEach(function(o){
+            var w = o.querySelector(".why");
+            if (w) w.hidden = false;
+            if (!o.dataset.state) o.dataset.state = "wrong";
+            o.disabled = true;
+          });
+        }
+      });
+    });
+  });
+})();
+
+</script>
+</main>
+<script>window.COURSE_NAV={"kicker": "1.3 Production possibilities curve", "title": "Module 3 · The Production Possibilities Curve Model", "map": [{"label": "Course", "items": [{"href": "index.html", "label": "Home", "current": false}, {"href": "spec.html", "label": "Course specification", "current": false}]}, {"label": "Unit 1 · Basic Economic Concepts", "items": [{"href": "m01-student.html", "label": "Module 1 · Student guide", "current": false}, {"label": "Module 1 · Teaching notes", "planned": true}, {"label": "Module 1 · Test", "planned": true}, {"label": "Module 2 · Introduction to Macroeconomics", "planned": true}, {"href": "m03-student.html", "label": "Module 3 · Student guide", "current": true}, {"label": "Module 3 · Teaching notes", "planned": true}, {"label": "Module 3 · Test", "planned": true}, {"label": "Module 4 · Comparative Advantage and Trade", "planned": true}, {"label": "Module 51 · Utility Maximization", "planned": true}, {"label": "Unit 1 · Gap analysis", "planned": true}]}, {"label": "Unit 2 · Supply and Demand", "items": [{"label": "Module 5 · Supply and Demand: Introduction and Demand", "planned": true}, {"label": "Module 6 · Supply and Demand: Supply and Equilibrium", "planned": true}, {"label": "Module 7 · Supply and Demand: Changes in Equilibrium", "planned": true}, {"label": "Module 8 · Supply and Demand: Price Controls", "planned": true}, {"label": "Module 9 · Supply and Demand: Quantity Controls", "planned": true}, {"label": "Modules 46–48 · Elasticity", "planned": true}, {"label": "Modules 49–50 · Surplus and Deadweight Loss", "planned": true}, {"label": "Topic 2.9 · International Trade and Public Policy", "planned": true}, {"label": "Unit 2 · Gap analysis", "planned": true}]}, {"label": "Unit 3 · Production, Cost and Perfect Competition", "items": [{"label": "Modules 52–53 · Profit and Profit Maximisation", "planned": true}, {"label": "Module 54 · The Production Function", "planned": true}, {"label": "Module 55 · Firm Costs", "planned": true}, {"label": "Module 56 · Long-Run Costs and Economies of Scale", "planned": true}, {"label": "Module 57 · Introduction to Market Structure", "planned": true}, {"label": "Modules 58–60 · Perfect Competition", "planned": true}, {"label": "Unit 3 · Gap analysis", "planned": true}]}, {"label": "Unit 4 · Imperfect Competition", "items": [{"label": "Topic 4.1 · Introduction to Imperfect Competition", "planned": true}, {"label": "Modules 61–63 · Monopoly", "planned": true}, {"label": "Modules 67–68 · Monopolistic Competition", "planned": true}, {"label": "Modules 64–66 · Oligopoly and Game Theory", "planned": true}, {"label": "Unit 4 · Gap analysis", "planned": true}]}, {"label": "Unit 5 · Factor Markets", "items": [{"label": "Module 69 · Introduction and Factor Demand", "planned": true}, {"label": "Module 70 · The Markets for Land and Capital", "planned": true}, {"label": "Module 71 · The Market for Labor", "planned": true}, {"label": "Module 72 · The Cost-Minimising Input Combination", "planned": true}, {"label": "Module 73 · Theories of Income Distribution", "planned": true}, {"label": "Unit 5 · Gap analysis", "planned": true}]}, {"label": "Unit 6 · Market Failure and the Role of Government", "items": [{"label": "Modules 74–75 · Externalities", "planned": true}, {"label": "Module 76 · Public Goods", "planned": true}, {"label": "Module 77 · Public Policy to Promote Competition", "planned": true}, {"label": "Module 78 · Income Inequality and Income Distribution", "planned": true}, {"label": "Unit 6 · Gap analysis", "planned": true}]}, {"label": "Interactive", "items": [{"label": "PPC explorer", "planned": true}, {"label": "Supply and demand explorer", "planned": true}, {"label": "Elasticity and total revenue", "planned": true}, {"label": "Cost curves", "planned": true}, {"label": "Market structure comparison", "planned": true}]}], "prev": {"href": "m01-student.html", "label": "Module 1 · Student guide"}};</script>
+<script src="assets/course.js"></script>
+</body>
+</html>

@@ -1,0 +1,1529 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 1 · The Study of Economics · AP Microeconomics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@600;700&display=swap">
+<link rel="stylesheet" href="assets/course.css">
+<style>.page .bar{position:static;background:none;backdrop-filter:none}.page .bar-in{max-width:none;padding-inline:0}.page .wrap{max-width:none;padding-inline:0;padding-block:0 24px}.page .masthead{padding-block:10px 24px}</style></head>
+<body>
+<main class="page">
+<style>
+:root{
+  --paper:#f3f5f8; --surface:#ffffff; --surface-2:#eef1f6;
+  --ink:#15181f; --ink-2:#4d5566; --ink-3:#737c8e;
+  --rule:#d6dae2; --rule-strong:#b3bac7;
+  --accent:#1d4e89; --accent-soft:#e6edf7;
+  --down:#a3372a; --down-soft:#fbeeeb;
+  --up:#1a6b55; --up-soft:#e6f2ee;
+  --flag:#7a5310; --flag-soft:#f8f0e0;
+  --shadow:0 1px 2px rgba(21,24,31,.06), 0 8px 24px rgba(21,24,31,.05);
+  --serif:"IBM Plex Serif", Georgia, "Times New Roman", serif;
+  --sans:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0f1218; --surface:#171b23; --surface-2:#1e232d;
+    --ink:#e8ebf1; --ink-2:#a3adc0; --ink-3:#7e8799;
+    --rule:#2c323d; --rule-strong:#3c4351;
+    --accent:#7dabe2; --accent-soft:#1a2634;
+    --down:#e5907f; --down-soft:#2a1d1a;
+    --up:#6cc4a7; --up-soft:#16291f;
+    --flag:#d8b169; --flag-soft:#2a2418;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.28);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0f1218; --surface:#171b23; --surface-2:#1e232d;
+  --ink:#e8ebf1; --ink-2:#a3adc0; --ink-3:#7e8799;
+  --rule:#2c323d; --rule-strong:#3c4351;
+  --accent:#7dabe2; --accent-soft:#1a2634;
+  --down:#e5907f; --down-soft:#2a1d1a;
+  --up:#6cc4a7; --up-soft:#16291f;
+  --flag:#d8b169; --flag-soft:#2a2418;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.28);
+}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65;margin:0}
+.wrap{max-width:820px;margin:0 auto;padding-inline:18px;padding-block:0 72px}
+
+.bar{position:sticky;top:env(safe-area-inset-top, 0px);z-index:40;
+  background:color-mix(in srgb, var(--paper) 88%, transparent);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--rule)}
+.bar-in{max-width:820px;margin:0 auto;padding-inline:18px;display:flex;align-items:center;gap:14px;min-height:50px;flex-wrap:wrap}
+.bar-title{font-family:var(--mono);font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-2);white-space:nowrap}
+.progress{flex:1 1 140px;min-width:120px;display:flex;align-items:center;gap:9px}
+.progress-track{flex:1;height:5px;border-radius:3px;background:var(--rule);overflow:hidden}
+.progress-fill{height:100%;width:0;background:var(--accent);transition:width .25s ease}
+.progress-num{font-family:var(--mono);font-size:12px;color:var(--ink-2);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar button{font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;
+  background:none;border:1px solid var(--rule-strong);color:var(--ink-2);padding:5px 10px;border-radius:4px;cursor:pointer}
+.bar button:hover{border-color:var(--accent);color:var(--accent)}
+
+.masthead{padding-block:40px 28px;border-bottom:2px solid var(--ink)}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 12px}
+h1{font-family:var(--serif);font-weight:700;font-size:clamp(30px,6.4vw,44px);line-height:1.1;margin:0 0 14px;text-wrap:balance;letter-spacing:-.01em}
+.standfirst{font-size:17.5px;color:var(--ink-2);margin:0;max-width:62ch}
+.source-line{font-family:var(--mono);font-size:12.5px;color:var(--ink-3);margin-top:18px;display:flex;gap:6px 18px;flex-wrap:wrap}
+
+h2{font-family:var(--serif);font-weight:600;font-size:clamp(21px,3.8vw,26px);line-height:1.25;margin:0 0 10px;text-wrap:balance}
+h3{font-family:var(--sans);font-weight:600;font-size:16px;margin:26px 0 8px}
+p{margin:0 0 14px}
+a{color:var(--accent)}
+.section{padding-block:34px 4px}
+.kicker{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin:0 0 8px}
+
+.entry{padding-block:34px 10px;border-top:1px solid var(--rule)}
+.entry-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.entry-num{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--accent);font-variant-numeric:tabular-nums}
+.entry h2{margin:0;flex:1 1 auto;min-width:0}
+.mark{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:3px;white-space:nowrap}
+.mark.exam{background:var(--accent-soft);color:var(--accent)}
+.mark.bg{background:var(--surface-2);color:var(--ink-3)}
+.defn{background:var(--surface);border-left:3px solid var(--accent);padding:14px 16px;border-radius:0 5px 5px 0;margin:14px 0 16px;box-shadow:var(--shadow)}
+.defn p{margin:0 0 7px}
+.defn p:last-child{margin:0}
+.defn .lbl{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:5px}
+.reading{font-family:var(--mono);font-size:12.5px;color:var(--ink-3);margin:-6px 0 16px}
+
+.watch{background:var(--down-soft);border:1px solid color-mix(in srgb, var(--down) 28%, transparent);border-radius:5px;padding:13px 16px;margin:18px 0}
+.watch p{margin:0;font-size:15.3px}
+.watch b{color:var(--down)}
+.notinbook{background:var(--flag-soft);border:1px dashed color-mix(in srgb, var(--flag) 48%, transparent);border-radius:5px;padding:13px 16px;margin:16px 0}
+.notinbook p{margin:0;font-size:15.3px}
+.notinbook b{color:var(--flag)}
+
+.examples{margin:18px 0;display:flex;flex-direction:column;gap:12px}
+.ex{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start}
+.ex-n{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--ink-3);border:1px solid var(--rule-strong);border-radius:3px;padding:1px 6px;margin-top:3px;white-space:nowrap}
+.ex p{margin:0;font-size:15.3px}
+.ex .who{font-weight:600;color:var(--ink)}
+.connects{font-size:15.3px;color:var(--ink-2);border-top:1px solid var(--rule);padding-top:12px;margin-top:6px}
+.connects b{color:var(--ink)}
+
+.check{margin:20px 0 6px;background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:14px 16px}
+.check > .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);display:block;margin-bottom:10px}
+.q{margin-bottom:12px}
+.q:last-child{margin-bottom:0}
+.q > p{margin:0 0 7px;font-size:15.3px}
+.q .qn{font-family:var(--mono);font-weight:600;color:var(--accent);font-size:13.5px;margin-right:4px}
+details.reveal{border-top:1px dashed var(--rule)}
+details.reveal > summary{list-style:none;cursor:pointer;font-family:var(--mono);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--accent);padding:7px 0 0}
+details.reveal > summary::-webkit-details-marker{display:none}
+details.reveal > summary::before{content:"▸ ";display:inline-block}
+details.reveal[open] > summary::before{content:"▾ "}
+details.reveal > summary:hover{text-decoration:underline}
+details.reveal .ans{font-size:15.3px;color:var(--ink-2);padding:6px 0 4px}
+details.reveal .ans p{margin:0 0 8px}
+details.reveal .ans p:last-child{margin:0}
+
+.got{display:flex;align-items:center;gap:8px;margin-top:16px;font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);cursor:pointer;user-select:none}
+.got input{width:15px;height:15px;accent-color:var(--accent);cursor:pointer}
+
+.tablewrap{overflow-x:auto;margin:18px 0;border:1px solid var(--rule);border-radius:6px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:15px;min-width:420px}
+th,td{padding:10px 13px;text-align:left;border-bottom:1px solid var(--rule);vertical-align:top}
+thead th{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);background:var(--surface-2);font-weight:600}
+tbody tr:last-child td{border-bottom:none}
+.tight td,.tight th{padding:8px 12px;font-size:14.5px}
+
+.widget{background:var(--surface);border:1px solid var(--rule-strong);border-radius:8px;padding:18px;margin:26px 0;box-shadow:var(--shadow)}
+.widget-title{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin:0 0 4px}
+.widget h3{margin-top:0}
+.widget-note{font-size:14.5px;color:var(--ink-2);margin:12px 0 0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{font-family:var(--mono);font-size:12px;border:1px solid var(--rule-strong);background:var(--surface);color:var(--ink-2);border-radius:16px;padding:5px 13px;cursor:pointer;transition:all .15s}
+.chip:hover{border-color:var(--accent);color:var(--accent)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+:root[data-theme="dark"] .chip[aria-pressed="true"],
+:root:not([data-theme="light"]) .chip[aria-pressed="true"]{color:#0f1218}
+
+.sorter{display:flex;flex-direction:column;gap:10px;margin:14px 0}
+.item{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:11px 13px;border:1px solid var(--rule);border-radius:6px;background:var(--surface-2)}
+.item .name{flex:1 1 180px;font-size:15.2px}
+.item .opts{display:flex;flex-wrap:wrap;gap:6px}
+.item button{font-family:var(--mono);font-size:11.5px;border:1px solid var(--rule-strong);background:var(--surface);color:var(--ink-2);border-radius:4px;padding:4px 9px;cursor:pointer}
+.item button:hover{border-color:var(--accent);color:var(--accent)}
+.item button[data-state="right"]{background:var(--up-soft);border-color:var(--up);color:var(--up);font-weight:600}
+.item button[data-state="wrong"]{background:var(--down-soft);border-color:var(--down);color:var(--down)}
+.item .fb{flex:1 1 100%;font-size:14.3px;color:var(--ink-2);margin:0}
+.item .fb b{color:var(--ink)}
+
+.calc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:14px 0}
+.field label{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3);margin-bottom:5px}
+.field input[type=number]{width:100%;font-family:var(--mono);font-size:16px;padding:8px 10px;border:1px solid var(--rule-strong);border-radius:5px;background:var(--paper);color:var(--ink)}
+.field input:focus-visible,.chip:focus-visible,button:focus-visible,summary:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.readouts{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:6px;overflow:hidden;margin-top:6px}
+.ro{background:var(--surface-2);padding:12px 14px}
+.ro .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);display:block;margin-bottom:3px}
+.ro .v{font-family:var(--mono);font-size:22px;font-weight:600;font-variant-numeric:tabular-nums;color:var(--ink)}
+.ro .v.hl{color:var(--accent)}
+
+.mcq{border-top:1px solid var(--rule);padding-top:18px;margin-top:18px}
+.mcq:first-of-type{border-top:none;padding-top:0;margin-top:0}
+.mcq .stem{font-size:15.6px;margin:0 0 12px}
+.mcq .stem .qn{font-family:var(--mono);font-weight:600;color:var(--accent);margin-right:6px}
+.mcq .offsyl{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--flag);background:var(--flag-soft);padding:2px 7px;border-radius:3px;margin-left:8px;white-space:nowrap}
+.opts{display:flex;flex-direction:column;gap:7px}
+.opt{display:flex;gap:11px;align-items:flex-start;text-align:left;width:100%;font-family:var(--sans);font-size:15.2px;line-height:1.5;color:var(--ink);background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:10px 13px;cursor:pointer;transition:border-color .15s,background .15s}
+.opt:hover{border-color:var(--accent)}
+.opt .ltr{font-family:var(--mono);font-weight:600;color:var(--ink-3);flex:0 0 auto}
+.opt .why{display:block;font-size:14.3px;color:var(--ink-2);margin-top:6px}
+.opt[data-state="right"]{border-color:var(--up);background:var(--up-soft)}
+.opt[data-state="right"] .ltr{color:var(--up)}
+.opt[data-state="wrong"]{border-color:var(--down);background:var(--down-soft)}
+.opt[data-state="wrong"] .ltr{color:var(--down)}
+.opt[disabled]{cursor:default}
+.score{font-family:var(--mono);font-size:13px;color:var(--ink-2);border:1px solid var(--rule-strong);border-radius:6px;padding:11px 14px;margin-top:20px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center}
+.score b{color:var(--ink);font-size:15px}
+
+.frq{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:15px 17px;margin:16px 0}
+.frq .stem{margin:0 0 6px;font-size:15.6px}
+.frq .pts{font-family:var(--mono);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3)}
+.rubric{margin:8px 0 0;padding:0;list-style:none}
+.rubric li{display:grid;grid-template-columns:auto 1fr;gap:10px;padding:7px 0;border-top:1px dotted var(--rule);font-size:15.2px}
+.rubric li .pt{font-family:var(--mono);font-size:11.5px;color:var(--up);white-space:nowrap;padding-top:3px}
+
+.closing{background:var(--accent-soft);border-radius:8px;padding:20px 22px;margin-top:28px}
+.closing h2{margin-top:0}
+.closing ol{margin:0;padding-left:20px}
+.closing li{margin-bottom:10px;font-size:15.5px}
+.closing li:last-child{margin-bottom:0}
+
+.toc{columns:2 220px;column-gap:26px;margin:16px 0 0;padding:0;list-style:none}
+.toc li{break-inside:avoid;padding:3px 0;font-size:15px}
+.toc a{text-decoration:none;color:var(--ink)}
+.toc a:hover{color:var(--accent);text-decoration:underline}
+.toc .n{font-family:var(--mono);font-size:12.5px;color:var(--ink-3);margin-right:7px;font-variant-numeric:tabular-nums}
+.toc .m{font-size:11px;color:var(--ink-3);margin-left:5px}
+
+.footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--rule);font-family:var(--mono);font-size:12px;color:var(--ink-3);line-height:1.8}
+
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+@media print{.bar,.got,.chips{display:none}body{background:#fff}details.reveal > *{display:block!important}.entry{break-inside:avoid-page}}
+@media (max-width:520px){.toc{columns:1}.ro .v{font-size:19px}}
+</style>
+
+
+<div class="bar">
+  <div class="bar-in">
+    <span class="bar-title">Micro · Module 1</span>
+    <span class="progress">
+      <span class="progress-track"><span class="progress-fill" id="pfill"></span></span>
+      <span class="progress-num" id="pnum">0 / 17</span>
+    </span>
+    <button type="button" id="resetBtn">Reset progress</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+<p class="eyebrow">Student guide</p>
+  <h1>The Study of Economics</h1>
+  <p class="standfirst">Every term from Module 1 of <em>Krugman's Economics for AP</em>, in the order
+  that makes them easiest to learn — and, just as important, which of them your AP Microeconomics exam
+  will actually ask about.</p>
+  <p class="source-line">
+    <span>Textbook pp. 2–9</span>
+    <span>17 entries</span>
+    <span>12 exam terms</span>
+    <span>34 check-yourself questions</span>
+  </p>
+<section class="section">
+  <h2>Read this part first</h2>
+
+  <p>Module 1 is the opening chapter of a book written for two courses at once — AP Microeconomics and
+  AP Macroeconomics. You are taking the micro one, and this chapter is worth more to you than it is to
+  the other course:</p>
+
+  <div class="notinbook"><p><b>Twelve of these seventeen terms are examinable in AP
+  Microeconomics.</b> This module is not a warm-up. Topic 1.1 rests on entries 1–5, Topic 1.2 on
+  entries 9–11, and Topics 1.5 and 1.6 on entries 6 and 7 — and entries 12 and 13 come back inside
+  the law of demand in Unit 2. The five marked <b>○ Background</b> are the exceptions, not the
+  rule.</p></div>
+
+  <p>If you also take AP Macroeconomics, be careful here: in <em>that</em> course only five of these
+  seventeen are examinable, and a guide written for it will tell you to stop revising most of this
+  list. That advice is correct for Macro and wrong for you. The framework that governs this course is
+  the one quoted below.</p>
+
+  <div class="tablewrap">
+    <table class="tight">
+      <thead><tr><th>Marker</th><th>Meaning</th></tr></thead>
+      <tbody>
+        <tr><td><span class="mark exam">★ Exam</span></td><td><b>Exam term.</b> Define it, explain it, and for opportunity cost and marginal analysis, calculate with it. Twelve of these.</td></tr>
+        <tr><td><span class="mark bg">○ Background</span></td><td><b>Background.</b> Real economics, not named in the AP Microeconomics framework. Read once; do not drill. Five of these.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>How to use this guide</h3>
+  <ol>
+    <li>Read the module in your textbook first, then work through these entries in order.</li>
+    <li>Read the definition and cover it up. Can you say it back in your own words?</li>
+    <li>Read the <b>Watch out</b> box. That is the mistake most students make on that term.</li>
+    <li>Answer both <b>Check yourself</b> questions before you press <i>Show answer</i>.</li>
+    <li>Tick <b>Got it</b> at the bottom. The bar at the top tracks how far you are.</li>
+  </ol>
+
+  <p class="kicker">The 17 terms</p>
+  <ul class="toc">
+    <li><span class="n">1</span><a href="#e1">Economics</a><span class="m">★</span></li>
+    <li><span class="n">2</span><a href="#e2">Scarcity</a><span class="m">★</span></li>
+    <li><span class="n">3</span><a href="#e3">Resources</a><span class="m">★</span></li>
+    <li><span class="n">4</span><a href="#e4">Individual choice</a><span class="m">★</span></li>
+    <li><span class="n">5</span><a href="#e5">Opportunity cost</a><span class="m">★</span></li>
+    <li><span class="n">6</span><a href="#e6">Marginal benefit and cost</a><span class="m">★</span></li>
+    <li><span class="n">7</span><a href="#e7">Marginal analysis</a><span class="m">★</span></li>
+    <li><span class="n">8</span><a href="#e8">Economy</a><span class="m">○</span></li>
+    <li><span class="n">9</span><a href="#e9">Market economy</a><span class="m">★</span></li>
+    <li><span class="n">10</span><a href="#e10">Command economy</a><span class="m">★</span></li>
+    <li><span class="n">11</span><a href="#e11">Mixed economy</a><span class="m">★</span></li>
+    <li><span class="n">12</span><a href="#e12">Incentives</a><span class="m">★</span></li>
+    <li><span class="n">13</span><a href="#e13">Property rights</a><span class="m">★</span></li>
+    <li><span class="n">14</span><a href="#e14">Micro and macroeconomics</a><span class="m">○</span></li>
+    <li><span class="n">15</span><a href="#e15">Economic aggregates</a><span class="m">○</span></li>
+    <li><span class="n">16</span><a href="#e16">Positive and normative</a><span class="m">○</span></li>
+    <li><span class="n">17</span><a href="#e17">Economic model</a><span class="m">○</span></li>
+  </ul>
+</section>
+
+<!-- ============ WIDGET 1: RESOURCE SORTER ============ -->
+<section class="section">
+  <h2>Sort these before you start</h2>
+  <p>Entry 3 is about the four kinds of resource. Try it now, before reading, and again afterwards.
+  Click the category you think each one belongs to.</p>
+
+  <div class="widget">
+    <p class="widget-title">Resource classifier</p>
+    <h3>Land, labour, capital, entrepreneurship — or not a resource at all?</h3>
+    <div class="sorter" id="sorter">
+      <div class="item" data-answer="land" data-why="Land is everything that comes from nature — soil, water, minerals, timber. It does not have to be a field."><span class="name">A river running past a mill</span></div>
+      <div class="item" data-answer="capital" data-why="Capital is a manufactured good used to make other goods. Somebody built the bulldozer, and it is used to produce, not consumed."><span class="name">A bulldozer</span></div>
+      <div class="item" data-answer="labour" data-why="Labour is the effort of workers. Time spent working is the classic case, and it is what the textbook's own review question asks."><span class="name">Time spent flipping burgers</span></div>
+      <div class="item" data-answer="entrepreneurship" data-why="Entrepreneurship is risk-taking, innovation and organising the other resources. Deciding to change the business and bearing the consequence is exactly it."><span class="name">Deciding to launch a new product and bearing the risk</span></div>
+      <div class="item" data-answer="none" data-why="Money is not capital. Money buys capital. The capital is the ovens and the premises the loan would pay for — the distinction examiners test most often."><span class="name">$50,000 in a business bank account</span></div>
+      <div class="item" data-answer="none" data-why="A finished meal is output, not an input. Resources are what you produce with; this is what was produced."><span class="name">A cheeseburger dinner</span></div>
+      <div class="item" data-answer="capital" data-why="A factory is a manufactured thing used to make other things. Buildings used in production are capital, not land — the land is the ground underneath."><span class="name">A factory building</span></div>
+      <div class="item" data-answer="land" data-why="Petroleum comes from nature, so it is land. It is also the textbook's own example in the review questions."><span class="name">Petroleum in the ground</span></div>
+    </div>
+    <p class="widget-note" id="sortNote">Eight items. Get all eight and entry 3 will take you two
+    minutes.</p>
+  </div>
+</section>
+
+<!-- ============ ENTRIES ============ -->
+
+<article class="entry" id="e1">
+  <div class="entry-head"><span class="entry-num">01</span><h2>Economics</h2><span class="mark exam">★ Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Economics is the study of <b>scarcity and
+  choice</b>.</p></div>
+  <p class="reading">Textbook page 2.</p>
+
+  <p>Five words containing the whole subject. There is never enough of what people want, so somebody
+  has to choose — and every choice gives something up. Everything you study this year is a version of
+  that one idea.</p>
+
+  <p>Your textbook draws the line sharply: "you might say that it isn't economics if it isn't about
+  choice." If a question has no trade-off in it, it is not an economic question, however much money is
+  involved.</p>
+
+  <p>Notice that size is not part of the definition. The same reasoning works for one person deciding
+  how to spend an afternoon and for a country deciding how to spend a budget. In <em>this</em> course it
+  is almost always the second one — that is what makes it macroeconomics.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Economics is not "the study of money." Money is just one of
+  the scarce things you will study, and the scarcest thing in this module is <b>time</b>, which has no
+  price tag at all.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">A supermarket aisle.</span>
+    Thousands of products, and you could not afford all of them. Even if you could, there is only so
+    much room at home. Both limits bind, so you choose what to leave on the shelf.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">A national budget.</span> A
+    government splits a fixed $500 billion between health and transport. Every billion to one is a
+    billion the other cannot have. Wanting both does not make the trade-off go away.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">A coffee shop.</span> One
+    espresso machine, two staff, a morning rush. Making one complicated drink properly means three
+    simpler customers wait. Money is not the problem — minutes on the machine are.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> Economics is made of <a href="#e2">scarcity</a> (entry 2)
+  and <a href="#e4">choice</a> (entry 4). It is <em>not</em> the same word as <a href="#e8">economy</a>
+  (entry 8) — that entry has a test you can use.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">1.1</span> Your school has a fixed budget. Is deciding how to
+    spend it an economic question? Why?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Yes. The budget is
+      limited, so spending on one thing means not spending on another. That trade-off is what makes a
+      question economic.</p></div></details></div>
+    <div class="q"><p><span class="qn">1.2</span> Is "which colour should I paint my room?" an economic
+    question?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Not unless something is
+      given up. If both paints cost the same and take the same time, nothing is sacrificed — it is a
+      question of taste. If the blue costs more, or painting uses a Saturday you would otherwise have
+      worked, then it is.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="g1"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e2">
+  <div class="entry-head"><span class="entry-num">02</span><h2>Scarcity</h2><span class="mark exam">★ Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A resource is <b>scarce</b> when there is not
+  enough of it available to satisfy all the different ways a society wants to use it.</p></div>
+  <p class="reading">Textbook pages 3–4.</p>
+
+  <p>Scarcity is about <b>competing uses</b>. It does not mean "rare" and it does not mean "running
+  out." Something is scarce when using it one way means you cannot use it another way.</p>
+
+  <p>Two things surprise people. Something can be plentiful and still scarce — there is an enormous
+  amount of fresh water on Earth, and it is very scarce in Arizona. And something can be rare without
+  being scarce, if nobody wants it.</p>
+
+  <p>The scarcest thing in this module is <b>time</b>. Your textbook makes the point deliberately: money
+  is not your only limit, because "there are only 24 hours in a day." Time never sends you a bill, which
+  is exactly why students forget to count it in entry 5.</p>
+
+  <div class="notinbook"><p><b>⚑ One word your exam cares about and your textbook does not say.</b>
+  The framework's sentence is that <b>most</b> resources are scarce — not all. Some are
+  <b>non-rival</b>: using them does not use them up. If you use the Pythagorean theorem, everyone else
+  can still use it at the same time. Land, labour and capital are scarce; ideas need not be. Learn that
+  exception; it is the kind of thing a question is built on.</p></div>
+
+  <div class="watch"><p><b>Watch out.</b> Do not write "scarce" when you mean "expensive" or "almost
+  gone." A high price is a <i>result</i> of scarcity in a market. It is not the same thing.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Convenience stores.</span>
+    They charge more than supermarkets and stay in business anyway. Some customers would rather pay
+    extra than spend the time driving further and queueing. They are trading money for time — which only
+    makes sense if time is scarce.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Four hours, six hours of
+    work.</span> You have 4 hours before an exam and 6 hours of revision you would like to do. The 4
+    hours are scarce: every hour on one subject is an hour not on another. Give yourself 10 free hours
+    and the problem disappears.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">The exception.</span> A
+    recipe, a language, a formula. Using it does not stop anyone else using it, so it is not scarce
+    — however valuable it is.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> One half of <a href="#e1">economics</a> (entry 1). The
+  things that are scarce are <a href="#e3">resources</a> (entry 3), and scarcity is the reason
+  <a href="#e5">opportunity cost</a> (entry 5) exists at all.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">2.1</span> Which is scarce: a rare coin nobody wants, or an
+    ordinary meeting room two teams both need on Tuesday?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>The meeting room.
+      Rarity is not the test — competing uses are. The coin is rare and nobody is competing for it; the
+      room is ordinary and two uses conflict.</p></div></details></div>
+    <div class="q"><p><span class="qn">2.2</span> Name a resource that is <em>not</em> scarce, and say
+    why.</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Any non-rival input: a
+      mathematical formula, a language, an open-source program, a published recipe. Using it does not
+      stop anyone else using it, so no use competes with another.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="g2"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e3">
+  <div class="entry-head"><span class="entry-num">03</span><h2>Resources (factors of production)</h2><span class="mark exam">★ Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span>
+    <p>A <b>resource</b> is anything that can be used to produce something else. Resources are
+    sometimes called <b>factors of production</b> and fall into four categories:</p>
+    <p><b>Land</b> — everything that comes from nature: timber, water, minerals, oil.<br>
+    <b>Labour</b> — the effort of workers.<br>
+    <b>Capital</b> — machinery, buildings and other manufactured goods used to make goods and services.<br>
+    <b>Entrepreneurship</b> — risk-taking, innovation, and organising the other three for production.</p>
+  </div>
+  <p class="reading">Textbook page 3.</p>
+
+  <p>Resources are <b>inputs</b>, not outputs. A cheeseburger is not a resource; the cook's labour, the
+  grill and the land the restaurant stands on are.</p>
+
+  <p><b>Capital</b> is the one people get wrong, because in ordinary English "capital" means money. In
+  economics, capital is <b>manufactured things used to make other things</b> — machines, buildings,
+  tools. Money is not capital. Money is what you buy capital with.</p>
+
+  <div class="watch"><p><b>Watch out.</b> When a business says "we need capital to expand", they mean
+  money. The capital is the ovens and vans the money would buy. Examiners test this exact
+  confusion.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">The review question.</span>
+    Time spent flipping hamburgers is <b>labour</b>; a bulldozer is <b>capital</b>; a river is
+    <b>land</b>. Those three are from your book's own Check Your Understanding.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">A bakery.</span> 6 staff, 2
+    ovens, 200 m² of floor space. Labour 6, capital 2, land 200 m². The recipe it uses is not a scarce
+    resource at all — see entry 2.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Four in a row.</span> A
+    delivery van is capital. A farmer's field is land. An accountant's afternoon is labour. Deciding to
+    launch a new drink is entrepreneurship.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> Resources are the things that are <a href="#e2">scarce</a>
+  (entry 2), and they are what an <a href="#e8">economy</a> (entry 8) coordinates. In Module 3 you will
+  draw a curve whose shape depends on them.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">3.1</span> Classify: a delivery van, a wheat field, an
+    accountant's afternoon, deciding to open a second branch.</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Van = capital. Field =
+      land. Afternoon = labour. Decision = entrepreneurship.</p></div></details></div>
+    <div class="q"><p><span class="qn">3.2</span> A firm says it needs capital and applies for a loan.
+    What is the capital?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Not the money. The
+      capital is the machinery, vehicles or premises the loan would pay for. The loan is finance; the
+      capital is what it buys.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="g3"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e4">
+  <div class="entry-head"><span class="entry-num">04</span><h2>Individual choice</h2><span class="mark exam">★ Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Individual choice is decisions by individuals
+  about <b>what to do</b>, which necessarily involve decisions about <b>what not to do</b>.</p></div>
+  <p class="reading">Textbook page 2.</p>
+
+  <p>The definition contains its own second half, and that half is the point: choosing to do one thing
+  <em>is</em> choosing not to do the others. That is what gives every choice a cost, and entry 5 is the
+  name of that cost.</p>
+
+  <p>Your exam framework says individuals <b>and societies</b> are forced to choose. In this course the
+  second half matters more — every macroeconomic policy question is a society choosing. A government
+  that funds a hospital has chosen not to fund the road that money would have built.</p>
+
+  <div class="watch"><p><b>Watch out.</b> "I haven't decided yet" is a decision. Not signing up
+  <em>is</em> the choice not to join, and it gives up exactly the same alternatives. Delay does not
+  remove a choice; it makes it for you.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">The definition itself.</span>
+    Your book writes "decisions about what to do, which necessarily involve decisions about what not to
+    do." The second clause is the content, not decoration.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Four hours, one club.</span>
+    You have 4 free hours and join a 3-hour club. You have simultaneously chosen not to spend those 3
+    hours on a shift, on revision, or on rest.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">A society
+    choosing.</span> A country with enough engineers for a railway or a flood barrier, not both. Funding
+    one is choosing against the other — and this is the version your exam asks about.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> The other half of <a href="#e1">economics</a> (entry 1),
+  and the reason <a href="#e5">opportunity cost</a> (entry 5) exists.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">4.1</span> You put off deciding whether to join a club until the
+    deadline passes. Did you make a choice?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Yes — the choice not to
+      join, with the same forgone alternatives as an explicit refusal. Not deciding is deciding by
+      default.</p></div></details></div>
+    <div class="q"><p><span class="qn">4.2</span> Why does the framework say "individuals <em>and
+    societies</em>"?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because scarcity forces
+      groups to choose exactly as it forces people to. A government with a fixed budget faces the same
+      structure as a student with a fixed afternoon — and in macroeconomics that is nearly always the
+      case being analysed.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="g4"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e5">
+  <div class="entry-head"><span class="entry-num">05</span><h2>Opportunity cost</h2><span class="mark exam">★ Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The real cost of an item is its <b>opportunity
+  cost</b>: what you must give up in order to get it.</p></div>
+  <p class="reading">Textbook pages 4–5.</p>
+
+  <p>This is the most important entry in the module and the only one your exam asks you to
+  <b>calculate</b>. Two rules do almost all the work.</p>
+
+  <p><b>Rule one: it is the single best alternative you gave up, not everything you gave up.</b> If you
+  could have worked, revised, or slept, and you choose to sleep, the opportunity cost is whichever of
+  work and revision was better — not both added together.</p>
+
+  <p><b>Rule two: it has two parts and students count only one.</b> <b>Explicit cost</b> is money you
+  actually hand over. <b>Implicit cost</b> is the value of the time or the thing you used up. Your
+  textbook's college example is built on it: tuition is explicit, the salary you did not earn for four
+  years is implicit, and the second is usually bigger.</p>
+
+  <div class="widget">
+    <p class="widget-title">Opportunity cost calculator</p>
+    <h3>Explicit + implicit — try changing one number at a time</h3>
+    <div class="chips" role="group" aria-label="Load a scenario">
+      <button type="button" class="chip" data-scen="ticket" aria-pressed="true">A "free" concert</button>
+      <button type="button" class="chip" data-scen="college">A year at college</button>
+      <button type="button" class="chip" data-scen="lebron">The LeBron case</button>
+    </div>
+    <div class="calc-grid">
+      <div class="field"><label for="inpMoney">Money you pay ($)</label>
+        <input type="number" id="inpMoney" value="6" min="0" step="1"></div>
+      <div class="field"><label for="inpHours">Hours it takes</label>
+        <input type="number" id="inpHours" value="4" min="0" step="1"></div>
+      <div class="field"><label for="inpWage">Your time is worth ($/hour)</label>
+        <input type="number" id="inpWage" value="18" min="0" step="1"></div>
+    </div>
+    <div class="readouts">
+      <div class="ro"><span class="k">Explicit cost</span><span class="v" id="outExp">$6</span></div>
+      <div class="ro"><span class="k">Implicit cost</span><span class="v" id="outImp">$72</span></div>
+      <div class="ro"><span class="k">Opportunity cost</span><span class="v hl" id="outTot">$78</span></div>
+    </div>
+    <p class="widget-note" id="ocNote">Set the money you pay to 0 and the total does not fall to zero.
+    That is what "free is not free" means.</p>
+  </div>
+
+  <div class="watch"><p><b>Watch out.</b> A cost you would pay <em>either way</em> is not part of the
+  opportunity cost of either option. If both jobs require the same $200 uniform, the uniform is
+  irrelevant to choosing between them.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Going to college.</span>
+    Tuition and books are explicit. The salary you did not earn for four years is implicit, and for most
+    people it is the larger number. For LeBron James it was so large that college was not worth
+    it.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">A free ticket.</span> A free
+    4-hour concert, $6 travel, and the alternative is a shift paying $18 an hour. Explicit $6, implicit
+    4 × 18 = $72, opportunity cost <b>$78</b>. The ticket was free; attending was not.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Changing jobs.</span>
+    Moving from a $45,000 job to a $50,000 one: the $45,000 you gave up <em>is</em> part of the cost,
+    the extra commuting time <em>is</em>, and the nicer office <em>is not</em> — that is a benefit of the
+    new job, not something you gave up.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It exists because of <a href="#e2">scarcity</a> (entry 2)
+  and <a href="#e4">choice</a> (entry 4). In Module 3 you will read it straight off a graph — the slope
+  of the curve <em>is</em> the opportunity cost.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">5.1</span> On Saturday you could work a shift worth $90, revise,
+    or see family. You rank the shift best and revision second, and you see family. What is the
+    opportunity cost?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>The shift — the single
+      best alternative you gave up. Not the shift plus the revision; you could only have done one of
+      them instead.</p></div></details></div>
+    <div class="q"><p><span class="qn">5.2</span> Two friends each pay $40 for the same concert. One
+    would otherwise have worked a $95 shift; the other would have watched television they value at $10.
+    Do they bear the same cost?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. Same explicit cost,
+      different implicit cost: $40 + $95 = <b>$135</b> against $40 + $10 = <b>$50</b>. Same price, very
+      different opportunity cost — which is why price never measures cost on its own.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="g5"> Got it</label>
+  </div>
+</article>
+
+<section class="section">
+  <div class="notinbook"><p><b>⚑ Topic 1.1 ends here; the rest of the module is Topics 1.2, 1.5
+  and 1.6.</b> Entries 1–5 are the scarcity block. What follows is the other half of Unit 1's opening:
+  marginal analysis (entries 6–7), the three economic systems (9–11), and the two ideas that make a
+  market work at all (12–13). Only entries 8, 14, 15, 16 and 17 are background — and even those are
+  worth one reading.</p></div>
+</section>
+
+<article class="entry" id="e6">
+  <div class="entry-head"><span class="entry-num">06</span><h2>Marginal benefit and marginal cost</h2><span class="mark exam">★ Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p><b>Marginal benefit</b> is the gain from doing
+  something <b>one more time</b>. <b>Marginal cost</b> is what that one extra time costs.</p></div>
+  <p class="reading">Textbook page 3. Topics 1.5 and 1.6.</p>
+
+  <p>"Marginal" means <em>one more</em>. Not the total, not the average — just the next one. It is one
+  of the most useful ideas in economics, and in <em>this</em> course it is everywhere.</p>
+
+  <div class="notinbook"><p><b>⚑ Where this pair goes.</b> Marginal benefit and marginal cost are not
+  background here. They are Topic 1.5 (cost-benefit analysis) and Topic 1.6 (marginal analysis and
+  consumer choice) in Unit 1, and they return as marginal revenue against marginal cost in Unit 3,
+  marginal revenue product in Unit 5, and marginal social benefit against marginal social cost in
+  Unit 6. Half of this course is one comparison, applied in four places.</p></div>
+
+  <div class="watch"><p><b>Watch out.</b> Costs that do not change when you do one more thing are not
+  marginal costs. A theatre's building is already paid for and does not change when one more ticket is
+  sold.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">The definition.</span> Your
+    book introduces it as the study of "doing a little bit more of an activity versus a little bit
+    less". Always the next unit, never the whole.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Pizza.</span> After three
+    slices the fourth gives less extra satisfaction than the third. If that fourth slice is worth 40 to
+    you and costs 45, it makes you worse off — even though pizza is a good thing.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">One more seat.</span> A
+    theatre with empty seats sells one more ticket for $12. Cleaning and printing cost $3. The $900
+    building bill does not change, so the sale adds $9.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> Different from <a href="#e5">opportunity cost</a>
+  (entry 5) — that is the whole sacrifice, this is the cost of one more. It feeds
+  <a href="#e7">marginal analysis</a> (entry 7).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">6.1</span> Is the theatre's rent part of the marginal cost of
+    selling one more ticket?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. The rent is paid
+      whether or not that seat sells, so it does not change with the extra ticket. Only costs that vary
+      with the extra unit count.</p></div></details></div>
+    <div class="q"><p><span class="qn">6.2</span> Why does marginal benefit usually fall as you do more
+    of something?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because the first units
+      satisfy the strongest wants. The fourth slice of pizza meets a much weaker need than the first, so
+      it adds less.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="g6"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e7">
+  <div class="entry-head"><span class="entry-num">07</span><h2>Marginal analysis</h2><span class="mark exam">★ Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The study of the costs and benefits of doing
+  <b>a little bit more</b> of an activity versus a little bit less.</p></div>
+  <p class="reading">Textbook page 3. Topic 1.6.</p>
+
+  <p>The rule is short: <b>keep going while marginal benefit is above marginal cost, and stop when it
+  is not.</b> The best point is where they are equal.</p>
+
+  <p>It is worth understanding because it is how economists think about any "how much?" question — and
+  it makes Unit 3's arithmetic feel natural when you get there. It is not worth revising for this
+  exam.</p>
+
+  <div class="watch"><p><b>Watch out.</b> "Do it while the benefit is positive" is the wrong rule. The
+  first unit almost always has a positive benefit, so that rule never stops. Compare the benefit with
+  the <em>cost of the same unit</em>.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">The framing.</span> "A little
+    bit more versus a little bit less" — the comparison is always at the edge, never between the
+    totals.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">40 against 45.</span> Marginal
+    benefit 40, marginal cost 45. Do not do that one: it makes you worse off by 5, even if the activity
+    overall is worthwhile.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Revision
+    sessions.</span> The first extra session helps a lot. The eighth helps barely at all and still costs
+    a teacher's evening. The right number is where the two meet.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> Built from <a href="#e6">marginal benefit and cost</a>
+  (entry 6), and it uses the same logic as <a href="#e5">opportunity cost</a> (entry 5) — every extra
+  unit gives something up.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">7.1</span> Marginal benefit is 40 and marginal cost is 45. Should
+    you do it?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. The cost of that
+      unit exceeds its benefit, so it reduces your net gain by 5 — regardless of how worthwhile the
+      activity is in general.</p></div></details></div>
+    <div class="q"><p><span class="qn">7.2</span> What is wrong with "keep going while the benefit is
+    positive"?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>It never stops. Benefit
+      is almost always positive; the question is whether it beats the cost of that same extra
+      unit.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="g7"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e8">
+  <div class="entry-head"><span class="entry-num">08</span><h2>Economy</h2><span class="mark bg">○ Background</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>An economy is a <b>system for coordinating</b>
+  a society's productive and consumptive activities.</p></div>
+  <p class="reading">Textbook page 2.</p>
+
+  <p>The word you need to separate from <b>economics</b>. Economics is the study; an economy is the
+  thing being studied. Japan has an economy; you study economics.</p>
+
+  <p>The quickest test is the article. "A market ___" and "Japan's ___" both need a countable noun, so
+  those are <b>economy</b>. "Studying ___" takes no article, so that is <b>economics</b>.</p>
+
+  <p>Every economy answers three questions: <b>what</b> to produce, <b>how</b> to produce it, and
+  <b>for whom</b>.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Mixing the two words up in a written answer reads as
+  carelessness even when the economics is right. It costs you nothing to get it right and it is a
+  two-second check.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">The emphasis.</span> Your
+    book's definition stresses <em>coordinating</em>. An economy is not the pile of goods; it is the
+    system that decides who makes them and who gets them.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">$20 trillion, nobody in
+    charge.</span> The U.S. economy coordinated roughly $20 trillion of production in a recent year
+    across millions of independent decisions with no one directing it.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">A household.</span> It
+    decides what gets cooked, who cooks it and who eats — the three questions in miniature. It is also
+    far too small to be a society, so do not push the analogy.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> Not the same word as <a href="#e1">economics</a>
+  (entry 1). It coordinates <a href="#e3">resources</a> (entry 3), and entries 9, 10 and 11 are three
+  ways of doing it.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">8.1</span> Fill in: "She studies ___ at university." and "Japan's
+    ___ grew last year."</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p><b>Economics</b> at
+      university; Japan's <b>economy</b> grew. Article test: "Japan's" needs a countable noun, "studies"
+      does not.</p></div></details></div>
+    <div class="q"><p><span class="qn">8.2</span> What are the three questions every economy answers?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>What to produce; how to
+      produce it; for whom — who ends up consuming it.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="g8"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e9">
+  <div class="entry-head"><span class="entry-num">09</span><h2>Market economy</h2><span class="mark exam">★ Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>In a market economy, the decisions of
+  <b>individual producers and consumers</b> largely determine what, how and for whom to produce, with
+  little government involvement in those decisions.</p></div>
+  <p class="reading">Textbook page 2. Topic 1.2, MKT-1.B.2.</p>
+
+  <p>Nobody is in charge, and that is the point. Coordination happens through <b>prices</b>: a high
+  price says something is wanted and rewards whoever supplies it, so producers move toward it without
+  being told.</p>
+
+  <div class="watch"><p><b>Watch out.</b> "Market economy" does not mean "no government." The definition
+  says <em>little government involvement in the decisions</em> about what, how and for whom. Taxes and
+  regulations do not disqualify a country from the label.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Prices and profits.</span>
+    High prices and profits lead producers to make more of the most-needed goods, because whoever
+    produces them keeps the profit.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">$2 to $5.</span> A shortage
+    pushes a price from $2 to $5. No authority ordered the rise, and no authority ordered the extra
+    production that follows. The $3 is the whole message.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Who finds the cheapest
+    method?</span> The producers do, each one looking for it — because whatever they save, they
+    keep.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> One way to run an <a href="#e8">economy</a> (entry 8), the
+  opposite of a <a href="#e10">command economy</a> (entry 10). It works through
+  <a href="#e12">incentives</a> (entry 12).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">9.1</span> A shortage of a good ends without anyone ordering more
+    production. How?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>The price rises. That
+      rations the existing supply and simultaneously rewards anyone who produces more, so producers move
+      toward the good because they gain by it.</p></div></details></div>
+    <div class="q"><p><span class="qn">9.2</span> Can a country with high taxes still be a market
+    economy?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Yes. What matters is
+      that firms and consumers are the ones deciding what gets produced and bought. Taxes and regulation
+      do not settle the question.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="g9"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e10">
+  <div class="entry-head"><span class="entry-num">10</span><h2>Command economy</h2><span class="mark exam">★ Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>In a command economy, industry is <b>publicly
+  owned</b> and a <b>central authority</b> makes the production and consumption decisions.</p></div>
+  <p class="reading">Textbook pages 2–3. Topic 1.2, MKT-1.B.2.</p>
+
+  <p>Two conditions, and you need both. Public ownership alone is not a command economy, and central
+  planning alone is not either.</p>
+
+  <p>Your textbook's explanation of why they work badly is an incentive argument, and it is the useful
+  part: Soviet producers "had little incentive to produce what consumers wanted", so shortages persisted
+  and queues formed. Nobody gained anything by noticing a shortage and fixing it.</p>
+
+  <div class="watch"><p><b>Watch out.</b> A country with public healthcare and private industry is not a
+  command economy. Industry is not publicly owned, and firms still decide what to make.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">The Soviet Union,
+    1917–1991.</span> Command economies, your book notes, "are famous for long lines at shops."</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">10 million against 14.</span>
+    A plan sets shoe output at 10 million pairs; demand turns out to be 14 million. In a market the price
+    rises and output follows. Under the plan the gap stays until the next plan is written.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">A school canteen.</span>
+    One administrator fixes the menu, the quantities and the price for the year. Queues and waste both
+    follow, from the same cause.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> The other way to run an <a href="#e8">economy</a>
+  (entry 8), opposite to a <a href="#e9">market economy</a> (entry 9).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">10.1</span> What two things must be true for a command
+    economy?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Industry is publicly
+      owned, <b>and</b> a central authority makes the production and consumption decisions. Both, at the
+      same time.</p></div></details></div>
+    <div class="q"><p><span class="qn">10.2</span> Why do shortages persist in a command economy?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because nobody gains
+      from noticing one and producing more. Without that reward, a shortage carries no signal that
+      anyone has a reason to act on.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="g10"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e11">
+  <div class="entry-head"><span class="entry-num">11</span><h2>Mixed economy</h2><span class="mark exam">★ Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>An economy in which <b>both markets and
+  government</b> make resource allocation decisions — which is what every real economy is.</p></div>
+  <p class="reading">Not in your textbook. Topic 1.2, MKT-1.B.2.</p>
+
+  <div class="notinbook"><p><b>⚑ Required, and not in your book.</b> This is the one term in Module 1
+  your framework demands and your textbook never defines. <b>MKT-1.B.2</b> reads: "Resource allocation
+  is significantly influenced by the economic system adopted by society, such as command economy,
+  market economy, or mixed economy. Each system involves a particular set of institutional arrangements
+  and a coordinating mechanism for allocating scarce resources and distributing output."</p>
+  <p style="margin-top:8px">All three are named. Krugman defines two. Learn the third from this
+  entry — it is the only gap in the module you cannot close by reading the book more
+  carefully.</p></div>
+
+  <p>Pure market and pure command economies are extremes that help you think. Every real country sits
+  between them, and the interesting question about any of them is which decisions are <em>not</em> left
+  to the market.</p>
+
+  <div class="watch"><p><b>Watch out.</b> "Mixed" is not a third type sitting alongside the other two.
+  It is the whole region between them — and essentially everything real is in it.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">This course</span><p><span class="who">Every Unit 6
+    topic.</span> Price ceilings, taxes, antitrust, pollution charges, public goods — every intervention
+    you will study is a government making an allocation decision inside a market economy. That is what
+    a mixed economy is, and Unit 6 is nine weeks of examples.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">35–45%.</span> Government
+    spending is roughly 35–45% of GDP across most developed economies. Neither extreme describes
+    that.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">A typical
+    country.</span> Firms set prices and choose products; the state runs schools, roads and courts and
+    taxes to pay for them. Markets make most decisions, government makes some.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> What every real <a href="#e8">economy</a> (entry 8) is,
+  sitting between a <a href="#e9">market economy</a> (entry 9) and a
+  <a href="#e10">command economy</a> (entry 10).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">11.1</span> Why study pure market and pure command economies if
+    no country is either?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because they are
+      limiting cases. Comparing a real country to a pure market shows you exactly which decisions are
+      <em>not</em> being made by the market — and that is the interesting part.</p></div></details></div>
+    <div class="q"><p><span class="qn">11.2</span> Which of the three economic systems does your
+  textbook not define, and why must you learn it anyway?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>The mixed economy.
+      MKT-1.B.2 names all three systems, so it is examinable; Krugman defines only market and command.
+      This is a gap between the book and the framework, and you close it here.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="g11"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e12">
+  <div class="entry-head"><span class="entry-num">12</span><h2>Incentives</h2><span class="mark exam">★ Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Incentives are <b>rewards or punishments</b>
+  that motivate particular choices.</p></div>
+  <p class="reading">Textbook pages 2–3. Topic 2.1, MKT-3.A.2.</p>
+
+  <p>An incentive changes what you <b>gain</b> from doing something, which is why it changes behaviour
+  when information and appeals do not. Your textbook's example is exact: asking people to pollute less
+  voluntarily probably will not work, while charging them for polluting is more likely to.</p>
+
+  <div class="notinbook"><p><b>⚑ This is an examinable idea, not a preamble.</b> <b>MKT-3.A.2</b>
+  states flatly that "Economic agents respond to incentives", and <b>MKT-3.A.3</b> adds that they
+  respond "to incentives, such as those presented by prices, but also face constraints, such as income,
+  time, and legal and regulatory frameworks." That pair <em>is</em> the law of demand, three weeks from
+  now. Every shift you draw in Unit 2 is an incentive changing.</p></div>
+
+  <div class="watch"><p><b>Watch out.</b> An incentive is not the same as information. Telling people
+  recycling helps changes what they <em>know</em>. Charging for unsorted waste changes what they
+  <em>gain</em>. Only the second is an incentive.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Pollution.</span> Economists
+    are "skeptical of any attempt to change behaviour that doesn't change incentives" — a voluntary
+    appeal against a financial one.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">The Unit 2 version.</span>
+    A $2 tax per unit raises the price a buyer pays from $8 to $9.50. Nothing about the good changed
+    and nobody was persuaded of anything; the payoff changed by $1.50, and quantity demanded falls.
+    That is the whole mechanism of Topic 2.8.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">A tidy classroom.</span>
+    A class that gets a free period when the room is left tidy will tidy the room. A poster asking them
+    to tidy the room changes information, not payoff.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> Prices work by being incentives, which is how a
+  <a href="#e9">market economy</a> (entry 9) coordinates. Most incentives exist because of
+  <a href="#e13">property rights</a> (entry 13).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">12.1</span> A city wants less food waste. Leaflets about the
+    environment, or $2 per bag of unsorted waste — which works better, and why?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>The charge. It changes
+      what a household gains by sorting; the leaflet only changes what it knows. Changing the payoff is
+      what changes behaviour.</p></div></details></div>
+    <div class="q"><p><span class="qn">12.2</span> Give an example of a punishment used as an
+    incentive.</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>A fine, a late fee, a
+      lost deposit, losing a licence — any penalty attached to a specific action. Incentives run in both
+      directions.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="g12"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e13">
+  <div class="entry-head"><span class="entry-num">13</span><h2>Property rights</h2><span class="mark exam">★ Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Property rights establish <b>ownership</b> and
+  grant individuals the <b>right to trade</b> goods and services with one another.</p></div>
+  <p class="reading">Textbook page 3. Topic 2.1, MKT-3.A.1; Topic 6.2, POL-3.A.2.</p>
+
+  <div class="notinbook"><p><b>⚑ This term carries two units.</b> <b>MKT-3.A.1</b> opens the whole of
+  Unit 2 with it: "A well-defined system of property rights is necessary for the market system to
+  function well." And <b>POL-3.A.2</b> closes the course with the other side of it — externalities
+  "arise from lack of well-defined property rights and/or high transaction costs." The litter in the
+  park below is not an aside. It is Unit 6.</p></div>
+
+  <p>Ownership decides <b>who bears the consequences</b> of a decision, and that is what makes
+  incentives work at all. An owner who plans to harvest the same forest in twenty years loses money by
+  clear-cutting it now, so they replant. Nobody owns the litter in a public park, so nobody bears the
+  cost of the mess.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Property rights are not only about possession. The right to
+  <b>trade</b> is half the definition, and it is the half that makes a market possible.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">The pairing.</span> Your book
+    puts property rights and incentives together: ownership is what "creates many of the incentives" in
+    a market economy.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Twenty years.</span> An owner
+    who can sell timber in twenty years harvests gradually and replants. On open-access land, whoever
+    leaves a tree standing gains nothing by it — so nobody does.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Two gardens.</span>
+    Litter in a public park and litter in your own garden. The mess is identical; who pays for it is
+    not.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> Ownership is what makes an <a href="#e12">incentive</a>
+  (entry 12) stick, which is how a <a href="#e9">market economy</a> (entry 9) coordinates at all.
+  Where rights are missing, Unit 6 calls the result an externality.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">13.1</span> Why does a forest owner replant when an open-access
+    forest gets cleared?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>The owner bears the
+      future cost of an empty forest, so avoids it. On open land nobody bears that cost, so no one has a
+      reason to leave a tree standing.</p></div></details></div>
+    <div class="q"><p><span class="qn">13.2</span> Which half of the definition makes trade possible?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>The right to trade.
+      Owning something you may not sell or exchange does not create a market.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="g13"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e14">
+  <div class="entry-head"><span class="entry-num">14</span><h2>Microeconomics and macroeconomics</h2><span class="mark bg">○ But read this one</span></div>
+  <div class="defn"><span class="lbl">Definitions</span>
+    <p><b>Microeconomics</b> is the study of how people make decisions and how those decisions interact.</p>
+    <p><b>Macroeconomics</b> is concerned with the overall ups and downs in the economy.</p>
+  </div>
+  <p class="reading">Textbook page 5, with Table 1.1.</p>
+
+  <p>No exam question will ask you to define these. Read the entry anyway — it tells you which column
+  of Table 1.1 this course lives in, and it is the left one.</p>
+
+  <p>Everything you study this year is on the micro side: one buyer, one firm, one market, one factor.
+  Table 1.1 on page 5 lays the pairs out, and the useful exercise is to read only the left-hand
+  column — how many people work <em>at this firm</em>, whether <em>this</em> price rose. Those are the
+  questions you will be answering in June.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Do not carry a micro result up to the whole economy. One
+  farmer with a bumper crop earns more; every farmer with a bumper crop can earn less, because the price
+  falls. The reasoning that is correct for one market is not automatically correct for all of them at
+  once — which is why macroeconomics is a separate course.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Table 1.1.</span> Each row
+    puts a micro question beside its macro counterpart. It is the clearest half-page in the
+    module.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">The review question.</span>
+    Your book asks which question is studied in microeconomics. "Should I go to college or get a job?"
+    is micro — one person, one decision, and it is an opportunity-cost problem of exactly the kind
+    Topic 1.1 asks you to solve. The other four options in that question belong to the other
+    course.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Standing at a
+    concert.</span> One person standing sees better. Everyone standing sees the same as before and is
+    less comfortable. What works for one need not work for all.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> Macroeconomics works with
+  <a href="#e15">economic aggregates</a> (entry 15) — that is what makes it macro, and what this course
+  does not do.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">14.1</span> Which of these is a macro question? (a) Should I buy
+    this car? (b) Has the overall price level risen this year? (c) Why does this café charge more than
+    that one?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>(b). "Overall" is the
+      giveaway — it is a question about the whole economy. The other two are about one person and one
+      market.</p></div></details></div>
+    <div class="q"><p><span class="qn">14.2</span> Give an example where what is true for one person is
+    not true for everyone at once.</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>A bumper harvest: one
+      farmer with a big crop sells more and earns more; every farmer with a big crop pushes the price
+      down and they can all earn less. Standing at a concert works as well.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="g14"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e15">
+  <div class="entry-head"><span class="entry-num">15</span><h2>Economic aggregates</h2><span class="mark bg">○ Background</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Economic measures that <b>summarise data
+  across many different markets</b>.</p></div>
+  <p class="reading">Textbook page 5.</p>
+
+  <p>An aggregate is many markets added into one number: aggregate output, aggregate demand, the
+  aggregate price level. The word does not appear once in the AP Microeconomics framework, and you will
+  not be asked for it. It is here because it is the cleanest way to see what this course is
+  <em>not</em> doing.</p>
+
+  <p>What is worth a minute now is what aggregation <b>hides</b>. One national price index can be
+  steady while some prices double and others halve. Microeconomics is the study of those individual
+  prices — the ones the aggregate averages away — which is why we never aggregate in this
+  course.</p>
+
+  <div class="watch"><p><b>Watch out.</b> An average may describe nobody. Output per person is a number
+  divided by a population, not a description of how any particular person lives.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">The definition.</span>
+    "Summarize data across many different markets" — the word <em>summarize</em> is doing the
+    work.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">+2% overall.</span> Rents
+    rise 12% and electronics fall 8%. A single index of <b>+2%</b> describes neither market, and the two
+    stories it hides are exactly the two a microeconomist would want to explain.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">One average
+    grade.</span> A school reporting a single average across every subject. Useful for a trend, useless
+    for deciding which department needs help.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> Aggregates are what makes
+  <a href="#e14">macroeconomics</a> (entry 14) macro. Every model in <em>this</em> course runs on a
+  single market instead.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">15.1</span> A price index rises 2% while rents rise 12% and
+    electronics fall 8%. What does the index hide, and why does it matter here?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>It hides two opposite
+      movements in two separate markets. It matters because those two markets are what this course
+      studies — the aggregate averages away precisely the thing microeconomics is about.</p></div></details></div>
+    <div class="q"><p><span class="qn">15.2</span> Name an aggregate you already know.</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>The unemployment rate,
+      the inflation rate, GDP, the overall price level — any single number summarising many markets at
+      once. None of them is examined in this course.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="g15"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e16">
+  <div class="entry-head"><span class="entry-num">16</span><h2>Positive and normative economics</h2><span class="mark bg">○ Background</span></div>
+  <div class="defn"><span class="lbl">Definitions</span>
+    <p><b>Positive economics</b> describes the way the economy <b>actually works</b>.</p>
+    <p><b>Normative economics</b> makes prescriptions about the way the economy <b>should work</b>.</p>
+  </div>
+  <p class="reading">Textbook pages 6–8. Not assessed in either AP economics course.</p>
+
+  <p>Positive statements have right answers, at least in principle. Normative statements turn on values.
+  "The price of gasoline is rising" is positive. "The price of gasoline is too high" is normative, and
+  no amount of data settles it.</p>
+
+  <p>Worth knowing so you can tell what economists are and are not claiming. Not worth revising.</p>
+
+  <div class="watch"><p><b>Watch out.</b> A forecast is positive, not normative. "Gas prices are
+  expected to fall" is a claim about what will happen — it will turn out right or wrong. Uncertainty is
+  not the same as opinion.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Describing against
+    prescribing.</span> Your book's contrast is exactly this: how the economy works against how it should
+    work.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Three statements.</span>
+    "Prices are rising" — positive. "Prices are too high" — normative. "Prices are expected to fall" —
+    positive. Only the middle one turns on values.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Two economists.</span>
+    Both agree a carbon tax would cut emissions 8% and manufacturing jobs 1%. One supports it, one
+    opposes it. They agree on the positive question and disagree on the normative one, and no extra data
+    will settle it.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> <a href="#e17">Models</a> (entry 17) are the tool for
+  answering positive questions. They cannot answer normative ones.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">16.1</span> Positive or normative: "Raising the minimum wage
+    reduces youth employment by 2%"?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Positive. It is a claim
+      about what happens, and evidence can support or refute it — whether or not anyone currently knows
+      the answer.</p></div></details></div>
+    <div class="q"><p><span class="qn">16.2</span> Two economists agree on all the numbers and still
+    disagree about a policy. Has one made a mistake?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. They agree on the
+      positive question and differ on the normative one — how to weigh the gains against the losses.
+      That is a question about values, not arithmetic.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="g16"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e17">
+  <div class="entry-head"><span class="entry-num">17</span><h2>Economic model</h2><span class="mark bg">○ But read this one</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A <b>simplified representation</b> of reality,
+  such as a graph or an equation, used to understand a real situation.</p></div>
+  <p class="reading">Textbook pages 6–8.</p>
+
+  <p>No exam question will ask you what a model is. Read this anyway, because <b>Units 3 to 6 are made
+  almost entirely of models</b> — aggregate demand and supply, the money market, loanable funds, the
+  Phillips curve, the foreign exchange market. You will be drawing and shifting them for the rest of the
+  year.</p>
+
+  <p>A model deliberately leaves things out. That is not a flaw; it is the method. The question to ask
+  is never "is this realistic?" It is "does it keep the things that matter for the question I am
+  asking?"</p>
+
+  <div class="watch"><p><b>Watch out.</b> Do not throw a model out because one assumption is
+  unrealistic. Every assumption is unrealistic — that is what makes it an assumption. Ask whether it
+  changes the answer.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">The wind tunnel.</span> The
+    Wright brothers built one a year after their first glider flight. Testing a wing in a box of moving
+    air is cheaper and safer than building an aircraft and hoping.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Module 3.</span> The curve you
+    draw in two modules' time assumes an economy producing exactly two goods. None does — and that
+    assumption is what turns a trade-off into a line with a measurable slope.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">This course.</span> The
+    supply-and-demand diagram represents every buyer and every seller of a good with two lines. It is
+    absurd as a description, and it is how you will answer most of Units 2 to 6.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> Models answer <a href="#e16">positive</a> questions
+  (entry 16), not normative ones.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">17.1</span> Why is a wind tunnel a good description of what an
+    economic model does?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>It reproduces the one
+      force you care about — air over a wing — and leaves out everything else about flying. Cheap, safe,
+      and you can change one thing at a time.</p></div></details></div>
+    <div class="q"><p><span class="qn">17.2</span> A classmate says the supply-and-demand model is
+  useless because no market has only two curves. What do you say?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>That the simplification
+      is the point. The question is not whether it looks like a real market but whether leaving things
+      out changes the answer to the question being asked. Usually it does not.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="g17"> Got it</label>
+  </div>
+</article>
+
+<!-- ============ QUIZ ============ -->
+<section class="section" id="quiz">
+  <h2>Tackle the test — multiple choice</h2>
+  <p>The five questions from your textbook's Module 1 AP Review. Click an option to see why it is right
+  or wrong; every option is explained. <b>Four of the five test material your AP Microeconomics exam
+  does assess</b> — the exception is labelled, and it is still worth thinking about.</p>
+
+  <div class="widget">
+    <div class="mcq" data-key="D">
+      <p class="stem"><span class="qn">1</span> Which of the following is an example of a resource?
+      I. petroleum · II. a factory · III. a cheeseburger dinner</p>
+      <div class="opts">
+        <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>I only<span class="why" hidden>✗ Petroleum is a resource — it comes from nature, so it is land. But a factory is a resource too.</span></span></button>
+        <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>II only<span class="why" hidden>✗ A factory is capital, so it is a resource. So is petroleum.</span></span></button>
+        <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>III only<span class="why" hidden>✗ Exactly backwards. A cheeseburger dinner is the only one that is <i>not</i> a resource — it is output, something produced, not something you produce with.</span></span></button>
+        <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>I and II only<span class="why" hidden>✓ Correct. Petroleum is land, a factory is capital. The dinner is output, not an input.</span></span></button>
+        <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>I, II, and III<span class="why" hidden>✗ Catches students who think anything economically valuable is a resource. Resources are inputs; a finished meal is what inputs produced.</span></span></button>
+      </div>
+    </div>
+
+    <div class="mcq" data-key="D">
+      <p class="stem"><span class="qn">2</span> Which situation(s) represent resource scarcity?
+      I. Rapidly growing economies experience increasing water pollution · II. There is a finite amount
+      of petroleum in the environment · III. Cassette tapes are no longer produced</p>
+      <div class="opts">
+        <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>I only<span class="why" hidden>✗ I does show scarcity — clean water has competing uses — but so does II.</span></span></button>
+        <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>II only<span class="why" hidden>✗ II is scarcity, but pollution in I shows clean water becoming scarce as uses compete for it.</span></span></button>
+        <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>III only<span class="why" hidden>✗ Cassettes stopped being made because nobody wants them. No competing uses means no scarcity — this is "rare but not scarce".</span></span></button>
+        <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>I and II only<span class="why" hidden>✓ Correct. Growth makes clean air and water scarce because uses compete; petroleum is finite and wanted. Cassettes are neither.</span></span></button>
+        <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>I, II, and III<span class="why" hidden>✗ Adds the cassette case, which is the trap. Something disappearing because demand vanished is the opposite of scarcity.</span></span></button>
+      </div>
+    </div>
+
+    <div class="mcq" data-key="A">
+      <p class="stem"><span class="qn">3</span> You spend an hour reading a book. Which of the following
+      is the opportunity cost, if you would otherwise have watched TV <em>and</em> listened to music —
+      but you would rather have watched TV?</p>
+      <div class="opts">
+        <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>watching TV<span class="why" hidden>✓ Correct. Opportunity cost is the single best alternative forgone. You preferred TV, so TV is the cost.</span></span></button>
+        <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>watching TV and listening to music<span class="why" hidden>✗ The commonest error: adding everything given up. You could only have done one of them in that hour.</span></span></button>
+        <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>listening to music<span class="why" hidden>✗ The second-best alternative, not the best. If TV was preferred, TV is what you gave up.</span></span></button>
+        <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>sleeping<span class="why" hidden>✗ Not among the alternatives you were considering, so it is not what you gave up.</span></span></button>
+        <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>the price of the book<span class="why" hidden>✗ The price is an explicit cost of <i>buying</i> the book, not of spending the hour reading it. The question asks about the hour.</span></span></button>
+      </div>
+    </div>
+
+    <div class="mcq" data-key="B">
+      <p class="stem"><span class="qn">4</span> Which of the following statements is/are normative?
+      I. The price of gasoline is rising · II. The price of gasoline is too high · III. Gas prices are
+      expected to fall soon<span class="offsyl">not on the micro exam either</span></p>
+      <div class="opts">
+        <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>I only<span class="why" hidden>✗ "Prices are rising" is a description that data can check. Positive.</span></span></button>
+        <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>II only<span class="why" hidden>✓ Correct. "Too high" is a judgement about what prices ought to be — no data settles it. The other two are claims about what is or will be.</span></span></button>
+        <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>III only<span class="why" hidden>✗ A forecast is positive. It will turn out right or wrong, which is exactly what makes it positive.</span></span></button>
+        <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>I and III only<span class="why" hidden>✗ Both of these are positive; the normative one is the one this option leaves out.</span></span></button>
+        <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>I, II, and III<span class="why" hidden>✗ Treats every statement about a contested topic as normative. The test is whether evidence could settle it.</span></span></button>
+      </div>
+    </div>
+
+    <div class="mcq" data-key="A">
+      <p class="stem"><span class="qn">5</span> Which of the following questions is studied in
+      microeconomics?<span class="offsyl">not examined — but it describes your whole course</span></p>
+      <div class="opts">
+        <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>Should I go to college or get a job after I graduate?<span class="why" hidden>✓ Correct. One person, one decision — microeconomics, and an opportunity-cost problem: the cost of college is the wage forgone. Every wrong answer here is a macro question, which is to say, not this course.</span></span></button>
+        <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>What government policies should be adopted to promote employment in the economy?<span class="why" hidden>✗ Macro. "In the economy" is the giveaway — the whole labour force at once, not one firm's hiring decision. Unit 5 asks the micro version: how many workers does <em>this</em> firm hire?</span></span></button>
+        <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>How many people are employed in the economy this year?<span class="why" hidden>✗ Macro. The unemployment rate is an aggregate (entry 15) and is not assessed in AP Microeconomics at all.</span></span></button>
+        <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>Has the overall level of prices in the economy increased or decreased this year?<span class="why" hidden>✗ Macro. "Overall level of prices" is inflation. This course studies <em>one</em> price at a time.</span></span></button>
+        <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>Is the economy growing faster this decade than last?<span class="why" hidden>✗ Macro. Economic growth is a whole-economy question; the closest thing here is the outward shift of a production possibilities curve in Topic 1.3.</span></span></button>
+      </div>
+    </div>
+
+    <div class="score">
+      <span>First-click score across all 5 questions</span>
+      <b id="scoreOut">0 / 5</b>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Tackle the test — free response</h2>
+  <p>Write a full answer before you reveal the rubric. Points go to specific statements, so practise
+  producing those statements rather than a general discussion.</p>
+
+  <div class="frq">
+    <p class="stem"><b>1.</b> Define resources. List the four categories of resources. Name the
+    characteristic of resources that forces individuals and societies to make choices.</p>
+    <p class="pts">6 points, as printed in your textbook</p>
+    <details class="reveal"><summary>Show the rubric</summary><div class="ans">
+      <ul class="rubric">
+        <li><span class="pt">1 pt</span><span>Resources are anything that can be used to produce something else.</span></li>
+        <li><span class="pt">1 pt</span><span>Land.</span></li>
+        <li><span class="pt">1 pt</span><span>Labour.</span></li>
+        <li><span class="pt">1 pt</span><span>Capital.</span></li>
+        <li><span class="pt">1 pt</span><span>Entrepreneurship.</span></li>
+        <li><span class="pt">1 pt</span><span>Scarcity — there is not enough to satisfy all the ways society wants to use them.</span></li>
+      </ul>
+      <p style="margin-top:10px"><b>One caution.</b> This is your textbook's rubric, not an AP
+      Microeconomics one. <b>MKT-1.A.2</b> names only <em>land, labor and capital</em> — the word
+      entrepreneurship does not occur anywhere in the framework. Learn all four, because it is standard
+      economics and your book asks for it, but the three the framework names are the three to be sure
+      of. The point that <em>would</em> be marked either way is the last one: scarcity is what forces
+      the choice.</p>
+    </div></details>
+  </div>
+
+  <div class="frq">
+    <p class="stem"><b>2.</b> A student says: "The government spent nothing on flood defences this year,
+    so the flood defences cost nothing." Explain why this is wrong, using the idea of opportunity cost.</p>
+    <p class="pts">3 points · written for this guide</p>
+    <details class="reveal"><summary>Show the rubric</summary><div class="ans">
+      <ul class="rubric">
+        <li><span class="pt">1 pt</span><span>Opportunity cost is what must be given up in order to get something.</span></li>
+        <li><span class="pt">1 pt</span><span>Resources — here, engineers or budget — are scarce, so using them on one project means they are unavailable for another.</span></li>
+        <li><span class="pt">1 pt</span><span>The cost of the project that <em>was</em> funded is the flood-defence programme forgone; cost is what is given up, not what is paid out.</span></li>
+      </ul>
+      <p style="margin-top:10px">Written for this guide rather than taken from the book, because
+      opportunity cost is the idea this module is built on — and Topic 1.1 tests it on societies as well
+      as on individuals.</p>
+    </div></details>
+  </div>
+</section>
+
+<!-- ============ SUMMARY ============ -->
+<section class="section">
+  <h2>One-page summary</h2>
+  <div class="tablewrap">
+    <table class="tight">
+      <thead><tr><th>#</th><th>Term</th><th></th><th>In one line</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Economics</td><td>★</td><td>The study of scarcity and choice</td></tr>
+        <tr><td>2</td><td>Scarcity</td><td>★</td><td>Not enough to satisfy all the competing uses — and <em>most</em>, not all, resources are scarce</td></tr>
+        <tr><td>3</td><td>Resources</td><td>★</td><td>Inputs: land, labour, capital, entrepreneurship. Money is not capital</td></tr>
+        <tr><td>4</td><td>Individual choice</td><td>★</td><td>Deciding what to do is deciding what not to do — for societies too</td></tr>
+        <tr><td>5</td><td>Opportunity cost</td><td>★</td><td>The single best alternative given up: explicit money plus implicit time</td></tr>
+        <tr><td>6</td><td>Marginal benefit / cost</td><td>★</td><td>The gain / the cost of one more — Topics 1.5 and 1.6</td></tr>
+        <tr><td>7</td><td>Marginal analysis</td><td>★</td><td>Keep going while MB &gt; MC — the method of Units 3 to 6</td></tr>
+        <tr><td>8</td><td>Economy</td><td>○</td><td>A system coordinating production and consumption</td></tr>
+        <tr><td>9</td><td>Market economy</td><td>★</td><td>Individuals decide, prices coordinate</td></tr>
+        <tr><td>10</td><td>Command economy</td><td>★</td><td>State owns industry <em>and</em> a central authority decides</td></tr>
+        <tr><td>11</td><td>Mixed economy</td><td>★</td><td>Both markets and government decide — named by MKT-1.B.2, defined nowhere in your book</td></tr>
+        <tr><td>12</td><td>Incentives</td><td>★</td><td>Rewards or punishments that change what you gain — MKT-3.A.2, Unit 2</td></tr>
+        <tr><td>13</td><td>Property rights</td><td>★</td><td>Ownership plus the right to trade — MKT-3.A.1 in Unit 2, POL-3.A.2 in Unit 6</td></tr>
+        <tr><td>14</td><td>Micro / macroeconomics</td><td>○</td><td>Individuals and firms / the whole economy — this course is the first</td></tr>
+        <tr><td>15</td><td>Economic aggregates</td><td>○</td><td>One number summarising many markets — the thing this course never does</td></tr>
+        <tr><td>16</td><td>Positive / normative</td><td>○</td><td>Description (has a right answer) / prescription (turns on values)</td></tr>
+        <tr><td>17</td><td>Economic model</td><td>○</td><td>A deliberate simplification — every diagram you will draw</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-family:var(--mono);font-size:12.5px;color:var(--ink-3)">★ exam term · ○ background,
+  not named in the AP Microeconomics framework</p>
+
+  <div class="closing">
+    <h2>The five things to get right from Module 1</h2>
+    <ol>
+      <li><b>Scarcity means competing uses</b> — not rare, not running out. And <b>most</b> resources
+      are scarce, not all: non-rival things like knowledge are the exception.</li>
+      <li><b>Opportunity cost is the single best alternative given up</b>, and it includes your time.
+      This is the one idea here your exam asks you to calculate.</li>
+      <li><b>Money is not capital.</b> Capital is manufactured things used to produce other things.</li>
+      <li><b>Choosing is refusing</b>, for governments as much as for people. "We didn't spend anything
+      on it" does not mean it cost nothing.</li>
+      <li><b>Mixed economy is the one term your book does not define</b> and your framework does
+      name. Entry 11 is the only place you will meet it — do not skip it because it is missing from the
+      reading.</li>
+    </ol>
+  </div>
+</section>
+
+<p class="footer">
+  Student guide · Module 1, <i>Krugman's Economics for AP</i>, pages 2–9 · definitions quoted from the
+  textbook · tiers assigned against the AP Microeconomics Course and Exam Description, Course Framework
+  V.1, © 2022 · the non-rival exception, the MKT-1.B.2 mixed-economy entry and the free-response rubric
+  for question 2 added for this guide · all figures recomputed.
+</p>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var KEY="micro-mod1-progress";
+  var boxes=[].slice.call(document.querySelectorAll(".gotbox"));
+  var fill=document.getElementById("pfill"), num=document.getElementById("pnum");
+  function load(){ try{ return JSON.parse(localStorage.getItem(KEY)||"{}")||{}; }catch(e){ return {}; } }
+  function save(o){ try{ localStorage.setItem(KEY,JSON.stringify(o)); }catch(e){} }
+  function paint(){
+    var d=boxes.filter(function(b){return b.checked;}).length;
+    fill.style.width=(d/boxes.length*100)+"%";
+    num.textContent=d+" / "+boxes.length;
+  }
+  var st=load();
+  boxes.forEach(function(b){
+    if(st[b.id]) b.checked=true;
+    b.addEventListener("change",function(){ var s=load(); s[b.id]=b.checked; save(s); paint(); });
+  });
+  paint();
+  document.getElementById("resetBtn").addEventListener("click",function(){
+    boxes.forEach(function(b){ b.checked=false; }); save({}); paint();
+  });
+
+  /* ---------- resource classifier ---------- */
+  var CATS=[["land","Land"],["labour","Labour"],["capital","Capital"],
+            ["entrepreneurship","Entrepreneurship"],["none","Not a resource"]];
+  var items=[].slice.call(document.querySelectorAll("#sorter .item"));
+  var sortNote=document.getElementById("sortNote");
+  var got=0;
+  items.forEach(function(it){
+    var wrap=document.createElement("span"); wrap.className="opts";
+    CATS.forEach(function(c){
+      var b=document.createElement("button");
+      b.type="button"; b.textContent=c[1]; b.dataset.cat=c[0];
+      wrap.appendChild(b);
+    });
+    it.appendChild(wrap);
+    var fb=document.createElement("p"); fb.className="fb"; fb.hidden=true;
+    it.appendChild(fb);
+    var done=false;
+    wrap.addEventListener("click",function(e){
+      var b=e.target.closest("button"); if(!b) return;
+      var right=b.dataset.cat===it.dataset.answer;
+      b.dataset.state=right?"right":"wrong";
+      if(right){
+        [].slice.call(wrap.querySelectorAll("button")).forEach(function(o){ o.disabled=true; });
+        fb.innerHTML="<b>"+b.textContent+".</b> "+it.dataset.why;
+        fb.hidden=false;
+        if(!done){ done=true; got++;
+          sortNote.textContent=got===items.length
+            ? "All eight. Entry 3 will take you two minutes."
+            : got+" of "+items.length+" sorted.";
+        }
+      }
+    });
+  });
+
+  /* ---------- opportunity cost calculator ---------- */
+  var M=document.getElementById("inpMoney"), H=document.getElementById("inpHours"),
+      W=document.getElementById("inpWage");
+  var oE=document.getElementById("outExp"), oI=document.getElementById("outImp"),
+      oT=document.getElementById("outTot"), note=document.getElementById("ocNote");
+  var SC={
+    ticket:{m:6,h:4,w:18,note:"A “free” ticket. You pay $6 to get there and give up 4 hours you could have been paid for. The ticket cost nothing; going cost $78."},
+    college:{m:12000,h:2000,w:15,note:"One year at college: $12,000 of tuition and fees, and roughly 2,000 hours you could have worked instead. The implicit cost is more than twice the explicit one — which is your textbook’s point."},
+    lebron:{m:12000,h:2000,w:5000,note:"The LeBron James case. Same tuition, same hours — but his time was worth so much that the implicit cost swamps everything. For him, college was not worth it, and the arithmetic is the whole argument."}
+  };
+  function calc(){
+    var m=Math.max(0,Number(M.value)||0), h=Math.max(0,Number(H.value)||0), w=Math.max(0,Number(W.value)||0);
+    var imp=h*w;
+    var f=function(n){ return "$"+n.toLocaleString("en-US",{maximumFractionDigits:0}); };
+    oE.textContent=f(m); oI.textContent=f(imp); oT.textContent=f(m+imp);
+  }
+  [M,H,W].forEach(function(el){ el.addEventListener("input",function(){
+    calc();
+    document.querySelectorAll("[data-scen]").forEach(function(b){ b.setAttribute("aria-pressed","false"); });
+    note.textContent="Explicit cost is the money you hand over. Implicit cost is hours × what an hour is worth to you. Opportunity cost is both.";
+  }); });
+  document.querySelectorAll("[data-scen]").forEach(function(b){
+    b.addEventListener("click",function(){
+      var s=SC[b.dataset.scen];
+      M.value=s.m; H.value=s.h; W.value=s.w; calc(); note.textContent=s.note;
+      document.querySelectorAll("[data-scen]").forEach(function(o){ o.setAttribute("aria-pressed","false"); });
+      b.setAttribute("aria-pressed","true");
+    });
+  });
+  calc();
+
+  /* ---------- multiple choice ---------- */
+  var correct=0, out=document.getElementById("scoreOut");
+  document.querySelectorAll(".mcq").forEach(function(q){
+    var key=q.dataset.key, scored=false;
+    q.querySelectorAll(".opt").forEach(function(opt){
+      opt.addEventListener("click",function(){
+        var right=opt.dataset.l===key;
+        opt.dataset.state=right?"right":"wrong";
+        var why=opt.querySelector(".why"); if(why) why.hidden=false;
+        if(!scored){ scored=true; if(right) correct++; out.textContent=correct+" / 5"; }
+        if(right){
+          q.querySelectorAll(".opt").forEach(function(o){
+            var w2=o.querySelector(".why"); if(w2) w2.hidden=false;
+            if(!o.dataset.state) o.dataset.state="wrong";
+            o.disabled=true;
+          });
+        }
+      });
+    });
+  });
+})();
+</script>
+</main>
+<script>window.COURSE_NAV={"kicker": "1.1 · 1.2 · 1.5 and 1.6 in part", "title": "Module 1 · The Study of Economics", "map": [{"label": "Course", "items": [{"href": "index.html", "label": "Home", "current": false}, {"href": "spec.html", "label": "Course specification", "current": false}]}, {"label": "Unit 1 · Basic Economic Concepts", "items": [{"href": "m01-student.html", "label": "Module 1 · Student guide", "current": true}, {"label": "Module 1 · Teaching notes", "planned": true}, {"label": "Module 1 · Test", "planned": true}, {"label": "Module 2 · Introduction to Macroeconomics", "planned": true}, {"href": "m03-student.html", "label": "Module 3 · Student guide", "current": false}, {"label": "Module 3 · Teaching notes", "planned": true}, {"label": "Module 3 · Test", "planned": true}, {"label": "Module 4 · Comparative Advantage and Trade", "planned": true}, {"label": "Module 51 · Utility Maximization", "planned": true}, {"label": "Unit 1 · Gap analysis", "planned": true}]}, {"label": "Unit 2 · Supply and Demand", "items": [{"label": "Module 5 · Supply and Demand: Introduction and Demand", "planned": true}, {"label": "Module 6 · Supply and Demand: Supply and Equilibrium", "planned": true}, {"label": "Module 7 · Supply and Demand: Changes in Equilibrium", "planned": true}, {"label": "Module 8 · Supply and Demand: Price Controls", "planned": true}, {"label": "Module 9 · Supply and Demand: Quantity Controls", "planned": true}, {"label": "Modules 46–48 · Elasticity", "planned": true}, {"label": "Modules 49–50 · Surplus and Deadweight Loss", "planned": true}, {"label": "Topic 2.9 · International Trade and Public Policy", "planned": true}, {"label": "Unit 2 · Gap analysis", "planned": true}]}, {"label": "Unit 3 · Production, Cost and Perfect Competition", "items": [{"label": "Modules 52–53 · Profit and Profit Maximisation", "planned": true}, {"label": "Module 54 · The Production Function", "planned": true}, {"label": "Module 55 · Firm Costs", "planned": true}, {"label": "Module 56 · Long-Run Costs and Economies of Scale", "planned": true}, {"label": "Module 57 · Introduction to Market Structure", "planned": true}, {"label": "Modules 58–60 · Perfect Competition", "planned": true}, {"label": "Unit 3 · Gap analysis", "planned": true}]}, {"label": "Unit 4 · Imperfect Competition", "items": [{"label": "Topic 4.1 · Introduction to Imperfect Competition", "planned": true}, {"label": "Modules 61–63 · Monopoly", "planned": true}, {"label": "Modules 67–68 · Monopolistic Competition", "planned": true}, {"label": "Modules 64–66 · Oligopoly and Game Theory", "planned": true}, {"label": "Unit 4 · Gap analysis", "planned": true}]}, {"label": "Unit 5 · Factor Markets", "items": [{"label": "Module 69 · Introduction and Factor Demand", "planned": true}, {"label": "Module 70 · The Markets for Land and Capital", "planned": true}, {"label": "Module 71 · The Market for Labor", "planned": true}, {"label": "Module 72 · The Cost-Minimising Input Combination", "planned": true}, {"label": "Module 73 · Theories of Income Distribution", "planned": true}, {"label": "Unit 5 · Gap analysis", "planned": true}]}, {"label": "Unit 6 · Market Failure and the Role of Government", "items": [{"label": "Modules 74–75 · Externalities", "planned": true}, {"label": "Module 76 · Public Goods", "planned": true}, {"label": "Module 77 · Public Policy to Promote Competition", "planned": true}, {"label": "Module 78 · Income Inequality and Income Distribution", "planned": true}, {"label": "Unit 6 · Gap analysis", "planned": true}]}, {"label": "Interactive", "items": [{"label": "PPC explorer", "planned": true}, {"label": "Supply and demand explorer", "planned": true}, {"label": "Elasticity and total revenue", "planned": true}, {"label": "Cost curves", "planned": true}, {"label": "Market structure comparison", "planned": true}]}], "prev": {"href": "spec.html", "label": "Course specification"}, "next": {"href": "m03-student.html", "label": "Module 3 · Student guide"}};</script>
+<script src="assets/course.js"></script>
+</body>
+</html>

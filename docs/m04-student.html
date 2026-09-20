@@ -1,0 +1,1575 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 4 · Comparative Advantage and Trade · AP Microeconomics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@600;700&display=swap">
+<link rel="stylesheet" href="assets/course.css">
+<style>.page .bar{position:static;background:none;backdrop-filter:none}.page .bar-in{max-width:none;padding-inline:0}.page .wrap{max-width:none;padding-inline:0;padding-block:0 24px}.page .masthead{padding-block:10px 24px}</style></head>
+<body>
+<main class="page">
+<style>
+
+
+:root{
+  --paper:#f3f5f8;
+  --surface:#ffffff;
+  --surface-2:#eef1f6;
+  --ink:#15181f;
+  --ink-2:#4d5566;
+  --ink-3:#737c8e;
+  --rule:#d6dae2;
+  --rule-strong:#b3bac7;
+  --accent:#1d4e89;
+  --accent-soft:#e6edf7;
+  --down:#a3372a;
+  --down-soft:#fbeeeb;
+  --up:#1a6b55;
+  --up-soft:#e6f2ee;
+  --flag:#7a5310;
+  --flag-soft:#f8f0e0;
+  --shadow:0 1px 2px rgba(21,24,31,.06), 0 8px 24px rgba(21,24,31,.05);
+  --serif:"IBM Plex Serif", Georgia, "Times New Roman", serif;
+  --sans:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0f1218;
+    --surface:#171b23;
+    --surface-2:#1e232d;
+    --ink:#e8ebf1;
+    --ink-2:#a3adc0;
+    --ink-3:#7e8799;
+    --rule:#2c323d;
+    --rule-strong:#3c4351;
+    --accent:#7dabe2;
+    --accent-soft:#1a2634;
+    --down:#e5907f;
+    --down-soft:#2a1d1a;
+    --up:#6cc4a7;
+    --up-soft:#16291f;
+    --flag:#d8b169;
+    --flag-soft:#2a2418;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.28);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0f1218;
+  --surface:#171b23;
+  --surface-2:#1e232d;
+  --ink:#e8ebf1;
+  --ink-2:#a3adc0;
+  --ink-3:#7e8799;
+  --rule:#2c323d;
+  --rule-strong:#3c4351;
+  --accent:#7dabe2;
+  --accent-soft:#1a2634;
+  --down:#e5907f;
+  --down-soft:#2a1d1a;
+  --up:#6cc4a7;
+  --up-soft:#16291f;
+  --flag:#d8b169;
+  --flag-soft:#2a2418;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.28);
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.65;
+  margin:0;
+}
+.wrap{max-width:820px;margin:0 auto;padding-inline:18px;padding-block:0 72px}
+
+/* ---------- sticky bar ---------- */
+.bar{
+  position:sticky;
+  top:env(safe-area-inset-top, 0px);
+  z-index:40;
+  background:color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--rule);
+}
+.bar-in{
+  max-width:820px;margin:0 auto;padding-inline:18px;
+  display:flex;align-items:center;gap:14px;min-height:50px;flex-wrap:wrap;
+}
+.bar-title{font-family:var(--mono);font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-2);white-space:nowrap}
+.progress{flex:1 1 140px;min-width:120px;display:flex;align-items:center;gap:9px}
+.progress-track{flex:1;height:5px;border-radius:3px;background:var(--rule);overflow:hidden}
+.progress-fill{height:100%;width:0;background:var(--accent);transition:width .25s ease}
+.progress-num{font-family:var(--mono);font-size:12px;color:var(--ink-2);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar button{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;
+  background:none;border:1px solid var(--rule-strong);color:var(--ink-2);
+  padding:5px 10px;border-radius:4px;cursor:pointer;
+}
+.bar button:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ---------- masthead ---------- */
+.masthead{padding-block:40px 28px;border-bottom:2px solid var(--ink)}
+.eyebrow{
+  font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);margin:0 0 12px;
+}
+h1{
+  font-family:var(--serif);font-weight:700;font-size:clamp(30px,6.4vw,44px);
+  line-height:1.1;margin:0 0 14px;text-wrap:balance;letter-spacing:-.01em;
+}
+.standfirst{font-size:17.5px;color:var(--ink-2);margin:0;max-width:62ch}
+.source-line{
+  font-family:var(--mono);font-size:12.5px;color:var(--ink-3);margin-top:18px;
+  display:flex;gap:6px 18px;flex-wrap:wrap;
+}
+
+h2{
+  font-family:var(--serif);font-weight:600;font-size:clamp(21px,3.8vw,26px);
+  line-height:1.25;margin:0 0 10px;text-wrap:balance;
+}
+h3{font-family:var(--sans);font-weight:600;font-size:16px;margin:26px 0 8px;letter-spacing:.01em}
+p{margin:0 0 14px}
+a{color:var(--accent)}
+.section{padding-block:34px 4px}
+
+.kicker{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-3);margin:0 0 8px;
+}
+
+/* ---------- entries ---------- */
+.entry{padding-block:34px 10px;border-top:1px solid var(--rule)}
+.entry-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.entry-num{
+  font-family:var(--mono);font-size:13px;font-weight:600;color:var(--accent);
+  font-variant-numeric:tabular-nums;
+}
+.entry h2{margin:0;flex:1 1 auto;min-width:0}
+.mark{
+  font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  padding:3px 8px;border-radius:3px;white-space:nowrap;
+}
+.mark.exam{background:var(--accent-soft);color:var(--accent)}
+.mark.bg{background:var(--surface-2);color:var(--ink-3)}
+.defn{
+  background:var(--surface);border-left:3px solid var(--accent);
+  padding:14px 16px;border-radius:0 5px 5px 0;margin:14px 0 16px;box-shadow:var(--shadow);
+}
+.defn p{margin:0}
+.defn .lbl{
+  display:block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-3);margin-bottom:5px;
+}
+.reading{font-family:var(--mono);font-size:12.5px;color:var(--ink-3);margin:-6px 0 16px}
+
+.watch{
+  background:var(--down-soft);border:1px solid color-mix(in srgb, var(--down) 28%, transparent);
+  border-radius:5px;padding:13px 16px;margin:18px 0;
+}
+.watch p{margin:0;font-size:15.3px}
+.watch b{color:var(--down)}
+
+.notinbook{
+  background:var(--flag-soft);border:1px dashed color-mix(in srgb, var(--flag) 48%, transparent);
+  border-radius:5px;padding:13px 16px;margin:16px 0;
+}
+.notinbook p{margin:0;font-size:15.3px}
+.notinbook b{color:var(--flag)}
+
+.examples{margin:18px 0;display:flex;flex-direction:column;gap:12px}
+.ex{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start}
+.ex-n{
+  font-family:var(--mono);font-size:11px;font-weight:600;color:var(--ink-3);
+  border:1px solid var(--rule-strong);border-radius:3px;padding:1px 6px;margin-top:3px;white-space:nowrap;
+}
+.ex p{margin:0;font-size:15.3px}
+.ex .who{font-weight:600;color:var(--ink)}
+
+.connects{font-size:15.3px;color:var(--ink-2);border-top:1px solid var(--rule);padding-top:12px;margin-top:6px}
+.connects b{color:var(--ink)}
+
+/* ---------- check yourself ---------- */
+.check{margin:20px 0 6px;background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:14px 16px}
+.check > .lbl{
+  font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);display:block;margin-bottom:10px;
+}
+.q{margin-bottom:12px}
+.q:last-child{margin-bottom:0}
+.q > p{margin:0 0 7px;font-size:15.3px}
+.q .qn{font-family:var(--mono);font-weight:600;color:var(--accent);font-size:13.5px;margin-right:4px}
+details.reveal{border-top:1px dashed var(--rule)}
+details.reveal > summary{
+  list-style:none;cursor:pointer;font-family:var(--mono);font-size:11.5px;
+  letter-spacing:.07em;text-transform:uppercase;color:var(--accent);padding:7px 0 0;
+}
+details.reveal > summary::-webkit-details-marker{display:none}
+details.reveal > summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details.reveal[open] > summary::before{content:"▾ "}
+details.reveal > summary:hover{text-decoration:underline}
+details.reveal .ans{font-size:15.3px;color:var(--ink-2);padding:6px 0 4px}
+details.reveal .ans p{margin:0 0 8px}
+details.reveal .ans p:last-child{margin:0}
+
+.got{
+  display:flex;align-items:center;gap:8px;margin-top:16px;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);
+  cursor:pointer;user-select:none;
+}
+.got input{width:15px;height:15px;accent-color:var(--accent);cursor:pointer}
+
+/* ---------- tables ---------- */
+.tablewrap{overflow-x:auto;margin:18px 0;border:1px solid var(--rule);border-radius:6px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:15px;min-width:420px}
+th,td{padding:10px 13px;text-align:left;border-bottom:1px solid var(--rule);vertical-align:top}
+thead th{
+  font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-3);background:var(--surface-2);font-weight:600;
+}
+tbody tr:last-child td{border-bottom:none}
+td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right}
+.tight td,.tight th{padding:8px 12px;font-size:14.5px}
+
+/* ---------- widgets ---------- */
+.widget{
+  background:var(--surface);border:1px solid var(--rule-strong);border-radius:8px;
+  padding:18px;margin:26px 0;box-shadow:var(--shadow);
+}
+.widget-title{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);margin:0 0 4px;
+}
+.widget h3{margin-top:0}
+.widget-note{font-size:14.5px;color:var(--ink-2);margin:12px 0 0}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{
+  font-family:var(--mono);font-size:12px;letter-spacing:.04em;
+  border:1px solid var(--rule-strong);background:var(--surface);color:var(--ink-2);
+  border-radius:16px;padding:5px 13px;cursor:pointer;transition:all .15s;
+}
+.chip:hover{border-color:var(--accent);color:var(--accent)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+:root[data-theme="dark"] .chip[aria-pressed="true"],
+:root:not([data-theme="light"]) .chip[aria-pressed="true"]{color:#0f1218}
+
+.cyclefig{width:100%;height:auto;display:block;overflow:visible}
+.figcap{font-size:14.5px;color:var(--ink-2);margin:10px 0 0;min-height:3em}
+.figcap b{color:var(--ink)}
+
+.svg-dim{opacity:.22;transition:opacity .2s}
+.svg-lit{opacity:1;transition:opacity .2s}
+
+.calc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:14px 0}
+.field label{
+  display:block;font-family:var(--mono);font-size:11px;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--ink-3);margin-bottom:5px;
+}
+.field input[type=number]{
+  width:100%;font-family:var(--mono);font-size:16px;padding:8px 10px;
+  border:1px solid var(--rule-strong);border-radius:5px;background:var(--paper);color:var(--ink);
+}
+.field input[type=range]{width:100%;accent-color:var(--accent)}
+.field input:focus-visible,.chip:focus-visible,button:focus-visible,summary:focus-visible,a:focus-visible{
+  outline:2px solid var(--accent);outline-offset:2px;
+}
+.readouts{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:6px;overflow:hidden;margin-top:6px}
+.ro{background:var(--surface-2);padding:12px 14px}
+.ro .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);display:block;margin-bottom:3px}
+.ro .v{font-family:var(--mono);font-size:22px;font-weight:600;font-variant-numeric:tabular-nums;color:var(--ink)}
+.ro .v.hl{color:var(--accent)}
+
+/* ---------- quiz ---------- */
+.mcq{border-top:1px solid var(--rule);padding-top:18px;margin-top:18px}
+.mcq:first-of-type{border-top:none;padding-top:0;margin-top:0}
+.mcq .stem{font-size:15.6px;margin:0 0 12px}
+.mcq .stem .qn{font-family:var(--mono);font-weight:600;color:var(--accent);margin-right:6px}
+.opts{display:flex;flex-direction:column;gap:7px}
+.opt{
+  display:flex;gap:11px;align-items:flex-start;text-align:left;width:100%;
+  font-family:var(--sans);font-size:15.2px;line-height:1.5;color:var(--ink);
+  background:var(--surface);border:1px solid var(--rule);border-radius:6px;
+  padding:10px 13px;cursor:pointer;transition:border-color .15s,background .15s;
+}
+.opt:hover{border-color:var(--accent)}
+.opt .ltr{font-family:var(--mono);font-weight:600;color:var(--ink-3);flex:0 0 auto}
+.opt .why{display:block;font-size:14.3px;color:var(--ink-2);margin-top:6px}
+.opt[data-state="right"]{border-color:var(--up);background:var(--up-soft)}
+.opt[data-state="right"] .ltr{color:var(--up)}
+.opt[data-state="wrong"]{border-color:var(--down);background:var(--down-soft)}
+.opt[data-state="wrong"] .ltr{color:var(--down)}
+.opt[disabled]{cursor:default}
+.score{
+  font-family:var(--mono);font-size:13px;color:var(--ink-2);
+  border:1px solid var(--rule-strong);border-radius:6px;padding:11px 14px;margin-top:20px;
+  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;
+}
+.score b{color:var(--ink);font-size:15px}
+
+.frq{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:15px 17px;margin:16px 0}
+.frq .stem{margin:0 0 6px;font-size:15.6px}
+.frq .pts{font-family:var(--mono);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3)}
+.rubric{margin:8px 0 0;padding:0;list-style:none}
+.rubric li{display:grid;grid-template-columns:auto 1fr;gap:10px;padding:7px 0;border-top:1px dotted var(--rule);font-size:15.2px}
+.rubric li .pt{font-family:var(--mono);font-size:11.5px;color:var(--up);white-space:nowrap;padding-top:3px}
+
+.closing{background:var(--accent-soft);border-radius:8px;padding:20px 22px;margin-top:28px}
+.closing h2{margin-top:0}
+.closing ol{margin:0;padding-left:20px}
+.closing li{margin-bottom:10px;font-size:15.5px}
+.closing li:last-child{margin-bottom:0}
+
+.toc{columns:2 220px;column-gap:26px;margin:16px 0 0;padding:0;list-style:none}
+.toc li{break-inside:avoid;padding:3px 0;font-size:15px}
+.toc a{text-decoration:none;color:var(--ink)}
+.toc a:hover{color:var(--accent);text-decoration:underline}
+.toc .n{font-family:var(--mono);font-size:12.5px;color:var(--ink-3);margin-right:7px;font-variant-numeric:tabular-nums}
+.toc .m{font-size:11px;color:var(--ink-3);margin-left:5px}
+
+.footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--rule);font-family:var(--mono);font-size:12px;color:var(--ink-3);line-height:1.8}
+
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+@media print{
+  .bar,.got,.chips{display:none}
+  body{background:#fff}
+  details.reveal > *{display:block!important}
+  .entry{break-inside:avoid-page}
+}
+@media (max-width:520px){
+  .toc{columns:1}
+  .ro .v{font-size:19px}
+}
+
+/* ---------- Module 3 supplement ---------- */
+.mark.flag{background:var(--flag-soft);color:var(--flag)}
+.ppc-wrap{display:grid;grid-template-columns:1fr;gap:14px}
+@media (min-width:720px){.ppc-wrap{grid-template-columns:1fr 210px}}
+.ppc-svg{width:100%;height:auto;display:block;background:var(--surface);
+  border:1px solid var(--rule);border-radius:6px;cursor:crosshair;touch-action:none}
+.ppc-side{display:flex;flex-direction:column;gap:10px}
+.status{font-family:var(--mono);font-size:12.5px;padding:9px 11px;border-radius:5px;
+  border:1px solid var(--rule-strong);background:var(--surface-2);line-height:1.45}
+.status[data-s="on"]{border-color:color-mix(in srgb,var(--up) 45%,transparent);background:var(--up-soft);color:var(--up)}
+.status[data-s="in"]{border-color:var(--rule-strong);color:var(--ink-2)}
+.status[data-s="out"]{border-color:color-mix(in srgb,var(--down) 45%,transparent);background:var(--down-soft);color:var(--down)}
+.ppc-legend{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);line-height:1.6}
+.ppc-legend b{color:var(--ink-2);font-weight:600}
+.chips.tight{gap:6px}
+.tbl{overflow-x:auto;max-width:100%}
+.sumtable{width:100%;border-collapse:collapse;font-size:14.5px;margin:16px 0}
+.sumtable th,.sumtable td{border-bottom:1px solid var(--rule);padding:8px 10px;text-align:left;vertical-align:top}
+.sumtable th{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+.sumtable td.mk{font-family:var(--mono);font-size:12px;white-space:nowrap;color:var(--accent)}
+.sumtable td.mk.bgm{color:var(--ink-3)}
+.sumtable td.mk.flagm{color:var(--flag)}
+.final{background:var(--surface);border:1px solid var(--rule);border-radius:6px;
+  padding:18px 20px;margin:22px 0;box-shadow:var(--shadow)}
+.final ol{margin:0;padding-left:20px}
+.final li{margin:0 0 9px}
+.final li:last-child{margin-bottom:0}
+
+/* ---------- PPC explorer svg ---------- */
+.ppc-svg .ax{stroke:var(--ink);stroke-width:1.6}
+.ppc-svg .tick{stroke:var(--ink-3);stroke-width:1.1}
+.ppc-svg .tl{font-family:var(--mono);font-size:11px;fill:var(--ink-3)}
+.ppc-svg .al{font-family:var(--sans);font-size:12px;font-weight:600;fill:var(--ink-2)}
+.ppc-svg .curve{fill:none;stroke:var(--accent);stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round}
+.ppc-svg .ghost{fill:none;stroke:var(--rule-strong);stroke-width:1.8;stroke-dasharray:6 5}
+.ppc-svg .cl{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--accent)}
+.ppc-svg .drop{stroke:var(--rule-strong);stroke-width:1;stroke-dasharray:3 3}
+.ppc-svg .pt{stroke:var(--surface);stroke-width:2}
+.ppc-svg .pt-on{fill:var(--up)}
+.ppc-svg .pt-in{fill:var(--ink-3)}
+.ppc-svg .pt-out{fill:var(--down)}
+
+
+/* ---------- Module 4 supplement ---------- */
+.two-panel{width:100%;height:auto;display:block;background:var(--surface);
+  border:1px solid var(--rule);border-radius:6px}
+.ca-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:0 0 14px}
+@media (min-width:640px){.ca-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.ca-grid .field{display:flex;flex-direction:column;gap:5px}
+.ca-grid .field span{font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--ink-3)}
+.ca-grid .field b{color:var(--ink-2);font-weight:600;text-transform:none;letter-spacing:0}
+.ca-grid input{font-family:var(--mono);font-size:15px;padding:7px 9px;width:100%;
+  color:var(--ink);background:var(--paper);border:1px solid var(--rule-strong);border-radius:5px}
+.ca-grid input:focus{outline:2px solid var(--accent);outline-offset:1px}
+.catab{width:100%;border-collapse:collapse;font-size:14px;margin:4px 0 14px}
+.catab th,.catab td{border-bottom:1px solid var(--rule);padding:7px 9px;text-align:left}
+.catab th{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:600}
+.catab td.v{font-family:var(--mono);color:var(--ink)}
+.catab td.win{font-family:var(--mono);color:var(--up);font-weight:600}
+.dealrow{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;margin:0 0 12px}
+.dealrow .field{display:flex;flex-direction:column;gap:5px;min-width:190px;flex:1}
+.dealrow .field span{font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--ink-3)}
+.dealrow input{font-family:var(--mono);font-size:16px;padding:8px 10px;
+  color:var(--ink);background:var(--paper);border:1px solid var(--rule-strong);border-radius:5px}
+.line-svg{width:100%;height:auto;display:block;margin:6px 0 2px}
+.line-svg .band{fill:var(--up-soft);stroke:none}
+.line-svg .axl{stroke:var(--ink);stroke-width:1.6}
+.line-svg .tk{stroke:var(--ink-3);stroke-width:1.1}
+.line-svg .tlb{font-family:var(--mono);font-size:11px;fill:var(--ink-3)}
+.line-svg .edge{stroke:var(--up);stroke-width:2}
+.line-svg .edgel{font-family:var(--mono);font-size:11.5px;font-weight:600;fill:var(--up)}
+.line-svg .prop{stroke:var(--accent);stroke-width:2.4}
+.line-svg .propbad{stroke:var(--down);stroke-width:2.4}
+.line-svg .propl{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--accent)}
+.line-svg .propl.bad{fill:var(--down)}
+.two-panel .ax{stroke:var(--ink);stroke-width:1.6}
+.two-panel .tick{stroke:var(--ink-3);stroke-width:1.1}
+.two-panel .tl{font-family:var(--mono);font-size:10.5px;fill:var(--ink-3)}
+.two-panel .al{font-family:var(--sans);font-size:11.5px;font-weight:600;fill:var(--ink-2)}
+.two-panel .ph{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--ink-2)}
+.two-panel .curve{fill:none;stroke:var(--accent);stroke-width:2.4;stroke-linecap:round}
+.two-panel .slope{font-family:var(--mono);font-size:11px;fill:var(--accent)}
+.two-panel .drop{stroke:var(--rule-strong);stroke-width:1;stroke-dasharray:3 3}
+.two-panel .pt{stroke:var(--surface);stroke-width:2}
+.two-panel .pt-on{fill:var(--ink-2)}
+.two-panel .pt-out{fill:var(--up)}
+.two-panel .ptl{font-family:var(--mono);font-size:11px;fill:var(--ink-2)}
+.two-panel .ptl.good{fill:var(--up);font-weight:600}
+
+</style>
+
+
+<div class="bar">
+  <div class="bar-in">
+    <span class="bar-title">Micro · Module 4</span>
+    <span class="progress">
+      <span class="progress-track"><span class="progress-fill" id="pfill"></span></span>
+      <span class="progress-num" id="pnum">0 / 13</span>
+    </span>
+    <button type="button" id="resetBtn">Reset progress</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+<p class="eyebrow">AP Microeconomics · Unit 1 · Student guide</p>
+  <h1>Comparative Advantage and Trade</h1>
+  <p class="standfirst">Thirteen terms from Module 4 of <i>Krugman&rsquo;s Economics for AP</i>, in the
+  order that makes them easiest to learn. This is the most calculation-heavy topic in Unit 1 and the
+  best-aligned module in the section — two of its required terms are simply missing their labels,
+  and this guide supplies them.</p>
+  <div class="source-line">
+    <span>Textbook pages 23–30</span><span>·</span><span>13 terms</span><span>·</span>
+    <span>Topic 1.4</span><span>·</span><span>2 required terms your book never names</span>
+  </div>
+<section class="section" id="howto">
+  <h2>How to use this guide</h2>
+  <p>Read Module 4 in your textbook first, then work through these entries in order — each one
+  uses the ones above it. For every entry:</p>
+  <ol>
+    <li>Read the definition, cover it, and say it back in your own words.</li>
+    <li>Work the <b>numeric</b> example with a pen. This topic is arithmetic; reading it is not enough.</li>
+    <li>Answer both <b>Check yourself</b> questions before you press <i>Show answer</i>.</li>
+    <li>Tick <b>Got it</b>. The bar at the top tracks how far you are.</li>
+  </ol>
+
+  <div class="notinbook"><p><b>⚑ Two entries carry a flag.</b> <b>Terms of trade</b> (entry 10)
+  and <b>consumption possibilities beyond the PPC</b> (entry 11) are required by the AP
+  Microeconomics framework and never named in your textbook — the phrase &ldquo;terms of
+  trade&rdquo; appears <b>0 times</b> in all 927 pages. Your book teaches both ideas well; it just
+  does not label them. Learn the labels from here.</p></div>
+
+  <p class="kicker">The 13 terms</p>
+  <ul class="toc">
+    <li><span class="n">1</span><a href="#e1">Trade</a><span class="m">★</span></li>
+    <li><span class="n">2</span><a href="#e2">Self-sufficiency</a><span class="m">★</span></li>
+    <li><span class="n">3</span><a href="#e3">Gains from trade</a><span class="m">★</span></li>
+    <li><span class="n">4</span><a href="#e4">Specialization</a><span class="m">★</span></li>
+    <li><span class="n">5</span><a href="#e5">Opportunity cost as a ratio</a><span class="m">★</span></li>
+    <li><span class="n">6</span><a href="#e6">Absolute advantage</a><span class="m">★</span></li>
+    <li><span class="n">7</span><a href="#e7">Comparative advantage</a><span class="m">★</span></li>
+    <li><span class="n">8</span><a href="#e8">Comparative disadvantage</a><span class="m">★</span></li>
+    <li><span class="n">9</span><a href="#e9">Output per worker / input per unit</a><span class="m">★</span></li>
+    <li><span class="n">10</span><a href="#e10">Terms of trade</a><span class="m">★ ⚑</span></li>
+    <li><span class="n">11</span><a href="#e11">Consumption beyond the PPC</a><span class="m">★ ⚑</span></li>
+    <li><span class="n">12</span><a href="#e12">Comparative advantage between countries</a><span class="m">★</span></li>
+    <li><span class="n">13</span><a href="#e13">Imports and exports</a><span class="m">★</span></li>
+  </ul>
+</section>
+
+<!-- ============ WIDGET 1: COMPARATIVE ADVANTAGE EXPLORER ============ -->
+<section class="section" id="explorer">
+  <h2>Who has the advantage?</h2>
+  <p>Four numbers decide everything in this module. Change them and watch the two kinds of advantage
+  come apart — the <b>Aircraft &amp; shirts</b> scenario is the case where one producer is better
+  at both goods and still should not make both.</p>
+
+  <div class="widget">
+    <p class="widget-title">Two producers · two goods</p>
+
+    <div class="chips tight" role="group" aria-label="Scenario">
+      <button type="button" class="chip" data-scen="castaways" aria-pressed="true">Tom &amp; Hank</button>
+      <button type="button" class="chip" data-scen="wheat" aria-pressed="false">Wheat &amp; textiles</button>
+      <button type="button" class="chip" data-scen="corn" aria-pressed="false">Corn &amp; computers</button>
+      <button type="button" class="chip" data-scen="shirts" aria-pressed="false">Aircraft &amp; shirts</button>
+    </div>
+
+    <div class="ca-grid">
+      <label class="field"><span><b id="lbP1a">Tom</b> max <b id="lbGa1">fish</b></span>
+        <input id="inA1" type="number" min="1" step="any" value="40"></label>
+      <label class="field"><span><b id="lbP1b">Tom</b> max <b id="lbGb1">coconuts</b></span>
+        <input id="inB1" type="number" min="1" step="any" value="30"></label>
+      <label class="field"><span><b id="lbP2a">Hank</b> max <b id="lbGa2">fish</b></span>
+        <input id="inA2" type="number" min="1" step="any" value="10"></label>
+      <label class="field"><span><b id="lbP2b">Hank</b> max <b id="lbGb2">coconuts</b></span>
+        <input id="inB2" type="number" min="1" step="any" value="20"></label>
+    </div>
+
+    <svg class="two-panel" id="caSvg" viewBox="0 0 600 240" role="img"
+         aria-label="Two production possibilities curves drawn to the same scale."></svg>
+
+    <div class="tbl"><table class="catab" id="caTab"></table></div>
+
+    <div class="status" id="caVerdict" data-s="on">—</div>
+    <p class="widget-note">Absolute advantage compares the <b>quantities</b> in the boxes above.
+    Comparative advantage compares the <b>opportunity costs</b> in the table. They are different
+    questions and they often have different answers.</p>
+  </div>
+</section>
+
+
+
+<!-- ============ WIDGET 2: DEAL TESTER ============ -->
+<section class="section" id="deal">
+  <h2>Will they trade?</h2>
+  <p>Entry 10 gives you a range. This tests a proposed deal against it, using whichever four numbers
+  are in the explorer above. Try a price outside the range and read which producer walks away.</p>
+
+  <div class="widget">
+    <p class="widget-title">Terms of trade · the mutually beneficial range</p>
+
+    <div class="readouts">
+      <div class="ro"><span class="k">Lowest the seller accepts</span><span class="v" id="outLow">—</span></div>
+      <div class="ro"><span class="k">Highest the buyer pays</span><span class="v" id="outHigh">—</span></div>
+    </div>
+
+    <div class="dealrow">
+      <label class="field"><span>Proposed price: 1 <b id="lbDealA">fish</b> for how many <b id="lbDealB">coconuts</b>?</span>
+        <input id="inPrice" type="number" min="0" step="any" value="1"></label>
+    </div>
+
+    <svg class="line-svg" id="lineSvg" viewBox="0 0 600 120" role="img"
+         aria-label="A number line showing the mutually beneficial range and the proposed price."></svg>
+
+    <div class="status" id="dealVerdict" data-s="on">—</div>
+    <p class="widget-note">The boundaries are excluded. At exactly the seller's own opportunity cost
+    the seller gains nothing; at exactly the buyer's, the buyer gains nothing. A deal has to sit
+    strictly inside.</p>
+  </div>
+</section>
+
+<!-- ============ ENTRIES ============ -->
+<section class="section">
+  <h2>The 13 terms</h2>
+</section>
+
+<article class="entry" id="e1">
+  <div class="entry-head"><span class="entry-num">01</span><h2>Trade</h2><span class="mark exam">★ Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>In a market economy people <b>trade</b>: they provide goods and services to others and receive goods and services in return.</p></div>
+  <p class="reading">Textbook page 23.</p>
+
+  <p>Start with the alternative, because that is what makes trade interesting. Your textbook opens
+  with a family that grows its own food, sews its own clothing, provides its own entertainment and
+  writes its own economics textbooks. It is not impossible. It is just very hard, and everyone in
+  that family would be poorer for it.</p>
+
+  <p>Trade is not a topic about shipping containers. It is what happens whenever two people divide
+  tasks between them. The economics of two castaways and the economics of two countries are the same
+  economics, which is why this module can teach both in eight pages.</p>
+  <div class="watch"><p><b>Watch out.</b> Trade is not the same thing as money. A trade is an exchange of goods or services in both directions; money makes it convenient but it is not what makes it a trade. Tom and Hank never use any.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">The self-sufficient family.</span> Growing your own food, making your own clothes and writing your own textbooks. Your book's verdict: “trying to live that way would be very hard.”</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Two castaways, four numbers.</span> Tom can catch 40 fish a week or gather 30 coconuts. Hank can manage 10 fish or 20 coconuts. Those four numbers are the whole of this module — everything else is arithmetic on them.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">A doctor and a pilot.</span> Your book's example. A doctor could learn to fly and a pilot could learn medicine, but neither would be as good as the specialist. Each is better off doing one thing and buying the other.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> Trade is only worth doing because <a href="#e5">opportunity costs</a> (entry 5) differ. It is the alternative to <a href="#e2">self-sufficiency</a> (entry 2), and what it produces is <a href="#e3">gains from trade</a> (entry 3).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">1.1</span> Why is a market economy a precondition for specialising?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because you will only stop producing something for yourself if you are confident you can buy it. Your book makes the point with the doctor and the pilot: each specialises because a market exists where the other's service can be found.</p></div></details></div>
+    <div class="q"><p><span class="qn">1.2</span> Does a trade require money?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. Tom gives Hank fish and Hank gives Tom coconuts. Money makes trade easier by removing the need to find someone who wants exactly what you have, but the exchange is the trade.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got1"> Got it</label>
+  </div>
+</article>
+
+
+<article class="entry" id="e2">
+  <div class="entry-head"><span class="entry-num">02</span><h2>Self-sufficiency</h2><span class="mark exam">★ Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A producer is <b>self-sufficient</b> when it consumes only what it produces itself. It is the <b>no-trade baseline</b> — the thing every gain in this module is measured against.</p></div>
+  <p class="reading">Textbook pages 23 and 27.</p>
+
+  <p>This entry exists to give you something to compare with. Every claim in Module 4 has the
+  form <em>&ldquo;better than under self-sufficiency&rdquo;</em>, so you need to know what the
+  self-sufficient outcome actually was.</p>
+
+  <p>For the castaways it is stated exactly: without trade Tom consumes <b>28 fish and 9
+  coconuts</b>; Hank consumes <b>6 fish and 8 coconuts</b>. Write those down before you compute
+  anything, because the gains are differences from them.</p>
+
+  <p>Note what self-sufficiency does <em>not</em> mean. It does not mean producing badly, and it does
+  not mean being on the wrong side of your curve. Both castaways are producing efficiently — on
+  their own curves — and they are still worse off than they need to be.</p>
+  <div class="watch"><p><b>Watch out.</b> Self-sufficiency is not inefficiency. A self-sufficient producer can be perfectly efficient in production and still be beaten by trade. That is the surprise the module is built on: being on your curve is not the best you can do once someone else exists.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">The two starting points.</span> Tom: 28 fish, 9 coconuts. Hank: 6 fish, 8 coconuts. Both on their own curves, neither trading.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Check they are on the curves.</span> Tom's curve is coconuts = 30 − ¾ × fish, so at 28 fish it allows 30 − 21 = 9 — exactly what he consumes. Hank's is coconuts = 20 − 2 × fish, so at 6 fish it allows 20 − 12 = 8. Both are producing efficiently.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Cooking every meal yourself.</span> You can do it, and do it well, and still eat worse than someone who works an extra hour and buys dinner from a cook. Nothing you did was wasteful.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is what <a href="#e1">trade</a> (entry 1) replaces, and the baseline for measuring <a href="#e3">gains from trade</a> (entry 3). In Module 3 language, a self-sufficient producer is stuck <b>on its own curve</b>.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">2.1</span> Tom consumes 28 fish and 9 coconuts without trade. Is he being inefficient?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. His curve allows 30 − ¾(28) = 9 coconuts at 28 fish, so he is exactly on it. He is efficient in production and still worse off than he will be after trading.</p></div></details></div>
+    <div class="q"><p><span class="qn">2.2</span> Why do you need the no-trade numbers before you can talk about gains?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because a gain is a difference. “Tom gains 2 fish” only means something against the 28 he had before.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got2"> Got it</label>
+  </div>
+</article>
+
+
+<article class="entry" id="e3">
+  <div class="entry-head"><span class="entry-num">03</span><h2>Gains from trade</h2><span class="mark exam">★ Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>There are <b>gains from trade</b>: by dividing tasks and trading, people can each get <b>more of what they want</b> than they could by being self-sufficient.</p></div>
+  <p class="reading">Textbook page 23, and Table 4.2 on page 25.</p>
+
+  <p>The claim is stronger than it first sounds. It is not that trade makes the pair better off on
+  average, or that the winner gains more than the loser loses. <b>Both</b> parties end up with more of
+  <b>both</b> goods. There is no loser in the model.</p>
+
+  <p>Table 4.2 on page 25 is the whole argument in one table. Tom specialises in fish and catches 40,
+  giving 10 to Hank. Hank specialises in coconuts and gathers 20, giving 10 to Tom. Then:</p>
+
+  <div class="tbl"><table class="sumtable">
+    <thead><tr><th></th><th>Without trade</th><th>With trade</th><th>Gain</th></tr></thead>
+    <tbody>
+      <tr><td><b>Tom</b> · fish</td><td>28</td><td>30</td><td class="mk">+2</td></tr>
+      <tr><td><b>Tom</b> · coconuts</td><td>9</td><td>10</td><td class="mk">+1</td></tr>
+      <tr><td><b>Hank</b> · fish</td><td>6</td><td>10</td><td class="mk">+4</td></tr>
+      <tr><td><b>Hank</b> · coconuts</td><td>8</td><td>10</td><td class="mk">+2</td></tr>
+    </tbody>
+  </table></div>
+
+  <p>Nothing was invented and nobody worked harder. The same two people, the same hours, the same
+  skills — and four more fish and three more coconuts exist than before, purely because each of
+  them stopped doing the thing he was comparatively bad at.</p>
+  <div class="watch"><p><b>Watch out.</b> Gains from trade do not come from one party being better at everything. Tom is better at both goods and still gains. Where the gains come from is <em>different opportunity costs</em>, which is entry 7.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Your book's own summary.</span> “By dividing tasks and trading, two people (or 7 billion people) can each get more of what they want than they could get by being self-sufficient.”</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Add up the total.</span> Before: 28 + 6 = 34 fish and 9 + 8 = 17 coconuts. After: 30 + 10 = 40 fish and 10 + 10 = 20 coconuts. The pair gains 6 fish and 3 coconuts from the same resources.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Two students revising.</span> One is quicker at algebra, the other at essays. Each teaches the other their strong subject for an hour instead of struggling alone for two. Both learn more in the same time.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> They are produced by <a href="#e4">specialisation</a> (entry 4), made possible by differing <a href="#e7">comparative advantage</a> (entry 7), and their size depends on the <a href="#e10">terms of trade</a> (entry 10). They are measured against <a href="#e2">self-sufficiency</a> (entry 2).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">3.1</span> Total fish produced rose from 34 to 40 with no extra effort. Where did the 6 fish come from?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>From Hank stopping fishing. His 6 fish cost him 12 coconuts of forgone gathering; Tom's extra fish cost much less. Moving fish production to the low-cost producer is what created them.</p></div></details></div>
+    <div class="q"><p><span class="qn">3.2</span> A commentator says trade must have a winner and a loser. What does Table 4.2 show?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>That both parties gained in both goods — Tom +2 fish and +1 coconut, Hank +4 fish and +2 coconuts. A voluntary trade is refused by anyone it would make worse off, which is why both columns are positive.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got3"> Got it</label>
+  </div>
+</article>
+
+
+<article class="entry" id="e4">
+  <div class="entry-head"><span class="entry-num">04</span><h2>Specialization</h2><span class="mark exam">★ Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p><b>Specialization</b> is a situation in which different people each engage in a <b>different task</b> — each person concentrating on the one thing they are comparatively good at.</p></div>
+  <p class="reading">Textbook pages 23–24, with the Adam Smith pin factory.</p>
+
+  <p>Specialisation is the <em>action</em>; gains from trade are the <em>result</em>. Keep them
+  separate in a written answer, because the exam asks about the mechanism: specialisation
+  <b>according to comparative advantage</b> is what produces the gain.</p>
+
+  <p>Your textbook opens with Adam Smith's 1776 pin factory, where ten workers each doing one of
+  eighteen operations made “upwards of forty-eight thousand pins in a day” — against
+  perhaps twenty each if every worker made whole pins alone.</p>
+  <div class="watch"><p><b>Watch out.</b> The pin factory and comparative advantage are <b>two different mechanisms</b>, and only the second is what this topic tests. Smith's workers gain from practice and from not switching tasks. Tom and Hank gain purely because their opportunity costs differ — no learning, no practice, no economies of scale. Use the pin factory as a hook, then drop it.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">The pin factory.</span> Ten workers, eighteen operations, 48,000 pins a day. Working separately: perhaps twenty pins each. The gain comes from splitting the task.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Specialisation in the castaway model.</span> Tom goes from 28 fish and 9 coconuts to <b>40 fish and 0 coconuts</b>; Hank from 6 and 8 to <b>0 fish and 20 coconuts</b>. Complete specialisation, at the two corners of their curves.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">A restaurant kitchen.</span> One person on the grill, one on sauces, one plating. The same three people produce far more covers than three cooks each making whole dishes.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is what creates <a href="#e3">gains from trade</a> (entry 3), and it should follow <a href="#e7">comparative advantage</a> (entry 7) rather than <a href="#e6">absolute advantage</a> (entry 6). It requires <a href="#e1">trade</a> (entry 1) to be possible at all — nobody specialises with no one to trade with.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">4.1</span> In Table 4.2 both castaways specialise <em>completely</em>. Where are they on their PPCs?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>At the corners: Tom at 40 fish and 0 coconuts, Hank at 0 fish and 20 coconuts. With straight-line curves and differing opportunity costs, complete specialisation is the usual result.</p></div></details></div>
+    <div class="q"><p><span class="qn">4.2</span> Why is the pin factory not an example of comparative advantage?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because its gain comes from splitting a task and from practice, not from workers having different opportunity costs. Comparative advantage works even when nobody gets better at anything.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got4"> Got it</label>
+  </div>
+</article>
+
+
+<article class="entry" id="e5">
+  <div class="entry-head"><span class="entry-num">05</span><h2>Opportunity cost as a ratio</h2><span class="mark exam">★ Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>On a straight-line PPC, the opportunity cost of one unit of a good is the <b>ratio of the two intercepts</b> — and it is the same everywhere on the curve.</p></div>
+  <p class="reading">Textbook pages 24–25, Figure 4.1 and Table 4.1. Topic 1.3 supplies the method.</p>
+
+  <p>Everything from here on is arithmetic on this one ratio, so get it fluent now. If a producer
+  can make at most <b>a</b> of good A or at most <b>b</b> of good B, then</p>
+
+  <p style="font-family:var(--mono);font-size:15px;text-align:center;margin:14px 0">
+  1 unit of A costs <b>b ÷ a</b> units of B &nbsp;&nbsp;·&nbsp;&nbsp;
+  1 unit of B costs <b>a ÷ b</b> units of A</p>
+
+  <p>The two are <b>reciprocals</b>, and you will need both directions in almost every question. Table
+  4.1 on page 25 sets them out for the castaways:</p>
+
+  <div class="tbl"><table class="sumtable">
+    <thead><tr><th></th><th>Tom's opportunity cost</th><th>Hank's opportunity cost</th></tr></thead>
+    <tbody>
+      <tr><td><b>One fish</b></td><td class="mk">¾ coconut</td><td class="mk">2 coconuts</td></tr>
+      <tr><td><b>One coconut</b></td><td class="mk">4⁄3 fish</td><td class="mk">½ fish</td></tr>
+    </tbody>
+  </table></div>
+
+  <p>Tom: 30 ÷ 40 = ¾ coconut per fish, and 40 ÷ 30 = 4⁄3 fish per coconut. Hank:
+  20 ÷ 10 = 2 coconuts per fish, and 10 ÷ 20 = ½ fish per coconut. Four numbers, two
+  divisions each.</p>
+  <div class="watch"><p><b>Watch out.</b> Always say <em>what</em> is being costed and <em>in what</em>. A bare “0.75” is not an answer — ¾ of a coconut per fish and 4⁄3 fish per coconut are both true of the same producer, and an unlabelled number could be either. This is where marks are lost.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Figure 4.1's two slopes.</span> Tom's curve has slope −¾; Hank's has slope −2. The steeper the curve, the more of the vertical good each unit of the horizontal good costs.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Do it on the exam graph.</span> Country A can make 150 bushels of wheat or 100 units of textiles. One bushel costs 100 ÷ 150 = <b>⅔ of a unit of textiles</b>. One unit of textiles costs 150 ÷ 100 = <b>1½ bushels</b>.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Exchange rates.</span> If £1 buys $1.25, then $1 buys £0.80. Nobody quotes one without knowing which direction they mean; opportunity cost is the same.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> The method is Topic 1.3, from Module 3. Here it becomes the test for <a href="#e7">comparative advantage</a> (entry 7) and the boundary of the <a href="#e10">terms of trade</a> (entry 10).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">5.1</span> A country can produce 500 tonnes of steel or 2,000 tonnes of grain. What is the opportunity cost of one tonne of steel, and of one tonne of grain?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>One tonne of steel costs 2,000 ÷ 500 = <b>4 tonnes of grain</b>. One tonne of grain costs 500 ÷ 2,000 = <b>¼ tonne of steel</b>. Reciprocals, and both need their units.</p></div></details></div>
+    <div class="q"><p><span class="qn">5.2</span> Why does a straight-line PPC make this so much easier than a bowed one?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because the slope is the same everywhere, so one ratio describes the whole curve. On a bowed curve the opportunity cost changes as you move, and you have to say <em>where</em>.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got5"> Got it</label>
+  </div>
+</article>
+
+
+<article class="entry" id="e6">
+  <div class="entry-head"><span class="entry-num">06</span><h2>Absolute advantage</h2><span class="mark exam">★ Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A producer has an <b>absolute advantage</b> in a good if it can make <b>more of it</b> with a given amount of time and resources than any other producer. Having an absolute advantage is <b>not</b> the same as having a comparative advantage.</p></div>
+  <p class="reading">Textbook page 27, margin definition.</p>
+
+  <p>This is the intuitive idea, and in this topic it is mostly a distractor. It compares
+  <b>quantities</b>: who produces more? Tom can catch more fish than Hank <em>and</em> gather more
+  coconuts than Hank, so Tom has an absolute advantage in both.</p>
+
+  <p>Your textbook's own margin definition ends with the warning, which tells you how often students
+  get this wrong. The exam's framework writes the correction into the required knowledge itself:
+  specialisation should follow comparative advantage, <b>not absolute advantage</b>.</p>
+  <div class="watch"><p><b>Watch out.</b> An absolute advantage in both goods does <em>not</em> mean there is nothing to gain from trade. Tom is better at both and still gains. If a question asks who should produce what, absolute advantage is not the tool — entry 7 is.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Tom's position.</span> 40 fish against 10, and 30 coconuts against 20. “Tom has an absolute advantage in both activities: he can produce more output with a given amount of input.”</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Read it off the exam graph.</span> Country A: 150 bushels of wheat or 100 units of textiles. Country B: 100 bushels or 200 units. A has the absolute advantage in <b>wheat</b> (150 &gt; 100); B has it in <b>textiles</b> (200 &gt; 100). Compare the two numbers for the same good — nothing else.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Bangladesh and the United States.</span> Your book's FYI on page 27: almost every industry in Bangladesh is less productive than its American counterpart. The United States has an absolute advantage in nearly everything — and most of the world's shirts are still made elsewhere.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the comparison this module warns you <em>against</em> using. The one you want is <a href="#e7">comparative advantage</a> (entry 7). Both are read off the same numbers, and <a href="#e9">which way the table runs</a> (entry 9) decides whether bigger or smaller wins.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">6.1</span> Country X makes 900 cars or 300 ships. Country Y makes 400 cars or 200 ships. Who has the absolute advantage in each good?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>X in both: 900 &gt; 400 cars and 300 &gt; 200 ships. Note that this settles nothing about who should make what.</p></div></details></div>
+    <div class="q"><p><span class="qn">6.2</span> Why does your textbook's definition end with a warning?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because assuming absolute advantage determines who should specialise is the standard error in this topic, and the framework says so explicitly: specialisation follows comparative advantage, not absolute advantage.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got6"> Got it</label>
+  </div>
+</article>
+
+
+<article class="entry" id="e7">
+  <div class="entry-head"><span class="entry-num">07</span><h2>Comparative advantage</h2><span class="mark exam">★ Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A producer has a <b>comparative advantage</b> in a good if the <b>opportunity cost</b> of producing it is <b>lower</b> for that producer than for others.</p></div>
+  <p class="reading">Textbook page 26, margin definition. This is the centre of the module.</p>
+
+  <p>Comparative advantage compares <b>costs</b>, not quantities. It is the answer to “who
+  should produce this?”, and it is the one thing in this module that the exam will ask you to
+  determine over and over.</p>
+
+  <p>From Table 4.1: a fish costs Tom ¾ of a coconut and costs Hank 2 coconuts, so <b>Tom has the
+  comparative advantage in fish</b>. A coconut costs Tom 4⁄3 fish and costs Hank ½ a fish, so
+  <b>Hank has the comparative advantage in coconuts</b> — even though he is worse at gathering
+  them in absolute terms.</p>
+
+  <p>There is a shortcut worth knowing. On a graph with the same two axes, the producer with the
+  <b>flatter</b> PPC has the comparative advantage in the good on the <b>horizontal</b> axis. That
+  follows straight from Module 3: the slope <em>is</em> the opportunity cost of the horizontal
+  good.</p>
+  <div class="watch"><p><b>Watch out.</b> Comparative advantage is never “both” and never “neither”, unless the two producers have <em>identical</em> opportunity costs — in which case there is no comparative advantage anywhere and no gains from trade at all. Otherwise each producer has exactly one.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">The definition, and Hank.</span> “Hank has a comparative advantage in gathering coconuts and Tom has a comparative advantage in catching fish.” Hank gathers fewer coconuts than Tom and still has the advantage.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">The exam graph, both directions.</span> A bushel of wheat costs Country A ⅔ of a textile unit and costs Country B 200 ÷ 100 = 2 units. <b>A has the comparative advantage in wheat.</b> A unit of textiles costs A 1½ bushels and costs B ½ a bushel, so <b>B has it in textiles.</b></p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">A surgeon and the filing.</span> A surgeon may type faster than her receptionist. She still should not do the filing: an hour of filing costs her an hour of surgery, and costs the receptionist far less.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is measured with <a href="#e5">opportunity cost as a ratio</a> (entry 5) and is the correct basis for <a href="#e4">specialisation</a> (entry 4). Do not confuse it with <a href="#e6">absolute advantage</a> (entry 6). Its mirror image is <a href="#e8">comparative disadvantage</a> (entry 8).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">7.1</span> A fish costs Tom ¾ of a coconut and costs Hank 2 coconuts. Who should catch the fish, and why is that not because he is the better fisherman?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Tom, because each fish he catches sacrifices only ¾ of a coconut against Hank's 2. Being the better fisherman is absolute advantage; what settles it is that fish are cheaper for him in coconuts forgone.</p></div></details></div>
+    <div class="q"><p><span class="qn">7.2</span> Two countries have identical opportunity costs in both goods. What happens?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Neither has a comparative advantage in anything, and there are no gains from trade. Specialising would reshuffle who produces what without making either better off.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got7"> Got it</label>
+  </div>
+</article>
+
+
+<article class="entry" id="e8">
+  <div class="entry-head"><span class="entry-num">08</span><h2>Comparative disadvantage</h2><span class="mark exam">★ Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>As long as opportunity costs differ, <b>everyone</b> has a comparative advantage in something and a <b>comparative disadvantage</b> in something.</p></div>
+  <p class="reading">Textbook page 27.</p>
+
+  <p>This is the reassuring half of the theory and it is quotable almost verbatim, so learn the
+  sentence: <em>&ldquo;as long as people have different opportunity costs, everyone has a comparative
+  advantage in something, and everyone has a comparative disadvantage in something.&rdquo;</em></p>
+
+  <p>It follows from arithmetic rather than from fairness. If a fish is cheaper for Tom in coconuts,
+  then a coconut must be dearer for Tom in fish — the two ratios are reciprocals, so they cannot
+  both be lower. Nobody can hold a comparative advantage in everything, however productive they
+  are.</p>
+  <div class="watch"><p><b>Watch out.</b> “Comparative disadvantage” is not “bad at it”. Tom has a comparative disadvantage in coconuts while being better at gathering them than Hank. It means only that coconuts cost him more, in forgone fish, than they cost Hank.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Tom's disadvantage.</span> “Meanwhile Tom, who can use his time better by catching fish, has a comparative disadvantage in coconut-gathering” — despite gathering more of them than Hank can.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Why it cannot go both ways.</span> A fish costs Tom ¾ coconut and Hank 2, so Tom is cheaper in fish. Invert both: a coconut costs Tom 4⁄3 fish and Hank ½ a fish, so Hank is cheaper in coconuts. Lower one way forces higher the other.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Every team.</span> In any pair of people with different strengths, each is the cheaper choice for one job. There is no arrangement in which one person should do everything.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the arithmetic mirror of <a href="#e7">comparative advantage</a> (entry 7), and the reason a producer with an <a href="#e6">absolute disadvantage</a> in everything still has something to sell — which is what makes <a href="#e12">trade between countries</a> (entry 12) work.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">8.1</span> Can a producer have a comparative advantage in both of two goods? Explain using ratios.</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. The two opportunity costs are reciprocals of each other, so if one is lower than the rival's the other must be higher. Being lower in both is arithmetically impossible.</p></div></details></div>
+    <div class="q"><p><span class="qn">8.2</span> Bangladesh has an absolute disadvantage in almost every industry. Why does it still export clothing?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because the productivity gap is much smaller in clothing than in sophisticated goods such as aircraft. Clothing is what it does comparatively well, so clothing is its comparative advantage.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got8"> Got it</label>
+  </div>
+</article>
+
+
+<article class="entry" id="e9">
+  <div class="entry-head"><span class="entry-num">09</span><h2>Output per worker against input per unit</h2><span class="mark exam">★ Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Data can be given as <b>output per input</b> (bushels per worker) or as <b>input per output</b> (workers per car). <b>Which way the table runs decides whether a bigger number is better.</b></p></div>
+  <p class="reading">Textbook page 29, Check Your Understanding 1 and Free-response 2. Topic 1.4, LO <code>MKT-2.A</code>(b).</p>
+
+  <p>The framework requires you to determine advantage “using data from PPCs <b>or tables</b>
+  as appropriate”, and your textbook's review gives you tables running in <em>opposite
+  directions</em> on facing pages. A student who has memorised a procedure instead of the definition
+  gets one of them backwards.</p>
+
+  <div class="tbl"><table class="sumtable">
+    <thead><tr><th>Item</th><th>What the numbers are</th><th>Absolute advantage goes to</th></tr></thead>
+    <tbody>
+      <tr><td>Check Your Understanding 1</td><td>Italy: an automobile takes <b>8 workers</b>/day, a washing machine <b>3 workers</b>/day</td><td class="mk">the <b>smaller</b> number</td></tr>
+      <tr><td>Free-response 2</td><td>Country A: <b>15 bushels</b> of wheat per worker per week, <b>60 units</b> of textiles</td><td class="mk">the <b>larger</b> number</td></tr>
+    </tbody>
+  </table></div>
+
+  <p>Before any arithmetic, ask one question: <b>is this output per input, or input per output?</b>
+  Then compute the opportunity cost as a ratio <em>within one producer's own column</em> and compare
+  that ratio across producers. Never compare raw numbers across producers to get comparative
+  advantage.</p>
+  <div class="watch"><p><b>Watch out.</b> The two formats are reciprocals of one another. 15 bushels per worker is the same fact as 1⁄15 of a worker per bushel. Converting is legitimate; forgetting which one you were handed is what costs the mark.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">The output-per-worker table.</span> Free-response 2: Country A makes 15 bushels of wheat or 60 units of textiles per worker per week; Country B makes 10 bushels or 60 units.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Work that table right through.</span> A: one bushel costs 60 ÷ 15 = <b>4 units of textiles</b>. B: one bushel costs 60 ÷ 10 = <b>6 units</b>. So A has the comparative advantage in wheat. Inverting: a unit of textiles costs A ¼ bushel and costs B 1⁄6 bushel, so <b>B has the comparative advantage in textiles</b> — even though the two make textiles equally fast.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Minutes per kilometre.</span> A runner's speed can be quoted as kilometres per hour or minutes per kilometre. Faster means a bigger number in the first and a smaller number in the second. Same runner, same fact.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the practical side of <a href="#e5">opportunity cost as a ratio</a> (entry 5), and the commonest way to get <a href="#e6">absolute</a> (entry 6) and <a href="#e7">comparative advantage</a> (entry 7) the wrong way round.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">9.1</span> In Italy an automobile takes 8 workers a day and a washing machine 3. In the United States an automobile takes 6 and a washing machine 2. Who has the absolute advantage in each good, and who has the comparative advantage in washing machines?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>The United States has the absolute advantage in both — 6 &lt; 8 and 2 &lt; 3, and <em>fewer</em> workers is better here. For comparative advantage, work within each country: one washing machine costs Italy 3⁄8 = 0.375 of an automobile and costs the United States 2⁄6 ≈ 0.333. So the <b>United States</b> has the comparative advantage in washing machines, and Italy in automobiles (8⁄3 ≈ 2.67 washing machines against 3).</p></div></details></div>
+    <div class="q"><p><span class="qn">9.2</span> A table says “workers needed per tonne”. Is a bigger number better or worse?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Worse. Needing more workers per tonne means being less productive. Check the heading before you compare anything.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got9"> Got it</label>
+  </div>
+</article>
+
+
+<article class="entry" id="e10">
+  <div class="entry-head"><span class="entry-num">10</span><h2>Terms of trade</h2><span class="mark flag">★ ⚑</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The <b>terms of trade</b> are the rate at which the two goods are exchanged — the “price” of one good in units of the other. A trade is <b>mutually beneficial</b> only if that rate lies <b>between the two producers' opportunity costs</b>.</p></div>
+  <p class="reading">The phrase does not appear in your textbook. The reasoning is on pages 26–27. Topic 1.4, <code>MKT-2.B.2</code>.</p>
+
+  <p>Your textbook teaches this properly and never names it, so the label has to come from here.
+  The reasoning on page 26 is exactly right: Hank “will not accept any deal with Tom in which he
+  must give up more than 2 coconuts per fish — otherwise, he's better off not trading at
+  all.” And Tom “will reject a deal that requires him to give up more than 4⁄3 of a
+  fish per coconut.”</p>
+
+  <p>Turn that into a range and the calculation becomes mechanical:</p>
+
+  <div class="tbl"><table class="sumtable">
+    <thead><tr><th></th><th>Tom's cost</th><th>Hank's cost</th><th>Mutually beneficial range</th></tr></thead>
+    <tbody>
+      <tr><td><b>1 fish</b></td><td>¾ coconut</td><td>2 coconuts</td><td class="mk">between ¾ and 2 coconuts</td></tr>
+      <tr><td><b>1 coconut</b></td><td>4⁄3 fish</td><td>½ fish</td><td class="mk">between ½ and 4⁄3 fish</td></tr>
+    </tbody>
+  </table></div>
+
+  <p>The seller will not accept less than its own opportunity cost; the buyer will not pay more than
+  its own. So the deal has to sit strictly between them. <b>Write the range first, then test the
+  proposed deal against it</b> — that is precisely what the exam asks you to calculate.</p>
+  <div class="watch"><p><b>Watch out.</b> The boundaries themselves are <em>not</em> mutually beneficial. At exactly ¾ of a coconut per fish, Tom is indifferent and gains nothing; at exactly 2, Hank gains nothing. A deal at a boundary gives the entire gain to one side, which is why the framework's wording is about a range rather than a number.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">The deal your book rules out.</span> 15 coconuts for 5 fish is 3 coconuts per fish — above Hank's own cost of 2, so he refuses. Your book rejects it for exactly this reason without using the phrase.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Test three deals against the range ¾ to 2.</span> 10 fish for 10 coconuts is <b>1 coconut per fish</b> — inside, so both accept. 1 fish for 1½ coconuts is <b>1.5</b> — inside, so both accept. 5 fish for 15 coconuts is <b>3</b> — outside, so Hank refuses.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Haggling.</span> A seller has a price below which he will not sell and a buyer has a price above which she will not buy. If the two overlap there is a deal, and where in the overlap it lands decides who gets more of the gain.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> The boundaries are the two <a href="#e7">comparative advantage</a> (entry 7) opportunity costs from entry 5. Where inside the range a deal falls decides how the <a href="#e3">gains from trade</a> (entry 3) are split — but any deal inside it makes both sides better off, which is why it puts consumption <a href="#e11">beyond the PPC</a> (entry 11).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">10.1</span> Why are Tom and Hank both willing to trade 1 fish for 1½ coconuts?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because 1.5 lies between ¾ and 2. Hank pays 1.5 coconuts for a fish that would have cost him 2 to catch, so he saves ½ a coconut. Tom receives 1.5 coconuts for a fish that cost him only ¾ of a coconut, so he gains ¾. Both sides beat their own cost.</p></div></details></div>
+    <div class="q"><p><span class="qn">10.2</span> Country A's wheat costs ⅔ of a textile unit; Country B's costs 2 units. What is the highest price B will pay for a bushel, and the lowest A will accept?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>B will pay at most <b>2 units</b> — above that it is cheaper to grow its own. A will accept no less than <b>⅔ of a unit</b>. Any price strictly between the two works.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got10"> Got it</label>
+  </div>
+</article>
+
+
+<article class="entry" id="e11">
+  <div class="entry-head"><span class="entry-num">11</span><h2>Consumption possibilities beyond the PPC</h2><span class="mark flag">★ ⚑</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Specialising according to comparative advantage and trading lets a producer <b>consume outside its own production possibilities curve</b> — a combination it could never have produced alone.</p></div>
+  <p class="reading">Shown in Figure 4.2 on page 26; the phrase is never used. Topic 1.4, <code>MKT-2.B.1</code>.</p>
+
+  <p>This is the strongest statement in the module and your textbook makes a weaker one. It says
+  each castaway “can consume more of both goods than either could without trade” — true,
+  but that only means <em>more than before</em>. The examinable claim is sharper: consumption moves
+  <b>beyond the curve</b>, to a point production could not reach.</p>
+
+  <p>Prove it with the numbers from Table 4.2 rather than taking it on trust:</p>
+
+  <div class="tbl"><table class="sumtable">
+    <thead><tr><th></th><th>Own PPC</th><th>Consumes with trade</th><th>Best possible alone at that many fish</th><th>Beyond?</th></tr></thead>
+    <tbody>
+      <tr><td><b>Tom</b></td><td>40 fish or 30 coconuts</td><td>30 fish, 10 coconuts</td><td class="mk">30 − ¾(30) = 7.5 coconuts</td><td class="mk">yes</td></tr>
+      <tr><td><b>Hank</b></td><td>10 fish or 20 coconuts</td><td>10 fish, 10 coconuts</td><td class="mk">20 − 2(10) = 0 coconuts</td><td class="mk">yes</td></tr>
+    </tbody>
+  </table></div>
+
+  <p>Hank's case is the vivid one. Producing 10 fish would use his entire week, leaving him
+  <b>nothing</b> to gather coconuts with. With trade he has 10 fish <em>and</em> 10 coconuts. The
+  dashed lines below show each gap:</p>
+
+  <svg class="two-panel" viewBox="0 0 600 250" role="img" aria-label="Two production possibilities curves. Each castaway's consumption point with trade lies outside his own curve."><text x="42.0" y="16" class="ph">Tom</text><line x1="42.0" y1="206.0" x2="42.0" y2="26.0" class="ax"/><line x1="42.0" y1="206.0" x2="277.0" y2="206.0" class="ax"/><line x1="42.0" y1="206.0" x2="42.0" y2="210.0" class="tick"/><text x="42.0" y="222.0" class="tl" text-anchor="middle">0</text><line x1="93.1" y1="206.0" x2="93.1" y2="210.0" class="tick"/><text x="93.1" y="222.0" class="tl" text-anchor="middle">10</text><line x1="144.2" y1="206.0" x2="144.2" y2="210.0" class="tick"/><text x="144.2" y="222.0" class="tl" text-anchor="middle">20</text><line x1="195.3" y1="206.0" x2="195.3" y2="210.0" class="tick"/><text x="195.3" y="222.0" class="tl" text-anchor="middle">30</text><line x1="246.3" y1="206.0" x2="246.3" y2="210.0" class="tick"/><text x="246.3" y="222.0" class="tl" text-anchor="middle">40</text><line x1="38.0" y1="206.0" x2="42.0" y2="206.0" class="tick"/><text x="35.0" y="209.5" class="tl" text-anchor="end">0</text><line x1="38.0" y1="153.1" x2="42.0" y2="153.1" class="tick"/><text x="35.0" y="156.6" class="tl" text-anchor="end">10</text><line x1="38.0" y1="100.1" x2="42.0" y2="100.1" class="tick"/><text x="35.0" y="103.6" class="tl" text-anchor="end">20</text><line x1="38.0" y1="47.2" x2="42.0" y2="47.2" class="tick"/><text x="35.0" y="50.7" class="tl" text-anchor="end">30</text><text x="159.5" y="242.0" class="al" text-anchor="middle">Fish</text><text x="12.0" y="116.0" class="al" text-anchor="middle" transform="rotate(-90 12.0 116.0)">Coconuts</text><line x1="42.0" y1="47.2" x2="246.3" y2="206.0" class="curve"/><line x1="195.3" y1="166.3" x2="195.3" y2="153.1" class="drop"/><circle cx="195.3" cy="166.3" r="4.5" class="pt pt-on"/><circle cx="195.3" cy="153.1" r="5.5" class="pt pt-out"/><text x="204.3" y="149.1" class="ptl good">with trade: 30, 10</text><text x="204.3" y="180.3" class="ptl">best alone: 7.5</text><text x="349.0" y="16" class="ph">Hank</text><line x1="349.0" y1="206.0" x2="349.0" y2="26.0" class="ax"/><line x1="349.0" y1="206.0" x2="584.0" y2="206.0" class="ax"/><line x1="349.0" y1="206.0" x2="349.0" y2="210.0" class="tick"/><text x="349.0" y="222.0" class="tl" text-anchor="middle">0</text><line x1="400.1" y1="206.0" x2="400.1" y2="210.0" class="tick"/><text x="400.1" y="222.0" class="tl" text-anchor="middle">10</text><line x1="451.2" y1="206.0" x2="451.2" y2="210.0" class="tick"/><text x="451.2" y="222.0" class="tl" text-anchor="middle">20</text><line x1="502.3" y1="206.0" x2="502.3" y2="210.0" class="tick"/><text x="502.3" y="222.0" class="tl" text-anchor="middle">30</text><line x1="553.3" y1="206.0" x2="553.3" y2="210.0" class="tick"/><text x="553.3" y="222.0" class="tl" text-anchor="middle">40</text><line x1="345.0" y1="206.0" x2="349.0" y2="206.0" class="tick"/><text x="342.0" y="209.5" class="tl" text-anchor="end">0</text><line x1="345.0" y1="153.1" x2="349.0" y2="153.1" class="tick"/><text x="342.0" y="156.6" class="tl" text-anchor="end">10</text><line x1="345.0" y1="100.1" x2="349.0" y2="100.1" class="tick"/><text x="342.0" y="103.6" class="tl" text-anchor="end">20</text><line x1="345.0" y1="47.2" x2="349.0" y2="47.2" class="tick"/><text x="342.0" y="50.7" class="tl" text-anchor="end">30</text><text x="466.5" y="242.0" class="al" text-anchor="middle">Fish</text><text x="319.0" y="116.0" class="al" text-anchor="middle" transform="rotate(-90 319.0 116.0)">Coconuts</text><line x1="349.0" y1="100.1" x2="400.1" y2="206.0" class="curve"/><line x1="400.1" y1="206.0" x2="400.1" y2="153.1" class="drop"/><circle cx="400.1" cy="206.0" r="4.5" class="pt pt-on"/><circle cx="400.1" cy="153.1" r="5.5" class="pt pt-out"/><text x="409.1" y="149.1" class="ptl good">with trade: 10, 10</text><text x="409.1" y="220.0" class="ptl">best alone: 0</text></svg>
+
+  <p class="figcap">Each castaway's consumption with trade sits <b>above his own curve</b>. Production
+  stays on the curve; only consumption escapes it.</p>
+  <div class="watch"><p><b>Watch out.</b> It is <b>consumption</b> that goes beyond the curve, never production. Tom still produces a point <em>on</em> his PPC — the corner, 40 fish and 0 coconuts. If a question asks you to label a production point after trade, it is on the curve; the consumption point is outside.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Figure 4.2.</span> Both consumption-with-trade points are plotted outside the curve they belong to. The caption stops at “more of both goods”, which is the weaker claim.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Hank, in one line.</span> At 10 fish his own curve allows <b>0 coconuts</b>. With trade he consumes <b>10</b>. There is no way to produce that bundle; there is a way to consume it.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">A single household.</span> You consume food you could not grow, in a house you could not build, using a phone you could not make. Your consumption sits far outside anything you could produce yourself — that is this entry, applied to a whole life.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the payoff from <a href="#e4">specialising</a> (entry 4) at <a href="#e10">terms of trade</a> (entry 10) inside the range. It also qualifies Module 3’s rule that outside the curve is unattainable: that is true of <em>production</em>, and trade is the exception for <em>consumption</em>.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">11.1</span> Tom consumes 30 fish and 10 coconuts. His curve allows 7.5 coconuts at 30 fish. What does that show, and what is he actually producing?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>That his consumption bundle lies outside his own PPC — 10 &gt; 7.5, so he could not have produced it. He is producing 40 fish and 0 coconuts, a point <em>on</em> his curve, and trading 10 fish for 10 coconuts.</p></div></details></div>
+    <div class="q"><p><span class="qn">11.2</span> Module 3 said points outside the curve are unattainable. Is that now wrong?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No — it is still exactly right about production. What trade changes is what you can <em>consume</em>. The curve still limits what this producer can make.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got11"> Got it</label>
+  </div>
+</article>
+
+
+<article class="entry" id="e12">
+  <div class="entry-head"><span class="entry-num">12</span><h2>Comparative advantage between countries</h2><span class="mark exam">★ Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The same model applies to <b>countries</b>. On a graph with the same axes, the country with the <b>flatter</b> PPC has the comparative advantage in the good on the <b>horizontal</b> axis.</p></div>
+  <p class="reading">Textbook pages 28–29, Figure 4.3.</p>
+
+  <p>Nothing new is required here — that is the point. Your textbook's Figure 4.3 puts pork on
+  the horizontal axis and aircraft on the vertical, draws a flatter curve for the United States and a
+  steeper one for Canada, and concludes that the United States has the comparative advantage in pork
+  and Canada in aircraft.</p>
+
+  <p>Why the flatter curve wins is Module 3 arithmetic: the slope of a straight-line PPC <em>is</em>
+  the opportunity cost of the horizontal good. A flatter curve means each extra unit of that good
+  costs less of the vertical one.</p>
+
+  <p>And the reassurance from entry 8 carries over to countries in full: “even if one country has
+  an absolute advantage in both industries — there are still mutual gains from trade.”</p>
+  <div class="watch"><p><b>Watch out.</b> Do not conclude that the richer or more productive country should produce everything. That is absolute advantage again. Bangladesh is less productive in almost every industry and still exports clothing, because the productivity gap is smaller there than in aircraft.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Pork and aircraft.</span> “The U.S. production possibilities curve is flatter than the Canadian … implying that producing one more ton of pork costs fewer aircraft in the United States than it does in Canada.”</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Two countries, four numbers.</span> Country A can grow 800 bushels of corn or build 200 computers; Country B, 400 bushels or 500 computers. A bushel costs A 200 ÷ 800 = <b>¼ of a computer</b> and costs B 500 ÷ 400 = <b>1¼ computers</b>. A has the comparative advantage in corn, B in computers.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Reading the labels.</span> Your book's suggestion: check where your clothes were made. A country worse at making almost everything makes a large share of the world's shirts, and comparative advantage is the whole explanation.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is <a href="#e7">comparative advantage</a> (entry 7) with countries in place of people, read off a slope as in entry 5. It determines <a href="#e13">who imports and who exports</a> (entry 13).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">12.1</span> Two countries produce rice and steel, rice on the horizontal axis. Country P's PPC is flatter than Country Q's. Who has the comparative advantage in rice?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Country P. A flatter curve means each tonne of rice costs less steel, which is exactly a lower opportunity cost of the horizontal good.</p></div></details></div>
+    <div class="q"><p><span class="qn">12.2</span> A country has an absolute advantage in both goods. Should it still trade?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Yes. Your textbook says so directly: mutual gains do not depend on either country being better at producing one kind of good. What matters is that the two opportunity costs differ.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got12"> Got it</label>
+  </div>
+</article>
+
+
+<article class="entry" id="e13">
+  <div class="entry-head"><span class="entry-num">13</span><h2>Imports and exports</h2><span class="mark exam">★ Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>After specialising, a producer <b>exports</b> the good in which it has the comparative advantage and <b>imports</b> the other one.</p></div>
+  <p class="reading">Textbook pages 28–29, and multiple-choice 4. The welfare analysis of trade is Topic 2.9.</p>
+
+  <p>This is a one-line inference, and it is worth a mark on almost every trade question. Find the
+  comparative advantage; that good is the export. The other good is the import. Nothing else is
+  needed.</p>
+
+  <p>From the exam graph: Country A has the comparative advantage in wheat, so A exports wheat and
+  <b>imports textiles</b>. Country B has it in textiles, so B exports textiles and <b>imports
+  wheat</b>.</p>
+  <div class="watch"><p><b>Watch out.</b> This module explains the <em>direction</em> of trade and nothing more. It gives you no world price, no quantity imported read off a supply-and-demand diagram, no tariff and no surplus analysis. All of that is <b>Topic 2.9</b>, and it comes from a different model later in the course. Do not try to answer a Topic 2.9 question with a PPC.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">The general principle.</span> “If the United States concentrates on producing pork and ships some of its output to Canada, while Canada concentrates on aircraft … both countries can consume more.”</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Complete the pair.</span> Country A: comparative advantage in wheat → exports wheat, imports textiles. Country B: comparative advantage in textiles → exports textiles, imports wheat. The two answers are always mirror images.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">The clothing label again.</span> Bangladesh exports shirts and imports aircraft. Not because it cannot make anything else, but because shirts are what it gives up least to produce.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It follows directly from <a href="#e12">comparative advantage between countries</a> (entry 12) and from <a href="#e4">specialisation</a> (entry 4). The consumption gain it produces is <a href="#e11">beyond the PPC</a> (entry 11).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">13.1</span> Country A has the comparative advantage in wheat, Country B in textiles. What does each import?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>A imports textiles; B imports wheat. Each imports the good it does <em>not</em> have the comparative advantage in.</p></div></details></div>
+    <div class="q"><p><span class="qn">13.2</span> A question gives you a domestic supply-and-demand diagram and a world price, and asks how much is imported. Can you answer it from this module?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. This module gives the direction of trade, not the quantity. The world-price model is Topic 2.9 and uses supply and demand rather than a PPC.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got13"> Got it</label>
+  </div>
+</article>
+
+
+<!-- ============ QUIZ ============ -->
+<section class="section" id="quiz">
+  <h2>Tackle the test — multiple choice</h2>
+  <p>The five questions from your textbook's Module 4 review, all of them on-syllabus. They use one
+  graph: <b>Country A</b> can produce 150 bushels of wheat or 100 units of textiles; <b>Country B</b>
+  can produce 100 bushels or 200 units. Click an option to see why it is right or wrong — every
+  option is explained.</p>
+  <p class="widget-note">First-click score across all 5 questions:
+  <span class="num" id="scoreOut">0 / 5</span></p>
+
+  <div class="widget">
+    <div class="mcq" data-key="A">
+      <p class="stem"><span class="qn">1</span> Country A can produce 150 bushels of wheat or 100 units of textiles. Country B can produce 100 bushels of wheat or 200 units of textiles. Which country has an <b>absolute advantage</b> in each good?</p>
+      <div class="opts">
+        <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>Wheat: Country A · Textiles: Country B<span class="why" hidden>✓ Correct. Compare the same good across the two countries: 150 &gt; 100 bushels, and 200 &gt; 100 units. Absolute advantage is a comparison of quantities, nothing more.</span></span></button>
+        <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>Wheat: Country A · Textiles: Country A<span class="why" hidden>✗ A makes only 100 units of textiles against B's 200. This option gives A both, which the numbers do not support.</span></span></button>
+        <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>Wheat: Country B · Textiles: Country A<span class="why" hidden>✗ Exactly reversed. Read each good's two numbers and take the larger.</span></span></button>
+        <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>Wheat: Country B · Textiles: Country B<span class="why" hidden>✗ Gives B both. B grows less wheat: 100 against 150.</span></span></button>
+        <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>Wheat: Country A · Textiles: neither country<span class="why" hidden>✗ One country does make more textiles — B, and by a factor of two. “Neither” would need the two figures to be equal.</span></span></button>
+      </div>
+    </div>
+
+    <div class="mcq" data-key="B">
+      <p class="stem"><span class="qn">2</span> For Country A, the opportunity cost of <b>one bushel of wheat</b> is</p>
+      <div class="opts">
+        <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>½ unit of textiles<span class="why" hidden>✗ This is 100 ÷ 200, which mixes A's textile intercept with B's. Stay inside one country's own two numbers.</span></span></button>
+        <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>⅔ of a unit of textiles<span class="why" hidden>✓ Correct. A gives up its 100 units of textiles to grow 150 bushels, so one bushel costs 100 ÷ 150 = ⅔ of a unit.</span></span></button>
+        <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>1⅓ units of textiles<span class="why" hidden>✗ No division of A's numbers gives 4⁄3. This is the sort of answer that comes from guessing rather than dividing.</span></span></button>
+        <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>1½ units of textiles<span class="why" hidden>✗ This is 150 ÷ 100 — the reciprocal, and the cost of one <b>unit of textiles</b> in bushels. The commonest error on this item: read which good the question is costing.</span></span></button>
+        <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>2 units of textiles<span class="why" hidden>✗ That is <b>Country B's</b> opportunity cost of a bushel (200 ÷ 100). Right arithmetic, wrong country.</span></span></button>
+      </div>
+    </div>
+
+    <div class="mcq" data-key="A">
+      <p class="stem"><span class="qn">3</span> Which country has a <b>comparative advantage</b> in each good?</p>
+      <div class="opts">
+        <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>Wheat: Country A · Textiles: Country B<span class="why" hidden>✓ Correct. A bushel costs A ⅔ of a unit and costs B 2 units, so A is the cheaper wheat producer. A unit of textiles costs A 1½ bushels and costs B ½ a bushel, so B is the cheaper textile producer.</span></span></button>
+        <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>Wheat: Country A · Textiles: Country A<span class="why" hidden>✗ No producer can have a comparative advantage in both. The two opportunity costs are reciprocals, so one being lower forces the other higher.</span></span></button>
+        <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>Wheat: Country B · Textiles: Country A<span class="why" hidden>✗ Reversed. Compare the opportunity costs, not the output levels.</span></span></button>
+        <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>Wheat: Country B · Textiles: Country B<span class="why" hidden>✗ Again both to one country, and again impossible.</span></span></button>
+        <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>Wheat: Country A · Textiles: neither country<span class="why" hidden>✗ “Neither” only happens when the two opportunity costs are equal. Here they are ½ against 1½.</span></span></button>
+      </div>
+    </div>
+
+    <div class="mcq" data-key="D">
+      <p class="stem"><span class="qn">4</span> If the two countries specialise and trade, which describes what they <b>import</b>?</p>
+      <div class="opts">
+        <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>Wheat: Country A · Textiles: Country A<span class="why" hidden>✗ A cannot import both. It specialises in the good it produces most cheaply and imports the other one.</span></span></button>
+        <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>Wheat: Country A · Textiles: Country B<span class="why" hidden>✗ Exactly backwards: this has each country importing the good it has the comparative advantage in.</span></span></button>
+        <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>Wheat: Country B · Textiles: Country B<span class="why" hidden>✗ B cannot import both. It has the comparative advantage in textiles, so textiles are its export.</span></span></button>
+        <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>Wheat: Country B · Textiles: Country A<span class="why" hidden>✓ Correct. A has the comparative advantage in wheat, so A exports wheat and imports textiles; B does the mirror image.</span></span></button>
+        <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>Wheat: neither country · Textiles: Country B<span class="why" hidden>✗ If specialisation happens, somebody imports wheat — the country that stopped growing it.</span></span></button>
+      </div>
+    </div>
+
+    <div class="mcq" data-key="E">
+      <p class="stem"><span class="qn">5</span> What is the <b>highest price</b> Country B is willing to pay to buy wheat from Country A?</p>
+      <div class="opts">
+        <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>½ unit of textiles<span class="why" hidden>✗ Not one of the two opportunity costs in this problem, and far below what B would happily pay.</span></span></button>
+        <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>⅔ of a unit of textiles<span class="why" hidden>✗ This is <b>Country A's</b> cost — the <em>lowest</em> price A will accept, which is the other end of the range.</span></span></button>
+        <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>1 unit of textiles<span class="why" hidden>✗ A price inside the mutually beneficial range, so B would accept it. But the question asks for the <em>highest</em> it would pay.</span></span></button>
+        <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>1½ units of textiles<span class="why" hidden>✗ Also inside the range, and also not the maximum. It is A's opportunity cost of a textile unit, which is not what is being asked.</span></span></button>
+        <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>2 units of textiles<span class="why" hidden>✓ Correct. B can grow a bushel itself for 2 units of textiles forgone, so it will never pay more than 2. That ceiling <em>is</em> B's own opportunity cost — the top of the terms-of-trade range.</span></span></button>
+      </div>
+    </div>
+
+    <div class="score">
+      <span>Put those four numbers into the explorer above and check every answer.</span>
+      <b id="scoreOut2"></b>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FRQ ============ -->
+<section class="section" id="frq">
+  <h2>Tackle the test — free response</h2>
+  <p>Your textbook's Module 4 free-response questions are the best practice in Unit 1, because
+  together they use <b>both</b> data formats the exam allows — a graph and a table. Write full
+  answers before revealing the rubrics.</p>
+
+  <div class="frq">
+    <p class="stem"><b>1.</b> Country A can produce 800 bushels of corn or 200 computers. Country B can
+    produce 400 bushels of corn or 500 computers.</p>
+    <ol>
+      <li>What is the opportunity cost of a bushel of corn in each country?</li>
+      <li>Which country has an absolute advantage in computer production? Explain.</li>
+      <li>Which country has a comparative advantage in corn production? Explain.</li>
+      <li>If each country specialises, what good will Country B import? Explain.</li>
+      <li>What is the minimum price Country A will accept to export corn to Country B? Explain.</li>
+    </ol>
+    <p class="pts">9 points, as printed in your textbook</p>
+    <details class="reveal"><summary>Show the rubric</summary><div class="ans">
+      <ul class="rubric">
+        <li><span class="pt">1 pt</span><span>Country A: <b>¼ of a computer</b> per bushel (200 ÷ 800). Country B: <b>1¼ computers</b> per bushel (500 ÷ 400).</span></li>
+        <li><span class="pt">1 pt</span><span>Country B has the absolute advantage in computers.</span></li>
+        <li><span class="pt">1 pt</span><span>Because B can produce more computers than A — 500 against 200.</span></li>
+        <li><span class="pt">1 pt</span><span>Country A has the comparative advantage in corn.</span></li>
+        <li><span class="pt">1 pt</span><span>Because A produces corn at a lower opportunity cost — ¼ against 1¼ computers.</span></li>
+        <li><span class="pt">1 pt</span><span>Country B will import <b>corn</b>.</span></li>
+        <li><span class="pt">1 pt</span><span>Because B has the comparative advantage in computers, so it specialises in computers and imports corn.</span></li>
+        <li><span class="pt">1 pt</span><span><b>¼ of a computer</b> per bushel.</span></li>
+        <li><span class="pt">1 pt</span><span>Because A's own opportunity cost of corn is ¼ of a computer, so that is the lowest price it will accept.</span></li>
+      </ul>
+      <p style="margin-top:10px"><b>Two things to notice.</b> Parts (b) and (c) each award a mark for
+      the answer and a second for the <em>justification</em>, and the two justifications are different
+      kinds of sentence — output for absolute advantage, opportunity cost for comparative. Part (e)
+      is a <b>terms-of-trade boundary</b>: the whole mutually beneficial range here is between ¼
+      and 1¼ computers per bushel, and the rubric asks for the bottom of it.</p>
+    </div></details>
+  </div>
+
+  <div class="frq">
+    <p class="stem"><b>2.</b> Two countries produce textiles and wheat using equal amounts of
+    resources. Weekly output per worker:</p>
+    <div class="tbl"><table class="sumtable">
+      <thead><tr><th>Weekly output per worker</th><th>Country A</th><th>Country B</th></tr></thead>
+      <tbody>
+        <tr><td>Bushels of wheat</td><td class="mk">15</td><td class="mk">10</td></tr>
+        <tr><td>Units of textiles</td><td class="mk">60</td><td class="mk">60</td></tr>
+      </tbody>
+    </table></div>
+    <ol>
+      <li>What is the opportunity cost of producing a bushel of wheat for each country?</li>
+      <li>Which country has the absolute advantage in wheat production?</li>
+      <li>Which country has the comparative advantage in textile production? Explain.</li>
+    </ol>
+    <p class="pts">5 points · rubric written for this guide</p>
+    <details class="reveal"><summary>Show the rubric</summary><div class="ans">
+      <ul class="rubric">
+        <li><span class="pt">1 pt</span><span>Country A: one bushel costs <b>4 units of textiles</b> (60 ÷ 15).</span></li>
+        <li><span class="pt">1 pt</span><span>Country B: one bushel costs <b>6 units of textiles</b> (60 ÷ 10).</span></li>
+        <li><span class="pt">1 pt</span><span>Country A has the absolute advantage in wheat — 15 bushels per worker against 10.</span></li>
+        <li><span class="pt">1 pt</span><span>Country B has the comparative advantage in textiles.</span></li>
+        <li><span class="pt">1 pt</span><span>Because a unit of textiles costs B only 10 ÷ 60 = <b>1⁄6 of a bushel</b>, against 15 ÷ 60 = <b>¼ of a bushel</b> for A.</span></li>
+      </ul>
+      <p style="margin-top:10px"><b>This is the item to do twice.</b> The two countries produce
+      textiles <em>equally fast</em> — 60 units each — and one of them still has the
+      comparative advantage in textiles. Nothing about the textile row explains that; it comes entirely
+      from the wheat row. It is the cleanest proof available that comparative advantage is about
+      opportunity cost and not about productivity.</p>
+    </div></details>
+  </div>
+</section>
+
+<!-- ============ SUMMARY ============ -->
+<section class="section" id="summary">
+  <h2>One-page summary</h2>
+  <p>For revision once you already know the terms — not for learning them the first time.</p>
+  <div class="tbl"><table class="sumtable">
+    <thead><tr><th>#</th><th>Term</th><th></th><th>In one line</th></tr></thead>
+    <tbody>
+      <tr><td class="mk">01</td><td><b>Trade</b></td><td class="mk ">★</td><td>Goods and services in both directions</td></tr>
+      <tr><td class="mk">02</td><td><b>Self-sufficiency</b></td><td class="mk ">★</td><td>The no-trade baseline. Tom 28 and 9; Hank 6 and 8</td></tr>
+      <tr><td class="mk">03</td><td><b>Gains from trade</b></td><td class="mk ">★</td><td><b>Both</b> parties get more of <b>both</b> goods</td></tr>
+      <tr><td class="mk">04</td><td><b>Specialization</b></td><td class="mk ">★</td><td>Each producer does the one thing it is comparatively good at</td></tr>
+      <tr><td class="mk">05</td><td><b>Opportunity cost as a ratio</b></td><td class="mk ">★</td><td>1 A costs b ÷ a of B; the two directions are reciprocals</td></tr>
+      <tr><td class="mk">06</td><td><b>Absolute advantage</b></td><td class="mk ">★</td><td>Who produces <b>more</b> — and it settles nothing</td></tr>
+      <tr><td class="mk">07</td><td><b>Comparative advantage</b></td><td class="mk ">★</td><td>Who produces at <b>lower opportunity cost</b> — this is the one that matters</td></tr>
+      <tr><td class="mk">08</td><td><b>Comparative disadvantage</b></td><td class="mk ">★</td><td>Everyone has one of each, because the ratios are reciprocals</td></tr>
+      <tr><td class="mk">09</td><td><b>Output per worker / input per unit</b></td><td class="mk ">★</td><td>Ask which way the table runs before comparing anything</td></tr>
+      <tr><td class="mk">10</td><td><b>Terms of trade</b></td><td class="mk flagm">★ ⚑</td><td>Must sit <b>between</b> the two opportunity costs; not in your textbook</td></tr>
+      <tr><td class="mk">11</td><td><b>Consumption beyond the PPC</b></td><td class="mk flagm">★ ⚑</td><td><b>Consumption</b> leaves the curve; production stays on it</td></tr>
+      <tr><td class="mk">12</td><td><b>Comparative advantage between countries</b></td><td class="mk ">★</td><td>The <b>flatter</b> PPC has it in the horizontal good</td></tr>
+      <tr><td class="mk">13</td><td><b>Imports and exports</b></td><td class="mk ">★</td><td>Export your comparative advantage, import the other good</td></tr>
+    </tbody>
+  </table></div>
+  <p class="widget-note"><b>★</b> exam term — all thirteen are, in this course ·
+  <b>★ ⚑</b> required by the framework but never named in your textbook</p>
+</section>
+
+<section class="section" id="final">
+  <h2>The five things to get right from Module 4</h2>
+  <div class="final">
+    <ol>
+      <li><b>Comparative advantage, not absolute advantage, decides who produces what.</b> The
+      framework writes the correction into the requirement itself, and your textbook's own definition
+      of absolute advantage ends with the same warning.</li>
+      <li><b>State opportunity cost with its units, both ways round.</b> “¾ of a coconut per
+      fish” and “4⁄3 fish per coconut” are the same fact; a bare 0.75 is not an
+      answer.</li>
+      <li><b>Ask which way a table runs before you compare anything.</b> Output per worker —
+      bigger is better. Workers per unit — smaller is better.</li>
+      <li><b>Write the terms-of-trade range first</b>, then test the proposed deal against it. The
+      price of a good must fall between the two producers' opportunity costs of that good.</li>
+      <li><b>Consumption goes beyond the PPC; production does not.</b> After trade each producer still
+      produces a point on its own curve, and consumes one outside it.</li>
+    </ol>
+  </div>
+</section>
+
+<p class="footer">
+  Student guide · Module 4, <i>Krugman&rsquo;s Economics for AP</i>, pages 23–30 ·
+  definitions quoted from the textbook · tiers assigned against the AP Microeconomics Course and
+  Exam Description, Course Framework V.1, © 2022 · the terms-of-trade range, the
+  beyond-the-PPC arithmetic and the rubric for free-response 2 added for this guide · all figures
+  recomputed.
+</p>
+
+</div>
+
+<script>
+
+(function(){
+  "use strict";
+
+  /* ---------- progress ---------- */
+  var KEY = "micro-mod4-progress";
+  var boxes = Array.prototype.slice.call(document.querySelectorAll(".gotbox"));
+  var fill = document.getElementById("pfill");
+  var num  = document.getElementById("pnum");
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch(e){ return {}; } }
+  function save(s){ try { localStorage.setItem(KEY, JSON.stringify(s)); } catch(e){} }
+  function paint(){
+    var done = boxes.filter(function(b){ return b.checked; }).length;
+    fill.style.width = (done / boxes.length * 100) + "%";
+    num.textContent = done + " / " + boxes.length;
+  }
+  var state = load();
+  boxes.forEach(function(b){
+    if (state[b.id]) b.checked = true;
+    b.addEventListener("change", function(){ var s = load(); s[b.id] = b.checked; save(s); paint(); });
+  });
+  paint();
+  document.getElementById("resetBtn").addEventListener("click", function(){
+    boxes.forEach(function(b){ b.checked = false; });
+    save({}); paint();
+  });
+
+  /* ---------- shared helpers ---------- */
+  function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+  function gcd(a,b){ while(b){ var t=a%b; a=b; b=t; } return a; }
+  function frac(x){
+    if (!isFinite(x) || x < 0) return "—";
+    for (var q = 1; q <= 24; q++){
+      var p = Math.round(x * q);
+      if (Math.abs(p / q - x) < 1e-9){
+        var g = gcd(p, q) || 1; p /= g; q /= g;
+        if (q === 1) return String(p);
+        var w = Math.floor(p / q), r = p % q;
+        return (w > 0 ? w + " " : "") + r + "/" + q;
+      }
+    }
+    return x.toFixed(2);
+  }
+
+  /* ---------- scenarios ---------- */
+  /* A and B are the plural axis labels; As and Bs are the singulars used in prose. */
+  var SCEN = {
+    castaways: { p1:"Tom", p2:"Hank", A:"fish", B:"coconuts",
+                 As:"fish", Bs:"coconut", a1:40, b1:30, a2:10, b2:20 },
+    wheat:     { p1:"Country A", p2:"Country B", A:"bushels of wheat", B:"units of textiles",
+                 As:"bushel of wheat", Bs:"unit of textiles", a1:150, b1:100, a2:100, b2:200 },
+    corn:      { p1:"Country A", p2:"Country B", A:"bushels of corn", B:"computers",
+                 As:"bushel of corn", Bs:"computer", a1:800, b1:200, a2:400, b2:500 },
+    shirts:    { p1:"USA", p2:"Bangladesh", A:"shirts", B:"aircraft",
+                 As:"shirt", Bs:"aircraft", a1:200, b1:100, a2:100, b2:5 }
+  };
+  var S = JSON.parse(JSON.stringify(SCEN.castaways));
+
+  var inA1 = document.getElementById("inA1"), inB1 = document.getElementById("inB1");
+  var inA2 = document.getElementById("inA2"), inB2 = document.getElementById("inB2");
+  var inPrice = document.getElementById("inPrice");
+  var caSvg = document.getElementById("caSvg"), caTab = document.getElementById("caTab");
+  var caVerdict = document.getElementById("caVerdict");
+  var lineSvg = document.getElementById("lineSvg"), dealVerdict = document.getElementById("dealVerdict");
+  var outLow = document.getElementById("outLow"), outHigh = document.getElementById("outHigh");
+
+  function setText(id, t){ var e = document.getElementById(id); if (e) e.textContent = t; }
+
+  function labels(){
+    setText("lbP1a", S.p1); setText("lbP1b", S.p1);
+    setText("lbP2a", S.p2); setText("lbP2b", S.p2);
+    setText("lbGa1", S.A);  setText("lbGb1", S.B);
+    setText("lbGa2", S.A);  setText("lbGb2", S.B);
+    setText("lbDealA", S.As);
+    setText("lbDealB", S.B);
+  }
+
+  /* ---------- the two PPC panels ---------- */
+  function drawPanels(m){
+    var W = 600, H = 240, gap = 14, pw = (W - gap) / 2;
+    var L = 46, R = 14, T = 26, B = 42;
+    var g = [];
+    var XM = m.xmax, YM = m.ymax;
+
+    function panel(ox, name, a, b){
+      var iw = pw - L - R, ih = H - T - B;
+      function sx(x){ return ox + L + (x / XM) * iw; }
+      function sy(y){ return (H - B) - (y / YM) * ih; }
+      var x0 = sx(0), y0 = sy(0);
+      g.push('<text x="'+(ox+L)+'" y="15" class="ph">'+esc(name)+'</text>');
+      g.push('<line x1="'+x0+'" y1="'+y0+'" x2="'+x0+'" y2="'+sy(YM)+'" class="ax"/>');
+      g.push('<line x1="'+x0+'" y1="'+y0+'" x2="'+sx(XM)+'" y2="'+y0+'" class="ax"/>');
+      [0, a].forEach(function(t){
+        g.push('<line x1="'+sx(t)+'" y1="'+y0+'" x2="'+sx(t)+'" y2="'+(y0+4)+'" class="tick"/>');
+        g.push('<text x="'+sx(t)+'" y="'+(y0+16)+'" class="tl" text-anchor="middle">'+esc(String(t))+'</text>');
+      });
+      [0, b].forEach(function(t){
+        g.push('<line x1="'+(x0-4)+'" y1="'+sy(t)+'" x2="'+x0+'" y2="'+sy(t)+'" class="tick"/>');
+        g.push('<text x="'+(x0-7)+'" y="'+(sy(t)+3.5)+'" class="tl" text-anchor="end">'+esc(String(t))+'</text>');
+      });
+      g.push('<line x1="'+sx(0)+'" y1="'+sy(b)+'" x2="'+sx(a)+'" y2="'+sy(0)+'" class="curve"/>');
+      g.push('<text x="'+(sx(a/2)+6)+'" y="'+(sy(b/2)-6)+'" class="slope">1 = '+esc(frac(b/a))+'</text>');
+      g.push('<text x="'+sx(XM/2)+'" y="'+(H-6)+'" class="al" text-anchor="middle">'+esc(m.A)+'</text>');
+      g.push('<text x="'+(ox+11)+'" y="'+sy(YM/2)+'" class="al" text-anchor="middle" transform="rotate(-90 '+(ox+11)+' '+sy(YM/2)+')">'+esc(m.B)+'</text>');
+    }
+    panel(0, m.p1, m.a1, m.b1);
+    panel(pw + gap, m.p2, m.a2, m.b2);
+    caSvg.innerHTML = g.join("");
+  }
+
+  /* ---------- the number line ---------- */
+  function drawLine(low, high, price, ok){
+    var W = 600, H = 120, L = 40, R = 30, y = 62;
+    var top = Math.max(high * 1.35, price * 1.15, high + 1e-9);
+    function sx(v){ return L + (v / top) * (W - L - R); }
+    var g = [];
+    g.push('<rect class="band" x="'+sx(low)+'" y="'+(y-16)+'" width="'+(sx(high)-sx(low))+'" height="32"/>');
+    g.push('<line x1="'+L+'" y1="'+y+'" x2="'+(W-R)+'" y2="'+y+'" class="axl"/>');
+    [low, high].forEach(function(v, i){
+      g.push('<line x1="'+sx(v)+'" y1="'+(y-18)+'" x2="'+sx(v)+'" y2="'+(y+18)+'" class="edge"/>');
+      g.push('<text x="'+sx(v)+'" y="'+(i === 0 ? y-24 : y-24)+'" class="edgel" text-anchor="middle">'+esc(frac(v))+'</text>');
+    });
+    g.push('<text x="'+sx((low+high)/2)+'" y="'+(y+34)+'" class="tlb" text-anchor="middle">mutually beneficial</text>');
+    if (isFinite(price) && price >= 0){
+      g.push('<line x1="'+sx(price)+'" y1="'+(y-26)+'" x2="'+sx(price)+'" y2="'+(y+26)+'" class="'+(ok ? "prop" : "propbad")+'"/>');
+      g.push('<text x="'+sx(price)+'" y="'+(y+46)+'" class="propl'+(ok ? "" : " bad")+'" text-anchor="middle">'+esc(frac(price))+'</text>');
+    }
+    g.push('<text x="'+L+'" y="'+(y+34)+'" class="tlb">0</text>');
+    lineSvg.innerHTML = g.join("");
+  }
+
+  /* ---------- the whole computation ---------- */
+  function update(){
+    var a1 = parseFloat(inA1.value), b1 = parseFloat(inB1.value);
+    var a2 = parseFloat(inA2.value), b2 = parseFloat(inB2.value);
+    if (!(a1 > 0 && b1 > 0 && a2 > 0 && b2 > 0)){
+      caVerdict.dataset.s = "out";
+      caVerdict.innerHTML = "<b>Every box needs a positive number.</b> Each producer must be able to make some of both goods.";
+      return;
+    }
+
+    var oc1A = b1 / a1, oc2A = b2 / a2;      /* cost of one unit of A, in B */
+    var oc1B = a1 / b1, oc2B = a2 / b2;      /* cost of one unit of B, in A */
+
+    drawPanels({ p1:S.p1, p2:S.p2, A:S.A, B:S.B, a1:a1, b1:b1, a2:a2, b2:b2,
+                 xmax: Math.max(a1, a2) * 1.14, ymax: Math.max(b1, b2) * 1.16 });
+
+    function who(v1, v2, lower){
+      if (Math.abs(v1 - v2) < 1e-12) return null;
+      var firstWins = lower ? v1 < v2 : v1 > v2;
+      return firstWins ? S.p1 : S.p2;
+    }
+    var absA = who(a1, a2, false), absB = who(b1, b2, false);
+    var caA  = who(oc1A, oc2A, true), caB = who(oc1B, oc2B, true);
+
+    function cell(txt, win){ return '<td class="' + (win ? "win" : "v") + '">' + esc(txt) + '</td>'; }
+    var rows = "";
+    rows += '<thead><tr><th></th><th>' + esc(S.p1) + '</th><th>' + esc(S.p2) + '</th><th>Lower cost</th></tr></thead><tbody>';
+    rows += '<tr><td>Maximum ' + esc(S.A) + '</td>' + cell(String(a1), absA === S.p1) + cell(String(a2), absA === S.p2)
+          + '<td class="v">absolute advantage: ' + esc(absA || "neither") + '</td></tr>';
+    rows += '<tr><td>Maximum ' + esc(S.B) + '</td>' + cell(String(b1), absB === S.p1) + cell(String(b2), absB === S.p2)
+          + '<td class="v">absolute advantage: ' + esc(absB || "neither") + '</td></tr>';
+    rows += '<tr><td>Cost of one ' + esc(S.As) + ', in ' + esc(S.B) + '</td>'
+          + cell(frac(oc1A), caA === S.p1) + cell(frac(oc2A), caA === S.p2)
+          + '<td class="v">comparative advantage: ' + esc(caA || "neither") + '</td></tr>';
+    rows += '<tr><td>Cost of one ' + esc(S.Bs) + ', in ' + esc(S.A) + '</td>'
+          + cell(frac(oc1B), caB === S.p1) + cell(frac(oc2B), caB === S.p2)
+          + '<td class="v">comparative advantage: ' + esc(caB || "neither") + '</td></tr>';
+    rows += '</tbody>';
+    caTab.innerHTML = rows;
+
+    if (!caA){
+      caVerdict.dataset.s = "in";
+      caVerdict.innerHTML = "<b>No comparative advantage either way.</b> Both producers give up "
+        + esc(frac(oc1A)) + " " + esc(S.B) + " per " + esc(S.As) + ", so specialising would change who "
+        + "produces what without making either better off. <b>There are no gains from trade.</b>";
+      outLow.textContent = "—"; outHigh.textContent = "—";
+      lineSvg.innerHTML = "";
+      dealVerdict.dataset.s = "in";
+      dealVerdict.innerHTML = "<b>No range exists.</b> With equal opportunity costs there is no price that beats both producers' own costs.";
+      return;
+    }
+
+    var bothAbs = (absA === absB) && absA;
+    caVerdict.dataset.s = "on";
+    caVerdict.innerHTML =
+      "<b>" + esc(caA) + "</b> has the comparative advantage in " + esc(S.A)
+      + " (" + esc(frac(Math.min(oc1A, oc2A))) + " against " + esc(frac(Math.max(oc1A, oc2A))) + " " + esc(S.B) + " apiece), "
+      + "so <b>" + esc(caA) + "</b> should specialise in " + esc(S.A) + " and <b>" + esc(caB) + "</b> in " + esc(S.B) + ". "
+      + (bothAbs
+         ? "Note that <b>" + esc(absA) + "</b> has the <em>absolute</em> advantage in <b>both</b> goods and still gains from trading — this is the case the module is built to make."
+         : "");
+
+    /* terms of trade for one unit of A, priced in B */
+    var low = Math.min(oc1A, oc2A), high = Math.max(oc1A, oc2A);
+    var seller = caA, buyer = (caA === S.p1) ? S.p2 : S.p1;
+    outLow.textContent = frac(low) + " " + S.B;
+    outHigh.textContent = frac(high) + " " + S.B;
+
+    var price = parseFloat(inPrice.value);
+    var ok = isFinite(price) && price > low && price < high;
+    drawLine(low, high, price, ok);
+
+    if (!isFinite(price)){
+      dealVerdict.dataset.s = "in";
+      dealVerdict.innerHTML = "<b>Enter a price.</b> How many " + esc(S.B) + " for one " + esc(S.As) + "?";
+    } else if (ok){
+      dealVerdict.dataset.s = "on";
+      dealVerdict.innerHTML = "<b>Both accept.</b> " + esc(seller) + " gives up only " + esc(frac(low))
+        + " " + esc(S.B) + " to produce one " + esc(S.As) + " and receives " + esc(frac(price))
+        + " \u2014 a gain of " + esc(frac(price - low)) + ". " + esc(buyer) + " would have given up "
+        + esc(frac(high)) + " to produce it and pays " + esc(frac(price)) + " \u2014 a gain of "
+        + esc(frac(high - price)) + ".";
+    } else if (price <= low){
+      dealVerdict.dataset.s = "out";
+      dealVerdict.innerHTML = "<b>" + esc(seller) + " refuses.</b> Producing one " + esc(S.As)
+        + " costs " + esc(frac(low)) + " " + esc(S.B) + ", and this deal offers "
+        + esc(frac(price)) + ". " + (Math.abs(price - low) < 1e-12
+            ? "At exactly its own opportunity cost the seller is indifferent and gains nothing, which is why the boundary is excluded."
+            : "Better off not trading at all.");
+    } else {
+      dealVerdict.dataset.s = "out";
+      dealVerdict.innerHTML = "<b>" + esc(buyer) + " refuses.</b> Producing one " + esc(S.As)
+        + " at home costs " + esc(frac(high)) + " " + esc(S.B) + ", and this deal asks for "
+        + esc(frac(price)) + ". " + (Math.abs(price - high) < 1e-12
+            ? "At exactly its own opportunity cost the buyer is indifferent and gains nothing, which is why the boundary is excluded."
+            : "Self-sufficiency is cheaper.");
+    }
+  }
+
+  [inA1, inB1, inA2, inB2, inPrice].forEach(function(el){
+    el.addEventListener("input", update);
+  });
+
+  document.querySelectorAll(".chip[data-scen]").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      document.querySelectorAll(".chip[data-scen]").forEach(function(b){
+        b.setAttribute("aria-pressed", b === btn ? "true" : "false");
+      });
+      var s = SCEN[btn.dataset.scen];
+      S = JSON.parse(JSON.stringify(s));
+      inA1.value = s.a1; inB1.value = s.b1; inA2.value = s.a2; inB2.value = s.b2;
+      var lowA = Math.min(s.b1 / s.a1, s.b2 / s.a2), highA = Math.max(s.b1 / s.a1, s.b2 / s.a2);
+      inPrice.value = Math.round(((lowA + highA) / 2) * 100) / 100;
+      labels();
+      update();
+    });
+  });
+
+  labels();
+  update();
+
+  /* ---------- multiple choice ---------- */
+  var correct = 0;
+  var scoreOut = document.getElementById("scoreOut");
+  document.querySelectorAll(".mcq").forEach(function(q){
+    var key = q.dataset.key, scored = false;
+    q.querySelectorAll(".opt").forEach(function(opt){
+      opt.addEventListener("click", function(){
+        var right = opt.dataset.l === key;
+        opt.dataset.state = right ? "right" : "wrong";
+        var why = opt.querySelector(".why");
+        if (why) why.hidden = false;
+        if (!scored){
+          scored = true;
+          if (right) correct++;
+          scoreOut.textContent = correct + " / 5";
+        }
+        if (right){
+          q.querySelectorAll(".opt").forEach(function(o){
+            var w = o.querySelector(".why");
+            if (w) w.hidden = false;
+            if (!o.dataset.state) o.dataset.state = "wrong";
+            o.disabled = true;
+          });
+        }
+      });
+    });
+  });
+})();
+
+</script>
+</main>
+<script>window.COURSE_NAV={"kicker": "1.4 Comparative advantage and trade", "title": "Module 4 · Comparative Advantage and Trade", "map": [{"label": "Course", "items": [{"href": "index.html", "label": "Home", "current": false}, {"href": "spec.html", "label": "Course specification", "current": false}]}, {"label": "Unit 1 · Basic Economic Concepts", "items": [{"href": "m01-student.html", "label": "Module 1 · Student guide", "current": false}, {"href": "m01-notes.html", "label": "Module 1 · Teaching notes", "current": false}, {"href": "m01-test.html", "label": "Module 1 · Test", "current": false}, {"label": "Module 2 · Introduction to Macroeconomics", "planned": true}, {"href": "m03-student.html", "label": "Module 3 · Student guide", "current": false}, {"href": "m03-notes.html", "label": "Module 3 · Teaching notes", "current": false}, {"href": "m03-test.html", "label": "Module 3 · Test", "current": false}, {"href": "m04-student.html", "label": "Module 4 · Student guide", "current": true}, {"href": "m04-notes.html", "label": "Module 4 · Teaching notes", "current": false}, {"href": "m04-test.html", "label": "Module 4 · Test", "current": false}, {"label": "Module 51 · Utility Maximization", "planned": true}, {"label": "Unit 1 · Gap analysis", "planned": true}]}, {"label": "Unit 2 · Supply and Demand", "items": [{"label": "Module 5 · Supply and Demand: Introduction and Demand", "planned": true}, {"label": "Module 6 · Supply and Demand: Supply and Equilibrium", "planned": true}, {"label": "Module 7 · Supply and Demand: Changes in Equilibrium", "planned": true}, {"label": "Module 8 · Supply and Demand: Price Controls", "planned": true}, {"label": "Module 9 · Supply and Demand: Quantity Controls", "planned": true}, {"label": "Modules 46–48 · Elasticity", "planned": true}, {"label": "Modules 49–50 · Surplus and Deadweight Loss", "planned": true}, {"label": "Topic 2.9 · International Trade and Public Policy", "planned": true}, {"label": "Unit 2 · Gap analysis", "planned": true}]}, {"label": "Unit 3 · Production, Cost and Perfect Competition", "items": [{"label": "Modules 52–53 · Profit and Profit Maximisation", "planned": true}, {"label": "Module 54 · The Production Function", "planned": true}, {"label": "Module 55 · Firm Costs", "planned": true}, {"label": "Module 56 · Long-Run Costs and Economies of Scale", "planned": true}, {"label": "Module 57 · Introduction to Market Structure", "planned": true}, {"label": "Modules 58–60 · Perfect Competition", "planned": true}, {"label": "Unit 3 · Gap analysis", "planned": true}]}, {"label": "Unit 4 · Imperfect Competition", "items": [{"label": "Topic 4.1 · Introduction to Imperfect Competition", "planned": true}, {"label": "Modules 61–63 · Monopoly", "planned": true}, {"label": "Modules 67–68 · Monopolistic Competition", "planned": true}, {"label": "Modules 64–66 · Oligopoly and Game Theory", "planned": true}, {"label": "Unit 4 · Gap analysis", "planned": true}]}, {"label": "Unit 5 · Factor Markets", "items": [{"label": "Module 69 · Introduction and Factor Demand", "planned": true}, {"label": "Module 70 · The Markets for Land and Capital", "planned": true}, {"label": "Module 71 · The Market for Labor", "planned": true}, {"label": "Module 72 · The Cost-Minimising Input Combination", "planned": true}, {"label": "Module 73 · Theories of Income Distribution", "planned": true}, {"label": "Unit 5 · Gap analysis", "planned": true}]}, {"label": "Unit 6 · Market Failure and the Role of Government", "items": [{"label": "Modules 74–75 · Externalities", "planned": true}, {"label": "Module 76 · Public Goods", "planned": true}, {"label": "Module 77 · Public Policy to Promote Competition", "planned": true}, {"label": "Module 78 · Income Inequality and Income Distribution", "planned": true}, {"label": "Unit 6 · Gap analysis", "planned": true}]}, {"label": "Interactive", "items": [{"label": "PPC explorer", "planned": true}, {"label": "Supply and demand explorer", "planned": true}, {"label": "Elasticity and total revenue", "planned": true}, {"label": "Cost curves", "planned": true}, {"label": "Market structure comparison", "planned": true}]}], "prev": {"href": "m03-test.html", "label": "Module 3 · Test"}, "next": {"href": "m04-notes.html", "label": "Module 4 · Teaching notes"}, "variants": [{"href": "m04-student.html", "label": "Student", "current": true}, {"href": "m04-notes.html", "label": "Notes", "current": false}, {"href": "m04-test.html", "label": "Test", "current": false}]};</script>
+<script src="assets/course.js"></script>
+</body>
+</html>

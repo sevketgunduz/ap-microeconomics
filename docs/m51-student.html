@@ -1,0 +1,1747 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 51 · Utility Maximization · AP Microeconomics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@600;700&display=swap">
+<link rel="stylesheet" href="assets/course.css">
+<style>.page .bar{position:static;background:none;backdrop-filter:none}.page .bar-in{max-width:none;padding-inline:0}.page .wrap{max-width:none;padding-inline:0;padding-block:0 24px}.page .masthead{padding-block:10px 24px}</style></head>
+<body>
+<main class="page">
+<style>
+
+
+
+:root{
+  --paper:#f3f5f8;
+  --surface:#ffffff;
+  --surface-2:#eef1f6;
+  --ink:#15181f;
+  --ink-2:#4d5566;
+  --ink-3:#737c8e;
+  --rule:#d6dae2;
+  --rule-strong:#b3bac7;
+  --accent:#1d4e89;
+  --accent-soft:#e6edf7;
+  --down:#a3372a;
+  --down-soft:#fbeeeb;
+  --up:#1a6b55;
+  --up-soft:#e6f2ee;
+  --flag:#7a5310;
+  --flag-soft:#f8f0e0;
+  --shadow:0 1px 2px rgba(21,24,31,.06), 0 8px 24px rgba(21,24,31,.05);
+  --serif:"IBM Plex Serif", Georgia, "Times New Roman", serif;
+  --sans:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0f1218;
+    --surface:#171b23;
+    --surface-2:#1e232d;
+    --ink:#e8ebf1;
+    --ink-2:#a3adc0;
+    --ink-3:#7e8799;
+    --rule:#2c323d;
+    --rule-strong:#3c4351;
+    --accent:#7dabe2;
+    --accent-soft:#1a2634;
+    --down:#e5907f;
+    --down-soft:#2a1d1a;
+    --up:#6cc4a7;
+    --up-soft:#16291f;
+    --flag:#d8b169;
+    --flag-soft:#2a2418;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.28);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0f1218;
+  --surface:#171b23;
+  --surface-2:#1e232d;
+  --ink:#e8ebf1;
+  --ink-2:#a3adc0;
+  --ink-3:#7e8799;
+  --rule:#2c323d;
+  --rule-strong:#3c4351;
+  --accent:#7dabe2;
+  --accent-soft:#1a2634;
+  --down:#e5907f;
+  --down-soft:#2a1d1a;
+  --up:#6cc4a7;
+  --up-soft:#16291f;
+  --flag:#d8b169;
+  --flag-soft:#2a2418;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.28);
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.65;
+  margin:0;
+}
+.wrap{max-width:820px;margin:0 auto;padding-inline:18px;padding-block:0 72px}
+
+/* ---------- sticky bar ---------- */
+.bar{
+  position:sticky;
+  top:env(safe-area-inset-top, 0px);
+  z-index:40;
+  background:color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--rule);
+}
+.bar-in{
+  max-width:820px;margin:0 auto;padding-inline:18px;
+  display:flex;align-items:center;gap:14px;min-height:50px;flex-wrap:wrap;
+}
+.bar-title{font-family:var(--mono);font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-2);white-space:nowrap}
+.progress{flex:1 1 140px;min-width:120px;display:flex;align-items:center;gap:9px}
+.progress-track{flex:1;height:5px;border-radius:3px;background:var(--rule);overflow:hidden}
+.progress-fill{height:100%;width:0;background:var(--accent);transition:width .25s ease}
+.progress-num{font-family:var(--mono);font-size:12px;color:var(--ink-2);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar button{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;
+  background:none;border:1px solid var(--rule-strong);color:var(--ink-2);
+  padding:5px 10px;border-radius:4px;cursor:pointer;
+}
+.bar button:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ---------- masthead ---------- */
+.masthead{padding-block:40px 28px;border-bottom:2px solid var(--ink)}
+.eyebrow{
+  font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);margin:0 0 12px;
+}
+h1{
+  font-family:var(--serif);font-weight:700;font-size:clamp(30px,6.4vw,44px);
+  line-height:1.1;margin:0 0 14px;text-wrap:balance;letter-spacing:-.01em;
+}
+.standfirst{font-size:17.5px;color:var(--ink-2);margin:0;max-width:62ch}
+.source-line{
+  font-family:var(--mono);font-size:12.5px;color:var(--ink-3);margin-top:18px;
+  display:flex;gap:6px 18px;flex-wrap:wrap;
+}
+
+h2{
+  font-family:var(--serif);font-weight:600;font-size:clamp(21px,3.8vw,26px);
+  line-height:1.25;margin:0 0 10px;text-wrap:balance;
+}
+h3{font-family:var(--sans);font-weight:600;font-size:16px;margin:26px 0 8px;letter-spacing:.01em}
+p{margin:0 0 14px}
+a{color:var(--accent)}
+.section{padding-block:34px 4px}
+
+.kicker{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-3);margin:0 0 8px;
+}
+
+/* ---------- entries ---------- */
+.entry{padding-block:34px 10px;border-top:1px solid var(--rule)}
+.entry-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.entry-num{
+  font-family:var(--mono);font-size:13px;font-weight:600;color:var(--accent);
+  font-variant-numeric:tabular-nums;
+}
+.entry h2{margin:0;flex:1 1 auto;min-width:0}
+.mark{
+  font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  padding:3px 8px;border-radius:3px;white-space:nowrap;
+}
+.mark.exam{background:var(--accent-soft);color:var(--accent)}
+.mark.bg{background:var(--surface-2);color:var(--ink-3)}
+.defn{
+  background:var(--surface);border-left:3px solid var(--accent);
+  padding:14px 16px;border-radius:0 5px 5px 0;margin:14px 0 16px;box-shadow:var(--shadow);
+}
+.defn p{margin:0}
+.defn .lbl{
+  display:block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-3);margin-bottom:5px;
+}
+.reading{font-family:var(--mono);font-size:12.5px;color:var(--ink-3);margin:-6px 0 16px}
+
+.watch{
+  background:var(--down-soft);border:1px solid color-mix(in srgb, var(--down) 28%, transparent);
+  border-radius:5px;padding:13px 16px;margin:18px 0;
+}
+.watch p{margin:0;font-size:15.3px}
+.watch b{color:var(--down)}
+
+.notinbook{
+  background:var(--flag-soft);border:1px dashed color-mix(in srgb, var(--flag) 48%, transparent);
+  border-radius:5px;padding:13px 16px;margin:16px 0;
+}
+.notinbook p{margin:0;font-size:15.3px}
+.notinbook b{color:var(--flag)}
+
+.examples{margin:18px 0;display:flex;flex-direction:column;gap:12px}
+.ex{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start}
+.ex-n{
+  font-family:var(--mono);font-size:11px;font-weight:600;color:var(--ink-3);
+  border:1px solid var(--rule-strong);border-radius:3px;padding:1px 6px;margin-top:3px;white-space:nowrap;
+}
+.ex p{margin:0;font-size:15.3px}
+.ex .who{font-weight:600;color:var(--ink)}
+
+.connects{font-size:15.3px;color:var(--ink-2);border-top:1px solid var(--rule);padding-top:12px;margin-top:6px}
+.connects b{color:var(--ink)}
+
+/* ---------- check yourself ---------- */
+.check{margin:20px 0 6px;background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:14px 16px}
+.check > .lbl{
+  font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);display:block;margin-bottom:10px;
+}
+.q{margin-bottom:12px}
+.q:last-child{margin-bottom:0}
+.q > p{margin:0 0 7px;font-size:15.3px}
+.q .qn{font-family:var(--mono);font-weight:600;color:var(--accent);font-size:13.5px;margin-right:4px}
+details.reveal{border-top:1px dashed var(--rule)}
+details.reveal > summary{
+  list-style:none;cursor:pointer;font-family:var(--mono);font-size:11.5px;
+  letter-spacing:.07em;text-transform:uppercase;color:var(--accent);padding:7px 0 0;
+}
+details.reveal > summary::-webkit-details-marker{display:none}
+details.reveal > summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details.reveal[open] > summary::before{content:"▾ "}
+details.reveal > summary:hover{text-decoration:underline}
+details.reveal .ans{font-size:15.3px;color:var(--ink-2);padding:6px 0 4px}
+details.reveal .ans p{margin:0 0 8px}
+details.reveal .ans p:last-child{margin:0}
+
+.got{
+  display:flex;align-items:center;gap:8px;margin-top:16px;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);
+  cursor:pointer;user-select:none;
+}
+.got input{width:15px;height:15px;accent-color:var(--accent);cursor:pointer}
+
+/* ---------- tables ---------- */
+.tablewrap{overflow-x:auto;margin:18px 0;border:1px solid var(--rule);border-radius:6px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:15px;min-width:420px}
+th,td{padding:10px 13px;text-align:left;border-bottom:1px solid var(--rule);vertical-align:top}
+thead th{
+  font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-3);background:var(--surface-2);font-weight:600;
+}
+tbody tr:last-child td{border-bottom:none}
+td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right}
+.tight td,.tight th{padding:8px 12px;font-size:14.5px}
+
+/* ---------- widgets ---------- */
+.widget{
+  background:var(--surface);border:1px solid var(--rule-strong);border-radius:8px;
+  padding:18px;margin:26px 0;box-shadow:var(--shadow);
+}
+.widget-title{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);margin:0 0 4px;
+}
+.widget h3{margin-top:0}
+.widget-note{font-size:14.5px;color:var(--ink-2);margin:12px 0 0}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{
+  font-family:var(--mono);font-size:12px;letter-spacing:.04em;
+  border:1px solid var(--rule-strong);background:var(--surface);color:var(--ink-2);
+  border-radius:16px;padding:5px 13px;cursor:pointer;transition:all .15s;
+}
+.chip:hover{border-color:var(--accent);color:var(--accent)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+:root[data-theme="dark"] .chip[aria-pressed="true"],
+:root:not([data-theme="light"]) .chip[aria-pressed="true"]{color:#0f1218}
+
+.cyclefig{width:100%;height:auto;display:block;overflow:visible}
+.figcap{font-size:14.5px;color:var(--ink-2);margin:10px 0 0;min-height:3em}
+.figcap b{color:var(--ink)}
+
+.svg-dim{opacity:.22;transition:opacity .2s}
+.svg-lit{opacity:1;transition:opacity .2s}
+
+.calc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:14px 0}
+.field label{
+  display:block;font-family:var(--mono);font-size:11px;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--ink-3);margin-bottom:5px;
+}
+.field input[type=number]{
+  width:100%;font-family:var(--mono);font-size:16px;padding:8px 10px;
+  border:1px solid var(--rule-strong);border-radius:5px;background:var(--paper);color:var(--ink);
+}
+.field input[type=range]{width:100%;accent-color:var(--accent)}
+.field input:focus-visible,.chip:focus-visible,button:focus-visible,summary:focus-visible,a:focus-visible{
+  outline:2px solid var(--accent);outline-offset:2px;
+}
+.readouts{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:6px;overflow:hidden;margin-top:6px}
+.ro{background:var(--surface-2);padding:12px 14px}
+.ro .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);display:block;margin-bottom:3px}
+.ro .v{font-family:var(--mono);font-size:22px;font-weight:600;font-variant-numeric:tabular-nums;color:var(--ink)}
+.ro .v.hl{color:var(--accent)}
+
+/* ---------- quiz ---------- */
+.mcq{border-top:1px solid var(--rule);padding-top:18px;margin-top:18px}
+.mcq:first-of-type{border-top:none;padding-top:0;margin-top:0}
+.mcq .stem{font-size:15.6px;margin:0 0 12px}
+.mcq .stem .qn{font-family:var(--mono);font-weight:600;color:var(--accent);margin-right:6px}
+.opts{display:flex;flex-direction:column;gap:7px}
+.opt{
+  display:flex;gap:11px;align-items:flex-start;text-align:left;width:100%;
+  font-family:var(--sans);font-size:15.2px;line-height:1.5;color:var(--ink);
+  background:var(--surface);border:1px solid var(--rule);border-radius:6px;
+  padding:10px 13px;cursor:pointer;transition:border-color .15s,background .15s;
+}
+.opt:hover{border-color:var(--accent)}
+.opt .ltr{font-family:var(--mono);font-weight:600;color:var(--ink-3);flex:0 0 auto}
+.opt .why{display:block;font-size:14.3px;color:var(--ink-2);margin-top:6px}
+.opt[data-state="right"]{border-color:var(--up);background:var(--up-soft)}
+.opt[data-state="right"] .ltr{color:var(--up)}
+.opt[data-state="wrong"]{border-color:var(--down);background:var(--down-soft)}
+.opt[data-state="wrong"] .ltr{color:var(--down)}
+.opt[disabled]{cursor:default}
+.score{
+  font-family:var(--mono);font-size:13px;color:var(--ink-2);
+  border:1px solid var(--rule-strong);border-radius:6px;padding:11px 14px;margin-top:20px;
+  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;
+}
+.score b{color:var(--ink);font-size:15px}
+
+.frq{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:15px 17px;margin:16px 0}
+.frq .stem{margin:0 0 6px;font-size:15.6px}
+.frq .pts{font-family:var(--mono);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3)}
+.rubric{margin:8px 0 0;padding:0;list-style:none}
+.rubric li{display:grid;grid-template-columns:auto 1fr;gap:10px;padding:7px 0;border-top:1px dotted var(--rule);font-size:15.2px}
+.rubric li .pt{font-family:var(--mono);font-size:11.5px;color:var(--up);white-space:nowrap;padding-top:3px}
+
+.closing{background:var(--accent-soft);border-radius:8px;padding:20px 22px;margin-top:28px}
+.closing h2{margin-top:0}
+.closing ol{margin:0;padding-left:20px}
+.closing li{margin-bottom:10px;font-size:15.5px}
+.closing li:last-child{margin-bottom:0}
+
+.toc{columns:2 220px;column-gap:26px;margin:16px 0 0;padding:0;list-style:none}
+.toc li{break-inside:avoid;padding:3px 0;font-size:15px}
+.toc a{text-decoration:none;color:var(--ink)}
+.toc a:hover{color:var(--accent);text-decoration:underline}
+.toc .n{font-family:var(--mono);font-size:12.5px;color:var(--ink-3);margin-right:7px;font-variant-numeric:tabular-nums}
+.toc .m{font-size:11px;color:var(--ink-3);margin-left:5px}
+
+.footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--rule);font-family:var(--mono);font-size:12px;color:var(--ink-3);line-height:1.8}
+
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+@media print{
+  .bar,.got,.chips{display:none}
+  body{background:#fff}
+  details.reveal > *{display:block!important}
+  .entry{break-inside:avoid-page}
+}
+@media (max-width:520px){
+  .toc{columns:1}
+  .ro .v{font-size:19px}
+}
+
+/* ---------- Module 3 supplement ---------- */
+.mark.flag{background:var(--flag-soft);color:var(--flag)}
+.ppc-wrap{display:grid;grid-template-columns:1fr;gap:14px}
+@media (min-width:720px){.ppc-wrap{grid-template-columns:1fr 210px}}
+.ppc-svg{width:100%;height:auto;display:block;background:var(--surface);
+  border:1px solid var(--rule);border-radius:6px;cursor:crosshair;touch-action:none}
+.ppc-side{display:flex;flex-direction:column;gap:10px}
+.status{font-family:var(--mono);font-size:12.5px;padding:9px 11px;border-radius:5px;
+  border:1px solid var(--rule-strong);background:var(--surface-2);line-height:1.45}
+.status[data-s="on"]{border-color:color-mix(in srgb,var(--up) 45%,transparent);background:var(--up-soft);color:var(--up)}
+.status[data-s="in"]{border-color:var(--rule-strong);color:var(--ink-2)}
+.status[data-s="out"]{border-color:color-mix(in srgb,var(--down) 45%,transparent);background:var(--down-soft);color:var(--down)}
+.ppc-legend{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);line-height:1.6}
+.ppc-legend b{color:var(--ink-2);font-weight:600}
+.chips.tight{gap:6px}
+.tbl{overflow-x:auto;max-width:100%}
+.sumtable{width:100%;border-collapse:collapse;font-size:14.5px;margin:16px 0}
+.sumtable th,.sumtable td{border-bottom:1px solid var(--rule);padding:8px 10px;text-align:left;vertical-align:top}
+.sumtable th{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+.sumtable td.mk{font-family:var(--mono);font-size:12px;white-space:nowrap;color:var(--accent)}
+.sumtable td.mk.bgm{color:var(--ink-3)}
+.sumtable td.mk.flagm{color:var(--flag)}
+.final{background:var(--surface);border:1px solid var(--rule);border-radius:6px;
+  padding:18px 20px;margin:22px 0;box-shadow:var(--shadow)}
+.final ol{margin:0;padding-left:20px}
+.final li{margin:0 0 9px}
+.final li:last-child{margin-bottom:0}
+
+/* ---------- PPC explorer svg ---------- */
+.ppc-svg .ax{stroke:var(--ink);stroke-width:1.6}
+.ppc-svg .tick{stroke:var(--ink-3);stroke-width:1.1}
+.ppc-svg .tl{font-family:var(--mono);font-size:11px;fill:var(--ink-3)}
+.ppc-svg .al{font-family:var(--sans);font-size:12px;font-weight:600;fill:var(--ink-2)}
+.ppc-svg .curve{fill:none;stroke:var(--accent);stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round}
+.ppc-svg .ghost{fill:none;stroke:var(--rule-strong);stroke-width:1.8;stroke-dasharray:6 5}
+.ppc-svg .cl{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--accent)}
+.ppc-svg .drop{stroke:var(--rule-strong);stroke-width:1;stroke-dasharray:3 3}
+.ppc-svg .pt{stroke:var(--surface);stroke-width:2}
+.ppc-svg .pt-on{fill:var(--up)}
+.ppc-svg .pt-in{fill:var(--ink-3)}
+.ppc-svg .pt-out{fill:var(--down)}
+
+
+/* ---------- Module 4 supplement ---------- */
+.two-panel{width:100%;height:auto;display:block;background:var(--surface);
+  border:1px solid var(--rule);border-radius:6px}
+.ca-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:0 0 14px}
+@media (min-width:640px){.ca-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.ca-grid .field{display:flex;flex-direction:column;gap:5px}
+.ca-grid .field span{font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--ink-3)}
+.ca-grid .field b{color:var(--ink-2);font-weight:600;text-transform:none;letter-spacing:0}
+.ca-grid input{font-family:var(--mono);font-size:15px;padding:7px 9px;width:100%;
+  color:var(--ink);background:var(--paper);border:1px solid var(--rule-strong);border-radius:5px}
+.ca-grid input:focus{outline:2px solid var(--accent);outline-offset:1px}
+.catab{width:100%;border-collapse:collapse;font-size:14px;margin:4px 0 14px}
+.catab th,.catab td{border-bottom:1px solid var(--rule);padding:7px 9px;text-align:left}
+.catab th{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:600}
+.catab td.v{font-family:var(--mono);color:var(--ink)}
+.catab td.win{font-family:var(--mono);color:var(--up);font-weight:600}
+.dealrow{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;margin:0 0 12px}
+.dealrow .field{display:flex;flex-direction:column;gap:5px;min-width:190px;flex:1}
+.dealrow .field span{font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--ink-3)}
+.dealrow input{font-family:var(--mono);font-size:16px;padding:8px 10px;
+  color:var(--ink);background:var(--paper);border:1px solid var(--rule-strong);border-radius:5px}
+.line-svg{width:100%;height:auto;display:block;margin:6px 0 2px}
+.line-svg .band{fill:var(--up-soft);stroke:none}
+.line-svg .axl{stroke:var(--ink);stroke-width:1.6}
+.line-svg .tk{stroke:var(--ink-3);stroke-width:1.1}
+.line-svg .tlb{font-family:var(--mono);font-size:11px;fill:var(--ink-3)}
+.line-svg .edge{stroke:var(--up);stroke-width:2}
+.line-svg .edgel{font-family:var(--mono);font-size:11.5px;font-weight:600;fill:var(--up)}
+.line-svg .prop{stroke:var(--accent);stroke-width:2.4}
+.line-svg .propbad{stroke:var(--down);stroke-width:2.4}
+.line-svg .propl{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--accent)}
+.line-svg .propl.bad{fill:var(--down)}
+.two-panel .ax{stroke:var(--ink);stroke-width:1.6}
+.two-panel .tick{stroke:var(--ink-3);stroke-width:1.1}
+.two-panel .tl{font-family:var(--mono);font-size:10.5px;fill:var(--ink-3)}
+.two-panel .al{font-family:var(--sans);font-size:11.5px;font-weight:600;fill:var(--ink-2)}
+.two-panel .ph{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--ink-2)}
+.two-panel .curve{fill:none;stroke:var(--accent);stroke-width:2.4;stroke-linecap:round}
+.two-panel .slope{font-family:var(--mono);font-size:11px;fill:var(--accent)}
+.two-panel .drop{stroke:var(--rule-strong);stroke-width:1;stroke-dasharray:3 3}
+.two-panel .pt{stroke:var(--surface);stroke-width:2}
+.two-panel .pt-on{fill:var(--ink-2)}
+.two-panel .pt-out{fill:var(--up)}
+.two-panel .ptl{font-family:var(--mono);font-size:11px;fill:var(--ink-2)}
+.two-panel .ptl.good{fill:var(--up);font-weight:600}
+
+
+/* ---------- Module 51 supplement ---------- */
+.umx-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0 0 14px}
+.umx-grid .field{display:flex;flex-direction:column;gap:5px}
+.umx-grid .field span{font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--ink-3)}
+.umx-grid input{font-family:var(--mono);font-size:15px;padding:7px 9px;width:100%;
+  color:var(--ink);background:var(--paper);border:1px solid var(--rule-strong);border-radius:5px}
+.umx-grid input:focus{outline:2px solid var(--accent);outline-offset:1px}
+.umx-tu{display:grid;grid-template-columns:1fr;gap:10px;margin:0 0 14px}
+@media (min-width:640px){.umx-tu{grid-template-columns:1fr 1fr}}
+.umx-tu .field{display:flex;flex-direction:column;gap:5px}
+.umx-tu .field span{font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--ink-3)}
+.umx-tu input{font-family:var(--mono);font-size:13.5px;padding:7px 9px;width:100%;
+  color:var(--ink);background:var(--paper);border:1px solid var(--rule-strong);border-radius:5px}
+.utab{width:100%;border-collapse:collapse;font-size:13.5px;margin:2px 0 14px}
+.utab th,.utab td{border-bottom:1px solid var(--rule);padding:6px 8px;text-align:right}
+.utab th:first-child,.utab td:first-child{text-align:left}
+.utab th{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:600}
+.utab td{font-family:var(--mono);color:var(--ink)}
+.utab tr.best td{background:var(--up-soft);color:var(--up);font-weight:600}
+.utab td.neg{color:var(--down)}
+.mu-svg{width:100%;height:auto;display:block;background:var(--surface);
+  border:1px solid var(--rule);border-radius:6px;margin:4px 0 10px}
+.mu-svg .ax{stroke:var(--ink);stroke-width:1.6}
+.mu-svg .tick{stroke:var(--ink-3);stroke-width:1.1}
+.mu-svg .tl{font-family:var(--mono);font-size:10.5px;fill:var(--ink-3)}
+.mu-svg .al{font-family:var(--sans);font-size:11.5px;font-weight:600;fill:var(--ink-2)}
+.mu-svg .ph{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--ink-2)}
+.mu-svg .ca{fill:none;stroke:var(--accent);stroke-width:2.4;stroke-linejoin:round}
+.mu-svg .cb{fill:none;stroke:var(--down);stroke-width:2.4;stroke-linejoin:round}
+.mu-svg .ptA{fill:var(--accent)}
+.mu-svg .ptB{fill:var(--down)}
+.mu-svg .opt{stroke:var(--up);stroke-width:2;stroke-dasharray:5 4}
+.mu-svg .optl{font-family:var(--mono);font-size:11px;font-weight:600;fill:var(--up)}
+.mu-svg .key{font-family:var(--mono);font-size:11px}
+.mu-svg .keyA{fill:var(--accent)}
+.mu-svg .keyB{fill:var(--down)}
+.mu-svg .zero{stroke:var(--rule-strong);stroke-width:1;stroke-dasharray:3 3}
+.steps{font-family:var(--mono);font-size:12.5px;line-height:1.75;margin:8px 0 0;
+  padding:10px 12px;border:1px solid var(--rule-strong);border-radius:5px;
+  background:var(--surface-2);max-height:290px;overflow-y:auto}
+.steps div{white-space:pre-wrap}
+.steps div.buyA{color:var(--accent)}
+.steps div.buyB{color:var(--down)}
+.steps div.done{color:var(--up);font-weight:600}
+.btnrow{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 6px}
+.btnrow button{font-family:var(--mono);font-size:12px;letter-spacing:.04em;padding:7px 13px;
+  border-radius:5px;border:1px solid var(--rule-strong);background:var(--surface);
+  color:var(--ink-2);cursor:pointer}
+.btnrow button:hover{border-color:var(--accent);color:var(--accent)}
+.btnrow button:disabled{opacity:.45;cursor:default;border-color:var(--rule);color:var(--ink-3)}
+
+</style>
+
+
+<div class="bar">
+  <div class="bar-in">
+    <span class="bar-title">Micro · Module 51</span>
+    <span class="progress">
+      <span class="progress-track"><span class="progress-fill" id="pfill"></span></span>
+      <span class="progress-num" id="pnum">0 / 16</span>
+    </span>
+    <button type="button" id="resetBtn">Reset progress</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+<p class="eyebrow">AP Microeconomics · Unit 1 · Student guide</p>
+  <h1>Utility Maximization</h1>
+  <p class="standfirst">Sixteen terms from Module 51 of <i>Krugman&rsquo;s Economics for AP</i>, in the
+  order that makes them easiest to learn. This module closes Unit 1 — it is the only place
+  Topics 1.5 and 1.6 are taught, and it sits four hundred pages later in the book than the unit that
+  needs it.</p>
+  <div class="source-line">
+    <span>Textbook pages 511–522</span><span>·</span><span>16 terms</span><span>·</span>
+    <span>Topics 1.5 and 1.6</span><span>·</span>
+    <span>3 required terms your book never names</span>
+  </div>
+<section class="section" id="howto">
+  <h2>How to use this guide</h2>
+  <p>Read Module 51 in your textbook first, then work through these entries in order — each one
+  uses the ones above it. For every entry:</p>
+  <ol>
+    <li>Read the definition, cover it, and say it back in your own words.</li>
+    <li>Work the <b>numeric</b> example with a pen. This topic is two operations — subtract, then
+    divide — and you need both to be automatic.</li>
+    <li>Answer both <b>Check yourself</b> questions before you press <i>Show answer</i>.</li>
+    <li>Tick <b>Got it</b>. The bar at the top tracks how far you are.</li>
+  </ol>
+
+  <div class="notinbook"><p><b>⚑ Three entries carry a flag.</b> <b>Total benefit and total
+  cost</b> (entry 14), <b>marginal benefit and marginal cost</b> (entry 15) and <b>sunk cost</b>
+  (entry 16) are required by the AP Microeconomics framework in Topics 1.5 and 1.6, and none of the
+  three is named anywhere in Module 51 — the phrase &ldquo;total benefit&rdquo; appears <b>0
+  times</b> in it, and twice in all 927 pages. Your textbook teaches the ideas under different names.
+  Learn the names from here.</p>
+  <p style="margin-top:8px"><b>One thing your book covers that your exam excludes:</b> indifference
+  curves. The framework says they are &ldquo;beyond the scope of the course and the AP Exam, but
+  equating the ratios of marginal utility to price is within the scope.&rdquo; Skip Module 80.</p></div>
+
+  <p class="kicker">The 16 terms</p>
+  <ul class="toc">
+    <li><span class="n">1</span><a href="#e1">Utility</a><span class="m">★</span></li>
+    <li><span class="n">2</span><a href="#e2">Util</a><span class="m">★</span></li>
+    <li><span class="n">3</span><a href="#e3">Utility function</a><span class="m">★</span></li>
+    <li><span class="n">4</span><a href="#e4">Total utility</a><span class="m">★</span></li>
+    <li><span class="n">5</span><a href="#e5">Marginal utility</a><span class="m">★</span></li>
+    <li><span class="n">6</span><a href="#e6">Diminishing marginal utility</a><span class="m">★</span></li>
+    <li><span class="n">7</span><a href="#e7">Consumption bundle</a><span class="m">★</span></li>
+    <li><span class="n">8</span><a href="#e8">Budget constraint</a><span class="m">★</span></li>
+    <li><span class="n">9</span><a href="#e9">Consumption possibilities</a><span class="m">★</span></li>
+    <li><span class="n">10</span><a href="#e10">Budget line</a><span class="m">★</span></li>
+    <li><span class="n">11</span><a href="#e11">Optimal consumption bundle</a><span class="m">★</span></li>
+    <li><span class="n">12</span><a href="#e12">Marginal utility per dollar</a><span class="m">★</span></li>
+    <li><span class="n">13</span><a href="#e13">The optimal consumption rule</a><span class="m">★</span></li>
+    <li><span class="n">14</span><a href="#e14">Total benefit and total cost</a><span class="m">★ ⚑</span></li>
+    <li><span class="n">15</span><a href="#e15">Marginal benefit and marginal cost</a><span class="m">★ ⚑</span></li>
+    <li><span class="n">16</span><a href="#e16">Sunk cost</a><span class="m">★ ⚑</span></li>
+  </ul>
+</section>
+
+<!-- ============ WIDGET 1: THE UTILITY MAXIMISER ============ -->
+<section class="section" id="maximiser">
+  <h2>The utility maximiser</h2>
+  <p>Change the income, the prices, or the utility tables themselves, and watch the optimal bundle
+  move. The totals table solves the problem the slow way; the marginal table solves it the fast way;
+  they always agree.</p>
+
+  <div class="widget">
+    <p class="widget-title">Two goods · one budget</p>
+
+    <div class="chips tight" role="group" aria-label="Scenario">
+      <button type="button" class="chip" data-scen="sammy" aria-pressed="true">Sammy&rsquo;s clams &amp; potatoes</button>
+      <button type="button" class="chip" data-scen="frq" aria-pressed="false">Snacks &amp; drinks</button>
+      <button type="button" class="chip" data-scen="tickets" aria-pressed="false">Cinema &amp; coffee</button>
+    </div>
+
+    <div class="umx-grid">
+      <label class="field"><span>Income ($)</span>
+        <input id="inI" type="number" min="1" step="any" value="20"></label>
+      <label class="field"><span>Price of <b id="lbA1">clams</b> ($)</span>
+        <input id="inPA" type="number" min="0.5" step="any" value="4"></label>
+      <label class="field"><span>Price of <b id="lbB1">potatoes</b> ($)</span>
+        <input id="inPB" type="number" min="0.5" step="any" value="2"></label>
+    </div>
+
+    <div class="umx-tu">
+      <label class="field"><span>Total utility from <b id="lbA2">clams</b>, starting at 0 units</span>
+        <input id="inTA" type="text" value="0, 15, 25, 31, 34, 36"></label>
+      <label class="field"><span>Total utility from <b id="lbB2">potatoes</b>, starting at 0 units</span>
+        <input id="inTB" type="text" value="0, 11.5, 21.4, 29.8, 36.8, 42.5, 47, 50.5, 53.2, 55.2, 56.7"></label>
+    </div>
+
+    <p class="kicker">Every bundle that spends all the income</p>
+    <div class="tbl"><table class="utab" id="tabTotals"></table></div>
+
+    <p class="kicker">Marginal utility, and marginal utility per dollar</p>
+    <div class="tbl"><table class="utab" id="tabMargin"></table></div>
+
+    <svg class="mu-svg" id="muSvg" viewBox="0 0 600 260" role="img"
+         aria-label="The two marginal-utility-per-dollar curves, crossing near the optimal bundle."></svg>
+
+    <div class="status" id="umxVerdict" data-s="on">—</div>
+    <p class="widget-note">The graph plots the marginal utility per dollar of the <b>last</b> unit of
+    each good, for every bundle on the budget line. The optimum is the last bundle at which the
+    rising curve has not yet overtaken the falling one.</p>
+  </div>
+</section>
+
+<!-- ============ WIDGET 2: SPEND THE MARGINAL DOLLAR ============ -->
+<section class="section" id="marginal">
+  <h2>Spend the marginal dollar</h2>
+  <p>Here is the rule as a procedure rather than an equation. Start with nothing, and each step buys
+  one more unit of whichever good currently offers the most utility per dollar. Run it to the end and
+  it lands on the optimal bundle every time — using whatever numbers are in the maximiser
+  above.</p>
+
+  <div class="widget">
+    <div class="btnrow">
+      <button type="button" id="btnStep">Buy one more</button>
+      <button type="button" id="btnAuto">Run to the end</button>
+      <button type="button" id="btnReset">Start again</button>
+    </div>
+    <div class="steps" id="stepLog"></div>
+  </div>
+</section>
+
+<!-- ============ ENTRIES ============ -->
+<section class="section">
+  <h2>The 16 terms</h2>
+</section>
+
+<article class="entry" id="e1">
+  <div class="entry-head"><span class="entry-num">01</span><h2>Utility</h2><span class="mark exam">★ Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p><b>Utility</b> is a measure of personal satisfaction — the benefit you get from consuming something.</p></div>
+  <p class="reading">Textbook page 511. Topics 1.5 and 1.6.</p>
+
+  <p>Economics needs a word for &ldquo;how much better off this makes me&rdquo;, and utility is
+  it. Your textbook is careful about what it does <em>not</em> claim: utility is &ldquo;a concept we
+  use to understand behaviour but don't expect to measure in practice.&rdquo; Nobody has a utility
+  meter.</p>
+
+  <p>The whole model rests on one modest assumption — that people try to get more satisfaction rather
+  than less. You do not need to know how much satisfaction, or compare yours with anyone else's. You
+  only need each person to prefer more to less.</p>
+
+  <p>Your framework gives utility a second name that your textbook never uses. <b>For a consumer,
+  total benefit <em>is</em> utility.</b> Keep that translation in your head from the start; entry 14
+  comes back to it.</p>
+  <div class="watch"><p><b>Watch out.</b> Utility is not money and not price. A thing can be cheap and give you a lot of utility, or expensive and give you very little. Price is what you pay; utility is what you get.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Soup or salad.</span> Your book's own example: &ldquo;I can have either soup or salad with my dinner. Which will I enjoy more?&rdquo; That question, asked seriously, is utility maximisation.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">A number that only ranks.</span> If a film is worth 40 to you and a concert 55, the model says you prefer the concert. It does <b>not</b> say the concert is 1.375 times as good, and it says nothing about how either compares with the 55 someone else reports.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Producing satisfaction.</span> Your book suggests thinking of consumers as using consumption to &ldquo;produce&rdquo; utility, the way a firm uses inputs to produce output. The budget is the input; satisfaction is the output.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is measured in <a href="#e2">utils</a> (entry 2) and totalled as <a href="#e4">total utility</a> (entry 4). Your framework calls it the consumer’s <a href="#e14">total benefit</a> (entry 14).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">1.1</span> Why does the model not need to compare your utility with someone else's?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because every decision it analyses is one person choosing between their own options. You only ever compare your own alternatives, so a scale that ranks <em>your</em> preferences is enough.</p></div></details></div>
+    <div class="q"><p><span class="qn">1.2</span> A student says a $200 coat must give more utility than a $20 one. What is wrong?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Price and utility are different things. The $200 coat costs more; whether it satisfies you more is a separate question, and for some buyers the answer is no.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got1"> Got it</label>
+  </div>
+</article>
+
+
+<article class="entry" id="e2">
+  <div class="entry-head"><span class="entry-num">02</span><h2>Util</h2><span class="mark exam">★ Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A <b>util</b> is a hypothetical unit of utility — invented so that satisfaction can be put in a table and arithmetic can be done on it.</p></div>
+  <p class="reading">Textbook page 512.</p>
+
+  <p>Utils are a measuring convenience, nothing more. Your book introduces them with a shrug:
+  &ldquo;it is useful to suppose that we can measure utility in hypothetical units called — what
+  else? — utils.&rdquo;</p>
+
+  <p>Every number in this module is in utils, and every exam question that gives you a utility table
+  is using them. Use them freely inside one person's problem, and never carry them between
+  people.</p>
+  <div class="watch"><p><b>Watch out.</b> Utils are not comparable between people. &ldquo;Ali gets 50 utils and Bea gets 40, so Ali enjoys it more&rdquo; is <b>not</b> a claim this model supports. Each person's scale is their own. The word <em>util</em> also never appears in your framework — it is your textbook's unit, and a very useful one.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">The reason for inventing them.</span> Without a unit there is no table, and without a table there is no marginal utility. Utils exist to make the next four entries possible.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Reading a utility table.</span> Cassie's total utility from clams runs 0, 15, 28, 39, 48, 55, 60, 63, 64, 63. Every one of those figures is in utils, and all you will ever do with them is <b>subtract</b> and <b>divide</b>.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Like a rating out of ten.</span> Your framework's own suggested classroom activity has students eat sweets and rate each one 1–10. Those ratings are utils. Nobody thinks a 7 means the same thing to two people.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the unit of <a href="#e1">utility</a> (entry 1), and it is what <a href="#e5">marginal utility</a> (entry 5) is measured in.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">2.1</span> Two people rate the same meal 60 utils and 45 utils. What can you conclude?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Nothing about who enjoyed it more. You can only use each person's own numbers to rank that person's own options.</p></div></details></div>
+    <div class="q"><p><span class="qn">2.2</span> What two operations will you ever perform on a utility figure in this course?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Subtraction, to get marginal utility, and division by a price, to get marginal utility per dollar. That is the whole of the arithmetic.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got2"> Got it</label>
+  </div>
+</article>
+
+
+<article class="entry" id="e3">
+  <div class="entry-head"><span class="entry-num">03</span><h2>Utility function</h2><span class="mark exam">★ Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A <b>utility function</b> shows the relationship between a consumer's utility and the <b>consumption bundle</b> they consume.</p></div>
+  <p class="reading">Textbook page 512, Figure 51.1.</p>
+
+  <p>It is the rule that turns quantities into satisfaction. Give it a bundle and it gives back a
+  number of utils. Drawn as a curve, it usually rises — more is better — and gets flatter as
+  you go, which is the next three entries in one sentence.</p>
+
+  <p>In this module the utility function almost always arrives as a <b>table</b>, not an equation.
+  That is also how the exam gives it to you.</p>
+  <div class="watch"><p><b>Watch out.</b> The utility function is the <em>whole</em> relationship, not one number. &ldquo;My utility is 48&rdquo; is a single value of it; the function is the column of values for every quantity.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Cassie's fried clams.</span> Figure 51.1 shows her total utility from an all-you-can-eat clam dinner: a side of coleslaw that comes with the meal, plus however many clams she chooses.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">The function as a column.</span> 0 clams → 0 utils; 1 → 15; 2 → 28; 3 → 39; 4 → 48; 5 → 55; 6 → 60; 7 → 63; 8 → <b>64</b>; 9 → 63. That column is the utility function.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">A recipe for satisfaction.</span> Inputs go in, satisfaction comes out. The shape of the curve is what makes the choice interesting: if it were a straight line rising forever, you would just buy one good.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It maps a <a href="#e7">consumption bundle</a> (entry 7) to <a href="#e4">total utility</a> (entry 4). Its <em>slope</em> is <a href="#e5">marginal utility</a> (entry 5).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">3.1</span> Why is a utility function usually drawn getting flatter as quantity rises?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because each extra unit adds less than the one before — diminishing marginal utility, entry 6. Flattening is that principle drawn.</p></div></details></div>
+    <div class="q"><p><span class="qn">3.2</span> Cassie's function turns downward after 8 clams. What does that mean?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>That the ninth clam makes her worse off: total utility falls from 64 to 63. A rational consumer stops at 8.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got3"> Got it</label>
+  </div>
+</article>
+
+
+<article class="entry" id="e4">
+  <div class="entry-head"><span class="entry-num">04</span><h2>Total utility</h2><span class="mark exam">★ Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p><b>Total utility</b> is the whole amount of satisfaction from a consumption bundle — the number the consumer is trying to make as large as possible.</p></div>
+  <p class="reading">Textbook page 512. Topics 1.5 and 1.6.</p>
+
+  <p>This is the objective of the entire module. Your framework states it plainly:
+  <b><code>CBA-2.A.2</code></b> — &ldquo;In a model of rational consumer choice, consumers are
+  assumed to make choices so as to maximise their <b>total utility</b>.&rdquo;</p>
+
+  <p>When there are two goods, total utility is just the sum: the utility from the clams plus the
+  utility from the potatoes. Every bundle has a total, and the job is to find the biggest one you can
+  afford.</p>
+
+  <div class="tbl"><table class="utab"><thead><tr><th>Clams</th><th>Total utility</th><th>Marginal utility</th></tr></thead><tbody><tr><td>0</td><td>0</td><td>—</td></tr><tr><td>1</td><td>15</td><td>+15</td></tr><tr><td>2</td><td>28</td><td>+13</td></tr><tr><td>3</td><td>39</td><td>+11</td></tr><tr><td>4</td><td>48</td><td>+9</td></tr><tr><td>5</td><td>55</td><td>+7</td></tr><tr><td>6</td><td>60</td><td>+5</td></tr><tr><td>7</td><td>63</td><td>+3</td></tr><tr class="best"><td>8</td><td>64</td><td>+1</td></tr><tr><td>9</td><td>63</td><td class="neg">-1</td></tr></tbody></table></div>
+
+  <p class="figcap">Cassie's total utility peaks at <b>64 utils</b> on the eighth clam — the row
+  highlighted. Notice that it is still rising at 7, just barely.</p>
+  <div class="watch"><p><b>Watch out.</b> Total utility keeps rising for a long time after each extra unit has stopped being exciting. Rising total and falling marginal are the normal case, not a contradiction — see entry 5.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">The peak.</span> Figure 51.1's caption: total utility &ldquo;increases until it reaches its maximum utility level of 64 utils at 8 clams consumed and decreases after that.&rdquo;</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Adding two goods.</span> Sammy consuming 2 pounds of clams (25 utils) and 6 pounds of potatoes (47.0 utils) has a total utility of <b>72.0</b>. The whole of the next six entries is about finding that bundle.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">A day out.</span> The total satisfaction from a day is the sum of its parts — the film, the meal, the walk home. You choose the combination with the best total, not the best single item.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the sum of the utility from every good in the <a href="#e7">bundle</a> (entry 7), read off the <a href="#e3">utility function</a> (entry 3). Maximising it, subject to the <a href="#e8">budget constraint</a> (entry 8), defines the <a href="#e11">optimal consumption bundle</a> (entry 11).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">4.1</span> Cassie's total utility is 63 at 7 clams and 64 at 8. Is the eighth clam a big gain?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No — it adds only 1 util, against 15 for the first. Total utility is near its peak, so the extra units are barely worth anything. That is the whole point of looking at the margin.</p></div></details></div>
+    <div class="q"><p><span class="qn">4.2</span> Sammy gets 25 utils from clams and 47.0 from potatoes. What is his total utility?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p><b>72.0 utils.</b> With two goods you simply add the two columns.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got4"> Got it</label>
+  </div>
+</article>
+
+
+<article class="entry" id="e5">
+  <div class="entry-head"><span class="entry-num">05</span><h2>Marginal utility</h2><span class="mark exam">★ Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p><b>Marginal utility</b> is the change in total utility from consuming <b>one additional unit</b> of a good.</p></div>
+  <p class="reading">Textbook page 513, margin definition.</p>
+
+  <p>Subtract one row of the total-utility column from the row above it. That is the whole
+  calculation, and it is the most common single arithmetic step in this topic.</p>
+
+  <p>Marginal utility is the <b>slope</b> of the utility function. That one sentence resolves most of
+  the confusion in this module: total utility is the height of the hill, marginal utility is how
+  steep it is. The hill is still going up while it is getting less steep, and it reaches its top
+  exactly where the steepness hits zero.</p>
+
+  <svg class="mu-svg" viewBox="0 0 600 250" role="img" aria-label="Cassie's total utility rises to a peak of 64 utils at 8 clams while her marginal utility falls steadily and turns negative at the ninth clam."><text x="46.0" y="16" class="ph">Total utility (utils)</text><line x1="46.0" y1="206.0" x2="46.0" y2="26.0" class="ax"/><line x1="46.0" y1="206.0" x2="276.0" y2="206.0" class="ax"/><line x1="46.0" y1="206.0" x2="46.0" y2="210.0" class="tick"/><text x="46.0" y="222.0" class="tl" text-anchor="middle">0</text><line x1="93.9" y1="206.0" x2="93.9" y2="210.0" class="tick"/><text x="93.9" y="222.0" class="tl" text-anchor="middle">2</text><line x1="141.8" y1="206.0" x2="141.8" y2="210.0" class="tick"/><text x="141.8" y="222.0" class="tl" text-anchor="middle">4</text><line x1="189.8" y1="206.0" x2="189.8" y2="210.0" class="tick"/><text x="189.8" y="222.0" class="tl" text-anchor="middle">6</text><line x1="237.7" y1="206.0" x2="237.7" y2="210.0" class="tick"/><text x="237.7" y="222.0" class="tl" text-anchor="middle">8</text><line x1="42.0" y1="206.0" x2="46.0" y2="206.0" class="tick"/><text x="39.0" y="209.5" class="tl" text-anchor="end">0</text><line x1="42.0" y1="154.6" x2="46.0" y2="154.6" class="tick"/><text x="39.0" y="158.1" class="tl" text-anchor="end">20</text><line x1="42.0" y1="103.1" x2="46.0" y2="103.1" class="tick"/><text x="39.0" y="106.6" class="tl" text-anchor="end">40</text><line x1="42.0" y1="51.7" x2="46.0" y2="51.7" class="tick"/><text x="39.0" y="55.2" class="tl" text-anchor="end">60</text><text x="161.0" y="242.0" class="al" text-anchor="middle">Clams</text><polyline class="ca" points="46.0,206.0 70.0,167.4 93.9,134.0 117.9,105.7 141.8,82.6 165.8,64.6 189.8,51.7 213.7,44.0 237.7,41.4 261.6,44.0"/><circle cx="46.0" cy="206.0" r="3.2" class="ptA"/><circle cx="70.0" cy="167.4" r="3.2" class="ptA"/><circle cx="93.9" cy="134.0" r="3.2" class="ptA"/><circle cx="117.9" cy="105.7" r="3.2" class="ptA"/><circle cx="141.8" cy="82.6" r="3.2" class="ptA"/><circle cx="165.8" cy="64.6" r="3.2" class="ptA"/><circle cx="189.8" cy="51.7" r="3.2" class="ptA"/><circle cx="213.7" cy="44.0" r="3.2" class="ptA"/><circle cx="237.7" cy="41.4" r="3.2" class="ptA"/><circle cx="261.6" cy="44.0" r="3.2" class="ptA"/><line x1="237.7" y1="206.0" x2="237.7" y2="41.4" class="opt"/><text x="233.7" y="34.4" class="optl" text-anchor="middle">peak 64 at 8</text><text x="354.0" y="16" class="ph">Marginal utility per clam (utils)</text><line x1="354.0" y1="206.0" x2="354.0" y2="26.0" class="ax"/><line x1="354.0" y1="206.0" x2="584.0" y2="206.0" class="ax"/><line x1="354.0" y1="170.0" x2="584.0" y2="170.0" class="zero"/><line x1="354.0" y1="206.0" x2="354.0" y2="210.0" class="tick"/><text x="354.0" y="222.0" class="tl" text-anchor="middle">0</text><line x1="401.9" y1="206.0" x2="401.9" y2="210.0" class="tick"/><text x="401.9" y="222.0" class="tl" text-anchor="middle">2</text><line x1="449.8" y1="206.0" x2="449.8" y2="210.0" class="tick"/><text x="449.8" y="222.0" class="tl" text-anchor="middle">4</text><line x1="497.8" y1="206.0" x2="497.8" y2="210.0" class="tick"/><text x="497.8" y="222.0" class="tl" text-anchor="middle">6</text><line x1="545.7" y1="206.0" x2="545.7" y2="210.0" class="tick"/><text x="545.7" y="222.0" class="tl" text-anchor="middle">8</text><line x1="350.0" y1="206.0" x2="354.0" y2="206.0" class="tick"/><text x="347.0" y="209.5" class="tl" text-anchor="end">-4</text><line x1="350.0" y1="170.0" x2="354.0" y2="170.0" class="tick"/><text x="347.0" y="173.5" class="tl" text-anchor="end">0</text><line x1="350.0" y1="134.0" x2="354.0" y2="134.0" class="tick"/><text x="347.0" y="137.5" class="tl" text-anchor="end">4</text><line x1="350.0" y1="98.0" x2="354.0" y2="98.0" class="tick"/><text x="347.0" y="101.5" class="tl" text-anchor="end">8</text><line x1="350.0" y1="62.0" x2="354.0" y2="62.0" class="tick"/><text x="347.0" y="65.5" class="tl" text-anchor="end">12</text><line x1="350.0" y1="26.0" x2="354.0" y2="26.0" class="tick"/><text x="347.0" y="29.5" class="tl" text-anchor="end">16</text><text x="469.0" y="242.0" class="al" text-anchor="middle">Clams</text><polyline class="cb" points="366.0,35.0 389.9,53.0 413.9,71.0 437.9,89.0 461.8,107.0 485.8,125.0 509.7,143.0 533.7,161.0 557.6,179.0"/><circle cx="366.0" cy="35.0" r="3.2" class="ptB"/><circle cx="389.9" cy="53.0" r="3.2" class="ptB"/><circle cx="413.9" cy="71.0" r="3.2" class="ptB"/><circle cx="437.9" cy="89.0" r="3.2" class="ptB"/><circle cx="461.8" cy="107.0" r="3.2" class="ptB"/><circle cx="485.8" cy="125.0" r="3.2" class="ptB"/><circle cx="509.7" cy="143.0" r="3.2" class="ptB"/><circle cx="533.7" cy="161.0" r="3.2" class="ptB"/><circle cx="557.6" cy="179.0" r="3.2" class="ptB"/><text x="557.6" y="195.0" class="optl" text-anchor="middle">−1</text></svg>
+
+  <p class="figcap">The same nine numbers, twice. <b>Left:</b> total utility, peaking at 64. <b>Right:</b>
+  marginal utility, falling steadily and turning <b>negative</b> at the ninth clam. Marginal utility
+  is plotted between the whole numbers, because it measures a <em>change</em> from one quantity to the
+  next.</p>
+  <div class="watch"><p><b>Watch out.</b> Marginal utility can be <b>negative</b>, and Cassie's ninth clam is. A negative marginal utility means the extra unit makes you worse off — which is why a rational consumer refuses it <em>even when it is free</em>.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">The all-you-can-eat problem.</span> &ldquo;Restaurants that offer all-you-can-eat meals depend on the proposition that you can have too much of a good thing.&rdquo;</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">One subtraction each.</span> Cassie's totals 0, 15, 28, 39, 48, 55, 60, 63, 64, 63 give marginal utilities of <b>15, 13, 11, 9, 7, 5, 3, 1, −1</b>. Every figure is one row minus the row above.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">The first glass of water.</span> After an hour in the sun the first glass is worth a great deal, the second rather less, and the fifth almost nothing. The sixth, forced down, is worth less than nothing.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the change in <a href="#e4">total utility</a> (entry 4) and the slope of the <a href="#e3">utility function</a> (entry 3). Divided by price it becomes <a href="#e12">marginal utility per dollar</a> (entry 12). Your framework calls it <a href="#e15">marginal benefit</a> (entry 15).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">5.1</span> Total utility goes 0, 20, 36, 48, 56. What are the marginal utilities?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p><b>20, 16, 12, 8.</b> Each is one row minus the previous row, and they are falling — diminishing marginal utility.</p></div></details></div>
+    <div class="q"><p><span class="qn">5.2</span> Total utility is rising and marginal utility is falling. Is that a contradiction?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No, and it is the normal case. Marginal utility is the <em>slope</em>. A hill that is still climbing but getting less steep has rising total and falling marginal. Total utility peaks exactly where marginal utility reaches zero.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got5"> Got it</label>
+  </div>
+</article>
+
+
+<article class="entry" id="e6">
+  <div class="entry-head"><span class="entry-num">06</span><h2>Diminishing marginal utility</h2><span class="mark exam">★ Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>According to the <b>principle of diminishing marginal utility</b>, each successive unit of a good adds <b>less</b> to total utility than the unit before it.</p></div>
+  <p class="reading">Textbook page 513, margin definition. <code>CBA-2.A.3</code>, CED p. 39.</p>
+
+  <p>Your framework states it in eleven words: <b><code>CBA-2.A.3</code></b> —
+  &ldquo;Consumers experience diminishing marginal utility in the consumption of goods and
+  services.&rdquo;</p>
+
+  <p>The reason is satiation. The more of something you have already had, the closer you are to the
+  point where another one adds nothing. Your textbook's example is bananas: a marvellous treat for
+  someone who almost never gets one, and for someone who eats them daily &ldquo;just, well, a
+  banana.&rdquo;</p>
+
+  <p>Diminishing marginal utility is why the marginal utility curve slopes <b>downward</b>, and that
+  downward slope is what makes the rest of this module work. If marginal utility never fell, you would
+  spend your entire income on one good.</p>
+  <div class="watch"><p><b>Watch out.</b> It is about <b>marginal</b> utility falling, not total utility falling. While marginal utility is positive but shrinking, total utility is still <em>rising</em>. Total only falls once marginal goes below zero.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">The exceptions, admitted.</span> Your book's FYI box is honest: skiing and coffee take practice, and Alfred Marshall's wallpaper is worse than useless if you buy only enough for half a room. Marginal utility genuinely rises over some ranges — just not over the range that matters for most goods.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Falling, and then negative.</span> 15, 13, 11, 9, 7, 5, 3, 1, −1. Each step down is 2 utils. By the eighth clam an extra clam is worth a fifteenth of what the first one was.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Songs on repeat.</span> The song you loved on the first play is tiresome by the twentieth. Nothing about the song changed.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is a claim about how <a href="#e5">marginal utility</a> (entry 5) behaves, and it is what makes <a href="#e12">marginal utility per dollar</a> (entry 12) fall as you buy more — which is what lets the <a href="#e13">optimal consumption rule</a> (entry 13) pick out a single best bundle.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">6.1</span> Why would a consumer refuse a free unit of a good?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>If its marginal utility is negative, consuming it <em>lowers</em> total utility. Cassie's ninth clam takes her from 64 utils to 63, so she declines it even at a price of zero.</p></div></details></div>
+    <div class="q"><p><span class="qn">6.2</span> Name a good whose marginal utility rises over some range, and say why it does not break the model.</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>A skill that needs practice — skiing, or coffee — or a good you must buy in a minimum quantity, like wallpaper for a room. It does not break the model because over the range people actually consume, marginal utility is still falling.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got6"> Got it</label>
+  </div>
+</article>
+
+
+<article class="entry" id="e7">
+  <div class="entry-head"><span class="entry-num">07</span><h2>Consumption bundle</h2><span class="mark exam">★ Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A <b>consumption bundle</b> is the combination of goods and services a consumer consumes — so many of this, so many of that.</p></div>
+  <p class="reading">Textbook page 512.</p>
+
+  <p>A bundle is a complete answer to &ldquo;what did you buy?&rdquo;. Write it as a pair:
+  <b>(2 pounds of clams, 6 pounds of potatoes)</b>. In this course a bundle is almost always two
+  goods, because two goods fit on a diagram.</p>
+
+  <p>Everything else in the module is a property of bundles. A bundle has a cost. A bundle has a total
+  utility. Some bundles are affordable and some are not. One of the affordable ones is best.</p>
+  <div class="watch"><p><b>Watch out.</b> A bundle is a <em>combination</em>, not a quantity of one good. &ldquo;Two pounds of clams&rdquo; is not a bundle until you also say how many potatoes — and &ldquo;and no potatoes&rdquo; is a perfectly good answer.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Cassie's dinner.</span> Her bundle is &ldquo;a side of coleslaw, which comes with the meal, plus a number of clams to be determined.&rdquo; The coleslaw is fixed; the clams are the choice.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Six bundles on one line.</span> Sammy's six affordable bundles that spend all $20 are (0, 10), (1, 8), (2, 6), (3, 4), (4, 2) and (5, 0), writing clams first. Each costs exactly $20.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">A weekly shop.</span> The trolley at the checkout is a consumption bundle. Changing your mind about one item changes the bundle, and changes both its cost and its utility.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is what a <a href="#e3">utility function</a> (entry 3) takes as its input, what the <a href="#e8">budget constraint</a> (entry 8) limits the cost of, and what you are choosing when you pick the <a href="#e11">optimal consumption bundle</a> (entry 11).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">7.1</span> Clams cost $4 a pound and potatoes $2. What does the bundle (3, 4) cost?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>3 × $4 + 4 × $2 = $12 + $8 = <b>$20</b>.</p></div></details></div>
+    <div class="q"><p><span class="qn">7.2</span> Is (5 clams, 0 potatoes) a consumption bundle?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Yes. Zero of a good is a legitimate quantity, and that bundle sits at one end of the budget line.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got7"> Got it</label>
+  </div>
+</article>
+
+
+<article class="entry" id="e8">
+  <div class="entry-head"><span class="entry-num">08</span><h2>Budget constraint</h2><span class="mark exam">★ Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A <b>budget constraint</b> limits the cost of a consumer's bundle to no more than their income: <b>spending on one good + spending on the other ≤ income</b>.</p></div>
+  <p class="reading">Textbook page 514, margin definition. <code>CBA-2.A.1</code>, CED p. 39.</p>
+
+  <p>This is scarcity, applied to one person. Your framework puts it as
+  <b><code>CBA-2.A.1</code></b> — &ldquo;Consumers face <b>constraints</b> and have to make
+  optimal decisions accounting for these constraints&rdquo; — and <b><code>CBA-2.A.4</code></b>
+  adds the crucial adjective: consumers allocate their <b>limited income</b>.</p>
+
+  <p>The constraint is what makes the problem interesting. Without it you would buy every unit with
+  positive marginal utility of every good, and there would be nothing to work out.</p>
+  <div class="watch"><p><b>Watch out.</b> The constraint says spending is <em>no more than</em> income — an inequality. But as long as more of a good is always better and saving gives no satisfaction, the consumer spends every dollar, so in practice it holds with <b>equality</b>. That is why the answer always sits on the budget line.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">The inequality itself.</span> Equation 51-1: &ldquo;Expenditure on clams + Expenditure on potatoes ≤ Total income.&rdquo; Your book calls it &ldquo;a simple way of saying that a consumer can't spend more than the total amount of income available.&rdquo;</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Testing a bundle.</span> Sammy has $20, clams cost $4 and potatoes $2. Bundle (2, 6) costs 2 × $4 + 6 × $2 = $8 + $12 = <b>$20</b> — it satisfies the constraint exactly. Bundle (3, 6) would cost $24 and fails.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">A prepaid card.</span> Fifty pounds on a card and no overdraft. You can spend less; you cannot spend more. Every purchase you make is a purchase you cannot make.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is what makes <a href="#e4">total utility</a> (entry 4) something to be maximised rather than simply increased. The bundles that satisfy it are the <a href="#e9">consumption possibilities</a> (entry 9), and the ones that satisfy it exactly form the <a href="#e10">budget line</a> (entry 10).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">8.1</span> Income $30, good X at $3 and good Y at $6. Does the bundle (4 X, 3 Y) satisfy the constraint?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>4 × $3 + 3 × $6 = $12 + $18 = <b>$30</b>. Yes — and exactly, so it spends all the income.</p></div></details></div>
+    <div class="q"><p><span class="qn">8.2</span> Why does a consumer end up spending <em>all</em> their income in this model?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because unspent money produces no utility and more of either good is assumed to be better. Any dollar left over could have bought something worth having.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got8"> Got it</label>
+  </div>
+</article>
+
+
+<article class="entry" id="e9">
+  <div class="entry-head"><span class="entry-num">09</span><h2>Consumption possibilities</h2><span class="mark exam">★ Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A consumer's <b>consumption possibilities</b> are the set of <b>all affordable bundles</b>, given their income and the prices they face.</p></div>
+  <p class="reading">Textbook page 514, margin definition.</p>
+
+  <p>This is the shaded region in your textbook's Figure 51.2 — everything on or inside the
+  budget line. It is the consumer's version of the production possibilities curve from Module 3: a
+  boundary between what can be had and what cannot.</p>
+
+  <p>It depends on exactly two things: <b>income</b> and <b>prices</b>. Change either and the set
+  changes. Tastes have nothing to do with it — utility decides which bundle you pick <em>from</em>
+  the set, not what is in the set.</p>
+  <div class="watch"><p><b>Watch out.</b> Affordable is not the same as sensible. The bundle (0 clams, 0 potatoes) is affordable and nobody would choose it. The set tells you what is possible; the utility function tells you what is best.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">The shaded area.</span> &ldquo;Every bundle on or inside this line (the shaded area) is affordable; every bundle outside this line is unaffordable.&rdquo;</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Counting the whole-unit bundles.</span> With $20, clams at $4 and potatoes at $2, there are six whole-unit bundles that spend every dollar — and many more that spend less, such as (1, 2) at $8. All of them are in the consumption possibilities.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">A menu you can pay for.</span> The set is everything on the menu within your budget. Which one you order is a different question, and it is the rest of this module.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the set of bundles allowed by the <a href="#e8">budget constraint</a> (entry 8), bounded by the <a href="#e10">budget line</a> (entry 10). Compare Module 3: this is the consumer’s version of the region on or inside a production possibilities curve.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">9.1</span> What two things determine a consumer's consumption possibilities?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Income and prices. Nothing else — in particular, not the consumer's tastes, which decide the choice rather than the options.</p></div></details></div>
+    <div class="q"><p><span class="qn">9.2</span> Prices halve while income stays the same. What happens to the set?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>It grows: every bundle that was affordable still is, and many that were not now are. Halving both prices does the same thing as doubling income.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got9"> Got it</label>
+  </div>
+</article>
+
+
+<article class="entry" id="e10">
+  <div class="entry-head"><span class="entry-num">10</span><h2>Budget line</h2><span class="mark exam">★ Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The <b>budget line</b> shows every bundle available to a consumer who spends <b>all</b> of their income. It is the boundary of the consumption possibilities.</p></div>
+  <p class="reading">Textbook page 514, margin definition, and Figure 51.2.</p>
+
+  <p>To draw it, find the two intercepts: all income on one good, then all income on the other.
+  Sammy's $20 buys 5 pounds of clams at $4, or 10 pounds of potatoes at $2, so his line runs from
+  (0, 10) to (5, 0).</p>
+
+  <p>The line slopes downward, and the slope is an <b>opportunity cost</b> — the same idea as
+  Module 3. Moving along it, one more pound of clams means two fewer pounds of potatoes, because
+  clams cost twice as much.</p>
+  <div class="watch"><p><b>Watch out.</b> The word <b>budget</b> occurs <b>0 times in the AP Microeconomics framework</b>. The budget line is your textbook's apparatus, and it is worth knowing — the AP Review asks you to draw one — but the exam is more likely to hand you a <em>table</em> and ask for the marginal-utility-per-dollar condition. Be ready for both.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">The two ends.</span> &ldquo;If Sammy spends all of his income on clams (bundle F ), he can purchase 5 pounds of clams; if he spends all of his income on potatoes (bundle A), he can purchase 10 pounds.&rdquo;</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">The equation of the line.</span> $4 × clams + $2 × potatoes = $20, so potatoes = 10 − 2 × clams. Put clams = 3 and you get 4 potatoes — bundle D.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Spending down to zero.</span> Every point on the line is a way of arriving at the till with nothing left. There are usually several, and only one of them is best.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the edge of the <a href="#e9">consumption possibilities</a> (entry 9), and the <a href="#e11">optimal bundle</a> (entry 11) always lies <b>on</b> it. Its slope is an opportunity cost, exactly as in Module 3.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">10.1</span> Income $60, good X at $5, good Y at $10. What are the two intercepts of the budget line?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p><b>12 units of X</b> (60 ÷ 5) with no Y, and <b>6 units of Y</b> (60 ÷ 10) with no X. Join them with a straight line.</p></div></details></div>
+    <div class="q"><p><span class="qn">10.2</span> Why is the optimal bundle always on the line rather than inside it?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>A bundle inside the line leaves income unspent. That money could buy another unit with positive marginal utility, so any interior bundle can be improved on.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got10"> Got it</label>
+  </div>
+</article>
+
+
+<article class="entry" id="e11">
+  <div class="entry-head"><span class="entry-num">11</span><h2>Optimal consumption bundle</h2><span class="mark exam">★ Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The <b>optimal consumption bundle</b> is the affordable bundle that gives the consumer the <b>highest total utility</b>.</p></div>
+  <p class="reading">Textbook page 515, margin definition. <code>CBA-2.A.2</code>, CED p. 39.</p>
+
+  <p>There is a brute-force way to find it, and it always works: list every bundle on the budget
+  line, compute the total utility of each, and take the biggest. Your textbook does exactly this in
+  Table 51.2.</p>
+
+  <div class="tbl"><table class="utab"><thead><tr><th>Bundle</th><th>Clams</th><th>Utility</th><th>Potatoes</th><th>Utility</th><th>Total utility</th></tr></thead><tbody><tr><td>A</td><td>0</td><td>0</td><td>10</td><td>56.7</td><td>56.7</td></tr><tr><td>B</td><td>1</td><td>15</td><td>8</td><td>53.2</td><td>68.2</td></tr><tr class="best"><td>C</td><td>2</td><td>25</td><td>6</td><td>47</td><td>72</td></tr><tr><td>D</td><td>3</td><td>31</td><td>4</td><td>36.8</td><td>67.8</td></tr><tr><td>E</td><td>4</td><td>34</td><td>2</td><td>21.4</td><td>55.4</td></tr><tr><td>F</td><td>5</td><td>36</td><td>0</td><td>0</td><td>36</td></tr></tbody></table></div>
+
+  <p class="figcap">Sammy's $20, clams at $4 and potatoes at $2. Bundle <b>C</b> — 2 pounds of
+  clams and 6 pounds of potatoes — gives <b>72.0 utils</b>, more than any other affordable
+  bundle.</p>
+
+  <p>This is the <b>total</b> approach, and your framework names it: <b><code>CBA-1.B.2</code></b>
+  says some decisions &ldquo;must be evaluated by looking at total benefits and total costs.&rdquo;
+  Entry 13 solves the identical problem at the margin instead, and gets the same answer — which
+  is the point of doing both.</p>
+  <div class="watch"><p><b>Watch out.</b> The optimum is not the bundle with the most of your favourite good, and not the one in the middle. Sammy likes clams — they give him 15 utils for the first pound against 11.5 for the first potato — and he still buys three times as many potatoes, because they cost half as much.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">The top of the hill.</span> Figure 51.3 draws total utility against the bundle and the optimum is simply the peak: &ldquo;Sammy's optimal consumption bundle puts him at the top of the total utility curve.&rdquo;</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Every bundle, scored.</span> 56.7, 68.2, <b>72.0</b>, 67.8, 55.4, 36.0. The third is the largest, so bundle C wins. Six additions and one comparison.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Trying every option.</span> If there are only six ways to spend the money, price all six and pick the best. It is slow but it never goes wrong, and it is the honest answer when the numbers are awkward.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It maximises <a href="#e4">total utility</a> (entry 4) subject to the <a href="#e8">budget constraint</a> (entry 8), so it lies on the <a href="#e10">budget line</a> (entry 10). The faster route to it is the <a href="#e13">optimal consumption rule</a> (entry 13).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">11.1</span> Why is bundle B (1 clam, 8 potatoes, 68.2 utils) not optimal?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because bundle C is affordable and gives 72.0 utils. B is on the budget line and spends every dollar — being on the line is necessary, not sufficient.</p></div></details></div>
+    <div class="q"><p><span class="qn">11.2</span> Sammy prefers clams unit-for-unit but buys three times as many potatoes. Why?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because potatoes cost half as much. What matters is satisfaction <em>per dollar</em>, not per pound — entry 12.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got11"> Got it</label>
+  </div>
+</article>
+
+
+<article class="entry" id="e12">
+  <div class="entry-head"><span class="entry-num">12</span><h2>Marginal utility per dollar</h2><span class="mark exam">★ Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p><b>Marginal utility per dollar</b> is the additional utility from spending one more dollar on a good: <b>MU ÷ price</b>.</p></div>
+  <p class="reading">Textbook page 518, margin definition, and Table 51.3. <code>CBA-2.A.4</code>, CED p. 39.</p>
+
+  <p>This is the single most important calculation in Topics 1.5 and 1.6, and it is one division.
+  Your textbook writes it as</p>
+
+  <p style="font-family:var(--mono);font-size:15px;text-align:center;margin:14px 0">
+  MU<sub>good</sub> ÷ P<sub>good</sub></p>
+
+  <p>Why divide? Because marginal utility ranks <b>units</b> and you are not choosing between units
+  — you are choosing where to send the next <b>dollar</b>. A clam gives Sammy more utility than a
+  potato does, and costs twice as much; dividing is what makes the two comparable.</p>
+
+  <p>Because marginal utility falls as you buy more (entry 6), marginal utility per dollar falls
+  too.</p>
+  <div class="watch"><p><b>Watch out.</b> Never compare raw marginal utilities across goods with different prices. The AP Review has an item built entirely to catch this: 100 utils from the last unit of a $2 good against 80 utils from the last unit of a $1 good. The $2 good looks better and is not — 50 utils per dollar against 80.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">The worked division.</span> &ldquo;Consider what happens if Sammy increases his clam consumption from 2 pounds to 3 pounds. This raises his total utility by 6 utils. But he must spend $4 … so the increase in his utility per additional dollar spent on clams is 6 utils/$4 = 1.5 utils per dollar.&rdquo;</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Both columns of Table 51.3.</span> Clams at $4: marginal utilities 15, 10, 6, 3, 2 give <b>3.75, 2.50, 1.50, 0.75, 0.50</b> per dollar. Potatoes at $2: 11.5, 9.9, 8.4, 7.0, 5.7, 4.5 give <b>5.75, 4.95, 4.20, 3.50, 2.85, 2.25</b>.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Value for money.</span> A large coffee has more caffeine than a small one. Which to buy depends on caffeine per pound spent, not caffeine per cup.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is <a href="#e5">marginal utility</a> (entry 5) divided by price, and it falls as you buy more because of <a href="#e6">diminishing marginal utility</a> (entry 6). Setting it equal across goods is the <a href="#e13">optimal consumption rule</a> (entry 13).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">12.1</span> Good A costs $5 and its next unit gives 40 utils. Good B costs $2 and its next unit gives 18 utils. Which dollar is better spent?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>A gives 40 ÷ 5 = <b>8 utils per dollar</b>; B gives 18 ÷ 2 = <b>9</b>. Spend on <b>B</b>, even though a unit of A delivers more than twice as much utility.</p></div></details></div>
+    <div class="q"><p><span class="qn">12.2</span> Why does marginal utility per dollar fall as you consume more of a good?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because the price stays the same while marginal utility falls. Dividing a shrinking number by a constant gives a shrinking number.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got12"> Got it</label>
+  </div>
+</article>
+
+
+<article class="entry" id="e13">
+  <div class="entry-head"><span class="entry-num">13</span><h2>The optimal consumption rule</h2><span class="mark exam">★ Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>To maximise utility, a consumer <b>equates the marginal utility per dollar spent on every good</b> — while spending all their income.</p></div>
+  <p class="reading">Textbook page 520, margin definition and Equation 51-3. <code>CBA-2.A.4</code>, CED p. 39.</p>
+
+  <p>Your framework's wording is the one to memorise: <b><code>CBA-2.A.4</code></b> —
+  &ldquo;Consumers allocate their <b>limited income</b> to purchase the combination of goods that
+  maximises their utility by <b>equating/comparing the marginal utility of the last dollar spent on
+  each good</b>.&rdquo;</p>
+
+  <p style="font-family:var(--mono);font-size:16px;text-align:center;margin:16px 0">
+  MU<sub>X</sub> ÷ P<sub>X</sub> &nbsp;=&nbsp; MU<sub>Y</sub> ÷ P<sub>Y</sub></p>
+
+  <p>The argument for it is a single move. Suppose a dollar spent on clams buys 3 utils and a dollar
+  spent on potatoes buys 1. Move a dollar from potatoes to clams: you gain 3 and lose 1, so you are
+  2 utils better off and you have spent exactly as much as before. Keep going. You can only stop
+  improving when the two are equal — and that is the rule.</p>
+
+  <p>It generalises to any number of goods, and it is the same rule you will meet again in Unit 3 as
+  <b>marginal revenue = marginal cost</b> and in Unit 6 as <b>marginal social benefit = marginal
+  social cost</b>. Learn it once.</p>
+  <div class="watch"><p><b>Watch out.</b> Two things have to hold, not one. Equal marginal utility per dollar is <b>necessary but not sufficient</b> — you must also spend all your income. Your textbook's own review makes the point: at 4 pounds of clams and 10 pounds of potatoes the two figures are both exactly 0.75, and that bundle costs <b>$36</b> on a $20 income. Equal, and unaffordable.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">The rule stated.</span> &ldquo;When a consumer maximizes utility in the face of a budget constraint, the marginal utility per dollar spent on each good or service in the consumption bundle is the same.&rdquo;</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">The AP Review's clean case.</span> Snacks at $4, drinks at $2, income $20. At 2 snacks and 6 drinks, the second snack gives 10 utils → <b>2.50 per dollar</b>, and the sixth drink gives 5 utils → <b>2.50 per dollar</b>. Exactly equal, all $20 spent, total utility 72 — the maximum.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Levelling two buckets.</span> Water flows from the fuller bucket to the emptier until the levels match. Dollars flow to whichever good is currently buying more utility, until neither is.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It equates <a href="#e12">marginal utility per dollar</a> (entry 12) across goods and finds the <a href="#e11">optimal consumption bundle</a> (entry 11) without listing every possibility. It is the consumer’s version of <a href="#e15">marginal benefit = marginal cost</a> (entry 15).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">13.1</span> A consumer gets 30 utils from the last unit of X at $3 and 60 utils from the last unit of Y at $10. What should they do?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>X gives 10 utils per dollar, Y gives 6. Buy <b>more X and less Y</b>. As they do, X's marginal utility falls and Y's rises, until the two per-dollar figures meet.</p></div></details></div>
+    <div class="q"><p><span class="qn">13.2</span> Two goods have equal marginal utility per dollar, but the consumer has $8 left over. Are they at the optimum?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. The rule needs all income spent as well. Spending the $8 on either good adds utility, so the bundle can be improved.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got13"> Got it</label>
+  </div>
+</article>
+
+
+<article class="entry" id="e14">
+  <div class="entry-head"><span class="entry-num">14</span><h2>Total benefit and total cost</h2><span class="mark flag">★ ⚑</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p><b>Total benefit</b> is the whole benefit from a choice — for a consumer, that is <b>total utility</b>. <b>Total cost</b> is everything given up. <b>Total net benefit</b> is the difference, and it is maximised at the optimal choice.</p></div>
+  <p class="reading">The phrase &ldquo;total benefit&rdquo; occurs <b>0 times in this module</b>. <code>CBA-1.A.2</code>, <code>CBA-1.B.1</code>, <code>CBA-1.B.2</code>, CED p. 38.</p>
+
+  <p>This is Topic 1.5's vocabulary, and your textbook never uses it. It works entirely in
+  <em>total utility</em> — which is the same thing. Your framework says so outright:</p>
+
+  <p><b><code>CBA-1.A.2</code></b> — &ldquo;<b>Total benefits form the metric &lsquo;utility&rsquo;
+  for consumers</b> and total revenue for firms.&rdquo;</p>
+
+  <p>So every total-utility figure in this module is a total benefit. Table 51.2's column of 56.7,
+  68.2, 72.0, 67.8, 55.4 and 36.0 is a table of total benefits, and picking the largest is what
+  <b><code>CBA-1.B.1</code></b> means by &ldquo;total net benefits … are maximised at the optimal
+  choice.&rdquo;</p>
+
+  <p><b><code>CBA-1.B.2</code></b> is the one to understand rather than memorise: some decisions can
+  be taken at the margin, and some cannot be broken into increments at all and have to be judged on
+  totals. Going to university is a totals decision — there is no such thing as one more marginal
+  unit of a degree.</p>
+  <div class="watch"><p><b>Watch out.</b> If an exam question says <b>total benefit</b> and you have only ever seen <b>total utility</b>, they are the same thing for a consumer. Write either; recognise both. The whole gap between your textbook and your framework on Topic 1.5 is this one label.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">The words it uses instead.</span> Table 51.2's last column is headed &ldquo;Total utility (utils)&rdquo;. Read it as &ldquo;total benefit&rdquo; and nothing about the arithmetic changes.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Net benefit at the optimum.</span> Sammy's total benefit at bundle C is <b>72.0 utils</b> and his total cost is the <b>$20</b> he spends. No other affordable bundle gives a larger benefit for that same cost, so net benefit is maximised there.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">A decision with no margin.</span> Your framework's own suggested activity: work out the <em>total</em> costs and benefits of a university degree and compare them. You cannot buy 3% of a degree, so marginal analysis has nothing to work on and totals are the only option.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> For a consumer it <em>is</em> <a href="#e4">total utility</a> (entry 4), and maximising it subject to the <a href="#e8">budget constraint</a> (entry 8) is exactly what the <a href="#e11">optimal consumption bundle</a> (entry 11) does. Its marginal counterpart is <a href="#e15">marginal benefit and marginal cost</a> (entry 15).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">14.1</span> An exam question asks for the total benefit of a consumption bundle. Your table is headed &ldquo;total utility&rdquo;. What do you do?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Use it directly — they are the same quantity. `CBA-1.A.2` states that total benefits are the metric utility for consumers.</p></div></details></div>
+    <div class="q"><p><span class="qn">14.2</span> Give a decision that cannot be analysed at the margin, and say why.</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Whether to take a degree, have an operation, or move house. Each is all-or-nothing: there is no &ldquo;one more unit&rdquo; to price, so you must compare total benefits with total costs.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got14"> Got it</label>
+  </div>
+</article>
+
+
+<article class="entry" id="e15">
+  <div class="entry-head"><span class="entry-num">15</span><h2>Marginal benefit and marginal cost</h2><span class="mark flag">★ ⚑</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p><b>Marginal benefit</b> is the additional benefit from one more unit of an activity; <b>marginal cost</b> is the additional cost. The optimal quantity is where <b>MB = MC</b>.</p></div>
+  <p class="reading">Neither phrase occurs in this module. <code>CBA-2.B.1</code>, <code>CBA-2.B.3</code>, CED p. 40.</p>
+
+  <p>Your framework defines marginal analysis in these words, not in utility: <b><code>CBA-2.B.1</code></b>
+  — &ldquo;Marginal analysis involves comparing the additional benefit of increasing a given
+  activity with the additional cost.&rdquo; And <b><code>CBA-2.B.3</code></b> gives the rule:
+  &ldquo;The optimal quantity is achieved when <b>marginal benefit is equal to marginal cost</b> or
+  where total benefit is maximised.&rdquo;</p>
+
+  <p>You have already done this. The translation is exact:</p>
+
+  <div class="tbl"><table class="sumtable">
+    <thead><tr><th>Your textbook, Module 51</th><th>Your framework, <code>CBA-2.B</code></th></tr></thead>
+    <tbody>
+      <tr><td>Marginal utility of one more unit, MU</td><td>Marginal benefit</td></tr>
+      <tr><td>The price you pay for it, P</td><td>Marginal cost</td></tr>
+      <tr><td>MU<sub>X</sub> ÷ P<sub>X</sub> = MU<sub>Y</sub> ÷ P<sub>Y</sub></td><td>MB = MC, applied per dollar to each good</td></tr>
+      <tr><td>Total utility is maximised</td><td>Total benefit is maximised</td></tr>
+    </tbody>
+  </table></div>
+
+  <p>This rule outlives the module. It returns as <b>MR = MC</b> for a firm in Unit 3, as the
+  hiring rule in Unit 5, and as <b>MSB = MSC</b> for society in Unit 6. It is the same sentence every
+  time.</p>
+  <div class="watch"><p><b>Watch out.</b> MB = MC does <b>not</b> mean the benefit and the cost are equal in total. At the optimum you are usually far ahead overall — it is only the <em>last</em> unit on which benefit and cost have converged. Stopping there maximises the gap between the totals, which is the whole point.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">The same argument, in utils.</span> Krugman's reasoning on page 520 — move a dollar to wherever it buys more utility, and keep going until neither is better — is MB = MC with utility as the benefit and price as the cost.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Where to stop.</span> A stall's next hour brings in $40 and costs $25 → work it. The hour after that brings $30 and costs $28 → work it. The next brings $22 and costs $31 → <b>stop</b>. The optimum is the last hour with MB ≥ MC.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Revision the night before.</span> The first hour raises your mark a lot; the fifth barely at all, and costs you sleep. You stop when the next hour's gain no longer covers what it costs you.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the general form of the <a href="#e13">optimal consumption rule</a> (entry 13), with <a href="#e5">marginal utility</a> (entry 5) as the benefit and price as the cost. Its totals counterpart is <a href="#e14">total benefit and total cost</a> (entry 14).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">15.1</span> Translate &ldquo;MU per dollar is equal across goods&rdquo; into marginal benefit and marginal cost.</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>The marginal benefit of the last dollar spent is the same wherever you spend it. Since each dollar costs a dollar, marginal benefit equals marginal cost at the margin for every good.</p></div></details></div>
+    <div class="q"><p><span class="qn">15.2</span> At the optimal quantity, MB = MC. Does that mean the activity is barely worth doing?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. It means the <em>last</em> unit is barely worth doing. All the earlier units had marginal benefit well above marginal cost, so total net benefit is at its largest.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got15"> Got it</label>
+  </div>
+</article>
+
+
+<article class="entry" id="e16">
+  <div class="entry-head"><span class="entry-num">16</span><h2>Sunk cost</h2><span class="mark flag">★ ⚑</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A <b>sunk cost</b> is a cost already incurred that cannot be recovered. The optimal quantity <b>does not depend on it</b>.</p></div>
+  <p class="reading">Does not occur in this module. <code>CBA-2.B.2</code>, CED p. 40.</p>
+
+  <p>Your framework requires this in Topic 1.6 and your textbook introduces it four hundred pages
+  later, in Unit 3. It is one idea and it belongs with marginal analysis, so learn it here.</p>
+
+  <p><b><code>CBA-2.B.2</code></b> — &ldquo;The optimal quantity at any point in time does not
+  depend on <b>fixed costs (sunk costs)</b> or fixed benefits that have already been determined by
+  past choices.&rdquo;</p>
+
+  <p>The reason is simple once you see it. Marginal analysis compares what happens <em>if you do one
+  more</em> with what happens <em>if you do not</em>. A cost that is the same either way cancels out
+  of both sides. It cannot change the comparison, so it cannot change the answer.</p>
+  <div class="watch"><p><b>Watch out.</b> &ldquo;I have already paid for it&rdquo; is never a reason to consume more. The money is gone whatever you do next, so the only question is whether the <em>next</em> unit is worth its <em>own</em> cost. This is the error the rule exists to prevent, and it feels wrong to most people — which is why it is examinable.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Where it turns up instead.</span> Sunk costs appear in your book from page 563 onward — Modules 56 and 58–60, on firm costs and the shut-down decision. The idea is identical; only the setting changes.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">The all-you-can-eat buffet.</span> You paid $18 to get in. The eighth clam is worth 1 util to you, the ninth is worth <b>−1</b>. The $18 does not appear in either figure, so it cannot make the ninth clam worth eating. Stop at eight.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">The film you are not enjoying.</span> The ticket cost $12 and you have watched twenty minutes. Staying costs you ninety minutes and gains you very little; leaving costs you nothing you have not already spent. The $12 is gone either way.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is a condition on how <a href="#e15">marginal benefit and marginal cost</a> (entry 15) are computed: only costs that change with the decision belong in the comparison. It returns as the firm’s shut-down rule in Unit 3.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">16.1</span> A concert ticket cost $60 and is non-refundable. On the night you would rather stay home. What should you do, and why?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Stay home if that is what you prefer. The $60 is gone whether you go or not, so it belongs in neither the benefit nor the cost of going. Compare only the evening out against the evening in.</p></div></details></div>
+    <div class="q"><p><span class="qn">16.2</span> Why can a sunk cost never change the optimal quantity?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because marginal analysis compares doing one more against not doing it, and a sunk cost is identical in both cases. It cancels, so it cannot tip the comparison either way.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got16"> Got it</label>
+  </div>
+</article>
+
+
+<!-- ============ QUIZ ============ -->
+<section class="section" id="quiz">
+  <h2>Tackle the test — multiple choice</h2>
+  <p>The five questions from your textbook&rsquo;s Module 51 review, all of them on-syllabus. Click an
+  option to see why it is right or wrong — every option is explained, and two of them are right
+  about something while still being the wrong answer.</p>
+  <p class="widget-note">First-click score across all 5 questions:
+  <span class="num" id="scoreOut">0 / 5</span></p>
+
+  <div class="widget">
+    <div class="mcq" data-key="D">
+      <p class="stem"><span class="qn">1</span> Generally, each successive unit of a good consumed will cause marginal utility to</p>
+      <div class="opts">
+        <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>increase at an increasing rate.<span class="why" hidden>✗ That would mean each unit is more exciting than the one before, and more so every time. Wallpaper for half a room behaves like this; almost nothing else does.</span></span></button>
+        <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>increase at a decreasing rate.<span class="why" hidden>✗ A tempting misread. This describes <b>total</b> utility, which does rise by less each time. Marginal utility is the amount of the rise, and it falls.</span></span></button>
+        <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>increase at a constant rate.<span class="why" hidden>✗ Constant marginal utility would mean the fiftieth clam is as good as the first, and a consumer would then spend everything on one good.</span></span></button>
+        <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>decrease.<span class="why" hidden>✓ <b>Correct.</b> The principle of diminishing marginal utility, and <code>CBA-2.A.3</code> in four words: &ldquo;Consumers experience diminishing marginal utility.&rdquo;</span></span></button>
+        <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>either increase or decrease.<span class="why" hidden>✓ True of a few goods — skiing, coffee, wallpaper — but the question says <em>generally</em>, and the principle is the general case. Right observation, wrong answer to the question asked.</span></span></button>
+      </div>
+    </div>
+
+    <div class="mcq" data-key="B">
+      <p class="stem"><span class="qn">2</span> Good X costs $5 and good Y costs $10. If your income is $200, which combination is <b>on</b> your budget line?</p>
+      <div class="opts">
+        <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>0 units of X and 18 units of Y<span class="why" hidden>✗ 18 × $10 = <b>$180</b>. Affordable, but it leaves $20 unspent, so it is inside the line rather than on it.</span></span></button>
+        <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>0 units of X and 20 units of Y<span class="why" hidden>✓ <b>Correct.</b> 20 × $10 = <b>$200</b>, exactly the income. This is the vertical intercept of the budget line.</span></span></button>
+        <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>20 units of X and 0 units of Y<span class="why" hidden>✗ 20 × $5 = <b>$100</b>, only half the income. The X-intercept is 40 units, not 20.</span></span></button>
+        <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>10 units of X and 12 units of Y<span class="why" hidden>✗ $50 + $120 = <b>$170</b>. Inside the line again.</span></span></button>
+        <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>all of the above<span class="why" hidden>✗ Only one of them costs exactly $200. The others cost $180, $100 and $170.</span></span></button>
+      </div>
+    </div>
+
+    <div class="mcq" data-key="A">
+      <p class="stem"><span class="qn">3</span> The optimal consumption rule states that total utility is maximised when all income is spent and</p>
+      <div class="opts">
+        <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>MU/P is equal for all goods.<span class="why" hidden>✓ <b>Correct.</b> This is <code>CBA-2.A.4</code>: equating the marginal utility of the last dollar spent on each good.</span></span></button>
+        <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>MU is equal for all goods.<span class="why" hidden>✗ The commonest error in the topic. Equal marginal utilities ignore price — a good costing twice as much must deliver twice the marginal utility to be worth the same per dollar.</span></span></button>
+        <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>P/MU is equal for all goods.<span class="why" hidden>✓ Arithmetically this is the reciprocal of the right condition, so it happens to hold at the optimum too — but it is not the rule as stated, it inverts the meaning (&ldquo;dollars per util&rdquo;), and no rubric will accept it. Write the rule the way the framework writes it.</span></span></button>
+        <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>MU is as high as possible for all goods.<span class="why" hidden>✗ Marginal utility is <em>highest</em> at the first unit. Following this would have you buy almost nothing of anything.</span></span></button>
+        <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>The amount spent on each good is equal.<span class="why" hidden>✗ Sammy spends $8 on clams and $12 on potatoes at his optimum. Equal spending is not the condition and is not generally optimal.</span></span></button>
+      </div>
+    </div>
+
+    <div class="mcq" data-key="B">
+      <p class="stem"><span class="qn">4</span> You are spending all your income and receiving 100 utils from the last unit of good A and 80 utils from the last unit of good B. Good A costs $2 and good B costs $1. To maximise total utility you should buy</p>
+      <div class="opts">
+        <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>more of good A.<span class="why" hidden>✗ The trap the item is built on: 100 &gt; 80, so A looks better. Per dollar it is not.</span></span></button>
+        <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>more of good B.<span class="why" hidden>✓ <b>Correct.</b> A gives 100 ÷ $2 = <b>50 utils per dollar</b>; B gives 80 ÷ $1 = <b>80</b>. Shift spending toward B until the two per-dollar figures meet.</span></span></button>
+        <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>less of good B.<span class="why" hidden>✗ Exactly backwards. B is the better buy per dollar, so you want more of it.</span></span></button>
+        <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>more of both goods.<span class="why" hidden>✗ Income is already fully spent, so more of one means less of the other. This option ignores the budget constraint.</span></span></button>
+        <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>less of both goods.<span class="why" hidden>✗ Leaving income unspent can never raise utility when both goods still have positive marginal utility.</span></span></button>
+      </div>
+    </div>
+
+    <div class="mcq" data-key="D">
+      <p class="stem"><span class="qn">5</span> The optimal consumption bundle is always represented by a point</p>
+      <div class="opts">
+        <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>inside the consumer's budget line.<span class="why" hidden>✗ Inside means income left over, and that money could still buy utility.</span></span></button>
+        <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>outside the consumer's budget line.<span class="why" hidden>✗ Outside means unaffordable. The constraint is what the word &ldquo;optimal&rdquo; is relative to.</span></span></button>
+        <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>at the highest point on the consumer's budget line.<span class="why" hidden>✗ &ldquo;Highest&rdquo; is the vertical intercept — all income on one good. That is only optimal by accident.</span></span></button>
+        <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>on the consumer's budget line.<span class="why" hidden>✓ <b>Correct.</b> Affordable, and spending every dollar. Which point on the line is then settled by the optimal consumption rule.</span></span></button>
+        <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>at the horizontal intercept of the consumer's budget line.<span class="why" hidden>✗ That is all income on the other good — the same mistake as (c), pointing the other way.</span></span></button>
+      </div>
+    </div>
+    <div class="score">
+      <span>Put question 2&rsquo;s numbers into the maximiser above and read the budget line off it.</span>
+      <b id="scoreOut2"></b>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FRQ ============ -->
+<section class="section" id="frq">
+  <h2>Tackle the test — free response</h2>
+  <p>Your textbook&rsquo;s two free-response questions cover every part of Topic 1.6 between them.
+  Write full answers before revealing the rubrics.</p>
+
+  <div class="frq">
+    <p class="stem"><b>1.</b> You have <b>$20</b> to spend. Snacks cost <b>$4</b> and drinks cost
+    <b>$2</b>.</p>
+    <div class="tbl"><table class="sumtable">
+      <thead><tr><th>Quantity</th><th>Total utility from snacks</th><th>Total utility from drinks</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td class="mk">15</td><td class="mk">12</td></tr>
+        <tr><td>2</td><td class="mk">25</td><td class="mk">21</td></tr>
+        <tr><td>3</td><td class="mk">31</td><td class="mk">29</td></tr>
+        <tr><td>4</td><td class="mk">34</td><td class="mk">36</td></tr>
+        <tr><td>5</td><td class="mk">36</td><td class="mk">42</td></tr>
+        <tr><td>6</td><td class="mk">—</td><td class="mk">47</td></tr>
+        <tr><td>7</td><td class="mk">—</td><td class="mk">50</td></tr>
+        <tr><td>8</td><td class="mk">—</td><td class="mk">52</td></tr>
+      </tbody>
+    </table></div>
+    <ol>
+      <li>Draw a correctly labelled budget line.</li>
+      <li>Determine the marginal utility and the marginal utility per dollar spent on the fourth drink.</li>
+      <li>What is the optimal consumption rule?</li>
+      <li>How many drinks and snacks should you purchase to maximise your total utility?</li>
+    </ol>
+    <p class="pts">6 points, as printed in your textbook</p>
+    <details class="reveal"><summary>Show the rubric</summary><div class="ans">
+      <ul class="rubric">
+        <li><span class="pt">1 pt</span><span>A graph with &ldquo;Quantity of snacks&rdquo; and &ldquo;Quantity of drinks&rdquo; as axis labels.</span></li>
+        <li><span class="pt">1 pt</span><span>A straight budget line with intercepts at <b>5 snacks</b> and 0 drinks, and at 0 snacks and <b>10 drinks</b>.</span></li>
+        <li><span class="pt">1 pt</span><span>Marginal utility of the fourth drink = 36 − 29 = <b>7 utils</b>.</span></li>
+        <li><span class="pt">1 pt</span><span>Marginal utility per dollar = 7 ÷ $2 = <b>3.5 utils per dollar</b>.</span></li>
+        <li><span class="pt">1 pt</span><span>Total utility is maximised when the marginal utility per dollar is equal for all goods.</span></li>
+        <li><span class="pt">1 pt</span><span><b>6 drinks and 2 snacks.</b></span></li>
+      </ul>
+      <p style="margin-top:10px"><b>Check part (d) both ways.</b> By totals: 2 snacks and 6 drinks give
+      25 + 47 = <b>72 utils</b>, against 67 for (1, 8), 67 for (3, 4), 55 for (4, 2) and 36 for (5, 0).
+      At the margin: the second snack gives 10 utils for $4 → <b>2.50 per dollar</b>, and the sixth
+      drink gives 5 utils for $2 → <b>2.50 per dollar</b>. Exactly equal, and every dollar spent.
+      This is the cleanest worked example of the rule in the whole course — cleaner than the
+      textbook&rsquo;s own Table 51.3, where the two figures come out at 2.50 and 2.25.</p>
+    </div></details>
+  </div>
+
+  <div class="frq">
+    <p class="stem"><b>2.</b> You have an income of <b>$100</b>. Good X costs <b>$5</b> and good Y
+    costs <b>$20</b>.</p>
+    <ol>
+      <li>Draw a correctly labelled budget line with &ldquo;Quantity of good X&rdquo; on the horizontal
+      axis and &ldquo;Quantity of good Y&rdquo; on the vertical axis. Label both intercepts.</li>
+      <li>With your current bundle you receive 100 utils from your last unit of good X and 400 utils
+      from your last unit of good Y. Are you maximising your total utility? Explain.</li>
+      <li>What happens to the total and the marginal utility you receive from good X if you consume
+      another unit of it? Explain.</li>
+    </ol>
+    <p class="pts">6 points · rubric written for this guide</p>
+    <details class="reveal"><summary>Show the rubric</summary><div class="ans">
+      <ul class="rubric">
+        <li><span class="pt">1 pt</span><span>Both axes labelled, with X horizontal and Y vertical.</span></li>
+        <li><span class="pt">1 pt</span><span>Intercepts at <b>20 units of X</b> (100 ÷ 5) and <b>5 units of Y</b> (100 ÷ 20), joined by a straight line.</span></li>
+        <li><span class="pt">1 pt</span><span><b>Yes</b>, total utility is being maximised — provided all $100 is spent.</span></li>
+        <li><span class="pt">1 pt</span><span>Because 100 ÷ $5 = <b>20 utils per dollar</b> and 400 ÷ $20 = <b>20 utils per dollar</b>. The marginal utility per dollar is equal across the two goods, which is the optimal consumption rule.</span></li>
+        <li><span class="pt">1 pt</span><span><b>Total utility rises</b>, because the marginal utility of another unit of X is still positive.</span></li>
+        <li><span class="pt">1 pt</span><span><b>Marginal utility falls</b>, because of diminishing marginal utility.</span></li>
+      </ul>
+      <p style="margin-top:10px"><b>Part (b) is the whole topic in one line.</b> A unit of Y delivers
+      four times the utility of a unit of X and costs four times as much, so the two are equally good
+      buys. A student who answers &ldquo;no, buy more Y because 400 &gt; 100&rdquo; has compared
+      marginal utilities instead of marginal utilities <em>per dollar</em>, which is the single most
+      common error in Topic 1.6. Part (c) is the other one: total and marginal move in opposite
+      directions and both answers are needed.</p>
+    </div></details>
+  </div>
+</section>
+
+<!-- ============ SUMMARY ============ -->
+<section class="section" id="summary">
+  <h2>One-page summary</h2>
+  <p>For revision once you already know the terms — not for learning them the first time.</p>
+  <div class="tbl"><table class="sumtable">
+    <thead><tr><th>#</th><th>Term</th><th></th><th>In one line</th></tr></thead>
+    <tbody>
+      <tr><td class="mk">01</td><td><b>Utility</b></td><td class="mk ">★</td><td>A measure of personal satisfaction</td></tr>
+      <tr><td class="mk">02</td><td><b>Util</b></td><td class="mk ">★</td><td>Its hypothetical unit — never compare utils between people</td></tr>
+      <tr><td class="mk">03</td><td><b>Utility function</b></td><td class="mk ">★</td><td>Bundle in, utils out</td></tr>
+      <tr><td class="mk">04</td><td><b>Total utility</b></td><td class="mk ">★</td><td>The thing being maximised</td></tr>
+      <tr><td class="mk">05</td><td><b>Marginal utility</b></td><td class="mk ">★</td><td>The change in total utility from one more unit. Can be <b>negative</b></td></tr>
+      <tr><td class="mk">06</td><td><b>Diminishing marginal utility</b></td><td class="mk ">★</td><td>Each unit adds less than the one before</td></tr>
+      <tr><td class="mk">07</td><td><b>Consumption bundle</b></td><td class="mk ">★</td><td>So many of this, so many of that</td></tr>
+      <tr><td class="mk">08</td><td><b>Budget constraint</b></td><td class="mk ">★</td><td>Spending cannot exceed income</td></tr>
+      <tr><td class="mk">09</td><td><b>Consumption possibilities</b></td><td class="mk ">★</td><td>Every affordable bundle</td></tr>
+      <tr><td class="mk">10</td><td><b>Budget line</b></td><td class="mk ">★</td><td>The bundles that spend <b>all</b> income</td></tr>
+      <tr><td class="mk">11</td><td><b>Optimal consumption bundle</b></td><td class="mk ">★</td><td>The affordable bundle with the highest total utility</td></tr>
+      <tr><td class="mk">12</td><td><b>Marginal utility per dollar</b></td><td class="mk ">★</td><td>MU ÷ price — the only fair comparison across goods</td></tr>
+      <tr><td class="mk">13</td><td><b>The optimal consumption rule</b></td><td class="mk ">★</td><td>MU/P equal everywhere, <b>and</b> all income spent</td></tr>
+      <tr><td class="mk">14</td><td><b>Total benefit and total cost</b></td><td class="mk flagm">★ ⚑</td><td>The framework's words for total utility and what you spend</td></tr>
+      <tr><td class="mk">15</td><td><b>Marginal benefit and marginal cost</b></td><td class="mk flagm">★ ⚑</td><td>MB = MC — the same rule, in the framework's symbols</td></tr>
+      <tr><td class="mk">16</td><td><b>Sunk cost</b></td><td class="mk flagm">★ ⚑</td><td>Already spent, unrecoverable, and irrelevant to the next unit</td></tr>
+    </tbody>
+  </table></div>
+  <p class="widget-note"><b>★</b> exam term — all sixteen are, in this course ·
+  <b>★ ⚑</b> required by the framework but never named in your textbook’s Module 51</p>
+</section>
+
+<section class="section" id="final">
+  <h2>The five things to get right from Module 51</h2>
+  <div class="final">
+    <ol>
+      <li><b>Divide by the price.</b> Marginal utility ranks units; marginal utility <b>per dollar</b>
+      ranks purchases, and only the second answers &ldquo;what should I buy next?&rdquo; Every review
+      question in this module has a distractor waiting for anyone who forgets.</li>
+      <li><b>Total rises while marginal falls.</b> Marginal utility is the slope of total utility.
+      Total peaks exactly where marginal reaches zero, and falls once marginal goes negative.</li>
+      <li><b>Equal MU per dollar is necessary, not sufficient.</b> You must also spend all your
+      income. Your textbook&rsquo;s own review has a bundle with perfectly equal figures that costs
+      $36 out of a $20 budget.</li>
+      <li><b>Total utility is total benefit.</b> Your framework says so; your textbook never uses the
+      phrase. Recognise both, and remember that some decisions — a degree, an operation — have
+      no margin at all and must be judged on totals.</li>
+      <li><b>Sunk costs never change the answer.</b> A cost that is identical whether or not you buy
+      one more cancels out of the comparison. &ldquo;I already paid&rdquo; is not a reason.</li>
+    </ol>
+  </div>
+</section>
+
+<p class="footer">
+  Student guide · Module 51, <i>Krugman&rsquo;s Economics for AP</i>, pages 511–522 ·
+  definitions quoted from the textbook · tiers assigned against the AP Microeconomics Course and
+  Exam Description, Course Framework V.1, © 2022 · entries 14–16 and the rubric for
+  free-response 2 added for this guide · all figures recomputed.
+</p>
+
+</div>
+
+<script>
+
+(function(){
+  "use strict";
+
+  /* ---------- progress ---------- */
+  var KEY = "micro-mod51-progress";
+  var boxes = Array.prototype.slice.call(document.querySelectorAll(".gotbox"));
+  var fill = document.getElementById("pfill");
+  var num  = document.getElementById("pnum");
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch(e){ return {}; } }
+  function save(s){ try { localStorage.setItem(KEY, JSON.stringify(s)); } catch(e){} }
+  function paint(){
+    var done = boxes.filter(function(b){ return b.checked; }).length;
+    fill.style.width = (done / boxes.length * 100) + "%";
+    num.textContent = done + " / " + boxes.length;
+  }
+  var state = load();
+  boxes.forEach(function(b){
+    if (state[b.id]) b.checked = true;
+    b.addEventListener("change", function(){ var s = load(); s[b.id] = b.checked; save(s); paint(); });
+  });
+  paint();
+  document.getElementById("resetBtn").addEventListener("click", function(){
+    boxes.forEach(function(b){ b.checked = false; });
+    save({}); paint();
+  });
+
+  function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+  function n2(x){ return (Math.round(x * 100) / 100).toString(); }
+
+  /* ---------- scenarios ---------- */
+  /* A and B are the plural labels; As and Bs are the singulars used in prose. */
+  var SCEN = {
+    sammy:   { A:"clams", B:"potatoes", As:"clam", Bs:"potato", I:20, pA:4, pB:2,
+               tA:"0, 15, 25, 31, 34, 36",
+               tB:"0, 11.5, 21.4, 29.8, 36.8, 42.5, 47, 50.5, 53.2, 55.2, 56.7" },
+    frq:     { A:"snacks", B:"drinks", As:"snack", Bs:"drink", I:20, pA:4, pB:2,
+               tA:"0, 15, 25, 31, 34, 36",
+               tB:"0, 12, 21, 29, 36, 42, 47, 50, 52" },
+    tickets: { A:"cinema tickets", B:"coffees", As:"cinema ticket", Bs:"coffee",
+               I:30, pA:6, pB:3,
+               tA:"0, 40, 70, 90, 100, 105",
+               tB:"0, 24, 44, 60, 72, 80, 84, 86, 87, 87" }
+  };
+  var S = JSON.parse(JSON.stringify(SCEN.sammy));
+
+  var inI = document.getElementById("inI"), inPA = document.getElementById("inPA"),
+      inPB = document.getElementById("inPB"), inTA = document.getElementById("inTA"),
+      inTB = document.getElementById("inTB");
+  var tabTotals = document.getElementById("tabTotals"),
+      tabMargin = document.getElementById("tabMargin"),
+      muSvg = document.getElementById("muSvg"),
+      verdict = document.getElementById("umxVerdict"),
+      stepLog = document.getElementById("stepLog");
+
+  function setText(id, t){ var e = document.getElementById(id); if (e) e.textContent = t; }
+  function labels(){
+    setText("lbA1", S.A); setText("lbB1", S.B);
+    setText("lbA2", S.A); setText("lbB2", S.B);
+  }
+
+  function parseTU(s){
+    var out = String(s).split(/[,\s]+/).filter(function(x){ return x !== ""; }).map(Number);
+    return out.every(function(v){ return isFinite(v); }) ? out : null;
+  }
+
+  /* ---------- the model ---------- */
+  function model(){
+    var I = parseFloat(inI.value), pA = parseFloat(inPA.value), pB = parseFloat(inPB.value);
+    var tA = parseTU(inTA.value), tB = parseTU(inTB.value);
+    if (!(I > 0 && pA > 0 && pB > 0) || !tA || !tB || tA.length < 2 || tB.length < 2) return null;
+
+    var muA = [], muB = [];
+    for (var i = 1; i < tA.length; i++) muA.push(tA[i] - tA[i - 1]);
+    for (var j = 1; j < tB.length; j++) muB.push(tB[j] - tB[j - 1]);
+
+    var rows = [];
+    for (var a = 0; a < tA.length; a++){
+      var spend = pA * a;
+      if (spend > I + 1e-9) break;
+      var b = Math.floor((I - spend) / pB + 1e-9);
+      if (b >= tB.length) continue;                 /* table does not reach that far */
+      rows.push({ a:a, b:b, ua:tA[a], ub:tB[b], tot:Math.round((tA[a] + tB[b]) * 100) / 100,
+                  left:Math.round((I - spend - pB * b) * 100) / 100 });
+    }
+    if (!rows.length) return null;
+    var best = rows[0];
+    rows.forEach(function(r){ if (r.tot > best.tot) best = r; });
+    return { I:I, pA:pA, pB:pB, tA:tA, tB:tB, muA:muA, muB:muB, rows:rows, best:best };
+  }
+
+  /* ---------- tables ---------- */
+  function drawTotals(m){
+    var h = '<thead><tr><th>' + esc(S.A) + '</th><th>utility</th><th>' + esc(S.B) +
+            '</th><th>utility</th><th>total utility</th><th>unspent</th></tr></thead><tbody>';
+    m.rows.forEach(function(r){
+      h += '<tr' + (r === m.best ? ' class="best"' : '') + '><td>' + r.a + '</td><td>' + n2(r.ua) +
+           '</td><td>' + r.b + '</td><td>' + n2(r.ub) + '</td><td>' + n2(r.tot) + '</td><td>$' +
+           n2(r.left) + '</td></tr>';
+    });
+    tabTotals.innerHTML = h + '</tbody>';
+  }
+
+  function drawMargin(m){
+    var rowsN = Math.max(m.muA.length, m.muB.length);
+    var h = '<thead><tr><th>unit</th><th>' + esc(S.A) + ' MU</th><th>MU per $</th><th>' +
+            esc(S.B) + ' MU</th><th>MU per $</th></tr></thead><tbody>';
+    for (var k = 0; k < rowsN; k++){
+      var aMU = k < m.muA.length ? m.muA[k] : null, bMU = k < m.muB.length ? m.muB[k] : null;
+      var mark = (k + 1 === m.best.a) || (k + 1 === m.best.b) ? ' class="best"' : '';
+      h += '<tr' + mark + '><td>' + (k + 1) + '</td>' +
+           '<td' + (aMU !== null && aMU < 0 ? ' class="neg"' : '') + '>' + (aMU === null ? "—" : n2(aMU)) + '</td>' +
+           '<td>' + (aMU === null ? "—" : n2(aMU / m.pA)) + '</td>' +
+           '<td' + (bMU !== null && bMU < 0 ? ' class="neg"' : '') + '>' + (bMU === null ? "—" : n2(bMU)) + '</td>' +
+           '<td>' + (bMU === null ? "—" : n2(bMU / m.pB)) + '</td></tr>';
+    }
+    tabMargin.innerHTML = h + '</tbody>';
+  }
+
+  /* ---------- the crossing graph ---------- */
+  function drawGraph(m){
+    var W = 600, H = 260, L = 54, R = 18, T = 30, Bm = 52;
+    var pts = m.rows.filter(function(r){ return r.a >= 1 && r.b >= 1; }).map(function(r){
+      return { a:r.a, A:m.muA[r.a - 1] / m.pA, B:m.muB[r.b - 1] / m.pB, row:r };
+    });
+    if (pts.length < 2){ muSvg.innerHTML = ""; return; }
+    var xs = pts.map(function(p){ return p.a; });
+    var x0v = Math.min.apply(null, xs), x1v = Math.max.apply(null, xs);
+    var vals = [];
+    pts.forEach(function(p){ vals.push(p.A, p.B); });
+    var ymax = Math.max.apply(null, vals) * 1.15, ymin = 0;
+
+    function sx(x){ return L + ((x - x0v) / Math.max(1e-9, x1v - x0v)) * (W - L - R); }
+    function sy(y){ return (H - Bm) - ((y - ymin) / (ymax - ymin)) * (H - Bm - T); }
+
+    var g = [];
+    g.push('<line x1="'+L+'" y1="'+sy(0)+'" x2="'+(W-R)+'" y2="'+sy(0)+'" class="ax"/>');
+    g.push('<line x1="'+L+'" y1="'+sy(0)+'" x2="'+L+'" y2="'+sy(ymax)+'" class="ax"/>');
+    pts.forEach(function(p){
+      g.push('<line x1="'+sx(p.a)+'" y1="'+sy(0)+'" x2="'+sx(p.a)+'" y2="'+(sy(0)+4)+'" class="tick"/>');
+      g.push('<text x="'+sx(p.a)+'" y="'+(sy(0)+16)+'" class="tl" text-anchor="middle">'+p.a+'</text>');
+    });
+    var step = ymax / 4;
+    for (var t = 0; t <= ymax + 1e-9; t += step){
+      g.push('<line x1="'+(L-4)+'" y1="'+sy(t)+'" x2="'+L+'" y2="'+sy(t)+'" class="tick"/>');
+      g.push('<text x="'+(L-7)+'" y="'+(sy(t)+3.5)+'" class="tl" text-anchor="end">'+n2(t)+'</text>');
+    }
+    g.push('<text x="'+((L+W-R)/2)+'" y="'+(H-8)+'" class="al" text-anchor="middle">Quantity of '+esc(S.A)+' in the bundle</text>');
+    g.push('<text x="16" y="'+((sy(0)+sy(ymax))/2)+'" class="al" text-anchor="middle" transform="rotate(-90 16 '+((sy(0)+sy(ymax))/2)+')">MU per dollar</text>');
+
+    g.push('<polyline class="ca" points="'+pts.map(function(p){ return sx(p.a)+','+sy(p.A); }).join(" ")+'"/>');
+    g.push('<polyline class="cb" points="'+pts.map(function(p){ return sx(p.a)+','+sy(p.B); }).join(" ")+'"/>');
+    pts.forEach(function(p){
+      g.push('<circle cx="'+sx(p.a)+'" cy="'+sy(p.A)+'" r="3.4" class="ptA"/>');
+      g.push('<circle cx="'+sx(p.a)+'" cy="'+sy(p.B)+'" r="3.4" class="ptB"/>');
+    });
+    if (m.best.a >= x0v && m.best.a <= x1v){
+      g.push('<line x1="'+sx(m.best.a)+'" y1="'+sy(0)+'" x2="'+sx(m.best.a)+'" y2="'+sy(ymax)+'" class="opt"/>');
+      g.push('<text x="'+sx(m.best.a)+'" y="'+(T-10)+'" class="optl" text-anchor="middle">optimum</text>');
+    }
+    g.push('<text x="'+(W-R-6)+'" y="'+(T+2)+'" class="key keyA" text-anchor="end">'+esc(S.A)+' MU/$</text>');
+    g.push('<text x="'+(W-R-6)+'" y="'+(T+18)+'" class="key keyB" text-anchor="end">'+esc(S.B)+' MU/$</text>');
+    muSvg.innerHTML = g.join("");
+  }
+
+  /* ---------- verdict ---------- */
+  function drawVerdict(m){
+    var r = m.best;
+    var aMU = r.a >= 1 ? m.muA[r.a - 1] / m.pA : null;
+    var bMU = r.b >= 1 ? m.muB[r.b - 1] / m.pB : null;
+    var txt = "<b>Optimal bundle: " + r.a + " " + esc(S.A) + " and " + r.b + " " + esc(S.B) +
+              "</b>, giving <b>" + n2(r.tot) + " utils</b>";
+    txt += r.left > 1e-9 ? " with $" + n2(r.left) + " unspent." : " and every dollar spent.";
+    if (aMU !== null && bMU !== null){
+      txt += " The last " + esc(S.As) + " gives <b>" + n2(aMU) +
+             "</b> utils per dollar and the last " + esc(S.Bs) + " gives <b>" +
+             n2(bMU) + "</b>";
+      txt += Math.abs(aMU - bMU) < 1e-9
+        ? " — exactly equal, which is the optimal consumption rule holding perfectly."
+        : " — not exactly equal, because the goods come in whole units. With lumpy units you get" +
+          " as close to equality as the numbers allow, and no reallocation improves on this bundle.";
+    }
+    verdict.dataset.s = "on";
+    verdict.innerHTML = txt;
+  }
+
+  /* ---------- spend the marginal dollar ---------- */
+  var walk = null;
+  function resetWalk(){
+    var m = model();
+    if (!m){ stepLog.innerHTML = '<div>Fix the inputs above first.</div>'; walk = null; return; }
+    walk = { m:m, a:0, b:0, left:m.I, done:false };
+    stepLog.innerHTML = '<div>Start: nothing bought, $' + n2(m.I) + ' to spend.</div>';
+    document.getElementById("btnStep").disabled = false;
+    document.getElementById("btnAuto").disabled = false;
+  }
+  function stepWalk(){
+    if (!walk || walk.done) return false;
+    var m = walk.m;
+    var nA = (walk.a < m.muA.length && walk.left >= m.pA - 1e-9) ? m.muA[walk.a] / m.pA : null;
+    var nB = (walk.b < m.muB.length && walk.left >= m.pB - 1e-9) ? m.muB[walk.b] / m.pB : null;
+    if (nA !== null && nA <= 0) nA = null;
+    if (nB !== null && nB <= 0) nB = null;
+    if (nA === null && nB === null){
+      walk.done = true;
+      var tot = m.tA[walk.a] + m.tB[walk.b];
+      var line = document.createElement("div");
+      line.className = "done";
+      line.textContent = "Done. " + walk.a + " " + S.A + " and " + walk.b + " " + S.B +
+                         " — " + n2(tot) + " utils, $" + n2(walk.left) + " left." +
+                         (walk.a === m.best.a && walk.b === m.best.b
+                           ? "  This is the optimal bundle." : "");
+      stepLog.appendChild(line);
+      stepLog.scrollTop = stepLog.scrollHeight;
+      document.getElementById("btnStep").disabled = true;
+      document.getElementById("btnAuto").disabled = true;
+      return false;
+    }
+    var buyA = (nB === null) || (nA !== null && nA >= nB);
+    var mu = buyA ? nA : nB;
+    if (buyA){ walk.a++; walk.left -= m.pA; } else { walk.b++; walk.left -= m.pB; }
+    walk.left = Math.round(walk.left * 100) / 100;
+    var d = document.createElement("div");
+    d.className = buyA ? "buyA" : "buyB";
+    d.textContent = "Buy 1 " + (buyA ? S.As : S.Bs) +
+                    "  (" + n2(mu) + " utils per $)  →  " +
+                    walk.a + " " + S.A + ", " + walk.b + " " + S.B + ", $" + n2(walk.left) + " left";
+    stepLog.appendChild(d);
+    stepLog.scrollTop = stepLog.scrollHeight;
+    return true;
+  }
+  document.getElementById("btnStep").addEventListener("click", function(){ stepWalk(); });
+  document.getElementById("btnAuto").addEventListener("click", function(){
+    var guard = 0;
+    while (stepWalk() && guard++ < 500){}
+    stepWalk();
+  });
+  document.getElementById("btnReset").addEventListener("click", resetWalk);
+
+  /* ---------- update ---------- */
+  function update(){
+    var m = model();
+    if (!m){
+      verdict.dataset.s = "out";
+      verdict.innerHTML = "<b>Check the inputs.</b> Income and both prices must be positive, and each " +
+                          "utility list must be numbers separated by commas, starting with the value " +
+                          "at zero units.";
+      tabTotals.innerHTML = ""; tabMargin.innerHTML = ""; muSvg.innerHTML = "";
+      return;
+    }
+    drawTotals(m); drawMargin(m); drawGraph(m); drawVerdict(m);
+    resetWalk();
+  }
+
+  [inI, inPA, inPB, inTA, inTB].forEach(function(el){ el.addEventListener("input", update); });
+
+  document.querySelectorAll(".chip[data-scen]").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      document.querySelectorAll(".chip[data-scen]").forEach(function(b){
+        b.setAttribute("aria-pressed", b === btn ? "true" : "false");
+      });
+      var s = SCEN[btn.dataset.scen];
+      S = JSON.parse(JSON.stringify(s));
+      inI.value = s.I; inPA.value = s.pA; inPB.value = s.pB;
+      inTA.value = s.tA; inTB.value = s.tB;
+      labels(); update();
+    });
+  });
+
+  labels();
+  update();
+
+  /* ---------- multiple choice ---------- */
+  var correct = 0;
+  var scoreOut = document.getElementById("scoreOut");
+  document.querySelectorAll(".mcq").forEach(function(q){
+    var key = q.dataset.key, scored = false;
+    q.querySelectorAll(".opt").forEach(function(opt){
+      opt.addEventListener("click", function(){
+        var right = opt.dataset.l === key;
+        opt.dataset.state = right ? "right" : "wrong";
+        var why = opt.querySelector(".why");
+        if (why) why.hidden = false;
+        if (!scored){
+          scored = true;
+          if (right) correct++;
+          scoreOut.textContent = correct + " / 5";
+        }
+        if (right){
+          q.querySelectorAll(".opt").forEach(function(o){
+            var w = o.querySelector(".why");
+            if (w) w.hidden = false;
+            if (!o.dataset.state) o.dataset.state = "wrong";
+            o.disabled = true;
+          });
+        }
+      });
+    });
+  });
+})();
+
+</script>
+</main>
+<script>window.COURSE_NAV={"kicker": "1.5 Cost-benefit analysis · 1.6 Marginal analysis and consumer choice", "title": "Module 51 · Utility Maximization", "map": [{"label": "Course", "items": [{"href": "index.html", "label": "Home", "current": false}, {"href": "spec.html", "label": "Course specification", "current": false}]}, {"label": "Unit 1 · Basic Economic Concepts", "items": [{"href": "m01-student.html", "label": "Module 1 · Student guide", "current": false}, {"href": "m01-notes.html", "label": "Module 1 · Teaching notes", "current": false}, {"href": "m01-test.html", "label": "Module 1 · Test", "current": false}, {"label": "Module 2 · Introduction to Macroeconomics", "planned": true}, {"href": "m03-student.html", "label": "Module 3 · Student guide", "current": false}, {"href": "m03-notes.html", "label": "Module 3 · Teaching notes", "current": false}, {"href": "m03-test.html", "label": "Module 3 · Test", "current": false}, {"href": "m04-student.html", "label": "Module 4 · Student guide", "current": false}, {"href": "m04-notes.html", "label": "Module 4 · Teaching notes", "current": false}, {"href": "m04-test.html", "label": "Module 4 · Test", "current": false}, {"href": "m51-student.html", "label": "Module 51 · Student guide", "current": true}, {"href": "m51-notes.html", "label": "Module 51 · Teaching notes", "current": false}, {"href": "m51-test.html", "label": "Module 51 · Test", "current": false}, {"label": "Unit 1 · Gap analysis", "planned": true}]}, {"label": "Unit 2 · Supply and Demand", "items": [{"label": "Module 5 · Supply and Demand: Introduction and Demand", "planned": true}, {"label": "Module 6 · Supply and Demand: Supply and Equilibrium", "planned": true}, {"label": "Module 7 · Supply and Demand: Changes in Equilibrium", "planned": true}, {"label": "Module 8 · Supply and Demand: Price Controls", "planned": true}, {"label": "Module 9 · Supply and Demand: Quantity Controls", "planned": true}, {"label": "Modules 46–48 · Elasticity", "planned": true}, {"label": "Modules 49–50 · Surplus and Deadweight Loss", "planned": true}, {"label": "Topic 2.9 · International Trade and Public Policy", "planned": true}, {"label": "Unit 2 · Gap analysis", "planned": true}]}, {"label": "Unit 3 · Production, Cost and Perfect Competition", "items": [{"label": "Modules 52–53 · Profit and Profit Maximisation", "planned": true}, {"label": "Module 54 · The Production Function", "planned": true}, {"label": "Module 55 · Firm Costs", "planned": true}, {"label": "Module 56 · Long-Run Costs and Economies of Scale", "planned": true}, {"label": "Module 57 · Introduction to Market Structure", "planned": true}, {"label": "Modules 58–60 · Perfect Competition", "planned": true}, {"label": "Unit 3 · Gap analysis", "planned": true}]}, {"label": "Unit 4 · Imperfect Competition", "items": [{"label": "Topic 4.1 · Introduction to Imperfect Competition", "planned": true}, {"label": "Modules 61–63 · Monopoly", "planned": true}, {"label": "Modules 67–68 · Monopolistic Competition", "planned": true}, {"label": "Modules 64–66 · Oligopoly and Game Theory", "planned": true}, {"label": "Unit 4 · Gap analysis", "planned": true}]}, {"label": "Unit 5 · Factor Markets", "items": [{"label": "Module 69 · Introduction and Factor Demand", "planned": true}, {"label": "Module 70 · The Markets for Land and Capital", "planned": true}, {"label": "Module 71 · The Market for Labor", "planned": true}, {"label": "Module 72 · The Cost-Minimising Input Combination", "planned": true}, {"label": "Module 73 · Theories of Income Distribution", "planned": true}, {"label": "Unit 5 · Gap analysis", "planned": true}]}, {"label": "Unit 6 · Market Failure and the Role of Government", "items": [{"label": "Modules 74–75 · Externalities", "planned": true}, {"label": "Module 76 · Public Goods", "planned": true}, {"label": "Module 77 · Public Policy to Promote Competition", "planned": true}, {"label": "Module 78 · Income Inequality and Income Distribution", "planned": true}, {"label": "Unit 6 · Gap analysis", "planned": true}]}, {"label": "Interactive", "items": [{"label": "PPC explorer", "planned": true}, {"label": "Supply and demand explorer", "planned": true}, {"label": "Elasticity and total revenue", "planned": true}, {"label": "Cost curves", "planned": true}, {"label": "Market structure comparison", "planned": true}]}], "prev": {"href": "m04-test.html", "label": "Module 4 · Test"}, "next": {"href": "m51-notes.html", "label": "Module 51 · Teaching notes"}, "variants": [{"href": "m51-student.html", "label": "Student", "current": true}, {"href": "m51-notes.html", "label": "Notes", "current": false}, {"href": "m51-test.html", "label": "Test", "current": false}]};</script>
+<script src="assets/course.js"></script>
+</body>
+</html>

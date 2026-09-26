@@ -1,0 +1,1720 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 5 · Supply and Demand: Introduction and Demand · AP Microeconomics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@600;700&display=swap">
+<link rel="stylesheet" href="assets/course.css">
+<style>.page .bar{position:static;background:none;backdrop-filter:none}.page .bar-in{max-width:none;padding-inline:0}.page .wrap{max-width:none;padding-inline:0;padding-block:0 24px}.page .masthead{padding-block:10px 24px}</style></head>
+<body>
+<main class="page">
+<style>
+
+
+:root{
+  --paper:#f3f5f8;
+  --surface:#ffffff;
+  --surface-2:#eef1f6;
+  --ink:#15181f;
+  --ink-2:#4d5566;
+  --ink-3:#737c8e;
+  --rule:#d6dae2;
+  --rule-strong:#b3bac7;
+  --accent:#1d4e89;
+  --accent-soft:#e6edf7;
+  --down:#a3372a;
+  --down-soft:#fbeeeb;
+  --up:#1a6b55;
+  --up-soft:#e6f2ee;
+  --flag:#7a5310;
+  --flag-soft:#f8f0e0;
+  --shadow:0 1px 2px rgba(21,24,31,.06), 0 8px 24px rgba(21,24,31,.05);
+  --serif:"IBM Plex Serif", Georgia, "Times New Roman", serif;
+  --sans:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0f1218;
+    --surface:#171b23;
+    --surface-2:#1e232d;
+    --ink:#e8ebf1;
+    --ink-2:#a3adc0;
+    --ink-3:#7e8799;
+    --rule:#2c323d;
+    --rule-strong:#3c4351;
+    --accent:#7dabe2;
+    --accent-soft:#1a2634;
+    --down:#e5907f;
+    --down-soft:#2a1d1a;
+    --up:#6cc4a7;
+    --up-soft:#16291f;
+    --flag:#d8b169;
+    --flag-soft:#2a2418;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.28);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0f1218;
+  --surface:#171b23;
+  --surface-2:#1e232d;
+  --ink:#e8ebf1;
+  --ink-2:#a3adc0;
+  --ink-3:#7e8799;
+  --rule:#2c323d;
+  --rule-strong:#3c4351;
+  --accent:#7dabe2;
+  --accent-soft:#1a2634;
+  --down:#e5907f;
+  --down-soft:#2a1d1a;
+  --up:#6cc4a7;
+  --up-soft:#16291f;
+  --flag:#d8b169;
+  --flag-soft:#2a2418;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.28);
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.65;
+  margin:0;
+}
+.wrap{max-width:820px;margin:0 auto;padding-inline:18px;padding-block:0 72px}
+
+/* ---------- sticky bar ---------- */
+.bar{
+  position:sticky;
+  top:env(safe-area-inset-top, 0px);
+  z-index:40;
+  background:color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--rule);
+}
+.bar-in{
+  max-width:820px;margin:0 auto;padding-inline:18px;
+  display:flex;align-items:center;gap:14px;min-height:50px;flex-wrap:wrap;
+}
+.bar-title{font-family:var(--mono);font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-2);white-space:nowrap}
+.progress{flex:1 1 140px;min-width:120px;display:flex;align-items:center;gap:9px}
+.progress-track{flex:1;height:5px;border-radius:3px;background:var(--rule);overflow:hidden}
+.progress-fill{height:100%;width:0;background:var(--accent);transition:width .25s ease}
+.progress-num{font-family:var(--mono);font-size:12px;color:var(--ink-2);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar button{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;
+  background:none;border:1px solid var(--rule-strong);color:var(--ink-2);
+  padding:5px 10px;border-radius:4px;cursor:pointer;
+}
+.bar button:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ---------- masthead ---------- */
+.masthead{padding-block:40px 28px;border-bottom:2px solid var(--ink)}
+.eyebrow{
+  font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);margin:0 0 12px;
+}
+h1{
+  font-family:var(--serif);font-weight:700;font-size:clamp(30px,6.4vw,44px);
+  line-height:1.1;margin:0 0 14px;text-wrap:balance;letter-spacing:-.01em;
+}
+.standfirst{font-size:17.5px;color:var(--ink-2);margin:0;max-width:62ch}
+.source-line{
+  font-family:var(--mono);font-size:12.5px;color:var(--ink-3);margin-top:18px;
+  display:flex;gap:6px 18px;flex-wrap:wrap;
+}
+
+h2{
+  font-family:var(--serif);font-weight:600;font-size:clamp(21px,3.8vw,26px);
+  line-height:1.25;margin:0 0 10px;text-wrap:balance;
+}
+h3{font-family:var(--sans);font-weight:600;font-size:16px;margin:26px 0 8px;letter-spacing:.01em}
+p{margin:0 0 14px}
+a{color:var(--accent)}
+.section{padding-block:34px 4px}
+
+.kicker{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-3);margin:0 0 8px;
+}
+
+/* ---------- entries ---------- */
+.entry{padding-block:34px 10px;border-top:1px solid var(--rule)}
+.entry-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.entry-num{
+  font-family:var(--mono);font-size:13px;font-weight:600;color:var(--accent);
+  font-variant-numeric:tabular-nums;
+}
+.entry h2{margin:0;flex:1 1 auto;min-width:0}
+.mark{
+  font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  padding:3px 8px;border-radius:3px;white-space:nowrap;
+}
+.mark.exam{background:var(--accent-soft);color:var(--accent)}
+.mark.bg{background:var(--surface-2);color:var(--ink-3)}
+.defn{
+  background:var(--surface);border-left:3px solid var(--accent);
+  padding:14px 16px;border-radius:0 5px 5px 0;margin:14px 0 16px;box-shadow:var(--shadow);
+}
+.defn p{margin:0}
+.defn .lbl{
+  display:block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-3);margin-bottom:5px;
+}
+.reading{font-family:var(--mono);font-size:12.5px;color:var(--ink-3);margin:-6px 0 16px}
+
+.watch{
+  background:var(--down-soft);border:1px solid color-mix(in srgb, var(--down) 28%, transparent);
+  border-radius:5px;padding:13px 16px;margin:18px 0;
+}
+.watch p{margin:0;font-size:15.3px}
+.watch b{color:var(--down)}
+
+.notinbook{
+  background:var(--flag-soft);border:1px dashed color-mix(in srgb, var(--flag) 48%, transparent);
+  border-radius:5px;padding:13px 16px;margin:16px 0;
+}
+.notinbook p{margin:0;font-size:15.3px}
+.notinbook b{color:var(--flag)}
+
+.examples{margin:18px 0;display:flex;flex-direction:column;gap:12px}
+.ex{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start}
+.ex-n{
+  font-family:var(--mono);font-size:11px;font-weight:600;color:var(--ink-3);
+  border:1px solid var(--rule-strong);border-radius:3px;padding:1px 6px;margin-top:3px;white-space:nowrap;
+}
+.ex p{margin:0;font-size:15.3px}
+.ex .who{font-weight:600;color:var(--ink)}
+
+.connects{font-size:15.3px;color:var(--ink-2);border-top:1px solid var(--rule);padding-top:12px;margin-top:6px}
+.connects b{color:var(--ink)}
+
+/* ---------- check yourself ---------- */
+.check{margin:20px 0 6px;background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:14px 16px}
+.check > .lbl{
+  font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);display:block;margin-bottom:10px;
+}
+.q{margin-bottom:12px}
+.q:last-child{margin-bottom:0}
+.q > p{margin:0 0 7px;font-size:15.3px}
+.q .qn{font-family:var(--mono);font-weight:600;color:var(--accent);font-size:13.5px;margin-right:4px}
+details.reveal{border-top:1px dashed var(--rule)}
+details.reveal > summary{
+  list-style:none;cursor:pointer;font-family:var(--mono);font-size:11.5px;
+  letter-spacing:.07em;text-transform:uppercase;color:var(--accent);padding:7px 0 0;
+}
+details.reveal > summary::-webkit-details-marker{display:none}
+details.reveal > summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details.reveal[open] > summary::before{content:"▾ "}
+details.reveal > summary:hover{text-decoration:underline}
+details.reveal .ans{font-size:15.3px;color:var(--ink-2);padding:6px 0 4px}
+details.reveal .ans p{margin:0 0 8px}
+details.reveal .ans p:last-child{margin:0}
+
+.got{
+  display:flex;align-items:center;gap:8px;margin-top:16px;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);
+  cursor:pointer;user-select:none;
+}
+.got input{width:15px;height:15px;accent-color:var(--accent);cursor:pointer}
+
+/* ---------- tables ---------- */
+.tablewrap{overflow-x:auto;margin:18px 0;border:1px solid var(--rule);border-radius:6px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:15px;min-width:420px}
+th,td{padding:10px 13px;text-align:left;border-bottom:1px solid var(--rule);vertical-align:top}
+thead th{
+  font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-3);background:var(--surface-2);font-weight:600;
+}
+tbody tr:last-child td{border-bottom:none}
+td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right}
+.tight td,.tight th{padding:8px 12px;font-size:14.5px}
+
+/* ---------- widgets ---------- */
+.widget{
+  background:var(--surface);border:1px solid var(--rule-strong);border-radius:8px;
+  padding:18px;margin:26px 0;box-shadow:var(--shadow);
+}
+.widget-title{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);margin:0 0 4px;
+}
+.widget h3{margin-top:0}
+.widget-note{font-size:14.5px;color:var(--ink-2);margin:12px 0 0}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{
+  font-family:var(--mono);font-size:12px;letter-spacing:.04em;
+  border:1px solid var(--rule-strong);background:var(--surface);color:var(--ink-2);
+  border-radius:16px;padding:5px 13px;cursor:pointer;transition:all .15s;
+}
+.chip:hover{border-color:var(--accent);color:var(--accent)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+:root[data-theme="dark"] .chip[aria-pressed="true"],
+:root:not([data-theme="light"]) .chip[aria-pressed="true"]{color:#0f1218}
+
+.cyclefig{width:100%;height:auto;display:block;overflow:visible}
+.figcap{font-size:14.5px;color:var(--ink-2);margin:10px 0 0;min-height:3em}
+.figcap b{color:var(--ink)}
+
+.svg-dim{opacity:.22;transition:opacity .2s}
+.svg-lit{opacity:1;transition:opacity .2s}
+
+.calc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:14px 0}
+.field label{
+  display:block;font-family:var(--mono);font-size:11px;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--ink-3);margin-bottom:5px;
+}
+.field input[type=number]{
+  width:100%;font-family:var(--mono);font-size:16px;padding:8px 10px;
+  border:1px solid var(--rule-strong);border-radius:5px;background:var(--paper);color:var(--ink);
+}
+.field input[type=range]{width:100%;accent-color:var(--accent)}
+.field input:focus-visible,.chip:focus-visible,button:focus-visible,summary:focus-visible,a:focus-visible{
+  outline:2px solid var(--accent);outline-offset:2px;
+}
+.readouts{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:6px;overflow:hidden;margin-top:6px}
+.ro{background:var(--surface-2);padding:12px 14px}
+.ro .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);display:block;margin-bottom:3px}
+.ro .v{font-family:var(--mono);font-size:22px;font-weight:600;font-variant-numeric:tabular-nums;color:var(--ink)}
+.ro .v.hl{color:var(--accent)}
+
+/* ---------- quiz ---------- */
+.mcq{border-top:1px solid var(--rule);padding-top:18px;margin-top:18px}
+.mcq:first-of-type{border-top:none;padding-top:0;margin-top:0}
+.mcq .stem{font-size:15.6px;margin:0 0 12px}
+.mcq .stem .qn{font-family:var(--mono);font-weight:600;color:var(--accent);margin-right:6px}
+.opts{display:flex;flex-direction:column;gap:7px}
+.opt{
+  display:flex;gap:11px;align-items:flex-start;text-align:left;width:100%;
+  font-family:var(--sans);font-size:15.2px;line-height:1.5;color:var(--ink);
+  background:var(--surface);border:1px solid var(--rule);border-radius:6px;
+  padding:10px 13px;cursor:pointer;transition:border-color .15s,background .15s;
+}
+.opt:hover{border-color:var(--accent)}
+.opt .ltr{font-family:var(--mono);font-weight:600;color:var(--ink-3);flex:0 0 auto}
+.opt .why{display:block;font-size:14.3px;color:var(--ink-2);margin-top:6px}
+.opt[data-state="right"]{border-color:var(--up);background:var(--up-soft)}
+.opt[data-state="right"] .ltr{color:var(--up)}
+.opt[data-state="wrong"]{border-color:var(--down);background:var(--down-soft)}
+.opt[data-state="wrong"] .ltr{color:var(--down)}
+.opt[disabled]{cursor:default}
+.score{
+  font-family:var(--mono);font-size:13px;color:var(--ink-2);
+  border:1px solid var(--rule-strong);border-radius:6px;padding:11px 14px;margin-top:20px;
+  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;
+}
+.score b{color:var(--ink);font-size:15px}
+
+.frq{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:15px 17px;margin:16px 0}
+.frq .stem{margin:0 0 6px;font-size:15.6px}
+.frq .pts{font-family:var(--mono);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3)}
+.rubric{margin:8px 0 0;padding:0;list-style:none}
+.rubric li{display:grid;grid-template-columns:auto 1fr;gap:10px;padding:7px 0;border-top:1px dotted var(--rule);font-size:15.2px}
+.rubric li .pt{font-family:var(--mono);font-size:11.5px;color:var(--up);white-space:nowrap;padding-top:3px}
+
+.closing{background:var(--accent-soft);border-radius:8px;padding:20px 22px;margin-top:28px}
+.closing h2{margin-top:0}
+.closing ol{margin:0;padding-left:20px}
+.closing li{margin-bottom:10px;font-size:15.5px}
+.closing li:last-child{margin-bottom:0}
+
+.toc{columns:2 220px;column-gap:26px;margin:16px 0 0;padding:0;list-style:none}
+.toc li{break-inside:avoid;padding:3px 0;font-size:15px}
+.toc a{text-decoration:none;color:var(--ink)}
+.toc a:hover{color:var(--accent);text-decoration:underline}
+.toc .n{font-family:var(--mono);font-size:12.5px;color:var(--ink-3);margin-right:7px;font-variant-numeric:tabular-nums}
+.toc .m{font-size:11px;color:var(--ink-3);margin-left:5px}
+
+.footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--rule);font-family:var(--mono);font-size:12px;color:var(--ink-3);line-height:1.8}
+
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+@media print{
+  .bar,.got,.chips{display:none}
+  body{background:#fff}
+  details.reveal > *{display:block!important}
+  .entry{break-inside:avoid-page}
+}
+@media (max-width:520px){
+  .toc{columns:1}
+  .ro .v{font-size:19px}
+}
+
+/* ---------- Module 3 supplement ---------- */
+.mark.flag{background:var(--flag-soft);color:var(--flag)}
+.ppc-wrap{display:grid;grid-template-columns:1fr;gap:14px}
+@media (min-width:720px){.ppc-wrap{grid-template-columns:1fr 210px}}
+.ppc-svg{width:100%;height:auto;display:block;background:var(--surface);
+  border:1px solid var(--rule);border-radius:6px;cursor:crosshair;touch-action:none}
+.ppc-side{display:flex;flex-direction:column;gap:10px}
+.status{font-family:var(--mono);font-size:12.5px;padding:9px 11px;border-radius:5px;
+  border:1px solid var(--rule-strong);background:var(--surface-2);line-height:1.45}
+.status[data-s="on"]{border-color:color-mix(in srgb,var(--up) 45%,transparent);background:var(--up-soft);color:var(--up)}
+.status[data-s="in"]{border-color:var(--rule-strong);color:var(--ink-2)}
+.status[data-s="out"]{border-color:color-mix(in srgb,var(--down) 45%,transparent);background:var(--down-soft);color:var(--down)}
+.ppc-legend{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);line-height:1.6}
+.ppc-legend b{color:var(--ink-2);font-weight:600}
+.chips.tight{gap:6px}
+.tbl{overflow-x:auto;max-width:100%}
+.sumtable{width:100%;border-collapse:collapse;font-size:14.5px;margin:16px 0}
+.sumtable th,.sumtable td{border-bottom:1px solid var(--rule);padding:8px 10px;text-align:left;vertical-align:top}
+.sumtable th{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+.sumtable td.mk{font-family:var(--mono);font-size:12px;white-space:nowrap;color:var(--accent)}
+.sumtable td.mk.bgm{color:var(--ink-3)}
+.sumtable td.mk.flagm{color:var(--flag)}
+.final{background:var(--surface);border:1px solid var(--rule);border-radius:6px;
+  padding:18px 20px;margin:22px 0;box-shadow:var(--shadow)}
+.final ol{margin:0;padding-left:20px}
+.final li{margin:0 0 9px}
+.final li:last-child{margin-bottom:0}
+
+/* ---------- PPC explorer svg ---------- */
+.ppc-svg .ax{stroke:var(--ink);stroke-width:1.6}
+.ppc-svg .tick{stroke:var(--ink-3);stroke-width:1.1}
+.ppc-svg .tl{font-family:var(--mono);font-size:11px;fill:var(--ink-3)}
+.ppc-svg .al{font-family:var(--sans);font-size:12px;font-weight:600;fill:var(--ink-2)}
+.ppc-svg .curve{fill:none;stroke:var(--accent);stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round}
+.ppc-svg .ghost{fill:none;stroke:var(--rule-strong);stroke-width:1.8;stroke-dasharray:6 5}
+.ppc-svg .cl{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--accent)}
+.ppc-svg .drop{stroke:var(--rule-strong);stroke-width:1;stroke-dasharray:3 3}
+.ppc-svg .pt{stroke:var(--surface);stroke-width:2}
+.ppc-svg .pt-on{fill:var(--up)}
+.ppc-svg .pt-in{fill:var(--ink-3)}
+.ppc-svg .pt-out{fill:var(--down)}
+
+
+/* ---------- Module 4 supplement ---------- */
+.two-panel{width:100%;height:auto;display:block;background:var(--surface);
+  border:1px solid var(--rule);border-radius:6px}
+.ca-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:0 0 14px}
+@media (min-width:640px){.ca-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.ca-grid .field{display:flex;flex-direction:column;gap:5px}
+.ca-grid .field span{font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--ink-3)}
+.ca-grid .field b{color:var(--ink-2);font-weight:600;text-transform:none;letter-spacing:0}
+.ca-grid input{font-family:var(--mono);font-size:15px;padding:7px 9px;width:100%;
+  color:var(--ink);background:var(--paper);border:1px solid var(--rule-strong);border-radius:5px}
+.ca-grid input:focus{outline:2px solid var(--accent);outline-offset:1px}
+.catab{width:100%;border-collapse:collapse;font-size:14px;margin:4px 0 14px}
+.catab th,.catab td{border-bottom:1px solid var(--rule);padding:7px 9px;text-align:left}
+.catab th{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:600}
+.catab td.v{font-family:var(--mono);color:var(--ink)}
+.catab td.win{font-family:var(--mono);color:var(--up);font-weight:600}
+.dealrow{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;margin:0 0 12px}
+.dealrow .field{display:flex;flex-direction:column;gap:5px;min-width:190px;flex:1}
+.dealrow .field span{font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--ink-3)}
+.dealrow input{font-family:var(--mono);font-size:16px;padding:8px 10px;
+  color:var(--ink);background:var(--paper);border:1px solid var(--rule-strong);border-radius:5px}
+.line-svg{width:100%;height:auto;display:block;margin:6px 0 2px}
+.line-svg .band{fill:var(--up-soft);stroke:none}
+.line-svg .axl{stroke:var(--ink);stroke-width:1.6}
+.line-svg .tk{stroke:var(--ink-3);stroke-width:1.1}
+.line-svg .tlb{font-family:var(--mono);font-size:11px;fill:var(--ink-3)}
+.line-svg .edge{stroke:var(--up);stroke-width:2}
+.line-svg .edgel{font-family:var(--mono);font-size:11.5px;font-weight:600;fill:var(--up)}
+.line-svg .prop{stroke:var(--accent);stroke-width:2.4}
+.line-svg .propbad{stroke:var(--down);stroke-width:2.4}
+.line-svg .propl{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--accent)}
+.line-svg .propl.bad{fill:var(--down)}
+.two-panel .ax{stroke:var(--ink);stroke-width:1.6}
+.two-panel .tick{stroke:var(--ink-3);stroke-width:1.1}
+.two-panel .tl{font-family:var(--mono);font-size:10.5px;fill:var(--ink-3)}
+.two-panel .al{font-family:var(--sans);font-size:11.5px;font-weight:600;fill:var(--ink-2)}
+.two-panel .ph{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--ink-2)}
+.two-panel .curve{fill:none;stroke:var(--accent);stroke-width:2.4;stroke-linecap:round}
+.two-panel .slope{font-family:var(--mono);font-size:11px;fill:var(--accent)}
+.two-panel .drop{stroke:var(--rule-strong);stroke-width:1;stroke-dasharray:3 3}
+.two-panel .pt{stroke:var(--surface);stroke-width:2}
+.two-panel .pt-on{fill:var(--ink-2)}
+.two-panel .pt-out{fill:var(--up)}
+.two-panel .ptl{font-family:var(--mono);font-size:11px;fill:var(--ink-2)}
+.two-panel .ptl.good{fill:var(--up);font-weight:600}
+
+</style>
+<style>
+/* Module 5 additions: the movement-or-shift sorter */
+.sortrow{border:1px solid var(--rule);border-radius:8px;padding:12px 14px;margin:0 0 10px;
+  background:var(--surface)}
+.sortrow .stem{margin:0 0 10px}
+.sortrow .opts{display:flex;flex-wrap:wrap;gap:8px;margin:0}
+.sortrow .opt{flex:1 1 220px;justify-content:center;text-align:center}
+.sortrow .why{display:block;margin:10px 0 0;font-size:14.5px;line-height:1.55;color:var(--ink-2)}
+.sortrow[data-done] .opt{cursor:default}
+#sorter-reset{font-family:var(--mono);font-size:12px;letter-spacing:.04em;
+  border:1px solid var(--rule-strong);background:var(--surface);color:var(--ink-2);
+  border-radius:16px;padding:5px 13px;cursor:pointer}
+#sorter-reset:hover{border-color:var(--accent);color:var(--accent)}
+</style>
+
+
+<div class="bar">
+  <div class="bar-in">
+    <span class="bar-title">Micro · Module 5</span>
+    <span class="progress">
+      <span class="progress-track"><span class="progress-fill" id="pfill"></span></span>
+      <span class="progress-num" id="pnum">0 / 20</span>
+    </span>
+    <button type="button" id="resetBtn">Reset progress</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+<p class="eyebrow">AP Microeconomics · Unit 2 · Student guide</p>
+  <h1>Demand</h1>
+  <p class="standfirst">Twenty terms: the fifteen in Module 5 of <i>Krugman&rsquo;s Economics for
+  AP</i>, plus five your course requires that the module leaves out. They are in the order that makes
+  them easiest to learn. This is a short topic with one hard idea in it. Almost
+  everything you will get wrong on an exam question about demand comes from that one idea, so this
+  guide spends most of its length on it.</p>
+  <div class="source-line">
+    <span>Textbook pages 48&ndash;58</span><span>·</span><span>20 terms</span><span>·</span>
+    <span>Topic 2.1</span><span>·</span><span>1 idea that decides most of the marks</span>
+  </div>
+<section class="section" id="howto">
+  <h2>How to use this guide</h2>
+  <p>Read Module 5 in your textbook first, then work through the entries here in order. They are not
+  alphabetical &mdash; each one uses the one before it.</p>
+  <ul>
+    <li><b>&#9733; Exam</b> means the AP Microeconomics framework can test it. Every entry in this
+      guide carries it.</li>
+    <li><b>&#9733; &#9873;</b> means the framework can test it <b>and Module 5 of your textbook does
+      not teach it</b>. Five entries carry the flag. Learn them from here.</li>
+    <li>Every entry ends with two <b>Check yourself</b> questions. Answer them before opening the
+      answer, then tick <b>Got it</b> &mdash; the bar at the top tracks you.</li>
+    <li>The widgets are not decoration. The sorter in the middle is the single most useful thing on
+      this page; do it until you get twelve out of twelve twice.</li>
+  </ul>
+  <div class="flag">
+    <p><b>The one idea.</b> <b>Demand</b> and <b>quantity demanded</b> are different things, and the
+    exam is built on the difference. A change in the good&rsquo;s <i>own price</i> moves you
+    <b>along</b> the curve. A change in anything else <b>shifts the whole curve</b>. Three of the
+    five multiple-choice questions at the end of your textbook&rsquo;s module turn on it.</p>
+  </div>
+  <div class="notinbook"><p><b>&#9873; Your course asks more of this topic than Module 5 gives.</b>
+  AP Microeconomics wants you to explain <i>why</i> the demand curve slopes downward, and it opens
+  the topic with property rights, incentives and constraints. None of that is in these eleven pages.
+  Entries 3, 4, 9, 10 and 11 fill the gap. Two of them you have met before, in Modules 1 and 51; the
+  substitution and income effects are new, and your textbook does not reach them until Module 46.</p></div>
+</section>
+
+<!-- ============ THE DIAGRAM ============ -->
+<section class="section" id="diagram">
+  <h2>The one diagram this module is built on</h2>
+  <p>This is your textbook&rsquo;s Figure 5.3, drawn from the real coffee-bean numbers in Figure 5.1.
+  Use the buttons. The difference between the two arrows is the difference between a grade of 5 and a
+  grade of 3 on any demand question.</p>
+
+  <div class="widget">
+    <div class="widget-title">Movement along, or shift of?</div>
+    <div class="chips">
+      <button type="button" class="chip" aria-pressed="false" data-show="none">Just the curve</button>
+      <button type="button" class="chip" aria-pressed="false" data-show="move">A &rarr; B &nbsp;price falls</button>
+      <button type="button" class="chip" aria-pressed="false" data-show="shift">A &rarr; C &nbsp;incomes rise</button>
+    </div>
+    <svg id="dfig" class="line-svg" viewBox="0 0 680 430" role="img"
+         aria-label="Demand curve for coffee beans, showing a movement along the curve and a shift of the curve">
+      <line class="ax" x1="80" y1="40" x2="80" y2="380"></line>
+      <line class="ax" x1="80" y1="380" x2="640" y2="380"></line>
+      <text class="axl" x="80" y="26" text-anchor="middle">Price of coffee beans (per pound)</text>
+      <text class="axl" x="640" y="406" text-anchor="end">Quantity of coffee beans (billions of pounds)</text>
+
+      <line class="tick" x1="76" y1="337.5" x2="80" y2="337.5"></line>
+      <text class="tl" x="70" y="341.5" text-anchor="end">$0.50</text>
+      <line class="tick" x1="76" y1="252.5" x2="80" y2="252.5"></line>
+      <text class="tl" x="70" y="256.5" text-anchor="end">$1.00</text>
+      <line class="tick" x1="76" y1="167.5" x2="80" y2="167.5"></line>
+      <text class="tl" x="70" y="171.5" text-anchor="end">$1.50</text>
+      <line class="tick" x1="76" y1="82.5" x2="80" y2="82.5"></line>
+      <text class="tl" x="70" y="86.5" text-anchor="end">$2.00</text>
+
+      <line class="tick" x1="125" y1="380" x2="125" y2="384"></line>
+      <text class="tl" x="125" y="396" text-anchor="middle">7</text>
+      <line class="tick" x1="215" y1="380" x2="215" y2="384"></line>
+      <text class="tl" x="215" y="396" text-anchor="middle">9</text>
+      <line class="tick" x1="305" y1="380" x2="305" y2="384"></line>
+      <text class="tl" x="305" y="396" text-anchor="middle">11</text>
+      <line class="tick" x1="395" y1="380" x2="395" y2="384"></line>
+      <text class="tl" x="395" y="396" text-anchor="middle">13</text>
+      <line class="tick" x1="485" y1="380" x2="485" y2="384"></line>
+      <text class="tl" x="485" y="396" text-anchor="middle">15</text>
+      <line class="tick" x1="575" y1="380" x2="575" y2="384"></line>
+      <text class="tl" x="575" y="396" text-anchor="middle">17</text>
+
+      <g id="g-d2" hidden>
+        <polyline class="curve ghost" points="192.5,82.5 215.0,125.0 246.5,167.5 291.5,210.0 350.0,252.5 431.0,295.0 575.0,337.5"></polyline>
+        <text class="cl" x="585" y="341.5">D&#8322;</text>
+      </g>
+      <polyline class="curve" points="129.5,82.5 147.5,125.0 174.5,167.5 210.5,210.0 260.0,252.5 327.5,295.0 449.0,337.5"></polyline>
+      <text class="cl" x="459" y="341.5">D&#8321;</text>
+
+      <g id="g-move" hidden>
+        <line class="edge" x1="174.5" y1="167.5" x2="260.0" y2="252.5"></line>
+        <circle class="pt pt-on" cx="260.0" cy="252.5" r="5"></circle>
+        <text class="ptl" x="268" y="268">B &nbsp;$1.00, 10.0</text>
+      </g>
+      <g id="g-shift" hidden>
+        <line class="edge" x1="174.5" y1="167.5" x2="246.5" y2="167.5"></line>
+        <circle class="pt pt-out" cx="246.5" cy="167.5" r="5"></circle>
+        <text class="ptl good" x="254" y="158">C &nbsp;$1.50, 9.7</text>
+      </g>
+      <circle class="pt pt-on" cx="174.5" cy="167.5" r="5"></circle>
+      <text class="ptl" x="120" y="158" text-anchor="end">A &nbsp;$1.50, 8.1</text>
+    </svg>
+    <p class="figcap" id="dcap">Your textbook&rsquo;s demand schedule for coffee beans, plotted. Seven
+    prices, seven quantities, one downward-sloping curve.</p>
+  </div>
+
+  <div class="tablewrap">
+    <table class="tbl">
+      <thead><tr><th>Price per pound</th><th>Quantity demanded (billions of pounds)</th><th>After incomes and population rise</th></tr></thead>
+      <tbody>
+        <tr><td>$2.00</td><td>7.1</td><td>8.5</td></tr>
+        <tr><td>$1.75</td><td>7.5</td><td>9.0</td></tr>
+        <tr><td>$1.50</td><td>8.1</td><td>9.7</td></tr>
+        <tr><td>$1.25</td><td>8.9</td><td>10.7</td></tr>
+        <tr><td>$1.00</td><td>10.0</td><td>12.0</td></tr>
+        <tr><td>$0.75</td><td>11.5</td><td>13.8</td></tr>
+        <tr><td>$0.50</td><td>14.2</td><td>17.0</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="figcap">The left column is the demand schedule behind D&#8321;. The right column is a
+  <b>different schedule</b> &mdash; more is demanded at <i>every</i> price &mdash; and it is what
+  D&#8322; is drawn from. That is what a shift is: a new column, not a new row.</p>
+</section>
+
+<!-- ============ ENTRIES ============ -->
+<section class="section">
+  <h2>The 20 terms</h2>
+</section>
+
+<article class="entry" id="e1">
+  <div class="entry-head"><span class="entry-num">01</span><h2>Competitive market</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A market in which there are <b>many buyers and sellers of the same good or service</b>, none of whom can influence the price at which it is sold.</p></div>
+  <p class="reading">Textbook page 48.</p>
+
+  <p>Everything in this module and the next three assumes this. The supply and demand model describes
+  a competitive market; it does not describe every market, and your textbook is careful to say so.</p>
+
+  <p>The test is not &ldquo;are there lots of firms?&rdquo; but <b>can any single participant move
+  the price?</b> If one seller can raise the price by holding back output, the market is not
+  competitive and this model will give you the wrong answer.</p>
+
+  <div class="watch"><p><b>Watch out.</b> &ldquo;Competitive&rdquo; in economics does not mean
+  &ldquo;cut-throat&rdquo; or &ldquo;lots of advertising&rdquo;. Coca-Cola and Pepsi compete
+  ferociously and the cola market is <i>not</i> competitive in this sense, because those two firms
+  are big enough to set the price.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Coffee beans.</span> The world market is so large that even Starbucks buys a tiny fraction of it and cannot move the price. Competitive.</p></div>
+    <div class="ex"><span class="ex-n">Counter-example</span><p><span class="who">Cola.</span> Coca-Cola and Pepsi account for so much of total sales that they can influence the price. Not competitive.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Wheat against jet engines.</span> Thousands of wheat farmers, none of whom sets the price. Two or three makers of large jet engines, each of whom does.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> This is the condition under which the whole
+  <a href="#e2">supply and demand model</a> (entry 2) works. Your framework&rsquo;s statement of how a
+  market reaches equilibrium, two topics from now, begins with the words &ldquo;in a perfectly
+  competitive market&rdquo;. It rests on <a href="#e3">property rights</a> (entry 3): nobody can buy
+  what nobody owns.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">1.1</span> A town has one petrol station. Is that market competitive?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. With one seller, that seller can set the price. The number of buyers does not rescue it &mdash; you need many on <i>both</i> sides.</p></div></details></div>
+    <div class="q"><p><span class="qn">1.2</span> Why does it matter whether the market is competitive before you draw a demand curve?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because the model predicts that price is settled by demand and supply together. If one participant can choose the price instead, the prediction is wrong, and the diagram would be telling you something false.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got1"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e2">
+  <div class="entry-head"><span class="entry-num">02</span><h2>The supply and demand model</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A model of how a competitive market works. It has <b>five elements</b>.</p></div>
+  <p class="reading">Textbook page 48.</p>
+
+  <p>Learn the five now, because they are the map of the next four modules and you will know exactly
+  where you are at every point:</p>
+
+  <ol>
+    <li>The <b>demand curve</b> &mdash; this module</li>
+    <li>The <b>supply curve</b> &mdash; Module 6</li>
+    <li>The <b>things that shift</b> each of them &mdash; this module for demand, Module 6 for supply</li>
+    <li>The <b>market equilibrium</b>, meaning the equilibrium price and quantity &mdash; Module 6</li>
+    <li>How the <b>equilibrium changes</b> when a curve shifts &mdash; Module 7</li>
+  </ol>
+
+  <p>You are being taught one half of one element. That is worth knowing: it stops the shift factors
+  feeling like the point of the course, and it tells you that item 3 is a listed element in its own
+  right &mdash; not an afterthought.</p>
+
+  <div class="watch"><p><b>Watch out.</b> A model is a deliberate simplification, not a claim about
+  the real world being simple. Everything here holds <b>all other things being equal</b>, and the
+  whole of this module&rsquo;s difficulty comes from what happens when they are not.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Coffee beans, 2002 to 2006.</span> Prices rose <i>and</i> consumption rose. That looks like it breaks the model. It does not, and element 3 is why.</p></div>
+    <div class="ex"><span class="ex-n">Structural</span><p><span class="who">Where you are.</span> Element 1 and half of element 3. Modules 6 and 7 finish the other three and a half.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Later in this course.</span> The same structure comes back for the labor market and every other factor market in Unit 5, and for the markets that go wrong in Unit 6. It is worth the investment.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It only applies in a <a href="#e1">competitive market</a> (entry 1). Element 1 is the <a href="#e7">demand curve</a> (entry 7); element 3 is entries 14 to 18. In practice the demand curve in the model is the <a href="#e20">market demand curve</a> (entry 20).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">2.1</span> Which of the five elements does this module cover?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Element 1, the demand curve, and the demand half of element 3, the things that shift it. Supply, equilibrium and changes in equilibrium are Modules 6 and 7.</p></div></details></div>
+    <div class="q"><p><span class="qn">2.2</span> Coffee prices rose between 2002 and 2006 and people bought more coffee. Does that disprove the law of demand?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. The law holds <i>all other things being equal</i>, and other things changed &mdash; population grew and lattes became popular. The whole curve moved. Element 3 is exactly this case.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got2"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e3">
+  <div class="entry-head"><span class="entry-num">03</span><h2>Property rights</h2><span class="mark flag">&#9733; &#9873;</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Property rights <b>establish ownership</b> and grant individuals the <b>right to trade</b> goods and services with each other.</p></div>
+  <p class="reading">Not in this module. Your textbook defines it in Module 1, page 3.</p>
+
+  <div class="notinbook"><p><b>&#9873; Not in Module 5 &mdash; learn it from here.</b> Your course opens the demand topic with it: a market system only works well when property rights are well defined. Module 5 never mentions them.</p></div>
+
+  <p>A demand curve records what buyers will pay to get something. That only means anything if
+  paying gets you the thing &mdash; if what you buy becomes yours and nobody can take it from you.
+  Property rights are the reason a price is worth paying at all.</p>
+
+  <p>They are also why sellers turn up. Your textbook&rsquo;s point in Module 1 is that ownership
+  creates incentives: the right to keep or sell what you make is the reason to make it.</p>
+
+  <div class="watch"><p><b>Watch out.</b> &ldquo;Property&rdquo; does not mean only houses and land. It covers anything you can own and trade &mdash; a bag of coffee, a concert ticket, a song licence. And the word <i>well-defined</i> matters: where nobody owns something, like fish in the open sea, there is no price for it and too much of it gets used. You will meet that problem again in Unit 6.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">A lake.</span> Your textbook&rsquo;s own example (Module 1): owners of a lake have a reason not to pollute it when its use for recreation or sale is worth more. Ownership turns a value into an incentive.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Concert tickets.</span> If a ticket is yours to resell, you will pay more for it than for one that is void the moment you cannot go. Stronger rights, higher willingness to pay.</p></div>
+    <div class="ex"><span class="ex-n">Counter-example</span><p><span class="who">Ocean fish.</span> Nobody owns the fish until they are caught, so nobody can charge for leaving them in the sea. No well-defined property right, no market price for the stock &mdash; and overfishing.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> Without it there is no <a href="#e1">competitive market</a> (entry 1) to describe, and it is where many of the <a href="#e4">incentives</a> of entry 4 come from: a price only motivates you if paying it gets you something that is yours.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">3.1</span> A town lets anyone use its tennis courts free, first come, first served. Why is there no price and no demand curve for court time?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Nobody holds a right to a court slot that they could sell, so nothing is traded and no price forms. Queues ration the courts instead. Give each slot an owner who can sell it and a price &mdash; and a demand curve &mdash; appear.</p></div></details></div>
+    <div class="q"><p><span class="qn">3.2</span> Why does your framework say property rights must be <i>well defined</i> for a market to work well?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Buyers will only pay for ownership they can rely on, and sellers will only produce what they are allowed to keep or sell. If goods can be taken or their ownership is unclear, willingness to pay collapses and trades that would benefit both sides never happen.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got3"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e4">
+  <div class="entry-head"><span class="entry-num">04</span><h2>Incentives and constraints</h2><span class="mark flag">&#9733; &#9873;</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>An <b>incentive</b> is a reward or punishment that motivates a particular choice. A <b>constraint</b> is a limit on the choices you can make &mdash; your <b>income</b>, your <b>time</b>, and the <b>law</b>.</p></div>
+  <p class="reading">Not in this module. Incentives are defined in your textbook&rsquo;s Module 1, page 2; the word <i>constraint</i> does not appear until Module 51.</p>
+
+  <div class="notinbook"><p><b>&#9873; Not in Module 5 &mdash; learn it from here.</b> Your course states two facts before it states the law of demand: people respond to incentives, and they face constraints. Module 5 never uses either word.</p></div>
+
+  <p><b>A price is an incentive.</b> A higher price is a reason to buy less; a lower price is a
+  reason to buy more. The <a href="#e8">law of demand</a> (entry 8) is this idea, measured.</p>
+
+  <p><b>Constraints limit how far you can respond.</b> Your framework names three: <b>income</b> (you
+  cannot spend what you do not have), <b>time</b> (a cheap flight is no use if you cannot take the day
+  off), and <b>legal and regulatory frameworks</b> (you cannot buy what the law will not let you buy).
+  This is what &ldquo;willing and able&rdquo; means: the incentive decides whether you are willing;
+  the constraints decide whether you are able.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Income appears twice in this module in two different roles. Here it is a <b>constraint</b> on what you can buy. In entry 16 a <b>change</b> in income is a determinant that shifts the demand curve. They are one fact seen twice: loosen the constraint and more is bought at every price.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">London&rsquo;s congestion charge.</span> Your textbook, page 56: charging drivers &pound;8 to enter central London cut traffic. A price used deliberately as an incentive &mdash; the story is told without ever using the word.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Time as a constraint.</span> A train ticket costs $40 and takes 5 hours; a flight costs $120 and takes 1 hour. The flight costs $80 more and saves 4 hours, so for anyone whose time is worth more than $20 an hour it is the cheaper trip.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">The law as a constraint.</span> A 15-year-old who would happily pay to rent a car cannot rent one. Willing, but not able &mdash; so they are not on the demand curve at any price.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> Prices as incentives are why the <a href="#e8">law of demand</a> (entry 8) holds; the constraints are why <a href="#e6">quantity demanded</a> (entry 6) means willing <i>and</i> able; and a loosened income constraint is the <a href="#e16">normal-good</a> shift of entry 16. Many incentives come from <a href="#e3">property rights</a> (entry 3).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">4.1</span> A school canteen doubles the price of fizzy drinks and sales halve. Is this mainly an incentive or a constraint at work?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Mainly an incentive. The higher price is a reason to buy fewer drinks &mdash; your framework&rsquo;s own example of an incentive is &ldquo;those presented by prices&rdquo;. Nobody&rsquo;s income, time or legal position changed.</p></div></details></div>
+    <div class="q"><p><span class="qn">4.2</span> Name the three constraints your framework lists, with an example of each.</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p><b>Income</b> &mdash; you cannot buy a $900 phone with $300. <b>Time</b> &mdash; a free concert is no use if it clashes with an exam. <b>Legal and regulatory frameworks</b> &mdash; a minimum age for buying some goods keeps willing buyers out of the market.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got4"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e5">
+  <div class="entry-head"><span class="entry-num">05</span><h2>Demand schedule</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A <b>table</b> showing how much of a good consumers will be willing and able to buy at different prices.</p></div>
+  <p class="reading">Textbook page 49, the right-hand side of Figure 5.1.</p>
+
+  <p>The schedule comes first and the curve is drawn from it. That order matters more than it sounds,
+  because a free-response question may hand you a table and ask for a graph, or hand you a graph and
+  ask for numbers. They are the same information in two forms.</p>
+
+  <p>Your framework names it. The market demand curve <b>(schedule)</b>, it says, is built by adding
+  up individual demand curves <b>(schedules)</b> &mdash; so expect to be handed tables, not only
+  graphs.</p>
+
+  <div class="watch"><p><b>Watch out.</b> A schedule is not a prediction of what <i>will</i> happen.
+  It is a list of what buyers would do at each price, only one of which will turn out to be the
+  actual price.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Coffee beans.</span> $2.00 &rarr; 7.1 billion pounds; $1.00 &rarr; 10.0; $0.50 &rarr; 14.2. Seven rows, one curve.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Two rows are enough.</span> Your textbook&rsquo;s own free-response answer uses just two: $4 &rarr; 10 and $2 &rarr; 14. Any two rows showing price and quantity moving in opposite directions will earn the mark.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">A class auction.</span> Ask twenty classmates the most they would pay for a chocolate bar, then count how many would buy at $5, $4, $3. That count <i>is</i> a demand schedule.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> The <a href="#e7">demand curve</a> (entry 7) is this table drawn. A <a href="#e13">change in demand</a> (entry 13) is a whole new column of quantities.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">5.1</span> A table shows $3 &rarr; 40 units and $5 &rarr; 55 units. Is this a demand schedule?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No &mdash; not for demand. Quantity rises as price rises, which is the wrong direction. That is a supply schedule, which you meet in Module 6.</p></div></details></div>
+    <div class="q"><p><span class="qn">5.2</span> How many rows does a free-response answer need?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Two, as long as they show the negative relationship. Your textbook&rsquo;s printed rubric awards one mark for the labelled table and one for the values having the right direction.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got5"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e6">
+  <div class="entry-head"><span class="entry-num">06</span><h2>Quantity demanded</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The <b>actual amount</b> of a good or service consumers are willing and able to buy <b>at some specific price</b>.</p></div>
+  <p class="reading">Textbook page 49.</p>
+
+  <p>Read the last four words again. Quantity demanded is attached to <b>one price</b>. It is a
+  number. It is a single point on the curve, or a single row of the schedule.</p>
+
+  <p>Demand, by contrast, is the whole relationship &mdash; the entire curve, every price at once.
+  Your textbook never uses the two words loosely and neither should you. When a question says
+  &ldquo;quantity demanded rises&rdquo;, it is telling you that you moved to a different point on the
+  same curve.</p>
+
+  <div class="watch"><p><b>Watch out.</b> &ldquo;Demand rose&rdquo; and &ldquo;quantity demanded
+  rose&rdquo; are not two ways of saying the same thing. They have different causes and they look
+  completely different on a diagram. Entry 12 and entry 13 are the two cases; get those right and this
+  topic is finished.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">One row.</span> At $1.25 a pound, quantity demanded is 8.9 billion pounds. At $1.00 it is 10.0 billion. Two prices, two quantities demanded, one demand.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Point A.</span> On the diagram above, point A is price $1.50 and quantity demanded 8.1 billion pounds. The point is the quantity demanded; the curve through it is the demand.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Willing <i>and able</i>.</span> Wanting a sports car is not demand. Wanting one and having the money at that price is.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> The <a href="#e8">law of demand</a> (entry 8) is a statement about how this number responds to price. A <a href="#e12">movement along the curve</a> (entry 12) is a change in it. &ldquo;Willing and able&rdquo; is <a href="#e4">incentives and constraints</a> (entry 4) in three words.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">6.1</span> Is &ldquo;10 billion pounds&rdquo; a demand or a quantity demanded?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>A quantity demanded &mdash; it is one number, and it only means anything once you say which price it goes with. The demand is the whole schedule.</p></div></details></div>
+    <div class="q"><p><span class="qn">6.2</span> Someone says &ldquo;I demand a Ferrari.&rdquo; Is that demand in the economic sense?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Only if they are <i>able</i> to buy one at the going price. Demand requires willingness and ability together.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got6"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e7">
+  <div class="entry-head"><span class="entry-num">07</span><h2>Demand curve</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A <b>graphical representation of the demand schedule</b>. It shows the relationship between quantity demanded and price.</p></div>
+  <p class="reading">Textbook page 49, Figure 5.1.</p>
+
+  <p>Three drawing rules, and the examiner checks all three before looking at your economics:</p>
+
+  <ul>
+    <li><b>Price on the vertical axis</b>, quantity on the horizontal. Always. Even though price is
+      what causes the change, it goes on the vertical axis by convention, and the convention is
+      worth a mark.</li>
+    <li><b>Label both axes</b> with what they measure.</li>
+    <li><b>Label the curve</b> D, or D&#8321; if there will be a second one.</li>
+  </ul>
+
+  <p>Four of the six marks in your textbook&rsquo;s first free-response question are for exactly
+  these conventions. Not for the economics &mdash; for the labels.</p>
+
+  <div class="watch"><p><b>Watch out.</b> A demand curve does not have to be straight. Your
+  textbook&rsquo;s coffee curve is not. A straight line is fine in an answer as long as it slopes
+  downward and is labelled.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Figure 5.1.</span> Seven points from the schedule, joined. Downward sloping, labelled D.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Plotting one point.</span> The row $1.50 / 8.1 becomes the point 8.1 across, $1.50 up. That is point A in the diagram at the top of this guide.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Marking scheme.</span> Axes labelled, negatively sloped curve labelled D, points matching your table, second curve labelled and to the right. Write that checklist on the inside cover of your notebook.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the <a href="#e5">demand schedule</a> (entry 5) drawn. Its downward slope is the <a href="#e8">law of demand</a> (entry 8). The one you draw in a market diagram is the <a href="#e20">market demand curve</a> (entry 20), and your framework also calls it a <a href="#e11">marginal benefit curve</a> (entry 11). It is element 1 of the <a href="#e2">supply and demand model</a> (entry 2).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">7.1</span> Which variable goes on the vertical axis, and why is it worth a mark?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Price. It is worth a mark because the rubric awards one for &ldquo;Price on the vertical axis and Quantity on the horizontal axis&rdquo; before it awards anything for the curve itself.</p></div></details></div>
+    <div class="q"><p><span class="qn">7.2</span> You draw a perfect curve and forget to label it. How many of the six marks are at risk?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>At least one, for &ldquo;negatively sloped curve labelled Demand or D&rdquo;, and a second if the shifted curve is also unlabelled. Labelling costs four seconds.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got7"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e8">
+  <div class="entry-head"><span class="entry-num">08</span><h2>Law of demand</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A higher price for a good or service, <b>all other things being equal</b>, leads people to demand a <b>smaller quantity</b> of it.</p></div>
+  <p class="reading">Textbook page 50.</p>
+
+  <p>Your framework states it this way: a change in the <b>own-price</b> causes a change in quantity
+  demanded <b>in the opposite direction</b> and a <b>movement along</b> the demand curve. Those are the
+  words to use: own-price, opposite direction, movement along.</p>
+
+  <p>Your course also asks <i>why</i> it holds, and entries 9 to 11 give the two accepted answers.
+  Restating the law is not one of them.</p>
+
+  <p>The clause that does the work is <b>all other things being equal</b>. Without it the law is
+  simply false, and your textbook proves it on the same page: coffee cost more in 2006 than in 2002
+  and the world drank more of it. Other things were not equal &mdash; there were more people, and
+  lattes had caught on.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Real-world counter-examples almost never break the law.
+  They break the <i>ceteris paribus</i> clause. When you see price and quantity moving the same way,
+  your first thought should be &ldquo;something else moved&rdquo;, not &ldquo;the law failed&rdquo;.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Two cups to one.</span> Some people who drink two cups a day at $1 a pound cut to one cup at $2. Others switch to tea. That is the law working, one household at a time.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">The schedule proves it.</span> Price $0.50 &rarr; 14.2 billion pounds; price $2.00 &rarr; 7.1 billion. Price up fourfold, quantity demanded down by half.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">London&rsquo;s congestion charge.</span> Charging &pound;8 to drive into central London cut traffic about 10 per cent within three years. Raise the price of driving, get less driving.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the reason the <a href="#e7">demand curve</a> (entry 7) slopes downward, and it is what a <a href="#e12">movement along the curve</a> (entry 12) illustrates. The <a href="#e9">substitution effect</a>, the <a href="#e10">income effect</a> and <a href="#e11">diminishing marginal utility</a> (entries 9 to 11) explain it, and prices as <a href="#e4">incentives</a> (entry 4) are what it measures. It is a statement about <a href="#e6">quantity demanded</a> (entry 6), never about demand.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">8.1</span> State the law of demand in your framework&rsquo;s own words.</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>A change in the <b>own-price</b> causes a change in <b>quantity demanded in the opposite direction</b> &mdash; a <b>movement along</b> a downward-sloping demand curve. Use &ldquo;quantity demanded&rdquo;, not &ldquo;demand&rdquo;.</p></div></details></div>
+    <div class="q"><p><span class="qn">8.2</span> Petrol got more expensive last year and people bought more of it. Has the law been broken?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Almost certainly not. Something else changed &mdash; incomes rose, or the population grew, or more people bought cars. The curve shifted right by more than the price rise moved you up along it.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got8"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e9">
+  <div class="entry-head"><span class="entry-num">09</span><h2>Substitution effect</h2><span class="mark flag">&#9733; &#9873;</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The change in the quantity of a good demanded as the consumer <b>substitutes the good that has become relatively cheaper</b> for the good that has become relatively more expensive.</p></div>
+  <p class="reading">Not in this module. Your textbook defines it in Module 46, page 458. Read pages 458&ndash;459 now &mdash; they need nothing from the modules in between.</p>
+
+  <div class="notinbook"><p><b>&#9873; Not in Module 5 &mdash; learn it from here.</b> Your course requires you to explain <i>why</i> the demand curve slopes downward, not just that it does. Module 5 does not explain it; the explanation is 400 pages on.</p></div>
+
+  <p>When coffee&rsquo;s price rises, coffee becomes expensive <i>relative to</i> tea. Some drinkers
+  switch. That switch, on its own, lowers the quantity of coffee demanded. That is the substitution
+  effect.</p>
+
+  <p>Your textbook has already shown you this without naming it: on page 50, some coffee drinkers
+  &ldquo;drink tea instead if the price doubles&rdquo;. It works for every good, because every good
+  has something that can partly replace it &mdash; and for most goods, your textbook says, it is the
+  <b>whole</b> reason the demand curve slopes down.</p>
+
+  <div class="watch"><p><b>Watch out.</b> The substitution effect is not the same as <a href="#e14">substitutes</a> (entry 14). Substitutes are a shift factor: <i>tea&rsquo;s</i> price changes and coffee&rsquo;s curve <b>shifts</b>. The substitution effect is a movement: <i>coffee&rsquo;s own</i> price changes and you slide <b>along</b> coffee&rsquo;s curve. Same switching, opposite side of the line.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Orange juice and lemonade.</span> Module 46: Clare buys more lemonade and less orange juice when orange juice gets dearer. It is a tiny share of her spending, so this is all substitution effect.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Coffee doubles.</span> On your textbook&rsquo;s schedule, coffee going from $1.00 to $2.00 a pound cuts quantity demanded from 10.0 to 7.1 billion pounds &mdash; a fall of 2.9 billion. Drinkers switching to tea are part of that fall.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Streaming.</span> One service raises its monthly price and some subscribers move to a rival that is now relatively cheaper. The first service slides up along its demand curve.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It explains the <a href="#e8">law of demand</a> (entry 8), it happens as a <a href="#e12">movement along the curve</a> (entry 12), and it must not be confused with <a href="#e14">substitutes</a> (entry 14). The <a href="#e10">income effect</a> (entry 10) is the second part of the same price change, and <a href="#e11">diminishing marginal utility</a> (entry 11) is the other accepted explanation.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">9.1</span> The price of pens rises and students buy more pencils and fewer pens. On the <b>pen</b> diagram, is that a movement or a shift, and what is it called?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>A movement up along the pen demand curve &mdash; pens&rsquo; own price rose. The switch to pencils is the <b>substitution effect</b>. (On the <i>pencil</i> diagram it would be a shift, because a substitute got dearer.)</p></div></details></div>
+    <div class="q"><p><span class="qn">9.2</span> Why does the substitution effect make a demand curve slope down even for a good that takes a tiny share of your income?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because it depends only on relative prices, not on how much you spend. Any price rise makes the good dearer compared with its alternatives, so some buyers switch away, however small the purchase.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got9"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e10">
+  <div class="entry-head"><span class="entry-num">10</span><h2>Income effect</h2><span class="mark flag">&#9733; &#9873;</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The change in the quantity of a good demanded that results from a change in the consumer&rsquo;s <b>purchasing power</b> when the <b>price of the good</b> changes.</p></div>
+  <p class="reading">Not in this module. Your textbook defines it in Module 46, page 459.</p>
+
+  <div class="notinbook"><p><b>&#9873; Not in Module 5 &mdash; learn it from here.</b> It is the second half of your framework&rsquo;s explanation of the downward slope, and Module 5 never mentions it. Learn it together with entry 9.</p></div>
+
+  <p>A price rise makes you poorer without touching your pay. If rent takes half your income and
+  rents rise, the same income now buys less of everything. That loss of purchasing power changes how
+  much of the good you buy: the income effect.</p>
+
+  <p>It only matters for goods that take a big share of the budget &mdash; housing, food. For a pencil
+  it is too small to notice. And its direction depends on the good. For a <b>normal</b> good, poorer
+  means buy less, which <b>reinforces</b> the substitution effect. For an <b>inferior</b> good, poorer
+  means buy <i>more</i>, which works <b>against</b> it &mdash; but the substitution effect is normally
+  larger, so the curve still slopes down.</p>
+
+  <div class="watch"><p><b>Watch out.</b> The income effect is caused by a change in the good&rsquo;s <b>own price</b>. Nobody&rsquo;s income changed. If a question says incomes actually rose or fell, that is a determinant and the curve <b>shifts</b> (entries 16 and 17). If a price changed and people became effectively poorer, it is the income effect and you move <b>along</b> the curve.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Delia&rsquo;s rent.</span> Module 46: rents rise sharply, rent is a large share of her income, and she moves to a smaller flat. Housing is a normal good, so both effects push the same way.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">What a rent rise takes away.</span> Income $2,000 a month, rent $1,000. Rent rises to $1,200, so she has $800 a month left for everything else instead of $1,000 &mdash; a fifth less, and her pay never changed.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Cafeteria meals.</span> Module 46 again: the semester meal plan gets dearer, students are left poorer, and they eat <i>more</i> cafeteria meals in place of restaurant meals. Cafeteria meals behave as an inferior good here, so the income effect runs backwards.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the second half of the same own-price change as the <a href="#e9">substitution effect</a> (entry 9), and together they explain the <a href="#e8">law of demand</a> (entry 8). Its direction depends on whether the good is <a href="#e16">normal</a> (entry 16) or <a href="#e17">inferior</a> (entry 17). It is a <a href="#e12">movement along the curve</a> (entry 12), never a shift. <a href="#e11">Diminishing marginal utility</a> (entry 11) is the alternative explanation of the slope.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">10.1</span> Petrol takes a large share of a delivery driver&rsquo;s budget, and its price rises. Name both effects and say whether they push the quantity of petrol demanded the same way. (Petrol is a normal good.)</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>The <b>substitution effect</b> lowers it &mdash; petrol is dearer relative to everything else. The <b>income effect</b> lowers it too &mdash; the driver is effectively poorer and petrol is normal. Same direction: they reinforce each other.</p></div></details></div>
+    <div class="q"><p><span class="qn">10.2</span> The price of an inferior good rises. Which way does the income effect push, and why does the demand curve still slope down?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>It pushes quantity demanded <b>up</b>: the buyer is poorer, and poorer people buy more of an inferior good. The curve still slopes down because the substitution effect, which pushes quantity down, is normally the larger of the two.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got10"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e11">
+  <div class="entry-head"><span class="entry-num">11</span><h2>Diminishing marginal utility &mdash; the marginal benefit curve</h2><span class="mark flag">&#9733; &#9873;</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Each successive unit of a good consumed <b>adds less to total utility</b> than the unit before. Because of it, the demand curve is also a <b>marginal benefit curve</b>: its height at any quantity is what that unit is worth to the buyer.</p></div>
+  <p class="reading">Not in this module. You met diminishing marginal utility in Module 51, page 513; the link to demand is on page 521.</p>
+
+  <div class="notinbook"><p><b>&#9873; Not in Module 5 &mdash; learn it from here.</b> Your framework gives a second explanation of the downward slope and calls the demand curve a &ldquo;marginal benefit&rdquo; curve. Module 5 does neither.</p></div>
+
+  <p>Your first slice of pizza is worth a lot to you; your fourth, much less. Because each extra unit
+  is worth less, you will only buy more units if the price comes down to what the extra one is worth.
+  That is a downward-sloping demand curve.</p>
+
+  <p>So the height of the demand curve at any quantity is the <b>marginal benefit</b> of that unit
+  &mdash; what its buyer would pay for it. In Module 51 you met the same idea from the other side:
+  raise a good&rsquo;s price and its marginal utility per dollar falls, so you buy less of it. That is
+  the law of demand again.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Either explanation earns the mark: the substitution and income effects, <i>or</i> diminishing marginal utility, or both. What does not earn it is restating the law &mdash; &ldquo;because people buy less when the price is higher&rdquo; explains nothing.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Cassie&rsquo;s clams.</span> Module 51: her marginal utility falls 15, 13, 11, 9, 7&hellip; with each clam. Each extra clam is worth less to her than the one before, so it takes a lower price to make the next one worth buying.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Reading marginal benefit off the curve.</span> A demand curve passes through $5 at 2 cups and $3 at 4 cups. The buyer of the 4th cup values it at $3 &mdash; its marginal benefit. The 2nd cup was worth $5.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">An all-you-can-eat buffet.</span> The next plate costs nothing, and you still stop. You stop where the next plate&rsquo;s marginal benefit has fallen to zero.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It explains the <a href="#e8">law of demand</a> (entry 8) alongside the <a href="#e9">substitution</a> and <a href="#e10">income</a> effects (entries 9 and 10), and it is why the <a href="#e7">demand curve</a> (entry 7) can be read as a marginal benefit curve.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">11.1</span> Explain why a demand curve slopes downward using diminishing marginal utility.</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Each additional unit adds less to a buyer&rsquo;s satisfaction than the one before. A buyer only buys a unit if it is worth at least the price, so to buy more units &mdash; each worth less &mdash; the price has to fall. Lower price, larger quantity demanded.</p></div></details></div>
+    <div class="q"><p><span class="qn">11.2</span> At 6 units the demand curve&rsquo;s height is $4. What is the marginal benefit of the 6th unit, and is it bought at a price of $5?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Its marginal benefit is <b>$4</b>. At $5 it is not bought &mdash; it is worth less than it costs &mdash; so quantity demanded at $5 is fewer than 6.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got11"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e12">
+  <div class="entry-head"><span class="entry-num">12</span><h2>Movement along the demand curve</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A change in the quantity demanded of a good that is the result of a change in <b>that good&rsquo;s own price</b>.</p></div>
+  <p class="reading">Textbook page 51, Figure 5.3, the arrow from A to B.</p>
+
+  <p>The curve does not move. You move, to a different point on the same curve. Nothing about
+  buyers&rsquo; tastes, incomes or numbers has changed &mdash; the only thing that changed is the
+  price tag, and the curve already told you what would happen at that price.</p>
+
+  <p>The cause is always the same and there is only one of it: <b>the good&rsquo;s own price</b>. If
+  a question names a price, check whose good it belongs to before you decide.</p>
+
+  <div class="watch"><p><b>Watch out.</b> The price of a <i>related</i> good is not an own price.
+  &ldquo;The price of tea rises, so people buy more coffee&rdquo; is a <b>shift</b> of the coffee
+  curve, because the price that moved was tea&rsquo;s. Always ask: whose price moved, and whose curve
+  am I drawing?</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">A to B.</span> Coffee falls from $1.50 to $1.00 a pound and quantity demanded rises from 8.1 to 10.0 billion pounds. Same curve, lower point.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Read it off the schedule.</span> Both numbers are in the left column of the table above. A movement never needs a new column &mdash; that is the test.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">A half-price offer.</span> A supermarket cuts the price of its own bread and sells three times as much. Its own price moved: movement along.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the <a href="#e8">law of demand</a> (entry 8) in action, it changes the <a href="#e6">quantity demanded</a> (entry 6), and it is defined against a <a href="#e13">change in demand</a> (entry 13). The <a href="#e9">substitution</a> and <a href="#e10">income</a> effects (entries 9 and 10) both happen along it; a change in the price of a <a href="#e14">substitute</a> (entry 14) never does.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">12.1</span> Does the curve move during a movement along the curve?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. That is the whole point of the name. The curve stays exactly where it is and you slide to a different point on it.</p></div></details></div>
+    <div class="q"><p><span class="qn">12.2</span> The price of petrol rises sharply and commuters start carpooling. Movement or shift?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Movement along the demand curve for petrol. Petrol&rsquo;s own price rose, so quantity demanded fell. Carpooling is <i>how</i> they buy less, not a separate cause.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got12"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e13">
+  <div class="entry-head"><span class="entry-num">13</span><h2>Change in demand &mdash; a shift</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A <b>shift of the demand curve</b>, which changes the quantity demanded <b>at any given price</b>.</p></div>
+  <p class="reading">Textbook pages 51&ndash;52, Figures 5.2 and 5.3, the arrow from A to C.</p>
+
+  <p>Read the definition&rsquo;s last four words carefully: <b>at any given price</b>. That phrase is
+  the test. If more would be bought at $2.00 <i>and</i> at $1.50 <i>and</i> at $1.00 &mdash; at every
+  price &mdash; the curve has moved. If more is bought only because the price came down, it has not.</p>
+
+  <p>Directions, and the words to use: an <b>increase in demand</b> is a shift to the
+  <b>right</b>; a <b>decrease in demand</b> is a shift to the <b>left</b>. Never say &ldquo;the curve
+  moved up&rdquo; &mdash; on a diagram, right and up look the same for a downward-sloping curve, and
+  only one of the two descriptions is unambiguous.</p>
+
+  <div class="watch"><p><b>Watch out.</b> When an economist says &ldquo;demand for coffee
+  increased&rdquo;, they <b>always</b> mean the curve shifted. They never mean people bought more
+  because it got cheaper. Your textbook says this in so many words on page 52, and examiners write
+  questions on the assumption that you know it.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Coffee, 2002 to 2006.</span> At $1.00 the quantity demanded went from 10.0 to 12.0 billion pounds; at $1.25, from 8.9 to 10.7. Every row rose, so the curve moved right.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">A to C.</span> Hold the price at $1.50 and the quantity demanded goes from 8.1 billion on D&#8321; to 9.7 billion on D&#8322;. The price never changed, so this cannot be a movement.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Hats.</span> After 1945 men stopped wearing them. The demand curve for hats shifted left &mdash; not because hats got dearer, but because nobody wanted one.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the opposite case to a <a href="#e12">movement along</a> (entry 12), it is caused by the five factors in entries 14 to 18 &mdash; <a href="#e14">substitutes</a>, <a href="#e15">complements</a>, <a href="#e16">normal</a> and <a href="#e17">inferior</a> goods, and <a href="#e18">the other three</a> &mdash; and it is what those factors do to the <a href="#e20">market demand curve</a> (entry 20). On a table it is a whole new column of the <a href="#e5">demand schedule</a> (entry 5).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">13.1</span> What is the four-word test for a shift?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>&ldquo;At any given price.&rdquo; If the quantity demanded changes even though the price did not, the curve has shifted.</p></div></details></div>
+    <div class="q"><p><span class="qn">13.2</span> Why is &ldquo;the demand curve shifted up&rdquo; a risky thing to write?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because for a downward-sloping curve, moving up and moving left look similar but mean opposite things. Say <b>right</b> for an increase and <b>left</b> for a decrease and you can never be misread.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got13"> Got it</label>
+  </div>
+</article>
+
+<!-- ============ THE SORTER ============ -->
+<section class="section" id="sorter">
+  <h2>Drill: movement or shift?</h2>
+  <p>Twelve scenarios, including all four from your textbook&rsquo;s Check Your Understanding and two
+  built on entries 9 and 10. Decide before you click. Get twelve out of twelve twice and this topic is
+  done.</p>
+
+  <div class="widget">
+    <div class="widget-title">Sort each one</div>
+    <div id="sorter-list"></div>
+    <p class="score" id="sorter-score">0 of 12 answered</p>
+    <button type="button" id="sorter-reset">Start again</button>
+    <p class="widget-note">The traps are in here on purpose: one scenario names a price that belongs
+    to a <i>different</i> good, one names the good&rsquo;s own price in a way that sounds like a shift,
+    and the last two are the substitution and income effects &mdash; own-price changes that sound like
+    determinants.</p>
+  </div>
+</section>
+
+<article class="entry" id="e14">
+  <div class="entry-head"><span class="entry-num">14</span><h2>Substitutes</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Two goods are substitutes if a <b>rise</b> in the price of one leads to an <b>increase in the demand</b> for the other.</p></div>
+  <p class="reading">Textbook page 52. This is the first of the five shift factors: <i>prices of related goods</i>.</p>
+
+  <p>Substitutes do a similar job, so buyers swap between them. Tea and coffee. Concerts and plays.
+  Train tickets and flights. Margarine and butter.</p>
+
+  <p>The chain has two links and you should say both out loud: <b>the price of tea rises</b>, so some
+  tea drinkers switch, so <b>the demand for coffee increases</b> &mdash; the coffee curve shifts
+  right. The price of coffee never moved.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Substitutes are not the substitution effect. Here
+  <i>another</i> good&rsquo;s price moves and this good&rsquo;s curve <b>shifts</b>. In the
+  substitution effect, this good&rsquo;s <i>own</i> price moves and you slide <b>along</b> its curve.
+  Same switching, opposite answers &mdash; so ask whose price moved.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Tea and coffee.</span> A rise in the price of tea induces some tea drinkers to drink coffee instead, shifting demand for coffee to the right.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Butter and margarine.</span> Butter gets <i>cheaper</i>. Some margarine buyers switch to butter, so the demand for margarine <b>falls</b> &mdash; a leftward shift. This is your textbook&rsquo;s multiple-choice question 2.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Buses and cars.</span> Cities subsidise buses to reduce the demand for driving. Cheaper substitute, leftward shift in the demand for car trips.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It causes a <a href="#e13">change in demand</a> (entry 13), never a <a href="#e12">movement</a> (entry 12), and it is the mirror image of <a href="#e15">complements</a> (entry 15). It is one of the <a href="#e18">five factors</a> that shift demand. Do not confuse it with the <a href="#e9">substitution effect</a> (entry 9). In Topic 2.5 a number &mdash; the cross-price elasticity &mdash; will tell you which relationship two goods are in.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">14.1</span> The price of Pepsi falls. What happens to the demand for Coca-Cola?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>It decreases &mdash; the curve shifts left. Some Coke buyers switch to the now-cheaper substitute.</p></div></details></div>
+    <div class="q"><p><span class="qn">14.2</span> Does a change in the price of a substitute move you along the curve?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. It is not <i>this</i> good&rsquo;s own price, so the whole curve shifts. Only the good&rsquo;s own price produces a movement.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got14"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e15">
+  <div class="entry-head"><span class="entry-num">15</span><h2>Complements</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Two goods are complements if a <b>rise</b> in the price of one leads to a <b>decrease in the demand</b> for the other.</p></div>
+  <p class="reading">Textbook page 52.</p>
+
+  <p>Complements are consumed together. Computers and software. Cars and petrol. Cappuccinos and
+  croissants. If one becomes dearer you buy less of the pair, so you want less of both.</p>
+
+  <p>Same mechanism as substitutes, opposite sign. Compare the two definitions word for word: they
+  differ only in &ldquo;increase&rdquo; against &ldquo;decrease&rdquo;. Learning them apart is how
+  students end up guessing.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Decide which relationship you are in <i>before</i> you pick
+  a direction. Ask: if this other good got more expensive, would I want more of my good or less? More
+  &rarr; substitutes. Less &rarr; complements.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Cappuccinos and croissants.</span> Starbucks raised cappuccino prices in October 2006, which probably shifted the demand curve for croissants to the left.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Multiple-choice 1.</span> Which <i>decrease</i> would <i>increase</i> demand for a normal good? A decrease in the price of a complement. Cheaper petrol, more demand for large cars.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Parking taxes.</span> Cities tax city-centre parking to discourage driving. Parking is a complement to a car trip; dearer parking, leftward shift in demand for car trips.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> The mirror of <a href="#e14">substitutes</a> (entry 14). Both are the first of the <a href="#e18">five shift factors</a> and both cause a <a href="#e13">change in demand</a> (entry 13).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">15.1</span> Petrol gets much more expensive. What happens to the demand curve for large cars?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>It shifts left. Petrol and cars are complements, so a rise in the price of one decreases the demand for the other.</p></div></details></div>
+    <div class="q"><p><span class="qn">15.2</span> Printers and ink cartridges: substitutes or complements? What happens to printer demand if cartridges get cheaper?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Complements &mdash; you cannot use one without the other. Cheaper cartridges increase the demand for printers, shifting that curve right.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got15"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e16">
+  <div class="entry-head"><span class="entry-num">16</span><h2>Normal goods</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A good whose demand <b>increases when consumer income rises</b> &mdash; the normal case.</p></div>
+  <p class="reading">Textbook page 52. This is the second shift factor: <i>changes in income</i>.</p>
+
+  <p>Your framework meets income twice. Once as a <b>constraint</b> (entry 4): what you can buy is
+  limited by what you have. And once as a way of sorting goods: in Topic 2.5 you will measure how
+  demand responds to income and use the answer to decide whether a good is <b>normal or
+  inferior</b>. Put the two together: when income rises the constraint loosens, and for a normal good
+  more is demanded at every price.</p>
+
+  <p>Most goods are normal. Incomes rise, people buy more restaurant meals, more plane tickets, more
+  of almost everything.</p>
+
+  <div class="watch"><p><b>Watch out.</b> An income change shifts the curve. It is not a price
+  change, so it never moves you along. Students who have just learned &ldquo;more money means you
+  can afford it at that price&rdquo; often reach for a movement; resist it.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Disney World.</span> A family&rsquo;s income rises, so it is more likely to take the summer trip &mdash; and so more likely to buy plane tickets.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Casual dining.</span> When American incomes rise, spending at Applebee&rsquo;s and Olive Garden rises. Casual dining is a normal good.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">The framework&rsquo;s own lesson.</span> The suggested classroom activity for this topic runs an auction, then hands students fake money to raise their incomes and asks them to spot the shift. Loosen the income constraint and more is bid at every price.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is one case of an income change; <a href="#e17">inferior goods</a> (entry 17) are the other. It produces a <a href="#e13">change in demand</a> (entry 13). For a normal good, the <a href="#e10">income effect</a> (entry 10) reinforces the substitution effect, and income itself is one of the <a href="#e4">constraints</a> of entry 4.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">16.1</span> Incomes in a region fall after its largest employer closes. What happens to the demand for air travel, a normal good?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>It decreases &mdash; the curve shifts left. For a normal good, income and demand move in the same direction.</p></div></details></div>
+    <div class="q"><p><span class="qn">16.2</span> Your framework calls income a constraint. How can it also shift the demand curve?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>A constraint limits what you are <i>able</i> to buy. When income rises the limit loosens, so at every price you can buy more &mdash; and for a normal good you do. More demanded at every price is a shift to the right.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got16"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e17">
+  <div class="entry-head"><span class="entry-num">17</span><h2>Inferior goods</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A good whose demand <b>decreases when consumer income rises</b>.</p></div>
+  <p class="reading">Textbook page 53.</p>
+
+  <p>When people can afford better, they stop buying the cheap alternative and trade up. So a rise in
+  income shifts the demand curve for an inferior good to the <b>left</b>, and &mdash; the part
+  students forget &mdash; a <b>fall</b> in income shifts it to the <b>right</b>.</p>
+
+  <p>That last sentence is why inferior goods are worth knowing. When incomes fall, demand for some
+  goods goes <i>up</i>. Topic 2.5 gives you a number for it: a <b>negative</b> income elasticity is
+  what makes a good inferior.</p>
+
+  <div class="watch"><p><b>Watch out.</b> &ldquo;Inferior&rdquo; is not a judgement about quality. It
+  describes a relationship with income and nothing else. A bus ride is not a bad thing; it is just
+  what people buy less of when they can afford taxis.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Bus rides against taxi rides.</span> The classic pair. As income rises, people switch from the bus to the taxi.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Fast food.</span> Your textbook&rsquo;s business-press example: as incomes rise, Americans eat out more at casual-dining restaurants and somewhat less at McDonald&rsquo;s and KFC. Casual dining normal, fast food inferior.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Own-brand groceries.</span> Sales rise in a downturn. Falling income, rightward shift &mdash; the inferior case run backwards.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> The other case of an income change from <a href="#e16">normal goods</a> (entry 16). Both are a <a href="#e13">change in demand</a> (entry 13): they shift the curve, neither moves you along it. It is also why the <a href="#e10">income effect</a> (entry 10) runs backwards for an inferior good.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">17.1</span> An increase in income leads to a decrease in demand. What kind of good is it?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Inferior. This is your textbook&rsquo;s multiple-choice question 3, and the trap answer is &ldquo;abnormal&rdquo;, which is not a term in economics.</p></div></details></div>
+    <div class="q"><p><span class="qn">17.2</span> Incomes fall. What happens to the demand curve for instant noodles?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>It shifts right &mdash; demand increases. Instant noodles behave as an inferior good, so income and demand move in opposite directions.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got17"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e18">
+  <div class="entry-head"><span class="entry-num">18</span><h2>Tastes, expectations and the number of consumers</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The remaining three of the <b>five factors that shift demand</b>: changes in tastes, changes in expectations, and changes in the number of consumers.</p></div>
+  <p class="reading">Textbook pages 53&ndash;55, summarised in Table 5.1 on page 56.</p>
+
+  <p><b>Tastes.</b> Fashions, beliefs, health reports. Tastes turn towards a good and the curve shifts
+  right; away and it shifts left. Economists have nothing to say about <i>why</i> tastes change, only
+  about what a change does.</p>
+
+  <p><b>Expectations.</b> This one runs backwards from intuition, so learn it as a rule rather than by
+  feel. If you expect the price to <b>rise</b> later, you buy <b>now</b>: demand today increases. If
+  you expect the price to <b>fall</b> later, you wait: demand today <b>decreases</b>. Expected future
+  income works the same way &mdash; expecting a raise makes you spend today.</p>
+
+  <p><b>Number of consumers.</b> More buyers, more demanded at every price. This is the factor your
+  textbook uses to explain the 2002&ndash;2006 coffee story, alongside tastes.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Expectations are about <i>today&rsquo;s</i> curve. A
+  question that says &ldquo;consumers expect prices to fall next month&rdquo; is asking what happens
+  to demand <b>today</b>, and the answer is that it falls. Reading it as a question about next month
+  gets it backwards.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Hats.</span> After the Second World War, returning soldiers adopted an informal style and President Eisenhower often went hatless. Tastes changed; the curve shifted left.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Starbucks, October 2006.</span> Shoppers who knew a price rise was coming on 6 October bought beans before it. Expected rise &rarr; demand up today.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">A baby boom.</span> More infants means more buyers of nappies at every price &mdash; a rightward shift. This is your textbook&rsquo;s multiple-choice question 5.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> These three, plus <a href="#e14">substitutes</a> and <a href="#e15">complements</a> (entries 14 and 15) and income (entries 16 and 17), are the complete list of what causes a <a href="#e13">change in demand</a> (entry 13).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">18.1</span> Consumers expect the price of a good to fall in the coming months. What happens to demand today?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Demand decreases today &mdash; the curve shifts left, because buyers wait. Note the question asks about demand, not quantity demanded: the price has not changed yet.</p></div></details></div>
+    <div class="q"><p><span class="qn">18.2</span> A new report says apples prevent illness. Which factor is this, and which way does the curve move?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Tastes, and the curve shifts right. This is your textbook&rsquo;s second free-response question.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got18"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e19">
+  <div class="entry-head"><span class="entry-num">19</span><h2>Individual demand curve</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The relationship between quantity demanded and price for <b>one consumer</b>.</p></div>
+  <p class="reading">Textbook page 55, panels (a) and (b) of Figure 5.5.</p>
+
+  <p>Your textbook introduces one buyer at a time so that the market curve can be built in front of
+  you. Darla will buy 20 pounds of coffee a year at $2; Dino will buy 10.</p>
+
+  <p>Your framework requires it by name: the market demand curve is <b>derived from the summation
+  of individual demand curves</b>. So you need both curves and the step between them, which is
+  entry 20.</p>
+
+  <div class="watch"><p><b>Watch out.</b> If a question says &ldquo;the demand curve&rdquo;
+  with no qualifier, it means the <b>market</b> demand curve. Your textbook says the same: most of
+  the time, when economists say demand curve, that is what they mean.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Darla.</span> D<sub>Darla</sub> shows how many pounds of coffee beans she will buy per year at any given price.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">At $2 a pound.</span> Darla 20 pounds, Dino 10 pounds. Two individual curves, two numbers.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Your own.</span> How many coffees would you buy in a week at $6, at $4, at $2? That is your individual demand curve, and it slopes downward for the same reason everyone&rsquo;s does.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> Add all of them together horizontally and you get the <a href="#e20">market demand curve</a> (entry 20), which is the one that is examined.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">19.1</span> Darla&rsquo;s income rises and she now wants more coffee at every price. Dino&rsquo;s situation is unchanged. Which curves shift?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Darla&rsquo;s individual curve shifts right, and so does the market curve, because it is the sum. Dino&rsquo;s does not move. A change for one buyer is enough to shift the market curve.</p></div></details></div>
+    <div class="q"><p><span class="qn">19.2</span> Does an individual demand curve obey the law of demand?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Yes &mdash; it slopes downward for one buyer just as it does for the market. That is why adding them up produces a downward-sloping market curve.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got19"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e20">
+  <div class="entry-head"><span class="entry-num">20</span><h2>Market demand curve</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Shows how the <b>combined</b> quantity demanded by all consumers depends on the market price. It is the <b>horizontal sum</b> of the individual demand curves.</p></div>
+  <p class="reading">Textbook page 55, panel (c) of Figure 5.5.</p>
+
+  <p>&ldquo;Horizontal sum&rdquo; means: pick a price, add up the quantities, plot the total. Add
+  quantities, never prices. Everyone in the market faces the same price &mdash; that is what makes it
+  a market &mdash; so the price is the thing you hold fixed while you add.</p>
+
+  <p>Your framework asks for exactly this step: the market demand curve <b>(schedule)</b> is derived
+  from the <b>summation</b> of individual demand curves <b>(schedules)</b>. Expect a table of two or
+  three buyers and a request for the market column &mdash; add across each row.</p>
+
+  <div class="watch"><p><b>Watch out.</b> More consumers entering the market shifts the market curve
+  right without changing anybody&rsquo;s individual curve at all. That is how population growth
+  raises demand: not by making existing buyers want more, but by adding buyers to the sum.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Darla and Dino.</span> At $2 a pound, 20 + 10 = <b>30</b> pounds. If they are the only two buyers, that point is on the market demand curve.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">At $1 a pound.</span> Darla 30, Dino 20, market <b>50</b>. Lower price, larger sum &mdash; the market curve slopes downward because both individual curves do.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">A third buyer.</span> Add one more consumer who buys 5 pounds at $2 and the market quantity at $2 becomes 35. The curve shifts right, and neither Darla nor Dino changed their mind.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the horizontal sum of <a href="#e19">individual demand curves</a> (entry 19). It is what <a href="#e13">changes in demand</a> (entry 13) shift, and it is what the whole <a href="#e2">supply and demand model</a> (entry 2) uses. Drawn, it is a <a href="#e7">demand curve</a> (entry 7) like any other.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">20.1</span> At $3, Ana would buy 4 units and Ben 7. What is the market quantity demanded at $3?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>11 units. Hold the price fixed and add the quantities: 4 + 7. You never add the prices.</p></div></details></div>
+    <div class="q"><p><span class="qn">20.2</span> Fifty new buyers move into the town. Which curve moves, the individual or the market one?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>The market curve, and it shifts right. Every existing buyer&rsquo;s individual curve is exactly where it was &mdash; there are simply more curves in the sum.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got20"> Got it</label>
+  </div>
+</article>
+
+<!-- ============ MARKET DEMAND WIDGET ============ -->
+<section class="section" id="sumwidget">
+  <h2>Build a market demand curve</h2>
+  <p>Two buyers, your numbers. Change either quantity and watch the market total. The defaults are
+  your textbook&rsquo;s Figure 5.5.</p>
+
+  <div class="widget">
+    <div class="widget-title">Horizontal summation</div>
+    <div class="calc-grid">
+      <label class="field">Price<select id="sumPrice"><option value="2">$2.00 per pound</option><option value="1">$1.00 per pound</option></select></label>
+      <label class="field">Darla buys<input type="number" id="sumDarla" min="0" max="200" step="1" value="20"></label>
+      <label class="field">Dino buys<input type="number" id="sumDino" min="0" max="200" step="1" value="10"></label>
+    </div>
+    <div class="readouts">
+      <div class="ro"><span class="k">Market quantity demanded</span><span class="v" id="sumTotal">30</span></div>
+      <div class="ro"><span class="k">At this price</span><span class="v" id="sumAt">$2.00</span></div>
+    </div>
+    <p class="widget-note" id="sumNote"></p>
+  </div>
+</section>
+
+<!-- ============ MCQ ============ -->
+<section class="section" id="mcq">
+  <h2>Tackle the test &mdash; multiple choice</h2>
+  <p>The five questions from your textbook&rsquo;s AP Review, with <b>every option explained</b>.
+  Pick one before you read anything.</p>
+
+  <div class="mcq" data-key="E">
+    <p class="stem"><span class="qn">1</span> Which of the following would increase demand for a <b>normal good</b>? A decrease in&hellip;</p>
+    <div class="opts">
+      <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>price.<span class="why" hidden>&#10007; A fall in the good&rsquo;s <b>own</b> price increases the <i>quantity demanded</i>, not demand. You move down along the curve; it does not shift. This is the trap the whole module is about.</span></span></button>
+      <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>income.<span class="why" hidden>&#10007; For a normal good, income and demand move together, so a <i>decrease</i> in income <b>decreases</b> demand. This would shift the curve left.</span></span></button>
+      <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>the price of a substitute.<span class="why" hidden>&#10007; A cheaper substitute pulls buyers away, so demand for this good <b>falls</b>. Right relationship, wrong direction.</span></span></button>
+      <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>consumer taste for a good.<span class="why" hidden>&#10007; Tastes turning against a good shift its curve <b>left</b>. Again the right factor with the wrong sign.</span></span></button>
+      <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>the price of a complement.<span class="why" hidden>&#10003; <b>Correct.</b> Complements are consumed together, so a cheaper complement makes the pair more attractive and <b>increases</b> demand for this good. Cheaper petrol, more demand for large cars.</span></span></button>
+    </div>
+  </div>
+
+  <div class="mcq" data-key="A">
+    <p class="stem"><span class="qn">2</span> A decrease in the price of butter would most likely <b>decrease</b> the demand for&hellip;</p>
+    <div class="opts">
+      <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>margarine.<span class="why" hidden>&#10003; <b>Correct.</b> Margarine is a substitute for butter. Butter gets cheaper, buyers switch to it, and the demand for margarine shifts left.</span></span></button>
+      <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>bagels.<span class="why" hidden>&#10007; Bagels are a complement to butter, if anything. Cheaper butter would <b>increase</b> the demand for them, not decrease it.</span></span></button>
+      <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>jelly.<span class="why" hidden>&#10007; Jelly is spread alongside butter rather than instead of it &mdash; a complement at most, so demand would rise or not move.</span></span></button>
+      <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>milk.<span class="why" hidden>&#10007; Milk is not a substitute for butter in any ordinary use. Nothing here shifts its curve.</span></span></button>
+      <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>syrup.<span class="why" hidden>&#10007; Syrup is unrelated, or a mild complement. Either way the price of butter falling does not reduce the demand for it.</span></span></button>
+    </div>
+  </div>
+
+  <div class="mcq" data-key="C">
+    <p class="stem"><span class="qn">3</span> If an increase in income leads to a <b>decrease</b> in demand, the good is&hellip;</p>
+    <div class="opts">
+      <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>a complement.<span class="why" hidden>&#10007; Complement describes a relationship between <b>two goods</b>, not between a good and income. Wrong category of answer.</span></span></button>
+      <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>a substitute.<span class="why" hidden>&#10007; Same problem: substitute is also a two-goods relationship. Neither word says anything about income.</span></span></button>
+      <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>inferior.<span class="why" hidden>&#10003; <b>Correct.</b> Inferior is defined exactly this way: a rise in income decreases demand. Bus rides, fast food, own-brand groceries.</span></span></button>
+      <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>abnormal.<span class="why" hidden>&#10007; There is no such term in economics. It is here because it sounds like the opposite of &ldquo;normal&rdquo;, and students who learned only half the pair reach for it.</span></span></button>
+      <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>normal.<span class="why" hidden>&#10007; Exactly backwards. For a normal good, a rise in income <b>increases</b> demand.</span></span></button>
+    </div>
+  </div>
+
+  <div class="mcq" data-key="D">
+    <p class="stem"><span class="qn">4</span> Which of the following will occur if consumers expect the price of a good to <b>fall</b> in the coming months?</p>
+    <div class="opts">
+      <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>The quantity demanded will rise today.<span class="why" hidden>&#10007; Two errors. Nothing has happened to today&rsquo;s price, so quantity demanded cannot change on its own; and expecting a fall makes buyers wait, not buy.</span></span></button>
+      <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>The quantity demanded will remain the same today.<span class="why" hidden>&#10007; It is true that no price has changed, but demand itself does move, and the question is about that. Quantity demanded at today&rsquo;s price falls because the curve shifts.</span></span></button>
+      <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>Demand will increase today.<span class="why" hidden>&#10007; The right variable, the wrong direction. Buying now makes sense when you expect a price <b>rise</b>.</span></span></button>
+      <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>Demand will decrease today.<span class="why" hidden>&#10003; <b>Correct.</b> If it will be cheaper later, wait. Waiting means less bought at every price today, which is a leftward shift.</span></span></button>
+      <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>No change will occur today.<span class="why" hidden>&#10007; Expectations are one of the five shift factors precisely because they change behaviour before the price does.</span></span></button>
+    </div>
+  </div>
+
+  <div class="mcq" data-key="A">
+    <p class="stem"><span class="qn">5</span> Which of the following will <b>increase</b> the demand for disposable nappies?</p>
+    <div class="opts">
+      <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>a new &ldquo;baby boom&rdquo;<span class="why" hidden>&#10003; <b>Correct.</b> More babies means more buyers, which is the fifth shift factor &mdash; the number of consumers. More is demanded at every price, so the market curve shifts right.</span></span></button>
+      <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>concern over the environmental effect of landfill<span class="why" hidden>&#10007; That is a change in tastes <b>against</b> the good, which shifts the curve left.</span></span></button>
+      <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>a decrease in the price of cloth nappies<span class="why" hidden>&#10007; Cloth nappies are a substitute. Cheaper substitute, demand for disposables <b>falls</b>.</span></span></button>
+      <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>a move towards earlier potty training<span class="why" hidden>&#10007; Fewer children in nappies for less time &mdash; fewer buyers, so the curve shifts left.</span></span></button>
+      <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>a decrease in the price of disposable nappies<span class="why" hidden>&#10007; The own-price trap again. That increases <i>quantity demanded</i> and moves you along the curve. Demand does not change.</span></span></button>
+    </div>
+  </div>
+
+  <p class="score" id="mcqScore">0 of 5 answered</p>
+</section>
+
+<!-- ============ FRQ ============ -->
+<section class="section" id="frq">
+  <h2>Tackle the test &mdash; free response</h2>
+
+  <div class="frq">
+    <p><b>Question 1 (6 points).</b> Create a table with two hypothetical prices for a good and two
+    corresponding quantities demanded, chosen so that they illustrate the law of demand. Using your
+    data, draw a correctly labelled graph showing the demand curve. On the same graph, illustrate an
+    <b>increase</b> in demand.</p>
+    <details class="reveal"><summary>Show the answer and the rubric</summary><div class="ans">
+      <p>Your textbook&rsquo;s own answer uses $4 &rarr; 10 units and $2 &rarr; 14 units, then draws
+      D and a second curve D&#8322; to the right of it.</p>
+      <p class="rubric"><b>The six marks, one each:</b></p>
+      <ol>
+        <li>A table with the columns labelled Price (or P) and Quantity (or Q)</li>
+        <li>Values showing a <b>negative</b> relationship between P and Q</li>
+        <li>Graph with <b>Price on the vertical axis</b> and <b>Quantity on the horizontal axis</b></li>
+        <li>A <b>negatively sloped curve labelled</b> Demand or D</li>
+        <li>The curve <b>correctly plots the data</b> from your table</li>
+        <li>A <b>second demand curve, labelled</b> (for example D&#8322;), shown to the <b>right</b> of the original</li>
+      </ol>
+      <p><b>Four of the six marks are for drawing conventions.</b> Label the axes, label both curves,
+      make the points match your table. You can lose two-thirds of this question without making a
+      single economic mistake.</p>
+    </div></details>
+  </div>
+
+  <div class="frq">
+    <p><b>Question 2.</b> Draw a correctly labelled graph showing the demand for apples. On your
+    graph, illustrate what happens to the demand for apples if a new report from the Surgeon General
+    finds that an apple a day really does keep the doctor away.</p>
+    <details class="reveal"><summary>Show the answer</summary><div class="ans">
+      <p>Axes labelled &mdash; Price of apples vertical, Quantity of apples horizontal. A
+      downward-sloping curve labelled D&#8321;. Then a second downward-sloping curve labelled
+      D&#8322; drawn to the <b>right</b> of it.</p>
+      <p>The report is a change in <b>tastes</b> in favour of apples, so more are demanded at every
+      price. Shift, not movement: the price of apples has not changed.</p>
+      <p><b>Say why in one sentence</b> even if the question does not obviously ask for it: &ldquo;a
+      change in tastes in favour of apples increases demand at every price, shifting the curve
+      right.&rdquo; It costs nothing and it protects you if the marker wants a justification.</p>
+    </div></details>
+  </div>
+</section>
+
+<!-- ============ SUMMARY ============ -->
+<section class="section" id="summary">
+  <h2>One-page summary</h2>
+  <div class="tablewrap">
+    <table class="sumtable">
+      <thead><tr><th>Cause</th><th>What changes</th><th>On the diagram</th></tr></thead>
+      <tbody>
+        <tr><td>The good&rsquo;s <b>own price</b></td><td>Quantity demanded</td><td><b>Movement along</b> the curve</td></tr>
+        <tr><td>Price of a <b>substitute</b> rises</td><td>Demand</td><td>Shift <b>right</b></td></tr>
+        <tr><td>Price of a <b>substitute</b> falls</td><td>Demand</td><td>Shift <b>left</b></td></tr>
+        <tr><td>Price of a <b>complement</b> rises</td><td>Demand</td><td>Shift <b>left</b></td></tr>
+        <tr><td>Price of a <b>complement</b> falls</td><td>Demand</td><td>Shift <b>right</b></td></tr>
+        <tr><td><b>Income</b> rises, normal good</td><td>Demand</td><td>Shift <b>right</b></td></tr>
+        <tr><td><b>Income</b> rises, inferior good</td><td>Demand</td><td>Shift <b>left</b></td></tr>
+        <tr><td><b>Tastes</b> turn towards the good</td><td>Demand</td><td>Shift <b>right</b></td></tr>
+        <tr><td>Price <b>expected to rise</b> later</td><td>Demand today</td><td>Shift <b>right</b></td></tr>
+        <tr><td>Price <b>expected to fall</b> later</td><td>Demand today</td><td>Shift <b>left</b></td></tr>
+        <tr><td><b>More consumers</b> in the market</td><td>Market demand</td><td>Shift <b>right</b></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="figcap">Ten of the eleven rows are shifts. Only the first row is a movement, and it is the
+  one that is tested hardest.</p>
+  <div class="tablewrap">
+    <table class="sumtable">
+      <thead><tr><th>Why the curve slopes down</th><th>Caused by</th><th>On the diagram</th></tr></thead>
+      <tbody>
+        <tr><td><b>Substitution effect</b> &mdash; switch to relatively cheaper goods</td><td>The good&rsquo;s own price</td><td><b>Movement along</b></td></tr>
+        <tr><td><b>Income effect</b> &mdash; purchasing power changes</td><td>The good&rsquo;s own price</td><td><b>Movement along</b></td></tr>
+        <tr><td><b>Diminishing marginal utility</b> &mdash; each unit is worth less</td><td>How much you already have</td><td>The slope itself: height = <b>marginal benefit</b></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="figcap">All three explain the slope of one curve. None of them shifts it.</p>
+</section>
+
+<section class="section closing" id="final">
+  <h2>The six things to get right from Module 5</h2>
+  <ol>
+    <li><b>Own price &rarr; movement. Anything else &rarr; shift.</b> If you remember one sentence
+      from this module, that is the sentence.</li>
+    <li><b>The price of a related good is not an own price.</b> Write down whose price moved and
+      whose curve you are drawing, every time.</li>
+    <li><b>Say &ldquo;right&rdquo; and &ldquo;left&rdquo;, never &ldquo;up&rdquo; and
+      &ldquo;down&rdquo;</b>, when describing a shift.</li>
+    <li><b>Expectations run backwards.</b> Expect a fall, wait, demand falls today.</li>
+    <li><b>Label the axes and label every curve.</b> Four of the six marks in the free-response
+      question are for that alone.</li>
+    <li><b>Explain the slope, do not restate the law.</b> The substitution and income effects, or
+      diminishing marginal utility. &ldquo;People buy less when it costs more&rdquo; is the law, not
+      the reason for it.</li>
+  </ol>
+  <p>One more thing, for the rest of this unit. The demand curve you built here comes straight back
+  three times: <b>elasticity</b> measures how far quantity demanded moves along it; <b>consumer
+  surplus</b> is the area between it and the price, which only makes sense because it is a marginal
+  benefit curve; and every <b>change in equilibrium</b> starts with one of the shifts you sorted above.
+  Learn it properly once and you will be paid for it all unit.</p>
+</section>
+
+<p class="footer">
+  Student guide &middot; Module 5, <i>Krugman&rsquo;s Economics for AP</i>, pages 48&ndash;58 &middot;
+  definitions quoted from the textbook &middot; tiers assigned against the AP Microeconomics Course
+  and Exam Description, Course Framework V.1, &copy; 2022 &middot; entries 3, 4 and 9&ndash;11 draw
+  on the textbook&rsquo;s Modules 1, 46 and 51 &middot; the diagram is plotted from the
+  textbook&rsquo;s own demand schedule and every figure is recomputed.
+</p>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- progress ---------- */
+  var KEY = "micro-mod5-progress";
+  var boxes = Array.prototype.slice.call(document.querySelectorAll(".gotbox"));
+  var fill = document.getElementById("pfill");
+  var num  = document.getElementById("pnum");
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch(e){ return {}; } }
+  function save(s){ try { localStorage.setItem(KEY, JSON.stringify(s)); } catch(e){} }
+  function paint(){
+    var done = boxes.filter(function(b){ return b.checked; }).length;
+    fill.style.width = (done / boxes.length * 100) + "%";
+    num.textContent = done + " / " + boxes.length;
+  }
+  var state = load();
+  boxes.forEach(function(b){
+    if (state[b.id]) b.checked = true;
+    b.addEventListener("change", function(){ var s = load(); s[b.id] = b.checked; save(s); paint(); });
+  });
+  paint();
+  document.getElementById("resetBtn").addEventListener("click", function(){
+    boxes.forEach(function(b){ b.checked = false; });
+    save({}); paint();
+  });
+
+  /* ---------- the diagram ---------- */
+  var gMove = document.getElementById("g-move");
+  var gShift = document.getElementById("g-shift");
+  var gD2 = document.getElementById("g-d2");
+  var dcap = document.getElementById("dcap");
+  var CAP = {
+    none:  "Your textbook's demand schedule for coffee beans, plotted. Seven prices, seven quantities, one downward-sloping curve.",
+    move:  "A → B. The price falls from $1.50 to $1.00 and the quantity demanded rises from 8.1 to 10.0 billion pounds. The curve has not moved — you have moved along it. This is a change in QUANTITY DEMANDED.",
+    shift: "A → C. The price stays at $1.50 and the quantity demanded rises from 8.1 to 9.7 billion pounds, because incomes and the population rose. The whole curve moved right. This is a change in DEMAND."
+  };
+  var chips = Array.prototype.slice.call(document.querySelectorAll("#diagram .chip"));
+  function show(which){
+    gMove.hidden = which !== "move";
+    gShift.hidden = which !== "shift";
+    gD2.hidden = which !== "shift";
+    dcap.textContent = CAP[which];
+    chips.forEach(function(c){ c.setAttribute("aria-pressed", String(c.getAttribute("data-show") === which)); });
+  }
+  chips.forEach(function(c){
+    c.addEventListener("click", function(){ show(c.getAttribute("data-show")); });
+  });
+  show("none");
+
+  /* ---------- the sorter ---------- */
+  var SCEN = [
+    { t: "The price of coffee beans falls from $1.50 to $1.00 a pound.", a: "move",
+      w: "Coffee's own price moved, so you slide down the coffee curve. Quantity demanded rises; demand is unchanged." },
+    { t: "A shop finds that customers are willing to pay more for umbrellas on a rainy day.", a: "shift",
+      w: "Nothing about the price caused this — the weather changed what buyers want. More umbrellas are demanded at every price, so the curve shifts right. (Your textbook's Check Your Understanding 1a.)" },
+    { t: "XYZ Telecom offers reduced rates at weekends, and weekend calling rises sharply.", a: "move",
+      w: "The firm cut the price of its own service. Quantity demanded rose along the same curve. (Check Your Understanding 1b.)" },
+    { t: "People buy more long-stemmed roses in the week of Valentine's Day, even though prices are higher than usual.", a: "shift",
+      w: "Price and quantity both rose, which the law of demand forbids on one curve — so the curve must have moved. Tastes changed, and the rightward shift outweighed the movement up. (Check Your Understanding 1c.)" },
+    { t: "A sharp rise in the price of petrol leads many commuters to join car pools to cut their petrol purchases.", a: "move",
+      w: "Petrol's own price rose, so quantity demanded fell. Car pooling is how they buy less, not a separate cause. (Check Your Understanding 1d.)" },
+    { t: "The price of tea rises, and people buy more coffee.", a: "shift",
+      w: "TRAP. A price moved, but it was tea's, not coffee's. For the coffee curve that is a change in the price of a substitute — a rightward shift." },
+    { t: "A supermarket runs a half-price offer on its own-brand bread and sells three times as much.", a: "move",
+      w: "TRAP. It sounds like a dramatic change in demand, but the bread's own price is what fell. Movement along the curve." },
+    { t: "Consumers expect laptop prices to fall next month.", a: "shift",
+      w: "Buyers wait, so less is bought today at every price. Demand today decreases — a leftward shift. No price has changed yet." },
+    { t: "A baby boom raises the number of families with infants.", a: "shift",
+      w: "More consumers in the market, so more is demanded at every price. The market demand curve shifts right." },
+    { t: "Incomes rise across the country, and sales of own-brand instant noodles fall.", a: "shift",
+      w: "Income changed, not the noodles' price. Noodles behave as an inferior good here, so the rise in income shifts their curve left." },
+    { t: "The price of coffee rises, and some coffee drinkers switch to tea.", a: "move",
+      w: "TRAP. This is the substitution effect. Coffee's own price moved, so on the coffee diagram you slide up along the curve. Switching to tea is how they buy less coffee, not a separate cause." },
+    { t: "Rent takes half a family's income. Rents rise, the family is effectively poorer, and it moves to a smaller flat.", a: "move",
+      w: "TRAP. This is the income effect. Nobody's pay changed; housing's own price did, and that cut what the family's income will buy. Movement along the housing demand curve." }
+  ];
+  var list = document.getElementById("sorter-list");
+  var scoreEl = document.getElementById("sorter-score");
+  var answered = 0, right = 0;
+  function build(){
+    list.innerHTML = "";
+    answered = 0; right = 0;
+    SCEN.forEach(function(s, i){
+      var row = document.createElement("div");
+      row.className = "sortrow";
+      row.innerHTML =
+        '<p class="stem"><span class="qn">' + (i + 1) + '</span> ' + s.t + '</p>' +
+        '<div class="opts">' +
+          '<button type="button" class="opt" data-a="move"><span>Movement along the curve</span></button>' +
+          '<button type="button" class="opt" data-a="shift"><span>Shift of the curve</span></button>' +
+        '</div>' +
+        '<p class="why" hidden></p>';
+      var btns = Array.prototype.slice.call(row.querySelectorAll(".opt"));
+      var why = row.querySelector(".why");
+      btns.forEach(function(b){
+        b.addEventListener("click", function(){
+          if (row.getAttribute("data-done")) return;
+          row.setAttribute("data-done", "1");
+          var ok = b.getAttribute("data-a") === s.a;
+          btns.forEach(function(x){
+            x.disabled = true;
+            if (x.getAttribute("data-a") === s.a) x.classList.add("good");
+            else if (x === b) x.classList.add("bad");
+          });
+          why.hidden = false;
+          why.textContent = (ok ? "✓ " : "✗ ") + s.w;
+          answered++; if (ok) right++;
+          scoreEl.textContent = right + " correct out of " + answered + " answered";
+        });
+      });
+      list.appendChild(row);
+    });
+    scoreEl.textContent = "0 of 12 answered";
+  }
+  build();
+  document.getElementById("sorter-reset").addEventListener("click", build);
+
+  /* ---------- horizontal summation ---------- */
+  var sp = document.getElementById("sumPrice");
+  var sd = document.getElementById("sumDarla");
+  var sn = document.getElementById("sumDino");
+  var st = document.getElementById("sumTotal");
+  var sa = document.getElementById("sumAt");
+  var note = document.getElementById("sumNote");
+  function sum(){
+    var d = Math.max(0, parseInt(sd.value, 10) || 0);
+    var n = Math.max(0, parseInt(sn.value, 10) || 0);
+    var p = parseFloat(sp.value);
+    st.textContent = (d + n) + " lb";
+    sa.textContent = "$" + p.toFixed(2);
+    note.textContent = "At $" + p.toFixed(2) + " a pound, " + d + " + " + n + " = " +
+      (d + n) + " pounds. You add the quantities and hold the price fixed — never the other way round." +
+      (p === 2 && d === 20 && n === 10 ? " These are your textbook's Figure 5.5 numbers." : "") +
+      (p === 1 && d === 30 && n === 20 ? " These are your textbook's Figure 5.5 numbers at the lower price." : "");
+  }
+  [sp, sd, sn].forEach(function(el){ el.addEventListener("input", sum); el.addEventListener("change", sum); });
+  sp.addEventListener("change", function(){
+    if (sp.value === "1" && sd.value === "20" && sn.value === "10"){ sd.value = 30; sn.value = 20; }
+    else if (sp.value === "2" && sd.value === "30" && sn.value === "20"){ sd.value = 20; sn.value = 10; }
+    sum();
+  });
+  sum();
+
+  /* ---------- multiple choice ---------- */
+  var mcqs = Array.prototype.slice.call(document.querySelectorAll(".mcq[data-key]"));
+  var mcqScore = document.getElementById("mcqScore");
+  var mDone = 0, mRight = 0;
+  mcqs.forEach(function(q){
+    var key = q.getAttribute("data-key");
+    var opts = Array.prototype.slice.call(q.querySelectorAll(".opt"));
+    opts.forEach(function(o){
+      o.addEventListener("click", function(){
+        if (q.getAttribute("data-done")) return;
+        q.setAttribute("data-done", "1");
+        var ok = o.getAttribute("data-l") === key;
+        opts.forEach(function(x){
+          x.querySelector(".why").hidden = false;
+          if (x.getAttribute("data-l") === key) x.classList.add("good");
+          else if (x === o) x.classList.add("bad");
+        });
+        mDone++; if (ok) mRight++;
+        mcqScore.textContent = mRight + " correct out of " + mDone + " answered";
+      });
+    });
+  });
+})();
+</script>
+</main>
+<script>window.COURSE_NAV={"kicker": "2.1 Demand", "title": "Module 5 · Supply and Demand: Introduction and Demand", "map": [{"label": "Course", "items": [{"href": "index.html", "label": "Home", "current": false}, {"href": "spec.html", "label": "Course specification", "current": false}]}, {"label": "Unit 1 · Basic Economic Concepts", "items": [{"href": "m01-student.html", "label": "Module 1 · Student guide", "current": false}, {"href": "m01-notes.html", "label": "Module 1 · Teaching notes", "current": false}, {"href": "m01-test.html", "label": "Module 1 · Test", "current": false}, {"label": "Module 2 · Introduction to Macroeconomics", "planned": true}, {"href": "m03-student.html", "label": "Module 3 · Student guide", "current": false}, {"href": "m03-notes.html", "label": "Module 3 · Teaching notes", "current": false}, {"href": "m03-test.html", "label": "Module 3 · Test", "current": false}, {"href": "m04-student.html", "label": "Module 4 · Student guide", "current": false}, {"href": "m04-notes.html", "label": "Module 4 · Teaching notes", "current": false}, {"href": "m04-test.html", "label": "Module 4 · Test", "current": false}, {"href": "m51-student.html", "label": "Module 51 · Student guide", "current": false}, {"href": "m51-notes.html", "label": "Module 51 · Teaching notes", "current": false}, {"href": "m51-test.html", "label": "Module 51 · Test", "current": false}, {"label": "Unit 1 · Gap analysis", "planned": true}]}, {"label": "Unit 2 · Supply and Demand", "items": [{"href": "m05-student.html", "label": "Module 5 · Student guide", "current": true}, {"href": "m05-notes.html", "label": "Module 5 · Teaching notes", "current": false}, {"href": "m05-test.html", "label": "Module 5 · Test", "current": false}, {"label": "Module 6 · Supply and Demand: Supply and Equilibrium", "planned": true}, {"label": "Module 7 · Supply and Demand: Changes in Equilibrium", "planned": true}, {"label": "Module 8 · Supply and Demand: Price Controls", "planned": true}, {"label": "Module 9 · Supply and Demand: Quantity Controls", "planned": true}, {"label": "Modules 46–48 · Elasticity", "planned": true}, {"label": "Modules 49–50 · Surplus and Deadweight Loss", "planned": true}, {"label": "Topic 2.9 · International Trade and Public Policy", "planned": true}, {"label": "Unit 2 · Gap analysis", "planned": true}]}, {"label": "Unit 3 · Production, Cost and Perfect Competition", "items": [{"label": "Modules 52–53 · Profit and Profit Maximisation", "planned": true}, {"label": "Module 54 · The Production Function", "planned": true}, {"label": "Module 55 · Firm Costs", "planned": true}, {"label": "Module 56 · Long-Run Costs and Economies of Scale", "planned": true}, {"label": "Module 57 · Introduction to Market Structure", "planned": true}, {"label": "Modules 58–60 · Perfect Competition", "planned": true}, {"label": "Unit 3 · Gap analysis", "planned": true}]}, {"label": "Unit 4 · Imperfect Competition", "items": [{"label": "Topic 4.1 · Introduction to Imperfect Competition", "planned": true}, {"label": "Modules 61–63 · Monopoly", "planned": true}, {"label": "Modules 67–68 · Monopolistic Competition", "planned": true}, {"label": "Modules 64–66 · Oligopoly and Game Theory", "planned": true}, {"label": "Unit 4 · Gap analysis", "planned": true}]}, {"label": "Unit 5 · Factor Markets", "items": [{"label": "Module 69 · Introduction and Factor Demand", "planned": true}, {"label": "Module 70 · The Markets for Land and Capital", "planned": true}, {"label": "Module 71 · The Market for Labor", "planned": true}, {"label": "Module 72 · The Cost-Minimising Input Combination", "planned": true}, {"label": "Module 73 · Theories of Income Distribution", "planned": true}, {"label": "Unit 5 · Gap analysis", "planned": true}]}, {"label": "Unit 6 · Market Failure and the Role of Government", "items": [{"label": "Modules 74–75 · Externalities", "planned": true}, {"label": "Module 76 · Public Goods", "planned": true}, {"label": "Module 77 · Public Policy to Promote Competition", "planned": true}, {"label": "Module 78 · Income Inequality and Income Distribution", "planned": true}, {"label": "Unit 6 · Gap analysis", "planned": true}]}, {"label": "Interactive", "items": [{"label": "PPC explorer", "planned": true}, {"label": "Supply and demand explorer", "planned": true}, {"label": "Elasticity and total revenue", "planned": true}, {"label": "Cost curves", "planned": true}, {"label": "Market structure comparison", "planned": true}]}], "prev": {"href": "m51-test.html", "label": "Module 51 · Test"}, "next": {"href": "m05-notes.html", "label": "Module 5 · Teaching notes"}, "variants": [{"href": "m05-student.html", "label": "Student", "current": true}, {"href": "m05-notes.html", "label": "Notes", "current": false}, {"href": "m05-test.html", "label": "Test", "current": false}]};</script>
+<script src="assets/course.js"></script>
+</body>
+</html>

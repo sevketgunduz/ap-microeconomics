@@ -1,0 +1,1667 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 6 · Supply and Demand: Supply and Equilibrium · AP Microeconomics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@600;700&display=swap">
+<link rel="stylesheet" href="assets/course.css">
+<style>.page .bar{position:static;background:none;backdrop-filter:none}.page .bar-in{max-width:none;padding-inline:0}.page .wrap{max-width:none;padding-inline:0;padding-block:0 24px}.page .masthead{padding-block:10px 24px}</style></head>
+<body>
+<main class="page">
+<style>
+
+
+:root{
+  --paper:#f3f5f8;
+  --surface:#ffffff;
+  --surface-2:#eef1f6;
+  --ink:#15181f;
+  --ink-2:#4d5566;
+  --ink-3:#737c8e;
+  --rule:#d6dae2;
+  --rule-strong:#b3bac7;
+  --accent:#1d4e89;
+  --accent-soft:#e6edf7;
+  --down:#a3372a;
+  --down-soft:#fbeeeb;
+  --up:#1a6b55;
+  --up-soft:#e6f2ee;
+  --flag:#7a5310;
+  --flag-soft:#f8f0e0;
+  --shadow:0 1px 2px rgba(21,24,31,.06), 0 8px 24px rgba(21,24,31,.05);
+  --serif:"IBM Plex Serif", Georgia, "Times New Roman", serif;
+  --sans:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0f1218;
+    --surface:#171b23;
+    --surface-2:#1e232d;
+    --ink:#e8ebf1;
+    --ink-2:#a3adc0;
+    --ink-3:#7e8799;
+    --rule:#2c323d;
+    --rule-strong:#3c4351;
+    --accent:#7dabe2;
+    --accent-soft:#1a2634;
+    --down:#e5907f;
+    --down-soft:#2a1d1a;
+    --up:#6cc4a7;
+    --up-soft:#16291f;
+    --flag:#d8b169;
+    --flag-soft:#2a2418;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.28);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0f1218;
+  --surface:#171b23;
+  --surface-2:#1e232d;
+  --ink:#e8ebf1;
+  --ink-2:#a3adc0;
+  --ink-3:#7e8799;
+  --rule:#2c323d;
+  --rule-strong:#3c4351;
+  --accent:#7dabe2;
+  --accent-soft:#1a2634;
+  --down:#e5907f;
+  --down-soft:#2a1d1a;
+  --up:#6cc4a7;
+  --up-soft:#16291f;
+  --flag:#d8b169;
+  --flag-soft:#2a2418;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.28);
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.65;
+  margin:0;
+}
+.wrap{max-width:820px;margin:0 auto;padding-inline:18px;padding-block:0 72px}
+
+/* ---------- sticky bar ---------- */
+.bar{
+  position:sticky;
+  top:env(safe-area-inset-top, 0px);
+  z-index:40;
+  background:color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--rule);
+}
+.bar-in{
+  max-width:820px;margin:0 auto;padding-inline:18px;
+  display:flex;align-items:center;gap:14px;min-height:50px;flex-wrap:wrap;
+}
+.bar-title{font-family:var(--mono);font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-2);white-space:nowrap}
+.progress{flex:1 1 140px;min-width:120px;display:flex;align-items:center;gap:9px}
+.progress-track{flex:1;height:5px;border-radius:3px;background:var(--rule);overflow:hidden}
+.progress-fill{height:100%;width:0;background:var(--accent);transition:width .25s ease}
+.progress-num{font-family:var(--mono);font-size:12px;color:var(--ink-2);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar button{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;
+  background:none;border:1px solid var(--rule-strong);color:var(--ink-2);
+  padding:5px 10px;border-radius:4px;cursor:pointer;
+}
+.bar button:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ---------- masthead ---------- */
+.masthead{padding-block:40px 28px;border-bottom:2px solid var(--ink)}
+.eyebrow{
+  font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);margin:0 0 12px;
+}
+h1{
+  font-family:var(--serif);font-weight:700;font-size:clamp(30px,6.4vw,44px);
+  line-height:1.1;margin:0 0 14px;text-wrap:balance;letter-spacing:-.01em;
+}
+.standfirst{font-size:17.5px;color:var(--ink-2);margin:0;max-width:62ch}
+.source-line{
+  font-family:var(--mono);font-size:12.5px;color:var(--ink-3);margin-top:18px;
+  display:flex;gap:6px 18px;flex-wrap:wrap;
+}
+
+h2{
+  font-family:var(--serif);font-weight:600;font-size:clamp(21px,3.8vw,26px);
+  line-height:1.25;margin:0 0 10px;text-wrap:balance;
+}
+h3{font-family:var(--sans);font-weight:600;font-size:16px;margin:26px 0 8px;letter-spacing:.01em}
+p{margin:0 0 14px}
+a{color:var(--accent)}
+.section{padding-block:34px 4px}
+
+.kicker{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-3);margin:0 0 8px;
+}
+
+/* ---------- entries ---------- */
+.entry{padding-block:34px 10px;border-top:1px solid var(--rule)}
+.entry-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.entry-num{
+  font-family:var(--mono);font-size:13px;font-weight:600;color:var(--accent);
+  font-variant-numeric:tabular-nums;
+}
+.entry h2{margin:0;flex:1 1 auto;min-width:0}
+.mark{
+  font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  padding:3px 8px;border-radius:3px;white-space:nowrap;
+}
+.mark.exam{background:var(--accent-soft);color:var(--accent)}
+.mark.bg{background:var(--surface-2);color:var(--ink-3)}
+.defn{
+  background:var(--surface);border-left:3px solid var(--accent);
+  padding:14px 16px;border-radius:0 5px 5px 0;margin:14px 0 16px;box-shadow:var(--shadow);
+}
+.defn p{margin:0}
+.defn .lbl{
+  display:block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-3);margin-bottom:5px;
+}
+.reading{font-family:var(--mono);font-size:12.5px;color:var(--ink-3);margin:-6px 0 16px}
+
+.watch{
+  background:var(--down-soft);border:1px solid color-mix(in srgb, var(--down) 28%, transparent);
+  border-radius:5px;padding:13px 16px;margin:18px 0;
+}
+.watch p{margin:0;font-size:15.3px}
+.watch b{color:var(--down)}
+
+.notinbook{
+  background:var(--flag-soft);border:1px dashed color-mix(in srgb, var(--flag) 48%, transparent);
+  border-radius:5px;padding:13px 16px;margin:16px 0;
+}
+.notinbook p{margin:0;font-size:15.3px}
+.notinbook b{color:var(--flag)}
+
+.examples{margin:18px 0;display:flex;flex-direction:column;gap:12px}
+.ex{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start}
+.ex-n{
+  font-family:var(--mono);font-size:11px;font-weight:600;color:var(--ink-3);
+  border:1px solid var(--rule-strong);border-radius:3px;padding:1px 6px;margin-top:3px;white-space:nowrap;
+}
+.ex p{margin:0;font-size:15.3px}
+.ex .who{font-weight:600;color:var(--ink)}
+
+.connects{font-size:15.3px;color:var(--ink-2);border-top:1px solid var(--rule);padding-top:12px;margin-top:6px}
+.connects b{color:var(--ink)}
+
+/* ---------- check yourself ---------- */
+.check{margin:20px 0 6px;background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:14px 16px}
+.check > .lbl{
+  font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);display:block;margin-bottom:10px;
+}
+.q{margin-bottom:12px}
+.q:last-child{margin-bottom:0}
+.q > p{margin:0 0 7px;font-size:15.3px}
+.q .qn{font-family:var(--mono);font-weight:600;color:var(--accent);font-size:13.5px;margin-right:4px}
+details.reveal{border-top:1px dashed var(--rule)}
+details.reveal > summary{
+  list-style:none;cursor:pointer;font-family:var(--mono);font-size:11.5px;
+  letter-spacing:.07em;text-transform:uppercase;color:var(--accent);padding:7px 0 0;
+}
+details.reveal > summary::-webkit-details-marker{display:none}
+details.reveal > summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details.reveal[open] > summary::before{content:"▾ "}
+details.reveal > summary:hover{text-decoration:underline}
+details.reveal .ans{font-size:15.3px;color:var(--ink-2);padding:6px 0 4px}
+details.reveal .ans p{margin:0 0 8px}
+details.reveal .ans p:last-child{margin:0}
+
+.got{
+  display:flex;align-items:center;gap:8px;margin-top:16px;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);
+  cursor:pointer;user-select:none;
+}
+.got input{width:15px;height:15px;accent-color:var(--accent);cursor:pointer}
+
+/* ---------- tables ---------- */
+.tablewrap{overflow-x:auto;margin:18px 0;border:1px solid var(--rule);border-radius:6px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:15px;min-width:420px}
+th,td{padding:10px 13px;text-align:left;border-bottom:1px solid var(--rule);vertical-align:top}
+thead th{
+  font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-3);background:var(--surface-2);font-weight:600;
+}
+tbody tr:last-child td{border-bottom:none}
+td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right}
+.tight td,.tight th{padding:8px 12px;font-size:14.5px}
+
+/* ---------- widgets ---------- */
+.widget{
+  background:var(--surface);border:1px solid var(--rule-strong);border-radius:8px;
+  padding:18px;margin:26px 0;box-shadow:var(--shadow);
+}
+.widget-title{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);margin:0 0 4px;
+}
+.widget h3{margin-top:0}
+.widget-note{font-size:14.5px;color:var(--ink-2);margin:12px 0 0}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{
+  font-family:var(--mono);font-size:12px;letter-spacing:.04em;
+  border:1px solid var(--rule-strong);background:var(--surface);color:var(--ink-2);
+  border-radius:16px;padding:5px 13px;cursor:pointer;transition:all .15s;
+}
+.chip:hover{border-color:var(--accent);color:var(--accent)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+:root[data-theme="dark"] .chip[aria-pressed="true"],
+:root:not([data-theme="light"]) .chip[aria-pressed="true"]{color:#0f1218}
+
+.cyclefig{width:100%;height:auto;display:block;overflow:visible}
+.figcap{font-size:14.5px;color:var(--ink-2);margin:10px 0 0;min-height:3em}
+.figcap b{color:var(--ink)}
+
+.svg-dim{opacity:.22;transition:opacity .2s}
+.svg-lit{opacity:1;transition:opacity .2s}
+
+.calc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:14px 0}
+.field label{
+  display:block;font-family:var(--mono);font-size:11px;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--ink-3);margin-bottom:5px;
+}
+.field input[type=number]{
+  width:100%;font-family:var(--mono);font-size:16px;padding:8px 10px;
+  border:1px solid var(--rule-strong);border-radius:5px;background:var(--paper);color:var(--ink);
+}
+.field input[type=range]{width:100%;accent-color:var(--accent)}
+.field input:focus-visible,.chip:focus-visible,button:focus-visible,summary:focus-visible,a:focus-visible{
+  outline:2px solid var(--accent);outline-offset:2px;
+}
+.readouts{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:6px;overflow:hidden;margin-top:6px}
+.ro{background:var(--surface-2);padding:12px 14px}
+.ro .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);display:block;margin-bottom:3px}
+.ro .v{font-family:var(--mono);font-size:22px;font-weight:600;font-variant-numeric:tabular-nums;color:var(--ink)}
+.ro .v.hl{color:var(--accent)}
+
+/* ---------- quiz ---------- */
+.mcq{border-top:1px solid var(--rule);padding-top:18px;margin-top:18px}
+.mcq:first-of-type{border-top:none;padding-top:0;margin-top:0}
+.mcq .stem{font-size:15.6px;margin:0 0 12px}
+.mcq .stem .qn{font-family:var(--mono);font-weight:600;color:var(--accent);margin-right:6px}
+.opts{display:flex;flex-direction:column;gap:7px}
+.opt{
+  display:flex;gap:11px;align-items:flex-start;text-align:left;width:100%;
+  font-family:var(--sans);font-size:15.2px;line-height:1.5;color:var(--ink);
+  background:var(--surface);border:1px solid var(--rule);border-radius:6px;
+  padding:10px 13px;cursor:pointer;transition:border-color .15s,background .15s;
+}
+.opt:hover{border-color:var(--accent)}
+.opt .ltr{font-family:var(--mono);font-weight:600;color:var(--ink-3);flex:0 0 auto}
+.opt .why{display:block;font-size:14.3px;color:var(--ink-2);margin-top:6px}
+.opt[data-state="right"]{border-color:var(--up);background:var(--up-soft)}
+.opt[data-state="right"] .ltr{color:var(--up)}
+.opt[data-state="wrong"]{border-color:var(--down);background:var(--down-soft)}
+.opt[data-state="wrong"] .ltr{color:var(--down)}
+.opt[disabled]{cursor:default}
+.score{
+  font-family:var(--mono);font-size:13px;color:var(--ink-2);
+  border:1px solid var(--rule-strong);border-radius:6px;padding:11px 14px;margin-top:20px;
+  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;
+}
+.score b{color:var(--ink);font-size:15px}
+
+.frq{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:15px 17px;margin:16px 0}
+.frq .stem{margin:0 0 6px;font-size:15.6px}
+.frq .pts{font-family:var(--mono);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3)}
+.rubric{margin:8px 0 0;padding:0;list-style:none}
+.rubric li{display:grid;grid-template-columns:auto 1fr;gap:10px;padding:7px 0;border-top:1px dotted var(--rule);font-size:15.2px}
+.rubric li .pt{font-family:var(--mono);font-size:11.5px;color:var(--up);white-space:nowrap;padding-top:3px}
+
+.closing{background:var(--accent-soft);border-radius:8px;padding:20px 22px;margin-top:28px}
+.closing h2{margin-top:0}
+.closing ol{margin:0;padding-left:20px}
+.closing li{margin-bottom:10px;font-size:15.5px}
+.closing li:last-child{margin-bottom:0}
+
+.toc{columns:2 220px;column-gap:26px;margin:16px 0 0;padding:0;list-style:none}
+.toc li{break-inside:avoid;padding:3px 0;font-size:15px}
+.toc a{text-decoration:none;color:var(--ink)}
+.toc a:hover{color:var(--accent);text-decoration:underline}
+.toc .n{font-family:var(--mono);font-size:12.5px;color:var(--ink-3);margin-right:7px;font-variant-numeric:tabular-nums}
+.toc .m{font-size:11px;color:var(--ink-3);margin-left:5px}
+
+.footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--rule);font-family:var(--mono);font-size:12px;color:var(--ink-3);line-height:1.8}
+
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+@media print{
+  .bar,.got,.chips{display:none}
+  body{background:#fff}
+  details.reveal > *{display:block!important}
+  .entry{break-inside:avoid-page}
+}
+@media (max-width:520px){
+  .toc{columns:1}
+  .ro .v{font-size:19px}
+}
+
+/* ---------- Module 3 supplement ---------- */
+.mark.flag{background:var(--flag-soft);color:var(--flag)}
+.ppc-wrap{display:grid;grid-template-columns:1fr;gap:14px}
+@media (min-width:720px){.ppc-wrap{grid-template-columns:1fr 210px}}
+.ppc-svg{width:100%;height:auto;display:block;background:var(--surface);
+  border:1px solid var(--rule);border-radius:6px;cursor:crosshair;touch-action:none}
+.ppc-side{display:flex;flex-direction:column;gap:10px}
+.status{font-family:var(--mono);font-size:12.5px;padding:9px 11px;border-radius:5px;
+  border:1px solid var(--rule-strong);background:var(--surface-2);line-height:1.45}
+.status[data-s="on"]{border-color:color-mix(in srgb,var(--up) 45%,transparent);background:var(--up-soft);color:var(--up)}
+.status[data-s="in"]{border-color:var(--rule-strong);color:var(--ink-2)}
+.status[data-s="out"]{border-color:color-mix(in srgb,var(--down) 45%,transparent);background:var(--down-soft);color:var(--down)}
+.ppc-legend{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);line-height:1.6}
+.ppc-legend b{color:var(--ink-2);font-weight:600}
+.chips.tight{gap:6px}
+.tbl{overflow-x:auto;max-width:100%}
+.sumtable{width:100%;border-collapse:collapse;font-size:14.5px;margin:16px 0}
+.sumtable th,.sumtable td{border-bottom:1px solid var(--rule);padding:8px 10px;text-align:left;vertical-align:top}
+.sumtable th{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+.sumtable td.mk{font-family:var(--mono);font-size:12px;white-space:nowrap;color:var(--accent)}
+.sumtable td.mk.bgm{color:var(--ink-3)}
+.sumtable td.mk.flagm{color:var(--flag)}
+.final{background:var(--surface);border:1px solid var(--rule);border-radius:6px;
+  padding:18px 20px;margin:22px 0;box-shadow:var(--shadow)}
+.final ol{margin:0;padding-left:20px}
+.final li{margin:0 0 9px}
+.final li:last-child{margin-bottom:0}
+
+/* ---------- PPC explorer svg ---------- */
+.ppc-svg .ax{stroke:var(--ink);stroke-width:1.6}
+.ppc-svg .tick{stroke:var(--ink-3);stroke-width:1.1}
+.ppc-svg .tl{font-family:var(--mono);font-size:11px;fill:var(--ink-3)}
+.ppc-svg .al{font-family:var(--sans);font-size:12px;font-weight:600;fill:var(--ink-2)}
+.ppc-svg .curve{fill:none;stroke:var(--accent);stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round}
+.ppc-svg .ghost{fill:none;stroke:var(--rule-strong);stroke-width:1.8;stroke-dasharray:6 5}
+.ppc-svg .cl{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--accent)}
+.ppc-svg .drop{stroke:var(--rule-strong);stroke-width:1;stroke-dasharray:3 3}
+.ppc-svg .pt{stroke:var(--surface);stroke-width:2}
+.ppc-svg .pt-on{fill:var(--up)}
+.ppc-svg .pt-in{fill:var(--ink-3)}
+.ppc-svg .pt-out{fill:var(--down)}
+
+
+/* ---------- Module 4 supplement ---------- */
+.two-panel{width:100%;height:auto;display:block;background:var(--surface);
+  border:1px solid var(--rule);border-radius:6px}
+.ca-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:0 0 14px}
+@media (min-width:640px){.ca-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.ca-grid .field{display:flex;flex-direction:column;gap:5px}
+.ca-grid .field span{font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--ink-3)}
+.ca-grid .field b{color:var(--ink-2);font-weight:600;text-transform:none;letter-spacing:0}
+.ca-grid input{font-family:var(--mono);font-size:15px;padding:7px 9px;width:100%;
+  color:var(--ink);background:var(--paper);border:1px solid var(--rule-strong);border-radius:5px}
+.ca-grid input:focus{outline:2px solid var(--accent);outline-offset:1px}
+.catab{width:100%;border-collapse:collapse;font-size:14px;margin:4px 0 14px}
+.catab th,.catab td{border-bottom:1px solid var(--rule);padding:7px 9px;text-align:left}
+.catab th{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:600}
+.catab td.v{font-family:var(--mono);color:var(--ink)}
+.catab td.win{font-family:var(--mono);color:var(--up);font-weight:600}
+.dealrow{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;margin:0 0 12px}
+.dealrow .field{display:flex;flex-direction:column;gap:5px;min-width:190px;flex:1}
+.dealrow .field span{font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--ink-3)}
+.dealrow input{font-family:var(--mono);font-size:16px;padding:8px 10px;
+  color:var(--ink);background:var(--paper);border:1px solid var(--rule-strong);border-radius:5px}
+.line-svg{width:100%;height:auto;display:block;margin:6px 0 2px}
+.line-svg .band{fill:var(--up-soft);stroke:none}
+.line-svg .axl{stroke:var(--ink);stroke-width:1.6}
+.line-svg .tk{stroke:var(--ink-3);stroke-width:1.1}
+.line-svg .tlb{font-family:var(--mono);font-size:11px;fill:var(--ink-3)}
+.line-svg .edge{stroke:var(--up);stroke-width:2}
+.line-svg .edgel{font-family:var(--mono);font-size:11.5px;font-weight:600;fill:var(--up)}
+.line-svg .prop{stroke:var(--accent);stroke-width:2.4}
+.line-svg .propbad{stroke:var(--down);stroke-width:2.4}
+.line-svg .propl{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--accent)}
+.line-svg .propl.bad{fill:var(--down)}
+.two-panel .ax{stroke:var(--ink);stroke-width:1.6}
+.two-panel .tick{stroke:var(--ink-3);stroke-width:1.1}
+.two-panel .tl{font-family:var(--mono);font-size:10.5px;fill:var(--ink-3)}
+.two-panel .al{font-family:var(--sans);font-size:11.5px;font-weight:600;fill:var(--ink-2)}
+.two-panel .ph{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--ink-2)}
+.two-panel .curve{fill:none;stroke:var(--accent);stroke-width:2.4;stroke-linecap:round}
+.two-panel .slope{font-family:var(--mono);font-size:11px;fill:var(--accent)}
+.two-panel .drop{stroke:var(--rule-strong);stroke-width:1;stroke-dasharray:3 3}
+.two-panel .pt{stroke:var(--surface);stroke-width:2}
+.two-panel .pt-on{fill:var(--ink-2)}
+.two-panel .pt-out{fill:var(--up)}
+.two-panel .ptl{font-family:var(--mono);font-size:11px;fill:var(--ink-2)}
+.two-panel .ptl.good{fill:var(--up);font-weight:600}
+
+</style>
+<style>
+/* Module 5 additions: the movement-or-shift sorter */
+.sortrow{border:1px solid var(--rule);border-radius:8px;padding:12px 14px;margin:0 0 10px;
+  background:var(--surface)}
+.sortrow .stem{margin:0 0 10px}
+.sortrow .opts{display:flex;flex-wrap:wrap;gap:8px;margin:0}
+.sortrow .opt{flex:1 1 220px;justify-content:center;text-align:center}
+.sortrow .why{display:block;margin:10px 0 0;font-size:14.5px;line-height:1.55;color:var(--ink-2)}
+.sortrow[data-done] .opt{cursor:default}
+#sorter-reset{font-family:var(--mono);font-size:12px;letter-spacing:.04em;
+  border:1px solid var(--rule-strong);background:var(--surface);color:var(--ink-2);
+  border-radius:16px;padding:5px 13px;cursor:pointer}
+#sorter-reset:hover{border-color:var(--accent);color:var(--accent)}
+</style>
+<style>
+/* Module 6 additions: the supply curve and the imbalance bands */
+.line-svg .curve.sup{stroke:var(--up)}
+.line-svg .band{stroke:var(--amber-rule,#c98a1e);stroke-width:6;stroke-linecap:round;opacity:.55}
+.line-svg .pt-out{fill:var(--paper);stroke:var(--ink-2);stroke-width:2}
+</style>
+
+
+<div class="bar">
+  <div class="bar-in">
+    <span class="bar-title">Micro &middot; Module 6</span>
+    <span class="progress">
+      <span class="progress-track"><span class="progress-fill" id="pfill"></span></span>
+      <span class="progress-num" id="pnum">0 / 19</span>
+    </span>
+    <button type="button" id="resetBtn">Reset progress</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+<p class="eyebrow">AP Microeconomics &middot; Unit 2 &middot; Student guide</p>
+  <h1>Supply and Equilibrium</h1>
+  <p class="standfirst">Nineteen terms: the eighteen in Module 6 of <i>Krugman&rsquo;s Economics for
+  AP</i>, plus one your course requires that the module leaves out. It covers two ideas &mdash;
+  supply, and what happens when supply and demand are put on the same diagram &mdash; and one
+  <b>calculation</b> you will use all through this unit.</p>
+  <div class="source-line">
+    <span>Textbook pages 59&ndash;70</span><span>&middot;</span><span>19 terms</span><span>&middot;</span>
+    <span>Topics 2.2, 2.6 and 2.7</span><span>&middot;</span><span>2 periods</span>
+  </div>
+<section class="section" id="howto">
+  <h2>How to use this guide</h2>
+  <p>Read Module 6 in your textbook first, then work through the entries here in order. Entries 1 to
+  13 are supply; entries 14 to 19 put supply and demand together.</p>
+  <ul>
+    <li><b>&#9733; Exam</b> means the AP Microeconomics framework can test it. Every entry in this
+      guide carries it.</li>
+    <li><b>&#9733; &#9873;</b> means the framework can test it <b>and Module 6 of your textbook does
+      not teach it</b>. One entry carries the flag. Learn it from here.</li>
+    <li>Every entry ends with two <b>Check yourself</b> questions. Answer them before opening the
+      answer, then tick <b>Got it</b>.</li>
+    <li>The calculator in the middle is the one to spend time on. You will be asked to
+      <b>calculate</b> surpluses and shortages, and the only way to get that wrong is to subtract in
+      the wrong order.</li>
+  </ul>
+  <div class="flag">
+    <p><b>Good news, if you did Module 5 properly.</b> Supply is demand with the slope reversed. The
+    law runs the other way, the curve slopes up instead of down, and the shift factors are different
+    &mdash; but <b>own price means a movement, anything else means a shift</b> is exactly the same
+    rule, and it is still the rule that decides most of the marks.</p>
+  </div>
+  <div class="notinbook"><p><b>&#9873; One entry is not in Module 6.</b> Your course says the
+  equilibrium price carries <i>information</i> that guides how resources are used. Your textbook shows
+  how the price gets to equilibrium but never says what the price tells people once it is there.
+  Entry 19 fills the gap &mdash; and you have met the idea before, in Module 1.</p></div>
+</section>
+
+<!-- ============ THE MARKET DIAGRAM ============ -->
+<section class="section" id="diagram">
+  <h2>The diagram this module is building towards</h2>
+  <p>Your textbook&rsquo;s Figures 6.6, 6.7 and 6.8 are not three diagrams. They are one diagram with
+  the price line moved. Both curves are plotted from the real schedules &mdash; the demand curve is
+  the one from Module 5.</p>
+
+  <div class="widget">
+    <div class="widget-title">Equilibrium, surplus, shortage</div>
+    <div class="chips">
+      <button type="button" class="chip" aria-pressed="false" data-show="eq">Equilibrium &nbsp;$1.00</button>
+      <button type="button" class="chip" aria-pressed="false" data-show="sur">Price at $1.50</button>
+      <button type="button" class="chip" aria-pressed="false" data-show="sho">Price at $0.75</button>
+    </div>
+    <svg id="mfig" class="line-svg" viewBox="0 0 680 430" role="img"
+         aria-label="Supply and demand for coffee beans, showing equilibrium, a surplus and a shortage">
+      <line class="ax" x1="80" y1="40" x2="80" y2="380"></line>
+      <line class="ax" x1="80" y1="380" x2="640" y2="380"></line>
+      <text class="axl" x="80" y="26" text-anchor="middle">Price of coffee beans (per pound)</text>
+      <text class="axl" x="640" y="406" text-anchor="end">Quantity of coffee beans (billions of pounds)</text>
+
+      <line class="tick" x1="76" y1="337.5" x2="80" y2="337.5"></line>
+      <text class="tl" x="70" y="341.5" text-anchor="end">$0.50</text>
+      <line class="tick" x1="76" y1="295.0" x2="80" y2="295.0"></line>
+      <text class="tl" x="70" y="299.0" text-anchor="end">$0.75</text>
+      <line class="tick" x1="76" y1="252.5" x2="80" y2="252.5"></line>
+      <text class="tl" x="70" y="256.5" text-anchor="end">$1.00</text>
+      <line class="tick" x1="76" y1="167.5" x2="80" y2="167.5"></line>
+      <text class="tl" x="70" y="171.5" text-anchor="end">$1.50</text>
+      <line class="tick" x1="76" y1="82.5" x2="80" y2="82.5"></line>
+      <text class="tl" x="70" y="86.5" text-anchor="end">$2.00</text>
+
+      <line class="tick" x1="125.0" y1="380" x2="125.0" y2="384"></line>
+      <text class="tl" x="125" y="396" text-anchor="middle">7</text>
+      <line class="tick" x1="215.0" y1="380" x2="215.0" y2="384"></line>
+      <text class="tl" x="215" y="396" text-anchor="middle">9</text>
+      <line class="tick" x1="305.0" y1="380" x2="305.0" y2="384"></line>
+      <text class="tl" x="305" y="396" text-anchor="middle">11</text>
+      <line class="tick" x1="395.0" y1="380" x2="395.0" y2="384"></line>
+      <text class="tl" x="395" y="396" text-anchor="middle">13</text>
+      <line class="tick" x1="485.0" y1="380" x2="485.0" y2="384"></line>
+      <text class="tl" x="485" y="396" text-anchor="middle">15</text>
+      <line class="tick" x1="575.0" y1="380" x2="575.0" y2="384"></line>
+      <text class="tl" x="575" y="396" text-anchor="middle">17</text>
+
+      <g id="g-sur" hidden>
+        <line class="band" x1="174.5" y1="167.5" x2="314.0" y2="167.5"></line>
+        <line class="edge" x1="80" y1="167.5" x2="314.0" y2="167.5"></line>
+        <circle class="pt pt-out" cx="174.5" cy="167.5" r="4.5"></circle>
+        <circle class="pt pt-out" cx="314.0" cy="167.5" r="4.5"></circle>
+        <text class="ptl" x="244" y="152" text-anchor="middle">surplus 3.1</text>
+      </g>
+      <g id="g-sho" hidden>
+        <line class="band" x1="219.5" y1="295.0" x2="327.5" y2="295.0"></line>
+        <line class="edge" x1="80" y1="295.0" x2="327.5" y2="295.0"></line>
+        <circle class="pt pt-out" cx="219.5" cy="295.0" r="4.5"></circle>
+        <circle class="pt pt-out" cx="327.5" cy="295.0" r="4.5"></circle>
+        <text class="ptl" x="273" y="315" text-anchor="middle">shortage 2.4</text>
+      </g>
+
+      <polyline class="curve" points="129.5,82.5 147.5,125.0 174.5,167.5 210.5,210.0 260.0,252.5 327.5,295.0 449.0,337.5"></polyline>
+      <text class="cl" x="459" y="341.5">D</text>
+      <polyline class="curve sup" points="332.0,82.5 327.5,125.0 314.0,167.5 291.5,210.0 260.0,252.5 219.5,295.0 170.0,337.5"></polyline>
+      <text class="cl" x="342" y="80">S</text>
+
+      <g id="g-eq" hidden>
+        <line class="edge" x1="80" y1="252.5" x2="260.0" y2="252.5"></line>
+        <line class="edge" x1="260.0" y1="252.5" x2="260.0" y2="380"></line>
+      </g>
+      <circle class="pt pt-on" cx="260.0" cy="252.5" r="5"></circle>
+      <text class="ptl" x="270" y="243">E</text>
+    </svg>
+    <p class="figcap" id="mcap">Both curves on one diagram. They cross at <b>E</b>. Use the buttons.</p>
+  </div>
+
+  <div class="tablewrap">
+    <table class="tbl">
+      <thead><tr><th>Price per pound</th><th>Quantity demanded</th><th>Quantity supplied</th><th>Gap</th></tr></thead>
+      <tbody>
+        <tr><td>$2.00</td><td>7.1</td><td>11.6</td><td>surplus 4.5</td></tr>
+        <tr><td>$1.75</td><td>7.5</td><td>11.5</td><td>surplus 4.0</td></tr>
+        <tr><td>$1.50</td><td>8.1</td><td>11.2</td><td>surplus 3.1</td></tr>
+        <tr><td>$1.25</td><td>8.9</td><td>10.7</td><td>surplus 1.8</td></tr>
+        <tr><td>$1.00</td><td>10.0</td><td>10.0</td><td><b>equilibrium</b></td></tr>
+        <tr><td>$0.75</td><td>11.5</td><td>9.1</td><td>shortage 2.4</td></tr>
+        <tr><td>$0.50</td><td>14.2</td><td>8.0</td><td>shortage 6.2</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="figcap">Read down the last column. The gap shrinks as the price falls towards $1.00,
+  hits zero exactly at the equilibrium price, and then opens again in the other direction. There is
+  exactly one price at which the market clears.</p>
+</section>
+
+<!-- ============ ENTRIES ============ -->
+<section class="section">
+  <h2>The 19 terms</h2>
+</section>
+
+<article class="entry" id="e1">
+  <div class="entry-head"><span class="entry-num">01</span><h2>Quantity supplied</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The <b>actual amount</b> of a good or service producers are willing to sell <b>at some specific price</b>.</p></div>
+  <p class="reading">Textbook page 59.</p>
+
+  <p>Word for word the mirror of quantity demanded, and it carries the same warning. Quantity
+  supplied is a <b>number attached to one price</b>. It is one point on the curve, one row of the
+  table.</p>
+
+  <p><b>Supply</b> is the whole relationship &mdash; the entire curve. If a question says the
+  quantity supplied rose, you have moved to a different point on the same curve.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Everything you learned about not confusing demand with
+  quantity demanded applies again, unchanged. The exam will test it twice: once on the demand side
+  and once here.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">One row.</span> At $1.00 a pound, quantity supplied is 10.0 billion pounds a year. At $1.25 it is 10.7 billion.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Point E.</span> At the equilibrium price of $1.00, quantity supplied is 10.0 billion pounds &mdash; and so is quantity demanded. That is what makes it the equilibrium.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Willing to sell.</span> Brazilian farmers will plant coffee on their best land at a low price and on their worse land only if the price is high. Each price gives a different quantity supplied.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> The <a href="#e4">law of supply</a> (entry 4) says how this number responds to price. A <a href="#e5">movement along the supply curve</a> (entry 5) is a change in it.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">1.1</span> Is &ldquo;11.2 billion pounds&rdquo; a supply or a quantity supplied?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>A quantity supplied, and it only means something once you say which price goes with it &mdash; here, $1.50. The supply is the whole schedule.</p></div></details></div>
+    <div class="q"><p><span class="qn">1.2</span> Which two words in the definition do the work?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>&ldquo;Specific price.&rdquo; Without a stated price the number is meaningless, which is exactly why it is a point rather than a curve.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got1"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e2">
+  <div class="entry-head"><span class="entry-num">02</span><h2>Supply schedule</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A <b>table</b> showing how much of a good producers will supply at different prices.</p></div>
+  <p class="reading">Textbook page 59, the right-hand side of Figure 6.1.</p>
+
+  <p>Same tool as the demand schedule, same order of work: the table comes first and the curve is
+  drawn from it. Your framework names it: the market supply curve <b>(schedule)</b> is built by
+  adding up individual supply curves <b>(schedules)</b>, so expect tables as well as graphs.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Read the direction before you label a table. A demand
+  schedule and a supply schedule look identical on the page; the only difference is whether quantity
+  rises or falls as price rises.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Coffee beans.</span> $0.50 &rarr; 8.0 billion pounds; $1.00 &rarr; 10.0; $2.00 &rarr; 11.6. Price up, quantity up.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Spot the difference.</span> The demand schedule at $2.00 gives 7.1 billion; the supply schedule gives 11.6. Same price, two different questions.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Two columns, one diagram.</span> Put the demand and supply schedules side by side and the equilibrium is the row where the two numbers match.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> The <a href="#e3">supply curve</a> (entry 3) is this table drawn, and comparing it with the demand schedule is how you find the <a href="#e15">equilibrium price</a> (entry 15) without a graph.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">2.1</span> A table shows $2 &rarr; 40 units and $4 &rarr; 55 units. Demand or supply?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Supply. Quantity rises as price rises, which is the law of supply. A demand schedule would run the other way.</p></div></details></div>
+    <div class="q"><p><span class="qn">2.2</span> How would you find the equilibrium price from two schedules with no graph?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Find the price where quantity demanded and quantity supplied are the same number. In the coffee table that is $1.00, where both are 10.0 billion pounds.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got2"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e3">
+  <div class="entry-head"><span class="entry-num">03</span><h2>Supply curve</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Shows the relationship between <b>quantity supplied and price</b>. It slopes <b>upward</b>.</p></div>
+  <p class="reading">Textbook page 59, Figure 6.1.</p>
+
+  <p>The drawing rules are the ones you already know, with one change: the curve goes up instead of
+  down, and it is labelled <b>S</b>.</p>
+
+  <ul>
+    <li><b>Price on the vertical axis</b>, quantity on the horizontal.</li>
+    <li><b>Label both axes.</b></li>
+    <li><b>Label the curve</b> S, or S&#8321; if there will be a second one.</li>
+  </ul>
+
+  <p>When both curves are on one diagram, label both. An unlabelled pair costs marks even when the
+  intersection is in exactly the right place.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Drawing the supply curve downward-sloping by accident is
+  the single most common slip in a hurried answer, because you have just spent a week drawing demand
+  curves. Check the direction before you write anything else.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Figure 6.1.</span> Seven points from the schedule, joined, sloping up from $0.50/8.0 to $2.00/11.6.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Plotting one point.</span> The row $1.50 / 11.2 becomes the point 11.2 across, $1.50 up &mdash; which is the right-hand end of the surplus in the diagram above.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Why upward.</span> Brazilian farmers use their best coffee land first. Getting more beans means using worse land, which is only worth doing at a higher price.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the <a href="#e2">supply schedule</a> (entry 2) drawn, its slope is the <a href="#e4">law of supply</a> (entry 4), and crossing it with the demand curve gives <a href="#e14">equilibrium</a> (entry 14).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">3.1</span> Which way does a supply curve slope, and why?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Upward. A higher price makes producers willing to sell more, so price and quantity supplied move together.</p></div></details></div>
+    <div class="q"><p><span class="qn">3.2</span> You draw both curves on one diagram and label neither. What have you lost?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Marks for labelling, which are awarded separately from the economics &mdash; and possibly the reader&rsquo;s ability to tell which curve you meant to move later in the question.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got3"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e4">
+  <div class="entry-head"><span class="entry-num">04</span><h2>Law of supply</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Other things being equal, the price and quantity supplied of a good are <b>positively related</b>.</p></div>
+  <p class="reading">Textbook page 60.</p>
+
+  <p>Your framework states it this way: a change in <b>own-price</b> causes a change in quantity
+  supplied <b>in the same direction</b> and a <b>movement along</b> the supply curve. Use those words:
+  own-price, same direction, movement along.</p>
+
+  <p>Note the same escape clause as the law of demand: <b>other things being equal</b>. If you see
+  the price of something rise while the quantity sold falls, the law has not broken &mdash; something
+  else moved.</p>
+
+  <div class="watch"><p><b>Watch out.</b> &ldquo;Positive relationship&rdquo; does not mean
+  &ldquo;good&rdquo;. It means the two variables move in the <b>same direction</b>. For demand your
+  framework says <i>in the opposite direction</i>; for supply, <i>in the same direction</i>. Learn them
+  as a pair.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Brazilian land.</span> Whether farmers restrict coffee to ideal locations or expand onto less suitable land depends on the price they expect. Higher price, more land planted.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">The schedule proves it.</span> Price from $1.00 to $1.25 and quantity supplied from 10.0 to 10.7 billion pounds. Both up.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">New entrants.</span> Vietnam and Madagascar can grow coffee. Whether they do depends on the price &mdash; which is the law of supply working through who enters at all.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is why the <a href="#e3">supply curve</a> (entry 3) slopes upward, and it is what a <a href="#e5">movement along the curve</a> (entry 5) illustrates. It is also how a rising price <a href="#e19">signals</a> producers to supply more (entry 19). It is a statement about <a href="#e1">quantity supplied</a> (entry 1), never about supply.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">4.1</span> State the law of supply in your framework&rsquo;s own words.</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>A change in <b>own-price</b> causes a change in <b>quantity supplied in the same direction</b> &mdash; a <b>movement along</b> an upward-sloping supply curve. Say &ldquo;quantity supplied&rdquo;, not &ldquo;supply&rdquo;.</p></div></details></div>
+    <div class="q"><p><span class="qn">4.2</span> Which phrase does your framework use for demand where it says &ldquo;in the same direction&rdquo; for supply?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>&ldquo;In the opposite direction.&rdquo; The two statements are otherwise the same sentence with the direction swapped.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got4"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e5">
+  <div class="entry-head"><span class="entry-num">05</span><h2>Movement along the supply curve</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A change in the quantity supplied of a good that is the result of a change in <b>that good&rsquo;s own price</b>.</p></div>
+  <p class="reading">Textbook page 60, and Figure 6.3 on page 62 &mdash; the arrow from A to B.</p>
+
+  <p>The curve does not move. The price changed, and the curve already told you what quantity would
+  be supplied at that price.</p>
+
+  <p>One cause, and only one: <b>the good&rsquo;s own price</b>. Everything else in this module
+  shifts the curve instead.</p>
+
+  <div class="watch"><p><b>Watch out.</b> On the supply side the own-price trap has a second form.
+  A rise in the price of an <b>input</b> is not a rise in the price of the good, so it shifts the
+  curve. A rise in the price of the good itself moves you along it. Ask which one the question named.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">A to B.</span> The price of coffee rises from $1.00 to $1.50 and quantity supplied rises from 10.0 to 11.2 billion pounds. Same curve, higher point.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Read it off one column.</span> Both numbers are in the supply column of the table above. A movement never needs a new column.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">A housing boom.</span> House prices rise, so more homeowners put their houses up for sale. The price of the thing being sold went up: movement along.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the <a href="#e4">law of supply</a> (entry 4) in action, it changes <a href="#e1">quantity supplied</a> (entry 1), and it is defined against a <a href="#e6">change in supply</a> (entry 6). A rise in an <a href="#e7">input price</a> (entry 7) is not an own price.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">5.1</span> During a property boom, more homeowners put their houses on the market. Movement or shift?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Movement along the supply curve for houses. The price of houses &mdash; the good itself &mdash; is what rose.</p></div></details></div>
+    <div class="q"><p><span class="qn">5.2</span> Construction workers move to a hurricane-hit area because wages there are higher. Movement or shift, and in which market?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>A movement along the supply curve of construction <b>labour</b> in that area. The good on the horizontal axis is labour, and its price &mdash; the wage &mdash; is what rose.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got5"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e6">
+  <div class="entry-head"><span class="entry-num">06</span><h2>Change in supply &mdash; a shift</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A <b>shift of the supply curve</b>, which changes the quantity supplied <b>at any given price</b>.</p></div>
+  <p class="reading">Textbook pages 60&ndash;62, Figures 6.2 and 6.3 &mdash; the arrow from A to C.</p>
+
+  <p>Same four-word test as demand: <b>at any given price</b>. If more would be supplied at $2.00 and
+  at $1.50 and at $1.00, the curve has moved.</p>
+
+  <p>Directions: an <b>increase in supply</b> is a shift to the <b>right</b>; a <b>decrease in
+  supply</b> is a shift to the <b>left</b>. Note what that means on an upward-sloping curve &mdash; a
+  rightward shift looks like the curve moving <i>down</i>. Say right and left and you can never be
+  misread.</p>
+
+  <div class="watch"><p><b>Watch out.</b> &ldquo;Right&rdquo; means the same thing for both curves,
+  but it <i>looks</i> different. An increase in demand shifts the curve up-and-right; an increase in
+  supply shifts it down-and-right. Both are increases. Both are rightward.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Vietnam enters.</span> At $1.00 the quantity supplied goes from 10.0 to 12.0 billion pounds; at $1.50, from 11.2 to 13.4. Every row rose, so the curve moved right.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">A to C.</span> Hold the price at $1.00 and quantity supplied goes from 10.0 billion on S&#8321; to 12.0 billion on S&#8322;. The price never changed, so this cannot be a movement.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Farm vets.</span> Vets moved into pet practice, so fewer offered farm services at any given price. The supply curve for farm veterinary services shifted left.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the opposite case to a <a href="#e5">movement along</a> (entry 5), it is caused by entries 7 to 11 &mdash; <a href="#e7">input prices</a>, <a href="#e8">related goods in production</a>, <a href="#e9">technology</a>, <a href="#e10">expectations</a> and <a href="#e11">the number of producers</a> &mdash; and it moves the <a href="#e13">market supply curve</a> (entry 13).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">6.1</span> Strawberry farmers open roadside stands during harvest season, even though prices are low then. Movement or shift?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>A shift &mdash; an increase in supply. More is offered <i>despite</i> the low price, which means more at any given price. The season changed, not the price.</p></div></details></div>
+    <div class="q"><p><span class="qn">6.2</span> Why is &ldquo;the supply curve shifted down&rdquo; risky?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because for an upward-sloping curve, down and right are the same movement and it is an <i>increase</i> in supply &mdash; which sounds like the opposite. Use right and left.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got6"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e7">
+  <div class="entry-head"><span class="entry-num">07</span><h2>Input prices</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>An <b>input</b> is anything used to produce a good or service. A rise in an input&rsquo;s price makes production more costly, so supply <b>decreases</b> &mdash; the curve shifts <b>left</b>.</p></div>
+  <p class="reading">Textbook page 62. This is the first of the five supply shift factors.</p>
+
+  <p>Input prices are the determinant you will meet most often, because every good has inputs. But
+  your framework does not single any determinant out &mdash; it says only that <i>changes in the
+  determinants of supply can cause the supply curve to shift</i> &mdash; so know all five
+  equally.</p>
+
+  <p>The direction is worth saying slowly, because it is the reverse of what students expect: input
+  price <b>up</b> means supply <b>down</b>, curve <b>left</b>.</p>
+
+  <div class="watch"><p><b>Watch out.</b> An input price is not the good&rsquo;s own price. Wages are
+  an input price for a restaurant, so higher wages shift the restaurant&rsquo;s supply curve left.
+  But in the market for <i>labour</i>, the wage <b>is</b> the price on the axis, so a higher wage is a
+  movement along. Always ask what is on the horizontal axis.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Newsprint, 1994&ndash;95.</span> Newsprint prices rose sharply, the supply of newspapers fell, several papers closed and new ventures were cancelled.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Multiple-choice 1.</span> &ldquo;The wages of workers producing good X increase&rdquo; is the answer to <i>which of the following will decrease the supply of X</i>. An input price rise, so a leftward shift.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Vanilla ice cream.</span> Vanilla beans, cream and sugar are the inputs. If vanilla doubles in price, less ice cream is supplied at every price.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It causes a <a href="#e6">change in supply</a> (entry 6), never a <a href="#e5">movement</a> (entry 5), and it is the supply-side counterpart of consumer income on the demand side. <a href="#e9">Technology</a> (entry 9) works through the same channel, the cost of production.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">7.1</span> Fast-food chains must raise wages to attract staff. What happens to the supply curve for fast food?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>It shifts left. Wages are an input price for fast food, and a higher input price decreases supply at every price.</p></div></details></div>
+    <div class="q"><p><span class="qn">7.2</span> The price of cream rises. Is that a determinant of the supply of ice cream, and which way does the curve move?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Yes &mdash; cream is an input, and a dearer input raises the cost of producing ice cream at every price. Supply decreases; the curve shifts left.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got7"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e8">
+  <div class="entry-head"><span class="entry-num">08</span><h2>Substitutes and complements in production</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p><b>Substitutes in production</b> are goods a producer can make <i>instead of</i> each other. <b>Complements in production</b> come out <i>together</i>.</p></div>
+  <p class="reading">Textbook page 63. This is shift factor 2: prices of related goods or services.</p>
+
+  <p>This is the hardest idea in the module, and it is hard for one reason: you have just spent a
+  week on substitutes and complements <b>in consumption</b>, and these are different.</p>
+
+  <div class="tablewrap">
+    <table class="tbl">
+      <thead><tr><th></th><th>In consumption (Module 5)</th><th>In production (here)</th></tr></thead>
+      <tbody>
+        <tr><td>Who chooses</td><td>the <b>buyer</b></td><td>the <b>producer</b></td></tr>
+        <tr><td>Substitutes</td><td>tea and coffee</td><td>petrol and heating oil, from one barrel of crude</td></tr>
+        <tr><td>Price of the other rises &rarr;</td><td><b>demand</b> for this good <b>up</b></td><td><b>supply</b> of this good <b>down</b></td></tr>
+        <tr><td>Complements</td><td>cars and petrol</td><td>crude oil and natural gas, from one well</td></tr>
+        <tr><td>Price of the other rises &rarr;</td><td><b>demand</b> for this good <b>down</b></td><td><b>supply</b> of this good <b>up</b></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="watch"><p><b>Watch out.</b> Read the question for <i>who</i> is switching. If a buyer
+  chooses between the two goods, it is consumption and the demand curve moves. If a producer chooses
+  which to make, it is production and the supply curve moves. Your textbook&rsquo;s
+  multiple-choice 2 is built entirely on this and most students answer it with the consumption
+  case.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">The oil refinery.</span> It makes petrol and heating oil from the same crude. If heating oil gets dearer, it makes more heating oil and less petrol &mdash; so the supply curve for petrol shifts left. Substitutes in production.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Oil and natural gas.</span> Gas comes up as a by-product of oil wells. A higher gas price means more wells drilled and therefore <b>more</b> oil supplied. Complements in production.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Vets.</span> Farm practice and pet practice are substitutes in production for a veterinarian. Pet work paid better, so the supply of farm vets shifted left.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is a <a href="#e6">change in supply</a> (entry 6) caused by another good&rsquo;s price, and it is the exact counterpart of substitutes and complements in consumption from Module 5.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">8.1</span> An increase in the demand for steak raises the price of steak. What happens to the supply of leather?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>It increases &mdash; the supply curve for leather shifts right. Beef and hides come off the same animal, so leather is a <b>complement in production</b> for steak. This is your textbook&rsquo;s multiple-choice 2.</p></div></details></div>
+    <div class="q"><p><span class="qn">8.2</span> Chicken is a substitute for steak for a shopper. Does a higher steak price shift the supply curve for chicken?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. That is a substitute in <b>consumption</b>, so it shifts the <b>demand</b> curve for chicken to the right. Supply is untouched.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got8"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e9">
+  <div class="entry-head"><span class="entry-num">09</span><h2>Technology</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>All the <b>methods</b> people can use to turn inputs into useful goods and services. Better technology lowers the cost of production, so supply <b>increases</b> &mdash; the curve shifts <b>right</b>.</p></div>
+  <p class="reading">Textbook page 63. Shift factor 3.</p>
+
+  <p>Note how wide the definition is. Technology here does not mean computers; it means any method of
+  turning inputs into output, including a better strain of seed or a faster way of sorting beans.</p>
+
+  <p>Your framework names this determinant: it asks you to explain how producers respond to changes
+  in <b>incentives and technology</b>.</p>
+
+  <p>Technology essentially only moves one way in these questions. Methods improve; they rarely get
+  worse. So a technology question is almost always a rightward shift.</p>
+
+  <div class="watch"><p><b>Watch out.</b> A technological advance increases <b>supply</b>, not
+  demand, and it shifts the curve rather than moving along it. Your textbook&rsquo;s
+  multiple-choice 3 offers &ldquo;a movement along the supply curve&rdquo; as a distractor precisely
+  because that is the mistake.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Disease-resistant corn.</span> An improved strain makes farmers willing to supply more corn at any given price.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Sorting beans.</span> A Brazilian farmer sorts coffee by tossing beans in the air. Better sorting equipment means more beans handled in less time, and the curve shifts right.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Bigger cruise ships.</span> New technology made larger ships possible, which are cheaper to run per passenger. More cabins offered at lower prices &mdash; a rightward shift.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> Like <a href="#e7">input prices</a> (entry 7), it works by changing the cost of production, and it produces a <a href="#e6">change in supply</a> (entry 6).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">9.1</span> A technological advance in textbook printing. What happens?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>An increase in textbook supply &mdash; the supply curve shifts right. Not a movement along it, and nothing happens to demand.</p></div></details></div>
+    <div class="q"><p><span class="qn">9.2</span> Is a faster harvesting method &ldquo;technology&rdquo; in this sense?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Yes. Technology means any method of turning inputs into output, not just electronics.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got9"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e10">
+  <div class="entry-head"><span class="entry-num">10</span><h2>Expectations</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>If producers expect the price to <b>rise</b> later, they hold stock back and supply <b>less</b> today. If they expect it to <b>fall</b>, they sell now and supply <b>more</b> today.</p></div>
+  <p class="reading">Textbook pages 63&ndash;64. Shift factor 4.</p>
+
+  <p>This is the one factor that works in the <b>opposite direction</b> from its demand counterpart,
+  and the reason is obvious once you say it: buyers and sellers are on opposite sides of the same
+  bargain. If a price rise is coming, buyers want to buy <i>now</i> and sellers want to sell
+  <i>later</i>.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Do not carry the demand rule across. Expecting a price rise
+  <b>increases demand</b> today and <b>decreases supply</b> today. Learning the two together is
+  easier than learning either alone, because they are mirror images.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Oil refineries.</span> Petrol is stored for long periods before sale. Knowing demand peaks in summer, refiners hold stock back in spring &mdash; supply today falls.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">The mirror.</span> Expect a rise: demand today shifts <b>right</b>, supply today shifts <b>left</b>. Both changes push today&rsquo;s price up, which is why expectations can be self-fulfilling.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">A farmer with a silo.</span> If wheat is expected to be dearer after the winter, the grain stays in the silo. Supply this month falls without a single field changing.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> A <a href="#e6">change in supply</a> (entry 6), and the exact mirror of expectations on the demand side in Module 5.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">10.1</span> Producers expect the price of their good to fall next month. What happens to supply today?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>It increases &mdash; the curve shifts right. Sell now while the price is still high.</p></div></details></div>
+    <div class="q"><p><span class="qn">10.2</span> Buyers and sellers both expect a price rise. Which way does each curve move?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Demand shifts right (buy now) and supply shifts left (sell later). Both push today&rsquo;s price up.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got10"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e11">
+  <div class="entry-head"><span class="entry-num">11</span><h2>Number of producers</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>More producers means more supplied <b>at every price</b>, so the market supply curve shifts <b>right</b>.</p></div>
+  <p class="reading">Textbook page 64. Shift factor 5.</p>
+
+  <p>Nothing about any existing producer changes. The curve moves because there are more curves in
+  the sum &mdash; exactly as a baby boom moved the demand curve in Module 5.</p>
+
+  <div class="watch"><p><b>Watch out.</b> This factor moves the <b>market</b> supply curve only.
+  Each individual producer&rsquo;s curve stays exactly where it was. Questions that ask &ldquo;whose
+  curve moved?&rdquo; are testing this.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Vietnam.</span> New coffee-producing countries entered in the early 2000s, competing with Latin America. The market supply curve shifted right and beans were unusually cheap.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Two producers become three.</span> With Mr Figueroa and Mr Bien Pho supplying 3,000 and 2,000 pounds at $2, the market quantity is 5,000. Add a third and it rises without either of the first two doing anything different.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Farm vets, in reverse.</span> Fewer vets in farm practice means less supplied at every price &mdash; a leftward shift from a fall in the number of producers.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the factor that acts directly on the <a href="#e13">market supply curve</a> (entry 13) rather than on any <a href="#e12">individual supply curve</a> (entry 12). Like the other four determinants, it causes a <a href="#e6">change in supply</a> (entry 6).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">11.1</span> Twenty new coffee farms open. Whose supply curve moves?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>The market supply curve, and it shifts right. No existing farmer&rsquo;s individual curve moves at all.</p></div></details></div>
+    <div class="q"><p><span class="qn">11.2</span> Which demand-side factor is this the mirror of?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>The number of consumers. Both work by changing how many curves are in the horizontal sum.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got11"> Got it</label>
+  </div>
+</article>
+
+<!-- ============ THE SORTER ============ -->
+<section class="section" id="sorter">
+  <h2>Drill: movement or shift?</h2>
+  <p>Ten scenarios, including all five from your textbook&rsquo;s Check Your Understanding 1. Two of
+  them are about the same word &mdash; wages &mdash; pointing in opposite directions.</p>
+
+  <div class="widget">
+    <div class="widget-title">Sort each one</div>
+    <div id="sorter-list"></div>
+    <p class="score" id="sorter-score">0 of 10 answered</p>
+    <button type="button" id="sorter-reset">Start again</button>
+    <p class="widget-note">The question that settles every one of these: <b>what good is on the
+    horizontal axis, and did its own price change?</b></p>
+  </div>
+</section>
+
+<article class="entry" id="e12">
+  <div class="entry-head"><span class="entry-num">12</span><h2>Individual supply curve</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The relationship between quantity supplied and price for <b>one producer</b>.</p></div>
+  <p class="reading">Textbook page 64, panels (a) and (b) of Figure 6.5.</p>
+
+  <p>Your textbook introduces one seller at a time so the market curve can be built in front of you.
+  Your framework requires it: the market supply curve is <b>derived from the summation of individual
+  supply curves</b>.</p>
+
+  <div class="watch"><p><b>Watch out.</b> A change for one producer &mdash; a new machine, a cheaper
+  supplier &mdash; shifts that producer&rsquo;s curve <i>and</i> the market curve, because the market
+  curve is the sum.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Mr Figueroa.</span> S<sub>Figueroa</sub> shows the quantity of coffee beans he will sell at any given price.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">At $2 a pound.</span> Mr Figueroa supplies 3,000 pounds and Mr Bien Pho 2,000. Two individual curves, two numbers.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Each slopes up.</span> Every producer supplies more at a higher price, which is why the sum of them does too.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> Add them horizontally and you get the <a href="#e13">market supply curve</a> (entry 13). More producers means more curves in that sum &mdash; <a href="#e11">entry 11</a>.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">12.1</span> One of three coffee farmers buys a machine and supplies 500 more pounds at every price. Which curves shift?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>That farmer&rsquo;s individual supply curve and the market supply curve both shift right, by 500 pounds at every price. The other two farmers&rsquo; curves do not move.</p></div></details></div>
+    <div class="q"><p><span class="qn">12.2</span> Does an individual supply curve slope upward?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Yes &mdash; for one producer just as for the market, which is why the horizontal sum slopes upward too.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got12"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e13">
+  <div class="entry-head"><span class="entry-num">13</span><h2>Market supply curve</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The <b>horizontal sum</b> of the individual supply curves of all producers: it shows the quantity supplied by everyone at any given price.</p></div>
+  <p class="reading">Textbook page 64, panel (c) of Figure 6.5.</p>
+
+  <p>Pick a price, add the quantities, plot the total. You add quantities and hold the price fixed
+  &mdash; the same operation as on the demand side, because every producer faces the same market
+  price.</p>
+
+  <p>Your framework describes exactly this: the market supply curve <b>(schedule)</b> is derived from
+  the <b>summation</b> of individual supply curves <b>(schedules)</b>, and it is
+  <b>upward-sloping</b>.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Never add prices. If two producers each supply 2,000 pounds
+  at $2, the market supplies 4,000 pounds at $2 &mdash; not 4,000 pounds at $4.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Two producers.</span> At $2 a pound, 3,000 + 2,000 = <b>5,000</b> pounds supplied to the market.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">A third producer.</span> Add someone supplying 1,000 pounds at $2 and the market quantity becomes 6,000, with neither of the others changing anything.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Which curve a question means.</span> If a question says &ldquo;the supply curve&rdquo; with no qualifier, it means this one.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the sum of <a href="#e12">individual supply curves</a> (entry 12), it is what a <a href="#e6">change in supply</a> (entry 6) shifts, and crossing it with market demand gives <a href="#e14">equilibrium</a> (entry 14). New producers (<a href="#e11">entry 11</a>) add to the sum.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">13.1</span> At $5, three producers would supply 10, 14 and 6 units. What is the market quantity supplied at $5?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>30 units. Hold the price fixed and add the quantities: 10 + 14 + 6.</p></div></details></div>
+    <div class="q"><p><span class="qn">13.2</span> Why must the sum of upward-sloping individual supply curves itself slope upward?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>At a higher price every producer supplies more than before, so the total at the higher price is larger. Add upward-sloping curves and you get an upward-sloping curve.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got13"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e14">
+  <div class="entry-head"><span class="entry-num">14</span><h2>Equilibrium</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>An economic situation in which <b>no individual would be better off doing something different</b>.</p></div>
+  <p class="reading">Textbook page 66.</p>
+
+  <p>Your textbook&rsquo;s image is the supermarket checkout. A new till opens, there is a rush, and
+  then things settle so that every queue is about the same length. Nobody can save time by switching.
+  That is equilibrium.</p>
+
+  <p>In a market, that condition becomes: the price has moved to a level at which <b>quantity
+  demanded equals quantity supplied</b>. That is exactly how your framework puts it &mdash; the
+  price brings the quantity supplied and the quantity demanded <b>into balance</b>, and the market
+  clears with no shortages or surpluses.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Equilibrium does not mean fair or good. It means nobody has a
+  reason to change their behaviour. Whether it is <i>efficient</i> is a separate question &mdash; and
+  your course does ask it, later in this unit, using consumer and producer surplus.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">The checkout queue.</span> All lines the same length, nobody better off switching.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Point E.</span> At $1.00 a pound, producers want to sell 10.0 billion pounds and consumers want to buy 10.0 billion pounds. Equal, so the market clears.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Only one price works.</span> Look at the gap column in the table above. Every other price leaves someone frustrated.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It needs both the <a href="#e13">market supply curve</a> (entry 13) and the demand curve. <a href="#e16">Surplus</a> (entry 16) and <a href="#e17">shortage</a> (entry 17) are defined as departures from it. On the diagram it is where the <a href="#e3">supply curve</a> (entry 3) crosses the demand curve, at the <a href="#e15">equilibrium price and quantity</a> (entry 15).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">14.1</span> Which of these is true at equilibrium: the schedules are identical at every price, or the quantity demanded equals the quantity supplied?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>The quantity demanded equals the quantity supplied &mdash; at <b>one</b> price. The two schedules are completely different at every other price, which is the point of the diagram.</p></div></details></div>
+    <div class="q"><p><span class="qn">14.2</span> Does equilibrium mean everyone who wants the good gets it?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. It means everyone willing to pay the equilibrium price finds a seller. People who will not pay that much simply do not buy, and that is not a shortage.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got14"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e15">
+  <div class="entry-head"><span class="entry-num">15</span><h2>Equilibrium price and equilibrium quantity</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The <b>equilibrium price</b> is the price at which quantity demanded equals quantity supplied. It is also called the <b>market-clearing price</b>. The <b>equilibrium quantity</b> is the quantity bought and sold at that price.</p></div>
+  <p class="reading">Textbook page 66, Figure 6.6.</p>
+
+  <p>On a diagram it is where the two curves cross. In a free-response answer, label the price
+  <b>P<sub>E</sub></b> on the vertical axis and the quantity <b>Q<sub>E</sub></b> on the horizontal
+  axis, with dashed lines to the intersection.</p>
+
+  <p>&ldquo;Market-clearing&rdquo; is the useful name: at that price every buyer willing to pay it
+  finds a seller, and every seller willing to accept it finds a buyer. Nothing is left over and
+  nobody is turned away.</p>
+
+  <div class="watch"><p><b>Watch out.</b> The equilibrium quantity is <b>one</b> number, not two. At
+  equilibrium the quantity demanded and the quantity supplied are the same number, which is what
+  makes it possible to call it the quantity traded.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Coffee beans.</span> P<sub>E</sub> = <b>$1.00</b> per pound and Q<sub>E</sub> = <b>10 billion pounds</b> a year.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Check it from the tables.</span> At $1.00 the demand schedule gives 10.0 and the supply schedule gives 10.0. The only row where they match.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">In a free-response answer.</span> Curves labelled S and D, intersection marked, P<sub>E</sub> and Q<sub>E</sub> labelled on the axes. That is the whole of the first free-response question in your textbook.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is where <a href="#e14">equilibrium</a> (entry 14) sits on the diagram, and it is the price that <a href="#e18">market forces</a> (entry 18) drive the market back to. What it tells people once it is there is <a href="#e19">entry 19</a>. Without a graph, find it from the two <a href="#e2">schedules</a> (entry 2).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">15.1</span> Why is the equilibrium price also called the market-clearing price?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because it clears the market: every willing buyer finds a seller and every willing seller finds a buyer, so nothing is left unsold and nobody is left unserved.</p></div></details></div>
+    <div class="q"><p><span class="qn">15.2</span> On the coffee diagram, what are P<sub>E</sub> and Q<sub>E</sub>?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>$1.00 a pound and 10 billion pounds a year.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got15"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e16">
+  <div class="entry-head"><span class="entry-num">16</span><h2>Surplus</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Quantity supplied <b>exceeds</b> quantity demanded. Also called <b>excess supply</b>. It happens when the price is <b>above</b> equilibrium.</p></div>
+  <p class="reading">Textbook page 68, Figure 6.7.</p>
+
+  <p>You will be asked to <b>calculate</b> it, and then to say what happens next. The calculation is
+  one subtraction, in one order:</p>
+
+  <p class="yourturn"><b>Surplus = quantity supplied &minus; quantity demanded.</b></p>
+
+  <p>At $1.50 a pound: producers want to sell 11.2 billion pounds, consumers want to buy 8.1 billion,
+  so the surplus is 11.2 &minus; 8.1 = <b>3.1 billion pounds</b>.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Subtract in that order or you will report a negative
+  surplus. And do not confuse this with <i>consumer surplus</i> or <i>producer surplus</i>, which
+  you meet later in this unit. They are a different idea that happens to share the word &mdash; a
+  market with a surplus in <i>this</i> sense has less of <i>that</i> kind of surplus, not more.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">At $1.50.</span> 11.2 supplied, 8.1 demanded, surplus <b>3.1</b> billion pounds. Some producers simply cannot find a buyer.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">At $2.00.</span> 11.6 supplied, 7.1 demanded, surplus <b>4.5</b> billion pounds. The further above equilibrium, the bigger the gap.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">On the graph.</span> It is the horizontal distance between the two curves, measured at the price line. Show it as a labelled arrow.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is a departure from <a href="#e14">equilibrium</a> (entry 14) in one direction; <a href="#e17">shortage</a> (entry 17) is the other. It is what makes <a href="#e18">market forces</a> (entry 18) push the price down.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">16.1</span> At $1.25, quantity supplied is 10.7 and quantity demanded is 8.9. Surplus or shortage, and how big?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>A surplus, because the price is above $1.00. 10.7 &minus; 8.9 = <b>1.8 billion pounds</b>.</p></div></details></div>
+    <div class="q"><p><span class="qn">16.2</span> Does a surplus mean the good is unpopular?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. It means the <b>price</b> is too high. At $1.00 the same market clears completely.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got16"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e17">
+  <div class="entry-head"><span class="entry-num">17</span><h2>Shortage</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Quantity demanded <b>exceeds</b> quantity supplied. Also called <b>excess demand</b>. It happens when the price is <b>below</b> equilibrium.</p></div>
+  <p class="reading">Textbook page 68, Figure 6.8.</p>
+
+  <p class="yourturn"><b>Shortage = quantity demanded &minus; quantity supplied.</b></p>
+
+  <p>At $0.75 a pound: consumers want 11.5 billion pounds, producers offer 9.1 billion, so the
+  shortage is 11.5 &minus; 9.1 = <b>2.4 billion pounds</b>. There are would-be buyers who cannot find
+  a seller.</p>
+
+  <p>Notice that the two subtractions are in opposite orders. That is not a trick &mdash; it is so
+  that both answers come out positive. The name tells you which way round to subtract.</p>
+
+  <div class="watch"><p><b>Watch out.</b> A shortage is not the same as scarcity. Everything is
+  scarce; a shortage is a specific, temporary condition caused by a price that is <b>below</b> the
+  market-clearing level, and it disappears when the price rises.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">At $0.75.</span> 11.5 demanded, 9.1 supplied, shortage <b>2.4</b> billion pounds.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">At $0.50.</span> 14.2 demanded, 8.0 supplied, shortage <b>6.2</b> billion pounds. Further below equilibrium, bigger gap.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">After a snowfall.</span> Everybody wants a second-hand snowblower at once. At the old price there are not enough, so the price is bid up.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> The mirror of <a href="#e16">surplus</a> (entry 16), and what makes <a href="#e18">market forces</a> (entry 18) push the price up. It is a departure from <a href="#e14">equilibrium</a> (entry 14) on the low-price side.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">17.1</span> At $0.50, quantity demanded is 14.2 and quantity supplied is 8.0. Which is it, and how big?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>A shortage, because the price is below $1.00. 14.2 &minus; 8.0 = <b>6.2 billion pounds</b>.</p></div></details></div>
+    <div class="q"><p><span class="qn">17.2</span> Which subtraction gives a shortage, and why that order?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Quantity demanded minus quantity supplied. Demand is the larger of the two below equilibrium, so that order gives a positive number.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got17"> Got it</label>
+  </div>
+</article>
+
+<!-- ============ CALCULATOR ============ -->
+<section class="section" id="calc">
+  <h2>Calculate the surplus or shortage</h2>
+  <p>You will be asked to <b>calculate</b> this, so practise it until the order of the
+  subtraction is automatic. Move the price and watch the sign flip at $1.00.</p>
+
+  <div class="widget">
+    <div class="widget-title">Coffee beans, billions of pounds</div>
+    <div class="calc-grid">
+      <label class="field">Market price<select id="cPrice">
+        <option value="2.00">$2.00</option>
+        <option value="1.75">$1.75</option>
+        <option value="1.50" selected>$1.50</option>
+        <option value="1.25">$1.25</option>
+        <option value="1.00">$1.00</option>
+        <option value="0.75">$0.75</option>
+        <option value="0.50">$0.50</option>
+      </select></label>
+    </div>
+    <div class="readouts">
+      <div class="ro"><span class="k">Quantity demanded</span><span class="v" id="cQd">8.1</span></div>
+      <div class="ro"><span class="k">Quantity supplied</span><span class="v" id="cQs">11.2</span></div>
+      <div class="ro"><span class="k">Imbalance</span><span class="v" id="cGap">surplus 3.1</span></div>
+    </div>
+    <p class="widget-note" id="cNote"></p>
+  </div>
+</section>
+
+<article class="entry" id="e18">
+  <div class="entry-head"><span class="entry-num">18</span><h2>Market forces restoring equilibrium</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Whenever a market is out of balance, <b>market forces drive the price toward equilibrium</b>: a surplus pushes the price <b>down</b>, a shortage pushes it <b>up</b>.</p></div>
+  <p class="reading">Textbook pages 68&ndash;69.</p>
+
+  <p>The mechanism is people, not magic, and you should be able to say who does what:</p>
+
+  <ul>
+    <li><b>Surplus.</b> Some sellers cannot find buyers. A frustrated seller offers a lower price to
+      poach business and tempt more buyers in. Prices fall until the surplus is gone.</li>
+    <li><b>Shortage.</b> Some buyers cannot find sellers. A frustrated buyer offers more than the
+      going price, or sellers realise they can charge more. Prices rise until the shortage is gone.</li>
+  </ul>
+
+  <p>So the market price always moves toward the equilibrium price &mdash; the one price at which
+  there is neither a surplus nor a shortage.</p>
+
+  <div class="watch"><p><b>Watch out.</b> In this module it is the <b>price</b> that is wrong and
+  moves; the curves stay still. In the next module a <b>curve</b> moves and a new equilibrium price
+  follows. Both are true, they are different situations, and mixing them up is the most expensive
+  mistake in this part of the course.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">At $1.50.</span> A 3.1 billion pound surplus gives frustrated sellers a reason to cut prices, which pushes the price down to $1.00.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">At $0.75.</span> A 2.4 billion pound shortage means buyers bid the price up, back to $1.00.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">The checkout again.</span> The rush to the new till and the settling afterwards is the same process: an imbalance creates an incentive, and acting on it removes the imbalance.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is what makes <a href="#e15">the equilibrium price</a> (entry 15) more than a definition, and it is driven by <a href="#e16">surplus</a> (entry 16) and <a href="#e17">shortage</a> (entry 17). What the moving price tells buyers and sellers is <a href="#e19">entry 19</a>.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">18.1</span> The market price is below the equilibrium price. What happens next, and why?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>The price rises. There is a shortage, so frustrated buyers offer more and sellers realise they can charge more.</p></div></details></div>
+    <div class="q"><p><span class="qn">18.2</span> Who actually changes the price in a surplus?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Sellers who cannot find buyers. They cut prices to take business from other sellers and to bring more buyers in.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got18"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e19">
+  <div class="entry-head"><span class="entry-num">19</span><h2>Equilibrium price as a signal</h2><span class="mark flag">&#9733; &#9873;</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The equilibrium price <b>carries information</b>. A rising price tells producers to put more resources into a good and tells buyers to use less of it; a falling price says the opposite. That is how prices <b>guide the allocation of scarce resources</b>.</p></div>
+  <p class="reading">Not in this module. Your textbook makes the point in Module 1, pages 2&ndash;3, and calls prices &ldquo;economic signals&rdquo; much later, on page 627.</p>
+
+  <div class="notinbook"><p><b>&#9873; Not in Module 6 &mdash; learn it from here.</b> Your course says the equilibrium price provides information that guides how resources are used. Module 6 shows how the price reaches equilibrium but never says what the price tells anyone.</p></div>
+
+  <p>Nobody decides how much coffee the world should grow. When more people want coffee, its price
+  rises &mdash; and that price reaches farmers in Brazil and Vietnam who will never meet the drinkers.
+  It tells them that planting more is now worth it. The same price tells some drinkers to switch to
+  tea. Two groups who never talk to each other both change what they do, because of one number.</p>
+
+  <p>Entry 18 is about how market forces <i>move</i> the price. This entry is about what the moved
+  price <i>says</i>. A shortage&rsquo;s rising price tells sellers to bring more; a surplus&rsquo;s
+  falling price tells them to move resources somewhere else.</p>
+
+  <div class="watch"><p><b>Watch out.</b> A signal only works if the price is free to move. If a price is held below equilibrium, the shortage stays and the message never arrives &mdash; producers have no reason to bring more. You will see exactly this with price ceilings, two modules from now.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">Textbook</span><p><span class="who">Command economies.</span> Module 1: without prices free to rise when something is short, producers had no reason to make more of it, and shops were famous for long lines. In a market, high prices during a shortage give producers the incentive to make more.</p></div>
+    <div class="ex"><span class="ex-n">Numeric</span><p><span class="who">Closing a shortage.</span> At $0.75 the coffee market is short by 2.4 billion pounds. As the price rises to $1.00, quantity supplied rises from 9.1 to 10.0 billion and quantity demanded falls from 11.5 to 10.0. Sellers offer 0.9 billion more and buyers want 1.5 billion less: 0.9 + 1.5 = 2.4, and the gap is gone.</p></div>
+    <div class="ex"><span class="ex-n">Illustrative</span><p><span class="who">Farm vets and pet vets.</span> Your textbook&rsquo;s feature on page 65: pet owners paid more for care, and vets moved out of farm practice into pet practice. The higher fees told vets where their skills were now wanted.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is what the <a href="#e15">equilibrium price</a> (entry 15) does once <a href="#e18">market forces</a> (entry 18) have got it there, and on the sellers&rsquo; side it works through the <a href="#e4">law of supply</a> (entry 4).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">19.1</span> A poor harvest sends the price of avocados sharply higher. Name one message the higher price sends to buyers and one it sends to growers elsewhere.</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>To buyers: use fewer avocados &mdash; some switch to other foods, a movement up along their demand curve. To growers: planting avocados is now more rewarding, so more land and effort move into them, a movement up along the supply curve.</p></div></details></div>
+    <div class="q"><p><span class="qn">19.2</span> Why can a shortage not send its signal if the price is not allowed to rise?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because the price <i>is</i> the signal. If it stays below equilibrium, sellers see no reward for supplying more and buyers see no reason to use less, so the shortage persists and resources do not move.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got19"> Got it</label>
+  </div>
+</article>
+
+<!-- ============ MCQ ============ -->
+<section class="section" id="mcq">
+  <h2>Tackle the test &mdash; multiple choice</h2>
+  <p>The five questions from your textbook&rsquo;s AP Review, with <b>every option explained</b>.</p>
+
+  <div class="mcq" data-key="D">
+    <p class="stem"><span class="qn">1</span> Which of the following will <b>decrease</b> the supply of good &ldquo;X&rdquo;?</p>
+    <div class="opts">
+      <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>There is a technological advance that affects the production of all goods.<span class="why" hidden>&#10007; Better technology lowers production costs, so supply <b>increases</b> and the curve shifts right. Right factor, wrong direction.</span></span></button>
+      <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>The price of good &ldquo;X&rdquo; falls.<span class="why" hidden>&#10007; The own-price trap. A fall in X&rsquo;s own price reduces the <i>quantity supplied</i> and moves you down along the curve. Supply itself does not change.</span></span></button>
+      <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>The price of good &ldquo;Y&rdquo; (which consumers regard as a substitute for X) decreases.<span class="why" hidden>&#10007; A substitute in <b>consumption</b> shifts the <b>demand</b> curve for X, not its supply curve. Read carefully for who is switching &mdash; here it is consumers.</span></span></button>
+      <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>The wages of workers producing good &ldquo;X&rdquo; increase.<span class="why" hidden>&#10003; <b>Correct.</b> Wages are an <b>input price</b> for X. A higher input price makes production more costly, so less is supplied at every price and the curve shifts left.</span></span></button>
+      <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>The demand for good &ldquo;X&rdquo; decreases.<span class="why" hidden>&#10007; A change in demand does not shift the supply curve. It changes the equilibrium price and quantity, which is next module&rsquo;s work, but supply stays exactly where it is.</span></span></button>
+    </div>
+  </div>
+
+  <div class="mcq" data-key="D">
+    <p class="stem"><span class="qn">2</span> An increase in the demand for steak will lead to an increase in which of the following?</p>
+    <div class="opts">
+      <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>the supply of steak<span class="why" hidden>&#10007; A higher steak price raises the <i>quantity supplied</i> of steak, moving along the supply curve. Supply does not shift.</span></span></button>
+      <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>the supply of hamburger (a substitute in production)<span class="why" hidden>&#10007; Right category, wrong direction. For substitutes in production, a rise in the price of one <b>decreases</b> supply of the other &mdash; producers switch towards steak.</span></span></button>
+      <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>the supply of chicken (a substitute in consumption)<span class="why" hidden>&#10007; The commonest wrong answer. A substitute in consumption shifts the <b>demand</b> curve for chicken, not its supply curve.</span></span></button>
+      <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>the supply of leather (a complement in production)<span class="why" hidden>&#10003; <b>Correct.</b> Hides and beef come off the same animal. More cattle slaughtered for steak means more leather supplied at every price &mdash; a rightward shift.</span></span></button>
+      <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>the demand for leather<span class="why" hidden>&#10007; Nothing here changes what buyers of leather want. The steak price affects how much leather is <b>produced</b>, not how much is demanded.</span></span></button>
+    </div>
+  </div>
+
+  <div class="mcq" data-key="C">
+    <p class="stem"><span class="qn">3</span> A technological advance in textbook production will lead to which of the following?</p>
+    <div class="opts">
+      <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>a decrease in textbook supply<span class="why" hidden>&#10007; Backwards. Better technology lowers costs, so producers supply more at every price.</span></span></button>
+      <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>an increase in textbook demand<span class="why" hidden>&#10007; Technology is a determinant of <b>supply</b>. Nothing about buyers&rsquo; incomes, tastes, expectations or numbers has changed.</span></span></button>
+      <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>an increase in textbook supply<span class="why" hidden>&#10003; <b>Correct.</b> A rightward shift of the supply curve: more supplied at any given price.</span></span></button>
+      <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>a movement along the supply curve for textbooks<span class="why" hidden>&#10007; Only the good&rsquo;s own price produces a movement. Technology is one of the five shift factors.</span></span></button>
+      <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>an increase in textbook prices<span class="why" hidden>&#10007; The opposite is more likely: an increase in supply tends to push the equilibrium price down. And that is next module&rsquo;s question, not this one.</span></span></button>
+    </div>
+  </div>
+
+  <div class="mcq" data-key="B">
+    <p class="stem"><span class="qn">4</span> Which of the following is true <b>at equilibrium</b>?</p>
+    <div class="opts">
+      <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>The supply schedule is identical to the demand schedule at every price.<span class="why" hidden>&#10007; They match at <b>one</b> price only. At $2.00 the coffee schedules give 11.6 and 7.1 &mdash; wildly different, and the market is still in equilibrium at $1.00.</span></span></button>
+      <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>The quantity demanded is the same as the quantity supplied.<span class="why" hidden>&#10003; <b>Correct.</b> This is your framework&rsquo;s own description: at equilibrium the price brings the quantity supplied and the quantity demanded into balance.</span></span></button>
+      <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>The quantity is zero.<span class="why" hidden>&#10007; The equilibrium quantity is the quantity actually traded &mdash; 10 billion pounds in the coffee market. Zero would mean no market at all.</span></span></button>
+      <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>Every consumer who enjoys the good can consume it.<span class="why" hidden>&#10007; Only those willing and able to pay the equilibrium price buy. Everyone else goes without, and that is not a shortage.</span></span></button>
+      <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>Producers could not make any more of the product regardless of the price.<span class="why" hidden>&#10007; They could &mdash; the supply curve slopes upward, so a higher price would bring out more. They choose not to at this price.</span></span></button>
+    </div>
+  </div>
+
+  <div class="mcq" data-key="D">
+    <p class="stem"><span class="qn">5</span> The market price of a good will tend to <b>rise</b> if&hellip;</p>
+    <div class="opts">
+      <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>demand decreases.<span class="why" hidden>&#10007; A fall in demand lowers the equilibrium price. And this is a shifting curve, which is next module&rsquo;s topic rather than this one.</span></span></button>
+      <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>supply increases.<span class="why" hidden>&#10007; More supplied at every price pushes the equilibrium price <b>down</b>.</span></span></button>
+      <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>it is above the equilibrium price.<span class="why" hidden>&#10007; Exactly backwards. Above equilibrium there is a surplus, and a surplus pushes the price <b>down</b>.</span></span></button>
+      <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>it is below the equilibrium price.<span class="why" hidden>&#10003; <b>Correct.</b> Below equilibrium there is a shortage. Frustrated buyers bid the price up until the shortage disappears.</span></span></button>
+      <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>demand shifts to the left.<span class="why" hidden>&#10007; The same thing as option A in different words, and it lowers the price rather than raising it.</span></span></button>
+    </div>
+  </div>
+
+  <p class="score" id="mcqScore">0 of 5 answered</p>
+</section>
+
+<!-- ============ FRQ ============ -->
+<section class="section" id="frq">
+  <h2>Tackle the test &mdash; free response</h2>
+
+  <div class="frq">
+    <p><b>Question 1.</b> Draw a correctly labelled graph showing the market for tomatoes in
+    equilibrium. Label the equilibrium price P<sub>E</sub> and the equilibrium quantity
+    Q<sub>E</sub>. On your graph, draw a horizontal line at a price <b>above</b> the equilibrium
+    price and show the resulting imbalance.</p>
+    <details class="reveal"><summary>Show the answer and what earns marks</summary><div class="ans">
+      <p>Axes labelled &mdash; Price of tomatoes vertical, Quantity of tomatoes horizontal. A
+      downward-sloping curve labelled D and an <b>upward</b>-sloping curve labelled S. Mark the
+      intersection; dashed lines to the axes; label P<sub>E</sub> and Q<sub>E</sub>.</p>
+      <p>Then a horizontal line above P<sub>E</sub>. At that price, read the quantity demanded off
+      the demand curve and the quantity supplied off the supply curve. The gap between them, measured
+      <b>horizontally</b>, is the <b>surplus</b>. Label it.</p>
+      <p><b>The word matters.</b> Above equilibrium the imbalance is a surplus. If you write
+      &ldquo;shortage&rdquo; the diagram will not save you.</p>
+    </div></details>
+  </div>
+
+  <div class="frq">
+    <p><b>Question 2.</b> Using the coffee bean market, state the equilibrium price and quantity,
+    then calculate the imbalance at a price of $0.75 and explain what happens next.</p>
+    <details class="reveal"><summary>Show the answer</summary><div class="ans">
+      <p>Equilibrium price <b>$1.00</b> per pound, equilibrium quantity <b>10 billion pounds</b> a
+      year &mdash; the one price at which quantity demanded and quantity supplied are both 10.0.</p>
+      <p>At $0.75 the quantity demanded is 11.5 billion pounds and the quantity supplied is 9.1
+      billion. Since the price is <b>below</b> equilibrium, the imbalance is a <b>shortage</b>:
+      11.5 &minus; 9.1 = <b>2.4 billion pounds</b>.</p>
+      <p>What happens next: some buyers cannot find sellers, so they offer more than the going price
+      and sellers realise they can charge more. The price is bid up until it reaches $1.00, where the
+      shortage is zero.</p>
+    </div></details>
+  </div>
+</section>
+
+<!-- ============ SUMMARY ============ -->
+<section class="section" id="summary">
+  <h2>One-page summary</h2>
+  <div class="tablewrap">
+    <table class="sumtable">
+      <thead><tr><th>Cause</th><th>What changes</th><th>On the diagram</th></tr></thead>
+      <tbody>
+        <tr><td>The good&rsquo;s <b>own price</b></td><td>Quantity supplied</td><td><b>Movement along</b> the supply curve</td></tr>
+        <tr><td><b>Input price</b> rises</td><td>Supply</td><td>Shift <b>left</b></td></tr>
+        <tr><td><b>Input price</b> falls</td><td>Supply</td><td>Shift <b>right</b></td></tr>
+        <tr><td>Price of a <b>substitute in production</b> rises</td><td>Supply</td><td>Shift <b>left</b></td></tr>
+        <tr><td>Price of a <b>complement in production</b> rises</td><td>Supply</td><td>Shift <b>right</b></td></tr>
+        <tr><td><b>Technology</b> improves</td><td>Supply</td><td>Shift <b>right</b></td></tr>
+        <tr><td>Price <b>expected to rise</b> later</td><td>Supply today</td><td>Shift <b>left</b></td></tr>
+        <tr><td><b>More producers</b></td><td>Market supply</td><td>Shift <b>right</b></td></tr>
+        <tr><td>Price <b>above</b> equilibrium</td><td>&mdash;</td><td><b>Surplus</b> = Qs &minus; Qd; price falls</td></tr>
+        <tr><td>Price <b>below</b> equilibrium</td><td>&mdash;</td><td><b>Shortage</b> = Qd &minus; Qs; price rises</td></tr>
+        <tr><td>Price <b>moves</b> toward equilibrium</td><td>&mdash;</td><td>A <b>signal</b>: sellers and buyers move resources</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="figcap">Compare the first row with the first row of the Module 5 summary. The rule is
+  identical; only the curve has changed.</p>
+</section>
+
+<section class="section closing" id="final">
+  <h2>The six things to get right from Module 6</h2>
+  <ol>
+    <li><b>Own price &rarr; movement. Anything else &rarr; shift.</b> The same rule as demand, for
+      the second time.</li>
+    <li><b>In production is not in consumption.</b> Ask who is switching &mdash; a producer or a
+      buyer &mdash; before you decide which curve moves.</li>
+    <li><b>Input prices move supply the opposite way.</b> Input price up, supply down, curve left.</li>
+    <li><b>Surplus = Qs &minus; Qd, above equilibrium. Shortage = Qd &minus; Qs, below.</b> Two
+      subtractions, opposite orders, both giving a positive number.</li>
+    <li><b>Here the price is wrong and moves.</b> In the next module a curve moves instead. Keep the
+      two situations apart.</li>
+    <li><b>The price is a message.</b> A rising price tells producers to bring more and buyers to use
+      less; a falling one says the opposite. That is how a market decides where resources go.</li>
+  </ol>
+  <p>And one thing for later. This diagram &mdash; two curves, one crossing, a surplus above and a
+  shortage below &mdash; is the one you will use for the rest of this unit: to show a curve moving
+  (next module), to measure <b>consumer and producer surplus</b>, and to show what a <b>price ceiling
+  or floor</b> does. It comes back in Unit 3 for perfect competition and in Unit 5 for the labor
+  market. Learn it properly here and you will be paid for it all year.</p>
+</section>
+
+<p class="footer">
+  Student guide &middot; Module 6, <i>Krugman&rsquo;s Economics for AP</i>, pages 59&ndash;70 &middot;
+  definitions quoted from the textbook &middot; tiers assigned against the AP Microeconomics Course
+  and Exam Description, Course Framework V.1, &copy; 2022 &middot; entry 19 draws on the
+  textbook&rsquo;s Module 1 &middot; both curves are plotted from the
+  textbook&rsquo;s own schedules and every figure is recomputed.
+</p>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- progress ---------- */
+  var KEY = "micro-mod6-progress";
+  var boxes = Array.prototype.slice.call(document.querySelectorAll(".gotbox"));
+  var fill = document.getElementById("pfill");
+  var num  = document.getElementById("pnum");
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch(e){ return {}; } }
+  function save(s){ try { localStorage.setItem(KEY, JSON.stringify(s)); } catch(e){} }
+  function paint(){
+    var done = boxes.filter(function(b){ return b.checked; }).length;
+    fill.style.width = (done / boxes.length * 100) + "%";
+    num.textContent = done + " / " + boxes.length;
+  }
+  var state = load();
+  boxes.forEach(function(b){
+    if (state[b.id]) b.checked = true;
+    b.addEventListener("change", function(){ var s = load(); s[b.id] = b.checked; save(s); paint(); });
+  });
+  paint();
+  document.getElementById("resetBtn").addEventListener("click", function(){
+    boxes.forEach(function(b){ b.checked = false; });
+    save({}); paint();
+  });
+
+  /* ---------- the market diagram ---------- */
+  var gEq = document.getElementById("g-eq");
+  var gSur = document.getElementById("g-sur");
+  var gSho = document.getElementById("g-sho");
+  var mcap = document.getElementById("mcap");
+  var CAP = {
+    eq:  "Equilibrium. At $1.00 a pound the quantity demanded and the quantity supplied are both 10 billion pounds, so the market clears. Pₑ = $1.00, Qₑ = 10.",
+    sur: "Price at $1.50, above equilibrium. Producers offer 11.2 billion pounds; consumers want 8.1 billion. SURPLUS = 11.2 − 8.1 = 3.1 billion pounds, and sellers cut prices until it is gone.",
+    sho: "Price at $0.75, below equilibrium. Consumers want 11.5 billion pounds; producers offer 9.1 billion. SHORTAGE = 11.5 − 9.1 = 2.4 billion pounds, and buyers bid the price up."
+  };
+  var chips = Array.prototype.slice.call(document.querySelectorAll("#diagram .chip"));
+  function show(which){
+    gEq.hidden = which !== "eq";
+    gSur.hidden = which !== "sur";
+    gSho.hidden = which !== "sho";
+    mcap.textContent = CAP[which];
+    chips.forEach(function(c){ c.setAttribute("aria-pressed", String(c.getAttribute("data-show") === which)); });
+  }
+  chips.forEach(function(c){
+    c.addEventListener("click", function(){ show(c.getAttribute("data-show")); });
+  });
+  show("eq");
+
+  /* ---------- the sorter ---------- */
+  var SCEN = [
+    { t: "During a property boom that pushes house prices up, more homeowners put their houses up for sale.", a: "move",
+      w: "The price of the good being sold — houses — is what rose, so this is a movement up along the supply curve. (Check Your Understanding 1a.)" },
+    { t: "Strawberry farmers open temporary roadside stands during the harvest, even though prices are usually low then.", a: "shift",
+      w: "More is offered despite a low price, which means more at any given price. The season, not the price, caused it. (Check Your Understanding 1b.)" },
+    { t: "When the school year starts, fewer young people are available to work, and fast-food chains must raise wages to attract staff.", a: "shift",
+      w: "Wages are an INPUT PRICE for fast food. A higher input price shifts the supply curve for fast food to the left. (Check Your Understanding 1c.)" },
+    { t: "Construction workers temporarily move to hurricane-damaged areas, lured by higher wages.", a: "move",
+      w: "TRAP, and the mirror of the one before it. Here the good is LABOUR and the wage is its own price, so a higher wage is a movement along the supply curve of construction labour. (Check Your Understanding 1d.)" },
+    { t: "New technologies make it possible to build larger cruise ships, which are cheaper to run per passenger, and lines offer more cabins at lower prices.", a: "shift",
+      w: "Technology, so the supply curve shifts right. Note that prices FELL while quantity rose, which one curve alone cannot do. (Check Your Understanding 1e.)" },
+    { t: "The world price of coffee beans rises from $1.00 to $1.50 and Brazilian farmers plant their less suitable land.", a: "move",
+      w: "Coffee's own price rose, so quantity supplied rose along the same curve." },
+    { t: "The price of crude oil falls, and a plastics manufacturer that uses oil-based resin offers more plastic at every price.", a: "shift",
+      w: "Resin is an input for plastic. A cheaper input shifts the plastics supply curve right." },
+    { t: "An oil refinery sees the price of heating oil rise, and offers less petrol at every price.", a: "shift",
+      w: "Petrol and heating oil are SUBSTITUTES IN PRODUCTION. A higher price for one decreases supply of the other, because the refinery switches." },
+    { t: "Farmers expect wheat to be much more expensive after the winter, so they leave grain in their silos.", a: "shift",
+      w: "Expectations. An expected future price rise DECREASES supply today — the opposite direction from the demand side." },
+    { t: "Twenty new coffee farms start exporting for the first time.", a: "shift",
+      w: "The number of producers rose, so the market supply curve shifts right. No existing farmer changed anything." }
+  ];
+  var list = document.getElementById("sorter-list");
+  var scoreEl = document.getElementById("sorter-score");
+  var answered = 0, right = 0;
+  function build(){
+    list.innerHTML = "";
+    answered = 0; right = 0;
+    SCEN.forEach(function(s, i){
+      var row = document.createElement("div");
+      row.className = "sortrow";
+      row.innerHTML =
+        '<p class="stem"><span class="qn">' + (i + 1) + '</span> ' + s.t + '</p>' +
+        '<div class="opts">' +
+          '<button type="button" class="opt" data-a="move"><span>Movement along the curve</span></button>' +
+          '<button type="button" class="opt" data-a="shift"><span>Shift of the curve</span></button>' +
+        '</div>' +
+        '<p class="why" hidden></p>';
+      var btns = Array.prototype.slice.call(row.querySelectorAll(".opt"));
+      var why = row.querySelector(".why");
+      btns.forEach(function(b){
+        b.addEventListener("click", function(){
+          if (row.getAttribute("data-done")) return;
+          row.setAttribute("data-done", "1");
+          var ok = b.getAttribute("data-a") === s.a;
+          btns.forEach(function(x){
+            x.disabled = true;
+            if (x.getAttribute("data-a") === s.a) x.classList.add("good");
+            else if (x === b) x.classList.add("bad");
+          });
+          why.hidden = false;
+          why.textContent = (ok ? "✓ " : "✗ ") + s.w;
+          answered++; if (ok) right++;
+          scoreEl.textContent = right + " correct out of " + answered + " answered";
+        });
+      });
+      list.appendChild(row);
+    });
+    scoreEl.textContent = "0 of 10 answered";
+  }
+  build();
+  document.getElementById("sorter-reset").addEventListener("click", build);
+
+  /* ---------- surplus / shortage calculator ---------- */
+  /* Krugman Figures 5.1 and 6.1, book pp. 49 and 60. */
+  var SCHED = {
+    "2.00": { d: 7.1,  s: 11.6 },
+    "1.75": { d: 7.5,  s: 11.5 },
+    "1.50": { d: 8.1,  s: 11.2 },
+    "1.25": { d: 8.9,  s: 10.7 },
+    "1.00": { d: 10.0, s: 10.0 },
+    "0.75": { d: 11.5, s: 9.1  },
+    "0.50": { d: 14.2, s: 8.0  }
+  };
+  var cp = document.getElementById("cPrice");
+  function calc(){
+    var key = cp.value;
+    var r = SCHED[key];
+    var gap = Math.round((r.s - r.d) * 10) / 10;
+    document.getElementById("cQd").textContent = r.d.toFixed(1);
+    document.getElementById("cQs").textContent = r.s.toFixed(1);
+    var g = document.getElementById("cGap");
+    var n = document.getElementById("cNote");
+    if (gap > 0){
+      g.textContent = "surplus " + gap.toFixed(1);
+      n.textContent = "$" + key + " is ABOVE the equilibrium price of $1.00, so the imbalance is a surplus. " +
+        "Surplus = quantity supplied − quantity demanded = " + r.s.toFixed(1) + " − " + r.d.toFixed(1) +
+        " = " + gap.toFixed(1) + " billion pounds. Sellers cannot find buyers, so they cut the price and it falls towards $1.00.";
+    } else if (gap < 0){
+      g.textContent = "shortage " + (-gap).toFixed(1);
+      n.textContent = "$" + key + " is BELOW the equilibrium price of $1.00, so the imbalance is a shortage. " +
+        "Shortage = quantity demanded − quantity supplied = " + r.d.toFixed(1) + " − " + r.s.toFixed(1) +
+        " = " + (-gap).toFixed(1) + " billion pounds. Buyers cannot find sellers, so they bid the price up towards $1.00.";
+    } else {
+      g.textContent = "neither — equilibrium";
+      n.textContent = "$1.00 is the equilibrium price. Quantity demanded and quantity supplied are both 10.0 billion pounds, " +
+        "so there is no surplus and no shortage, and nothing pushes the price either way.";
+    }
+  }
+  cp.addEventListener("change", calc);
+  calc();
+
+  /* ---------- multiple choice ---------- */
+  var mcqs = Array.prototype.slice.call(document.querySelectorAll(".mcq[data-key]"));
+  var mcqScore = document.getElementById("mcqScore");
+  var mDone = 0, mRight = 0;
+  mcqs.forEach(function(q){
+    var key = q.getAttribute("data-key");
+    var opts = Array.prototype.slice.call(q.querySelectorAll(".opt"));
+    opts.forEach(function(o){
+      o.addEventListener("click", function(){
+        if (q.getAttribute("data-done")) return;
+        q.setAttribute("data-done", "1");
+        var ok = o.getAttribute("data-l") === key;
+        opts.forEach(function(x){
+          x.querySelector(".why").hidden = false;
+          if (x.getAttribute("data-l") === key) x.classList.add("good");
+          else if (x === o) x.classList.add("bad");
+        });
+        mDone++; if (ok) mRight++;
+        mcqScore.textContent = mRight + " correct out of " + mDone + " answered";
+      });
+    });
+  });
+})();
+</script>
+</main>
+<script>window.COURSE_NAV={"kicker": "2.2 Supply · 2.6 Market equilibrium · 2.7 Disequilibrium", "title": "Module 6 · Supply and Demand: Supply and Equilibrium", "map": [{"label": "Course", "items": [{"href": "index.html", "label": "Home", "current": false}, {"href": "spec.html", "label": "Course specification", "current": false}]}, {"label": "Unit 1 · Basic Economic Concepts", "items": [{"href": "m01-student.html", "label": "Module 1 · Student guide", "current": false}, {"href": "m01-notes.html", "label": "Module 1 · Teaching notes", "current": false}, {"href": "m01-test.html", "label": "Module 1 · Test", "current": false}, {"label": "Module 2 · Introduction to Macroeconomics", "planned": true}, {"href": "m03-student.html", "label": "Module 3 · Student guide", "current": false}, {"href": "m03-notes.html", "label": "Module 3 · Teaching notes", "current": false}, {"href": "m03-test.html", "label": "Module 3 · Test", "current": false}, {"href": "m04-student.html", "label": "Module 4 · Student guide", "current": false}, {"href": "m04-notes.html", "label": "Module 4 · Teaching notes", "current": false}, {"href": "m04-test.html", "label": "Module 4 · Test", "current": false}, {"href": "m51-student.html", "label": "Module 51 · Student guide", "current": false}, {"href": "m51-notes.html", "label": "Module 51 · Teaching notes", "current": false}, {"href": "m51-test.html", "label": "Module 51 · Test", "current": false}, {"label": "Unit 1 · Gap analysis", "planned": true}]}, {"label": "Unit 2 · Supply and Demand", "items": [{"href": "m05-student.html", "label": "Module 5 · Student guide", "current": false}, {"href": "m05-notes.html", "label": "Module 5 · Teaching notes", "current": false}, {"href": "m05-test.html", "label": "Module 5 · Test", "current": false}, {"href": "m06-student.html", "label": "Module 6 · Student guide", "current": true}, {"href": "m06-notes.html", "label": "Module 6 · Teaching notes", "current": false}, {"href": "m06-test.html", "label": "Module 6 · Test", "current": false}, {"label": "Module 7 · Supply and Demand: Changes in Equilibrium", "planned": true}, {"label": "Module 8 · Supply and Demand: Price Controls", "planned": true}, {"label": "Module 9 · Supply and Demand: Quantity Controls", "planned": true}, {"label": "Modules 46–48 · Elasticity", "planned": true}, {"label": "Modules 49–50 · Surplus and Deadweight Loss", "planned": true}, {"label": "Topic 2.9 · International Trade and Public Policy", "planned": true}, {"label": "Unit 2 · Gap analysis", "planned": true}]}, {"label": "Unit 3 · Production, Cost and Perfect Competition", "items": [{"label": "Modules 52–53 · Profit and Profit Maximisation", "planned": true}, {"label": "Module 54 · The Production Function", "planned": true}, {"label": "Module 55 · Firm Costs", "planned": true}, {"label": "Module 56 · Long-Run Costs and Economies of Scale", "planned": true}, {"label": "Module 57 · Introduction to Market Structure", "planned": true}, {"label": "Modules 58–60 · Perfect Competition", "planned": true}, {"label": "Unit 3 · Gap analysis", "planned": true}]}, {"label": "Unit 4 · Imperfect Competition", "items": [{"label": "Topic 4.1 · Introduction to Imperfect Competition", "planned": true}, {"label": "Modules 61–63 · Monopoly", "planned": true}, {"label": "Modules 67–68 · Monopolistic Competition", "planned": true}, {"label": "Modules 64–66 · Oligopoly and Game Theory", "planned": true}, {"label": "Unit 4 · Gap analysis", "planned": true}]}, {"label": "Unit 5 · Factor Markets", "items": [{"label": "Module 69 · Introduction and Factor Demand", "planned": true}, {"label": "Module 70 · The Markets for Land and Capital", "planned": true}, {"label": "Module 71 · The Market for Labor", "planned": true}, {"label": "Module 72 · The Cost-Minimising Input Combination", "planned": true}, {"label": "Module 73 · Theories of Income Distribution", "planned": true}, {"label": "Unit 5 · Gap analysis", "planned": true}]}, {"label": "Unit 6 · Market Failure and the Role of Government", "items": [{"label": "Modules 74–75 · Externalities", "planned": true}, {"label": "Module 76 · Public Goods", "planned": true}, {"label": "Module 77 · Public Policy to Promote Competition", "planned": true}, {"label": "Module 78 · Income Inequality and Income Distribution", "planned": true}, {"label": "Unit 6 · Gap analysis", "planned": true}]}, {"label": "Interactive", "items": [{"label": "PPC explorer", "planned": true}, {"label": "Supply and demand explorer", "planned": true}, {"label": "Elasticity and total revenue", "planned": true}, {"label": "Cost curves", "planned": true}, {"label": "Market structure comparison", "planned": true}]}], "prev": {"href": "m05-test.html", "label": "Module 5 · Test"}, "next": {"href": "m06-notes.html", "label": "Module 6 · Teaching notes"}, "variants": [{"href": "m06-student.html", "label": "Student", "current": true}, {"href": "m06-notes.html", "label": "Notes", "current": false}, {"href": "m06-test.html", "label": "Test", "current": false}]};</script>
+<script src="assets/course.js"></script>
+</body>
+</html>

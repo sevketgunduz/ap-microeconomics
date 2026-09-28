@@ -414,6 +414,7 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
 .dealrow input{font-family:var(--mono);font-size:16px;padding:8px 10px;
   color:var(--ink);background:var(--paper);border:1px solid var(--rule-strong);border-radius:5px}
 .line-svg{width:100%;height:auto;display:block;margin:6px 0 2px}
+.line-svg g[hidden]{display:none}
 .line-svg .band{fill:var(--up-soft);stroke:none}
 .line-svg .axl{stroke:var(--ink);stroke-width:1.6}
 .line-svg .tk{stroke:var(--ink-3);stroke-width:1.1}
@@ -1521,10 +1522,11 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
     sho: "Price at $0.75, below equilibrium. Consumers want 11.5 billion pounds; producers offer 9.1 billion. SHORTAGE = 11.5 − 9.1 = 2.4 billion pounds, and buyers bid the price up."
   };
   var chips = Array.prototype.slice.call(document.querySelectorAll("#diagram .chip"));
+  function tog(g, show){ /* SVG elements have no .hidden property; toggle the attribute, which the CSS hides */ if (show) g.removeAttribute("hidden"); else g.setAttribute("hidden", ""); }
   function show(which){
-    gEq.hidden = which !== "eq";
-    gSur.hidden = which !== "sur";
-    gSho.hidden = which !== "sho";
+    tog(gEq, which === "eq");
+    tog(gSur, which === "sur");
+    tog(gSho, which === "sho");
     mcap.textContent = CAP[which];
     chips.forEach(function(c){ c.setAttribute("aria-pressed", String(c.getAttribute("data-show") === which)); });
   }

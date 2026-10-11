@@ -1,0 +1,1585 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 49 · Consumer and Producer Surplus · AP Microeconomics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@600;700&display=swap">
+<link rel="stylesheet" href="assets/course.css">
+<style>.page .bar{position:static;background:none;backdrop-filter:none}.page .bar-in{max-width:none;padding-inline:0}.page .wrap{max-width:none;padding-inline:0;padding-block:0 24px}.page .masthead{padding-block:10px 24px}</style></head>
+<body>
+<main class="page">
+<style>
+
+
+:root{
+  --paper:#f3f5f8;
+  --surface:#ffffff;
+  --surface-2:#eef1f6;
+  --ink:#15181f;
+  --ink-2:#4d5566;
+  --ink-3:#737c8e;
+  --rule:#d6dae2;
+  --rule-strong:#b3bac7;
+  --accent:#1d4e89;
+  --accent-soft:#e6edf7;
+  --down:#a3372a;
+  --down-soft:#fbeeeb;
+  --up:#1a6b55;
+  --up-soft:#e6f2ee;
+  --flag:#7a5310;
+  --flag-soft:#f8f0e0;
+  --shadow:0 1px 2px rgba(21,24,31,.06), 0 8px 24px rgba(21,24,31,.05);
+  --serif:"IBM Plex Serif", Georgia, "Times New Roman", serif;
+  --sans:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0f1218;
+    --surface:#171b23;
+    --surface-2:#1e232d;
+    --ink:#e8ebf1;
+    --ink-2:#a3adc0;
+    --ink-3:#7e8799;
+    --rule:#2c323d;
+    --rule-strong:#3c4351;
+    --accent:#7dabe2;
+    --accent-soft:#1a2634;
+    --down:#e5907f;
+    --down-soft:#2a1d1a;
+    --up:#6cc4a7;
+    --up-soft:#16291f;
+    --flag:#d8b169;
+    --flag-soft:#2a2418;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.28);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0f1218;
+  --surface:#171b23;
+  --surface-2:#1e232d;
+  --ink:#e8ebf1;
+  --ink-2:#a3adc0;
+  --ink-3:#7e8799;
+  --rule:#2c323d;
+  --rule-strong:#3c4351;
+  --accent:#7dabe2;
+  --accent-soft:#1a2634;
+  --down:#e5907f;
+  --down-soft:#2a1d1a;
+  --up:#6cc4a7;
+  --up-soft:#16291f;
+  --flag:#d8b169;
+  --flag-soft:#2a2418;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.28);
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.65;
+  margin:0;
+}
+.wrap{max-width:820px;margin:0 auto;padding-inline:18px;padding-block:0 72px}
+
+/* ---------- sticky bar ---------- */
+.bar{
+  position:sticky;
+  top:env(safe-area-inset-top, 0px);
+  z-index:40;
+  background:color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--rule);
+}
+.bar-in{
+  max-width:820px;margin:0 auto;padding-inline:18px;
+  display:flex;align-items:center;gap:14px;min-height:50px;flex-wrap:wrap;
+}
+.bar-title{font-family:var(--mono);font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-2);white-space:nowrap}
+.progress{flex:1 1 140px;min-width:120px;display:flex;align-items:center;gap:9px}
+.progress-track{flex:1;height:5px;border-radius:3px;background:var(--rule);overflow:hidden}
+.progress-fill{height:100%;width:0;background:var(--accent);transition:width .25s ease}
+.progress-num{font-family:var(--mono);font-size:12px;color:var(--ink-2);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar button{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;
+  background:none;border:1px solid var(--rule-strong);color:var(--ink-2);
+  padding:5px 10px;border-radius:4px;cursor:pointer;
+}
+.bar button:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ---------- masthead ---------- */
+.masthead{padding-block:40px 28px;border-bottom:2px solid var(--ink)}
+.eyebrow{
+  font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);margin:0 0 12px;
+}
+h1{
+  font-family:var(--serif);font-weight:700;font-size:clamp(30px,6.4vw,44px);
+  line-height:1.1;margin:0 0 14px;text-wrap:balance;letter-spacing:-.01em;
+}
+.standfirst{font-size:17.5px;color:var(--ink-2);margin:0;max-width:62ch}
+.source-line{
+  font-family:var(--mono);font-size:12.5px;color:var(--ink-3);margin-top:18px;
+  display:flex;gap:6px 18px;flex-wrap:wrap;
+}
+
+h2{
+  font-family:var(--serif);font-weight:600;font-size:clamp(21px,3.8vw,26px);
+  line-height:1.25;margin:0 0 10px;text-wrap:balance;
+}
+h3{font-family:var(--sans);font-weight:600;font-size:16px;margin:26px 0 8px;letter-spacing:.01em}
+p{margin:0 0 14px}
+a{color:var(--accent)}
+.section{padding-block:34px 4px}
+
+.kicker{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-3);margin:0 0 8px;
+}
+
+/* ---------- entries ---------- */
+.entry{padding-block:34px 10px;border-top:1px solid var(--rule)}
+.entry-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.entry-num{
+  font-family:var(--mono);font-size:13px;font-weight:600;color:var(--accent);
+  font-variant-numeric:tabular-nums;
+}
+.entry h2{margin:0;flex:1 1 auto;min-width:0}
+.mark{
+  font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  padding:3px 8px;border-radius:3px;white-space:nowrap;
+}
+.mark.exam{background:var(--accent-soft);color:var(--accent)}
+.mark.bg{background:var(--surface-2);color:var(--ink-3)}
+.defn{
+  background:var(--surface);border-left:3px solid var(--accent);
+  padding:14px 16px;border-radius:0 5px 5px 0;margin:14px 0 16px;box-shadow:var(--shadow);
+}
+.defn p{margin:0}
+.defn .lbl{
+  display:block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-3);margin-bottom:5px;
+}
+.reading{font-family:var(--mono);font-size:12.5px;color:var(--ink-3);margin:-6px 0 16px}
+
+.watch{
+  background:var(--down-soft);border:1px solid color-mix(in srgb, var(--down) 28%, transparent);
+  border-radius:5px;padding:13px 16px;margin:18px 0;
+}
+.watch p{margin:0;font-size:15.3px}
+.watch b{color:var(--down)}
+
+.notinbook{
+  background:var(--flag-soft);border:1px dashed color-mix(in srgb, var(--flag) 48%, transparent);
+  border-radius:5px;padding:13px 16px;margin:16px 0;
+}
+.notinbook p{margin:0;font-size:15.3px}
+.notinbook b{color:var(--flag)}
+
+.examples{margin:18px 0;display:flex;flex-direction:column;gap:12px}
+.ex{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start}
+.ex-n{
+  font-family:var(--mono);font-size:11px;font-weight:600;color:var(--ink-3);
+  border:1px solid var(--rule-strong);border-radius:3px;padding:1px 6px;margin-top:3px;white-space:nowrap;
+}
+.ex p{margin:0;font-size:15.3px}
+.ex .who{font-weight:600;color:var(--ink)}
+
+.connects{font-size:15.3px;color:var(--ink-2);border-top:1px solid var(--rule);padding-top:12px;margin-top:6px}
+.connects b{color:var(--ink)}
+
+/* ---------- check yourself ---------- */
+.check{margin:20px 0 6px;background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:14px 16px}
+.check > .lbl{
+  font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);display:block;margin-bottom:10px;
+}
+.q{margin-bottom:12px}
+.q:last-child{margin-bottom:0}
+.q > p{margin:0 0 7px;font-size:15.3px}
+.q .qn{font-family:var(--mono);font-weight:600;color:var(--accent);font-size:13.5px;margin-right:4px}
+details.reveal{border-top:1px dashed var(--rule)}
+details.reveal > summary{
+  list-style:none;cursor:pointer;font-family:var(--mono);font-size:11.5px;
+  letter-spacing:.07em;text-transform:uppercase;color:var(--accent);padding:7px 0 0;
+}
+details.reveal > summary::-webkit-details-marker{display:none}
+details.reveal > summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details.reveal[open] > summary::before{content:"▾ "}
+details.reveal > summary:hover{text-decoration:underline}
+details.reveal .ans{font-size:15.3px;color:var(--ink-2);padding:6px 0 4px}
+details.reveal .ans p{margin:0 0 8px}
+details.reveal .ans p:last-child{margin:0}
+
+.got{
+  display:flex;align-items:center;gap:8px;margin-top:16px;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);
+  cursor:pointer;user-select:none;
+}
+.got input{width:15px;height:15px;accent-color:var(--accent);cursor:pointer}
+
+/* ---------- tables ---------- */
+.tablewrap{overflow-x:auto;margin:18px 0;border:1px solid var(--rule);border-radius:6px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:15px;min-width:420px}
+th,td{padding:10px 13px;text-align:left;border-bottom:1px solid var(--rule);vertical-align:top}
+thead th{
+  font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-3);background:var(--surface-2);font-weight:600;
+}
+tbody tr:last-child td{border-bottom:none}
+td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right}
+.tight td,.tight th{padding:8px 12px;font-size:14.5px}
+
+/* ---------- widgets ---------- */
+.widget{
+  background:var(--surface);border:1px solid var(--rule-strong);border-radius:8px;
+  padding:18px;margin:26px 0;box-shadow:var(--shadow);
+}
+.widget-title{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);margin:0 0 4px;
+}
+.widget h3{margin-top:0}
+.widget-note{font-size:14.5px;color:var(--ink-2);margin:12px 0 0}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{
+  font-family:var(--mono);font-size:12px;letter-spacing:.04em;
+  border:1px solid var(--rule-strong);background:var(--surface);color:var(--ink-2);
+  border-radius:16px;padding:5px 13px;cursor:pointer;transition:all .15s;
+}
+.chip:hover{border-color:var(--accent);color:var(--accent)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+:root[data-theme="dark"] .chip[aria-pressed="true"],
+:root:not([data-theme="light"]) .chip[aria-pressed="true"]{color:#0f1218}
+
+.cyclefig{width:100%;height:auto;display:block;overflow:visible}
+.figcap{font-size:14.5px;color:var(--ink-2);margin:10px 0 0;min-height:3em}
+.figcap b{color:var(--ink)}
+
+.svg-dim{opacity:.22;transition:opacity .2s}
+.svg-lit{opacity:1;transition:opacity .2s}
+
+.calc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:14px 0}
+.field label{
+  display:block;font-family:var(--mono);font-size:11px;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--ink-3);margin-bottom:5px;
+}
+.field input[type=number]{
+  width:100%;font-family:var(--mono);font-size:16px;padding:8px 10px;
+  border:1px solid var(--rule-strong);border-radius:5px;background:var(--paper);color:var(--ink);
+}
+.field input[type=range]{width:100%;accent-color:var(--accent)}
+.field input:focus-visible,.chip:focus-visible,button:focus-visible,summary:focus-visible,a:focus-visible{
+  outline:2px solid var(--accent);outline-offset:2px;
+}
+.readouts{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:6px;overflow:hidden;margin-top:6px}
+.ro{background:var(--surface-2);padding:12px 14px}
+.ro .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);display:block;margin-bottom:3px}
+.ro .v{font-family:var(--mono);font-size:22px;font-weight:600;font-variant-numeric:tabular-nums;color:var(--ink)}
+.ro .v.hl{color:var(--accent)}
+
+/* ---------- quiz ---------- */
+.mcq{border-top:1px solid var(--rule);padding-top:18px;margin-top:18px}
+.mcq:first-of-type{border-top:none;padding-top:0;margin-top:0}
+.mcq .stem{font-size:15.6px;margin:0 0 12px}
+.mcq .stem .qn{font-family:var(--mono);font-weight:600;color:var(--accent);margin-right:6px}
+.opts{display:flex;flex-direction:column;gap:7px}
+.opt{
+  display:flex;gap:11px;align-items:flex-start;text-align:left;width:100%;
+  font-family:var(--sans);font-size:15.2px;line-height:1.5;color:var(--ink);
+  background:var(--surface);border:1px solid var(--rule);border-radius:6px;
+  padding:10px 13px;cursor:pointer;transition:border-color .15s,background .15s;
+}
+.opt:hover{border-color:var(--accent)}
+.opt .ltr{font-family:var(--mono);font-weight:600;color:var(--ink-3);flex:0 0 auto}
+.opt .why{display:block;font-size:14.3px;color:var(--ink-2);margin-top:6px}
+.opt[data-state="right"]{border-color:var(--up);background:var(--up-soft)}
+.opt[data-state="right"] .ltr{color:var(--up)}
+.opt[data-state="wrong"]{border-color:var(--down);background:var(--down-soft)}
+.opt[data-state="wrong"] .ltr{color:var(--down)}
+.opt[disabled]{cursor:default}
+.score{
+  font-family:var(--mono);font-size:13px;color:var(--ink-2);
+  border:1px solid var(--rule-strong);border-radius:6px;padding:11px 14px;margin-top:20px;
+  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;
+}
+.score b{color:var(--ink);font-size:15px}
+
+.frq{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:15px 17px;margin:16px 0}
+.frq .stem{margin:0 0 6px;font-size:15.6px}
+.frq .pts{font-family:var(--mono);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3)}
+.rubric{margin:8px 0 0;padding:0;list-style:none}
+.rubric li{display:grid;grid-template-columns:auto 1fr;gap:10px;padding:7px 0;border-top:1px dotted var(--rule);font-size:15.2px}
+.rubric li .pt{font-family:var(--mono);font-size:11.5px;color:var(--up);white-space:nowrap;padding-top:3px}
+
+.closing{background:var(--accent-soft);border-radius:8px;padding:20px 22px;margin-top:28px}
+.closing h2{margin-top:0}
+.closing ol{margin:0;padding-left:20px}
+.closing li{margin-bottom:10px;font-size:15.5px}
+.closing li:last-child{margin-bottom:0}
+
+.toc{columns:2 220px;column-gap:26px;margin:16px 0 0;padding:0;list-style:none}
+.toc li{break-inside:avoid;padding:3px 0;font-size:15px}
+.toc a{text-decoration:none;color:var(--ink)}
+.toc a:hover{color:var(--accent);text-decoration:underline}
+.toc .n{font-family:var(--mono);font-size:12.5px;color:var(--ink-3);margin-right:7px;font-variant-numeric:tabular-nums}
+.toc .m{font-size:11px;color:var(--ink-3);margin-left:5px}
+
+.footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--rule);font-family:var(--mono);font-size:12px;color:var(--ink-3);line-height:1.8}
+
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+@media print{
+  .bar,.got,.chips{display:none}
+  body{background:#fff}
+  details.reveal > *{display:block!important}
+  .entry{break-inside:avoid-page}
+}
+@media (max-width:520px){
+  .toc{columns:1}
+  .ro .v{font-size:19px}
+}
+
+/* ---------- Module 3 supplement ---------- */
+.mark.flag{background:var(--flag-soft);color:var(--flag)}
+.ppc-wrap{display:grid;grid-template-columns:1fr;gap:14px}
+@media (min-width:720px){.ppc-wrap{grid-template-columns:1fr 210px}}
+.ppc-svg{width:100%;height:auto;display:block;background:var(--surface);
+  border:1px solid var(--rule);border-radius:6px;cursor:crosshair;touch-action:none}
+.ppc-side{display:flex;flex-direction:column;gap:10px}
+.status{font-family:var(--mono);font-size:12.5px;padding:9px 11px;border-radius:5px;
+  border:1px solid var(--rule-strong);background:var(--surface-2);line-height:1.45}
+.status[data-s="on"]{border-color:color-mix(in srgb,var(--up) 45%,transparent);background:var(--up-soft);color:var(--up)}
+.status[data-s="in"]{border-color:var(--rule-strong);color:var(--ink-2)}
+.status[data-s="out"]{border-color:color-mix(in srgb,var(--down) 45%,transparent);background:var(--down-soft);color:var(--down)}
+.ppc-legend{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);line-height:1.6}
+.ppc-legend b{color:var(--ink-2);font-weight:600}
+.chips.tight{gap:6px}
+.tbl{overflow-x:auto;max-width:100%}
+.sumtable{width:100%;border-collapse:collapse;font-size:14.5px;margin:16px 0}
+.sumtable th,.sumtable td{border-bottom:1px solid var(--rule);padding:8px 10px;text-align:left;vertical-align:top}
+.sumtable th{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+.sumtable td.mk{font-family:var(--mono);font-size:12px;white-space:nowrap;color:var(--accent)}
+.sumtable td.mk.bgm{color:var(--ink-3)}
+.sumtable td.mk.flagm{color:var(--flag)}
+.final{background:var(--surface);border:1px solid var(--rule);border-radius:6px;
+  padding:18px 20px;margin:22px 0;box-shadow:var(--shadow)}
+.final ol{margin:0;padding-left:20px}
+.final li{margin:0 0 9px}
+.final li:last-child{margin-bottom:0}
+
+/* ---------- PPC explorer svg ---------- */
+.ppc-svg .ax{stroke:var(--ink);stroke-width:1.6}
+.ppc-svg .tick{stroke:var(--ink-3);stroke-width:1.1}
+.ppc-svg .tl{font-family:var(--mono);font-size:11px;fill:var(--ink-3)}
+.ppc-svg .al{font-family:var(--sans);font-size:12px;font-weight:600;fill:var(--ink-2)}
+.ppc-svg .curve{fill:none;stroke:var(--accent);stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round}
+.ppc-svg .ghost{fill:none;stroke:var(--rule-strong);stroke-width:1.8;stroke-dasharray:6 5}
+.ppc-svg .cl{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--accent)}
+.ppc-svg .drop{stroke:var(--rule-strong);stroke-width:1;stroke-dasharray:3 3}
+.ppc-svg .pt{stroke:var(--surface);stroke-width:2}
+.ppc-svg .pt-on{fill:var(--up)}
+.ppc-svg .pt-in{fill:var(--ink-3)}
+.ppc-svg .pt-out{fill:var(--down)}
+
+
+/* ---------- Module 4 supplement ---------- */
+.two-panel{width:100%;height:auto;display:block;background:var(--surface);
+  border:1px solid var(--rule);border-radius:6px}
+.ca-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:0 0 14px}
+@media (min-width:640px){.ca-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.ca-grid .field{display:flex;flex-direction:column;gap:5px}
+.ca-grid .field span{font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--ink-3)}
+.ca-grid .field b{color:var(--ink-2);font-weight:600;text-transform:none;letter-spacing:0}
+.ca-grid input{font-family:var(--mono);font-size:15px;padding:7px 9px;width:100%;
+  color:var(--ink);background:var(--paper);border:1px solid var(--rule-strong);border-radius:5px}
+.ca-grid input:focus{outline:2px solid var(--accent);outline-offset:1px}
+.catab{width:100%;border-collapse:collapse;font-size:14px;margin:4px 0 14px}
+.catab th,.catab td{border-bottom:1px solid var(--rule);padding:7px 9px;text-align:left}
+.catab th{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:600}
+.catab td.v{font-family:var(--mono);color:var(--ink)}
+.catab td.win{font-family:var(--mono);color:var(--up);font-weight:600}
+.dealrow{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;margin:0 0 12px}
+.dealrow .field{display:flex;flex-direction:column;gap:5px;min-width:190px;flex:1}
+.dealrow .field span{font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--ink-3)}
+.dealrow input{font-family:var(--mono);font-size:16px;padding:8px 10px;
+  color:var(--ink);background:var(--paper);border:1px solid var(--rule-strong);border-radius:5px}
+.line-svg{width:100%;height:auto;display:block;margin:6px 0 2px}
+.line-svg g[hidden]{display:none}
+.line-svg .band{fill:var(--up-soft);stroke:none}
+.line-svg .axl{stroke:var(--ink);stroke-width:1.6}
+.line-svg .tk{stroke:var(--ink-3);stroke-width:1.1}
+.line-svg .tlb{font-family:var(--mono);font-size:11px;fill:var(--ink-3)}
+.line-svg .edge{stroke:var(--up);stroke-width:2}
+.line-svg .edgel{font-family:var(--mono);font-size:11.5px;font-weight:600;fill:var(--up)}
+.line-svg .prop{stroke:var(--accent);stroke-width:2.4}
+.line-svg .propbad{stroke:var(--down);stroke-width:2.4}
+.line-svg .propl{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--accent)}
+.line-svg .propl.bad{fill:var(--down)}
+.two-panel .ax{stroke:var(--ink);stroke-width:1.6}
+.two-panel .tick{stroke:var(--ink-3);stroke-width:1.1}
+.two-panel .tl{font-family:var(--mono);font-size:10.5px;fill:var(--ink-3)}
+.two-panel .al{font-family:var(--sans);font-size:11.5px;font-weight:600;fill:var(--ink-2)}
+.two-panel .ph{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--ink-2)}
+.two-panel .curve{fill:none;stroke:var(--accent);stroke-width:2.4;stroke-linecap:round}
+.two-panel .slope{font-family:var(--mono);font-size:11px;fill:var(--accent)}
+.two-panel .drop{stroke:var(--rule-strong);stroke-width:1;stroke-dasharray:3 3}
+.two-panel .pt{stroke:var(--surface);stroke-width:2}
+.two-panel .pt-on{fill:var(--ink-2)}
+.two-panel .pt-out{fill:var(--up)}
+.two-panel .ptl{font-family:var(--mono);font-size:11px;fill:var(--ink-2)}
+.two-panel .ptl.good{fill:var(--up);font-weight:600}
+
+
+/* The inherited stylesheet styles .curve, .ax, .tick, .tl, .cl, .pt and .ptl only under .ppc-svg and
+   .two-panel, and its .line-svg .axl rule is for an axis LINE - so give the figure's own classes rules
+   under .line-svg. Without these the curves, axes and ticks have stroke:none and do not render. */
+.line-svg .ax{stroke:var(--ink);stroke-width:1.6}
+.line-svg .tick{stroke:var(--ink-3);stroke-width:1.1}
+.line-svg .tl{font-family:var(--mono);font-size:11px;fill:var(--ink-3)}
+.line-svg text.axl{stroke:none;font-family:var(--mono);font-size:12px;fill:var(--ink-2)}
+.line-svg .curve{fill:none;stroke:var(--accent);stroke-width:2.6;stroke-linecap:round}
+.line-svg .cl{font-family:var(--mono);font-size:13px;font-weight:600;fill:var(--accent)}
+.line-svg .pt{stroke:var(--surface);stroke-width:2}
+.line-svg .pt-on{fill:var(--ink-2)}
+.line-svg .ptl{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--ink-2)}
+/* Module 8 price-control figure */
+.pc-line{stroke:var(--down);stroke-width:2.2;stroke-dasharray:7 4}
+.pc-lab{font-family:var(--mono);font-size:12px;fill:var(--down)}
+.pc-gap{stroke:var(--ink-2);stroke-width:1.4}
+.pc-gl{font-family:var(--mono);font-size:11.5px;fill:var(--ink-2)}
+.pc-dwl{fill:var(--flag-soft);stroke:var(--flag);stroke-width:1}
+.pc-dl{font-family:var(--mono);font-size:11.5px;fill:var(--flag)}
+
+/* Module 9 quota figure */
+.qt-line{stroke:var(--down);stroke-width:2.2;stroke-dasharray:7 4}
+.qt-lab{font-family:var(--mono);font-size:12px;fill:var(--down)}
+.qt-rent{fill:var(--up-soft);stroke:var(--up);stroke-width:1}
+.qt-rl{font-family:var(--mono);font-size:11.5px;fill:var(--up)}
+
+/* Module 46: the base figure classes, the calculator and the sorter */
+.line-svg .ax{stroke:var(--ink);stroke-width:1.6}
+.line-svg text.axl{stroke:none;font-family:var(--mono);font-size:12px;fill:var(--ink-2)}
+.line-svg .tick{stroke:var(--ink-3);stroke-width:1.1}
+.line-svg .tl{font-family:var(--mono);font-size:11px;fill:var(--ink-3)}
+.line-svg .curve{fill:none;stroke:var(--accent);stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round}
+.line-svg .cl{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--accent)}
+.line-svg .pt{stroke:var(--surface);stroke-width:2}
+.line-svg .pt-on{fill:var(--ink-2)}
+.line-svg .ptl{font-family:var(--mono);font-size:11.5px;font-weight:600;fill:var(--ink-2)}
+.formula{font-family:var(--mono);font-size:13.5px;background:var(--surface-2);border-left:3px solid var(--accent);
+  padding:9px 12px;margin:10px 0;border-radius:0 6px 6px 0;line-height:1.5}
+.calc-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:10px 0}
+.calc-grid label{display:flex;flex-direction:column;gap:4px;font-family:var(--mono);font-size:11.5px;color:var(--ink-3)}
+.calc-grid input{font-family:var(--mono);font-size:14px;padding:6px 8px;border:1px solid var(--rule);
+  border-radius:6px;background:var(--surface);color:var(--ink)}
+.two-ways{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}
+.way{border:1px solid var(--rule);border-radius:8px;padding:11px 13px;background:var(--surface-2)}
+.way h4{margin:0 0 7px;font-size:13px;letter-spacing:.02em}
+.way .big{font-family:var(--mono);font-size:22px;font-weight:600;color:var(--accent)}
+.way .step{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);margin:3px 0 0}
+.way.mid .big{color:var(--up)}
+.sorter .opts3{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}
+.sorter .opts3 button{font:inherit;font-size:12.5px;padding:6px 11px;border:1px solid var(--rule);
+  border-radius:999px;background:var(--surface);color:var(--ink);cursor:pointer}
+.sorter .opts3 button:hover{border-color:var(--accent)}
+.sorter .verdict{margin-top:9px;font-size:13.5px}
+.sorter .verdict.ok{color:var(--up)}
+.sorter .verdict.no{color:var(--down)}
+@media (max-width:620px){.calc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .two-ways{grid-template-columns:1fr}}
+
+/* Module 47: the revenue bars and the elasticity zones */
+.line-svg .trbar{fill:var(--accent);opacity:.45}
+.line-svg .trbar.peak{fill:var(--up);opacity:.85}
+.line-svg .zone{font-family:var(--mono);font-size:11.5px;fill:var(--ink-3);text-anchor:middle}
+.line-svg .zone.unit{fill:var(--up);font-weight:600}
+.cases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:12px}
+.case{border:1px solid var(--rule);border-radius:8px;padding:11px 13px;background:var(--surface-2)}
+.case h4{margin:0 0 7px;font-size:13px;letter-spacing:.02em}
+.case .big{font-family:var(--mono);font-size:19px;font-weight:600;color:var(--accent)}
+.case .step{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);margin:3px 0 0}
+.case.up .big{color:var(--up)}
+.case.down .big{color:var(--down)}
+.sorter .opts3{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}
+.sorter .opts3 button{font:inherit;font-size:12.5px;padding:6px 11px;border:1px solid var(--rule);
+  border-radius:999px;background:var(--surface);color:var(--ink);cursor:pointer}
+.sorter .opts3 button:hover{border-color:var(--accent)}
+.sorter .verdict{margin-top:9px;font-size:13.5px}
+.sorter .verdict.ok{color:var(--up)}
+.sorter .verdict.no{color:var(--down)}
+@media (max-width:620px){.cases{grid-template-columns:1fr}}
+
+/* Module 48: the two-panel supply figure and the identifier */
+.line-svg .curve.sup{stroke:var(--up)}
+.line-svg .cl.sup{fill:var(--up)}
+.line-svg .zone{font-family:var(--mono);font-size:11.5px;fill:var(--ink-3);text-anchor:middle}
+.ident-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:10px 0}
+.ident-grid label{display:flex;flex-direction:column;gap:4px;font-family:var(--mono);font-size:11.5px;color:var(--ink-3)}
+.ident-grid input{font-family:var(--mono);font-size:14px;padding:6px 8px;border:1px solid var(--rule);
+  border-radius:6px;background:var(--surface);color:var(--ink)}
+.verdictbox{border:1px solid var(--rule);border-radius:8px;padding:12px 14px;background:var(--surface-2);margin-top:12px}
+.verdictbox .big{font-family:var(--mono);font-size:22px;font-weight:600;color:var(--accent);margin:0}
+.verdictbox .what{font-size:14px;margin:6px 0 0}
+.verdictbox .step{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);margin:4px 0 0}
+.verdictbox.pos .big{color:var(--up)}
+.verdictbox.neg .big{color:var(--down)}
+.sorter .opts3{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}
+.sorter .opts3 button{font:inherit;font-size:12.5px;padding:6px 11px;border:1px solid var(--rule);
+  border-radius:999px;background:var(--surface);color:var(--ink);cursor:pointer}
+.sorter .opts3 button:hover{border-color:var(--accent)}
+.sorter .verdict{margin-top:9px;font-size:13.5px}
+.sorter .verdict.ok{color:var(--up)}
+.sorter .verdict.no{color:var(--down)}
+@media (max-width:620px){.ident-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Module 49: the surplus blocks and the price line */
+.line-svg .cs-block{fill:var(--accent);opacity:.28;stroke:var(--accent);stroke-width:.8}
+.line-svg .ps-block{fill:var(--up);opacity:.28;stroke:var(--up);stroke-width:.8}
+.line-svg .pline{stroke:var(--ink-2);stroke-width:1.6;stroke-dasharray:6 4}
+.line-svg g[hidden]{display:none}
+.sorter .opts3{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}
+.sorter .opts3 button{font:inherit;font-size:12.5px;padding:6px 11px;border:1px solid var(--rule);
+  border-radius:999px;background:var(--surface);color:var(--ink);cursor:pointer}
+.sorter .opts3 button:hover{border-color:var(--accent)}
+.sorter .verdict{margin-top:9px;font-size:13.5px}
+.sorter .verdict.ok{color:var(--up)}
+.sorter .verdict.no{color:var(--down)}
+</style>
+
+
+<div class="bar">
+  <div class="bar-in">
+    <span class="bar-title">Micro &middot; Module 49</span>
+    <span class="progress">
+      <span class="progress-track"><span class="progress-fill" id="pfill"></span></span>
+      <span class="progress-num" id="pnum">0 / 16</span>
+    </span>
+    <button type="button" id="resetBtn">Reset progress</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+<p class="eyebrow">AP Microeconomics &middot; Unit 2 &middot; Student guide</p>
+  <h1>Consumer and Producer Surplus</h1>
+  <p class="standfirst">Sixteen terms from Module 49 of <i>Krugman&rsquo;s Economics for AP</i>.
+  How much do buyers and sellers actually <i>gain</i> from a market? Two definitions, two areas, and
+  the measure the rest of this course judges markets by.</p>
+  <div class="source-line">
+    <span>Textbook pages 482&ndash;494</span><span>&middot;</span><span>16 terms</span><span>&middot;</span>
+    <span>Topic 2.6</span><span>&middot;</span><span>2 periods</span>
+  </div>
+<section class="section" id="howto">
+  <h2>How to use this guide</h2>
+  <p>Read Module 49 in your textbook first. Entries 1 to 6 are the buyers' side; entries 7 to 13 are
+  the sellers' side, built the same way; entries 14 to 16 put the two together and show you how to
+  compute them.</p>
+  <ul>
+    <li><b>&#9733; Exam</b> means the framework can test it.</li>
+    <li><b>&#9733; &#9873;</b> means it is examinable <b>and Module 49 of your textbook does not
+      teach it</b>. Entry 15 carries the flag.</li>
+    <li><b>&#9675; Background</b> means it helps you understand the topic but will not be asked about
+      on its own.</li>
+    <li>Every entry ends with two <b>Check yourself</b> questions. Answer them before opening the
+      answer, then tick <b>Got it</b>.</li>
+  </ul>
+  <div class="flag">
+    <p><b>The one idea.</b> A trade happens only when the buyer values the good <b>more</b> than the
+    seller does. Everything between those two numbers is a gain, and the price decides how it is
+    split: consumer surplus above the price, producer surplus below it.</p>
+  </div>
+  <div class="notinbook"><p><b>&#9873; Your textbook stops one step short.</b> It computes consumer
+  surplus and producer surplus and never adds them up &mdash; the phrase <i>total economic surplus</i>
+  appears nowhere in its 927 pages, and the word <i>efficient</i> never appears in this module. Your
+  course asks for both. Entry 15 supplies them, and the next module proves the argument.</p></div>
+</section>
+
+<!-- ============ THE MARKET ============ -->
+<section class="section" id="market">
+  <h2>The market this module is built on</h2>
+  <p>Five students want a used textbook and five have one to sell. Each buyer has a <b>maximum</b>
+  price and each seller a <b>minimum</b>:</p>
+  <p class="formula">Buyers &mdash; Aleisha $59 &middot; Brad $45 &middot; Claudia $35 &middot; Darren $25 &middot; Edwina $10<br>Sellers &mdash; Andrew $5 &middot; Betty $15 &middot; Carlos $25 &middot; Donna $35 &middot; Engelbert $45</p>
+  <p>Pick a price. The blue blocks are what buyers gain, the green blocks are what sellers gain, and
+  the dashed line is the price itself.</p>
+  <div class="widget">
+    <div class="widget-title">The used-textbook market</div>
+    <div class="chips" id="pChips">
+      <button type="button" class="chip" aria-pressed="false" data-p="10">$10</button>
+      <button type="button" class="chip" aria-pressed="false" data-p="20">$20</button>
+      <button type="button" class="chip" aria-pressed="false" data-p="25">$25</button>
+      <button type="button" class="chip" aria-pressed="true" data-p="30">$30</button>
+      <button type="button" class="chip" aria-pressed="false" data-p="35">$35</button>
+      <button type="button" class="chip" aria-pressed="false" data-p="45">$45</button>
+    </div>
+    <svg class="line-svg" viewBox="0 0 680 410" role="img"
+         aria-label="The used-textbook market: a step-shaped demand curve and a step-shaped supply curve, with the consumer and producer surplus of each traded book shaded">
+      <line class="ax" x1="80" y1="30" x2="80" y2="360"></line>
+      <line class="ax" x1="80" y1="360" x2="640" y2="360"></line>
+      <text class="axl" x="16" y="20" text-anchor="start">Price of a used textbook</text>
+      <text class="axl" x="640" y="400" text-anchor="end">Quantity of books</text>
+      <line class="tick" x1="76" y1="360" x2="80" y2="360"></line>
+      <text class="tl" x="70" y="364" text-anchor="end">$0</text>
+      <line class="tick" x1="76" y1="312.3" x2="80" y2="312.3"></line>
+      <text class="tl" x="70" y="316.3" text-anchor="end">$10</text>
+      <line class="tick" x1="76" y1="264.6" x2="80" y2="264.6"></line>
+      <text class="tl" x="70" y="268.6" text-anchor="end">$20</text>
+      <line class="tick" x1="76" y1="216.9" x2="80" y2="216.9"></line>
+      <text class="tl" x="70" y="220.9" text-anchor="end">$30</text>
+      <line class="tick" x1="76" y1="169.2" x2="80" y2="169.2"></line>
+      <text class="tl" x="70" y="173.2" text-anchor="end">$40</text>
+      <line class="tick" x1="76" y1="121.5" x2="80" y2="121.5"></line>
+      <text class="tl" x="70" y="125.5" text-anchor="end">$50</text>
+      <line class="tick" x1="76" y1="73.8" x2="80" y2="73.8"></line>
+      <text class="tl" x="70" y="77.8" text-anchor="end">$60</text>
+      <line class="tick" x1="180" y1="360" x2="180" y2="364"></line>
+      <text class="tl" x="180" y="378" text-anchor="middle">1</text>
+      <line class="tick" x1="280" y1="360" x2="280" y2="364"></line>
+      <text class="tl" x="280" y="378" text-anchor="middle">2</text>
+      <line class="tick" x1="380" y1="360" x2="380" y2="364"></line>
+      <text class="tl" x="380" y="378" text-anchor="middle">3</text>
+      <line class="tick" x1="480" y1="360" x2="480" y2="364"></line>
+      <text class="tl" x="480" y="378" text-anchor="middle">4</text>
+      <line class="tick" x1="580" y1="360" x2="580" y2="364"></line>
+      <text class="tl" x="580" y="378" text-anchor="middle">5</text>
+      <g id="g-p10" hidden="hidden">
+        <rect class="cs-block" x="80" y="78.6" width="100" height="233.7"></rect>
+        <rect class="ps-block" x="80" y="312.3" width="100" height="23.8"></rect>
+        <line class="pline" x1="80" y1="312.3" x2="620" y2="312.3"></line>
+        <text class="ptl" x="626" y="316.3">$10</text>
+      </g>
+      <g id="g-p20" hidden="hidden">
+        <rect class="cs-block" x="80" y="78.6" width="100" height="186"></rect>
+        <rect class="ps-block" x="80" y="264.6" width="100" height="71.5"></rect>
+        <rect class="cs-block" x="180" y="145.4" width="100" height="119.2"></rect>
+        <rect class="ps-block" x="180" y="264.6" width="100" height="23.8"></rect>
+        <line class="pline" x1="80" y1="264.6" x2="620" y2="264.6"></line>
+        <text class="ptl" x="626" y="268.6">$20</text>
+      </g>
+      <g id="g-p25" hidden="hidden">
+        <rect class="cs-block" x="80" y="78.6" width="100" height="162.2"></rect>
+        <rect class="ps-block" x="80" y="240.8" width="100" height="95.4"></rect>
+        <rect class="cs-block" x="180" y="145.4" width="100" height="95.4"></rect>
+        <rect class="ps-block" x="180" y="240.8" width="100" height="47.7"></rect>
+        <rect class="cs-block" x="280" y="193.1" width="100" height="47.7"></rect>
+        <rect class="ps-block" x="280" y="240.8" width="100" height="0"></rect>
+        <line class="pline" x1="80" y1="240.8" x2="620" y2="240.8"></line>
+        <text class="ptl" x="626" y="244.8">$25</text>
+      </g>
+      <g id="g-p30">
+        <rect class="cs-block" x="80" y="78.6" width="100" height="138.3"></rect>
+        <rect class="ps-block" x="80" y="216.9" width="100" height="119.2"></rect>
+        <rect class="cs-block" x="180" y="145.4" width="100" height="71.5"></rect>
+        <rect class="ps-block" x="180" y="216.9" width="100" height="71.5"></rect>
+        <rect class="cs-block" x="280" y="193.1" width="100" height="23.8"></rect>
+        <rect class="ps-block" x="280" y="216.9" width="100" height="23.8"></rect>
+        <line class="pline" x1="80" y1="216.9" x2="620" y2="216.9"></line>
+        <text class="ptl" x="626" y="220.9">$30</text>
+      </g>
+      <g id="g-p35" hidden="hidden">
+        <rect class="cs-block" x="80" y="78.6" width="100" height="114.5"></rect>
+        <rect class="ps-block" x="80" y="193.1" width="100" height="143.1"></rect>
+        <rect class="cs-block" x="180" y="145.4" width="100" height="47.7"></rect>
+        <rect class="ps-block" x="180" y="193.1" width="100" height="95.4"></rect>
+        <rect class="cs-block" x="280" y="193.1" width="100" height="0"></rect>
+        <rect class="ps-block" x="280" y="193.1" width="100" height="47.7"></rect>
+        <line class="pline" x1="80" y1="193.1" x2="620" y2="193.1"></line>
+        <text class="ptl" x="626" y="197.1">$35</text>
+      </g>
+      <g id="g-p45" hidden="hidden">
+        <rect class="cs-block" x="80" y="78.6" width="100" height="66.8"></rect>
+        <rect class="ps-block" x="80" y="145.4" width="100" height="190.8"></rect>
+        <rect class="cs-block" x="180" y="145.4" width="100" height="0"></rect>
+        <rect class="ps-block" x="180" y="145.4" width="100" height="143.1"></rect>
+        <line class="pline" x1="80" y1="145.4" x2="620" y2="145.4"></line>
+        <text class="ptl" x="626" y="149.4">$45</text>
+      </g>
+      <polyline class="curve" points="80,78.6 180,78.6 180,145.4 280,145.4 280,193.1 380,193.1 380,240.8 480,240.8 480,312.3 580,312.3"></polyline>
+      <text class="cl" x="586" y="316.3">D</text>
+      <polyline class="curve sup" points="80,336.2 180,336.2 180,288.5 280,288.5 280,240.8 380,240.8 380,193.1 480,193.1 480,145.4 580,145.4"></polyline>
+      <text class="cl sup" x="586" y="149.4">S</text>
+    </svg>
+    <div class="readouts">
+      <div class="ro"><span class="k">Books traded</span><span class="v" id="rq">3</span></div>
+      <div class="ro"><span class="k">Consumer surplus</span><span class="v" id="rcs">$49</span></div>
+      <div class="ro"><span class="k">Producer surplus</span><span class="v" id="rps">$45</span></div>
+      <div class="ro"><span class="k">Total surplus</span><span class="v" id="rts">$94</span></div>
+    </div>
+    <p class="figcap" id="mcap"></p>
+  </div>
+  <p>Notice what happens at <b>$25</b>, <b>$30</b> and <b>$35</b>: the split between blue and green
+  changes a lot, and the total does not move at all. Away from that range, fewer books trade and the
+  total falls. Hold on to that &mdash; it is entry 15, and it is what the next module is about.</p>
+</section>
+
+<!-- ============ THE DRILL ============ -->
+<section class="section" id="sorter">
+  <h2>Which surplus is it?</h2>
+  <p>Twelve descriptions. Say whether each one describes consumer surplus, producer surplus, or
+  neither. Three of them are things students regularly mistake for surplus.</p>
+  <div class="widget sorter" id="sortWidget">
+    <div class="widget-title">Consumer, producer, or neither?</div>
+    <p class="stem" id="sortStem"></p>
+    <div class="opts3">
+      <button type="button" data-a="cs">Consumer surplus</button>
+      <button type="button" data-a="ps">Producer surplus</button>
+      <button type="button" data-a="neither">Neither</button>
+    </div>
+    <p class="verdict" id="sortVerdict"></p>
+    <div class="chips">
+      <button type="button" class="chip" id="sortNext">Next one</button>
+      <span class="progress-num" id="sortScore">0 / 0</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE ENTRIES ============ -->
+<section class="section" id="entries">
+  <h2>The sixteen terms</h2>
+</section>
+
+<article class="entry" id="e1">
+  <div class="entry-head"><span class="entry-num">01</span><h2>Willingness to pay</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The <b>most</b> a buyer would pay for a good rather than go without it.</p></div>
+  <p class="reading">Textbook page 483.</p>
+
+  <p>Your textbook lines up five students who want the same used textbook and asks each the same
+  question: what is the highest price at which you would still buy? Aleisha answers <b>$59</b>, Brad
+  <b>$45</b>, Claudia <b>$35</b>, Darren <b>$25</b> and Edwina <b>$10</b>.</p>
+  <p>At exactly that price a buyer is <b>indifferent</b> &mdash; buying and not buying are equally
+  good. One penny more and they walk away.</p>
+  <p>Your course never uses the phrase, but exam questions do, and everything in this module is
+  built on it.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Willingness to pay is not what the buyer expects to pay, and it is not what they want to pay. It is the <b>maximum</b> &mdash; the point at which they stop caring either way.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Aleisha, $59.</span> She buys at any price up to $59 and not a penny above.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Edwina, $10.</span> The same book, the same shop &mdash; a very different number.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">You, for a bottle of water after a long walk.</span> Higher than it would be for the same bottle at home. Willingness to pay belongs to a person and a moment.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is what <a href="#e2">the demand curve</a> (entry 2) is built from, it is one side of the subtraction in <a href="#e3">consumer surplus</a> (entry 3), and its mirror image on the selling side is <a href="#e7">a seller's cost</a> (entry 7).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">1.1</span> Two people face the same price and one buys while the other does not. What does that tell you?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>That their willingnesses to pay differ, and that the price lies between them.</p></div></details></div>
+    <div class="q"><p><span class="qn">1.2</span> A buyer's willingness to pay is exactly the price. Do they buy?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>They are indifferent, so either answer is fine &mdash; and either way they gain nothing from the purchase. That case matters in entry 14.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got1"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e2">
+  <div class="entry-head"><span class="entry-num">02</span><h2>The demand curve as a list of willingness to pay</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Every point on a demand curve is some buyer's <b>maximum price</b>. The curve slopes downward because buyers are lined up from the most eager to the least.</p></div>
+  <p class="reading">Textbook page 484, Figure 49.1.</p>
+
+  <p>Sort the five students from highest willingness to pay to lowest and ask how many would buy at
+  each price. At $59 only Aleisha. At $45 Aleisha and Brad. At $35, three of them. The answer is a
+  <b>step-shaped demand curve</b>, one step per buyer, each step as high as that buyer's maximum
+  price.</p>
+  <p>With five buyers the steps are obvious. With five million they are invisible, and the curve
+  looks smooth &mdash; but it is still a list of maximum prices read from the top down.</p>
+
+  <div class="watch"><p><b>Watch out.</b> The height of the demand curve at a quantity is the willingness to pay of the <b>last</b> buyer served, not of the first. That is why the curve falls as you move right.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">The first step, $59.</span> Aleisha: the quantity demanded is 1 at any price up to $59.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">The third step, $35.</span> Claudia. At $35 three books are demanded.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A smooth demand curve for petrol.</span> Millions of steps, each one a driver's maximum price. Same idea, finer grain.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is drawn from <a href="#e1">each buyer's maximum price</a> (entry 1), the gap between it and the price is <a href="#e5">the consumer-surplus area</a> (entry 5), and the selling side has <a href="#e9">exactly the same construction</a> (entry 9).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">2.1</span> A demand curve is at $12 when the quantity is 400. What does that say about the 400th buyer?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Their willingness to pay is $12 &mdash; they are the last buyer willing to take a unit at that price.</p></div></details></div>
+    <div class="q"><p><span class="qn">2.2</span> Why is the demand curve a staircase here and a smooth line in most diagrams?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because there are only five buyers. With many buyers the steps become too small to see, and we draw the smooth line they add up to.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got2"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e3">
+  <div class="entry-head"><span class="entry-num">03</span><h2>Individual consumer surplus</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A buyer's <b>net gain</b>: willingness to pay minus the price actually paid.</p></div>
+  <p class="reading">Textbook pages 484&ndash;485, Table 49.1.</p>
+
+  <p class="formula">individual consumer surplus = willingness to pay &minus; price paid</p>
+  <p>Set the price at <b>$30</b> and look at what each student gains:</p>
+  <table class="tbl">
+    <thead><tr><th>Buyer</th><th>Willingness to pay</th><th>Price paid</th><th>Consumer surplus</th></tr></thead>
+    <tbody>
+      <tr><td>Aleisha</td><td>$59</td><td>$30</td><td><b>$29</b></td></tr>
+      <tr><td>Brad</td><td>$45</td><td>$30</td><td><b>$15</b></td></tr>
+      <tr><td>Claudia</td><td>$35</td><td>$30</td><td><b>$5</b></td></tr>
+      <tr><td>Darren</td><td>$25</td><td>&mdash;</td><td>does not buy</td></tr>
+      <tr><td>Edwina</td><td>$10</td><td>&mdash;</td><td>does not buy</td></tr>
+    </tbody>
+  </table>
+  <p>Darren and Edwina are not worse off &mdash; they simply do not trade, so they gain nothing.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Surplus is measured in <b>money</b> and it is a <b>difference</b>. If a question gives you a price and you answer with that price, you have reported what the buyer paid, not what they gained.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Aleisha at $30.</span> $59 &minus; $30 = $29.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Claudia at $30.</span> $35 &minus; $30 = $5. A real gain, just a small one.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Darren at $30.</span> Nothing. His maximum is $25, so he does not buy &mdash; and he is no worse off for it.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the difference between <a href="#e1">willingness to pay</a> (entry 1) and the price, the sum of every buyer's is <a href="#e4">total consumer surplus</a> (entry 4), and the seller's version of it is <a href="#e10">individual producer surplus</a> (entry 10).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">3.1</span> A buyer would have paid &pound;40 and pays &pound;26. What is their consumer surplus?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>&pound;14.</p></div></details></div>
+    <div class="q"><p><span class="qn">3.2</span> Why does a buyer who does not buy have a consumer surplus of zero rather than a negative one?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because nobody is forced to trade. Not buying leaves you exactly where you started, so the gain is zero, never a loss.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got3"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e4">
+  <div class="entry-head"><span class="entry-num">04</span><h2>Total consumer surplus</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The <b>sum</b> of every buyer's individual consumer surplus in the market.</p></div>
+  <p class="reading">Textbook page 485.</p>
+
+  <p>At $30 the three buyers who trade gain $29, $15 and $5. Add them:</p>
+  <p class="formula">$29 + $15 + $5 = <b>$49</b></p>
+  <p>That is the total consumer surplus in this market at a price of $30 &mdash; the whole gain to
+  buyers from the market existing at all.</p>
+  <p>Your textbook warns that economists say &ldquo;consumer surplus&rdquo; for both the individual
+  and the total, and leave it to context. On an exam it almost always means the <b>total</b>.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Add up only the buyers who actually <b>trade</b>. Including Darren and Edwina adds nothing &mdash; they are at zero &mdash; but a student who writes &ldquo;$59 + $45 + $35&rdquo; has added willingness to pay instead of surplus.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Three buyers at $30.</span> $29 + $15 + $5 = $49.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">The same market at $45.</span> Only Aleisha and Brad buy, and Brad gains nothing: $14 + $0 = $14.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">The same market at $10.</span> Everyone would buy, but only one book is for sale at $10.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It sums the <a href="#e3">individual gains</a> (entry 3), it is drawn as <a href="#e5">an area</a> (entry 5), it is half of <a href="#e15">total economic surplus</a> (entry 15), and its mirror image is <a href="#e11">total producer surplus</a> (entry 11).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">4.1</span> Four buyers gain $12, $8, $3 and $0. What is total consumer surplus?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>$23. The buyer gaining $0 is still a buyer; they just add nothing.</p></div></details></div>
+    <div class="q"><p><span class="qn">4.2</span> The price falls and a new buyer enters. What happens to total consumer surplus?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>It rises twice over: every existing buyer gains more, and the new buyer adds a gain of their own. That is entry 6.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got4"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e5">
+  <div class="entry-head"><span class="entry-num">05</span><h2>Consumer surplus as an area</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>On a diagram, total consumer surplus is the area <b>below the demand curve and above the price</b>.</p></div>
+  <p class="reading">Textbook pages 485&ndash;487, Figures 49.2 and 49.3.</p>
+
+  <p>Aleisha's gain is a rectangle one book wide and $29 tall. Brad's sits beside it, $15 tall;
+  Claudia's, $5 tall. Together they are a staircase &mdash; and the staircase is the area between the
+  demand curve and the $30 line.</p>
+  <p>With many buyers the staircase becomes a smooth <b>triangle</b>:</p>
+  <p class="formula">consumer surplus = &frac12; &times; quantity &times; (demand intercept &minus; price)</p>
+  <p>Your textbook states the rule as a general principle, and it is the sentence to memorise:
+  <b>consumer surplus is the area below the demand curve but above the price.</b></p>
+
+  <div class="watch"><p><b>Watch out.</b> Below demand, <b>above</b> price. Students who shade below the price have drawn what buyers spent, not what they gained.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">The textbook market at $30.</span> Three stacked rectangles: $29 + $15 + $5 = $49.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">A straight-line demand curve from $80, with 200 bought at $40.</span> &frac12; &times; 200 &times; $40 = $4,000 &mdash; your textbook's own review question.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A price so high that nobody buys.</span> The area vanishes. Consumer surplus is zero.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the picture of <a href="#e4">total consumer surplus</a> (entry 4), it is bounded above by <a href="#e2">the demand curve</a> (entry 2), it mirrors <a href="#e12">the producer-surplus area</a> (entry 12), it changes when <a href="#e6">the price falls</a> (entry 6), and it is computed in <a href="#e16">two shapes</a> (entry 16).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">5.1</span> A demand curve runs from $50 on the price axis; at a price of $20, 300 units are bought. What is consumer surplus?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>&frac12; &times; 300 &times; ($50 &minus; $20) = $4,500.</p></div></details></div>
+    <div class="q"><p><span class="qn">5.2</span> Why does the consumer-surplus triangle close to a point at the equilibrium quantity?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because the last buyer's willingness to pay is the price itself, so their gain is zero &mdash; the idea in entry 14.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got5"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e6">
+  <div class="entry-head"><span class="entry-num">06</span><h2>A price fall raises consumer surplus</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A lower price adds <b>two</b> pieces of surplus: a rectangle for buyers who were already buying, and a triangle for buyers who were not.</p></div>
+  <p class="reading">Textbook pages 487&ndash;488, Figures 49.4 and 49.5.</p>
+
+  <p>Drop the price of a used textbook from $30 to $20 and two different things happen.</p>
+  <ul>
+    <li><b>Existing buyers</b> &mdash; Aleisha, Brad and Claudia &mdash; each gain $10 more. Three
+      buyers &times; $10 = a <b>rectangle</b>.</li>
+    <li><b>A new buyer</b> &mdash; Darren, whose maximum is $25 &mdash; now trades and gains $5. That
+      is the <b>triangle</b>.</li>
+  </ul>
+  <p>A price rise does the reverse: existing buyers lose a rectangle, and the buyers squeezed out lose
+  a triangle.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Answer with <b>both</b> pieces. &ldquo;Consumer surplus rises because the price is lower&rdquo; collects the rectangle and misses the new buyers entirely, which is half the marks on a change-in-surplus question.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">$30 &rarr; $20, existing buyers.</span> Three buyers &times; $10 = $30 extra.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">$30 &rarr; $20, the new buyer.</span> Darren gains $25 &minus; $20 = $5.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A rise from $30 to $40.</span> Claudia drops out and loses her $5; Aleisha and Brad each lose $10.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It moves the lower boundary of <a href="#e5">the consumer-surplus area</a> (entry 5), and its exact mirror image on the selling side is <a href="#e13">a price rise raising producer surplus</a> (entry 13).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">6.1</span> A price falls and consumer surplus rises by a rectangle of $600 plus a triangle of $50. By how much did it rise?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>$650. Both pieces count.</p></div></details></div>
+    <div class="q"><p><span class="qn">6.2</span> Why is the piece belonging to new buyers a triangle rather than a rectangle?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because each new buyer gains a different amount &mdash; the first new buyer nearly as much as the old ones, the last one almost nothing. Stacked together they taper to a point.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got6"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e7">
+  <div class="entry-head"><span class="entry-num">07</span><h2>A seller's cost</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The <b>lowest</b> price at which a seller is willing to part with the good.</p></div>
+  <p class="reading">Textbook page 489.</p>
+
+  <p>The selling side of the same market. Five students each have a copy to sell, and each has a
+  different minimum: Andrew <b>$5</b>, Betty <b>$15</b>, Carlos <b>$25</b>, Donna <b>$35</b>,
+  Engelbert <b>$45</b>.</p>
+  <p>Your textbook calls this the seller's <b>cost</b>, and the word is deliberate. It is the exact
+  mirror of willingness to pay: the price at which the seller is indifferent between selling and
+  keeping.</p>
+
+  <div class="watch"><p><b>Watch out.</b> A seller's cost is a <b>minimum price</b>, not a bill they have paid. Nobody manufactured these textbooks &mdash; see the next entry.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Andrew, $5.</span> He will sell at any price from $5 upwards.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Engelbert, $45.</span> The same book, and he would rather keep it below $45.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A farmer's cost of a bushel of wheat.</span> Here it really is a production cost &mdash; but the definition is the same: the lowest acceptable price.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It mirrors <a href="#e1">willingness to pay</a> (entry 1), it is an <a href="#e8">opportunity cost</a> (entry 8) rather than a bill, <a href="#e9">the supply curve</a> (entry 9) is built from it, and subtracting it from the price gives <a href="#e10">individual producer surplus</a> (entry 10).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">7.1</span> A seller's cost is $18 and the market price is $18. Do they sell, and what do they gain?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>They are indifferent, so either answer is fine &mdash; and their gain is zero either way.</p></div></details></div>
+    <div class="q"><p><span class="qn">7.2</span> Why is a seller's cost a minimum rather than a maximum?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because sellers are better off the higher the price. The binding question for them is how low they would go.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got7"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e8">
+  <div class="entry-head"><span class="entry-num">08</span><h2>Cost means opportunity cost</h2><span class="mark bgm">&#9675; Background</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The seller's cost is what they <b>give up</b> by selling &mdash; not money they have spent.</p></div>
+  <p class="reading">Textbook page 489.</p>
+
+  <p>Your textbook meets the objection head-on. A student selling a used textbook spent nothing to
+  make it available: the book already exists and is already theirs. So what is the &ldquo;cost&rdquo;
+  of selling it?</p>
+  <p>It is <b>not having it afterwards</b>. The seller gives up a book they might have kept, lent or
+  reread. That is an opportunity cost, and Unit 1's rule applies: the true cost of doing something is
+  always what you must give up to do it.</p>
+  <p>In most real markets the seller is also the producer, so the cost includes money spent &mdash;
+  but it still includes the opportunity costs on top.</p>
+
+  <div class="watch"><p><b>Watch out.</b> You will not be asked to define opportunity cost here. You <b>will</b> be asked why a supply curve slopes upward, and this is the answer: the sellers with the most to give up are the last to sell.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Andrew's $5.</span> He barely wants the book. Giving it up costs him little.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Engelbert's $45.</span> He values keeping it, so parting with it costs him a lot.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A bakery selling bread.</span> Flour and labour are money costs; the oven time that could have baked cakes instead is an opportunity cost.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is what <a href="#e7">a seller's cost</a> (entry 7) actually measures.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">8.1</span> A gallery owner refuses &pound;9,000 for a painting they bought for &pound;2,000. What is their cost of selling?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>At least &pound;9,000 &mdash; what they give up by no longer owning it. The &pound;2,000 they paid is gone either way and does not enter the decision.</p></div></details></div>
+    <div class="q"><p><span class="qn">8.2</span> Why does a seller's cost not have to equal what they paid?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because the relevant cost is what they give up now, not what they spent then. Yesterday's price is sunk.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got8"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e9">
+  <div class="entry-head"><span class="entry-num">09</span><h2>The supply curve as a list of costs</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Every point on a supply curve is some seller's <b>minimum price</b>. The curve slopes upward because sellers are lined up from the cheapest to the dearest.</p></div>
+  <p class="reading">Textbook page 489, Figure 49.6.</p>
+
+  <p>Sort the five sellers from lowest cost to highest and ask how many would sell at each price.
+  Below $5, nobody. Between $5 and $15, only Andrew. At $30, three of them. The result is a
+  <b>step-shaped supply curve</b>, one step per seller, each step as high as that seller's cost.</p>
+  <p>It is the exact construction of entry 2, mirrored. Demand reads maximum prices from the top
+  down; supply reads minimum prices from the bottom up.</p>
+
+  <div class="watch"><p><b>Watch out.</b> The height of the supply curve at a quantity is the cost of the <b>last</b> seller needed, not the cheapest one. That is why it rises as you move right.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">The first step, $5.</span> Andrew. One book is supplied at any price from $5.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">The third step, $25.</span> Carlos. At $25 three books are supplied.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A smooth supply curve for wheat.</span> Thousands of farms, each with its own cost. The steps are invisible.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is built from <a href="#e7">sellers' costs</a> (entry 7) exactly as <a href="#e2">the demand curve</a> (entry 2) is built from willingness to pay, and the gap between it and the price is <a href="#e12">the producer-surplus area</a> (entry 12).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">9.1</span> A supply curve is at $8 when the quantity is 120. What does that say about the 120th unit?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>That the seller of that unit has a cost of $8 &mdash; they are the last seller worth bringing in at that price.</p></div></details></div>
+    <div class="q"><p><span class="qn">9.2</span> Why does a supply curve slope upward in this model?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because sellers are ordered by cost. Getting more units means reaching sellers who give up more, so the price has to rise.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got9"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e10">
+  <div class="entry-head"><span class="entry-num">10</span><h2>Individual producer surplus</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A seller's <b>net gain</b>: the price received minus their cost.</p></div>
+  <p class="reading">Textbook page 490, Table 49.2.</p>
+
+  <p class="formula">individual producer surplus = price received &minus; seller's cost</p>
+  <p>At <b>$30</b>:</p>
+  <table class="tbl">
+    <thead><tr><th>Seller</th><th>Cost</th><th>Price received</th><th>Producer surplus</th></tr></thead>
+    <tbody>
+      <tr><td>Andrew</td><td>$5</td><td>$30</td><td><b>$25</b></td></tr>
+      <tr><td>Betty</td><td>$15</td><td>$30</td><td><b>$15</b></td></tr>
+      <tr><td>Carlos</td><td>$25</td><td>$30</td><td><b>$5</b></td></tr>
+      <tr><td>Donna</td><td>$35</td><td>&mdash;</td><td>does not sell</td></tr>
+      <tr><td>Engelbert</td><td>$45</td><td>&mdash;</td><td>does not sell</td></tr>
+    </tbody>
+  </table>
+
+  <div class="watch"><p><b>Watch out.</b> Producer surplus is not profit. Nothing has been said about fixed costs, overheads or what the seller paid in the first place &mdash; only about the minimum price they would accept.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Andrew at $30.</span> $30 &minus; $5 = $25.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Carlos at $30.</span> $30 &minus; $25 = $5.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Donna at $30.</span> Nothing &mdash; her minimum is $35, so she keeps her book.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It subtracts <a href="#e7">the seller's cost</a> (entry 7) from the price, it mirrors <a href="#e3">individual consumer surplus</a> (entry 3) exactly, and the sum of all of them is <a href="#e11">total producer surplus</a> (entry 11).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">10.1</span> A seller would have accepted $14 and receives $22. What is their producer surplus?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>$8.</p></div></details></div>
+    <div class="q"><p><span class="qn">10.2</span> Two sellers receive the same price. Why might their producer surpluses differ?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because their costs differ. The seller who would have accepted less gains more from the same price.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got10"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e11">
+  <div class="entry-head"><span class="entry-num">11</span><h2>Total producer surplus</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The <b>sum</b> of every seller's individual producer surplus in the market.</p></div>
+  <p class="reading">Textbook page 490.</p>
+
+  <p>At $30 the three sellers who trade gain $25, $15 and $5:</p>
+  <p class="formula">$25 + $15 + $5 = <b>$45</b></p>
+  <p>So at a price of $30 this market generates <b>$49</b> of consumer surplus and <b>$45</b> of
+  producer surplus. Adding those two numbers is what the next module is about.</p>
+
+  <div class="watch"><p><b>Watch out.</b> As with buyers, count only the sellers who actually <b>trade</b>. Donna and Engelbert contribute zero, not a negative amount.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Three sellers at $30.</span> $25 + $15 + $5 = $45.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">The same market at $20.</span> Only Andrew and Betty sell: $15 + $5 = $20.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">The same market at $45.</span> All five would sell &mdash; but only two buyers remain at that price.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It sums the <a href="#e10">individual gains</a> (entry 10), it mirrors <a href="#e4">total consumer surplus</a> (entry 4), and it is drawn as <a href="#e12">an area</a> (entry 12).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">11.1</span> Three sellers gain $20, $9 and $0. What is total producer surplus?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>$29.</p></div></details></div>
+    <div class="q"><p><span class="qn">11.2</span> Why does total producer surplus rise when the price rises, while total consumer surplus falls?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because the price is the top of the sellers' gain and the bottom of the buyers'. Raising it enlarges one area and shrinks the other.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got11"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e12">
+  <div class="entry-head"><span class="entry-num">12</span><h2>Producer surplus as an area</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>On a diagram, total producer surplus is the area <b>above the supply curve and below the price</b>.</p></div>
+  <p class="reading">Textbook pages 490&ndash;491, Figures 49.7 and 49.8.</p>
+
+  <p>Andrew's gain is a rectangle one book wide and $25 tall, sitting on top of his $5 step. Stack
+  Betty's and Carlos's beside it and you have the area between the $30 line and the supply curve.</p>
+  <p>With many sellers it becomes a triangle:</p>
+  <p class="formula">producer surplus = &frac12; &times; quantity &times; (price &minus; supply intercept)</p>
+  <p>Your textbook's wheat example: at $5 a bushel farmers supply 1 million bushels, and their
+  producer surplus is the area above the supply curve and below $5.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Above supply, <b>below</b> price &mdash; the opposite of the consumer rule in both prepositions. Say the two rules together until they stop swapping.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">The textbook market at $30.</span> $25 + $15 + $5 = $45.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">A supply curve from $20, with 50 sold at $60.</span> &frac12; &times; 50 &times; $40 = $1,000 &mdash; your textbook's own review question.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A price below every seller's cost.</span> Nothing is sold and producer surplus is zero.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the picture of <a href="#e11">total producer surplus</a> (entry 11), it mirrors <a href="#e5">the consumer-surplus area</a> (entry 5), it is read off <a href="#e9">the supply curve</a> (entry 9), it changes when <a href="#e13">the price rises</a> (entry 13), and it is computed in <a href="#e16">two shapes</a> (entry 16).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">12.1</span> A supply curve starts at $6; at a price of $18, 400 units are sold. What is producer surplus?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>&frac12; &times; 400 &times; ($18 &minus; $6) = $2,400.</p></div></details></div>
+    <div class="q"><p><span class="qn">12.2</span> Which area is bigger in a market where the supply curve is very flat &mdash; consumer or producer surplus?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Consumer surplus, usually. A flat supply curve leaves little room between it and the price, so sellers gain little and buyers keep most of the gain.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got12"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e13">
+  <div class="entry-head"><span class="entry-num">13</span><h2>A price rise raises producer surplus</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A higher price adds <b>two</b> pieces: a rectangle for sellers who were already selling, and a triangle for sellers newly drawn in.</p></div>
+  <p class="reading">Textbook page 492, Figure 49.9.</p>
+
+  <p>Your textbook's wheat market: the price rises from <b>$5</b> to <b>$7</b> a bushel and the
+  quantity supplied rises from <b>1 million</b> to <b>1.5 million</b>.</p>
+  <ul>
+    <li><b>Existing sellers</b> gain $2 on every one of the 1 million bushels they were already
+      growing &mdash; a <b>rectangle</b> of $2 million.</li>
+    <li><b>New sellers</b> supply the extra 500,000 bushels and gain the difference between $7 and
+      their own costs &mdash; a <b>triangle</b>.</li>
+  </ul>
+  <p>A price fall runs the story backwards, and both pieces are losses.</p>
+
+  <div class="watch"><p><b>Watch out.</b> This is entry 6 with every sign reversed. If you find yourself learning two separate rules, you have learned one too many.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">$5 &rarr; $7, existing sellers.</span> $2 &times; 1 million = $2 million.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">$5 &rarr; $7, new sellers.</span> A triangle over the extra 500,000 bushels.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A fall from $7 to $5.</span> The same two shapes, now losses: existing growers lose $2 a bushel, and some leave the market.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the mirror image of <a href="#e6">a price fall raising consumer surplus</a> (entry 6), and it moves the upper boundary of <a href="#e12">the producer-surplus area</a> (entry 12).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">13.1</span> Wheat rises from $4 to $6 and quantity supplied goes from 2 million to 2.4 million bushels. What is the rectangle worth?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>$2 &times; 2 million = $4 million, before adding the triangle for the extra 400,000 bushels.</p></div></details></div>
+    <div class="q"><p><span class="qn">13.2</span> A price rise brings in new sellers. Why do they gain less per unit than the existing ones?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because their costs are higher &mdash; that is why they were not selling before. The last one in gains almost nothing.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got13"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e14">
+  <div class="entry-head"><span class="entry-num">14</span><h2>The buyer and seller at the margin gain nothing</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The <b>last</b> buyer's willingness to pay equals the price, and the <b>last</b> seller's cost equals the price. Both gain exactly <b>zero</b>.</p></div>
+  <p class="reading">Textbook pages 485 and 490, and the review questions.</p>
+
+  <p>In your textbook's own review question, Josey's third pepper has a willingness to pay of $0.40
+  and the price is $0.40. She buys it and gains <b>nothing</b>. On the selling side, Jamie's third
+  pepper costs him exactly $0.70 and the price is $0.70 &mdash; he sells and gains nothing.</p>
+  <p>This is not a quirk. It is why both surplus triangles come to a <b>point</b> at the equilibrium
+  quantity, and it is the reason the next module can argue that the market stops in exactly the right
+  place: the first trade not made would have been worth nothing to either side.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Zero surplus is not a reason to stay out of the market. The marginal buyer is indifferent, not harmed &mdash; and including them changes no total.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Josey's third pepper at $0.40.</span> Bought, and worth $0.00 to her.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Jamie's third pepper at $0.70.</span> Sold, and worth $0.00 to him.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Brad at a price of $45.</span> His maximum is exactly $45: he buys, and gains nothing.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is why the areas taper to a point, and it is the hinge of the argument in <a href="#e15">what surplus is for</a> (entry 15), which you will finish in <a href="#e16">the calculation</a> (entry 16).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">14.1</span> Why does adding the marginal buyer not change total consumer surplus?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because their individual surplus is zero. They trade, but the gain they add is nothing.</p></div></details></div>
+    <div class="q"><p><span class="qn">14.2</span> What would it mean if the marginal buyer gained a lot?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>That the price is well below their willingness to pay &mdash; so there are buyers beyond them who would also trade, and the market has not reached the quantity where the two curves meet.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got14"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e15">
+  <div class="entry-head"><span class="entry-num">15</span><h2>Total economic surplus, and what surplus is for</h2><span class="mark flag">&#9733; &#9873;</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p><b>Total economic surplus</b> is consumer surplus plus producer surplus. Economists measure it to judge whether a market is <b>efficient</b>.</p></div>
+  <p class="reading">Not in Module 49 &mdash; your textbook computes the two halves and never adds them.</p>
+
+  <div class="notinbook"><p><b>&#9873; Not in Module 49 &mdash; learn it from here.</b> Your course asks you to use consumer and producer surplus &ldquo;to measure the benefits markets create &hellip; and understand market efficiency&rdquo;, and says that market equilibrium <b>maximises total economic surplus</b>. Module 49 never adds the two surpluses together, never uses the word <i>efficient</i>, and the exact phrase <i>total economic surplus</i> appears nowhere in all 927 pages of your textbook. The next module supplies the whole argument.</p></div>
+
+  <p>At $30 the used-textbook market produces $49 of consumer surplus and $45 of producer surplus.
+  The obvious next step is to add them:</p>
+  <p class="formula">total economic surplus = consumer surplus + producer surplus = $49 + $45 = <b>$94</b></p>
+  <p>That number is the <b>whole gain</b> the market creates &mdash; the value of every trade to
+  everyone involved. Your course says markets should be judged by it: market equilibrium
+  <b>maximises</b> total economic surplus, which is what it means to call a competitive market
+  efficient.</p>
+  <p>Try it in the market above. Set the price to $25, $30 or $35 and total surplus is <b>$94</b>
+  every time, because three books trade in each case. Push the price outside that range and the total
+  falls &mdash; not because the price is &ldquo;wrong&rdquo; for anyone in particular, but because
+  fewer books change hands.</p>
+  <p>That is the whole idea, and the next module proves it properly.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Total surplus depends on the <b>quantity traded</b>, not on how the gain is split. A price change inside the clearing range moves surplus between buyers and sellers without changing the total.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">$30 in the textbook market.</span> $49 + $45 = $94.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">$35 in the same market.</span> $34 of consumer surplus, $60 of producer surplus &mdash; still $94. The split moved; the total did not.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">$45 in the same market.</span> Only two books trade, and the total falls to $84. Two $10 gains have disappeared.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It adds <a href="#e4">total consumer surplus</a> (entry 4) to the producer side, the marginal trade adds <a href="#e14">nothing</a> (entry 14) to it, and you compute it in <a href="#e16">the same two shapes</a> (entry 16).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">15.1</span> A market has consumer surplus of $320 and producer surplus of $180. What is total economic surplus?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>$500. Add the two; nothing else is needed.</p></div></details></div>
+    <div class="q"><p><span class="qn">15.2</span> Two prices give the same quantity traded. Will total surplus be the same?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Yes. The price decides how the gain is divided between buyers and sellers; the quantity decides how big the gain is.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got15"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e16">
+  <div class="entry-head"><span class="entry-num">16</span><h2>Calculating the areas</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>On a straight-line diagram each surplus is a <b>triangle</b>: &frac12; &times; base &times; height. On a table or a step diagram it is a <b>sum of rectangles</b>.</p></div>
+  <p class="reading">Textbook pages 486 and 491, and the review questions.</p>
+
+  <p>Your course asks you to <b>calculate</b> these areas, so the arithmetic matters.</p>
+  <p><b>On a graph.</b> The base is the quantity traded; the height is the gap between the price and
+  the curve's intercept.</p>
+  <ul>
+    <li>Consumer surplus = &frac12; &times; quantity &times; (price intercept of demand &minus; price)</li>
+    <li>Producer surplus = &frac12; &times; quantity &times; (price &minus; price intercept of supply)</li>
+  </ul>
+  <p><b>From a table.</b> Work buyer by buyer or seller by seller, subtract, and add up. The
+  textbook market is a table problem: $29 + $15 + $5.</p>
+  <p>A worked graph: demand from $80, supply from $10, 200 units traded at $40. Consumer surplus is
+  &frac12; &times; 200 &times; $40 = <b>$4,000</b>; producer surplus is &frac12; &times; 200 &times;
+  $30 = <b>$3,000</b>.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Use the <b>intercepts</b>, not the axis ends. The height of the consumer triangle runs from the price up to where the demand curve meets the price axis &mdash; which is rarely the top of the drawn axis.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Demand from $80, price $40, 200 units.</span> &frac12; &times; 200 &times; $40 = $4,000.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Supply from $10, price $40, 200 units.</span> &frac12; &times; 200 &times; $30 = $3,000.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">The textbook's five buyers at $30.</span> Not a triangle at all &mdash; three rectangles: $29 + $15 + $5 = $49.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It computes <a href="#e5">the consumer area</a> (entry 5) and <a href="#e12">the producer area</a> (entry 12), it is what makes <a href="#e15">total economic surplus</a> (entry 15) a number rather than a picture, and the marginal trade contributes <a href="#e14">nothing</a> (entry 14) to it.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">16.1</span> Demand from $60, supply from $12, equilibrium at $30 with 400 units. Find both surpluses and the total.</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Consumer surplus &frac12; &times; 400 &times; $30 = $6,000. Producer surplus &frac12; &times; 400 &times; $18 = $3,600. Total economic surplus $9,600.</p></div></details></div>
+    <div class="q"><p><span class="qn">16.2</span> Why can you not use &frac12; &times; base &times; height on the five-buyer market?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because its demand curve is a staircase, not a straight line. Triangles are what staircases become when there are many buyers; with five, add the rectangles.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got16"> Got it</label>
+  </div>
+</article>
+
+
+<!-- ============ TACKLE THE TEST ============ -->
+<section class="section" id="mcq">
+  <h2>Tackle the test</h2>
+  <p>Your textbook&rsquo;s own five questions from the end of Module 49. Click an option to see why it
+  is right or wrong.</p>
+  <div class="mcq" data-key="C">
+    <p class="stem"><span class="qn">1</span> A demand curve runs from $80 on the price axis down through the point where 200 units are demanded at a price of $40. What is consumer surplus when the market price is $40?</p>
+    <div class="opts">
+      <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>$400<span class="why" hidden>&#10007; Off by a factor of ten &mdash; and a reminder to write the units in.</span></span></button>
+      <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>$800<span class="why" hidden>&#10007; This is the base times the height without halving it, divided again by ten.</span></span></button>
+      <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>$4,000<span class="why" hidden>&#10003; &frac12; &times; 200 &times; ($80 &minus; $40) = $4,000.</span></span></button>
+      <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>$8,000<span class="why" hidden>&#10007; base &times; height without the &frac12;. The area is a triangle, not a rectangle.</span></span></button>
+      <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>$16,000<span class="why" hidden>&#10007; 200 &times; $80 &mdash; the whole box under the intercept.</span></span></button>
+    </div>
+  </div>
+  <div class="mcq" data-key="C">
+    <p class="stem"><span class="qn">2</span> A supply curve runs from $20 on the price axis up through the point where 50 units are supplied at a price of $60. What is producer surplus when the market price is $60?</p>
+    <div class="opts">
+      <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>$100<span class="why" hidden>&#10007; A tenth of the right answer.</span></span></button>
+      <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>$150<span class="why" hidden>&#10007; Uses a height of $6 rather than $40.</span></span></button>
+      <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>$1,000<span class="why" hidden>&#10003; &frac12; &times; 50 &times; ($60 &minus; $20) = $1,000.</span></span></button>
+      <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>$1,500<span class="why" hidden>&#10007; Halves the wrong pair of numbers.</span></span></button>
+      <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>$3,000<span class="why" hidden>&#10007; 50 &times; $60 &mdash; total revenue, not producer surplus.</span></span></button>
+    </div>
+  </div>
+  <div class="mcq" data-key="C">
+    <p class="stem"><span class="qn">3</span> Other things equal, a rise in price will result in which of the following?</p>
+    <div class="opts">
+      <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>Producer surplus will rise; consumer surplus will rise.<span class="why" hidden>&#10007; Both cannot rise from a price change alone. The price is the boundary between the two areas.</span></span></button>
+      <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>Producer surplus will fall; consumer surplus will fall.<span class="why" hidden>&#10007; A price change moves surplus from one side to the other; it does not shrink both.</span></span></button>
+      <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>Producer surplus will rise; consumer surplus will fall.<span class="why" hidden>&#10003; The price is the top of the sellers' area and the bottom of the buyers'. Raising it enlarges one and shrinks the other.</span></span></button>
+      <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>Producer surplus will fall; consumer surplus will rise.<span class="why" hidden>&#10007; That is a price <b>fall</b>.</span></span></button>
+      <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>Producer surplus will not change; consumer surplus will rise.<span class="why" hidden>&#10007; Both change, and the consumer side falls.</span></span></button>
+    </div>
+  </div>
+  <div class="mcq" data-key="B">
+    <p class="stem"><span class="qn">4</span> Consumer surplus is found as the area</p>
+    <div class="opts">
+      <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>above the supply curve and below the price.<span class="why" hidden>&#10007; That is producer surplus.</span></span></button>
+      <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>below the demand curve and above the price.<span class="why" hidden>&#10003; Your textbook's general principle, word for word.</span></span></button>
+      <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>above the demand curve and below the price.<span class="why" hidden>&#10007; Both prepositions reversed.</span></span></button>
+      <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>below the supply curve and above the price.<span class="why" hidden>&#10007; An area that measures nothing.</span></span></button>
+      <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>below the supply curve and above the demand curve.<span class="why" hidden>&#10007; Not an area either curve bounds at a market price.</span></span></button>
+    </div>
+  </div>
+  <div class="mcq" data-key="A">
+    <p class="stem"><span class="qn">5</span> Allocating kidneys to those with the highest net benefit, measured as the expected increase in lifespan from a transplant, is an attempt to maximise</p>
+    <div class="opts">
+      <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>consumer surplus.<span class="why" hidden>&#10003; Net benefit to the recipient is exactly the consumer-surplus idea, with lifespan in place of money.</span></span></button>
+      <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>producer surplus.<span class="why" hidden>&#10007; There are no sellers here &mdash; organs are not bought and sold.</span></span></button>
+      <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>profit.<span class="why" hidden>&#10007; Nothing is being sold, so there is no revenue and no profit.</span></span></button>
+      <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>equity.<span class="why" hidden>&#10007; A tempting answer, but ranking by net benefit is about the size of the gain, not its fairness.</span></span></button>
+      <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>respect for elders.<span class="why" hidden>&#10007; Ranking by expected gain in lifespan works against the oldest patients.</span></span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FREE RESPONSE ============ -->
+<section class="section" id="frq">
+  <h2>The two free-response questions</h2>
+
+  <div class="frq">
+    <p class="stem"><b>1.</b> (6 points) A competitive market has a demand curve running from $80 on
+    the price axis and a supply curve running from $10, crossing at a price of $40 with 200 units
+    traded.</p>
+    <p><b>(a)</b> Calculate consumer surplus. <b>(b)</b> Calculate producer surplus.
+    <b>(c)</b> If supply increases, what happens to consumer surplus? Explain.
+    <b>(d)</b> If demand decreases, what happens to producer surplus? Explain.</p>
+    <details class="reveal"><summary>Show the mark scheme</summary><div class="ans">
+      <p><b>1 point</b> &mdash; consumer surplus <b>$4,000</b>: &frac12; &times; 200 &times;
+      ($80 &minus; $40).</p>
+      <p><b>1 point</b> &mdash; producer surplus <b>$3,000</b>: &frac12; &times; 200 &times;
+      ($40 &minus; $10).</p>
+      <p><b>1 point</b> &mdash; consumer surplus will <b>increase</b>.</p>
+      <p><b>1 point</b> &mdash; because an increase in supply lowers the equilibrium price, and a
+      lower price enlarges the area below the demand curve and above the price.</p>
+      <p><b>1 point</b> &mdash; producer surplus will <b>decrease</b>.</p>
+      <p><b>1 point</b> &mdash; because a decrease in demand lowers the equilibrium price, and a lower
+      price shrinks the area above the supply curve and below the price.</p>
+      <p><b>Both explanations run through the price.</b> A shift moves the equilibrium price, and the
+      price is one side of each triangle. Say that sentence and the marks follow.</p>
+    </div></details>
+  </div>
+
+  <div class="frq">
+    <p class="stem"><b>2.</b> Draw a correctly labelled graph showing a competitive market in
+    equilibrium. Clearly indicate and label the area of consumer surplus and the area of producer
+    surplus.</p>
+    <details class="reveal"><summary>Show the mark scheme</summary><div class="ans">
+      <p>Price on the vertical axis, quantity on the horizontal. A downward-sloping demand curve
+      labelled <b>D</b> and an upward-sloping supply curve labelled <b>S</b>, crossing at a labelled
+      equilibrium price and quantity.</p>
+      <p><b>Consumer surplus</b> shaded and labelled: the triangle between the demand curve and the
+      equilibrium price, to the left of the equilibrium quantity.</p>
+      <p><b>Producer surplus</b> shaded and labelled: the triangle between the equilibrium price and
+      the supply curve.</p>
+      <p>Mark the two areas separately and name them. An unlabelled shading earns nothing, however
+      correct the geometry.</p>
+    </div></details>
+  </div>
+</section>
+
+<!-- ============ SUMMARY ============ -->
+<section class="section" id="summary">
+  <h2>One page to revise from</h2>
+  <table class="tbl">
+    <thead><tr><th>Term</th><th>In one line</th></tr></thead>
+    <tbody>
+      <tr><td>Willingness to pay</td><td>The most a buyer would pay rather than go without.</td></tr>
+      <tr><td>The demand curve</td><td>A list of maximum prices, read from the top down.</td></tr>
+      <tr><td>Individual consumer surplus</td><td>Willingness to pay &minus; price paid.</td></tr>
+      <tr><td>Total consumer surplus</td><td>The sum of every buyer's gain. $49 at $30.</td></tr>
+      <tr><td>Consumer surplus as an area</td><td>Below the demand curve, above the price.</td></tr>
+      <tr><td>A price fall</td><td>Consumer surplus rises: a rectangle plus a triangle.</td></tr>
+      <tr><td>A seller's cost</td><td>The lowest price at which a seller would part with the good.</td></tr>
+      <tr><td>Cost as opportunity cost</td><td>What you give up, not what you spent.</td></tr>
+      <tr><td>The supply curve</td><td>A list of minimum prices, read from the bottom up.</td></tr>
+      <tr><td>Individual producer surplus</td><td>Price received &minus; seller's cost.</td></tr>
+      <tr><td>Total producer surplus</td><td>The sum of every seller's gain. $45 at $30.</td></tr>
+      <tr><td>Producer surplus as an area</td><td>Above the supply curve, below the price.</td></tr>
+      <tr><td>A price rise</td><td>Producer surplus rises, in the same two pieces.</td></tr>
+      <tr><td>The marginal trader</td><td>Gains nothing, which is why the triangles taper to a point.</td></tr>
+      <tr><td>Total economic surplus</td><td>The two added: $94. What efficiency is judged by.</td></tr>
+      <tr><td>Calculating the areas</td><td>&frac12; &times; base &times; height, or a sum of rectangles.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section" id="getright">
+  <h2>Things to get right</h2>
+  <ul>
+    <li><b>Below demand, above price.</b> Consumer surplus. Say it until it is automatic.</li>
+    <li><b>Above supply, below price.</b> Producer surplus. Both prepositions flip.</li>
+    <li><b>Surplus is a difference</b>, measured in money. Not a price, not a quantity, not
+      spending.</li>
+    <li><b>&frac12; &times; base &times; height</b> on a straight-line graph; a sum of rectangles
+      from a table.</li>
+    <li><b>Use the intercepts</b> for the height, not the top of the drawn axis.</li>
+    <li><b>A price change gives a rectangle and a triangle.</b> Both count.</li>
+    <li><b>The marginal trader gains nothing</b>, which is why each area tapers to a point.</li>
+    <li><b>Total economic surplus</b> is the two added together &mdash; your course's phrase, and
+      the thing efficiency is judged by.</li>
+  </ul>
+</section>
+
+</div>
+
+<script>
+(function(){
+  var N = 16;
+  function $(id){ return document.getElementById(id); }
+
+  /* progress */
+  var KEY = "m49-got";
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ return {}; } }
+  function save(o){ try { localStorage.setItem(KEY, JSON.stringify(o)); } catch(e){} }
+  function paint(){
+    var o = load(), n = 0, i;
+    for (i = 1; i <= N; i++){ var b = $("got" + i); if (b){ b.checked = !!o[i]; if (o[i]) n++; } }
+    $("pnum").textContent = n + " / " + N;
+    $("pfill").style.width = (100 * n / N) + "%";
+  }
+  var boxes = document.querySelectorAll(".gotbox"), bi;
+  for (bi = 0; bi < boxes.length; bi++){
+    boxes[bi].addEventListener("change", function(){
+      var o = load(); o[this.id.replace("got", "")] = this.checked; save(o); paint();
+    });
+  }
+  $("resetBtn").addEventListener("click", function(){ save({}); paint(); });
+  paint();
+
+  /* the used-textbook market */
+  var MKT = [
+    { p: 10, qd: 5, qs: 1, q: 1, cs: 49, ps: 5, ts: 54 },
+    { p: 20, qd: 4, qs: 2, q: 2, cs: 64, ps: 20, ts: 84 },
+    { p: 25, qd: 4, qs: 3, q: 3, cs: 64, ps: 30, ts: 94 },
+    { p: 30, qd: 3, qs: 3, q: 3, cs: 49, ps: 45, ts: 94 },
+    { p: 35, qd: 3, qs: 4, q: 3, cs: 34, ps: 60, ts: 94 },
+    { p: 45, qd: 2, qs: 5, q: 2, cs: 14, ps: 70, ts: 84 }
+  ];
+  var BEST = 0, i0;
+  for (i0 = 0; i0 < MKT.length; i0++){ if (MKT[i0].ts > BEST) BEST = MKT[i0].ts; }
+  function showPrice(p){
+    var row = null, i;
+    for (i = 0; i < MKT.length; i++){ if (MKT[i].p === p) row = MKT[i]; }
+    if (!row) return;
+    var gs = document.querySelectorAll("#market svg g[id^='g-p']");
+    for (i = 0; i < gs.length; i++){
+      if (gs[i].id === "g-p" + p) gs[i].removeAttribute("hidden"); else gs[i].setAttribute("hidden", "hidden");
+    }
+    var chips = document.querySelectorAll("#pChips .chip");
+    for (i = 0; i < chips.length; i++){
+      chips[i].setAttribute("aria-pressed", chips[i].getAttribute("data-p") === String(p) ? "true" : "false");
+    }
+    $("rq").textContent = row.q;
+    $("rcs").textContent = "$" + row.cs;
+    $("rps").textContent = "$" + row.ps;
+    $("rts").textContent = "$" + row.ts;
+    var tail;
+    if (row.qd === row.qs){
+      tail = "Quantity demanded and quantity supplied are both " + row.q
+           + ", so the market clears, and total surplus is at its highest: $" + BEST + ".";
+    } else if (row.qd > row.qs){
+      tail = "At $" + p + ", " + row.qd + " books are wanted but only " + row.qs
+           + " are offered, so only " + row.q + " trade and total surplus falls to $" + row.ts + ".";
+    } else {
+      tail = "At $" + p + ", " + row.qs + " books are offered but only " + row.qd
+           + " are wanted, so only " + row.q + " trade and total surplus falls to $" + row.ts + ".";
+    }
+    $("mcap").textContent = "At a price of $" + p + ": consumer surplus $" + row.cs
+      + ", producer surplus $" + row.ps + ". " + tail;
+  }
+  var pchips = document.querySelectorAll("#pChips .chip"), pi;
+  for (pi = 0; pi < pchips.length; pi++){
+    pchips[pi].addEventListener("click", function(){ showPrice(parseInt(this.getAttribute("data-p"), 10)); });
+  }
+  showPrice(30);
+
+  /* which surplus is it? */
+  var SORT = [
+    { t: "The area below the demand curve and above the price.", a: "cs",
+      w: "The definition your textbook states as a general principle." },
+    { t: "The area above the supply curve and below the price.", a: "ps",
+      w: "The mirror image, and the one students more often get backwards." },
+    { t: "A buyer's willingness to pay minus the price paid.", a: "cs",
+      w: "Individual consumer surplus &mdash; the gain to one buyer." },
+    { t: "The price received minus a seller's cost.", a: "ps",
+      w: "Individual producer surplus." },
+    { t: "Price &times; quantity sold.", a: "neither",
+      w: "That is total revenue, from Module 47. No subtraction, so no gain is measured." },
+    { t: "What a buyer actually hands over at the till.", a: "neither",
+      w: "That is spending, not surplus. Surplus is the <i>difference</i> between value and price." },
+    { t: "Aleisha's $59 willingness to pay, with the price at $30.", a: "cs",
+      w: "$29 of consumer surplus." },
+    { t: "Andrew's $5 cost, with the price at $30.", a: "ps",
+      w: "$25 of producer surplus." },
+    { t: "The gain to farmers when wheat rises from $5 to $7.", a: "ps",
+      w: "A rectangle for existing growers plus a triangle for new ones." },
+    { t: "The gain to students when the price of a used textbook falls from $30 to $20.", a: "cs",
+      w: "A rectangle for the three already buying plus a triangle for Darren." },
+    { t: "The area between the demand curve and the supply curve, up to the quantity traded.", a: "neither",
+      w: "That is <i>total</i> surplus &mdash; both halves at once, which is entry 15." },
+    { t: "The amount a seller paid for the item some years ago.", a: "neither",
+      w: "Sunk, and irrelevant. A seller's cost is the lowest price they would accept now." }
+  ];
+  var sAt = 0, score = 0, done = 0, answered = false;
+  function card(){
+    answered = false;
+    $("sortStem").innerHTML = SORT[sAt].t;
+    $("sortVerdict").textContent = "";
+    $("sortVerdict").className = "verdict";
+  }
+  var opts = document.querySelectorAll("#sortWidget .opts3 button"), oi;
+  for (oi = 0; oi < opts.length; oi++){
+    opts[oi].addEventListener("click", function(){
+      if (answered) return;
+      answered = true; done++;
+      var c = SORT[sAt], ok = (this.getAttribute("data-a") === c.a);
+      if (ok) score++;
+      $("sortVerdict").innerHTML = (ok ? "\u2713 " : "\u2717 ") + c.w;
+      $("sortVerdict").className = "verdict " + (ok ? "ok" : "no");
+      $("sortScore").textContent = score + " / " + done;
+    });
+  }
+  $("sortNext").addEventListener("click", function(){ sAt = (sAt + 1) % SORT.length; card(); });
+  card();
+
+  /* the textbook's multiple choice */
+  var mcqs = document.querySelectorAll(".mcq"), mi;
+  for (mi = 0; mi < mcqs.length; mi++){
+    (function(box){
+      var os = box.querySelectorAll(".opt"), j;
+      for (j = 0; j < os.length; j++){
+        os[j].addEventListener("click", function(){
+          var w = this.querySelector(".why");
+          if (w) w.hidden = !w.hidden;
+          this.classList.toggle("open");
+        });
+      }
+    })(mcqs[mi]);
+  }
+})();
+</script>
+</main>
+<script>window.COURSE_NAV={"kicker": "2.6 Market equilibrium and surplus", "title": "Module 49 · Consumer and Producer Surplus", "map": [{"label": "Course", "items": [{"href": "index.html", "label": "Home", "current": false}, {"href": "spec.html", "label": "Course specification", "current": false}]}, {"label": "Unit 1 · Basic Economic Concepts", "items": [{"href": "m01-student.html", "label": "Module 1 · Student guide", "current": false}, {"href": "m01-notes.html", "label": "Module 1 · Teaching notes", "current": false}, {"href": "m01-test.html", "label": "Module 1 · Test", "current": false}, {"label": "Module 2 · Introduction to Macroeconomics", "planned": true}, {"href": "m03-student.html", "label": "Module 3 · Student guide", "current": false}, {"href": "m03-notes.html", "label": "Module 3 · Teaching notes", "current": false}, {"href": "m03-test.html", "label": "Module 3 · Test", "current": false}, {"href": "m04-student.html", "label": "Module 4 · Student guide", "current": false}, {"href": "m04-notes.html", "label": "Module 4 · Teaching notes", "current": false}, {"href": "m04-test.html", "label": "Module 4 · Test", "current": false}, {"href": "m51-student.html", "label": "Module 51 · Student guide", "current": false}, {"href": "m51-notes.html", "label": "Module 51 · Teaching notes", "current": false}, {"href": "m51-test.html", "label": "Module 51 · Test", "current": false}, {"label": "Unit 1 · Gap analysis", "planned": true}]}, {"label": "Unit 2 · Supply and Demand", "items": [{"href": "m05-student.html", "label": "Module 5 · Student guide", "current": false}, {"href": "m05-notes.html", "label": "Module 5 · Teaching notes", "current": false}, {"href": "m05-test.html", "label": "Module 5 · Test", "current": false}, {"href": "m06-student.html", "label": "Module 6 · Student guide", "current": false}, {"href": "m06-notes.html", "label": "Module 6 · Teaching notes", "current": false}, {"href": "m06-test.html", "label": "Module 6 · Test", "current": false}, {"href": "m07-student.html", "label": "Module 7 · Student guide", "current": false}, {"href": "m07-notes.html", "label": "Module 7 · Teaching notes", "current": false}, {"href": "m07-test.html", "label": "Module 7 · Test", "current": false}, {"href": "m08-student.html", "label": "Module 8 · Student guide", "current": false}, {"href": "m08-notes.html", "label": "Module 8 · Teaching notes", "current": false}, {"href": "m08-test.html", "label": "Module 8 · Test", "current": false}, {"href": "m09-student.html", "label": "Module 9 · Student guide", "current": false}, {"href": "m09-notes.html", "label": "Module 9 · Teaching notes", "current": false}, {"href": "m09-test.html", "label": "Module 9 · Test", "current": false}, {"href": "m46-student.html", "label": "Module 46 · Student guide", "current": false}, {"href": "m46-notes.html", "label": "Module 46 · Teaching notes", "current": false}, {"href": "m46-test.html", "label": "Module 46 · Test", "current": false}, {"href": "m47-student.html", "label": "Module 47 · Student guide", "current": false}, {"href": "m47-notes.html", "label": "Module 47 · Teaching notes", "current": false}, {"href": "m47-test.html", "label": "Module 47 · Test", "current": false}, {"href": "m48-student.html", "label": "Module 48 · Student guide", "current": false}, {"href": "m48-notes.html", "label": "Module 48 · Teaching notes", "current": false}, {"href": "m48-test.html", "label": "Module 48 · Test", "current": false}, {"href": "m49-student.html", "label": "Module 49 · Student guide", "current": true}, {"href": "m49-notes.html", "label": "Module 49 · Teaching notes", "current": false}, {"href": "m49-test.html", "label": "Module 49 · Test", "current": false}, {"href": "m50-student.html", "label": "Module 50 · Student guide", "current": false}, {"href": "m50-notes.html", "label": "Module 50 · Teaching notes", "current": false}, {"href": "m50-test.html", "label": "Module 50 · Test", "current": false}, {"label": "Topic 2.9 · International Trade and Public Policy", "planned": true}, {"label": "Unit 2 · Gap analysis", "planned": true}]}, {"label": "Unit 3 · Production, Cost and Perfect Competition", "items": [{"label": "Modules 52–53 · Profit and Profit Maximisation", "planned": true}, {"label": "Module 54 · The Production Function", "planned": true}, {"label": "Module 55 · Firm Costs", "planned": true}, {"label": "Module 56 · Long-Run Costs and Economies of Scale", "planned": true}, {"label": "Module 57 · Introduction to Market Structure", "planned": true}, {"label": "Modules 58–60 · Perfect Competition", "planned": true}, {"label": "Unit 3 · Gap analysis", "planned": true}]}, {"label": "Unit 4 · Imperfect Competition", "items": [{"label": "Topic 4.1 · Introduction to Imperfect Competition", "planned": true}, {"label": "Modules 61–63 · Monopoly", "planned": true}, {"label": "Modules 67–68 · Monopolistic Competition", "planned": true}, {"label": "Modules 64–66 · Oligopoly and Game Theory", "planned": true}, {"label": "Unit 4 · Gap analysis", "planned": true}]}, {"label": "Unit 5 · Factor Markets", "items": [{"label": "Module 69 · Introduction and Factor Demand", "planned": true}, {"label": "Module 70 · The Markets for Land and Capital", "planned": true}, {"label": "Module 71 · The Market for Labor", "planned": true}, {"label": "Module 72 · The Cost-Minimising Input Combination", "planned": true}, {"label": "Module 73 · Theories of Income Distribution", "planned": true}, {"label": "Unit 5 · Gap analysis", "planned": true}]}, {"label": "Unit 6 · Market Failure and the Role of Government", "items": [{"label": "Modules 74–75 · Externalities", "planned": true}, {"label": "Module 76 · Public Goods", "planned": true}, {"label": "Module 77 · Public Policy to Promote Competition", "planned": true}, {"label": "Module 78 · Income Inequality and Income Distribution", "planned": true}, {"label": "Unit 6 · Gap analysis", "planned": true}]}, {"label": "Interactive", "items": [{"label": "PPC explorer", "planned": true}, {"label": "Supply and demand explorer", "planned": true}, {"label": "Elasticity and total revenue", "planned": true}, {"label": "Cost curves", "planned": true}, {"label": "Market structure comparison", "planned": true}]}], "prev": {"href": "m48-test.html", "label": "Module 48 · Test"}, "next": {"href": "m49-notes.html", "label": "Module 49 · Teaching notes"}, "variants": [{"href": "m49-student.html", "label": "Student", "current": true}, {"href": "m49-notes.html", "label": "Notes", "current": false}, {"href": "m49-test.html", "label": "Test", "current": false}]};</script>
+<script src="assets/course.js"></script>
+</body>
+</html>

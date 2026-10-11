@@ -1,0 +1,1762 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 50 · Efficiency and Deadweight Loss · AP Microeconomics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@600;700&display=swap">
+<link rel="stylesheet" href="assets/course.css">
+<style>.page .bar{position:static;background:none;backdrop-filter:none}.page .bar-in{max-width:none;padding-inline:0}.page .wrap{max-width:none;padding-inline:0;padding-block:0 24px}.page .masthead{padding-block:10px 24px}</style></head>
+<body>
+<main class="page">
+<style>
+
+
+:root{
+  --paper:#f3f5f8;
+  --surface:#ffffff;
+  --surface-2:#eef1f6;
+  --ink:#15181f;
+  --ink-2:#4d5566;
+  --ink-3:#737c8e;
+  --rule:#d6dae2;
+  --rule-strong:#b3bac7;
+  --accent:#1d4e89;
+  --accent-soft:#e6edf7;
+  --down:#a3372a;
+  --down-soft:#fbeeeb;
+  --up:#1a6b55;
+  --up-soft:#e6f2ee;
+  --flag:#7a5310;
+  --flag-soft:#f8f0e0;
+  --shadow:0 1px 2px rgba(21,24,31,.06), 0 8px 24px rgba(21,24,31,.05);
+  --serif:"IBM Plex Serif", Georgia, "Times New Roman", serif;
+  --sans:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0f1218;
+    --surface:#171b23;
+    --surface-2:#1e232d;
+    --ink:#e8ebf1;
+    --ink-2:#a3adc0;
+    --ink-3:#7e8799;
+    --rule:#2c323d;
+    --rule-strong:#3c4351;
+    --accent:#7dabe2;
+    --accent-soft:#1a2634;
+    --down:#e5907f;
+    --down-soft:#2a1d1a;
+    --up:#6cc4a7;
+    --up-soft:#16291f;
+    --flag:#d8b169;
+    --flag-soft:#2a2418;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.28);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0f1218;
+  --surface:#171b23;
+  --surface-2:#1e232d;
+  --ink:#e8ebf1;
+  --ink-2:#a3adc0;
+  --ink-3:#7e8799;
+  --rule:#2c323d;
+  --rule-strong:#3c4351;
+  --accent:#7dabe2;
+  --accent-soft:#1a2634;
+  --down:#e5907f;
+  --down-soft:#2a1d1a;
+  --up:#6cc4a7;
+  --up-soft:#16291f;
+  --flag:#d8b169;
+  --flag-soft:#2a2418;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.28);
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.65;
+  margin:0;
+}
+.wrap{max-width:820px;margin:0 auto;padding-inline:18px;padding-block:0 72px}
+
+/* ---------- sticky bar ---------- */
+.bar{
+  position:sticky;
+  top:env(safe-area-inset-top, 0px);
+  z-index:40;
+  background:color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--rule);
+}
+.bar-in{
+  max-width:820px;margin:0 auto;padding-inline:18px;
+  display:flex;align-items:center;gap:14px;min-height:50px;flex-wrap:wrap;
+}
+.bar-title{font-family:var(--mono);font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-2);white-space:nowrap}
+.progress{flex:1 1 140px;min-width:120px;display:flex;align-items:center;gap:9px}
+.progress-track{flex:1;height:5px;border-radius:3px;background:var(--rule);overflow:hidden}
+.progress-fill{height:100%;width:0;background:var(--accent);transition:width .25s ease}
+.progress-num{font-family:var(--mono);font-size:12px;color:var(--ink-2);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar button{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;
+  background:none;border:1px solid var(--rule-strong);color:var(--ink-2);
+  padding:5px 10px;border-radius:4px;cursor:pointer;
+}
+.bar button:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ---------- masthead ---------- */
+.masthead{padding-block:40px 28px;border-bottom:2px solid var(--ink)}
+.eyebrow{
+  font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);margin:0 0 12px;
+}
+h1{
+  font-family:var(--serif);font-weight:700;font-size:clamp(30px,6.4vw,44px);
+  line-height:1.1;margin:0 0 14px;text-wrap:balance;letter-spacing:-.01em;
+}
+.standfirst{font-size:17.5px;color:var(--ink-2);margin:0;max-width:62ch}
+.source-line{
+  font-family:var(--mono);font-size:12.5px;color:var(--ink-3);margin-top:18px;
+  display:flex;gap:6px 18px;flex-wrap:wrap;
+}
+
+h2{
+  font-family:var(--serif);font-weight:600;font-size:clamp(21px,3.8vw,26px);
+  line-height:1.25;margin:0 0 10px;text-wrap:balance;
+}
+h3{font-family:var(--sans);font-weight:600;font-size:16px;margin:26px 0 8px;letter-spacing:.01em}
+p{margin:0 0 14px}
+a{color:var(--accent)}
+.section{padding-block:34px 4px}
+
+.kicker{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-3);margin:0 0 8px;
+}
+
+/* ---------- entries ---------- */
+.entry{padding-block:34px 10px;border-top:1px solid var(--rule)}
+.entry-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.entry-num{
+  font-family:var(--mono);font-size:13px;font-weight:600;color:var(--accent);
+  font-variant-numeric:tabular-nums;
+}
+.entry h2{margin:0;flex:1 1 auto;min-width:0}
+.mark{
+  font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  padding:3px 8px;border-radius:3px;white-space:nowrap;
+}
+.mark.exam{background:var(--accent-soft);color:var(--accent)}
+.mark.bg{background:var(--surface-2);color:var(--ink-3)}
+.defn{
+  background:var(--surface);border-left:3px solid var(--accent);
+  padding:14px 16px;border-radius:0 5px 5px 0;margin:14px 0 16px;box-shadow:var(--shadow);
+}
+.defn p{margin:0}
+.defn .lbl{
+  display:block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-3);margin-bottom:5px;
+}
+.reading{font-family:var(--mono);font-size:12.5px;color:var(--ink-3);margin:-6px 0 16px}
+
+.watch{
+  background:var(--down-soft);border:1px solid color-mix(in srgb, var(--down) 28%, transparent);
+  border-radius:5px;padding:13px 16px;margin:18px 0;
+}
+.watch p{margin:0;font-size:15.3px}
+.watch b{color:var(--down)}
+
+.notinbook{
+  background:var(--flag-soft);border:1px dashed color-mix(in srgb, var(--flag) 48%, transparent);
+  border-radius:5px;padding:13px 16px;margin:16px 0;
+}
+.notinbook p{margin:0;font-size:15.3px}
+.notinbook b{color:var(--flag)}
+
+.examples{margin:18px 0;display:flex;flex-direction:column;gap:12px}
+.ex{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start}
+.ex-n{
+  font-family:var(--mono);font-size:11px;font-weight:600;color:var(--ink-3);
+  border:1px solid var(--rule-strong);border-radius:3px;padding:1px 6px;margin-top:3px;white-space:nowrap;
+}
+.ex p{margin:0;font-size:15.3px}
+.ex .who{font-weight:600;color:var(--ink)}
+
+.connects{font-size:15.3px;color:var(--ink-2);border-top:1px solid var(--rule);padding-top:12px;margin-top:6px}
+.connects b{color:var(--ink)}
+
+/* ---------- check yourself ---------- */
+.check{margin:20px 0 6px;background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:14px 16px}
+.check > .lbl{
+  font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);display:block;margin-bottom:10px;
+}
+.q{margin-bottom:12px}
+.q:last-child{margin-bottom:0}
+.q > p{margin:0 0 7px;font-size:15.3px}
+.q .qn{font-family:var(--mono);font-weight:600;color:var(--accent);font-size:13.5px;margin-right:4px}
+details.reveal{border-top:1px dashed var(--rule)}
+details.reveal > summary{
+  list-style:none;cursor:pointer;font-family:var(--mono);font-size:11.5px;
+  letter-spacing:.07em;text-transform:uppercase;color:var(--accent);padding:7px 0 0;
+}
+details.reveal > summary::-webkit-details-marker{display:none}
+details.reveal > summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details.reveal[open] > summary::before{content:"▾ "}
+details.reveal > summary:hover{text-decoration:underline}
+details.reveal .ans{font-size:15.3px;color:var(--ink-2);padding:6px 0 4px}
+details.reveal .ans p{margin:0 0 8px}
+details.reveal .ans p:last-child{margin:0}
+
+.got{
+  display:flex;align-items:center;gap:8px;margin-top:16px;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);
+  cursor:pointer;user-select:none;
+}
+.got input{width:15px;height:15px;accent-color:var(--accent);cursor:pointer}
+
+/* ---------- tables ---------- */
+.tablewrap{overflow-x:auto;margin:18px 0;border:1px solid var(--rule);border-radius:6px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:15px;min-width:420px}
+th,td{padding:10px 13px;text-align:left;border-bottom:1px solid var(--rule);vertical-align:top}
+thead th{
+  font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-3);background:var(--surface-2);font-weight:600;
+}
+tbody tr:last-child td{border-bottom:none}
+td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right}
+.tight td,.tight th{padding:8px 12px;font-size:14.5px}
+
+/* ---------- widgets ---------- */
+.widget{
+  background:var(--surface);border:1px solid var(--rule-strong);border-radius:8px;
+  padding:18px;margin:26px 0;box-shadow:var(--shadow);
+}
+.widget-title{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);margin:0 0 4px;
+}
+.widget h3{margin-top:0}
+.widget-note{font-size:14.5px;color:var(--ink-2);margin:12px 0 0}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{
+  font-family:var(--mono);font-size:12px;letter-spacing:.04em;
+  border:1px solid var(--rule-strong);background:var(--surface);color:var(--ink-2);
+  border-radius:16px;padding:5px 13px;cursor:pointer;transition:all .15s;
+}
+.chip:hover{border-color:var(--accent);color:var(--accent)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+:root[data-theme="dark"] .chip[aria-pressed="true"],
+:root:not([data-theme="light"]) .chip[aria-pressed="true"]{color:#0f1218}
+
+.cyclefig{width:100%;height:auto;display:block;overflow:visible}
+.figcap{font-size:14.5px;color:var(--ink-2);margin:10px 0 0;min-height:3em}
+.figcap b{color:var(--ink)}
+
+.svg-dim{opacity:.22;transition:opacity .2s}
+.svg-lit{opacity:1;transition:opacity .2s}
+
+.calc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:14px 0}
+.field label{
+  display:block;font-family:var(--mono);font-size:11px;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--ink-3);margin-bottom:5px;
+}
+.field input[type=number]{
+  width:100%;font-family:var(--mono);font-size:16px;padding:8px 10px;
+  border:1px solid var(--rule-strong);border-radius:5px;background:var(--paper);color:var(--ink);
+}
+.field input[type=range]{width:100%;accent-color:var(--accent)}
+.field input:focus-visible,.chip:focus-visible,button:focus-visible,summary:focus-visible,a:focus-visible{
+  outline:2px solid var(--accent);outline-offset:2px;
+}
+.readouts{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:6px;overflow:hidden;margin-top:6px}
+.ro{background:var(--surface-2);padding:12px 14px}
+.ro .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);display:block;margin-bottom:3px}
+.ro .v{font-family:var(--mono);font-size:22px;font-weight:600;font-variant-numeric:tabular-nums;color:var(--ink)}
+.ro .v.hl{color:var(--accent)}
+
+/* ---------- quiz ---------- */
+.mcq{border-top:1px solid var(--rule);padding-top:18px;margin-top:18px}
+.mcq:first-of-type{border-top:none;padding-top:0;margin-top:0}
+.mcq .stem{font-size:15.6px;margin:0 0 12px}
+.mcq .stem .qn{font-family:var(--mono);font-weight:600;color:var(--accent);margin-right:6px}
+.opts{display:flex;flex-direction:column;gap:7px}
+.opt{
+  display:flex;gap:11px;align-items:flex-start;text-align:left;width:100%;
+  font-family:var(--sans);font-size:15.2px;line-height:1.5;color:var(--ink);
+  background:var(--surface);border:1px solid var(--rule);border-radius:6px;
+  padding:10px 13px;cursor:pointer;transition:border-color .15s,background .15s;
+}
+.opt:hover{border-color:var(--accent)}
+.opt .ltr{font-family:var(--mono);font-weight:600;color:var(--ink-3);flex:0 0 auto}
+.opt .why{display:block;font-size:14.3px;color:var(--ink-2);margin-top:6px}
+.opt[data-state="right"]{border-color:var(--up);background:var(--up-soft)}
+.opt[data-state="right"] .ltr{color:var(--up)}
+.opt[data-state="wrong"]{border-color:var(--down);background:var(--down-soft)}
+.opt[data-state="wrong"] .ltr{color:var(--down)}
+.opt[disabled]{cursor:default}
+.score{
+  font-family:var(--mono);font-size:13px;color:var(--ink-2);
+  border:1px solid var(--rule-strong);border-radius:6px;padding:11px 14px;margin-top:20px;
+  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;
+}
+.score b{color:var(--ink);font-size:15px}
+
+.frq{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:15px 17px;margin:16px 0}
+.frq .stem{margin:0 0 6px;font-size:15.6px}
+.frq .pts{font-family:var(--mono);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3)}
+.rubric{margin:8px 0 0;padding:0;list-style:none}
+.rubric li{display:grid;grid-template-columns:auto 1fr;gap:10px;padding:7px 0;border-top:1px dotted var(--rule);font-size:15.2px}
+.rubric li .pt{font-family:var(--mono);font-size:11.5px;color:var(--up);white-space:nowrap;padding-top:3px}
+
+.closing{background:var(--accent-soft);border-radius:8px;padding:20px 22px;margin-top:28px}
+.closing h2{margin-top:0}
+.closing ol{margin:0;padding-left:20px}
+.closing li{margin-bottom:10px;font-size:15.5px}
+.closing li:last-child{margin-bottom:0}
+
+.toc{columns:2 220px;column-gap:26px;margin:16px 0 0;padding:0;list-style:none}
+.toc li{break-inside:avoid;padding:3px 0;font-size:15px}
+.toc a{text-decoration:none;color:var(--ink)}
+.toc a:hover{color:var(--accent);text-decoration:underline}
+.toc .n{font-family:var(--mono);font-size:12.5px;color:var(--ink-3);margin-right:7px;font-variant-numeric:tabular-nums}
+.toc .m{font-size:11px;color:var(--ink-3);margin-left:5px}
+
+.footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--rule);font-family:var(--mono);font-size:12px;color:var(--ink-3);line-height:1.8}
+
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+@media print{
+  .bar,.got,.chips{display:none}
+  body{background:#fff}
+  details.reveal > *{display:block!important}
+  .entry{break-inside:avoid-page}
+}
+@media (max-width:520px){
+  .toc{columns:1}
+  .ro .v{font-size:19px}
+}
+
+/* ---------- Module 3 supplement ---------- */
+.mark.flag{background:var(--flag-soft);color:var(--flag)}
+.ppc-wrap{display:grid;grid-template-columns:1fr;gap:14px}
+@media (min-width:720px){.ppc-wrap{grid-template-columns:1fr 210px}}
+.ppc-svg{width:100%;height:auto;display:block;background:var(--surface);
+  border:1px solid var(--rule);border-radius:6px;cursor:crosshair;touch-action:none}
+.ppc-side{display:flex;flex-direction:column;gap:10px}
+.status{font-family:var(--mono);font-size:12.5px;padding:9px 11px;border-radius:5px;
+  border:1px solid var(--rule-strong);background:var(--surface-2);line-height:1.45}
+.status[data-s="on"]{border-color:color-mix(in srgb,var(--up) 45%,transparent);background:var(--up-soft);color:var(--up)}
+.status[data-s="in"]{border-color:var(--rule-strong);color:var(--ink-2)}
+.status[data-s="out"]{border-color:color-mix(in srgb,var(--down) 45%,transparent);background:var(--down-soft);color:var(--down)}
+.ppc-legend{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);line-height:1.6}
+.ppc-legend b{color:var(--ink-2);font-weight:600}
+.chips.tight{gap:6px}
+.tbl{overflow-x:auto;max-width:100%}
+.sumtable{width:100%;border-collapse:collapse;font-size:14.5px;margin:16px 0}
+.sumtable th,.sumtable td{border-bottom:1px solid var(--rule);padding:8px 10px;text-align:left;vertical-align:top}
+.sumtable th{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+.sumtable td.mk{font-family:var(--mono);font-size:12px;white-space:nowrap;color:var(--accent)}
+.sumtable td.mk.bgm{color:var(--ink-3)}
+.sumtable td.mk.flagm{color:var(--flag)}
+.final{background:var(--surface);border:1px solid var(--rule);border-radius:6px;
+  padding:18px 20px;margin:22px 0;box-shadow:var(--shadow)}
+.final ol{margin:0;padding-left:20px}
+.final li{margin:0 0 9px}
+.final li:last-child{margin-bottom:0}
+
+/* ---------- PPC explorer svg ---------- */
+.ppc-svg .ax{stroke:var(--ink);stroke-width:1.6}
+.ppc-svg .tick{stroke:var(--ink-3);stroke-width:1.1}
+.ppc-svg .tl{font-family:var(--mono);font-size:11px;fill:var(--ink-3)}
+.ppc-svg .al{font-family:var(--sans);font-size:12px;font-weight:600;fill:var(--ink-2)}
+.ppc-svg .curve{fill:none;stroke:var(--accent);stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round}
+.ppc-svg .ghost{fill:none;stroke:var(--rule-strong);stroke-width:1.8;stroke-dasharray:6 5}
+.ppc-svg .cl{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--accent)}
+.ppc-svg .drop{stroke:var(--rule-strong);stroke-width:1;stroke-dasharray:3 3}
+.ppc-svg .pt{stroke:var(--surface);stroke-width:2}
+.ppc-svg .pt-on{fill:var(--up)}
+.ppc-svg .pt-in{fill:var(--ink-3)}
+.ppc-svg .pt-out{fill:var(--down)}
+
+
+/* ---------- Module 4 supplement ---------- */
+.two-panel{width:100%;height:auto;display:block;background:var(--surface);
+  border:1px solid var(--rule);border-radius:6px}
+.ca-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:0 0 14px}
+@media (min-width:640px){.ca-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.ca-grid .field{display:flex;flex-direction:column;gap:5px}
+.ca-grid .field span{font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--ink-3)}
+.ca-grid .field b{color:var(--ink-2);font-weight:600;text-transform:none;letter-spacing:0}
+.ca-grid input{font-family:var(--mono);font-size:15px;padding:7px 9px;width:100%;
+  color:var(--ink);background:var(--paper);border:1px solid var(--rule-strong);border-radius:5px}
+.ca-grid input:focus{outline:2px solid var(--accent);outline-offset:1px}
+.catab{width:100%;border-collapse:collapse;font-size:14px;margin:4px 0 14px}
+.catab th,.catab td{border-bottom:1px solid var(--rule);padding:7px 9px;text-align:left}
+.catab th{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:600}
+.catab td.v{font-family:var(--mono);color:var(--ink)}
+.catab td.win{font-family:var(--mono);color:var(--up);font-weight:600}
+.dealrow{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;margin:0 0 12px}
+.dealrow .field{display:flex;flex-direction:column;gap:5px;min-width:190px;flex:1}
+.dealrow .field span{font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--ink-3)}
+.dealrow input{font-family:var(--mono);font-size:16px;padding:8px 10px;
+  color:var(--ink);background:var(--paper);border:1px solid var(--rule-strong);border-radius:5px}
+.line-svg{width:100%;height:auto;display:block;margin:6px 0 2px}
+.line-svg g[hidden]{display:none}
+.line-svg .band{fill:var(--up-soft);stroke:none}
+.line-svg .axl{stroke:var(--ink);stroke-width:1.6}
+.line-svg .tk{stroke:var(--ink-3);stroke-width:1.1}
+.line-svg .tlb{font-family:var(--mono);font-size:11px;fill:var(--ink-3)}
+.line-svg .edge{stroke:var(--up);stroke-width:2}
+.line-svg .edgel{font-family:var(--mono);font-size:11.5px;font-weight:600;fill:var(--up)}
+.line-svg .prop{stroke:var(--accent);stroke-width:2.4}
+.line-svg .propbad{stroke:var(--down);stroke-width:2.4}
+.line-svg .propl{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--accent)}
+.line-svg .propl.bad{fill:var(--down)}
+.two-panel .ax{stroke:var(--ink);stroke-width:1.6}
+.two-panel .tick{stroke:var(--ink-3);stroke-width:1.1}
+.two-panel .tl{font-family:var(--mono);font-size:10.5px;fill:var(--ink-3)}
+.two-panel .al{font-family:var(--sans);font-size:11.5px;font-weight:600;fill:var(--ink-2)}
+.two-panel .ph{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--ink-2)}
+.two-panel .curve{fill:none;stroke:var(--accent);stroke-width:2.4;stroke-linecap:round}
+.two-panel .slope{font-family:var(--mono);font-size:11px;fill:var(--accent)}
+.two-panel .drop{stroke:var(--rule-strong);stroke-width:1;stroke-dasharray:3 3}
+.two-panel .pt{stroke:var(--surface);stroke-width:2}
+.two-panel .pt-on{fill:var(--ink-2)}
+.two-panel .pt-out{fill:var(--up)}
+.two-panel .ptl{font-family:var(--mono);font-size:11px;fill:var(--ink-2)}
+.two-panel .ptl.good{fill:var(--up);font-weight:600}
+
+
+/* The inherited stylesheet styles .curve, .ax, .tick, .tl, .cl, .pt and .ptl only under .ppc-svg and
+   .two-panel, and its .line-svg .axl rule is for an axis LINE - so give the figure's own classes rules
+   under .line-svg. Without these the curves, axes and ticks have stroke:none and do not render. */
+.line-svg .ax{stroke:var(--ink);stroke-width:1.6}
+.line-svg .tick{stroke:var(--ink-3);stroke-width:1.1}
+.line-svg .tl{font-family:var(--mono);font-size:11px;fill:var(--ink-3)}
+.line-svg text.axl{stroke:none;font-family:var(--mono);font-size:12px;fill:var(--ink-2)}
+.line-svg .curve{fill:none;stroke:var(--accent);stroke-width:2.6;stroke-linecap:round}
+.line-svg .cl{font-family:var(--mono);font-size:13px;font-weight:600;fill:var(--accent)}
+.line-svg .pt{stroke:var(--surface);stroke-width:2}
+.line-svg .pt-on{fill:var(--ink-2)}
+.line-svg .ptl{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--ink-2)}
+/* Module 8 price-control figure */
+.pc-line{stroke:var(--down);stroke-width:2.2;stroke-dasharray:7 4}
+.pc-lab{font-family:var(--mono);font-size:12px;fill:var(--down)}
+.pc-gap{stroke:var(--ink-2);stroke-width:1.4}
+.pc-gl{font-family:var(--mono);font-size:11.5px;fill:var(--ink-2)}
+.pc-dwl{fill:var(--flag-soft);stroke:var(--flag);stroke-width:1}
+.pc-dl{font-family:var(--mono);font-size:11.5px;fill:var(--flag)}
+
+/* Module 9 quota figure */
+.qt-line{stroke:var(--down);stroke-width:2.2;stroke-dasharray:7 4}
+.qt-lab{font-family:var(--mono);font-size:12px;fill:var(--down)}
+.qt-rent{fill:var(--up-soft);stroke:var(--up);stroke-width:1}
+.qt-rl{font-family:var(--mono);font-size:11.5px;fill:var(--up)}
+
+/* Module 46: the base figure classes, the calculator and the sorter */
+.line-svg .ax{stroke:var(--ink);stroke-width:1.6}
+.line-svg text.axl{stroke:none;font-family:var(--mono);font-size:12px;fill:var(--ink-2)}
+.line-svg .tick{stroke:var(--ink-3);stroke-width:1.1}
+.line-svg .tl{font-family:var(--mono);font-size:11px;fill:var(--ink-3)}
+.line-svg .curve{fill:none;stroke:var(--accent);stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round}
+.line-svg .cl{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--accent)}
+.line-svg .pt{stroke:var(--surface);stroke-width:2}
+.line-svg .pt-on{fill:var(--ink-2)}
+.line-svg .ptl{font-family:var(--mono);font-size:11.5px;font-weight:600;fill:var(--ink-2)}
+.formula{font-family:var(--mono);font-size:13.5px;background:var(--surface-2);border-left:3px solid var(--accent);
+  padding:9px 12px;margin:10px 0;border-radius:0 6px 6px 0;line-height:1.5}
+.calc-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:10px 0}
+.calc-grid label{display:flex;flex-direction:column;gap:4px;font-family:var(--mono);font-size:11.5px;color:var(--ink-3)}
+.calc-grid input{font-family:var(--mono);font-size:14px;padding:6px 8px;border:1px solid var(--rule);
+  border-radius:6px;background:var(--surface);color:var(--ink)}
+.two-ways{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}
+.way{border:1px solid var(--rule);border-radius:8px;padding:11px 13px;background:var(--surface-2)}
+.way h4{margin:0 0 7px;font-size:13px;letter-spacing:.02em}
+.way .big{font-family:var(--mono);font-size:22px;font-weight:600;color:var(--accent)}
+.way .step{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);margin:3px 0 0}
+.way.mid .big{color:var(--up)}
+.sorter .opts3{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}
+.sorter .opts3 button{font:inherit;font-size:12.5px;padding:6px 11px;border:1px solid var(--rule);
+  border-radius:999px;background:var(--surface);color:var(--ink);cursor:pointer}
+.sorter .opts3 button:hover{border-color:var(--accent)}
+.sorter .verdict{margin-top:9px;font-size:13.5px}
+.sorter .verdict.ok{color:var(--up)}
+.sorter .verdict.no{color:var(--down)}
+@media (max-width:620px){.calc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .two-ways{grid-template-columns:1fr}}
+
+/* Module 47: the revenue bars and the elasticity zones */
+.line-svg .trbar{fill:var(--accent);opacity:.45}
+.line-svg .trbar.peak{fill:var(--up);opacity:.85}
+.line-svg .zone{font-family:var(--mono);font-size:11.5px;fill:var(--ink-3);text-anchor:middle}
+.line-svg .zone.unit{fill:var(--up);font-weight:600}
+.cases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:12px}
+.case{border:1px solid var(--rule);border-radius:8px;padding:11px 13px;background:var(--surface-2)}
+.case h4{margin:0 0 7px;font-size:13px;letter-spacing:.02em}
+.case .big{font-family:var(--mono);font-size:19px;font-weight:600;color:var(--accent)}
+.case .step{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);margin:3px 0 0}
+.case.up .big{color:var(--up)}
+.case.down .big{color:var(--down)}
+.sorter .opts3{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}
+.sorter .opts3 button{font:inherit;font-size:12.5px;padding:6px 11px;border:1px solid var(--rule);
+  border-radius:999px;background:var(--surface);color:var(--ink);cursor:pointer}
+.sorter .opts3 button:hover{border-color:var(--accent)}
+.sorter .verdict{margin-top:9px;font-size:13.5px}
+.sorter .verdict.ok{color:var(--up)}
+.sorter .verdict.no{color:var(--down)}
+@media (max-width:620px){.cases{grid-template-columns:1fr}}
+
+/* Module 48: the two-panel supply figure and the identifier */
+.line-svg .curve.sup{stroke:var(--up)}
+.line-svg .cl.sup{fill:var(--up)}
+.line-svg .zone{font-family:var(--mono);font-size:11.5px;fill:var(--ink-3);text-anchor:middle}
+.ident-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:10px 0}
+.ident-grid label{display:flex;flex-direction:column;gap:4px;font-family:var(--mono);font-size:11.5px;color:var(--ink-3)}
+.ident-grid input{font-family:var(--mono);font-size:14px;padding:6px 8px;border:1px solid var(--rule);
+  border-radius:6px;background:var(--surface);color:var(--ink)}
+.verdictbox{border:1px solid var(--rule);border-radius:8px;padding:12px 14px;background:var(--surface-2);margin-top:12px}
+.verdictbox .big{font-family:var(--mono);font-size:22px;font-weight:600;color:var(--accent);margin:0}
+.verdictbox .what{font-size:14px;margin:6px 0 0}
+.verdictbox .step{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);margin:4px 0 0}
+.verdictbox.pos .big{color:var(--up)}
+.verdictbox.neg .big{color:var(--down)}
+.sorter .opts3{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}
+.sorter .opts3 button{font:inherit;font-size:12.5px;padding:6px 11px;border:1px solid var(--rule);
+  border-radius:999px;background:var(--surface);color:var(--ink);cursor:pointer}
+.sorter .opts3 button:hover{border-color:var(--accent)}
+.sorter .verdict{margin-top:9px;font-size:13.5px}
+.sorter .verdict.ok{color:var(--up)}
+.sorter .verdict.no{color:var(--down)}
+@media (max-width:620px){.ident-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Module 49: the surplus blocks and the price line */
+.line-svg .cs-block{fill:var(--accent);opacity:.28;stroke:var(--accent);stroke-width:.8}
+.line-svg .ps-block{fill:var(--up);opacity:.28;stroke:var(--up);stroke-width:.8}
+.line-svg .pline{stroke:var(--ink-2);stroke-width:1.6;stroke-dasharray:6 4}
+.line-svg g[hidden]{display:none}
+.sorter .opts3{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}
+.sorter .opts3 button{font:inherit;font-size:12.5px;padding:6px 11px;border:1px solid var(--rule);
+  border-radius:999px;background:var(--surface);color:var(--ink);cursor:pointer}
+.sorter .opts3 button:hover{border-color:var(--accent)}
+.sorter .verdict{margin-top:9px;font-size:13.5px}
+.sorter .verdict.ok{color:var(--up)}
+.sorter .verdict.no{color:var(--down)}
+
+/* Module 50: the surplus, revenue, cost and deadweight-loss areas */
+.line-svg .cs-area{fill:var(--accent);opacity:.26;stroke:var(--accent);stroke-width:.8}
+.line-svg .ps-area{fill:var(--up);opacity:.26;stroke:var(--up);stroke-width:.8}
+.line-svg .rev-area{fill:var(--ink-3);opacity:.30;stroke:var(--ink-2);stroke-width:.8}
+.line-svg .cost-area{fill:var(--amber-rule,#c98a1e);opacity:.30;stroke:var(--amber-rule,#c98a1e);stroke-width:.8}
+.line-svg .dwl-area{fill:var(--down);opacity:.42;stroke:var(--down);stroke-width:.8}
+.line-svg .qline{stroke:var(--ink-3);stroke-width:1.1;stroke-dasharray:4 3}
+.inc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:12px}
+.inc{border:1px solid var(--rule);border-radius:8px;padding:11px 13px;background:var(--surface-2)}
+.inc h4{margin:0 0 7px;font-size:13px;letter-spacing:.02em}
+.inc .big{font-family:var(--mono);font-size:19px;font-weight:600;color:var(--accent);margin:0}
+.inc .step{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);margin:3px 0 0}
+@media (max-width:620px){.inc-grid{grid-template-columns:1fr}}
+</style>
+
+
+<div class="bar">
+  <div class="bar-in">
+    <span class="bar-title">Micro &middot; Module 50</span>
+    <span class="progress">
+      <span class="progress-track"><span class="progress-fill" id="pfill"></span></span>
+      <span class="progress-num" id="pnum">0 / 19</span>
+    </span>
+    <button type="button" id="resetBtn">Reset progress</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+<p class="eyebrow">AP Microeconomics &middot; Unit 2 &middot; Student guide</p>
+  <h1>Efficiency and Deadweight Loss</h1>
+  <p class="standfirst">Nineteen terms from Module 50 of <i>Krugman&rsquo;s Economics for AP</i>.
+  Why a competitive market cannot be improved on &mdash; and what a tax, or a subsidy, costs when a
+  government changes it anyway.</p>
+  <div class="source-line">
+    <span>Textbook pages 495&ndash;510</span><span>&middot;</span><span>19 terms</span><span>&middot;</span>
+    <span>Topics 2.6 and 2.8</span><span>&middot;</span><span>2&frac12; periods</span>
+  </div>
+<section class="section" id="howto">
+  <h2>How to use this guide</h2>
+  <p>Read Module 50 in your textbook first. Entries 1 to 5 are efficiency; entries 6 to 15 are what a
+  tax does; entries 16 to 19 are what your textbook leaves out and two side-costs worth knowing.</p>
+  <ul>
+    <li><b>&#9733; Exam</b> means the framework can test it.</li>
+    <li><b>&#9733; &#9873;</b> means it is examinable <b>and Module 50 of your textbook does not
+      teach it</b>. Entries 4, 16 and 17 carry the flag.</li>
+    <li><b>&#9675; Background</b> means it helps you understand the topic but will not be asked about
+      on its own.</li>
+    <li>Every entry ends with two <b>Check yourself</b> questions. Answer them before opening the
+      answer, then tick <b>Got it</b>.</li>
+  </ul>
+  <div class="flag">
+    <p><b>The one idea.</b> The competitive equilibrium makes total surplus as large as it can be.
+    Anything that changes the quantity traded &mdash; a tax, a subsidy, a price control, a quota
+    &mdash; makes it smaller, and the shortfall that nobody receives is the <b>deadweight loss</b>.</p>
+  </div>
+  <div class="notinbook"><p><b>&#9873; One big thing is missing.</b> Your course names taxes
+  <b>and subsidies</b> three times over, and subsidies come up on real exam papers as often as
+  consumer surplus does. The word does not appear once in Module 50. Entries 16 and 17 supply the
+  whole of it, on your textbook&rsquo;s own hotel market.</p></div>
+</section>
+
+<!-- ============ THE DIAGRAM ============ -->
+<section class="section" id="diagram">
+  <h2>Potterville, with and without a tax</h2>
+  <p>Your textbook&rsquo;s hotel market. Without intervention it clears at <b>$80</b> a room and
+  <b>10,000</b> rooms a night. Add a per-unit tax and the supply curve shifts up: buyers pay more,
+  sellers receive less, fewer rooms are rented. Add a subsidy instead and everything runs the other
+  way.</p>
+  <div class="widget">
+    <div class="widget-title">A per-unit tax, or a subsidy</div>
+    <div class="chips" id="tChips">
+      <button type="button" class="chip" aria-pressed="false" data-t="0">No tax</button>
+      <button type="button" class="chip" aria-pressed="false" data-t="20">$20 tax</button>
+      <button type="button" class="chip" aria-pressed="true" data-t="40">$40 tax</button>
+      <button type="button" class="chip" aria-pressed="false" data-t="60">$60 tax</button>
+      <button type="button" class="chip" aria-pressed="false" data-t="-40">$40 subsidy</button>
+    </div>
+    <svg class="line-svg" viewBox="0 0 680 400" role="img"
+         aria-label="Potterville's hotel market, with consumer surplus, producer surplus, the government's rectangle and the deadweight-loss triangle shaded">
+      <line class="ax" x1="80" y1="25" x2="80" y2="350"></line>
+      <line class="ax" x1="80" y1="350" x2="640" y2="350"></line>
+      <text class="axl" x="16" y="18" text-anchor="start">Price of a hotel room</text>
+      <text class="axl" x="640" y="392" text-anchor="end">Rooms per night</text>
+      <line class="tick" x1="76" y1="350" x2="80" y2="350"></line>
+      <text class="tl" x="70" y="354" text-anchor="end">$0</text>
+      <line class="tick" x1="76" y1="302.3" x2="80" y2="302.3"></line>
+      <text class="tl" x="70" y="306.3" text-anchor="end">$20</text>
+      <line class="tick" x1="76" y1="254.6" x2="80" y2="254.6"></line>
+      <text class="tl" x="70" y="258.6" text-anchor="end">$40</text>
+      <line class="tick" x1="76" y1="206.9" x2="80" y2="206.9"></line>
+      <text class="tl" x="70" y="210.9" text-anchor="end">$60</text>
+      <line class="tick" x1="76" y1="159.2" x2="80" y2="159.2"></line>
+      <text class="tl" x="70" y="163.2" text-anchor="end">$80</text>
+      <line class="tick" x1="76" y1="111.5" x2="80" y2="111.5"></line>
+      <text class="tl" x="70" y="115.5" text-anchor="end">$100</text>
+      <line class="tick" x1="76" y1="63.8" x2="80" y2="63.8"></line>
+      <text class="tl" x="70" y="67.8" text-anchor="end">$120</text>
+      <line class="tick" x1="237.6" y1="350" x2="237.6" y2="354"></line>
+      <text class="tl" x="237.6" y="368" text-anchor="middle">5,000</text>
+      <line class="tick" x1="395.2" y1="350" x2="395.2" y2="354"></line>
+      <text class="tl" x="395.2" y="368" text-anchor="middle">10,000</text>
+      <line class="tick" x1="552.7" y1="350" x2="552.7" y2="354"></line>
+      <text class="tl" x="552.7" y="368" text-anchor="middle">15,000</text>
+      <g id="g-t0" hidden="hidden">
+        <polygon class="cs-area" points="80,63.8 80,159.2 395.2,159.2"></polygon>
+        <polygon class="ps-area" points="80,254.6 80,159.2 395.2,159.2"></polygon>
+        <line class="pline" x1="80" y1="159.2" x2="395.2" y2="159.2"></line>
+        <text class="ptl" x="401.2" y="163.2">$80</text>
+        <line class="qline" x1="395.2" y1="159.2" x2="395.2" y2="350"></line>
+      </g>
+      <g id="g-t20" hidden="hidden">
+        <polygon class="cs-area" points="80,63.8 80,135.4 316.4,135.4"></polygon>
+        <polygon class="ps-area" points="80,254.6 80,183.1 316.4,183.1"></polygon>
+        <rect class="rev-area" x="80" y="135.4" width="236.4" height="47.7"></rect>
+        <polygon class="dwl-area" points="316.4,135.4 316.4,183.1 395.2,159.2"></polygon>
+        <line class="pline" x1="80" y1="135.4" x2="316.4" y2="135.4"></line>
+        <text class="ptl" x="322.4" y="139.4">$90 buyers pay</text>
+        <line class="pline" x1="80" y1="183.1" x2="316.4" y2="183.1"></line>
+        <text class="ptl" x="322.4" y="187.1">$70 sellers get</text>
+        <line class="qline" x1="316.4" y1="135.4" x2="316.4" y2="350"></line>
+      </g>
+      <g id="g-t40">
+        <polygon class="cs-area" points="80,63.8 80,111.5 237.6,111.5"></polygon>
+        <polygon class="ps-area" points="80,254.6 80,206.9 237.6,206.9"></polygon>
+        <rect class="rev-area" x="80" y="111.5" width="157.6" height="95.4"></rect>
+        <polygon class="dwl-area" points="237.6,111.5 237.6,206.9 395.2,159.2"></polygon>
+        <line class="pline" x1="80" y1="111.5" x2="237.6" y2="111.5"></line>
+        <text class="ptl" x="243.6" y="115.5">$100 buyers pay</text>
+        <line class="pline" x1="80" y1="206.9" x2="237.6" y2="206.9"></line>
+        <text class="ptl" x="243.6" y="210.9">$60 sellers get</text>
+        <line class="qline" x1="237.6" y1="111.5" x2="237.6" y2="350"></line>
+      </g>
+      <g id="g-t60" hidden="hidden">
+        <polygon class="cs-area" points="80,63.8 80,87.7 158.8,87.7"></polygon>
+        <polygon class="ps-area" points="80,254.6 80,230.8 158.8,230.8"></polygon>
+        <rect class="rev-area" x="80" y="87.7" width="78.8" height="143.1"></rect>
+        <polygon class="dwl-area" points="158.8,87.7 158.8,230.8 395.2,159.2"></polygon>
+        <line class="pline" x1="80" y1="87.7" x2="158.8" y2="87.7"></line>
+        <text class="ptl" x="164.8" y="91.7">$110 buyers pay</text>
+        <line class="pline" x1="80" y1="230.8" x2="158.8" y2="230.8"></line>
+        <text class="ptl" x="164.8" y="234.8">$50 sellers get</text>
+        <line class="qline" x1="158.8" y1="87.7" x2="158.8" y2="350"></line>
+      </g>
+      <g id="g-s40" hidden="hidden">
+        <polygon class="cs-area" points="80,63.8 80,206.9 552.7,206.9"></polygon>
+        <polygon class="ps-area" points="80,254.6 80,111.5 552.7,111.5"></polygon>
+        <rect class="cost-area" x="80" y="111.5" width="472.7" height="95.4"></rect>
+        <polygon class="dwl-area" points="552.7,206.9 552.7,111.5 395.2,159.2"></polygon>
+        <line class="pline" x1="80" y1="206.9" x2="552.7" y2="206.9"></line>
+        <text class="ptl" x="558.7" y="210.9">$60 buyers pay</text>
+        <line class="pline" x1="80" y1="111.5" x2="552.7" y2="111.5"></line>
+        <text class="ptl" x="558.7" y="115.5">$100 sellers get</text>
+        <line class="qline" x1="552.7" y1="206.9" x2="552.7" y2="350"></line>
+      </g>
+      <line class="curve" x1="80" y1="63.8" x2="1025.5" y2="350"></line>
+      <text class="cl" x="584.2" y="330.9">D</text>
+      <line class="curve sup" x1="80" y1="254.6" x2="749.7" y2="51.9"></line>
+      <text class="cl sup" x="559" y="59.1">S</text>
+    </svg>
+    <div class="readouts">
+      <div class="ro"><span class="k">Rooms per night</span><span class="v" id="rq">5,000</span></div>
+      <div class="ro"><span class="k">Consumer surplus</span><span class="v" id="rcs">$50,000</span></div>
+      <div class="ro"><span class="k">Producer surplus</span><span class="v" id="rps">$50,000</span></div>
+      <div class="ro"><span class="k" id="kgov">Government revenue</span><span class="v" id="rgov">$200,000</span></div>
+      <div class="ro"><span class="k">Deadweight loss</span><span class="v" id="rdwl">$100,000</span></div>
+    </div>
+    <p class="figcap" id="dcap"></p>
+  </div>
+  <p>Two things to notice. The <b>$60 tax raises less revenue than the $40 tax</b> &mdash; $150,000
+  against $200,000 &mdash; while its deadweight loss more than doubles. And the <b>subsidy</b> costs
+  the government $600,000, three times what the equivalent tax collects, because it pushes the
+  quantity <i>up</i> rather than down.</p>
+</section>
+
+<!-- ============ INCIDENCE ============ -->
+<section class="section" id="incidence">
+  <h2>The same tax, three different markets</h2>
+  <p>All three markets start at <b>$80</b> and <b>10,000</b> rooms, and all three get the same
+  <b>$40</b> per-unit tax. The only difference is how responsive buyers are. Watch where the tax
+  lands.</p>
+  <div class="widget">
+    <div class="widget-title">Who bears a $40 tax?</div>
+    <div class="inc-grid" id="incGrid"></div>
+    <p class="figcap">The more inelastic side bears more. When demand is the inelastic side, buyers
+    pay three-quarters of the tax; when demand is the elastic side, they pay a quarter. Nothing about
+    the law changed &mdash; only the shape of the curves.</p>
+  </div>
+</section>
+
+<!-- ============ THE DRILL ============ -->
+<section class="section" id="sorter">
+  <h2>Revenue, deadweight loss, or neither?</h2>
+  <p>Twelve descriptions. The distinction that matters: a <b>transfer</b> is received by somebody, a
+  <b>loss</b> is received by nobody, and several of these are neither.</p>
+  <div class="widget sorter" id="sortWidget">
+    <div class="widget-title">Transfer, loss, or something else?</div>
+    <p class="stem" id="sortStem"></p>
+    <div class="opts3">
+      <button type="button" data-a="rev">Tax revenue</button>
+      <button type="button" data-a="dwl">Deadweight loss</button>
+      <button type="button" data-a="neither">Neither</button>
+    </div>
+    <p class="verdict" id="sortVerdict"></p>
+    <div class="chips">
+      <button type="button" class="chip" id="sortNext">Next one</button>
+      <span class="progress-num" id="sortScore">0 / 0</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE ENTRIES ============ -->
+<section class="section" id="entries">
+  <h2>The nineteen terms</h2>
+</section>
+
+<article class="entry" id="e1">
+  <div class="entry-head"><span class="entry-num">01</span><h2>Total surplus</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p><b>Consumer surplus plus producer surplus</b> &mdash; the whole net gain to everyone from trading in a market. Your course calls it <b>total economic surplus</b>.</p></div>
+  <p class="reading">Textbook page 495.</p>
+
+  <p>Module 49 built two areas and stopped. This module adds them:</p>
+  <p class="formula">total surplus = consumer surplus + producer surplus</p>
+  <p>In Potterville's hotel market the equilibrium is <b>$80</b> a room and <b>10,000</b> rooms a
+  night. Consumer surplus is $200,000 and producer surplus is $200,000, so total surplus is
+  <b>$400,000</b> a night &mdash; the value the market creates by existing.</p>
+  <p>That single number is what the rest of this module, and most of Unit 6, is about.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Your textbook writes <i>total surplus</i>; your course writes <b>total economic surplus</b>. They are the same thing, and the longer phrase is the one on exam papers.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Potterville at $80.</span> $200,000 + $200,000 = $400,000 a night.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">A market with consumer surplus $4,200 and producer surplus $2,800.</span> $7,000.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A market where nothing trades.</span> Zero. No trades, no gains.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is what <a href="#e2">the competitive equilibrium</a> (entry 2) maximises, it is what <a href="#e13">deadweight loss</a> (entry 13) measures a fall in, and it is the number the whole account in <a href="#e14">the surplus account</a> (entry 14) has to balance.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">1.1</span> Consumer surplus is $900 and producer surplus is $1,400. What is total economic surplus?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>$2,300.</p></div></details></div>
+    <div class="q"><p><span class="qn">1.2</span> Why is total surplus a better measure of a market's value than consumer surplus alone?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because sellers gain too. Judging a market only by what buyers get would rate a market that ruins its sellers as a success.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got1"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e2">
+  <div class="entry-head"><span class="entry-num">02</span><h2>Why the equilibrium maximises total surplus</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>In a competitive market with no market failures, the equilibrium produces the <b>largest possible</b> total surplus. That is what calling a market <b>efficient</b> means.</p></div>
+  <p class="reading">Textbook pages 495&ndash;498, Figures 50.1 to 50.4.</p>
+
+  <p>This is the central claim of the unit, and your textbook proves it rather than asserting it. It
+  asks three questions, and the answer to each is &ldquo;no&rdquo;:</p>
+  <ul>
+    <li>Could we do better by giving the good to <b>different buyers</b>?</li>
+    <li>Could we do better by having <b>different sellers</b> supply it?</li>
+    <li>Could we do better by trading <b>more or fewer</b> units?</li>
+  </ul>
+  <p>Each change makes total surplus smaller. So the equilibrium has the right buyers, the right
+  sellers and the right quantity &mdash; and nothing can improve on it.</p>
+
+  <div class="watch"><p><b>Watch out.</b> &ldquo;Efficient&rdquo; is a statement about the <b>size</b> of the pie, not about who gets the slices. A market can be perfectly efficient and wildly unequal.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Right buyers.</span> The units go to the people who value them most.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Right sellers.</span> They are supplied by the people who can give them up most cheaply.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Right quantity.</span> Every trade worth making is made, and no trade that is not worth making happens.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is a claim about <a href="#e1">total surplus</a> (entry 1), it is established by <a href="#e3">three experiments</a> (entry 3), it is the content of <a href="#e4">allocative efficiency</a> (entry 4), and it is the standard <a href="#e5">an equity argument</a> (entry 5) is measured against.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">2.1</span> A market is in competitive equilibrium. Is consumer surplus at its maximum?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No &mdash; a lower price would give buyers more. It is <b>total</b> surplus that is maximised, which is why your textbook's own review question makes this exact distinction.</p></div></details></div>
+    <div class="q"><p><span class="qn">2.2</span> What does &ldquo;in the absence of market failures&rdquo; add to the claim?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>It limits it. When there are externalities, public goods or market power, the equilibrium can fail to maximise total surplus &mdash; which is the whole of Unit 6.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got2"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e3">
+  <div class="entry-head"><span class="entry-num">03</span><h2>The three reallocation experiments</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Move consumption, move sales, or move the quantity &mdash; total surplus falls every time.</p></div>
+  <p class="reading">Textbook pages 496&ndash;498, Figures 50.2, 50.3 and 50.4.</p>
+
+  <p><b>Reallocate consumption.</b> Take a book from a buyer who values it at $35 and give it to one
+  who values it at $25. Total surplus falls by $10.</p>
+  <p><b>Reallocate sales.</b> Have a seller whose cost is $35 supply it instead of one whose cost is
+  $25. Total surplus falls by $10 again.</p>
+  <p><b>Change the quantity.</b> Force one extra trade and you are matching a buyer who values the
+  good at less than the seller's cost &mdash; a loss. Prevent one trade and you lose a gain that was
+  there for the taking.</p>
+  <p>Your textbook's own review question asks whether any of the three could <i>increase</i> total
+  surplus at equilibrium. The answer is none of them.</p>
+
+  <div class="watch"><p><b>Watch out.</b> These experiments are about the <b>total</b>. Reallocating always makes somebody better off &mdash; that is not the test. The test is what happens to the sum.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">A book moved to a buyer who values it less.</span> The total falls by the difference.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">A sale moved to a higher-cost seller.</span> Same again, on the selling side.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">One trade beyond the equilibrium quantity.</span> The buyer values it at less than it costs the seller to supply, so the trade destroys value.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> They are the proof behind <a href="#e2">the efficiency claim</a> (entry 2), and the third of them is what <a href="#e4">allocative efficiency</a> (entry 4) and <a href="#e13">a deadweight loss</a> (entry 13) both exploit.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">3.1</span> Why does moving a sale from a low-cost to a high-cost seller reduce total surplus?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because the same unit now costs society more to produce, while the buyer's gain is unchanged. The difference is pure loss.</p></div></details></div>
+    <div class="q"><p><span class="qn">3.2</span> Which of the three experiments does a tax perform?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>The third: it changes the quantity traded. That is why a tax creates a deadweight loss.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got3"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e4">
+  <div class="entry-head"><span class="entry-num">04</span><h2>Allocative efficiency</h2><span class="mark flag">&#9733; &#9873;</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Resources are allocated so that the goods produced are the ones society values most &mdash; which happens exactly when <b>total surplus is maximised</b>.</p></div>
+  <p class="reading">Not in Module 50 &mdash; or anywhere else in your textbook.</p>
+
+  <div class="notinbook"><p><b>&#9873; Not in Module 50 &mdash; learn it from here.</b> Your course names this idea in so many words &mdash; and says that intervention in an efficient market &ldquo;can only decrease allocative efficiency&rdquo;. The word <i>allocative</i> does not appear once in your textbook's 927 pages. The economics is in Figures 50.2 to 50.4; only the label is missing.</p></div>
+
+  <p>Your course uses this term for the idea your textbook has just proved: at the competitive
+  equilibrium, the last unit produced is worth exactly what it cost to produce, so nothing is made
+  that is not worth making and nothing worth making is left unmade.</p>
+  <p>In diagram language: allocative efficiency holds where the <b>demand curve crosses the supply
+  curve</b>, because the height of the demand curve is what buyers value the unit at and the height
+  of the supply curve is what it costs.</p>
+  <p>Your course also states the consequence that this module spends ten pages on: intervening in an
+  efficient market &mdash; by a tax, a subsidy, a price control or a quantity control &mdash; <b>can
+  only decrease</b> allocative efficiency.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Allocative efficiency is about <b>which</b> goods get produced and in what quantity. It is not the same as producing cheaply &mdash; that is a different idea you will meet in Unit 3.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">The competitive equilibrium.</span> Allocatively efficient: value equals cost on the last unit.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">A binding price ceiling.</span> Too few units trade, so trades worth making do not happen. Allocative efficiency falls.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A per-unit subsidy.</span> Too many units trade &mdash; the last few cost more than they are worth. Allocative efficiency falls here too.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the name for what <a href="#e2">the efficiency claim</a> (entry 2) establishes and what <a href="#e3">the three experiments</a> (entry 3) demonstrates, and it is what <a href="#e5">the equity trade-off</a> (entry 5) measures the loss of.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">4.1</span> A market trades fewer units than the equilibrium quantity. Is it allocatively efficient?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. There are units buyers value above what sellers would need to supply them, and those trades are not happening.</p></div></details></div>
+    <div class="q"><p><span class="qn">4.2</span> Why can intervening in an already-efficient market only make allocative efficiency worse?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because the equilibrium already maximises total surplus. Any change moves away from the maximum, in whichever direction it pushes the quantity.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got4"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e5">
+  <div class="entry-head"><span class="entry-num">05</span><h2>Equity against efficiency</h2><span class="mark bgm">&#9675; Background</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Efficiency is about the <b>size</b> of the total surplus. Equity is about how <b>fairly</b> it is shared. They are different goals and they often conflict.</p></div>
+  <p class="reading">Textbook page 499.</p>
+
+  <p>A competitive market maximises total surplus. It says nothing at all about whether the
+  resulting distribution is fair &mdash; and policies that make a distribution fairer very often
+  shrink the total.</p>
+  <p>Your textbook's own review question asks which statement about equity and efficiency in
+  competitive markets is true, and the answer is that <b>there is often a trade-off between
+  them</b>.</p>
+  <p>You will not be asked to define equity. You may well be asked to recognise that an efficient
+  outcome is not automatically a desirable one.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Do not write that an efficient market is &ldquo;fair&rdquo; or that an inefficient one is &ldquo;unfair&rdquo;. The two words answer different questions.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">A market that maximises total surplus.</span> Efficient &mdash; and possibly one in which the poorest buy nothing at all.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">A policy that redistributes income.</span> May improve equity while reducing total surplus.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Organ allocation by expected gain in lifespan.</span> Maximises the gain; many people think it unfair to the oldest patients.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the limit of what <a href="#e4">allocative efficiency</a> (entry 4) claims, it is the question <a href="#e2">the efficiency argument</a> (entry 2) cannot settle on its own, and it is the heading <a href="#e19">progressive and regressive taxes</a> (entry 19) belong under.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">5.1</span> A government taxes a market and uses the money to help poorer households. Is this a good policy?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Economics cannot answer that on its own. It can say the tax reduces total surplus, and that the transfer may improve equity. Weighing the two is a judgement, not a calculation.</p></div></details></div>
+    <div class="q"><p><span class="qn">5.2</span> Does an efficient outcome mean nobody can be made better off?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>It means nobody can be made better off <i>without making someone else worse off</i>. Redistribution is always possible; it just does not grow the total.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got5"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e6">
+  <div class="entry-head"><span class="entry-num">06</span><h2>An excise tax, or per-unit tax</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A fixed amount of tax charged on <b>each unit</b> sold.</p></div>
+  <p class="reading">Textbook page 499.</p>
+
+  <p>Your textbook calls it an <b>excise tax</b>: &ldquo;a tax on sales of a good or service&rdquo;.
+  Your course and the exam call the same thing a <b>per-unit tax</b>. Learn both names &mdash; they
+  appear in different places and mean exactly the same thing.</p>
+  <p>The worked example throughout this module is Potterville, a city that puts a <b>$40 per night</b>
+  tax on hotel rooms. Before the tax the market clears at <b>$80</b> a room and <b>10,000</b> rooms a
+  night.</p>
+
+  <div class="watch"><p><b>Watch out.</b> A per-unit tax is a fixed number of pounds or dollars <b>per unit</b>, not a percentage of the price. Everything in this module assumes the per-unit kind.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">$40 per hotel room per night.</span> Potterville's tax, and this module's example.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">A fuel duty of 58p a litre.</span> A real per-unit tax.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A 20% sales tax.</span> Not a per-unit tax &mdash; it is a percentage. The diagrams would need a supply curve that pivots rather than shifts.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is imposed either on <a href="#e7">sellers</a> (entry 7) or on <a href="#e8">buyers</a> (entry 8), and either way it opens <a href="#e9">a wedge</a> (entry 9).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">6.1</span> A government charges £2 on every pack of cigarettes sold. Is this a per-unit tax?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Yes &mdash; a fixed amount on each unit, regardless of the price.</p></div></details></div>
+    <div class="q"><p><span class="qn">6.2</span> Why does the module use a per-unit tax rather than a percentage one?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because a per-unit tax shifts the curve by the same vertical distance at every quantity, which keeps the diagram simple and the arithmetic exact.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got6"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e7">
+  <div class="entry-head"><span class="entry-num">07</span><h2>A tax on sellers shifts supply up</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A per-unit tax collected from sellers shifts the supply curve <b>up by the amount of the tax</b>: sellers need that much more per unit to supply the same quantity.</p></div>
+  <p class="reading">Textbook pages 500&ndash;501, Figure 50.6.</p>
+
+  <p>Before the tax, Potterville's hotel owners will supply 5,000 rooms at $60. After a $40 tax they
+  will still supply 5,000 rooms &mdash; but only if they receive <b>$100</b>, because $40 of it goes
+  straight to the city.</p>
+  <p>That is true at every quantity, so the whole supply curve shifts <b>vertically up by $40</b>.
+  The new equilibrium is at <b>$100</b> a room and <b>5,000</b> rooms. Owners keep <b>$60</b>.</p>
+  <p>Notice what did <b>not</b> happen: the price did not rise by the full $40. It rose by $20.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Measure the shift <b>vertically</b>, and make it exactly the size of the tax. A shift drawn &ldquo;a bit to the left&rdquo; cannot be used to read off the prices, and reading off the prices is what exam questions want.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">The $40 tax at Potterville.</span> Supply up $40; price to $100; quantity to 5,000.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">A $10 tax in the same market.</span> Supply up $10; price to $85; sellers keep $75; quantity 7,500 &mdash; wait, check it on the diagram above.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A tax on a perfectly inelastic supply.</span> The curve is vertical, so shifting it up changes nothing about the quantity. Sellers bear the whole tax.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is one way of imposing <a href="#e6">a per-unit tax</a> (entry 6), it gives the same answer as <a href="#e8">a tax on buyers</a> (entry 8), and the gap it opens is <a href="#e16">reversed by a subsidy</a> (entry 16).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">7.1</span> A $6 per-unit tax is imposed on sellers. By how much does the supply curve shift, and in which direction?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Up by $6, measured vertically at every quantity.</p></div></details></div>
+    <div class="q"><p><span class="qn">7.2</span> Why does the equilibrium price rise by less than the tax?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because the quantity falls as the price rises, so the market settles part-way. How far depends on the elasticities &mdash; entry 11.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got7"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e8">
+  <div class="entry-head"><span class="entry-num">08</span><h2>A tax on buyers shifts demand down</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A per-unit tax collected from buyers shifts the demand curve <b>down by the amount of the tax</b> &mdash; and produces exactly the <b>same</b> outcome as a tax on sellers.</p></div>
+  <p class="reading">Textbook page 502, Figure 50.7.</p>
+
+  <p>Suppose Potterville taxes the guests instead of the hotels. A guest willing to pay $100 in total
+  can now only offer the hotel $60, because $40 goes to the city. So the demand curve shifts
+  <b>down by $40</b>.</p>
+  <p>Work out the new equilibrium and you get: guests pay <b>$100</b> in total, hotels receive
+  <b>$60</b>, and <b>5,000</b> rooms are rented. That is the same answer as before, number for
+  number.</p>
+  <p>The diagrams look different. The outcome is identical.</p>
+
+  <div class="watch"><p><b>Watch out.</b> The two diagrams are not interchangeable on an exam: if the question says the tax is on buyers, shift <b>demand</b>. But do not expect the answer to change &mdash; it will not.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">The tax on hotels.</span> Supply up $40. Guests pay $100, hotels keep $60.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">The tax on guests.</span> Demand down $40. Guests pay $100, hotels keep $60.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A payroll tax split between employer and employee.</span> The same logic. How the law divides it does not decide who really pays.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the other way of imposing <a href="#e6">a per-unit tax</a> (entry 6), it shifts the curve that <a href="#e7">a tax on sellers</a> (entry 7) does not, and together they make the point in <a href="#e10">who really pays</a> (entry 10).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">8.1</span> A $5 tax is placed on buyers. What happens to the demand curve?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>It shifts down by $5 vertically: at every quantity, the most buyers will now pay the seller is $5 less than before.</p></div></details></div>
+    <div class="q"><p><span class="qn">8.2</span> Two students draw the same tax, one shifting supply and one shifting demand. Who is right?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Both, if each matched the diagram to who the tax was levied on &mdash; and they will get identical prices, quantities, revenue and deadweight loss.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got8"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e9">
+  <div class="entry-head"><span class="entry-num">09</span><h2>The tax wedge</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A per-unit tax drives a <b>wedge</b> between the price buyers pay and the price sellers receive. The wedge is exactly the size of the tax.</p></div>
+  <p class="reading">Textbook page 501.</p>
+
+  <p>After Potterville's $40 tax there are <b>two prices</b> where there used to be one:</p>
+  <ul>
+    <li>Guests pay <b>$100</b> &mdash; the demand price of 5,000 rooms.</li>
+    <li>Hotels receive <b>$60</b> &mdash; the supply price of 5,000 rooms.</li>
+    <li>The gap is <b>$40</b>: the tax.</li>
+  </ul>
+  <p>Keep both prices on the diagram and label them. Every later quantity &mdash; revenue, the two
+  surpluses, the deadweight loss &mdash; is read off one or the other.</p>
+
+  <div class="watch"><p><b>Watch out.</b> There is no single &ldquo;price&rdquo; after a tax. A question asking &ldquo;what price do consumers pay?&rdquo; and one asking &ldquo;what price do producers receive?&rdquo; have different answers, and they differ by exactly the tax.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">$100 and $60 at Potterville.</span> A $40 wedge.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">A $10 tax with buyers paying $85.</span> Sellers receive $75.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A tax that changes no quantity.</span> The wedge is still the tax &mdash; it just does not cost anyone a trade.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is opened by <a href="#e6">the tax</a> (entry 6), how it is shared is <a href="#e10">a separate question</a> (entry 10), and its height is one side of both <a href="#e12">the revenue rectangle</a> (entry 12) and <a href="#e13">the deadweight-loss triangle</a> (entry 13).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">9.1</span> Buyers pay $18 and sellers receive $13 after a per-unit tax. How big is the tax?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>$5 &mdash; the wedge is the tax.</p></div></details></div>
+    <div class="q"><p><span class="qn">9.2</span> Before a $40 tax the price was $80. Afterwards buyers pay $100. What do sellers get?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>$60. The wedge is $40, so the two prices sit $40 apart.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got9"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e10">
+  <div class="entry-head"><span class="entry-num">10</span><h2>Who hands over the money does not decide who bears the tax</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The <b>incidence</b> of a tax &mdash; who really bears it &mdash; is the same whether the government collects it from buyers or from sellers.</p></div>
+  <p class="reading">Textbook pages 502&ndash;503.</p>
+
+  <p>Entries 7 and 8 produced identical answers. That is not a coincidence in this example; it is a
+  general result, and your textbook states it as one: the incidence of an excise tax
+  &ldquo;doesn't depend on who officially pays the tax.&rdquo;</p>
+  <p>At Potterville the tax is levied on <b>hotel owners</b>, and yet guests end up paying $20 more a
+  night. Half the tax has been passed on, without any law saying it should be.</p>
+  <p>So when a politician says a tax is &ldquo;on business, not on families&rdquo;, the claim is about
+  paperwork, not about economics.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Do not answer an incidence question by naming whoever the law names. The answer comes from the <b>elasticities</b>, which is the next entry.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Potterville's tax on hotels.</span> Guests bear $20 of the $40 anyway.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">The same tax on guests.</span> Hotels still bear $20 of it.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Employer and employee payroll taxes.</span> The split written into the law is not the split that happens.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It follows from <a href="#e8">the two diagrams</a> (entry 8) and <a href="#e9">the wedge they open</a> (entry 9) giving the same answer, and what <i>does</i> decide the split is <a href="#e11">the elasticities</a> (entry 11).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">10.1</span> A tax is levied entirely on sellers. Can buyers end up bearing most of it?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Yes &mdash; and they usually do when demand is more inelastic than supply. The law decides who writes the cheque, not who is poorer afterwards.</p></div></details></div>
+    <div class="q"><p><span class="qn">10.2</span> Why do the two diagrams give the same answer?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because both open the same wedge between what buyers pay and what sellers receive, and the market settles at the quantity where that wedge fits between the two curves.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got10"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e11">
+  <div class="entry-head"><span class="entry-num">11</span><h2>Incidence depends on the elasticities</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The <b>more inelastic</b> side of the market bears <b>more</b> of a per-unit tax.</p></div>
+  <p class="reading">Textbook pages 503&ndash;505, Figures 50.8 and 50.9.</p>
+
+  <p>Economists call this question <b>tax incidence</b>, and your course answers it in one line that
+  covers subsidies as well as taxes: the incidence &ldquo;depends on the elasticity of supply and
+  demand&rdquo;.</p>
+  <p>The intuition is escape. An elastic side can walk away &mdash; buyers switch to substitutes,
+  sellers move resources elsewhere &mdash; so the market cannot put much of the tax on them. An
+  inelastic side has nowhere to go and absorbs it.</p>
+  <ul>
+    <li>Demand <b>inelastic</b>, supply elastic &rarr; <b>buyers</b> bear most of it. Petrol.</li>
+    <li>Demand elastic, supply <b>inelastic</b> &rarr; <b>sellers</b> bear most of it. Your textbook's
+      example is parking spaces in a downtown area.</li>
+    <li>Equally elastic &rarr; an even split, as at Potterville.</li>
+  </ul>
+  <p>Try the three markets below: the same $40 tax, the same starting equilibrium, three different
+  splits.</p>
+
+  <div class="watch"><p><b>Watch out.</b> &ldquo;Inelastic&rdquo; means bearing <b>more</b> of the tax, not less. Students reason that an unresponsive side is protected; the opposite is true, because it cannot escape.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Petrol: inelastic demand.</span> Buyers bear most of a fuel duty.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Downtown parking: inelastic supply.</span> Owners bear most of a parking tax.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Perfectly inelastic supply.</span> Sellers bear the whole tax, the quantity does not change, and there is no deadweight loss at all.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It settles the question <a href="#e10">who really pays</a> (entry 10) leaves open, it decides whether <a href="#e15">a deadweight loss</a> (entry 15) arises at all, and because it is an elasticity statement it applies unchanged to <a href="#e16">a subsidy</a> (entry 16).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">11.1</span> A tax is placed on a good with very inelastic demand and very elastic supply. Who bears most of it?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Buyers. They cannot easily do without the good, so the price they pay rises by most of the tax.</p></div></details></div>
+    <div class="q"><p><span class="qn">11.2</span> Why does a perfectly inelastic supply mean sellers bear the whole tax?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because the quantity cannot change, so the price buyers pay does not move at all. The entire tax comes out of what sellers receive.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got11"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e12">
+  <div class="entry-head"><span class="entry-num">12</span><h2>Tax revenue is a rectangle</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Government revenue = <b>tax per unit &times; quantity traded after the tax</b>. On the diagram it is the rectangle between the two prices, out to the new quantity.</p></div>
+  <p class="reading">Textbook page 505, Figure 50.10.</p>
+
+  <p class="formula">tax revenue = tax &times; quantity sold with the tax in place</p>
+  <p>At Potterville: $40 &times; 5,000 = <b>$200,000</b> a night.</p>
+  <p>Two things make this harder than it looks. The height is the <b>tax</b>, not either price; and
+  the width is the <b>post-tax</b> quantity, not the one the market started with. Using 10,000 rooms
+  here is the commonest error on the whole topic.</p>
+  <p>And a warning the diagram makes obvious: raising the tax rate does not always raise revenue. At
+  Potterville a $40 tax collects $200,000 and a $60 tax collects only <b>$150,000</b>, because the
+  quantity falls faster than the rate rises.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Use the <b>new</b> quantity. The rectangle sits to the left of where the market used to be, and its width is the quantity that still trades.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">$40 &times; 5,000.</span> $200,000 &mdash; your textbook's own figure.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">$20 &times; 7,500.</span> $150,000, from the same market at half the tax rate.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">$60 &times; 2,500.</span> $150,000 again &mdash; a higher rate raising the same money as a much lower one.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> Its height is <a href="#e9">the wedge</a> (entry 9), it sits beside <a href="#e13">the deadweight-loss triangle</a> (entry 13), it is the revenue half of <a href="#e17">the government's side of the account</a> (entry 17), and for a subsidy it becomes <a href="#e16">a cost rather than a receipt</a> (entry 16).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">12.1</span> A $3 per-unit tax leaves 12,000 units trading, down from 15,000. What is the revenue?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>$3 &times; 12,000 = $36,000. The 15,000 is the pre-tax quantity and plays no part.</p></div></details></div>
+    <div class="q"><p><span class="qn">12.2</span> Why might a government raise a tax rate and collect less?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because the quantity traded falls as the rate rises. If it falls proportionally faster than the rate rises, revenue goes down.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got12"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e13">
+  <div class="entry-head"><span class="entry-num">13</span><h2>Deadweight loss from a tax</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The <b>fall in total surplus</b> caused by the tax, <b>minus</b> the revenue the government collects. On the diagram it is a <b>triangle</b>.</p></div>
+  <p class="reading">Textbook pages 506&ndash;507, Figures 50.11 and 50.12.</p>
+
+  <p>A tax takes surplus from buyers and sellers. Some of it reaches the government &mdash; that part
+  is a <b>transfer</b>, not a loss to society. The rest reaches nobody, because the trades that would
+  have generated it no longer happen.</p>
+  <p class="formula">deadweight loss = &frac12; &times; (fall in quantity) &times; tax</p>
+  <p>At Potterville: &frac12; &times; 5,000 &times; $40 = <b>$100,000</b> a night. Five thousand room
+  rentals that were worth more to guests than they cost hotels simply do not take place.</p>
+  <p>The triangle's <b>base</b> is the tax wedge and its <b>height</b> is the fall in quantity &mdash;
+  so a bigger tax makes it bigger twice over.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Deadweight loss is <b>not</b> the tax revenue, and it is not the total fall in surplus either. It is the part that nobody receives.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">The $40 tax at Potterville.</span> &frac12; &times; 5,000 &times; $40 = $100,000.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">The $60 tax.</span> &frac12; &times; 7,500 &times; $60 = $225,000 &mdash; more than twice the loss for one and a half times the rate.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A tax on a perfectly inelastic good.</span> No fall in quantity, so no triangle. The tax is a pure transfer.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It measures a loss of <a href="#e1">total surplus</a> (entry 1), it is caused by the third of <a href="#e3">the three experiments</a> (entry 3), its base is <a href="#e9">the wedge</a> (entry 9) and its partner on the diagram is <a href="#e12">the revenue rectangle</a> (entry 12), it is the part of <a href="#e14">the account</a> (entry 14) nobody receives, and it vanishes in <a href="#e15">one special case</a> (entry 15).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">13.1</span> A $5 tax cuts the quantity traded from 900 to 700. What is the deadweight loss?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>&frac12; &times; 200 &times; $5 = $500.</p></div></details></div>
+    <div class="q"><p><span class="qn">13.2</span> Why is the government's revenue not part of the deadweight loss?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because somebody receives it. It leaves buyers and sellers and arrives at the government, so it is a transfer within society, not a loss to it.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got13"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e14">
+  <div class="entry-head"><span class="entry-num">14</span><h2>The full surplus account</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Loss to buyers + loss to sellers = <b>government revenue + deadweight loss</b>. The account always balances.</p></div>
+  <p class="reading">Textbook pages 506&ndash;507, Figure 50.11.</p>
+
+  <p>Potterville's $40 tax, in full &mdash; numbers your textbook draws but never computes:</p>
+  <table class="tbl">
+    <thead><tr><th></th><th>Before the tax</th><th>After the tax</th><th>Change</th></tr></thead>
+    <tbody>
+      <tr><td>Consumer surplus</td><td>$200,000</td><td>$50,000</td><td>&minus;$150,000</td></tr>
+      <tr><td>Producer surplus</td><td>$200,000</td><td>$50,000</td><td>&minus;$150,000</td></tr>
+      <tr><td>Government revenue</td><td>$0</td><td>$200,000</td><td>+$200,000</td></tr>
+      <tr class="tot"><td><b>Total surplus</b></td><td><b>$400,000</b></td><td><b>$300,000</b></td><td><b>&minus;$100,000</b></td></tr>
+    </tbody>
+  </table>
+  <p>Buyers and sellers lose $300,000 between them. The government gains $200,000 of it. The missing
+  <b>$100,000</b> is the deadweight loss &mdash; and it matches the triangle exactly.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Count the government's revenue as part of the post-tax total. Leaving it out makes the &ldquo;loss&rdquo; look three times bigger than it is.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Buyers' loss.</span> $150,000: $100,000 of it paid in tax, $50,000 of surplus simply gone.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Sellers' loss.</span> The same, mirrored.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">The balance.</span> $300,000 lost = $200,000 collected + $100,000 destroyed.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the bookkeeping behind <a href="#e1">total surplus</a> (entry 1), it adds up <a href="#e13">the triangle</a> (entry 13), it has <a href="#e17">the government's rectangle</a> (entry 17) as one of its lines, and it is what makes <a href="#e15">the no-loss case</a> (entry 15) a residual rather than a guess.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">14.1</span> A tax cuts consumer surplus by $900 and producer surplus by $700, and raises $1,300. What is the deadweight loss?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>$1,600 &minus; $1,300 = $300.</p></div></details></div>
+    <div class="q"><p><span class="qn">14.2</span> Why does the account have to balance?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because every pound of surplus either stays with buyers and sellers, moves to the government, or disappears with a trade that no longer happens. There is nowhere else for it to go.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got14"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e15">
+  <div class="entry-head"><span class="entry-num">15</span><h2>When a tax causes no deadweight loss</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>If the tax does <b>not change the quantity traded</b>, the triangle has no height and the tax is a pure <b>transfer</b>.</p></div>
+  <p class="reading">Textbook page 507.</p>
+
+  <p>Your textbook makes the point explicitly: &ldquo;if a tax does not discourage transactions, it
+  causes no deadweight loss. In this case, the tax simply shifts surplus straight from consumers and
+  producers to the government.&rdquo;</p>
+  <p>When does that happen? When one side of the market is <b>perfectly inelastic</b>. A vertical
+  supply curve &mdash; land, say &mdash; means the quantity cannot fall, so no trades are lost. The
+  deadweight loss is zero and the sellers bear the whole tax.</p>
+  <p>It is the cleanest link between this module and the elasticities of Module 48.</p>
+
+  <div class="watch"><p><b>Watch out.</b> No deadweight loss does not mean nobody is worse off. Sellers in the land example lose the entire tax &mdash; they simply lose it as a transfer rather than as destroyed value.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">A tax on land.</span> Supply is vertical; quantity unchanged; no deadweight loss.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">A tax on a good with very elastic demand.</span> Quantity falls a lot, so the triangle is large.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A tiny tax on anything.</span> A small fall in quantity and a very small triangle &mdash; the loss grows faster than the rate.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the limiting case of <a href="#e13">deadweight loss</a> (entry 13), it is the line in <a href="#e14">the account</a> (entry 14) that goes to zero, it is why <a href="#e11">elasticity</a> (entry 11) is the determining factor rather than the rate alone, and <a href="#e16">a subsidy</a> (entry 16) can never reach it.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">15.1</span> Supply is perfectly inelastic and a per-unit tax is imposed. What is the deadweight loss, and who bears the tax?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Zero deadweight loss, and sellers bear all of it. The price buyers pay does not change at all.</p></div></details></div>
+    <div class="q"><p><span class="qn">15.2</span> Does a zero deadweight loss make a tax a good idea?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>It makes it efficient, which is not the same as desirable. Somebody still bears it, and whether that is fair is the equity question of entry 5.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got15"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e16">
+  <div class="entry-head"><span class="entry-num">16</span><h2>Subsidies &mdash; the mirror image</h2><span class="mark flag">&#9733; &#9873;</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A <b>per-unit subsidy</b> is a payment on each unit sold. Supply shifts <b>down</b> by the subsidy, buyers pay <b>less</b>, sellers receive <b>more</b>, and the quantity rises <b>above</b> the efficient level.</p></div>
+  <p class="reading">Not in Module 50 &mdash; the word does not appear in it.</p>
+
+  <div class="notinbook"><p><b>&#9873; Not in Module 50 &mdash; learn it from here.</b> Your course says governments use taxes <b>and subsidies</b>, that both affect government revenues <b>or costs</b>, and that the incidence of <b>both</b> depends on the elasticities. The word <i>subsidy</i> appears nowhere in Module 50 &mdash; while it appears 59 times across the released exam papers in this project. Everything above is the tax case with the signs reversed.</p></div>
+
+  <p>Your course names taxes <b>and subsidies</b> three times over, and the exam tests subsidies as
+  often as it tests consumer surplus. Your textbook's module on intervention never mentions one. The
+  economics is the tax case in reverse, and it is worth learning as exactly that.</p>
+  <p>Give Potterville's hotels a <b>$40 per room subsidy</b> instead of taxing them:</p>
+  <ul>
+    <li>Supply shifts <b>down</b> by $40.</li>
+    <li>Guests pay <b>$60</b>; hotels receive <b>$100</b> including the subsidy; the wedge is $40
+      again, but the other way up.</li>
+    <li>The quantity rises to <b>15,000</b> rooms &mdash; <b>above</b> the efficient 10,000.</li>
+    <li>The government has a <b>cost</b> of $40 &times; 15,000 = <b>$600,000</b>.</li>
+    <li>There is still a <b>deadweight loss</b>: &frac12; &times; 5,000 &times; $40 =
+      <b>$100,000</b>, because the last 5,000 rooms cost more to supply than guests value them at.</li>
+  </ul>
+  <p>Two things do <b>not</b> mirror: the government pays rather than collects, and the quantity ends
+  up too <b>high</b> rather than too low.</p>
+
+  <div class="watch"><p><b>Watch out.</b> A subsidy is not &ldquo;free money that makes everyone better off&rdquo;. Consumer and producer surplus both rise, but by less than the subsidy costs &mdash; and the difference is the deadweight loss.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">$40 subsidy at Potterville.</span> Guests pay $60, hotels get $100, 15,000 rooms.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">The government's bill.</span> $40 &times; 15,000 = $600,000 &mdash; larger than the tax's revenue.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Who benefits more?</span> The more inelastic side, exactly as with a tax. The incidence rule does not change.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It reverses <a href="#e7">the supply shift of a tax</a> (entry 7), it obeys <a href="#e11">the incidence rule</a> (entry 11) unchanged, it turns <a href="#e12">the revenue rectangle</a> (entry 12) into <a href="#e17">a government cost</a> (entry 17), and like a tax it moves the market away from <a href="#e15">the quantity that avoids a deadweight loss</a> (entry 15).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">16.1</span> A $2 per-unit subsidy is given to sellers. What happens to the supply curve, and to the price buyers pay?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Supply shifts down by $2, and the price buyers pay falls &mdash; by less than $2, with the rest showing up as a higher price received by sellers.</p></div></details></div>
+    <div class="q"><p><span class="qn">16.2</span> Why does a subsidy create a deadweight loss when it makes both buyers and sellers better off?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because it pushes the quantity past the efficient level. The extra units cost more to produce than they are worth to buyers, and the taxpayer covers the difference.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got16"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e17">
+  <div class="entry-head"><span class="entry-num">17</span><h2>Government revenue, or government cost</h2><span class="mark flag">&#9733; &#9873;</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A tax <b>raises</b> revenue for the government. A subsidy <b>costs</b> it money. Both are rectangles: the per-unit amount &times; the quantity traded.</p></div>
+  <p class="reading">Not in Module 50 &mdash; it computes a tax's revenue and never a subsidy's cost.</p>
+
+  <div class="notinbook"><p><b>&#9873; Not in Module 50 &mdash; learn it from here.</b> Your course's wording is &ldquo;taxes and subsidies affect government revenues <b>or costs</b>&rdquo;. Module 50 computes a tax's revenue carefully and never mentions that the other half of the pair runs the other way, because it never mentions subsidies at all.</p></div>
+
+  <p>Your course puts the two together in one sentence: taxes and subsidies &ldquo;affect government
+  revenues or costs&rdquo;. The rectangle is drawn the same way in both cases:</p>
+  <table class="tbl">
+    <thead><tr><th></th><th>Per-unit tax</th><th>Per-unit subsidy</th></tr></thead>
+    <tbody>
+      <tr><td>Government</td><td>receives <b>$200,000</b></td><td>pays <b>$600,000</b></td></tr>
+      <tr><td>Quantity</td><td>falls to 5,000</td><td>rises to 15,000</td></tr>
+      <tr><td>Buyers pay</td><td>$100</td><td>$60</td></tr>
+      <tr><td>Sellers receive</td><td>$60</td><td>$100</td></tr>
+      <tr><td>Deadweight loss</td><td>$100,000</td><td>$100,000</td></tr>
+    </tbody>
+  </table>
+  <p>Note the asymmetry in size: the subsidy's rectangle is wider, because a subsidy <b>increases</b>
+  the quantity while a tax reduces it. Subsidies are expensive for exactly that reason.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Use the <b>post-intervention</b> quantity for both. For a subsidy that is the larger quantity, which is why the government's bill grows faster than people expect.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">A $40 tax.</span> Revenue $40 &times; 5,000 = $200,000.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">A $40 subsidy.</span> Cost $40 &times; 15,000 = $600,000.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A subsidy on a good with elastic demand.</span> Quantity rises a lot, so the bill is larger still.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the government's line in <a href="#e14">the account</a> (entry 14), it is the receipt side of <a href="#e12">a tax</a> (entry 12), and the paying side of <a href="#e16">a subsidy</a> (entry 16), with <a href="#e18">one cost the diagram never shows</a> (entry 18) as its final entry.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">17.1</span> A £1.50 per-unit subsidy raises the quantity traded from 40,000 to 52,000. What does it cost the government?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>£1.50 &times; 52,000 = £78,000. Use the quantity <i>after</i> the subsidy.</p></div></details></div>
+    <div class="q"><p><span class="qn">17.2</span> Why is a subsidy's rectangle usually bigger than a tax's at the same per-unit rate?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because the subsidy raises the quantity while the tax lowers it. The same per-unit amount is multiplied by a larger number.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got17"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e18">
+  <div class="entry-head"><span class="entry-num">18</span><h2>Administrative costs</h2><span class="mark bgm">&#9675; Background</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The resources used by government to <b>collect</b> a tax and by taxpayers to <b>pay</b> it &mdash; over and above the tax itself.</p></div>
+  <p class="reading">Textbook page 508.</p>
+
+  <p>The deadweight-loss triangle is not the whole cost of a tax. There is also the time people spend
+  filling in forms, the accountants they hire, the inspectors the government employs, and the
+  resources spent avoiding the tax altogether.</p>
+  <p>Your textbook's familiar example is an income tax return: the hours and the accountants' fees are
+  real resources that produce nothing. They are a cost of the tax that no diagram shows.</p>
+  <p>You will not be asked to compute them. You may be asked to recognise that a tax's total cost is
+  bigger than the triangle.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Administrative costs are not the tax, and they are not the deadweight loss on the diagram. They are a third thing, sitting outside the graph entirely.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Hours spent on a tax return.</span> Real resources, no output.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">An accountant hired to file it.</span> Your textbook's point: that accountant could have been doing something else.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Resources spent evading a tax.</span> Also administrative cost, legal or not.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> They are a cost that <a href="#e17">the government's rectangle</a> (entry 17) never records.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">18.1</span> Are administrative costs part of the deadweight-loss triangle?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. The triangle measures the value of trades that no longer happen. Administrative costs are additional, and the diagram does not show them.</p></div></details></div>
+    <div class="q"><p><span class="qn">18.2</span> Why does a simpler tax tend to cost society less?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because the administrative costs fall: less time, fewer accountants, less evasion. The triangle may be unchanged while the real cost drops.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got18"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e19">
+  <div class="entry-head"><span class="entry-num">19</span><h2>Progressive and regressive taxes</h2><span class="mark bgm">&#9675; Background</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A <b>progressive</b> tax takes a larger share of a richer taxpayer's income; a <b>regressive</b> tax takes a smaller share.</p></div>
+  <p class="reading">Textbook page 499.</p>
+
+  <p>Your textbook introduces these terms while discussing equity, and the US tax system is described
+  as &ldquo;a mixture of progressive and regressive taxes, though it is somewhat progressive
+  overall&rdquo;.</p>
+  <p>They belong to the <b>equity</b> conversation, not the efficiency one: they describe how a tax
+  burden is distributed across incomes, not how much surplus it destroys.</p>
+  <p>Neither term is part of your Microeconomics course. They appear here because your textbook raises
+  them, and because per-unit taxes on everyday goods tend to be <b>regressive</b> &mdash; which is
+  worth knowing when you argue about a policy.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Progressive and regressive are about <b>shares of income</b>, not about amounts of money. A richer household can pay more in pounds under a regressive tax and still pay a smaller share.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">An income tax with rising rate bands.</span> Progressive.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">A flat per-unit duty on fuel.</span> Regressive &mdash; poorer households spend a larger share of their income on fuel.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A tax taking exactly 10% from everyone.</span> Neither: proportional.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> They belong with <a href="#e5">the equity question</a> (entry 5) rather than with efficiency.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">19.1</span> A duty takes 3% of a poor household's income and 0.5% of a rich one's. Progressive or regressive?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Regressive &mdash; the share falls as income rises, even though the rich household may pay more in cash.</p></div></details></div>
+    <div class="q"><p><span class="qn">19.2</span> Is a regressive tax necessarily inefficient?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. Efficiency is about the deadweight loss; progressivity is about who bears the burden. A tax can be regressive and efficient, or progressive and wasteful.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got19"> Got it</label>
+  </div>
+</article>
+
+
+<!-- ============ TACKLE THE TEST ============ -->
+<section class="section" id="mcq">
+  <h2>Tackle the test</h2>
+  <p>Your textbook&rsquo;s own five questions from the end of Module 50. Click an option to see why it
+  is right or wrong.</p>
+  <div class="mcq" data-key="C">
+    <p class="stem"><span class="qn">1</span> At market equilibrium in a competitive market, which of the following is necessarily true? <b>I.</b> Consumer surplus is maximized. <b>II.</b> Producer surplus is maximized. <b>III.</b> Total surplus is maximized.</p>
+    <div class="opts">
+      <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>I only<span class="why" hidden>&#10007; A lower price would give buyers more consumer surplus. The equilibrium does not maximise it.</span></span></button>
+      <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>II only<span class="why" hidden>&#10007; A higher price would give sellers more producer surplus.</span></span></button>
+      <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>III only<span class="why" hidden>&#10003; Only the <b>total</b> is maximised &mdash; which is exactly what efficiency means.</span></span></button>
+      <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>I and II only<span class="why" hidden>&#10007; Neither one is maximised on its own, and they pull in opposite directions.</span></span></button>
+      <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>I, II, and III<span class="why" hidden>&#10007; Only the third is true.</span></span></button>
+    </div>
+  </div>
+  <div class="mcq" data-key="E">
+    <p class="stem"><span class="qn">2</span> When a competitive market is in equilibrium, total surplus can be increased by <b>I.</b> reallocating consumption among consumers. <b>II.</b> reallocating sales among sellers. <b>III.</b> changing the quantity traded.</p>
+    <div class="opts">
+      <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>I only<span class="why" hidden>&#10007; Reallocating consumption <b>reduces</b> the total: the good is already with the buyers who value it most.</span></span></button>
+      <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>II only<span class="why" hidden>&#10007; Likewise for sales &mdash; the lowest-cost sellers are already the ones supplying.</span></span></button>
+      <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>III only<span class="why" hidden>&#10007; Changing the quantity in either direction reduces the total.</span></span></button>
+      <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>I, II, and III<span class="why" hidden>&#10007; All three reduce it, so none of them increases it.</span></span></button>
+      <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>None of the above<span class="why" hidden>&#10003; The three experiments of Figures 50.2 to 50.4, in one question. Nothing can improve on the equilibrium.</span></span></button>
+    </div>
+  </div>
+  <div class="mcq" data-key="B">
+    <p class="stem"><span class="qn">3</span> Which of the following is true regarding equity and efficiency in competitive markets?</p>
+    <div class="opts">
+      <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>Competitive markets ensure equity and efficiency.<span class="why" hidden>&#10007; They deliver efficiency; equity is a separate question they say nothing about.</span></span></button>
+      <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>There is often a trade-off between equity and efficiency.<span class="why" hidden>&#10003; Policies that share the gain more fairly usually shrink it.</span></span></button>
+      <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>Competitive markets lead to neither equity nor efficiency.<span class="why" hidden>&#10007; They do deliver efficiency, in the absence of market failures.</span></span></button>
+      <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>There is generally agreement about the level of equity and efficiency in a market.<span class="why" hidden>&#10007; Efficiency can be measured; what counts as equitable is contested.</span></span></button>
+      <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>None of the above.<span class="why" hidden>&#10007; The second statement is true.</span></span></button>
+    </div>
+  </div>
+  <div class="mcq" data-key="D">
+    <p class="stem"><span class="qn">4</span> An excise tax imposed on sellers in a market will result in which of the following? <b>I.</b> an upward shift of the supply curve <b>II.</b> a downward shift of the demand curve <b>III.</b> deadweight loss</p>
+    <div class="opts">
+      <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>I only<span class="why" hidden>&#10007; True, but incomplete &mdash; the tax also destroys surplus.</span></span></button>
+      <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>II only<span class="why" hidden>&#10007; Demand shifts down when the tax is on <b>buyers</b>, not sellers.</span></span></button>
+      <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>III only<span class="why" hidden>&#10007; True, but it leaves out how the tax works.</span></span></button>
+      <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>I and III only<span class="why" hidden>&#10003; Supply shifts up by the tax, and the fall in quantity creates a deadweight loss. Demand does not move.</span></span></button>
+      <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>I, II, and III<span class="why" hidden>&#10007; Only one curve shifts, and here it is supply.</span></span></button>
+    </div>
+  </div>
+  <div class="mcq" data-key="C">
+    <p class="stem"><span class="qn">5</span> An excise tax will be paid mainly by producers when</p>
+    <div class="opts">
+      <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>it is imposed on producers.<span class="why" hidden>&#10007; Who the law names makes no difference at all to the incidence.</span></span></button>
+      <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>it is imposed on consumers.<span class="why" hidden>&#10007; Same reason.</span></span></button>
+      <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>the price elasticity of supply is low and the price elasticity of demand is high.<span class="why" hidden>&#10003; The inelastic side bears more. Inelastic supply cannot escape; elastic demand can.</span></span></button>
+      <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>the price elasticity of supply is high and the price elasticity of demand is low.<span class="why" hidden>&#10007; That is the case where <b>consumers</b> bear most of it.</span></span></button>
+      <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>the price elasticity of supply is perfectly elastic.<span class="why" hidden>&#10007; Then producers bear <b>none</b> of it: the price they receive cannot fall at all.</span></span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FREE RESPONSE ============ -->
+<section class="section" id="frq">
+  <h2>The two free-response questions</h2>
+
+  <div class="frq">
+    <p class="stem"><b>1.</b> (8 points) In a competitive market, demand runs from $120 on the price
+    axis and supply from the origin, crossing at $60 with 2,000 units traded. The government imposes
+    a per-unit tax of <b>$60</b> on producers.</p>
+    <p><b>(a)</b> What quantity will be sold? <b>(b)</b> What price will consumers pay?
+    <b>(c)</b> By how much will consumer surplus change? <b>(d)</b> By how much will producer surplus
+    change? <b>(e)</b> How much revenue will the government collect? <b>(f)</b> Calculate the
+    deadweight loss.</p>
+    <details class="reveal"><summary>Show the mark scheme</summary><div class="ans">
+      <p><b>1 point</b> &mdash; <b>1,000</b> units.</p>
+      <p><b>1 point</b> &mdash; consumers pay <b>$90</b>; producers receive $30.</p>
+      <p><b>2 points</b> &mdash; consumer surplus falls by <b>$45,000</b>, from $60,000 to $15,000.</p>
+      <p><b>2 points</b> &mdash; producer surplus falls by <b>$45,000</b>, from $60,000 to $15,000.</p>
+      <p><b>1 point</b> &mdash; revenue $60 &times; 1,000 = <b>$60,000</b>.</p>
+      <p><b>1 point</b> &mdash; deadweight loss &frac12; &times; 1,000 &times; $60 =
+      <b>$30,000</b>.</p>
+      <p><b>Check the account.</b> Buyers and sellers lose $90,000 between them; the government
+      collects $60,000; the missing $30,000 is the triangle. If your three numbers do not balance,
+      one of them is wrong.</p>
+    </div></details>
+  </div>
+
+  <div class="frq">
+    <p class="stem"><b>2.</b> Draw a correctly labelled graph of a competitive market in equilibrium,
+    and use it to illustrate the effect of a per-unit tax imposed on <b>consumers</b>. Indicate each
+    of the following: the equilibrium price and quantity without the tax (P<sub>E</sub> and
+    Q<sub>E</sub>); the quantity sold post-tax (Q<sub>T</sub>); the price paid by consumers
+    (P<sub>C</sub>); the price received by producers (P<sub>P</sub>); the tax revenue; and the
+    deadweight loss.</p>
+    <details class="reveal"><summary>Show the mark scheme</summary><div class="ans">
+      <p>Axes labelled, demand and supply labelled, equilibrium marked P<sub>E</sub> and
+      Q<sub>E</sub>.</p>
+      <p>Because the tax is on <b>consumers</b>, shift the <b>demand</b> curve <b>down</b> by the
+      amount of the tax. Mark the new quantity Q<sub>T</sub>.</p>
+      <p>P<sub>C</sub> is read off the <b>original</b> demand curve at Q<sub>T</sub>;
+      P<sub>P</sub> is read off the supply curve at Q<sub>T</sub>. The gap between them is the tax.</p>
+      <p><b>Tax revenue</b>: the rectangle between P<sub>C</sub> and P<sub>P</sub>, out to
+      Q<sub>T</sub>. <b>DWL</b>: the triangle between Q<sub>T</sub> and Q<sub>E</sub>, bounded by the
+      two curves.</p>
+      <p>Every one of the six items has to be <b>labelled</b>. Correct geometry with no labels scores
+      nothing on skill 4.C.</p>
+    </div></details>
+  </div>
+</section>
+
+<!-- ============ SUMMARY ============ -->
+<section class="section" id="summary">
+  <h2>One page to revise from</h2>
+  <table class="tbl">
+    <thead><tr><th>Term</th><th>In one line</th></tr></thead>
+    <tbody>
+      <tr><td>Total surplus</td><td>Consumer plus producer surplus. $400,000 at Potterville.</td></tr>
+      <tr><td>Why equilibrium maximises it</td><td>Right buyers, right sellers, right quantity.</td></tr>
+      <tr><td>The three experiments</td><td>Move consumption, sales or quantity &mdash; the total always falls.</td></tr>
+      <tr><td>Allocative efficiency</td><td>Value equals cost on the last unit. The word is not in your textbook.</td></tr>
+      <tr><td>Equity against efficiency</td><td>A bigger total and a fairer split are different goals.</td></tr>
+      <tr><td>Per-unit (excise) tax</td><td>A fixed amount on each unit sold.</td></tr>
+      <tr><td>A tax on sellers</td><td>Supply shifts up by the tax.</td></tr>
+      <tr><td>A tax on buyers</td><td>Demand shifts down by the tax. Same outcome.</td></tr>
+      <tr><td>The tax wedge</td><td>Two prices where there was one; the gap is the tax.</td></tr>
+      <tr><td>Who pays does not matter</td><td>Incidence is the same whichever side is taxed.</td></tr>
+      <tr><td>Incidence and elasticity</td><td>The more inelastic side bears more.</td></tr>
+      <tr><td>Tax revenue</td><td>Tax &times; post-tax quantity. $200,000.</td></tr>
+      <tr><td>Deadweight loss</td><td>&frac12; &times; fall in quantity &times; tax. $100,000.</td></tr>
+      <tr><td>The surplus account</td><td>Losses = revenue + deadweight loss. It always balances.</td></tr>
+      <tr><td>No deadweight loss</td><td>When the quantity does not change &mdash; a pure transfer.</td></tr>
+      <tr><td>Subsidies</td><td>Supply shifts down; quantity goes above the efficient level.</td></tr>
+      <tr><td>Government revenue or cost</td><td>A tax collects; a subsidy pays. Both are rectangles.</td></tr>
+      <tr><td>Administrative costs</td><td>Collecting and paying the tax. Not on any diagram.</td></tr>
+      <tr><td>Progressive and regressive</td><td>Shares of income. Not part of your course.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section" id="getright">
+  <h2>Things to get right</h2>
+  <ul>
+    <li><b>Equilibrium maximises the total</b>, not consumer surplus and not producer surplus.</li>
+    <li><b>Shift by the size of the tax, vertically.</b> Supply up for a tax on sellers, demand down
+      for a tax on buyers, supply down for a subsidy.</li>
+    <li><b>Two prices after a tax.</b> Say which one a question is asking for.</li>
+    <li><b>Revenue uses the post-tax quantity.</b> The commonest arithmetic slip on this topic.</li>
+    <li><b>Revenue is a transfer; deadweight loss is not.</b> Keep them apart.</li>
+    <li><b>The inelastic side bears more</b> of a tax &mdash; and gains more from a subsidy.</li>
+    <li><b>A subsidy has a government cost</b>, pushes quantity <i>above</i> the efficient level, and
+      still creates a deadweight loss.</li>
+    <li><b>Check the account.</b> Losses to buyers and sellers = government revenue + deadweight
+      loss.</li>
+  </ul>
+</section>
+
+</div>
+
+<script>
+(function(){
+  var N = 19;
+  function $(id){ return document.getElementById(id); }
+  function money(x){ return "$" + String(x).replace(/\B(?=(\d{3})+(?!\d))/g, ","); }
+
+  /* progress */
+  var KEY = "m50-got";
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ return {}; } }
+  function save(o){ try { localStorage.setItem(KEY, JSON.stringify(o)); } catch(e){} }
+  function paint(){
+    var o = load(), n = 0, i;
+    for (i = 1; i <= N; i++){ var b = $("got" + i); if (b){ b.checked = !!o[i]; if (o[i]) n++; } }
+    $("pnum").textContent = n + " / " + N;
+    $("pfill").style.width = (100 * n / N) + "%";
+  }
+  var boxes = document.querySelectorAll(".gotbox"), bi;
+  for (bi = 0; bi < boxes.length; bi++){
+    boxes[bi].addEventListener("change", function(){
+      var o = load(); o[this.id.replace("got", "")] = this.checked; save(o); paint();
+    });
+  }
+  $("resetBtn").addEventListener("click", function(){ save({}); paint(); });
+  paint();
+
+  /* Potterville */
+  var STATES = [
+    { t: 0, g: "g-t0", pc: 80, pp: 80, q: 10000, cs: 200000, ps: 200000, gov: 0, dwl: 0 },
+    { t: 20, g: "g-t20", pc: 90, pp: 70, q: 7500, cs: 112500, ps: 112500, gov: 150000, dwl: 25000 },
+    { t: 40, g: "g-t40", pc: 100, pp: 60, q: 5000, cs: 50000, ps: 50000, gov: 200000, dwl: 100000 },
+    { t: 60, g: "g-t60", pc: 110, pp: 50, q: 2500, cs: 12500, ps: 12500, gov: 150000, dwl: 225000 },
+    { t: -40, g: "g-s40", pc: 60, pp: 100, q: 15000, cs: 450000, ps: 450000, gov: 600000, dwl: 100000 }
+  ];
+  function showState(t){
+    var row = null, i;
+    for (i = 0; i < STATES.length; i++){ if (STATES[i].t === t) row = STATES[i]; }
+    if (!row) return;
+    var gs = document.querySelectorAll("#diagram svg g[id^='g-']");
+    for (i = 0; i < gs.length; i++){
+      if (gs[i].id === row.g) gs[i].removeAttribute("hidden"); else gs[i].setAttribute("hidden", "hidden");
+    }
+    var chips = document.querySelectorAll("#tChips .chip");
+    for (i = 0; i < chips.length; i++){
+      chips[i].setAttribute("aria-pressed", chips[i].getAttribute("data-t") === String(t) ? "true" : "false");
+    }
+    $("rq").textContent = String(row.q).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    $("rcs").textContent = money(row.cs);
+    $("rps").textContent = money(row.ps);
+    $("rgov").textContent = money(row.gov);
+    $("rdwl").textContent = money(row.dwl);
+    $("kgov").textContent = t < 0 ? "Government cost" : "Government revenue";
+    if (t === 0){
+      $("dcap").textContent = "No intervention. The market clears at $" + row.pc + " and "
+        + String(row.q).replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        + " rooms, and total surplus is " + money(row.cs + row.ps) + " \u2014 the largest it can be.";
+    } else if (t > 0){
+      $("dcap").textContent = "A $" + t + " tax. Buyers pay $" + row.pc + ", sellers receive $" + row.pp
+        + ", and " + String(row.q).replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " rooms trade. "
+        + money(row.cs + row.ps) + " of surplus remains with buyers and sellers, " + money(row.gov)
+        + " goes to the government, and " + money(row.dwl) + " is lost to everyone.";
+    } else {
+      $("dcap").textContent = "A $" + (-t) + " subsidy. Buyers pay only $" + row.pc
+        + " while sellers receive $" + row.pp + ", and "
+        + String(row.q).replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        + " rooms trade \u2014 above the efficient 10,000. It costs the government " + money(row.gov)
+        + ", and " + money(row.dwl) + " is still lost, because the last rooms cost more to supply "
+        + "than guests value them at.";
+    }
+  }
+  var tchips = document.querySelectorAll("#tChips .chip"), ti;
+  for (ti = 0; ti < tchips.length; ti++){
+    tchips[ti].addEventListener("click", function(){ showState(parseInt(this.getAttribute("data-t"), 10)); });
+  }
+  showState(40);
+
+  /* incidence */
+  var INC = [
+    { n: "Equally elastic", pc: 100, pp: 60, q: 5000, buyer: 20, seller: 20, share: 50 },
+    { n: "Demand more inelastic", pc: 110, pp: 70, q: 7000, buyer: 30, seller: 10, share: 75 },
+    { n: "Demand more elastic", pc: 90, pp: 50, q: 7000, buyer: 10, seller: 30, share: 25 }
+  ];
+  (function(){
+    var box = $("incGrid"), i;
+    for (i = 0; i < INC.length; i++){
+      var c = INC[i];
+      var d = document.createElement("div");
+      d.className = "inc";
+      d.innerHTML = "<h4>" + c.n + "</h4>"
+        + "<p class='big'>" + c.share + "% on buyers</p>"
+        + "<p class='step'>buyers pay $" + c.pc + " (+$" + c.buyer + ")</p>"
+        + "<p class='step'>sellers get $" + c.pp + " (\u2212$" + c.seller + ")</p>"
+        + "<p class='step'>" + String(c.q).replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " rooms</p>";
+      box.appendChild(d);
+    }
+  })();
+
+  /* revenue, deadweight loss, or neither? */
+  var SORT = [
+    { t: "The money the government collects from a per-unit tax.", a: "rev",
+      w: "A transfer: it leaves buyers and sellers and arrives somewhere." },
+    { t: "The value of the trades that no longer happen because of the tax.", a: "dwl",
+      w: "Nobody receives it. That is what makes it a loss rather than a transfer." },
+    { t: "The rectangle whose height is the tax and whose width is the post-tax quantity.", a: "rev",
+      w: "Tax &times; quantity sold with the tax in place." },
+    { t: "The triangle whose base is the tax wedge and whose height is the fall in quantity.", a: "dwl",
+      w: "Half of base times height, and it grows faster than the tax rate." },
+    { t: "The price buyers pay after the tax, multiplied by the quantity.", a: "neither",
+      w: "That is consumers' total spending, which includes the sellers' receipts as well as the tax." },
+    { t: "The amount by which consumer surplus falls.", a: "neither",
+      w: "Part of it is paid to the government and part is destroyed. Neither label fits the whole." },
+    { t: "The part of the fall in total surplus that somebody receives.", a: "rev",
+      w: "The definition of a transfer, and of the revenue rectangle." },
+    { t: "The part of the fall in total surplus that nobody receives.", a: "dwl",
+      w: "Your textbook's own definition &mdash; and it is zero when supply or demand is perfectly inelastic, because no trades are lost." },
+    { t: "The total amount sellers receive after the tax, price received times quantity.", a: "neither",
+      w: "That is the sellers' revenue. It is neither a transfer to the government nor a loss to society." },
+    { t: "$40 &times; 5,000 = $200,000 at Potterville.", a: "rev",
+      w: "The textbook's own figure for its $40 tax." },
+    { t: "&frac12; &times; 5,000 &times; $40 = $100,000 at Potterville.", a: "dwl",
+      w: "The triangle on the same numbers &mdash; which your textbook never computes." },
+    { t: "The hours people spend filling in tax forms.", a: "neither",
+      w: "Administrative costs: a real cost of the tax that appears on no diagram." }
+  ];
+  var sAt = 0, score = 0, done = 0, answered = false;
+  function card(){
+    answered = false;
+    $("sortStem").innerHTML = SORT[sAt].t;
+    $("sortVerdict").textContent = "";
+    $("sortVerdict").className = "verdict";
+  }
+  var opts = document.querySelectorAll("#sortWidget .opts3 button"), oi;
+  for (oi = 0; oi < opts.length; oi++){
+    opts[oi].addEventListener("click", function(){
+      if (answered) return;
+      answered = true; done++;
+      var c = SORT[sAt], ok = (this.getAttribute("data-a") === c.a);
+      if (ok) score++;
+      $("sortVerdict").innerHTML = (ok ? "\u2713 " : "\u2717 ") + c.w;
+      $("sortVerdict").className = "verdict " + (ok ? "ok" : "no");
+      $("sortScore").textContent = score + " / " + done;
+    });
+  }
+  $("sortNext").addEventListener("click", function(){ sAt = (sAt + 1) % SORT.length; card(); });
+  card();
+
+  /* the textbook's multiple choice */
+  var mcqs = document.querySelectorAll(".mcq"), mi;
+  for (mi = 0; mi < mcqs.length; mi++){
+    (function(box){
+      var os = box.querySelectorAll(".opt"), j;
+      for (j = 0; j < os.length; j++){
+        os[j].addEventListener("click", function(){
+          var w = this.querySelector(".why");
+          if (w) w.hidden = !w.hidden;
+          this.classList.toggle("open");
+        });
+      }
+    })(mcqs[mi]);
+  }
+})();
+</script>
+</main>
+<script>window.COURSE_NAV={"kicker": "2.6 Efficiency · 2.8 Taxes and subsidies", "title": "Module 50 · Efficiency and Deadweight Loss", "map": [{"label": "Course", "items": [{"href": "index.html", "label": "Home", "current": false}, {"href": "spec.html", "label": "Course specification", "current": false}]}, {"label": "Unit 1 · Basic Economic Concepts", "items": [{"href": "m01-student.html", "label": "Module 1 · Student guide", "current": false}, {"href": "m01-notes.html", "label": "Module 1 · Teaching notes", "current": false}, {"href": "m01-test.html", "label": "Module 1 · Test", "current": false}, {"label": "Module 2 · Introduction to Macroeconomics", "planned": true}, {"href": "m03-student.html", "label": "Module 3 · Student guide", "current": false}, {"href": "m03-notes.html", "label": "Module 3 · Teaching notes", "current": false}, {"href": "m03-test.html", "label": "Module 3 · Test", "current": false}, {"href": "m04-student.html", "label": "Module 4 · Student guide", "current": false}, {"href": "m04-notes.html", "label": "Module 4 · Teaching notes", "current": false}, {"href": "m04-test.html", "label": "Module 4 · Test", "current": false}, {"href": "m51-student.html", "label": "Module 51 · Student guide", "current": false}, {"href": "m51-notes.html", "label": "Module 51 · Teaching notes", "current": false}, {"href": "m51-test.html", "label": "Module 51 · Test", "current": false}, {"label": "Unit 1 · Gap analysis", "planned": true}]}, {"label": "Unit 2 · Supply and Demand", "items": [{"href": "m05-student.html", "label": "Module 5 · Student guide", "current": false}, {"href": "m05-notes.html", "label": "Module 5 · Teaching notes", "current": false}, {"href": "m05-test.html", "label": "Module 5 · Test", "current": false}, {"href": "m06-student.html", "label": "Module 6 · Student guide", "current": false}, {"href": "m06-notes.html", "label": "Module 6 · Teaching notes", "current": false}, {"href": "m06-test.html", "label": "Module 6 · Test", "current": false}, {"href": "m07-student.html", "label": "Module 7 · Student guide", "current": false}, {"href": "m07-notes.html", "label": "Module 7 · Teaching notes", "current": false}, {"href": "m07-test.html", "label": "Module 7 · Test", "current": false}, {"href": "m08-student.html", "label": "Module 8 · Student guide", "current": false}, {"href": "m08-notes.html", "label": "Module 8 · Teaching notes", "current": false}, {"href": "m08-test.html", "label": "Module 8 · Test", "current": false}, {"href": "m09-student.html", "label": "Module 9 · Student guide", "current": false}, {"href": "m09-notes.html", "label": "Module 9 · Teaching notes", "current": false}, {"href": "m09-test.html", "label": "Module 9 · Test", "current": false}, {"href": "m46-student.html", "label": "Module 46 · Student guide", "current": false}, {"href": "m46-notes.html", "label": "Module 46 · Teaching notes", "current": false}, {"href": "m46-test.html", "label": "Module 46 · Test", "current": false}, {"href": "m47-student.html", "label": "Module 47 · Student guide", "current": false}, {"href": "m47-notes.html", "label": "Module 47 · Teaching notes", "current": false}, {"href": "m47-test.html", "label": "Module 47 · Test", "current": false}, {"href": "m48-student.html", "label": "Module 48 · Student guide", "current": false}, {"href": "m48-notes.html", "label": "Module 48 · Teaching notes", "current": false}, {"href": "m48-test.html", "label": "Module 48 · Test", "current": false}, {"href": "m49-student.html", "label": "Module 49 · Student guide", "current": false}, {"href": "m49-notes.html", "label": "Module 49 · Teaching notes", "current": false}, {"href": "m49-test.html", "label": "Module 49 · Test", "current": false}, {"href": "m50-student.html", "label": "Module 50 · Student guide", "current": true}, {"href": "m50-notes.html", "label": "Module 50 · Teaching notes", "current": false}, {"href": "m50-test.html", "label": "Module 50 · Test", "current": false}, {"label": "Topic 2.9 · International Trade and Public Policy", "planned": true}, {"label": "Unit 2 · Gap analysis", "planned": true}]}, {"label": "Unit 3 · Production, Cost and Perfect Competition", "items": [{"label": "Modules 52–53 · Profit and Profit Maximisation", "planned": true}, {"label": "Module 54 · The Production Function", "planned": true}, {"label": "Module 55 · Firm Costs", "planned": true}, {"label": "Module 56 · Long-Run Costs and Economies of Scale", "planned": true}, {"label": "Module 57 · Introduction to Market Structure", "planned": true}, {"label": "Modules 58–60 · Perfect Competition", "planned": true}, {"label": "Unit 3 · Gap analysis", "planned": true}]}, {"label": "Unit 4 · Imperfect Competition", "items": [{"label": "Topic 4.1 · Introduction to Imperfect Competition", "planned": true}, {"label": "Modules 61–63 · Monopoly", "planned": true}, {"label": "Modules 67–68 · Monopolistic Competition", "planned": true}, {"label": "Modules 64–66 · Oligopoly and Game Theory", "planned": true}, {"label": "Unit 4 · Gap analysis", "planned": true}]}, {"label": "Unit 5 · Factor Markets", "items": [{"label": "Module 69 · Introduction and Factor Demand", "planned": true}, {"label": "Module 70 · The Markets for Land and Capital", "planned": true}, {"label": "Module 71 · The Market for Labor", "planned": true}, {"label": "Module 72 · The Cost-Minimising Input Combination", "planned": true}, {"label": "Module 73 · Theories of Income Distribution", "planned": true}, {"label": "Unit 5 · Gap analysis", "planned": true}]}, {"label": "Unit 6 · Market Failure and the Role of Government", "items": [{"label": "Modules 74–75 · Externalities", "planned": true}, {"label": "Module 76 · Public Goods", "planned": true}, {"label": "Module 77 · Public Policy to Promote Competition", "planned": true}, {"label": "Module 78 · Income Inequality and Income Distribution", "planned": true}, {"label": "Unit 6 · Gap analysis", "planned": true}]}, {"label": "Interactive", "items": [{"label": "PPC explorer", "planned": true}, {"label": "Supply and demand explorer", "planned": true}, {"label": "Elasticity and total revenue", "planned": true}, {"label": "Cost curves", "planned": true}, {"label": "Market structure comparison", "planned": true}]}], "prev": {"href": "m49-test.html", "label": "Module 49 · Test"}, "next": {"href": "m50-notes.html", "label": "Module 50 · Teaching notes"}, "variants": [{"href": "m50-student.html", "label": "Student", "current": true}, {"href": "m50-notes.html", "label": "Notes", "current": false}, {"href": "m50-test.html", "label": "Test", "current": false}]};</script>
+<script src="assets/course.js"></script>
+</body>
+</html>

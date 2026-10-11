@@ -1,0 +1,1519 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 46 · Income Effects, Substitution Effects, and Elasticity · AP Microeconomics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@600;700&display=swap">
+<link rel="stylesheet" href="assets/course.css">
+<style>.page .bar{position:static;background:none;backdrop-filter:none}.page .bar-in{max-width:none;padding-inline:0}.page .wrap{max-width:none;padding-inline:0;padding-block:0 24px}.page .masthead{padding-block:10px 24px}</style></head>
+<body>
+<main class="page">
+<style>
+
+
+:root{
+  --paper:#f3f5f8;
+  --surface:#ffffff;
+  --surface-2:#eef1f6;
+  --ink:#15181f;
+  --ink-2:#4d5566;
+  --ink-3:#737c8e;
+  --rule:#d6dae2;
+  --rule-strong:#b3bac7;
+  --accent:#1d4e89;
+  --accent-soft:#e6edf7;
+  --down:#a3372a;
+  --down-soft:#fbeeeb;
+  --up:#1a6b55;
+  --up-soft:#e6f2ee;
+  --flag:#7a5310;
+  --flag-soft:#f8f0e0;
+  --shadow:0 1px 2px rgba(21,24,31,.06), 0 8px 24px rgba(21,24,31,.05);
+  --serif:"IBM Plex Serif", Georgia, "Times New Roman", serif;
+  --sans:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0f1218;
+    --surface:#171b23;
+    --surface-2:#1e232d;
+    --ink:#e8ebf1;
+    --ink-2:#a3adc0;
+    --ink-3:#7e8799;
+    --rule:#2c323d;
+    --rule-strong:#3c4351;
+    --accent:#7dabe2;
+    --accent-soft:#1a2634;
+    --down:#e5907f;
+    --down-soft:#2a1d1a;
+    --up:#6cc4a7;
+    --up-soft:#16291f;
+    --flag:#d8b169;
+    --flag-soft:#2a2418;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.28);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0f1218;
+  --surface:#171b23;
+  --surface-2:#1e232d;
+  --ink:#e8ebf1;
+  --ink-2:#a3adc0;
+  --ink-3:#7e8799;
+  --rule:#2c323d;
+  --rule-strong:#3c4351;
+  --accent:#7dabe2;
+  --accent-soft:#1a2634;
+  --down:#e5907f;
+  --down-soft:#2a1d1a;
+  --up:#6cc4a7;
+  --up-soft:#16291f;
+  --flag:#d8b169;
+  --flag-soft:#2a2418;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.28);
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.65;
+  margin:0;
+}
+.wrap{max-width:820px;margin:0 auto;padding-inline:18px;padding-block:0 72px}
+
+/* ---------- sticky bar ---------- */
+.bar{
+  position:sticky;
+  top:env(safe-area-inset-top, 0px);
+  z-index:40;
+  background:color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--rule);
+}
+.bar-in{
+  max-width:820px;margin:0 auto;padding-inline:18px;
+  display:flex;align-items:center;gap:14px;min-height:50px;flex-wrap:wrap;
+}
+.bar-title{font-family:var(--mono);font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-2);white-space:nowrap}
+.progress{flex:1 1 140px;min-width:120px;display:flex;align-items:center;gap:9px}
+.progress-track{flex:1;height:5px;border-radius:3px;background:var(--rule);overflow:hidden}
+.progress-fill{height:100%;width:0;background:var(--accent);transition:width .25s ease}
+.progress-num{font-family:var(--mono);font-size:12px;color:var(--ink-2);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar button{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;
+  background:none;border:1px solid var(--rule-strong);color:var(--ink-2);
+  padding:5px 10px;border-radius:4px;cursor:pointer;
+}
+.bar button:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ---------- masthead ---------- */
+.masthead{padding-block:40px 28px;border-bottom:2px solid var(--ink)}
+.eyebrow{
+  font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);margin:0 0 12px;
+}
+h1{
+  font-family:var(--serif);font-weight:700;font-size:clamp(30px,6.4vw,44px);
+  line-height:1.1;margin:0 0 14px;text-wrap:balance;letter-spacing:-.01em;
+}
+.standfirst{font-size:17.5px;color:var(--ink-2);margin:0;max-width:62ch}
+.source-line{
+  font-family:var(--mono);font-size:12.5px;color:var(--ink-3);margin-top:18px;
+  display:flex;gap:6px 18px;flex-wrap:wrap;
+}
+
+h2{
+  font-family:var(--serif);font-weight:600;font-size:clamp(21px,3.8vw,26px);
+  line-height:1.25;margin:0 0 10px;text-wrap:balance;
+}
+h3{font-family:var(--sans);font-weight:600;font-size:16px;margin:26px 0 8px;letter-spacing:.01em}
+p{margin:0 0 14px}
+a{color:var(--accent)}
+.section{padding-block:34px 4px}
+
+.kicker{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-3);margin:0 0 8px;
+}
+
+/* ---------- entries ---------- */
+.entry{padding-block:34px 10px;border-top:1px solid var(--rule)}
+.entry-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.entry-num{
+  font-family:var(--mono);font-size:13px;font-weight:600;color:var(--accent);
+  font-variant-numeric:tabular-nums;
+}
+.entry h2{margin:0;flex:1 1 auto;min-width:0}
+.mark{
+  font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  padding:3px 8px;border-radius:3px;white-space:nowrap;
+}
+.mark.exam{background:var(--accent-soft);color:var(--accent)}
+.mark.bg{background:var(--surface-2);color:var(--ink-3)}
+.defn{
+  background:var(--surface);border-left:3px solid var(--accent);
+  padding:14px 16px;border-radius:0 5px 5px 0;margin:14px 0 16px;box-shadow:var(--shadow);
+}
+.defn p{margin:0}
+.defn .lbl{
+  display:block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-3);margin-bottom:5px;
+}
+.reading{font-family:var(--mono);font-size:12.5px;color:var(--ink-3);margin:-6px 0 16px}
+
+.watch{
+  background:var(--down-soft);border:1px solid color-mix(in srgb, var(--down) 28%, transparent);
+  border-radius:5px;padding:13px 16px;margin:18px 0;
+}
+.watch p{margin:0;font-size:15.3px}
+.watch b{color:var(--down)}
+
+.notinbook{
+  background:var(--flag-soft);border:1px dashed color-mix(in srgb, var(--flag) 48%, transparent);
+  border-radius:5px;padding:13px 16px;margin:16px 0;
+}
+.notinbook p{margin:0;font-size:15.3px}
+.notinbook b{color:var(--flag)}
+
+.examples{margin:18px 0;display:flex;flex-direction:column;gap:12px}
+.ex{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start}
+.ex-n{
+  font-family:var(--mono);font-size:11px;font-weight:600;color:var(--ink-3);
+  border:1px solid var(--rule-strong);border-radius:3px;padding:1px 6px;margin-top:3px;white-space:nowrap;
+}
+.ex p{margin:0;font-size:15.3px}
+.ex .who{font-weight:600;color:var(--ink)}
+
+.connects{font-size:15.3px;color:var(--ink-2);border-top:1px solid var(--rule);padding-top:12px;margin-top:6px}
+.connects b{color:var(--ink)}
+
+/* ---------- check yourself ---------- */
+.check{margin:20px 0 6px;background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:14px 16px}
+.check > .lbl{
+  font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);display:block;margin-bottom:10px;
+}
+.q{margin-bottom:12px}
+.q:last-child{margin-bottom:0}
+.q > p{margin:0 0 7px;font-size:15.3px}
+.q .qn{font-family:var(--mono);font-weight:600;color:var(--accent);font-size:13.5px;margin-right:4px}
+details.reveal{border-top:1px dashed var(--rule)}
+details.reveal > summary{
+  list-style:none;cursor:pointer;font-family:var(--mono);font-size:11.5px;
+  letter-spacing:.07em;text-transform:uppercase;color:var(--accent);padding:7px 0 0;
+}
+details.reveal > summary::-webkit-details-marker{display:none}
+details.reveal > summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details.reveal[open] > summary::before{content:"▾ "}
+details.reveal > summary:hover{text-decoration:underline}
+details.reveal .ans{font-size:15.3px;color:var(--ink-2);padding:6px 0 4px}
+details.reveal .ans p{margin:0 0 8px}
+details.reveal .ans p:last-child{margin:0}
+
+.got{
+  display:flex;align-items:center;gap:8px;margin-top:16px;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);
+  cursor:pointer;user-select:none;
+}
+.got input{width:15px;height:15px;accent-color:var(--accent);cursor:pointer}
+
+/* ---------- tables ---------- */
+.tablewrap{overflow-x:auto;margin:18px 0;border:1px solid var(--rule);border-radius:6px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:15px;min-width:420px}
+th,td{padding:10px 13px;text-align:left;border-bottom:1px solid var(--rule);vertical-align:top}
+thead th{
+  font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-3);background:var(--surface-2);font-weight:600;
+}
+tbody tr:last-child td{border-bottom:none}
+td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right}
+.tight td,.tight th{padding:8px 12px;font-size:14.5px}
+
+/* ---------- widgets ---------- */
+.widget{
+  background:var(--surface);border:1px solid var(--rule-strong);border-radius:8px;
+  padding:18px;margin:26px 0;box-shadow:var(--shadow);
+}
+.widget-title{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);margin:0 0 4px;
+}
+.widget h3{margin-top:0}
+.widget-note{font-size:14.5px;color:var(--ink-2);margin:12px 0 0}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{
+  font-family:var(--mono);font-size:12px;letter-spacing:.04em;
+  border:1px solid var(--rule-strong);background:var(--surface);color:var(--ink-2);
+  border-radius:16px;padding:5px 13px;cursor:pointer;transition:all .15s;
+}
+.chip:hover{border-color:var(--accent);color:var(--accent)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+:root[data-theme="dark"] .chip[aria-pressed="true"],
+:root:not([data-theme="light"]) .chip[aria-pressed="true"]{color:#0f1218}
+
+.cyclefig{width:100%;height:auto;display:block;overflow:visible}
+.figcap{font-size:14.5px;color:var(--ink-2);margin:10px 0 0;min-height:3em}
+.figcap b{color:var(--ink)}
+
+.svg-dim{opacity:.22;transition:opacity .2s}
+.svg-lit{opacity:1;transition:opacity .2s}
+
+.calc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:14px 0}
+.field label{
+  display:block;font-family:var(--mono);font-size:11px;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--ink-3);margin-bottom:5px;
+}
+.field input[type=number]{
+  width:100%;font-family:var(--mono);font-size:16px;padding:8px 10px;
+  border:1px solid var(--rule-strong);border-radius:5px;background:var(--paper);color:var(--ink);
+}
+.field input[type=range]{width:100%;accent-color:var(--accent)}
+.field input:focus-visible,.chip:focus-visible,button:focus-visible,summary:focus-visible,a:focus-visible{
+  outline:2px solid var(--accent);outline-offset:2px;
+}
+.readouts{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:6px;overflow:hidden;margin-top:6px}
+.ro{background:var(--surface-2);padding:12px 14px}
+.ro .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);display:block;margin-bottom:3px}
+.ro .v{font-family:var(--mono);font-size:22px;font-weight:600;font-variant-numeric:tabular-nums;color:var(--ink)}
+.ro .v.hl{color:var(--accent)}
+
+/* ---------- quiz ---------- */
+.mcq{border-top:1px solid var(--rule);padding-top:18px;margin-top:18px}
+.mcq:first-of-type{border-top:none;padding-top:0;margin-top:0}
+.mcq .stem{font-size:15.6px;margin:0 0 12px}
+.mcq .stem .qn{font-family:var(--mono);font-weight:600;color:var(--accent);margin-right:6px}
+.opts{display:flex;flex-direction:column;gap:7px}
+.opt{
+  display:flex;gap:11px;align-items:flex-start;text-align:left;width:100%;
+  font-family:var(--sans);font-size:15.2px;line-height:1.5;color:var(--ink);
+  background:var(--surface);border:1px solid var(--rule);border-radius:6px;
+  padding:10px 13px;cursor:pointer;transition:border-color .15s,background .15s;
+}
+.opt:hover{border-color:var(--accent)}
+.opt .ltr{font-family:var(--mono);font-weight:600;color:var(--ink-3);flex:0 0 auto}
+.opt .why{display:block;font-size:14.3px;color:var(--ink-2);margin-top:6px}
+.opt[data-state="right"]{border-color:var(--up);background:var(--up-soft)}
+.opt[data-state="right"] .ltr{color:var(--up)}
+.opt[data-state="wrong"]{border-color:var(--down);background:var(--down-soft)}
+.opt[data-state="wrong"] .ltr{color:var(--down)}
+.opt[disabled]{cursor:default}
+.score{
+  font-family:var(--mono);font-size:13px;color:var(--ink-2);
+  border:1px solid var(--rule-strong);border-radius:6px;padding:11px 14px;margin-top:20px;
+  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;
+}
+.score b{color:var(--ink);font-size:15px}
+
+.frq{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:15px 17px;margin:16px 0}
+.frq .stem{margin:0 0 6px;font-size:15.6px}
+.frq .pts{font-family:var(--mono);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3)}
+.rubric{margin:8px 0 0;padding:0;list-style:none}
+.rubric li{display:grid;grid-template-columns:auto 1fr;gap:10px;padding:7px 0;border-top:1px dotted var(--rule);font-size:15.2px}
+.rubric li .pt{font-family:var(--mono);font-size:11.5px;color:var(--up);white-space:nowrap;padding-top:3px}
+
+.closing{background:var(--accent-soft);border-radius:8px;padding:20px 22px;margin-top:28px}
+.closing h2{margin-top:0}
+.closing ol{margin:0;padding-left:20px}
+.closing li{margin-bottom:10px;font-size:15.5px}
+.closing li:last-child{margin-bottom:0}
+
+.toc{columns:2 220px;column-gap:26px;margin:16px 0 0;padding:0;list-style:none}
+.toc li{break-inside:avoid;padding:3px 0;font-size:15px}
+.toc a{text-decoration:none;color:var(--ink)}
+.toc a:hover{color:var(--accent);text-decoration:underline}
+.toc .n{font-family:var(--mono);font-size:12.5px;color:var(--ink-3);margin-right:7px;font-variant-numeric:tabular-nums}
+.toc .m{font-size:11px;color:var(--ink-3);margin-left:5px}
+
+.footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--rule);font-family:var(--mono);font-size:12px;color:var(--ink-3);line-height:1.8}
+
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+@media print{
+  .bar,.got,.chips{display:none}
+  body{background:#fff}
+  details.reveal > *{display:block!important}
+  .entry{break-inside:avoid-page}
+}
+@media (max-width:520px){
+  .toc{columns:1}
+  .ro .v{font-size:19px}
+}
+
+/* ---------- Module 3 supplement ---------- */
+.mark.flag{background:var(--flag-soft);color:var(--flag)}
+.ppc-wrap{display:grid;grid-template-columns:1fr;gap:14px}
+@media (min-width:720px){.ppc-wrap{grid-template-columns:1fr 210px}}
+.ppc-svg{width:100%;height:auto;display:block;background:var(--surface);
+  border:1px solid var(--rule);border-radius:6px;cursor:crosshair;touch-action:none}
+.ppc-side{display:flex;flex-direction:column;gap:10px}
+.status{font-family:var(--mono);font-size:12.5px;padding:9px 11px;border-radius:5px;
+  border:1px solid var(--rule-strong);background:var(--surface-2);line-height:1.45}
+.status[data-s="on"]{border-color:color-mix(in srgb,var(--up) 45%,transparent);background:var(--up-soft);color:var(--up)}
+.status[data-s="in"]{border-color:var(--rule-strong);color:var(--ink-2)}
+.status[data-s="out"]{border-color:color-mix(in srgb,var(--down) 45%,transparent);background:var(--down-soft);color:var(--down)}
+.ppc-legend{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);line-height:1.6}
+.ppc-legend b{color:var(--ink-2);font-weight:600}
+.chips.tight{gap:6px}
+.tbl{overflow-x:auto;max-width:100%}
+.sumtable{width:100%;border-collapse:collapse;font-size:14.5px;margin:16px 0}
+.sumtable th,.sumtable td{border-bottom:1px solid var(--rule);padding:8px 10px;text-align:left;vertical-align:top}
+.sumtable th{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+.sumtable td.mk{font-family:var(--mono);font-size:12px;white-space:nowrap;color:var(--accent)}
+.sumtable td.mk.bgm{color:var(--ink-3)}
+.sumtable td.mk.flagm{color:var(--flag)}
+.final{background:var(--surface);border:1px solid var(--rule);border-radius:6px;
+  padding:18px 20px;margin:22px 0;box-shadow:var(--shadow)}
+.final ol{margin:0;padding-left:20px}
+.final li{margin:0 0 9px}
+.final li:last-child{margin-bottom:0}
+
+/* ---------- PPC explorer svg ---------- */
+.ppc-svg .ax{stroke:var(--ink);stroke-width:1.6}
+.ppc-svg .tick{stroke:var(--ink-3);stroke-width:1.1}
+.ppc-svg .tl{font-family:var(--mono);font-size:11px;fill:var(--ink-3)}
+.ppc-svg .al{font-family:var(--sans);font-size:12px;font-weight:600;fill:var(--ink-2)}
+.ppc-svg .curve{fill:none;stroke:var(--accent);stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round}
+.ppc-svg .ghost{fill:none;stroke:var(--rule-strong);stroke-width:1.8;stroke-dasharray:6 5}
+.ppc-svg .cl{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--accent)}
+.ppc-svg .drop{stroke:var(--rule-strong);stroke-width:1;stroke-dasharray:3 3}
+.ppc-svg .pt{stroke:var(--surface);stroke-width:2}
+.ppc-svg .pt-on{fill:var(--up)}
+.ppc-svg .pt-in{fill:var(--ink-3)}
+.ppc-svg .pt-out{fill:var(--down)}
+
+
+/* ---------- Module 4 supplement ---------- */
+.two-panel{width:100%;height:auto;display:block;background:var(--surface);
+  border:1px solid var(--rule);border-radius:6px}
+.ca-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:0 0 14px}
+@media (min-width:640px){.ca-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.ca-grid .field{display:flex;flex-direction:column;gap:5px}
+.ca-grid .field span{font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--ink-3)}
+.ca-grid .field b{color:var(--ink-2);font-weight:600;text-transform:none;letter-spacing:0}
+.ca-grid input{font-family:var(--mono);font-size:15px;padding:7px 9px;width:100%;
+  color:var(--ink);background:var(--paper);border:1px solid var(--rule-strong);border-radius:5px}
+.ca-grid input:focus{outline:2px solid var(--accent);outline-offset:1px}
+.catab{width:100%;border-collapse:collapse;font-size:14px;margin:4px 0 14px}
+.catab th,.catab td{border-bottom:1px solid var(--rule);padding:7px 9px;text-align:left}
+.catab th{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:600}
+.catab td.v{font-family:var(--mono);color:var(--ink)}
+.catab td.win{font-family:var(--mono);color:var(--up);font-weight:600}
+.dealrow{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;margin:0 0 12px}
+.dealrow .field{display:flex;flex-direction:column;gap:5px;min-width:190px;flex:1}
+.dealrow .field span{font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--ink-3)}
+.dealrow input{font-family:var(--mono);font-size:16px;padding:8px 10px;
+  color:var(--ink);background:var(--paper);border:1px solid var(--rule-strong);border-radius:5px}
+.line-svg{width:100%;height:auto;display:block;margin:6px 0 2px}
+.line-svg g[hidden]{display:none}
+.line-svg .band{fill:var(--up-soft);stroke:none}
+.line-svg .axl{stroke:var(--ink);stroke-width:1.6}
+.line-svg .tk{stroke:var(--ink-3);stroke-width:1.1}
+.line-svg .tlb{font-family:var(--mono);font-size:11px;fill:var(--ink-3)}
+.line-svg .edge{stroke:var(--up);stroke-width:2}
+.line-svg .edgel{font-family:var(--mono);font-size:11.5px;font-weight:600;fill:var(--up)}
+.line-svg .prop{stroke:var(--accent);stroke-width:2.4}
+.line-svg .propbad{stroke:var(--down);stroke-width:2.4}
+.line-svg .propl{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--accent)}
+.line-svg .propl.bad{fill:var(--down)}
+.two-panel .ax{stroke:var(--ink);stroke-width:1.6}
+.two-panel .tick{stroke:var(--ink-3);stroke-width:1.1}
+.two-panel .tl{font-family:var(--mono);font-size:10.5px;fill:var(--ink-3)}
+.two-panel .al{font-family:var(--sans);font-size:11.5px;font-weight:600;fill:var(--ink-2)}
+.two-panel .ph{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--ink-2)}
+.two-panel .curve{fill:none;stroke:var(--accent);stroke-width:2.4;stroke-linecap:round}
+.two-panel .slope{font-family:var(--mono);font-size:11px;fill:var(--accent)}
+.two-panel .drop{stroke:var(--rule-strong);stroke-width:1;stroke-dasharray:3 3}
+.two-panel .pt{stroke:var(--surface);stroke-width:2}
+.two-panel .pt-on{fill:var(--ink-2)}
+.two-panel .pt-out{fill:var(--up)}
+.two-panel .ptl{font-family:var(--mono);font-size:11px;fill:var(--ink-2)}
+.two-panel .ptl.good{fill:var(--up);font-weight:600}
+
+
+/* The inherited stylesheet styles .curve, .ax, .tick, .tl, .cl, .pt and .ptl only under .ppc-svg and
+   .two-panel, and its .line-svg .axl rule is for an axis LINE - so give the figure's own classes rules
+   under .line-svg. Without these the curves, axes and ticks have stroke:none and do not render. */
+.line-svg .ax{stroke:var(--ink);stroke-width:1.6}
+.line-svg .tick{stroke:var(--ink-3);stroke-width:1.1}
+.line-svg .tl{font-family:var(--mono);font-size:11px;fill:var(--ink-3)}
+.line-svg text.axl{stroke:none;font-family:var(--mono);font-size:12px;fill:var(--ink-2)}
+.line-svg .curve{fill:none;stroke:var(--accent);stroke-width:2.6;stroke-linecap:round}
+.line-svg .cl{font-family:var(--mono);font-size:13px;font-weight:600;fill:var(--accent)}
+.line-svg .pt{stroke:var(--surface);stroke-width:2}
+.line-svg .pt-on{fill:var(--ink-2)}
+.line-svg .ptl{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--ink-2)}
+/* Module 8 price-control figure */
+.pc-line{stroke:var(--down);stroke-width:2.2;stroke-dasharray:7 4}
+.pc-lab{font-family:var(--mono);font-size:12px;fill:var(--down)}
+.pc-gap{stroke:var(--ink-2);stroke-width:1.4}
+.pc-gl{font-family:var(--mono);font-size:11.5px;fill:var(--ink-2)}
+.pc-dwl{fill:var(--flag-soft);stroke:var(--flag);stroke-width:1}
+.pc-dl{font-family:var(--mono);font-size:11.5px;fill:var(--flag)}
+
+/* Module 9 quota figure */
+.qt-line{stroke:var(--down);stroke-width:2.2;stroke-dasharray:7 4}
+.qt-lab{font-family:var(--mono);font-size:12px;fill:var(--down)}
+.qt-rent{fill:var(--up-soft);stroke:var(--up);stroke-width:1}
+.qt-rl{font-family:var(--mono);font-size:11.5px;fill:var(--up)}
+
+/* Module 46: the base figure classes, the calculator and the sorter */
+.line-svg .ax{stroke:var(--ink);stroke-width:1.6}
+.line-svg text.axl{stroke:none;font-family:var(--mono);font-size:12px;fill:var(--ink-2)}
+.line-svg .tick{stroke:var(--ink-3);stroke-width:1.1}
+.line-svg .tl{font-family:var(--mono);font-size:11px;fill:var(--ink-3)}
+.line-svg .curve{fill:none;stroke:var(--accent);stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round}
+.line-svg .cl{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--accent)}
+.line-svg .pt{stroke:var(--surface);stroke-width:2}
+.line-svg .pt-on{fill:var(--ink-2)}
+.line-svg .ptl{font-family:var(--mono);font-size:11.5px;font-weight:600;fill:var(--ink-2)}
+.formula{font-family:var(--mono);font-size:13.5px;background:var(--surface-2);border-left:3px solid var(--accent);
+  padding:9px 12px;margin:10px 0;border-radius:0 6px 6px 0;line-height:1.5}
+.calc-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:10px 0}
+.calc-grid label{display:flex;flex-direction:column;gap:4px;font-family:var(--mono);font-size:11.5px;color:var(--ink-3)}
+.calc-grid input{font-family:var(--mono);font-size:14px;padding:6px 8px;border:1px solid var(--rule);
+  border-radius:6px;background:var(--surface);color:var(--ink)}
+.two-ways{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}
+.way{border:1px solid var(--rule);border-radius:8px;padding:11px 13px;background:var(--surface-2)}
+.way h4{margin:0 0 7px;font-size:13px;letter-spacing:.02em}
+.way .big{font-family:var(--mono);font-size:22px;font-weight:600;color:var(--accent)}
+.way .step{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);margin:3px 0 0}
+.way.mid .big{color:var(--up)}
+.sorter .opts3{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}
+.sorter .opts3 button{font:inherit;font-size:12.5px;padding:6px 11px;border:1px solid var(--rule);
+  border-radius:999px;background:var(--surface);color:var(--ink);cursor:pointer}
+.sorter .opts3 button:hover{border-color:var(--accent)}
+.sorter .verdict{margin-top:9px;font-size:13.5px}
+.sorter .verdict.ok{color:var(--up)}
+.sorter .verdict.no{color:var(--down)}
+@media (max-width:620px){.calc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .two-ways{grid-template-columns:1fr}}
+</style>
+
+
+<div class="bar">
+  <div class="bar-in">
+    <span class="bar-title">Micro &middot; Module 46</span>
+    <span class="progress">
+      <span class="progress-track"><span class="progress-fill" id="pfill"></span></span>
+      <span class="progress-num" id="pnum">0 / 16</span>
+    </span>
+    <button type="button" id="resetBtn">Reset progress</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+<p class="eyebrow">AP Microeconomics &middot; Unit 2 &middot; Student guide</p>
+  <h1>Income Effects, Substitution Effects, and Elasticity</h1>
+  <p class="standfirst">Sixteen terms from Module 46 of <i>Krugman&rsquo;s Economics for AP</i>. First,
+  <i>why</i> demand curves slope downward &mdash; the explanation Module 5 never gave you. Then the
+  measurement that the rest of this unit runs on: elasticity.</p>
+  <div class="source-line">
+    <span>Textbook pages 458&ndash;465</span><span>&middot;</span><span>16 terms</span><span>&middot;</span>
+    <span>Topics 2.1 and 2.3</span><span>&middot;</span><span>1&frac12; periods</span>
+  </div>
+<section class="section" id="howto">
+  <h2>How to use this guide</h2>
+  <p>Read Module 46 in your textbook first. Entries 1 to 8 are the two effects that explain the law of
+  demand; entries 9 to 14 are elasticity and how to calculate it; entries 15 and 16 are a first look
+  at what the number means, which the next module finishes.</p>
+  <ul>
+    <li><b>&#9733; Exam</b> means the framework can test it.</li>
+    <li><b>&#9733; &#9873;</b> means it is examinable <b>and Module 46 of your textbook does not
+      teach it</b>. Entry 14 carries the flag.</li>
+    <li><b>&#9675; Background</b> means it helps you understand the topic but will not be asked about
+      on its own.</li>
+    <li>Every entry ends with two <b>Check yourself</b> questions. Answer them before opening the
+      answer, then tick <b>Got it</b>.</li>
+  </ul>
+  <div class="flag">
+    <p><b>The one idea.</b> A price change does <b>two</b> things at once: it changes what this good
+    costs <i>relative to</i> others (substitution), and it changes what your money will buy at all
+    (income). Elasticity then measures how big the resulting move is &mdash; as a ratio of two
+    percentage changes, never in units.</p>
+  </div>
+  <div class="notinbook"><p><b>&#9873; One warning about method.</b> Your textbook builds this module
+  on the <b>midpoint method</b>. Your course defines elasticity as a ratio of two percentage changes
+  and never names a technique, and its own questions hand you the percentages. Learn the method; learn
+  what the number means first. That is entry 14.</p></div>
+</section>
+
+<!-- ============ THE FIGURE ============ -->
+<section class="section" id="figure">
+  <h2>The diagram this module is built on</h2>
+  <p>Your textbook&rsquo;s Figure 46.1. Two points on one demand curve: at <b>$20</b> buyers take
+  <b>10.0 million</b> vaccinations a year (point A); at <b>$21</b> they take <b>9.9 million</b>
+  (point B). That is a 5% rise in price against a 1% fall in quantity &mdash; an elasticity of
+  <b>0.2</b>, and the whole module is about what that number means and how to get it.</p>
+  <div class="widget">
+    <div class="widget-title">Figure 46.1 &middot; the demand for vaccinations</div>
+    <svg class="line-svg" viewBox="0 0 680 430" role="img"
+         aria-label="A demand curve for vaccinations through two points, $20 at 10.0 million and $21 at 9.9 million">
+      <line class="ax" x1="80" y1="40" x2="80" y2="380"></line>
+      <line class="ax" x1="80" y1="380" x2="640" y2="380"></line>
+      <text class="axl" x="16" y="26" text-anchor="start">Price of a vaccination</text>
+      <text class="axl" x="640" y="424" text-anchor="end">Quantity of vaccinations (millions per year)</text>
+      <line class="tick" x1="147.5" y1="380" x2="147.5" y2="384"></line>
+      <text class="tl" x="147.5" y="398" text-anchor="middle">9.8</text>
+      <line class="tick" x1="282.5" y1="380" x2="282.5" y2="384"></line>
+      <text class="tl" x="282.5" y="398" text-anchor="middle">9.9</text>
+      <line class="tick" x1="417.5" y1="380" x2="417.5" y2="384"></line>
+      <text class="tl" x="417.5" y="398" text-anchor="middle">10.0</text>
+      <line class="tick" x1="552.5" y1="380" x2="552.5" y2="384"></line>
+      <text class="tl" x="552.5" y="398" text-anchor="middle">10.1</text>
+      <line class="tick" x1="76" y1="380" x2="80" y2="380"></line>
+      <text class="tl" x="70" y="384" text-anchor="end">$19</text>
+      <line class="tick" x1="76" y1="273.3" x2="80" y2="273.3"></line>
+      <text class="tl" x="70" y="277.3" text-anchor="end">$20</text>
+      <line class="tick" x1="76" y1="166.7" x2="80" y2="166.7"></line>
+      <text class="tl" x="70" y="170.7" text-anchor="end">$21</text>
+      <line class="tick" x1="76" y1="60" x2="80" y2="60"></line>
+      <text class="tl" x="70" y="64" text-anchor="end">$22</text>
+      <line class="curve" x1="147.5" y1="60" x2="552.5" y2="380"></line>
+      <text class="cl" x="546.5" y="372">D</text>
+      <circle class="pt pt-on" cx="417.5" cy="273.3" r="5"></circle>
+      <text class="ptl" x="427.5" y="264.3" text-anchor="start">A &#160;$20, 10.0m</text>
+      <circle class="pt pt-on" cx="282.5" cy="166.7" r="5"></circle>
+      <text class="ptl" x="272.5" y="157.7" text-anchor="end">B &#160;$21, 9.9m</text>
+    </svg>
+    <p class="figcap">A move from A to B: price up $1 in $20, quantity down 0.1 million in
+    10.0 million. Elasticity 1% &divide; 5% = 0.2 &mdash; barely responsive.</p>
+  </div>
+</section>
+
+<!-- ============ THE CALCULATOR ============ -->
+<section class="section" id="calc">
+  <h2>Both methods, side by side</h2>
+  <p>Type any two price&ndash;quantity pairs, or load one of your textbook&rsquo;s own cases. The left
+  panel divides by where you <b>started</b>; the right divides by the <b>average</b> of the two
+  values. Watch what happens to the left panel when you swap the two points round &mdash; and what
+  does not happen to the right one.</p>
+  <div class="widget">
+    <div class="widget-title">Price elasticity of demand</div>
+    <div class="chips" id="calcPresets"></div>
+    <div class="calc-grid">
+      <label>Price 1<input type="text" id="p1" value="20"></label>
+      <label>Quantity 1<input type="text" id="q1" value="10"></label>
+      <label>Price 2<input type="text" id="p2" value="21"></label>
+      <label>Quantity 2<input type="text" id="q2" value="9.9"></label>
+    </div>
+    <div class="chips"><button type="button" class="chip" id="swapBtn">Swap the two points</button></div>
+    <div class="two-ways">
+      <div class="way">
+        <h4>Initial-value method &mdash; Equations 46-1 and 46-2</h4>
+        <p class="big" id="eSimple">0.20</p>
+        <p class="step" id="sSimple"></p>
+      </div>
+      <div class="way mid">
+        <h4>Midpoint method &mdash; Equations 46-4 and 46-5</h4>
+        <p class="big" id="eMid">0.21</p>
+        <p class="step" id="sMid"></p>
+      </div>
+    </div>
+    <p class="figcap" id="calcCap"></p>
+  </div>
+</section>
+
+<!-- ============ THE SORTER ============ -->
+<section class="section" id="sorter">
+  <h2>Which effects are at work?</h2>
+  <p>Twelve cases. For each one, decide whether only the substitution effect matters, or whether the
+  income effect matters too &mdash; and if it does, whether the two push the <b>same</b> way or
+  <b>opposite</b> ways. Two questions get you there: is this good a large share of spending, and is it
+  normal or inferior?</p>
+  <div class="widget sorter" id="sortWidget">
+    <div class="widget-title">Substitution only, both the same way, or both opposed?</div>
+    <p class="stem" id="sortStem"></p>
+    <div class="opts3">
+      <button type="button" data-a="sub">Substitution only</button>
+      <button type="button" data-a="same">Both, same direction</button>
+      <button type="button" data-a="opp">Both, opposite directions</button>
+    </div>
+    <p class="verdict" id="sortVerdict"></p>
+    <div class="chips">
+      <button type="button" class="chip" id="sortNext">Next case</button>
+      <span class="progress-num" id="sortScore">0 / 0</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE ENTRIES ============ -->
+<section class="section" id="entries">
+  <h2>The sixteen terms</h2>
+</section>
+
+<article class="entry" id="e1">
+  <div class="entry-head"><span class="entry-num">01</span><h2>The substitution effect</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>When the price of a good rises, you buy <b>less of it and more of other things</b>, because the other things have become relatively cheaper. When its price falls, you do the reverse.</p></div>
+  <p class="reading">Textbook page 458.</p>
+
+  <p>Nothing about your pay has changed. What has changed is the <b>exchange rate between the two
+  goods</b>. Think of it in opportunity cost, the way your textbook does: if a coffee costs $4 and a
+  sandwich costs $8, one sandwich costs you two coffees. Let the sandwich price fall to $6 and a
+  sandwich now costs you one and a half coffees. Sandwiches got cheaper <i>in terms of coffee</i>, so
+  you buy more of them &mdash; even though the coffee price never moved.</p>
+  <p>This is the main reason demand curves slope downward. For most goods it is the <b>only</b>
+  reason that matters.</p>
+
+  <div class="watch"><p><b>Watch out.</b> The substitution effect is about <b>relative</b> prices, not about being better or worse off. A student who explains it by saying &ldquo;the good is dearer so I can afford less&rdquo; has described the other effect.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Cinema tickets rise, streaming does not.</span> You watch more at home. Streaming did not get cheaper in pounds; it got cheaper <i>relative to</i> a ticket.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Train fares fall on your route.</span> You take the train more and drive less. Driving costs what it always did &mdash; the train just became the better buy.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Apples and pears sit side by side.</span> Apples go up 20p; shoppers reach for pears. The closer two goods are, the bigger this effect.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the first half of <a href="#e2">the income effect</a> (entry 2), and with <a href="#e4">the income effect</a> (entry 4) it explains <a href="#e4">why demand curves slope downward</a> (entry 4). Whether it is the whole story depends on how responsive buyers turn out to be &mdash; which is <a href="#e15">elastic and inelastic demand</a> (entry 15).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">1.1</span> The price of tea doubles. Tea is 0.5% of your spending. Which effect explains what you do?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>The substitution effect, almost entirely. Because tea is a tiny share of your spending, the fact that you are slightly poorer in real terms changes nothing you can notice.</p></div></details></div>
+    <div class="q"><p><span class="qn">1.2</span> Two goods both rise 10% on the same day. Is there a substitution effect between them?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. Neither has become relatively cheaper than the other, so the substitution effect between <i>those two</i> is zero. You may still buy less of both, which is the other effect at work.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got1"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e2">
+  <div class="entry-head"><span class="entry-num">02</span><h2>The income effect</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A price change alters what your money will buy. That change in <b>purchasing power</b> changes what you buy &mdash; on top of any substitution.</p></div>
+  <p class="reading">Textbook page 459.</p>
+
+  <p>Your textbook's example: a family spends <b>half its income on rent</b>. Rents rise everywhere.
+  Two different things now happen.</p>
+  <ul>
+    <li>Housing is relatively dearer, so the family wants less of it and more of everything else.
+      That is substitution.</li>
+    <li>The family is <b>genuinely poorer</b>. The same pay no longer stretches as far. That alone
+      changes every choice it makes, housing included.</li>
+  </ul>
+  <p>The second is the income effect. It is big only when the good <b>takes a large share of
+  spending</b>, which is why it shows up for rent and almost never for pillow cases.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Nobody's income changed. Saying &ldquo;the income effect is when your income changes&rdquo; is the single commonest error in this module. The <b>price</b> changed, and that changed what your unchanged income will buy.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Rent rises 20% and you spend half your income on it.</span> You are about 10% poorer in real terms. You cut back on everything, not only on housing.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Petrol doubles and you drive to work.</span> A large share of your budget, so a large income effect: fewer restaurant meals, not just fewer miles.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Shoelaces double from 50p to &pound;1.</span> The income effect is real but invisible &mdash; you are 50p poorer a year. Only substitution matters here.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the second half of <a href="#e1">the substitution effect</a> (entry 1) and the reason <a href="#e4">the explanation of the law of demand</a> (entry 4) matters; it works through <a href="#e3">real income</a> (entry 3), and which way it pushes depends on whether the good is <a href="#e5">normal</a> (entry 5).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">2.1</span> Bread rises 10p. You spend 0.3% of your income on bread. How big is the income effect?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Tiny &mdash; about 0.03% of your purchasing power. Real, but not worth modelling. Your textbook would say the substitution effect is the whole story here.</p></div></details></div>
+    <div class="q"><p><span class="qn">2.2</span> Why does your textbook use housing rather than chewing gum to explain this effect?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because the effect is proportional to the <b>share of income</b> the good absorbs. Housing can be half a budget; chewing gum never is.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got2"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e3">
+  <div class="entry-head"><span class="entry-num">03</span><h2>Real income, and money income</h2><span class="mark bgm">&#9675; Background</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p><b>Real income</b> is what your money will actually buy. <b>Money income</b> (or nominal income) is the number on your payslip, unadjusted.</p></div>
+  <p class="reading">Textbook page 459.</p>
+
+  <p>This is the machinery behind the income effect. When the price of something you buy a lot of
+  goes up, your money income is untouched and your <b>real income falls</b>. Your textbook puts it
+  exactly this way: income adjusted to reflect its true purchasing power is called real income, as
+  against money or nominal income, &ldquo;which has not been adjusted&rdquo;.</p>
+  <p>You will not be asked to define these two terms in this unit. You will be asked why a price rise
+  makes a buyer behave as though they were poorer, and this is the answer.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Real income can fall while money income rises. If your pay goes up 2% and the things you buy go up 5%, you are worse off &mdash; and you will behave like it.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Your wage is unchanged; the bus fare doubles.</span> Money income the same, real income lower. You feel poorer because you are.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Everything you buy falls 10% and your pay is frozen.</span> Money income flat, real income up about 11%. A price fall is a pay rise in disguise.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Your pay rises 3%; your rent, which is half your spending, rises 10%.</span> Money income up 3%, real income down: the rent rise alone costs you about 5% of your purchasing power.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is how <a href="#e2">the income effect</a> (entry 2) actually works, and it is why a percentage change &mdash; not a change in pounds &mdash; is the right unit of measurement, which is <a href="#e11">the point of percent change</a> (entry 11).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">3.1</span> Prices in general rise 4% and your pay rises 4%. Has your real income changed?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. Money income is up 4%, prices are up 4%, and what your money buys is where it started.</p></div></details></div>
+    <div class="q"><p><span class="qn">3.2</span> Does the income effect of a price <i>fall</i> make you richer or poorer in real terms?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Richer. A fall in the price of something you buy means the same money income commands more goods, and that pushes your quantity demanded up alongside substitution.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got3"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e4">
+  <div class="entry-head"><span class="entry-num">04</span><h2>Why demand curves slope downward</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Put the two effects together and you have the law of demand explained rather than asserted: a higher price means <b>less of this good</b>, by substitution and usually by income as well.</p></div>
+  <p class="reading">Textbook page 458.</p>
+
+  <p>In Module 5 you were told the demand curve slopes downward and shown that it does. Here is
+  <b>why</b>. A price rise does two things to a buyer at once:</p>
+  <ul>
+    <li><b>Substitution:</b> this good is now relatively dear, so switch away from it.</li>
+    <li><b>Income:</b> this good now eats more of the budget, so you are poorer in real terms.</li>
+  </ul>
+  <p>For most goods the first does all the work and the second is too small to see. For goods that
+  take a big share of spending, both matter, and for a <b>normal</b> good they push the same way, so
+  the curve slopes downward all the more firmly.</p>
+  <p>Your course will accept a second, separate explanation as well &mdash; diminishing marginal
+  utility, which you met in Unit 1. Either route is a complete answer.</p>
+
+  <div class="watch"><p><b>Watch out.</b> &ldquo;Because people buy less when things cost more&rdquo; restates the law; it does not explain it. An explanation names an <b>effect</b>: substitution, income, or diminishing marginal utility.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Why does less petrol get bought at &pound;2 than at &pound;1.50?</span> Substitution towards buses, cycling and shorter trips, plus a real income loss for anyone who drives a lot.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Why does a 10% rise in cinema prices cut ticket sales?</span> Almost all substitution &mdash; streaming, bowling, staying in. Cinema is too small a share of spending for income to matter.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Why does a rent rise cut the number of rooms rented?</span> Both, and strongly: tenants downsize (substitution) and are poorer (income).</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the joint work of <a href="#e1">substitution</a> (entry 1) and <a href="#e2">income</a> (entry 2); the exception that would break it is <a href="#e8">the Giffen good</a> (entry 8), and <a href="#e16">your textbook's table of estimates</a> (entry 16) shows how differently it bites from one good to the next.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">4.1</span> A question asks you to explain the law of demand in two sentences. Write them.</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>A rise in the price of a good makes it relatively dearer than its alternatives, so buyers substitute towards those alternatives. It also lowers buyers' real income, which for a normal good reduces the quantity demanded further.</p></div></details></div>
+    <div class="q"><p><span class="qn">4.2</span> Does the demand curve slope downward for a good with no close substitutes at all?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Yes. The substitution effect is smaller, so the curve is steeper, but a higher price still costs real income and still leaves some buyers out. Fewer substitutes means less responsive, not upward sloping.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got4"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e5">
+  <div class="entry-head"><span class="entry-num">05</span><h2>Normal goods</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A good you buy <b>more</b> of when your income rises, and less of when it falls.</p></div>
+  <p class="reading">Textbook page 459.</p>
+
+  <p>Your textbook's words: normal goods are &ldquo;goods for which demand decreases when income
+  falls&rdquo;. The vast majority of what you buy is normal.</p>
+  <p>This matters here because it fixes the <b>direction</b> of the income effect. A price rise makes
+  you poorer in real terms; being poorer makes you buy less of a normal good; so for a normal good
+  the income effect <b>reinforces</b> the substitution effect. Both push quantity demanded down.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Normal is not the same as necessary, and it is not a compliment. Caviar and bus passes can both be normal; it is only about which way demand moves when income moves.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Restaurant meals.</span> Pay rise, more of them; pay cut, fewer. Normal.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Holidays abroad.</span> Strongly normal &mdash; and the most price-responsive good in your textbook's own table.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Rented housing, in the textbook's example.</span> Assumed normal, which is why the family's two effects pull the same way.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the opposite of <a href="#e6">an inferior good</a> (entry 6), and it is what makes <a href="#e2">the income effect</a> (entry 2) reinforce <a href="#e10">the price elasticity you measure</a> (entry 10).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">5.1</span> A price rise for a normal good: which way does each effect push quantity demanded?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Substitution pushes it down. Income also pushes it down, because the buyer is poorer in real terms and this is a good they buy less of when poorer. Both agree.</p></div></details></div>
+    <div class="q"><p><span class="qn">5.2</span> You later meet &ldquo;income elasticity of demand&rdquo;. What sign will it have for a normal good?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Positive: income up, quantity demanded up. That is Topic 2.5 and the next module but one &mdash; the definition you are learning here is what it measures.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got5"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e6">
+  <div class="entry-head"><span class="entry-num">06</span><h2>Inferior goods</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A good you buy <b>less</b> of when your income rises &mdash; and more of when it falls.</p></div>
+  <p class="reading">Textbook page 459.</p>
+
+  <p>Your textbook: an inferior good is &ldquo;a good for which demand increases when income
+  falls&rdquo;. Instant noodles, supermarket own-brands, long-distance coach travel, second-hand
+  clothes. People move <i>off</i> them as they get richer.</p>
+  <p>Inferior goods are where this module gets interesting, because the income effect now runs
+  <b>against</b> the substitution effect rather than with it.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Inferior does not mean poor quality. It is defined only by what happens to demand when income changes. Plenty of inferior goods are perfectly good things.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Supermarket own-brand pasta.</span> A pay rise and shoppers switch to the branded one. Inferior.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">The coach instead of the train.</span> Cheap, slow, and the first thing dropped when money allows.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Cafeteria meals, in your textbook's own review question.</span> Students eat there <i>more</i> when the meal ticket gets dearer, because they are poorer.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the opposite of <a href="#e5">a normal good</a> (entry 5), and it is the case in which <a href="#e7">the two effects pull in opposite directions</a> (entry 7).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">6.1</span> Your income falls 20%. What happens to your demand for an inferior good?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>It rises. That is the definition &mdash; demand increases when income falls.</p></div></details></div>
+    <div class="q"><p><span class="qn">6.2</span> Is an inferior good's demand curve upward sloping?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. Almost never, anyway: see entries 7 and 8. The substitution effect still dominates, so a price rise still cuts the quantity demanded.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got6"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e7">
+  <div class="entry-head"><span class="entry-num">07</span><h2>When the two effects pull apart</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>For an <b>inferior</b> good, a price rise makes buyers poorer, and poorer buyers want <b>more</b> of it. The income effect now works <b>against</b> the substitution effect.</p></div>
+  <p class="reading">Textbook pages 459&ndash;460.</p>
+
+  <p>Line the two up for a price <b>rise</b>:</p>
+  <table class="tbl">
+    <thead><tr><th>Good</th><th>Substitution effect</th><th>Income effect</th><th>Together</th></tr></thead>
+    <tbody>
+      <tr><td><b>Normal</b></td><td>quantity down</td><td>quantity down</td><td>down, firmly</td></tr>
+      <tr><td><b>Inferior</b></td><td>quantity down</td><td>quantity <b>up</b></td><td>down, but by less</td></tr>
+    </tbody>
+  </table>
+  <p>The substitution effect almost always wins, so quantity demanded still falls and the law of
+  demand still holds. Your textbook's advice is exactly this: &ldquo;You can generally assume that
+  the income effect for an inferior good is smaller than the substitution effect.&rdquo;</p>
+
+  <div class="watch"><p><b>Watch out.</b> Opposite directions does <b>not</b> mean they cancel. One is nearly always much the larger, and the question to ask is which &mdash; not whether.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">The price of cafeteria meals rises.</span> Substitution says eat out more; income says you are poorer, so eat in more. Your textbook's students eat in more &mdash; income wins.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Own-brand pasta rises 30p.</span> Substitution says buy the branded one; income says you are poorer, so buy more own-brand. Normally substitution wins and sales fall.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Coach fares rise on a student's only route home.</span> Substitution towards the train, income towards the coach. Which wins is an empirical question, not a definition.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is what makes <a href="#e6">an inferior good</a> (entry 6) different from a normal good, and taken to the extreme it is <a href="#e8">a Giffen good</a> (entry 8).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">7.1</span> For an inferior good, a price <i>fall</i>: which way does each effect push?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Substitution pushes quantity demanded up. Income pushes it down &mdash; the buyer is now richer in real terms and buys less of an inferior good. They oppose, and substitution normally wins.</p></div></details></div>
+    <div class="q"><p><span class="qn">7.2</span> Why does your textbook say the law of demand still holds for inferior goods?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because the income effect is the smaller of the two in practice, so the downward substitution effect carries the day and quantity demanded still falls when price rises.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got7"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e8">
+  <div class="entry-head"><span class="entry-num">08</span><h2>Giffen goods</h2><span class="mark bgm">&#9675; Background</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The theoretical case where the income effect is <b>bigger</b> than the substitution effect, so a price rise would raise the quantity demanded and the demand curve would slope upward.</p></div>
+  <p class="reading">Textbook page 459 (the <i>fyi</i> box) and page 460.</p>
+
+  <p>The story is nineteenth-century Irish potatoes: potatoes were inferior and took a huge share of
+  a poor family's budget, so a price rise made families so much poorer that they ate <i>more</i>
+  potatoes and less of everything else.</p>
+  <p>Your textbook is blunt about it: the story &ldquo;has never been validated in any real
+  situation, nineteenth-century Ireland included&rdquo;, and &ldquo;the law of demand really is a
+  law, with few exceptions&rdquo;. Learn it as the limiting case that shows you understand the two
+  effects &mdash; not as a counter-example you will ever have to use.</p>
+
+  <div class="watch"><p><b>Watch out.</b> A Giffen good needs <b>both</b> conditions: inferior <i>and</i> a large share of spending. An inferior good on its own is nowhere near enough.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Irish potatoes in the famine era.</span> The classic claim, and still unproven.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">An inferior good that is 2% of your budget.</span> Cannot be Giffen. The income effect has nothing to work with.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Your textbook's own cafeteria question.</span> Its solution says that because students eat in <i>more</i> as the ticket price rises, cafeteria meals there are a Giffen good &mdash; the one worked case in the book.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the extreme of <a href="#e7">the two effects pulling apart</a> (entry 7), and it is the only thing that would break <a href="#e4">the law of demand</a> (entry 4).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">8.1</span> Why can a normal good never be Giffen?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because for a normal good the income effect pushes the same way as substitution. There is nothing pulling the other way, so quantity demanded must fall when price rises.</p></div></details></div>
+    <div class="q"><p><span class="qn">8.2</span> Name the two conditions a Giffen good must satisfy.</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>It must be inferior, and it must absorb a large enough share of spending for the income effect to outweigh the substitution effect.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got8"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e9">
+  <div class="entry-head"><span class="entry-num">09</span><h2>Elasticity</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A measure of <b>how responsive</b> one thing is to a change in another &mdash; expressed as a ratio of percentage changes, so it has no units.</p></div>
+  <p class="reading">Textbook page 460.</p>
+
+  <p>Up to now you have answered direction questions: price up, quantity down. Elasticity answers the
+  question a business actually has to ask: <b>by how much?</b></p>
+  <p>Your textbook's framing is the 2004 flu-vaccine panic. A distributor wondering whether to raise
+  its price does not need to know that sales will fall &mdash; everyone knows that. It needs to know
+  whether they will fall <i>a lot or a little</i>.</p>
+  <p>Elasticity is a general tool. You can measure the responsiveness of quantity to the good's own
+  price, to income, or to the price of some other good. This module does the first; your course does
+  all three.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Elasticity is a <b>ratio of two percentage changes</b>, not a change. &ldquo;Demand fell by 300 units&rdquo; is not an elasticity and cannot be turned into one without knowing what it fell from.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Quantity falls 10% when price rises 5%.</span> Elasticity 2. Responsive.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Quantity falls 1% when price rises 5%.</span> Elasticity 0.2 &mdash; your textbook's vaccine figure. Barely responsive.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Quantity rises 8% when income rises 4%.</span> Elasticity 2 as well &mdash; but of income, not price. Same tool, different variable.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> The version of it this module measures is <a href="#e10">the price elasticity of demand</a> (entry 10), and the numbers it produces are collected in <a href="#e16">your textbook's table of estimates</a> (entry 16).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">9.1</span> Why does elasticity use percentages rather than units?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>So the answer does not depend on how the good is measured. Doses or boxes, pounds or pence &mdash; the percentage change is the same, so the elasticity is the same.</p></div></details></div>
+    <div class="q"><p><span class="qn">9.2</span> Can you compute an elasticity from &ldquo;price rose $1 and quantity fell 200&rdquo;?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. You need the starting values to turn both into percentages. $1 on a $2 good is a very different thing from $1 on a $200 one.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got9"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e10">
+  <div class="entry-head"><span class="entry-num">10</span><h2>Price elasticity of demand</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The <b>percentage change in quantity demanded</b> divided by the <b>percentage change in price</b>, reported without its minus sign.</p></div>
+  <p class="reading">Textbook pages 460&ndash;461, Figure 46.1 and Equation 46-3.</p>
+
+  <p>This is the one formula the whole topic is built on:</p>
+  <p class="formula">price elasticity of demand = % change in quantity demanded &divide; % change in price</p>
+  <p>Your textbook's worked case is Figure 46.1, drawn above. A vaccination costs $20 and 10.0 million
+  are bought. Raise the price to $21 and 9.9 million are bought.</p>
+  <ul>
+    <li>Quantity: a fall of 0.1 million from 10.0 million, so <b>&minus;1%</b>.</li>
+    <li>Price: a rise of $1 from $20, so <b>+5%</b>.</li>
+    <li>Elasticity: 1% &divide; 5% = <b>0.2</b>.</li>
+  </ul>
+  <p>0.2 is a small number, and it is exactly what the vaccine distributor hoped for: buyers hardly
+  respond, so a price rise does not cost it many sales.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Answer with a <b>number</b>, not a direction. &ldquo;Quantity demanded falls&rdquo; earns nothing on a question that asks for the price elasticity of demand.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">$20 &rarr; $21, 10.0m &rarr; 9.9m.</span> 1% &divide; 5% = 0.2. Your textbook's own figure.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Price up 2%, quantity down 10%.</span> 10% &divide; 2% = 5. The textbook's MCQ 5.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Price up 25%, quantity down 10%.</span> 10% &divide; 25% = 0.4 &mdash; about the figure your textbook reports for beef.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the version of <a href="#e9">elasticity</a> (entry 9) this topic uses; it needs <a href="#e11">percent change</a> (entry 11), it is reported in <a href="#e12">absolute value</a> (entry 12), and it can be computed two ways, which is <a href="#e13">the midpoint method</a> (entry 13) and <a href="#e5">why normal and inferior goods differ only in the income part</a> (entry 5).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">10.1</span> A shop raises a price 4% and sells 2% fewer. What is the price elasticity of demand?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>2% &divide; 4% = 0.5.</p></div></details></div>
+    <div class="q"><p><span class="qn">10.2</span> Elasticity comes out as 3. Say in words what that means.</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Quantity demanded changes by three times the percentage that price changes, in the opposite direction. Buyers are very responsive.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got10"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e11">
+  <div class="entry-head"><span class="entry-num">11</span><h2>Percent change</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Change &divide; starting value &times; 100. It is how both halves of the elasticity ratio are built.</p></div>
+  <p class="reading">Textbook pages 460&ndash;461, Equations 46-1 and 46-2.</p>
+
+  <p>Your textbook writes the two equations separately because students get them the wrong way up:</p>
+  <p class="formula">% change in quantity demanded = (change in quantity demanded &divide; initial quantity demanded) &times; 100</p>
+  <p class="formula">% change in price = (change in price &divide; initial price) &times; 100</p>
+  <p>Both are divided by where you <b>started</b>. That is what makes this the initial-value method,
+  and it is the method the review question on ice-cream sandwiches tells you to use.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Divide by the <b>starting</b> value, not by the new one and not by the change. Going from 100 to 120 is a 20% rise; going back from 120 to 100 is a 16.7% fall. Same move, two numbers &mdash; and that is the problem entry 13 solves.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">800 &rarr; 500.</span> &minus;300 &divide; 800 = &minus;37.5%.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">$0.50 &rarr; $0.55.</span> $0.05 &divide; $0.50 = +10% &mdash; and with an elasticity of 1.2 that is a 12% fall, or 12,000 fewer ice-cream sandwiches.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">10.0m &rarr; 9.9m.</span> &minus;0.1 &divide; 10.0 = &minus;1%.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It builds <a href="#e10">the price elasticity of demand</a> (entry 10), it is measured against <a href="#e3">the value you started from</a> (entry 3), and comparing it with the average instead of the start is <a href="#e13">the midpoint method</a> (entry 13).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">11.1</span> Quantity goes from 250 to 200. What is the percent change?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>&minus;50 &divide; 250 = &minus;20%.</p></div></details></div>
+    <div class="q"><p><span class="qn">11.2</span> Why does the direction you travel change the answer?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because the starting value changes. From 100 up to 120 you divide by 100; from 120 down to 100 you divide by 120. Different denominators, different percentages.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got11"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e12">
+  <div class="entry-head"><span class="entry-num">12</span><h2>Absolute value &mdash; dropping the minus sign</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Price and quantity demanded always move in opposite directions, so the raw ratio is negative. Elasticity is reported as its <b>magnitude</b>, without the sign.</p></div>
+  <p class="reading">Textbook pages 461&ndash;462.</p>
+
+  <p>Your textbook says economists &ldquo;usually drop the minus sign and report the absolute value
+  of the price elasticity of demand&rdquo;. Examiners write the same thing as <b>absolute value</b>,
+  and you will see questions phrased as &ldquo;if the absolute value of the price elasticity of demand
+  is 0.92 &hellip;&rdquo;.</p>
+  <p>So write 0.2, or write |E<sub>d</sub>| = 0.2. Do not write &minus;0.2 unless the question asks
+  for the signed value &mdash; but <b>do</b> be able to say why it is negative: the law of demand.</p>
+  <p>The sign carries no information for price elasticity of demand, because it is always the same
+  sign. For the other elasticities you meet later, the sign is the whole point.</p>
+
+  <div class="watch"><p><b>Watch out.</b> &ldquo;Larger&rdquo; elasticity means larger in magnitude. 0.1 is smaller than 0.5, and &minus;4 is <b>bigger</b> than &minus;2 in the only sense this topic uses.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">The ratio works out at &minus;0.2.</span> Report 0.2.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">An exam says &ldquo;the absolute value of the price elasticity of demand is 0.92&rdquo;.</span> Nothing is missing. That is the ordinary way to say it.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A student writes &ldquo;elasticity = &minus;1.67, so demand is negative&rdquo;.</span> The sign is not a property of demand; it is the law of demand showing up in the arithmetic.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is how the answer from <a href="#e10">the elasticity formula</a> (entry 10) is reported, and it is the one thing the two methods in <a href="#e14">the method question</a> (entry 14) always agree on.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">12.1</span> Why is the price elasticity of demand negative before you drop the sign?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because the numerator and the denominator always have opposite signs: price up means quantity demanded down, and the other way round.</p></div></details></div>
+    <div class="q"><p><span class="qn">12.2</span> Which is more elastic, &minus;0.3 or &minus;2.5?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>&minus;2.5. Compare magnitudes: 2.5 is far bigger than 0.3.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got12"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e13">
+  <div class="entry-head"><span class="entry-num">13</span><h2>The midpoint method</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Compute each percent change against the <b>average</b> of the two values rather than the starting one, so travelling up or down gives the same answer.</p></div>
+  <p class="reading">Textbook pages 462&ndash;464, Equations 46-4 and 46-5.</p>
+
+  <p>Your textbook motivates it with petrol. European petrol costs about three times American petrol.
+  Measured from America it is <b>200% higher</b>; measured from Europe, American petrol is
+  <b>66.7% lower</b>. Same two prices, two different percentages, and therefore two different
+  elasticities for the same pair of points.</p>
+  <p>The fix is to divide by the midpoint of the two values:</p>
+  <p class="formula">% change in X = (change in X &divide; average value of X) &times; 100,
+  where the average value of X = (starting value + final value) &divide; 2</p>
+  <p>Do it for both the price and the quantity and the elasticity is the same in both directions.
+  Your textbook's strawberry case: $1.50 &rarr; $1.00 and 100,000 &rarr; 200,000 cartons gives
+  &minus;40% on price and +66.7% on quantity, so an elasticity of <b>1.67</b> whichever way you
+  travel.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Use the average in <b>both</b> halves or not at all. Mixing a midpoint quantity with an initial-value price is the most frequent way to lose the mark.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">$1.50 &rarr; $1.00, 100,000 &rarr; 200,000.</span> &minus;40% and +66.7%, so elasticity 1.67. Travel the other way and it is still 1.67.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">4,000 &rarr; 5,000 tickets.</span> 1,000 &divide; 4,500 = 22.2%. If elasticity is 1, the price must fall by the same 22.2%.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">$2 &rarr; $4 with 800 &rarr; 500.</span> &minus;46.2% and +66.7%, so 0.69 &mdash; your textbook's own free-response answer.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is a different way to build <a href="#e11">the percent changes</a> (entry 11) for <a href="#e10">the price elasticity of demand</a> (entry 10), and whether an exam wants it is <a href="#e14">a question worth settling now</a> (entry 14).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">13.1</span> Why does the midpoint method give the same answer in both directions?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because the denominator no longer depends on where you started. The average of the two values is the same whichever end you begin at.</p></div></details></div>
+    <div class="q"><p><span class="qn">13.2</span> Price goes from $4 to $6. What is the percent change by each method?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Initial value: $2 &divide; $4 = 50%. Midpoint: $2 &divide; $5 = 40%. Over a jump that big the two methods are genuinely different.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got13"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e14">
+  <div class="entry-head"><span class="entry-num">14</span><h2>Which calculation your exam expects</h2><span class="mark flag">&#9733; &#9873;</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Your course defines the price elasticity of demand as the <b>ratio of two percentage changes</b> and never names a technique for getting them. Exam questions nearly always hand you the percentages, or the elasticity itself.</p></div>
+  <p class="reading">Not in Module 46 &mdash; this entry is the comparison your textbook never makes.</p>
+
+  <div class="notinbook"><p><b>&#9873; Not in Module 46 &mdash; learn it from here.</b> Your textbook teaches one technique as though it were the definition. Your course defines the ratio and leaves the technique open, and its own questions hand you the percentages. Learn the technique, but learn what the number means first.</p></div>
+
+  <p>Your textbook makes the midpoint method the centre of this module: it defines it in the margin,
+  spends three pages on it, and requires it in four of its own review questions. That is a sound way
+  to compute an elasticity over a large price change, and you should be able to do it.</p>
+  <p>But it is a <b>technique</b>, not the definition, and it is not the form exam questions take.
+  Real exam items look like this:</p>
+  <ul>
+    <li>&ldquo;A 2 percent increase in the price of bologna causes a 5 percent decrease in the
+      quantity demanded of cheese&rdquo; &mdash; the percentages are given; divide.</li>
+    <li>&ldquo;If the absolute value of the price elasticity of demand is 0.92 &hellip;&rdquo; &mdash;
+      the elasticity is given; use it.</li>
+  </ul>
+  <p>So carry both. If a question gives you two price&ndash;quantity pairs and asks for a number,
+  either method earns the mark &mdash; say which one you used, and use the same one on both halves of
+  the ratio.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Do not spend your revision time on the midpoint formula at the expense of knowing what an elasticity <b>means</b>. The interpretation questions are the ones that come up.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">&ldquo;Price rises 10%, quantity demanded falls 4%. Find the elasticity.&rdquo;</span> 0.4. No method needed &mdash; both percentages are handed to you. This is the common shape.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">&ldquo;From the table: at $2, 800 units; at $4, 500 units.&rdquo;</span> Now you choose. Midpoint gives 0.69; the starting values give 0.375. State which you used.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">&ldquo;The absolute value of the price elasticity of demand is 0.92. Does spending rise?&rdquo;</span> No calculation of elasticity at all &mdash; you are being asked what 0.92 implies, which is the next module.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the practical form of <a href="#e13">the midpoint method</a> (entry 13), it decides how you use <a href="#e12">the absolute value convention</a> (entry 12), and it is why <a href="#e15">elastic and inelastic</a> (entry 15) is a vocabulary question rather than an arithmetic one.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">14.1</span> An item gives &ldquo;a 6% fall in price led to a 3% rise in quantity demanded&rdquo;. Which method should you use?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Neither &mdash; they are not needed. The percentages are already there: 3 &divide; 6 = 0.5.</p></div></details></div>
+    <div class="q"><p><span class="qn">14.2</span> You compute 0.69 by midpoint and your friend computes 0.75 from the starting values. Who is wrong?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Neither, as long as each says what they did and uses one method consistently. They are two ways of expressing the same movement along the same demand curve.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got14"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e15">
+  <div class="entry-head"><span class="entry-num">15</span><h2>Elastic and inelastic, a first look</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A <b>big</b> elasticity means buyers respond a lot &mdash; demand is elastic. A <b>small</b> one means they hardly respond &mdash; demand is inelastic.</p></div>
+  <p class="reading">Textbook page 461, and Table 46.1 on page 463.</p>
+
+  <p>Module 46 uses both words without pinning them down. Your textbook says a price elasticity of
+  0.2 &ldquo;indicates a small response of quantity demanded to price &hellip; This is what economists
+  call inelastic demand&rdquo;, and that when buyers respond a lot &ldquo;demand is highly
+  elastic&rdquo;.</p>
+  <p>Notice that Table 46.1 is already <b>split into two halves</b> &mdash; inelastic above, elastic
+  below &mdash; with eggs at 0.1 at the top and foreign travel at 4.1 at the bottom. Look at where
+  your textbook draws the line between the halves and you can read off the number that separates
+  them.</p>
+  <p>The next module makes that number official, adds <i>unit elastic</i>, and shows what each case
+  does to a seller's revenue. For now: bigger means more responsive.</p>
+
+  <div class="watch"><p><b>Watch out.</b> These are words about a <b>number</b>, not about a good. The same good can be inelastic over a small price range and elastic over a large one &mdash; which is the next module's main point.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Eggs, 0.1.</span> Deeply inelastic. Price moves, quantity barely does.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Foreign travel, 4.1.</span> Very elastic &mdash; the most responsive good in the table.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Housing, 1.2.</span> Just into your textbook's elastic half, and the first entry below the line.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> A big number means buyers switch away readily, which is <a href="#e1">the substitution effect</a> (entry 1) doing its work; the benchmark that makes these two words precise comes next module; the number itself is what <a href="#e14">the method question</a> (entry 14) is about, and the range of real values is in <a href="#e16">your textbook's estimates</a> (entry 16).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">15.1</span> Which is more elastic: beef at 0.4 or airline travel at 2.4?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Airline travel, by a long way. Six times as responsive to a given percentage price change.</p></div></details></div>
+    <div class="q"><p><span class="qn">15.2</span> Your textbook splits its table into two halves. Looking at the numbers, where does the split fall?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Between gasoline at 0.5 and housing at 1.2 &mdash; that is, at 1. The next module states that benchmark and gives the case of exactly 1 its own name.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got15"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e16">
+  <div class="entry-head"><span class="entry-num">16</span><h2>What real elasticities look like</h2><span class="mark bgm">&#9675; Background</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Estimated price elasticities of demand for everyday goods, from the Houthakker&ndash;Taylor study your textbook reproduces.</p></div>
+  <p class="reading">Textbook page 463, Table 46.1.</p>
+
+  <table class="tbl">
+    <thead><tr><th>Good</th><th>Price elasticity of demand</th></tr></thead>
+    <tbody>
+      <tr><td colspan="2"><b>Inelastic demand</b></td></tr>
+      <tr><td>Eggs</td><td>0.1</td></tr>
+      <tr><td>Beef</td><td>0.4</td></tr>
+      <tr><td>Stationery</td><td>0.5</td></tr>
+      <tr><td>Gasoline</td><td>0.5</td></tr>
+      <tr><td colspan="2"><b>Elastic demand</b></td></tr>
+      <tr><td>Housing</td><td>1.2</td></tr>
+      <tr><td>Restaurant meals</td><td>2.3</td></tr>
+      <tr><td>Airline travel</td><td>2.4</td></tr>
+      <tr><td>Foreign travel</td><td>4.1</td></tr>
+    </tbody>
+  </table>
+  <p>You will not be asked to recall these numbers. What they are for is the <b>pattern</b>: things
+  with no real substitute and a small share of spending sit at the top; things you can postpone,
+  replace or do without sit at the bottom. That pattern is the next module's list of determinants.</p>
+
+  <div class="watch"><p><b>Watch out.</b> The table is estimates from one study, not constants of nature. Treat the ordering as the lesson, not the decimals.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Eggs at 0.1 &mdash; why so low?</span> No close substitute for an egg, and they cost a trivial share of anyone's income.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Foreign travel at 4.1 &mdash; why so high?</span> A postponable luxury with endless substitutes, including staying at home.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Gasoline at 0.5 &mdash; higher or lower over ten years?</span> Higher. Given time, people move, change car, change job. Time is a determinant, and it is in the next module.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> The numbers are what <a href="#e9">elasticity</a> (entry 9) produces, the words for them are <a href="#e15">elastic and inelastic</a> (entry 15), and the reason the law of demand never shows a negative one here is <a href="#e4">why demand curves slope downward</a> (entry 4).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">16.1</span> Which two goods in the table would you expect to respond most to a recession?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Foreign travel and restaurant meals &mdash; but note that is about <b>income</b>, not price. Different elasticity, same idea, and it is Topic 2.5.</p></div></details></div>
+    <div class="q"><p><span class="qn">16.2</span> The table divides at 1. Is a good with elasticity 1.0 elastic or inelastic?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Neither &mdash; it has its own name, which the next module gives it. Exactly proportional responses are the dividing case.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got16"> Got it</label>
+  </div>
+</article>
+
+
+<!-- ============ TACKLE THE TEST ============ -->
+<section class="section" id="mcq">
+  <h2>Tackle the test</h2>
+  <p>Your textbook&rsquo;s own five questions from the end of Module 46. Click an option to see why it
+  is right or wrong.</p>
+  <div class="mcq" data-key="D">
+    <p class="stem"><span class="qn">1</span> Which of the following statements is true? <b>I.</b> When a good absorbs only a small share of consumer spending, the income effect explains the demand curve's negative slope. <b>II.</b> A change in consumption brought about by a change in purchasing power describes the income effect. <b>III.</b> In the case of an inferior good, the income and substitution effects work in opposite directions.</p>
+    <div class="opts">
+      <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>I only<span class="why" hidden>&#10007; I is the false one: a small share of spending is exactly the case where the <b>substitution</b> effect does the work.</span></span></button>
+      <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>II only<span class="why" hidden>&#10007; II is true, but so is III.</span></span></button>
+      <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>III only<span class="why" hidden>&#10007; III is true, but so is II.</span></span></button>
+      <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>II and III only<span class="why" hidden>&#10003; II is the definition of the income effect; III is what makes inferior goods interesting. I swaps the two effects.</span></span></button>
+      <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>I, II, and III<span class="why" hidden>&#10007; I is false, so this cannot be right.</span></span></button>
+    </div>
+  </div>
+  <div class="mcq" data-key="C">
+    <p class="stem"><span class="qn">2</span> The income effect is most likely to come into play for which of the following goods?</p>
+    <div class="opts">
+      <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>water<span class="why" hidden>&#10007; A trivial share of spending for almost every household.</span></span></button>
+      <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>clothing<span class="why" hidden>&#10007; Bigger than water, but still a small share for most people.</span></span></button>
+      <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>housing<span class="why" hidden>&#10003; The one good on the list that can absorb half a budget &mdash; your textbook's own example.</span></span></button>
+      <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>transportation<span class="why" hidden>&#10007; Closer, but housing is the larger share for most households.</span></span></button>
+      <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>entertainment<span class="why" hidden>&#10007; Small, and the first thing cut &mdash; which is a different point.</span></span></button>
+    </div>
+  </div>
+  <div class="mcq" data-key="B">
+    <p class="stem"><span class="qn">3</span> If a decrease in price from $2 to $1 causes an increase in quantity demanded from 100 to 120, using the midpoint method, price elasticity of demand equals</p>
+    <div class="opts">
+      <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>0.17.<span class="why" hidden>&#10007; This divides the quantity change by the <b>final</b> quantity and the price change by the average.</span></span></button>
+      <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>0.27.<span class="why" hidden>&#10003; %&Delta;Q = 20 &divide; 110 = 18.2%; %&Delta;P = &minus;$1 &divide; $1.50 = &minus;66.7%; 18.2 &divide; 66.7 = 0.27.</span></span></button>
+      <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>0.40.<span class="why" hidden>&#10007; This is the initial-value answer: 20% &divide; 50%. The question asks for the midpoint method.</span></span></button>
+      <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>2.5.<span class="why" hidden>&#10007; The ratio upside down &mdash; price over quantity.</span></span></button>
+      <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>3.72.<span class="why" hidden>&#10007; The initial-value ratio inverted.</span></span></button>
+    </div>
+  </div>
+  <div class="mcq" data-key="E">
+    <p class="stem"><span class="qn">4</span> Which of the following is likely to have the highest price elasticity of demand?</p>
+    <div class="opts">
+      <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>eggs<span class="why" hidden>&#10007; 0.1 in your textbook's table &mdash; the <b>lowest</b> on the list.</span></span></button>
+      <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>beef<span class="why" hidden>&#10007; 0.4. Inelastic.</span></span></button>
+      <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>housing<span class="why" hidden>&#10007; 1.2 &mdash; elastic, but the smallest of the elastic goods here.</span></span></button>
+      <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>gasoline<span class="why" hidden>&#10007; 0.5. Inelastic, at least in the short run.</span></span></button>
+      <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>foreign travel<span class="why" hidden>&#10003; 4.1, the highest figure in Table 46.1: postponable, and endlessly substitutable.</span></span></button>
+    </div>
+  </div>
+  <div class="mcq" data-key="C">
+    <p class="stem"><span class="qn">5</span> If a 2% change in the price of a good leads to a 10% change in the quantity demanded of a good, what is the value of price elasticity of demand?</p>
+    <div class="opts">
+      <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>0.02<span class="why" hidden>&#10007; The two percentages multiplied, not divided.</span></span></button>
+      <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>0.2<span class="why" hidden>&#10007; The ratio upside down: 2 &divide; 10.</span></span></button>
+      <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>5<span class="why" hidden>&#10003; 10% &divide; 2% = 5. Note that the percentages are handed to you &mdash; no method needed.</span></span></button>
+      <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>10<span class="why" hidden>&#10007; The numerator on its own.</span></span></button>
+      <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>20<span class="why" hidden>&#10007; The two percentages multiplied.</span></span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FREE RESPONSE ============ -->
+<section class="section" id="frq">
+  <h2>The two free-response questions</h2>
+
+  <div class="frq">
+    <p class="stem"><b>1.</b> (5 points)</p>
+    <p><b>(a)</b> Define the price elasticity of demand and give the formula for calculating it using
+    the midpoint method.</p>
+    <p><b>(b)</b> Using the midpoint method, calculate the price elasticity of demand for good X from
+    the table.</p>
+    <p><b>(c)</b> Based on your answer to (b), if price increases by 10%, in what direction and by
+    what percentage will quantity demanded change?</p>
+    <table class="tbl">
+      <thead><tr><th>Price</th><th>Quantity demanded of good X</th></tr></thead>
+      <tbody><tr><td>$2</td><td>800</td></tr><tr><td>$4</td><td>500</td></tr></tbody>
+    </table>
+    <details class="reveal"><summary>Show the mark scheme</summary><div class="ans">
+      <p><b>1 point</b> &mdash; the price elasticity of demand measures the responsiveness of quantity
+      demanded to a change in price.</p>
+      <p><b>1 point</b> &mdash; (change in quantity demanded &divide; average quantity demanded)
+      &divide; (change in price &divide; average price).</p>
+      <p><b>1 point</b> &mdash; <b>0.69</b>. Quantity: &minus;300 &divide; 650 = &minus;46.2%.
+      Price: $2 &divide; $3 = +66.7%. 46.2 &divide; 66.7 = 0.69.</p>
+      <p><b>1 point</b> &mdash; quantity demanded <b>decreases</b>.</p>
+      <p><b>1 point</b> &mdash; by <b>6.9%</b>, because 10% &times; 0.69 = 6.9%.</p>
+      <p><b>Watch the order.</b> Quantity on top, price underneath. Upside down gives 1.44, which is
+      the commonest wrong answer on this question.</p>
+    </div></details>
+  </div>
+
+  <div class="frq">
+    <p class="stem"><b>2.</b> Assume the price of an <b>inferior</b> good increases.</p>
+    <p><b>(a)</b> In what direction will the substitution effect change the quantity demanded? Explain.</p>
+    <p><b>(b)</b> In what direction will the income effect change the quantity demanded? Explain.</p>
+    <p><b>(c)</b> Given that the demand curve for the good slopes downward, what is true of the
+    relative sizes of the income and substitution effects? Explain.</p>
+    <details class="reveal"><summary>Show the mark scheme</summary><div class="ans">
+      <p><b>(a) Decrease.</b> The good is now relatively more expensive than its alternatives, so
+      buyers substitute away from it.</p>
+      <p><b>(b) Increase.</b> The price rise lowers buyers&rsquo; real income, and demand for an
+      inferior good rises when income falls.</p>
+      <p><b>(c) The substitution effect is larger.</b> The two effects pull in opposite directions, so
+      if the curve slopes downward &mdash; quantity demanded falls when price rises &mdash; the
+      downward substitution effect must outweigh the upward income effect.</p>
+      <p>Part (c) is the whole module in one sentence. If the income effect were the larger, you would
+      have a Giffen good and an upward-sloping demand curve.</p>
+    </div></details>
+  </div>
+</section>
+
+<!-- ============ SUMMARY ============ -->
+<section class="section" id="summary">
+  <h2>One page to revise from</h2>
+  <table class="tbl">
+    <thead><tr><th>Term</th><th>In one line</th></tr></thead>
+    <tbody>
+      <tr><td>Substitution effect</td><td>You switch towards whatever has become relatively cheaper.</td></tr>
+      <tr><td>Income effect</td><td>A price change moves your purchasing power, and that moves what you buy.</td></tr>
+      <tr><td>Real income</td><td>What your money will buy, as against the number on the payslip.</td></tr>
+      <tr><td>Why demand slopes downward</td><td>Substitution, plus income &mdash; or diminishing marginal utility.</td></tr>
+      <tr><td>Normal good</td><td>More of it when income rises. The income effect reinforces substitution.</td></tr>
+      <tr><td>Inferior good</td><td>More of it when income falls. The income effect opposes substitution.</td></tr>
+      <tr><td>Effects pulling apart</td><td>Only for inferior goods, and substitution almost always wins.</td></tr>
+      <tr><td>Giffen good</td><td>The case where income wins. Never actually observed.</td></tr>
+      <tr><td>Elasticity</td><td>How responsive one variable is to another, as a ratio of percentages.</td></tr>
+      <tr><td>Price elasticity of demand</td><td>%&Delta;Q<sub>d</sub> &divide; %&Delta;P, reported without the sign.</td></tr>
+      <tr><td>Percent change</td><td>Change &divide; starting value &times; 100.</td></tr>
+      <tr><td>Absolute value</td><td>Drop the minus sign; be able to say why it was there.</td></tr>
+      <tr><td>Midpoint method</td><td>Divide by the average of the two values, so direction stops mattering.</td></tr>
+      <tr><td>Which method to use</td><td>The ratio is the definition. Exams hand you the percentages.</td></tr>
+      <tr><td>Elastic and inelastic</td><td>Big number, responsive. The benchmark of 1 comes next module.</td></tr>
+      <tr><td>Real estimates</td><td>Eggs 0.1 to foreign travel 4.1 &mdash; the spread is the lesson.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section" id="getright">
+  <h2>Things to get right</h2>
+  <ul>
+    <li><b>Nobody&rsquo;s income changed.</b> The income effect comes from a price change altering what
+      your existing income will buy.</li>
+    <li><b>Quantity on top.</b> Price elasticity of demand is %&Delta;Q<sub>d</sub> &divide;
+      %&Delta;P. Upside down is the most expensive slip in this topic.</li>
+    <li><b>Percentages, not units.</b> &ldquo;Sales fell by 300&rdquo; is not an elasticity.</li>
+    <li><b>Say the method.</b> If you are given two points and asked for a number, state whether you
+      used the starting values or the midpoint, and use it on both halves.</li>
+    <li><b>Report the magnitude.</b> Drop the minus sign &mdash; but know that it is there because of
+      the law of demand.</li>
+    <li><b>Opposite is not equal.</b> For an inferior good the two effects oppose; substitution
+      almost always still wins.</li>
+    <li><b>Inferior is not bad, normal is not necessary.</b> Both words are only about what happens
+      when income moves.</li>
+  </ul>
+</section>
+
+</div>
+
+<script>
+(function(){
+  var N = 16;
+  function $(id){ return document.getElementById(id); }
+
+  /* progress */
+  var KEY = "m46-got";
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ return {}; } }
+  function save(o){ try { localStorage.setItem(KEY, JSON.stringify(o)); } catch(e){} }
+  function paint(){
+    var o = load(), n = 0, i;
+    for (i = 1; i <= N; i++){ var b = $("got" + i); if (b){ b.checked = !!o[i]; if (o[i]) n++; } }
+    $("pnum").textContent = n + " / " + N;
+    $("pfill").style.width = (100 * n / N) + "%";
+  }
+  var boxes = document.querySelectorAll(".gotbox"), bi;
+  for (bi = 0; bi < boxes.length; bi++){
+    boxes[bi].addEventListener("change", function(){
+      var o = load(); o[this.id.replace("got", "")] = this.checked; save(o); paint();
+    });
+  }
+  $("resetBtn").addEventListener("click", function(){ save({}); paint(); });
+  paint();
+
+  /* the elasticity calculator */
+  var PRESETS = [
+    { n: "flu vaccinations", p1: 20.0, q1: 10.0, p2: 21.0, q2: 9.9 },
+    { n: "strawberries", p1: 1.5, q1: 100000.0, p2: 1.0, q2: 200000.0 },
+    { n: "good X", p1: 2.0, q1: 800.0, p2: 4.0, q2: 500.0 },
+    { n: "the MCQ 3 good", p1: 2.0, q1: 100.0, p2: 1.0, q2: 120.0 }
+  ];
+  function num(id){ var v = parseFloat($(id).value); return isFinite(v) ? v : 0; }
+  function pc(a, b, mid){ var d = mid ? (a + b) / 2 : a; return d === 0 ? 0 : (b - a) / d * 100; }
+  function f2(x){ return (Math.round(x * 100) / 100).toFixed(2); }
+  function f1(x){ return (Math.round(x * 10) / 10).toFixed(1); }
+  function show(){
+    var p1 = num("p1"), q1 = num("q1"), p2 = num("p2"), q2 = num("q2");
+    var bad = (p1 <= 0 || q1 <= 0 || p2 <= 0 || q2 <= 0 || p1 === p2);
+    var out = [["eSimple", "sSimple", false], ["eMid", "sMid", true]];
+    for (var i = 0; i < out.length; i++){
+      var dq = pc(q1, q2, out[i][2]), dp = pc(p1, p2, out[i][2]);
+      if (bad || dp === 0){ $(out[i][0]).textContent = "--"; $(out[i][1]).textContent = ""; continue; }
+      $(out[i][0]).textContent = f2(Math.abs(dq / dp));
+      $(out[i][1]).textContent = "%\u0394Q = " + f1(dq) + "%   %\u0394P = " + f1(dp) + "%";
+    }
+    if (bad){ $("calcCap").textContent = "Enter two different positive prices and two positive quantities."; return; }
+    var e = Math.abs(pc(q1, q2, true) / pc(p1, p2, true));
+    var word = e > 1 ? "responsive" : (e < 1 ? "barely responsive" : "exactly proportional");
+    $("calcCap").textContent = "Midpoint elasticity " + f2(e) + " \u2014 " + word
+      + ". Swap the two points and the midpoint answer stays put; the other one moves.";
+  }
+  var ids = ["p1", "q1", "p2", "q2"], ii;
+  for (ii = 0; ii < ids.length; ii++){ $(ids[ii]).addEventListener("input", show); }
+  $("swapBtn").addEventListener("click", function(){
+    var p = $("p1").value, q = $("q1").value;
+    $("p1").value = $("p2").value; $("q1").value = $("q2").value;
+    $("p2").value = p; $("q2").value = q; show();
+  });
+  (function(){
+    var box = $("calcPresets"), k;
+    for (k = 0; k < PRESETS.length; k++){
+      (function(pr){
+        var b = document.createElement("button");
+        b.type = "button"; b.className = "chip"; b.textContent = pr.n;
+        b.addEventListener("click", function(){
+          $("p1").value = pr.p1; $("q1").value = pr.q1;
+          $("p2").value = pr.p2; $("q2").value = pr.q2; show();
+        });
+        box.appendChild(b);
+      })(PRESETS[k]);
+    }
+  })();
+  show();
+
+  /* the effects sorter */
+  var SORT = [
+    { t: "Orange juice is a small part of Clare's spending. Its price rises and she buys more lemonade.", a: "sub",
+      w: "A small share of spending leaves nothing for the income effect to work on. Your textbook's own review question." },
+    { t: "Rents rise sharply. Delia, who spends a large share of her income on rent, moves to a smaller flat. Housing is normal for her.", a: "same",
+      w: "A large share of spending, and a normal good, so being poorer in real terms reinforces the switch away from housing." },
+    { t: "The price of a semester meal ticket rises, and students eat in the cafeteria more often. Cafeteria meals are inferior.", a: "opp",
+      w: "Substitution says eat out; income says they are poorer, and poorer means more of an inferior good. Here income wins." },
+    { t: "Shoelaces double in price and buyers switch to slip-on shoes.", a: "sub",
+      w: "Shoelaces are a trivial share of any budget, so only substitution is in play." },
+    { t: "Petrol rises 40%. A commuter who drives 300 miles a week cuts back on restaurant meals as well as on driving.", a: "same",
+      w: "Petrol is a large share of that budget and driving is normal: both effects cut the quantity of petrol demanded." },
+    { t: "Bus fares rise in a city where buses are the cheap option and riders are poor. Bus travel is inferior to them.", a: "opp",
+      w: "Substitution pushes towards other transport; the real income loss pushes back towards the bus." },
+    { t: "The price of one brand of crisps rises by 10p and shoppers pick up a rival brand.", a: "sub",
+      w: "Near-perfect substitutes, trivial share of spending: substitution and nothing else." },
+    { t: "Electricity prices rise 30% for a household that spends a fifth of its income on energy. Electricity is normal for them.", a: "same",
+      w: "A fifth of the budget is a serious income effect, and it works with substitution." },
+    { t: "The price of own-brand pasta rises in a student household that eats little else. Own-brand pasta is inferior there.", a: "opp",
+      w: "The two effects oppose. Substitution normally still wins, so quantity demanded falls &mdash; by less than it otherwise would." },
+    { t: "Cinema tickets rise &pound;1 and a family watches more television.", a: "sub",
+      w: "Cinema is a small share of spending; the switch is pure substitution." },
+    { t: "University accommodation rises 15% and a student both moves further out and eats out less. Housing is normal.", a: "same",
+      w: "A large share of the budget and a normal good, so both effects point the same way." },
+    { t: "The price of coach tickets rises for a traveller who takes the coach because trains are unaffordable; the coach is inferior to them.", a: "opp",
+      w: "Being poorer pushes them back towards the coach, against the substitution towards the train." }
+  ];
+  var order = [], at = 0, score = 0, done = 0, answered = false;
+  (function(){ var i; for (i = 0; i < SORT.length; i++) order.push(i); })();
+  function card(){
+    answered = false;
+    $("sortStem").innerHTML = SORT[order[at]].t;
+    $("sortVerdict").textContent = "";
+    $("sortVerdict").className = "verdict";
+  }
+  var opts = document.querySelectorAll("#sortWidget .opts3 button"), oi;
+  for (oi = 0; oi < opts.length; oi++){
+    opts[oi].addEventListener("click", function(){
+      if (answered) return;
+      answered = true; done++;
+      var c = SORT[order[at]], ok = (this.getAttribute("data-a") === c.a);
+      if (ok) score++;
+      $("sortVerdict").innerHTML = (ok ? "\u2713 " : "\u2717 ") + c.w;
+      $("sortVerdict").className = "verdict " + (ok ? "ok" : "no");
+      $("sortScore").textContent = score + " / " + done;
+    });
+  }
+  $("sortNext").addEventListener("click", function(){ at = (at + 1) % SORT.length; card(); });
+  card();
+
+  /* the textbook's multiple choice */
+  var mcqs = document.querySelectorAll(".mcq"), mi;
+  for (mi = 0; mi < mcqs.length; mi++){
+    (function(box){
+      var os = box.querySelectorAll(".opt"), j;
+      for (j = 0; j < os.length; j++){
+        os[j].addEventListener("click", function(){
+          var w = this.querySelector(".why");
+          if (w) w.hidden = !w.hidden;
+          this.classList.toggle("open");
+        });
+      }
+    })(mcqs[mi]);
+  }
+})();
+</script>
+</main>
+<script>window.COURSE_NAV={"kicker": "2.1 Demand · 2.3 Price elasticity of demand", "title": "Module 46 · Income Effects, Substitution Effects, and Elasticity", "map": [{"label": "Course", "items": [{"href": "index.html", "label": "Home", "current": false}, {"href": "spec.html", "label": "Course specification", "current": false}]}, {"label": "Unit 1 · Basic Economic Concepts", "items": [{"href": "m01-student.html", "label": "Module 1 · Student guide", "current": false}, {"href": "m01-notes.html", "label": "Module 1 · Teaching notes", "current": false}, {"href": "m01-test.html", "label": "Module 1 · Test", "current": false}, {"label": "Module 2 · Introduction to Macroeconomics", "planned": true}, {"href": "m03-student.html", "label": "Module 3 · Student guide", "current": false}, {"href": "m03-notes.html", "label": "Module 3 · Teaching notes", "current": false}, {"href": "m03-test.html", "label": "Module 3 · Test", "current": false}, {"href": "m04-student.html", "label": "Module 4 · Student guide", "current": false}, {"href": "m04-notes.html", "label": "Module 4 · Teaching notes", "current": false}, {"href": "m04-test.html", "label": "Module 4 · Test", "current": false}, {"href": "m51-student.html", "label": "Module 51 · Student guide", "current": false}, {"href": "m51-notes.html", "label": "Module 51 · Teaching notes", "current": false}, {"href": "m51-test.html", "label": "Module 51 · Test", "current": false}, {"label": "Unit 1 · Gap analysis", "planned": true}]}, {"label": "Unit 2 · Supply and Demand", "items": [{"href": "m05-student.html", "label": "Module 5 · Student guide", "current": false}, {"href": "m05-notes.html", "label": "Module 5 · Teaching notes", "current": false}, {"href": "m05-test.html", "label": "Module 5 · Test", "current": false}, {"href": "m06-student.html", "label": "Module 6 · Student guide", "current": false}, {"href": "m06-notes.html", "label": "Module 6 · Teaching notes", "current": false}, {"href": "m06-test.html", "label": "Module 6 · Test", "current": false}, {"href": "m07-student.html", "label": "Module 7 · Student guide", "current": false}, {"href": "m07-notes.html", "label": "Module 7 · Teaching notes", "current": false}, {"href": "m07-test.html", "label": "Module 7 · Test", "current": false}, {"href": "m08-student.html", "label": "Module 8 · Student guide", "current": false}, {"href": "m08-notes.html", "label": "Module 8 · Teaching notes", "current": false}, {"href": "m08-test.html", "label": "Module 8 · Test", "current": false}, {"href": "m09-student.html", "label": "Module 9 · Student guide", "current": false}, {"href": "m09-notes.html", "label": "Module 9 · Teaching notes", "current": false}, {"href": "m09-test.html", "label": "Module 9 · Test", "current": false}, {"href": "m46-student.html", "label": "Module 46 · Student guide", "current": true}, {"href": "m46-notes.html", "label": "Module 46 · Teaching notes", "current": false}, {"href": "m46-test.html", "label": "Module 46 · Test", "current": false}, {"href": "m47-student.html", "label": "Module 47 · Student guide", "current": false}, {"href": "m47-notes.html", "label": "Module 47 · Teaching notes", "current": false}, {"href": "m47-test.html", "label": "Module 47 · Test", "current": false}, {"href": "m48-student.html", "label": "Module 48 · Student guide", "current": false}, {"href": "m48-notes.html", "label": "Module 48 · Teaching notes", "current": false}, {"href": "m48-test.html", "label": "Module 48 · Test", "current": false}, {"label": "Modules 49–50 · Surplus and Deadweight Loss", "planned": true}, {"label": "Topic 2.9 · International Trade and Public Policy", "planned": true}, {"label": "Unit 2 · Gap analysis", "planned": true}]}, {"label": "Unit 3 · Production, Cost and Perfect Competition", "items": [{"label": "Modules 52–53 · Profit and Profit Maximisation", "planned": true}, {"label": "Module 54 · The Production Function", "planned": true}, {"label": "Module 55 · Firm Costs", "planned": true}, {"label": "Module 56 · Long-Run Costs and Economies of Scale", "planned": true}, {"label": "Module 57 · Introduction to Market Structure", "planned": true}, {"label": "Modules 58–60 · Perfect Competition", "planned": true}, {"label": "Unit 3 · Gap analysis", "planned": true}]}, {"label": "Unit 4 · Imperfect Competition", "items": [{"label": "Topic 4.1 · Introduction to Imperfect Competition", "planned": true}, {"label": "Modules 61–63 · Monopoly", "planned": true}, {"label": "Modules 67–68 · Monopolistic Competition", "planned": true}, {"label": "Modules 64–66 · Oligopoly and Game Theory", "planned": true}, {"label": "Unit 4 · Gap analysis", "planned": true}]}, {"label": "Unit 5 · Factor Markets", "items": [{"label": "Module 69 · Introduction and Factor Demand", "planned": true}, {"label": "Module 70 · The Markets for Land and Capital", "planned": true}, {"label": "Module 71 · The Market for Labor", "planned": true}, {"label": "Module 72 · The Cost-Minimising Input Combination", "planned": true}, {"label": "Module 73 · Theories of Income Distribution", "planned": true}, {"label": "Unit 5 · Gap analysis", "planned": true}]}, {"label": "Unit 6 · Market Failure and the Role of Government", "items": [{"label": "Modules 74–75 · Externalities", "planned": true}, {"label": "Module 76 · Public Goods", "planned": true}, {"label": "Module 77 · Public Policy to Promote Competition", "planned": true}, {"label": "Module 78 · Income Inequality and Income Distribution", "planned": true}, {"label": "Unit 6 · Gap analysis", "planned": true}]}, {"label": "Interactive", "items": [{"label": "PPC explorer", "planned": true}, {"label": "Supply and demand explorer", "planned": true}, {"label": "Elasticity and total revenue", "planned": true}, {"label": "Cost curves", "planned": true}, {"label": "Market structure comparison", "planned": true}]}], "prev": {"href": "m09-test.html", "label": "Module 9 · Test"}, "next": {"href": "m46-notes.html", "label": "Module 46 · Teaching notes"}, "variants": [{"href": "m46-student.html", "label": "Student", "current": true}, {"href": "m46-notes.html", "label": "Notes", "current": false}, {"href": "m46-test.html", "label": "Test", "current": false}]};</script>
+<script src="assets/course.js"></script>
+</body>
+</html>

@@ -1,0 +1,1649 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 48 · Other Elasticities · AP Microeconomics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@600;700&display=swap">
+<link rel="stylesheet" href="assets/course.css">
+<style>.page .bar{position:static;background:none;backdrop-filter:none}.page .bar-in{max-width:none;padding-inline:0}.page .wrap{max-width:none;padding-inline:0;padding-block:0 24px}.page .masthead{padding-block:10px 24px}</style></head>
+<body>
+<main class="page">
+<style>
+
+
+:root{
+  --paper:#f3f5f8;
+  --surface:#ffffff;
+  --surface-2:#eef1f6;
+  --ink:#15181f;
+  --ink-2:#4d5566;
+  --ink-3:#737c8e;
+  --rule:#d6dae2;
+  --rule-strong:#b3bac7;
+  --accent:#1d4e89;
+  --accent-soft:#e6edf7;
+  --down:#a3372a;
+  --down-soft:#fbeeeb;
+  --up:#1a6b55;
+  --up-soft:#e6f2ee;
+  --flag:#7a5310;
+  --flag-soft:#f8f0e0;
+  --shadow:0 1px 2px rgba(21,24,31,.06), 0 8px 24px rgba(21,24,31,.05);
+  --serif:"IBM Plex Serif", Georgia, "Times New Roman", serif;
+  --sans:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0f1218;
+    --surface:#171b23;
+    --surface-2:#1e232d;
+    --ink:#e8ebf1;
+    --ink-2:#a3adc0;
+    --ink-3:#7e8799;
+    --rule:#2c323d;
+    --rule-strong:#3c4351;
+    --accent:#7dabe2;
+    --accent-soft:#1a2634;
+    --down:#e5907f;
+    --down-soft:#2a1d1a;
+    --up:#6cc4a7;
+    --up-soft:#16291f;
+    --flag:#d8b169;
+    --flag-soft:#2a2418;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.28);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0f1218;
+  --surface:#171b23;
+  --surface-2:#1e232d;
+  --ink:#e8ebf1;
+  --ink-2:#a3adc0;
+  --ink-3:#7e8799;
+  --rule:#2c323d;
+  --rule-strong:#3c4351;
+  --accent:#7dabe2;
+  --accent-soft:#1a2634;
+  --down:#e5907f;
+  --down-soft:#2a1d1a;
+  --up:#6cc4a7;
+  --up-soft:#16291f;
+  --flag:#d8b169;
+  --flag-soft:#2a2418;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.28);
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.65;
+  margin:0;
+}
+.wrap{max-width:820px;margin:0 auto;padding-inline:18px;padding-block:0 72px}
+
+/* ---------- sticky bar ---------- */
+.bar{
+  position:sticky;
+  top:env(safe-area-inset-top, 0px);
+  z-index:40;
+  background:color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--rule);
+}
+.bar-in{
+  max-width:820px;margin:0 auto;padding-inline:18px;
+  display:flex;align-items:center;gap:14px;min-height:50px;flex-wrap:wrap;
+}
+.bar-title{font-family:var(--mono);font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-2);white-space:nowrap}
+.progress{flex:1 1 140px;min-width:120px;display:flex;align-items:center;gap:9px}
+.progress-track{flex:1;height:5px;border-radius:3px;background:var(--rule);overflow:hidden}
+.progress-fill{height:100%;width:0;background:var(--accent);transition:width .25s ease}
+.progress-num{font-family:var(--mono);font-size:12px;color:var(--ink-2);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar button{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;
+  background:none;border:1px solid var(--rule-strong);color:var(--ink-2);
+  padding:5px 10px;border-radius:4px;cursor:pointer;
+}
+.bar button:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ---------- masthead ---------- */
+.masthead{padding-block:40px 28px;border-bottom:2px solid var(--ink)}
+.eyebrow{
+  font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);margin:0 0 12px;
+}
+h1{
+  font-family:var(--serif);font-weight:700;font-size:clamp(30px,6.4vw,44px);
+  line-height:1.1;margin:0 0 14px;text-wrap:balance;letter-spacing:-.01em;
+}
+.standfirst{font-size:17.5px;color:var(--ink-2);margin:0;max-width:62ch}
+.source-line{
+  font-family:var(--mono);font-size:12.5px;color:var(--ink-3);margin-top:18px;
+  display:flex;gap:6px 18px;flex-wrap:wrap;
+}
+
+h2{
+  font-family:var(--serif);font-weight:600;font-size:clamp(21px,3.8vw,26px);
+  line-height:1.25;margin:0 0 10px;text-wrap:balance;
+}
+h3{font-family:var(--sans);font-weight:600;font-size:16px;margin:26px 0 8px;letter-spacing:.01em}
+p{margin:0 0 14px}
+a{color:var(--accent)}
+.section{padding-block:34px 4px}
+
+.kicker{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-3);margin:0 0 8px;
+}
+
+/* ---------- entries ---------- */
+.entry{padding-block:34px 10px;border-top:1px solid var(--rule)}
+.entry-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.entry-num{
+  font-family:var(--mono);font-size:13px;font-weight:600;color:var(--accent);
+  font-variant-numeric:tabular-nums;
+}
+.entry h2{margin:0;flex:1 1 auto;min-width:0}
+.mark{
+  font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  padding:3px 8px;border-radius:3px;white-space:nowrap;
+}
+.mark.exam{background:var(--accent-soft);color:var(--accent)}
+.mark.bg{background:var(--surface-2);color:var(--ink-3)}
+.defn{
+  background:var(--surface);border-left:3px solid var(--accent);
+  padding:14px 16px;border-radius:0 5px 5px 0;margin:14px 0 16px;box-shadow:var(--shadow);
+}
+.defn p{margin:0}
+.defn .lbl{
+  display:block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-3);margin-bottom:5px;
+}
+.reading{font-family:var(--mono);font-size:12.5px;color:var(--ink-3);margin:-6px 0 16px}
+
+.watch{
+  background:var(--down-soft);border:1px solid color-mix(in srgb, var(--down) 28%, transparent);
+  border-radius:5px;padding:13px 16px;margin:18px 0;
+}
+.watch p{margin:0;font-size:15.3px}
+.watch b{color:var(--down)}
+
+.notinbook{
+  background:var(--flag-soft);border:1px dashed color-mix(in srgb, var(--flag) 48%, transparent);
+  border-radius:5px;padding:13px 16px;margin:16px 0;
+}
+.notinbook p{margin:0;font-size:15.3px}
+.notinbook b{color:var(--flag)}
+
+.examples{margin:18px 0;display:flex;flex-direction:column;gap:12px}
+.ex{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start}
+.ex-n{
+  font-family:var(--mono);font-size:11px;font-weight:600;color:var(--ink-3);
+  border:1px solid var(--rule-strong);border-radius:3px;padding:1px 6px;margin-top:3px;white-space:nowrap;
+}
+.ex p{margin:0;font-size:15.3px}
+.ex .who{font-weight:600;color:var(--ink)}
+
+.connects{font-size:15.3px;color:var(--ink-2);border-top:1px solid var(--rule);padding-top:12px;margin-top:6px}
+.connects b{color:var(--ink)}
+
+/* ---------- check yourself ---------- */
+.check{margin:20px 0 6px;background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:14px 16px}
+.check > .lbl{
+  font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);display:block;margin-bottom:10px;
+}
+.q{margin-bottom:12px}
+.q:last-child{margin-bottom:0}
+.q > p{margin:0 0 7px;font-size:15.3px}
+.q .qn{font-family:var(--mono);font-weight:600;color:var(--accent);font-size:13.5px;margin-right:4px}
+details.reveal{border-top:1px dashed var(--rule)}
+details.reveal > summary{
+  list-style:none;cursor:pointer;font-family:var(--mono);font-size:11.5px;
+  letter-spacing:.07em;text-transform:uppercase;color:var(--accent);padding:7px 0 0;
+}
+details.reveal > summary::-webkit-details-marker{display:none}
+details.reveal > summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details.reveal[open] > summary::before{content:"▾ "}
+details.reveal > summary:hover{text-decoration:underline}
+details.reveal .ans{font-size:15.3px;color:var(--ink-2);padding:6px 0 4px}
+details.reveal .ans p{margin:0 0 8px}
+details.reveal .ans p:last-child{margin:0}
+
+.got{
+  display:flex;align-items:center;gap:8px;margin-top:16px;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);
+  cursor:pointer;user-select:none;
+}
+.got input{width:15px;height:15px;accent-color:var(--accent);cursor:pointer}
+
+/* ---------- tables ---------- */
+.tablewrap{overflow-x:auto;margin:18px 0;border:1px solid var(--rule);border-radius:6px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:15px;min-width:420px}
+th,td{padding:10px 13px;text-align:left;border-bottom:1px solid var(--rule);vertical-align:top}
+thead th{
+  font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-3);background:var(--surface-2);font-weight:600;
+}
+tbody tr:last-child td{border-bottom:none}
+td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right}
+.tight td,.tight th{padding:8px 12px;font-size:14.5px}
+
+/* ---------- widgets ---------- */
+.widget{
+  background:var(--surface);border:1px solid var(--rule-strong);border-radius:8px;
+  padding:18px;margin:26px 0;box-shadow:var(--shadow);
+}
+.widget-title{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);margin:0 0 4px;
+}
+.widget h3{margin-top:0}
+.widget-note{font-size:14.5px;color:var(--ink-2);margin:12px 0 0}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{
+  font-family:var(--mono);font-size:12px;letter-spacing:.04em;
+  border:1px solid var(--rule-strong);background:var(--surface);color:var(--ink-2);
+  border-radius:16px;padding:5px 13px;cursor:pointer;transition:all .15s;
+}
+.chip:hover{border-color:var(--accent);color:var(--accent)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+:root[data-theme="dark"] .chip[aria-pressed="true"],
+:root:not([data-theme="light"]) .chip[aria-pressed="true"]{color:#0f1218}
+
+.cyclefig{width:100%;height:auto;display:block;overflow:visible}
+.figcap{font-size:14.5px;color:var(--ink-2);margin:10px 0 0;min-height:3em}
+.figcap b{color:var(--ink)}
+
+.svg-dim{opacity:.22;transition:opacity .2s}
+.svg-lit{opacity:1;transition:opacity .2s}
+
+.calc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:14px 0}
+.field label{
+  display:block;font-family:var(--mono);font-size:11px;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--ink-3);margin-bottom:5px;
+}
+.field input[type=number]{
+  width:100%;font-family:var(--mono);font-size:16px;padding:8px 10px;
+  border:1px solid var(--rule-strong);border-radius:5px;background:var(--paper);color:var(--ink);
+}
+.field input[type=range]{width:100%;accent-color:var(--accent)}
+.field input:focus-visible,.chip:focus-visible,button:focus-visible,summary:focus-visible,a:focus-visible{
+  outline:2px solid var(--accent);outline-offset:2px;
+}
+.readouts{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:6px;overflow:hidden;margin-top:6px}
+.ro{background:var(--surface-2);padding:12px 14px}
+.ro .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);display:block;margin-bottom:3px}
+.ro .v{font-family:var(--mono);font-size:22px;font-weight:600;font-variant-numeric:tabular-nums;color:var(--ink)}
+.ro .v.hl{color:var(--accent)}
+
+/* ---------- quiz ---------- */
+.mcq{border-top:1px solid var(--rule);padding-top:18px;margin-top:18px}
+.mcq:first-of-type{border-top:none;padding-top:0;margin-top:0}
+.mcq .stem{font-size:15.6px;margin:0 0 12px}
+.mcq .stem .qn{font-family:var(--mono);font-weight:600;color:var(--accent);margin-right:6px}
+.opts{display:flex;flex-direction:column;gap:7px}
+.opt{
+  display:flex;gap:11px;align-items:flex-start;text-align:left;width:100%;
+  font-family:var(--sans);font-size:15.2px;line-height:1.5;color:var(--ink);
+  background:var(--surface);border:1px solid var(--rule);border-radius:6px;
+  padding:10px 13px;cursor:pointer;transition:border-color .15s,background .15s;
+}
+.opt:hover{border-color:var(--accent)}
+.opt .ltr{font-family:var(--mono);font-weight:600;color:var(--ink-3);flex:0 0 auto}
+.opt .why{display:block;font-size:14.3px;color:var(--ink-2);margin-top:6px}
+.opt[data-state="right"]{border-color:var(--up);background:var(--up-soft)}
+.opt[data-state="right"] .ltr{color:var(--up)}
+.opt[data-state="wrong"]{border-color:var(--down);background:var(--down-soft)}
+.opt[data-state="wrong"] .ltr{color:var(--down)}
+.opt[disabled]{cursor:default}
+.score{
+  font-family:var(--mono);font-size:13px;color:var(--ink-2);
+  border:1px solid var(--rule-strong);border-radius:6px;padding:11px 14px;margin-top:20px;
+  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;
+}
+.score b{color:var(--ink);font-size:15px}
+
+.frq{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:15px 17px;margin:16px 0}
+.frq .stem{margin:0 0 6px;font-size:15.6px}
+.frq .pts{font-family:var(--mono);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3)}
+.rubric{margin:8px 0 0;padding:0;list-style:none}
+.rubric li{display:grid;grid-template-columns:auto 1fr;gap:10px;padding:7px 0;border-top:1px dotted var(--rule);font-size:15.2px}
+.rubric li .pt{font-family:var(--mono);font-size:11.5px;color:var(--up);white-space:nowrap;padding-top:3px}
+
+.closing{background:var(--accent-soft);border-radius:8px;padding:20px 22px;margin-top:28px}
+.closing h2{margin-top:0}
+.closing ol{margin:0;padding-left:20px}
+.closing li{margin-bottom:10px;font-size:15.5px}
+.closing li:last-child{margin-bottom:0}
+
+.toc{columns:2 220px;column-gap:26px;margin:16px 0 0;padding:0;list-style:none}
+.toc li{break-inside:avoid;padding:3px 0;font-size:15px}
+.toc a{text-decoration:none;color:var(--ink)}
+.toc a:hover{color:var(--accent);text-decoration:underline}
+.toc .n{font-family:var(--mono);font-size:12.5px;color:var(--ink-3);margin-right:7px;font-variant-numeric:tabular-nums}
+.toc .m{font-size:11px;color:var(--ink-3);margin-left:5px}
+
+.footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--rule);font-family:var(--mono);font-size:12px;color:var(--ink-3);line-height:1.8}
+
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+@media print{
+  .bar,.got,.chips{display:none}
+  body{background:#fff}
+  details.reveal > *{display:block!important}
+  .entry{break-inside:avoid-page}
+}
+@media (max-width:520px){
+  .toc{columns:1}
+  .ro .v{font-size:19px}
+}
+
+/* ---------- Module 3 supplement ---------- */
+.mark.flag{background:var(--flag-soft);color:var(--flag)}
+.ppc-wrap{display:grid;grid-template-columns:1fr;gap:14px}
+@media (min-width:720px){.ppc-wrap{grid-template-columns:1fr 210px}}
+.ppc-svg{width:100%;height:auto;display:block;background:var(--surface);
+  border:1px solid var(--rule);border-radius:6px;cursor:crosshair;touch-action:none}
+.ppc-side{display:flex;flex-direction:column;gap:10px}
+.status{font-family:var(--mono);font-size:12.5px;padding:9px 11px;border-radius:5px;
+  border:1px solid var(--rule-strong);background:var(--surface-2);line-height:1.45}
+.status[data-s="on"]{border-color:color-mix(in srgb,var(--up) 45%,transparent);background:var(--up-soft);color:var(--up)}
+.status[data-s="in"]{border-color:var(--rule-strong);color:var(--ink-2)}
+.status[data-s="out"]{border-color:color-mix(in srgb,var(--down) 45%,transparent);background:var(--down-soft);color:var(--down)}
+.ppc-legend{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);line-height:1.6}
+.ppc-legend b{color:var(--ink-2);font-weight:600}
+.chips.tight{gap:6px}
+.tbl{overflow-x:auto;max-width:100%}
+.sumtable{width:100%;border-collapse:collapse;font-size:14.5px;margin:16px 0}
+.sumtable th,.sumtable td{border-bottom:1px solid var(--rule);padding:8px 10px;text-align:left;vertical-align:top}
+.sumtable th{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+.sumtable td.mk{font-family:var(--mono);font-size:12px;white-space:nowrap;color:var(--accent)}
+.sumtable td.mk.bgm{color:var(--ink-3)}
+.sumtable td.mk.flagm{color:var(--flag)}
+.final{background:var(--surface);border:1px solid var(--rule);border-radius:6px;
+  padding:18px 20px;margin:22px 0;box-shadow:var(--shadow)}
+.final ol{margin:0;padding-left:20px}
+.final li{margin:0 0 9px}
+.final li:last-child{margin-bottom:0}
+
+/* ---------- PPC explorer svg ---------- */
+.ppc-svg .ax{stroke:var(--ink);stroke-width:1.6}
+.ppc-svg .tick{stroke:var(--ink-3);stroke-width:1.1}
+.ppc-svg .tl{font-family:var(--mono);font-size:11px;fill:var(--ink-3)}
+.ppc-svg .al{font-family:var(--sans);font-size:12px;font-weight:600;fill:var(--ink-2)}
+.ppc-svg .curve{fill:none;stroke:var(--accent);stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round}
+.ppc-svg .ghost{fill:none;stroke:var(--rule-strong);stroke-width:1.8;stroke-dasharray:6 5}
+.ppc-svg .cl{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--accent)}
+.ppc-svg .drop{stroke:var(--rule-strong);stroke-width:1;stroke-dasharray:3 3}
+.ppc-svg .pt{stroke:var(--surface);stroke-width:2}
+.ppc-svg .pt-on{fill:var(--up)}
+.ppc-svg .pt-in{fill:var(--ink-3)}
+.ppc-svg .pt-out{fill:var(--down)}
+
+
+/* ---------- Module 4 supplement ---------- */
+.two-panel{width:100%;height:auto;display:block;background:var(--surface);
+  border:1px solid var(--rule);border-radius:6px}
+.ca-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:0 0 14px}
+@media (min-width:640px){.ca-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.ca-grid .field{display:flex;flex-direction:column;gap:5px}
+.ca-grid .field span{font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--ink-3)}
+.ca-grid .field b{color:var(--ink-2);font-weight:600;text-transform:none;letter-spacing:0}
+.ca-grid input{font-family:var(--mono);font-size:15px;padding:7px 9px;width:100%;
+  color:var(--ink);background:var(--paper);border:1px solid var(--rule-strong);border-radius:5px}
+.ca-grid input:focus{outline:2px solid var(--accent);outline-offset:1px}
+.catab{width:100%;border-collapse:collapse;font-size:14px;margin:4px 0 14px}
+.catab th,.catab td{border-bottom:1px solid var(--rule);padding:7px 9px;text-align:left}
+.catab th{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:600}
+.catab td.v{font-family:var(--mono);color:var(--ink)}
+.catab td.win{font-family:var(--mono);color:var(--up);font-weight:600}
+.dealrow{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;margin:0 0 12px}
+.dealrow .field{display:flex;flex-direction:column;gap:5px;min-width:190px;flex:1}
+.dealrow .field span{font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--ink-3)}
+.dealrow input{font-family:var(--mono);font-size:16px;padding:8px 10px;
+  color:var(--ink);background:var(--paper);border:1px solid var(--rule-strong);border-radius:5px}
+.line-svg{width:100%;height:auto;display:block;margin:6px 0 2px}
+.line-svg g[hidden]{display:none}
+.line-svg .band{fill:var(--up-soft);stroke:none}
+.line-svg .axl{stroke:var(--ink);stroke-width:1.6}
+.line-svg .tk{stroke:var(--ink-3);stroke-width:1.1}
+.line-svg .tlb{font-family:var(--mono);font-size:11px;fill:var(--ink-3)}
+.line-svg .edge{stroke:var(--up);stroke-width:2}
+.line-svg .edgel{font-family:var(--mono);font-size:11.5px;font-weight:600;fill:var(--up)}
+.line-svg .prop{stroke:var(--accent);stroke-width:2.4}
+.line-svg .propbad{stroke:var(--down);stroke-width:2.4}
+.line-svg .propl{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--accent)}
+.line-svg .propl.bad{fill:var(--down)}
+.two-panel .ax{stroke:var(--ink);stroke-width:1.6}
+.two-panel .tick{stroke:var(--ink-3);stroke-width:1.1}
+.two-panel .tl{font-family:var(--mono);font-size:10.5px;fill:var(--ink-3)}
+.two-panel .al{font-family:var(--sans);font-size:11.5px;font-weight:600;fill:var(--ink-2)}
+.two-panel .ph{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--ink-2)}
+.two-panel .curve{fill:none;stroke:var(--accent);stroke-width:2.4;stroke-linecap:round}
+.two-panel .slope{font-family:var(--mono);font-size:11px;fill:var(--accent)}
+.two-panel .drop{stroke:var(--rule-strong);stroke-width:1;stroke-dasharray:3 3}
+.two-panel .pt{stroke:var(--surface);stroke-width:2}
+.two-panel .pt-on{fill:var(--ink-2)}
+.two-panel .pt-out{fill:var(--up)}
+.two-panel .ptl{font-family:var(--mono);font-size:11px;fill:var(--ink-2)}
+.two-panel .ptl.good{fill:var(--up);font-weight:600}
+
+
+/* The inherited stylesheet styles .curve, .ax, .tick, .tl, .cl, .pt and .ptl only under .ppc-svg and
+   .two-panel, and its .line-svg .axl rule is for an axis LINE - so give the figure's own classes rules
+   under .line-svg. Without these the curves, axes and ticks have stroke:none and do not render. */
+.line-svg .ax{stroke:var(--ink);stroke-width:1.6}
+.line-svg .tick{stroke:var(--ink-3);stroke-width:1.1}
+.line-svg .tl{font-family:var(--mono);font-size:11px;fill:var(--ink-3)}
+.line-svg text.axl{stroke:none;font-family:var(--mono);font-size:12px;fill:var(--ink-2)}
+.line-svg .curve{fill:none;stroke:var(--accent);stroke-width:2.6;stroke-linecap:round}
+.line-svg .cl{font-family:var(--mono);font-size:13px;font-weight:600;fill:var(--accent)}
+.line-svg .pt{stroke:var(--surface);stroke-width:2}
+.line-svg .pt-on{fill:var(--ink-2)}
+.line-svg .ptl{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--ink-2)}
+/* Module 8 price-control figure */
+.pc-line{stroke:var(--down);stroke-width:2.2;stroke-dasharray:7 4}
+.pc-lab{font-family:var(--mono);font-size:12px;fill:var(--down)}
+.pc-gap{stroke:var(--ink-2);stroke-width:1.4}
+.pc-gl{font-family:var(--mono);font-size:11.5px;fill:var(--ink-2)}
+.pc-dwl{fill:var(--flag-soft);stroke:var(--flag);stroke-width:1}
+.pc-dl{font-family:var(--mono);font-size:11.5px;fill:var(--flag)}
+
+/* Module 9 quota figure */
+.qt-line{stroke:var(--down);stroke-width:2.2;stroke-dasharray:7 4}
+.qt-lab{font-family:var(--mono);font-size:12px;fill:var(--down)}
+.qt-rent{fill:var(--up-soft);stroke:var(--up);stroke-width:1}
+.qt-rl{font-family:var(--mono);font-size:11.5px;fill:var(--up)}
+
+/* Module 46: the base figure classes, the calculator and the sorter */
+.line-svg .ax{stroke:var(--ink);stroke-width:1.6}
+.line-svg text.axl{stroke:none;font-family:var(--mono);font-size:12px;fill:var(--ink-2)}
+.line-svg .tick{stroke:var(--ink-3);stroke-width:1.1}
+.line-svg .tl{font-family:var(--mono);font-size:11px;fill:var(--ink-3)}
+.line-svg .curve{fill:none;stroke:var(--accent);stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round}
+.line-svg .cl{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--accent)}
+.line-svg .pt{stroke:var(--surface);stroke-width:2}
+.line-svg .pt-on{fill:var(--ink-2)}
+.line-svg .ptl{font-family:var(--mono);font-size:11.5px;font-weight:600;fill:var(--ink-2)}
+.formula{font-family:var(--mono);font-size:13.5px;background:var(--surface-2);border-left:3px solid var(--accent);
+  padding:9px 12px;margin:10px 0;border-radius:0 6px 6px 0;line-height:1.5}
+.calc-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:10px 0}
+.calc-grid label{display:flex;flex-direction:column;gap:4px;font-family:var(--mono);font-size:11.5px;color:var(--ink-3)}
+.calc-grid input{font-family:var(--mono);font-size:14px;padding:6px 8px;border:1px solid var(--rule);
+  border-radius:6px;background:var(--surface);color:var(--ink)}
+.two-ways{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}
+.way{border:1px solid var(--rule);border-radius:8px;padding:11px 13px;background:var(--surface-2)}
+.way h4{margin:0 0 7px;font-size:13px;letter-spacing:.02em}
+.way .big{font-family:var(--mono);font-size:22px;font-weight:600;color:var(--accent)}
+.way .step{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);margin:3px 0 0}
+.way.mid .big{color:var(--up)}
+.sorter .opts3{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}
+.sorter .opts3 button{font:inherit;font-size:12.5px;padding:6px 11px;border:1px solid var(--rule);
+  border-radius:999px;background:var(--surface);color:var(--ink);cursor:pointer}
+.sorter .opts3 button:hover{border-color:var(--accent)}
+.sorter .verdict{margin-top:9px;font-size:13.5px}
+.sorter .verdict.ok{color:var(--up)}
+.sorter .verdict.no{color:var(--down)}
+@media (max-width:620px){.calc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .two-ways{grid-template-columns:1fr}}
+
+/* Module 47: the revenue bars and the elasticity zones */
+.line-svg .trbar{fill:var(--accent);opacity:.45}
+.line-svg .trbar.peak{fill:var(--up);opacity:.85}
+.line-svg .zone{font-family:var(--mono);font-size:11.5px;fill:var(--ink-3);text-anchor:middle}
+.line-svg .zone.unit{fill:var(--up);font-weight:600}
+.cases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:12px}
+.case{border:1px solid var(--rule);border-radius:8px;padding:11px 13px;background:var(--surface-2)}
+.case h4{margin:0 0 7px;font-size:13px;letter-spacing:.02em}
+.case .big{font-family:var(--mono);font-size:19px;font-weight:600;color:var(--accent)}
+.case .step{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);margin:3px 0 0}
+.case.up .big{color:var(--up)}
+.case.down .big{color:var(--down)}
+.sorter .opts3{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}
+.sorter .opts3 button{font:inherit;font-size:12.5px;padding:6px 11px;border:1px solid var(--rule);
+  border-radius:999px;background:var(--surface);color:var(--ink);cursor:pointer}
+.sorter .opts3 button:hover{border-color:var(--accent)}
+.sorter .verdict{margin-top:9px;font-size:13.5px}
+.sorter .verdict.ok{color:var(--up)}
+.sorter .verdict.no{color:var(--down)}
+@media (max-width:620px){.cases{grid-template-columns:1fr}}
+
+/* Module 48: the two-panel supply figure and the identifier */
+.line-svg .curve.sup{stroke:var(--up)}
+.line-svg .cl.sup{fill:var(--up)}
+.line-svg .zone{font-family:var(--mono);font-size:11.5px;fill:var(--ink-3);text-anchor:middle}
+.ident-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:10px 0}
+.ident-grid label{display:flex;flex-direction:column;gap:4px;font-family:var(--mono);font-size:11.5px;color:var(--ink-3)}
+.ident-grid input{font-family:var(--mono);font-size:14px;padding:6px 8px;border:1px solid var(--rule);
+  border-radius:6px;background:var(--surface);color:var(--ink)}
+.verdictbox{border:1px solid var(--rule);border-radius:8px;padding:12px 14px;background:var(--surface-2);margin-top:12px}
+.verdictbox .big{font-family:var(--mono);font-size:22px;font-weight:600;color:var(--accent);margin:0}
+.verdictbox .what{font-size:14px;margin:6px 0 0}
+.verdictbox .step{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);margin:4px 0 0}
+.verdictbox.pos .big{color:var(--up)}
+.verdictbox.neg .big{color:var(--down)}
+.sorter .opts3{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}
+.sorter .opts3 button{font:inherit;font-size:12.5px;padding:6px 11px;border:1px solid var(--rule);
+  border-radius:999px;background:var(--surface);color:var(--ink);cursor:pointer}
+.sorter .opts3 button:hover{border-color:var(--accent)}
+.sorter .verdict{margin-top:9px;font-size:13.5px}
+.sorter .verdict.ok{color:var(--up)}
+.sorter .verdict.no{color:var(--down)}
+@media (max-width:620px){.ident-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style>
+
+
+<div class="bar">
+  <div class="bar-in">
+    <span class="bar-title">Micro &middot; Module 48</span>
+    <span class="progress">
+      <span class="progress-track"><span class="progress-fill" id="pfill"></span></span>
+      <span class="progress-num" id="pnum">0 / 19</span>
+    </span>
+    <button type="button" id="resetBtn">Reset progress</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+<p class="eyebrow">AP Microeconomics &middot; Unit 2 &middot; Student guide</p>
+  <h1>Other Elasticities</h1>
+  <p class="standfirst">Nineteen terms from Module 48 of <i>Krugman&rsquo;s Economics for AP</i>.
+  Three more elasticities &mdash; cross-price, income, and supply &mdash; and one rule that changes:
+  from here on, the <b>sign</b> is the answer.</p>
+  <div class="source-line">
+    <span>Textbook pages 475&ndash;481</span><span>&middot;</span><span>19 terms</span><span>&middot;</span>
+    <span>Topics 2.4 and 2.5</span><span>&middot;</span><span>2 periods</span>
+  </div>
+<section class="section" id="howto">
+  <h2>How to use this guide</h2>
+  <p>Read Module 48 in your textbook first. Entries 1 to 7 are cross-price elasticity; entries 8 to 11
+  are income elasticity; entries 12 to 18 are the price elasticity of supply and what determines it;
+  entry 19 is the story that uses two of them at once.</p>
+  <ul>
+    <li><b>&#9733; Exam</b> means the framework can test it.</li>
+    <li><b>&#9733; &#9873;</b> means it is examinable <b>and Module 48 of your textbook does not
+      teach it</b>. Entries 5 and 17 carry the flag.</li>
+    <li><b>&#9675; Background</b> means it helps you understand the topic but will not be asked about
+      on its own.</li>
+    <li>Every entry ends with two <b>Check yourself</b> questions. Answer them before opening the
+      answer, then tick <b>Got it</b>.</li>
+  </ul>
+  <div class="flag">
+    <p><b>The one idea.</b> Every elasticity in this module is the same ratio you already know. What
+    changes is what goes in it &mdash; and that the <b>sign now carries information</b>. Positive
+    cross-price means substitutes, negative means complements; positive income means normal, negative
+    means inferior. Never drop a minus sign again.</p>
+  </div>
+  <div class="notinbook"><p><b>&#9873; Two third cases your textbook never lists.</b> A cross-price
+  elasticity can be positive, negative <b>or zero</b> &mdash; and zero means the goods are <i>not
+  related</i>, a phrase that appears nowhere in your textbook. And your course names the <b>price of
+  alternative inputs</b> as a determinant of supply elasticity where your textbook says
+  <i>availability</i>. Entries 5 and 17.</p></div>
+</section>
+
+<!-- ============ THE FIGURE ============ -->
+<section class="section" id="figure">
+  <h2>The two extreme supply curves</h2>
+  <p>Your textbook&rsquo;s Figure 48.1. On the left, mobile phone frequencies: the government has
+  <b>100</b> of them and cannot make more, so the supply curve is <b>vertical</b> and the elasticity
+  is <b>0</b>. On the right, pizza: it costs <b>$12</b> to make one, including opportunity cost, and
+  the ingredients are plentiful &mdash; so the supply curve is <b>horizontal</b> at $12 and the
+  elasticity is <b>infinite</b>.</p>
+  <div class="widget">
+    <div class="widget-title">Figure 48.1 &middot; perfectly inelastic and perfectly elastic supply</div>
+    <svg class="line-svg" viewBox="0 0 660 350" role="img"
+         aria-label="Two extreme supply curves: a vertical line at one hundred frequencies, and a horizontal line at twelve dollars">
+      <line class="ax" x1="360" y1="40" x2="360" y2="300"></line>
+      <line class="ax" x1="360" y1="300" x2="620" y2="300"></line>
+      <line class="ax" x1="40" y1="40" x2="40" y2="300"></line>
+      <line class="ax" x1="40" y1="300" x2="300" y2="300"></line>
+      <line class="curve sup" x1="183" y1="60" x2="183" y2="300"></line>
+      <text class="cl sup" x="191" y="62">S</text>
+      <text class="tl" x="183" y="318" text-anchor="middle">100</text>
+      <line class="tick" x1="36" y1="150" x2="40" y2="150"></line>
+      <text class="tl" x="30" y="154" text-anchor="end">$2000</text>
+      <line class="tick" x1="36" y1="80" x2="40" y2="80"></line>
+      <text class="tl" x="30" y="84" text-anchor="end">$3000</text>
+      <line class="curve sup" x1="360" y1="150" x2="600" y2="150"></line>
+      <text class="cl sup" x="606" y="144">S</text>
+      <line class="tick" x1="356" y1="150" x2="360" y2="150"></line>
+      <text class="tl" x="350" y="154" text-anchor="end">$12</text>
+      <text class="zone" x="170" y="28">(a) elasticity 0 &#8212; a vertical line</text>
+      <text class="zone" x="490" y="28">(b) elasticity infinite &#8212; a horizontal line</text>
+      <text class="axl" x="170" y="338" text-anchor="middle">Quantity of frequencies</text>
+      <text class="axl" x="490" y="338" text-anchor="middle">Quantity of pizzas</text>
+    </svg>
+    <p class="figcap">Your textbook notes that these extremes are easier to find in supply
+    than in demand: land, spectrum and stadium seats really are fixed, and many ordinary manufactured
+    goods really can be produced in any quantity at a constant cost.</p>
+  </div>
+</section>
+
+<!-- ============ THE IDENTIFIER ============ -->
+<section class="section" id="ident">
+  <h2>Which elasticity, and what does it tell you?</h2>
+  <p>Enter the two values of whatever responded and the two values of whatever moved. The calculator
+  uses the midpoint method, keeps the sign, and says what the number means.</p>
+  <div class="widget">
+    <div class="widget-title">Cross-price, income or supply</div>
+    <div class="chips" id="identKind">
+      <button type="button" class="chip" data-k="cross" aria-pressed="true">Cross-price elasticity</button>
+      <button type="button" class="chip" data-k="income" aria-pressed="false">Income elasticity</button>
+      <button type="button" class="chip" data-k="supply" aria-pressed="false">Elasticity of supply</button>
+    </div>
+    <div class="ident-grid">
+      <label id="lab-x1">Quantity of A, before<input type="text" id="x1" value="5"></label>
+      <label id="lab-x2">Quantity of A, after<input type="text" id="x2" value="10"></label>
+      <label id="lab-y1">Price of B, before<input type="text" id="y1" value="10"></label>
+      <label id="lab-y2">Price of B, after<input type="text" id="y2" value="8"></label>
+    </div>
+    <div class="chips" id="identPresets"></div>
+    <div class="verdictbox" id="vbox">
+      <p class="big" id="eVal">&mdash;</p>
+      <p class="what" id="eWhat"></p>
+      <p class="step" id="eStep"></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE DRILL ============ -->
+<section class="section" id="sorter">
+  <h2>What does this number mean?</h2>
+  <p>Twelve values. For each one, say what it tells you about the goods. Two questions get you there:
+  <b>which elasticity is it</b>, and <b>what is its sign</b>?</p>
+  <div class="widget sorter" id="sortWidget">
+    <div class="widget-title">Read the sign, then the size</div>
+    <p class="stem" id="sortStem"></p>
+    <div class="opts3">
+      <button type="button" data-a="sub">Substitutes</button>
+      <button type="button" data-a="comp">Complements</button>
+      <button type="button" data-a="unrel">Not related</button>
+      <button type="button" data-a="normal">Normal good</button>
+      <button type="button" data-a="inferior">Inferior good</button>
+    </div>
+    <p class="verdict" id="sortVerdict"></p>
+    <div class="chips">
+      <button type="button" class="chip" id="sortNext">Next value</button>
+      <span class="progress-num" id="sortScore">0 / 0</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE ENTRIES ============ -->
+<section class="section" id="entries">
+  <h2>The nineteen terms</h2>
+</section>
+
+<article class="entry" id="e1">
+  <div class="entry-head"><span class="entry-num">01</span><h2>Elasticity beyond price</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Elasticity measures how responsive <b>any</b> variable is to a change in <b>any</b> other. Price and quantity demanded were only the first pair.</p></div>
+  <p class="reading">Textbook page 475.</p>
+
+  <p>Quantity demanded does not depend on the good's own price alone. It depends on the prices of
+  related goods and on income &mdash; the demand shifters you met in Module 5. Each of those
+  relationships can be measured, and the measure is always the same ratio:</p>
+  <p class="formula">elasticity = % change in the thing that responds &divide; % change in the thing that moved</p>
+  <p>This module adds three of them: <b>cross-price</b> elasticity of demand, <b>income</b> elasticity
+  of demand, and the price elasticity of <b>supply</b>.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Say <b>which</b> elasticity you mean, every time. &ldquo;The elasticity is 1.8&rdquo; is ambiguous; &ldquo;the income elasticity of demand is 1.8&rdquo; is not.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Price of the good &rarr; quantity demanded.</span> Price elasticity of demand. Modules 46 and 47.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Price of another good &rarr; quantity demanded.</span> Cross-price elasticity of demand.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Income &rarr; quantity demanded.</span> Income elasticity of demand.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> The first new one is <a href="#e2">cross-price elasticity</a> (entry 2), the second is <a href="#e8">income elasticity</a> (entry 8), and the one on the other side of the market is <a href="#e12">the price elasticity of supply</a> (entry 12).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">1.1</span> A firm wants to know how its sales respond to a rival's advertising. Can elasticity help?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Yes. The same ratio works: percentage change in your quantity sold divided by percentage change in their advertising spend. The method is completely general.</p></div></details></div>
+    <div class="q"><p><span class="qn">1.2</span> Why is it never enough to say &ldquo;demand is elastic&rdquo; in this module?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because there are now three elasticities in play. Price-elastic, income-elastic and cross-price are different measurements and can point different ways for the same good.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got1"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e2">
+  <div class="entry-head"><span class="entry-num">02</span><h2>Cross-price elasticity of demand</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The percentage change in the quantity demanded of <b>one</b> good, divided by the percentage change in the price of <b>another</b>.</p></div>
+  <p class="reading">Textbook page 475, Equation 48-1.</p>
+
+  <p class="formula">cross-price elasticity between A and B = % change in quantity of A demanded
+  &divide; % change in the price of B</p>
+  <p>Your textbook's pair is hot dogs and hot dog buns. Raise the price of hot dogs and people buy
+  fewer buns &mdash; so the demand curve for buns shifts <b>left</b>, and the cross-price elasticity
+  is negative.</p>
+  <p>Note which good is on top. Divide the change in A's quantity by the change in B's price and you
+  have measured the effect of B on A. Swap them and you are measuring something else.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Write the formula with the goods named. &ldquo;Quantity of A over price of B&rdquo; earns the formula mark on a free-response question; an unlabelled ratio does not.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Hot dogs dearer &rarr; fewer buns bought.</span> Negative cross-price elasticity.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Hot dogs dearer &rarr; more hamburgers bought.</span> Positive cross-price elasticity.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Hot dogs dearer &rarr; same number of umbrellas bought.</span> A cross-price elasticity of about zero &mdash; the case in entry 5.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is one of the elasticities <a href="#e1">the general idea</a> (entry 1) opens up, its sign separates <a href="#e3">substitutes</a> (entry 3) from <a href="#e4">complements</a> (entry 4), and because the sign carries the answer it is the first place <a href="#e7">keeping the minus sign</a> (entry 7) matters.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">2.1</span> The price of tea rises 10% and the quantity of coffee demanded rises 4%. What is the cross-price elasticity of coffee with respect to tea?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>+0.4. Four divided by ten, and positive because both moved the same way.</p></div></details></div>
+    <div class="q"><p><span class="qn">2.2</span> Why does the order of the two goods matter?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because the formula divides a quantity change for one good by a price change for the other. Reversing them measures the reverse relationship and generally gives a different number.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got2"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e3">
+  <div class="entry-head"><span class="entry-num">03</span><h2>Substitutes &mdash; a positive sign</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>If the cross-price elasticity is <b>positive</b>, the goods are <b>substitutes</b>: a rise in one price raises demand for the other.</p></div>
+  <p class="reading">Textbook pages 475&ndash;476.</p>
+
+  <p>Hot dogs and hamburgers. Put up the price of hot dogs and shoppers switch to hamburgers, so
+  the quantity of hamburgers demanded rises while the price of hot dogs rises. Both changes are
+  positive, so the ratio is positive.</p>
+  <p>This is the substitution effect of Module 46 reappearing as a measurement &mdash; and it is the
+  demand shifter of Module 5 acquiring a number.</p>
+
+  <div class="watch"><p><b>Watch out.</b> A positive cross-price elasticity does <b>not</b> mean demand went up because the good got cheaper. Nothing happened to this good's own price; the change came from the other good.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Butter and margarine, +0.25.</span> Your textbook's review question: substitutes, but weak ones.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Two brands of the same cereal, +3.</span> Very close substitutes.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Train tickets and coach tickets.</span> Positive: dearer trains fill coaches.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the positive case of <a href="#e2">cross-price elasticity</a> (entry 2), its opposite is <a href="#e4">the negative case</a> (entry 4), and how far above zero it sits is <a href="#e6">a measure of how close the two goods are</a> (entry 6).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">3.1</span> Coffee rises in price and the quantity of tea demanded rises 6%. Substitutes or complements?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Substitutes &mdash; the cross-price elasticity is positive.</p></div></details></div>
+    <div class="q"><p><span class="qn">3.2</span> A cross-price elasticity is reported as +0.05. What does that say?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>The goods are substitutes in principle, but very weak ones: a price change in one barely moves demand for the other.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got3"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e4">
+  <div class="entry-head"><span class="entry-num">04</span><h2>Complements &mdash; a negative sign</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>If the cross-price elasticity is <b>negative</b>, the goods are <b>complements</b>: a rise in one price <b>reduces</b> demand for the other.</p></div>
+  <p class="reading">Textbook page 476.</p>
+
+  <p>Hot dogs and hot dog buns. Dearer hot dogs mean fewer hot dogs eaten, and fewer hot dogs eaten
+  mean fewer buns bought. The price went up and the quantity of the other good went down, so the
+  ratio is negative.</p>
+  <p>Your textbook's free-response question gives a strong case: when the price of good A falls,
+  the quantity of good B demanded doubles, giving a cross-price elasticity of <b>&minus;3</b>. The
+  two are complements, and strong ones.</p>
+
+  <div class="watch"><p><b>Watch out.</b> &ldquo;Negative&rdquo; here is not a judgement about the goods and not a number to be tidied away. If you drop the minus sign you turn complements into substitutes and lose the mark.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Printers and ink cartridges.</span> Negative: dearer printers, fewer cartridges sold.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Petrol and large cars.</span> Negative, and historically a strong one.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Good A and good B in your textbook's review, &minus;3.</span> Strong complements &mdash; the quantity of B moves three times as fast as the price of A.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the negative case of <a href="#e2">cross-price elasticity</a> (entry 2), its opposite is <a href="#e3">the positive case</a> (entry 3), how far below zero it sits is <a href="#e6">a measure of strength</a> (entry 6), and the case between the two is <a href="#e5">goods that are not related</a> (entry 5).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">4.1</span> Tennis rackets rise in price and the quantity of tennis balls demanded falls 8%. What kind of goods are these?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Complements. The cross-price elasticity is negative.</p></div></details></div>
+    <div class="q"><p><span class="qn">4.2</span> Why can a cross-price elasticity of &minus;0.1 and one of &minus;4 both mean complements?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because the sign alone settles the relationship. The size says how strong it is: &minus;0.1 is a weak complement, &minus;4 a very strong one.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got4"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e5">
+  <div class="entry-head"><span class="entry-num">05</span><h2>Goods that are not related</h2><span class="mark flag">&#9733; &#9873;</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>If the cross-price elasticity is <b>about zero</b>, the two goods are <b>not related</b>: a change in one price leaves demand for the other where it was.</p></div>
+  <p class="reading">Not in Module 48 &mdash; your textbook's table lists only two cases.</p>
+
+  <div class="notinbook"><p><b>&#9873; Not in Module 48 &mdash; learn it from here.</b> Your course says the cross-price elasticity tells you whether goods are &ldquo;substitutes, complements, <b>or not related</b>&rdquo;. The phrase <i>not related</i> appears nowhere in your textbook &mdash; not in this module, not in its summary table, not in its 927 pages. The idea is simple; the case is just missing.</p></div>
+
+  <p>Your course names <b>three</b> outcomes for a cross-price elasticity: substitutes, complements,
+  <b>or not related</b>. Your textbook's summary table has a row for negative and a row for positive,
+  and no row for zero.</p>
+  <p>The missing case is the easiest of the three to see. What happens to the quantity of toothpaste
+  demanded when the price of bicycle tyres goes up? Nothing. The percentage change in quantity is
+  zero, so the cross-price elasticity is zero, and the goods are unrelated.</p>
+  <p>Most pairs of goods in an economy are like this. Only a handful of goods are close enough to
+  anything else to be substitutes or complements at all.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Zero means &ldquo;no relationship&rdquo;, not &ldquo;a weak one&rdquo;. A small positive number like +0.05 still means substitutes; it is only at zero that the goods are unrelated.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Toothpaste and bicycle tyres.</span> Cross-price elasticity zero: unrelated.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Shoelaces and mobile phone contracts.</span> Zero again. No plausible connection.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Pencils and paper.</span> Not zero &mdash; these are complements, and the elasticity is negative.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the third case alongside <a href="#e4">complements</a> (entry 4), and it is the zero point of the scale that <a href="#e6">the strength of the relationship</a> (entry 6) measures.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">5.1</span> An exam option says &ldquo;cross-price elasticity equals 0, so the goods are substitutes&rdquo;. Is it right?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. Zero means unrelated. Substitutes require a positive value, however small.</p></div></details></div>
+    <div class="q"><p><span class="qn">5.2</span> Name a pair of goods you would expect to have a cross-price elasticity of about zero, and say why.</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Any pair with no connection in use or in production &mdash; socks and garden gnomes, say. A change in one price gives buyers no reason at all to change their purchases of the other.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got5"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e6">
+  <div class="entry-head"><span class="entry-num">06</span><h2>How big the number is</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The <b>sign</b> says which relationship. The <b>size</b> says how strong it is.</p></div>
+  <p class="reading">Textbook pages 475&ndash;476.</p>
+
+  <p>Your textbook is explicit: if two goods are close substitutes the cross-price elasticity will be
+  &ldquo;positive and large&rdquo;; if they are not close substitutes it will be &ldquo;positive and
+  small&rdquo;. The same scale runs downwards for complements: slightly below zero means weak
+  complements, strongly negative means strong complements.</p>
+  <p>So a cross-price elasticity carries two pieces of information at once, and a complete answer
+  uses both.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Compare sizes by <b>magnitude</b>. &minus;4 is a stronger relationship than +0.3, even though &minus;4 is the smaller number on a number line.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">+3 for two brands of cereal.</span> Substitutes, and very close ones.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">+0.25 for butter and margarine.</span> Substitutes, but weak &mdash; most butter buyers are not switching.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">&minus;3 for your textbook's goods A and B.</span> Complements, and strong ones.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It refines <a href="#e3">the positive case</a> (entry 3) and <a href="#e4">the negative case</a> (entry 4), and at exactly zero it becomes <a href="#e5">no relationship at all</a> (entry 5).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">6.1</span> Which pair is more closely related: one with a cross-price elasticity of +0.2 or one with &minus;2.5?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>The pair at &minus;2.5. Compare magnitudes: 2.5 is a much stronger link than 0.2, and the sign tells you it is a complementary one.</p></div></details></div>
+    <div class="q"><p><span class="qn">6.2</span> Two goods have a cross-price elasticity of +0.02. How would you describe them?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Technically substitutes, but so weakly related that in practice they behave almost like unrelated goods.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got6"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e7">
+  <div class="entry-head"><span class="entry-num">07</span><h2>Keeping the minus sign</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>For the price elasticity of demand the sign is always negative and is dropped. For <b>cross-price</b> and <b>income</b> elasticity the sign <b>is</b> the answer.</p></div>
+  <p class="reading">Textbook page 476.</p>
+
+  <p>Your textbook says it outright: &ldquo;in the case of the cross-price elasticity of demand, the
+  sign (plus or minus) is very important &hellip; So we cannot drop the minus sign as we did for the
+  price elasticity of demand.&rdquo;</p>
+  <table class="tbl">
+    <thead><tr><th>Elasticity</th><th>Sign</th><th>What the sign tells you</th></tr></thead>
+    <tbody>
+      <tr><td>Price elasticity of demand</td><td>always negative</td><td>Nothing &mdash; so it is dropped</td></tr>
+      <tr><td>Cross-price elasticity</td><td>either</td><td>Substitutes or complements</td></tr>
+      <tr><td>Income elasticity</td><td>either</td><td>Normal or inferior</td></tr>
+      <tr><td>Price elasticity of supply</td><td>always positive</td><td>Nothing &mdash; there is nothing to drop</td></tr>
+    </tbody>
+  </table>
+
+  <div class="watch"><p><b>Watch out.</b> This is the most expensive habit to carry over from Module 46. A student who reports a cross-price elasticity of &minus;3 as &ldquo;3&rdquo; has just called complements substitutes.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Price elasticity of demand &minus;1.4.</span> Report 1.4. The sign carries no information.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Cross-price elasticity &minus;3.</span> Report &minus;3. Dropping the sign destroys the answer.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Income elasticity &minus;0.6.</span> Report &minus;0.6: an inferior good.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It applies to <a href="#e2">cross-price elasticity</a> (entry 2), to <a href="#e9">normal goods</a> (entry 9) and to <a href="#e10">inferior goods</a> (entry 10), and it is the one rule that does <b>not</b> carry over from the price elasticity of demand.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">7.1</span> You calculate a cross-price elasticity of &minus;0.8 and write &ldquo;0.8, so the goods are substitutes&rdquo;. What has gone wrong?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>You dropped a sign that was carrying the answer. A negative cross-price elasticity means complements.</p></div></details></div>
+    <div class="q"><p><span class="qn">7.2</span> Why is there no sign problem for the price elasticity of supply?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because the supply curve slopes upward: price and quantity supplied move the same way, so the ratio is positive to begin with.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got7"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e8">
+  <div class="entry-head"><span class="entry-num">08</span><h2>Income elasticity of demand</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The percentage change in the quantity of a good demanded, divided by the percentage change in the consumer's <b>income</b>.</p></div>
+  <p class="reading">Textbook page 476, Equation 48-2.</p>
+
+  <p class="formula">income elasticity of demand = % change in quantity demanded &divide; % change in income</p>
+  <p>Your textbook's review question: Chelsea's income rises from $12,000 to $18,000 and her CD
+  purchases go from 10 to 40 a year. By the midpoint method income is up <b>40%</b> and quantity is
+  up <b>120%</b>, so the income elasticity is <b>3</b>.</p>
+  <p>Economists use it to predict which industries will grow as a country gets richer &mdash; which
+  is exactly what the farming story at the end of this guide is about.</p>
+
+  <div class="watch"><p><b>Watch out.</b> The denominator is <b>income</b>, not price. Nothing in this calculation has anything to do with the good's own price, and a student who divides by a price change has computed something else entirely.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Income +40%, CDs +120%.</span> Income elasticity 3. Strongly normal.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Income +22.2%, units +40%.</span> Income elasticity 1.8 &mdash; your textbook's MCQ 2.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Income +10%, bus journeys &minus;4%.</span> Income elasticity &minus;0.4: an inferior good.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the second elasticity <a href="#e1">the general idea</a> (entry 1) opens up, its sign separates <a href="#e9">normal goods</a> (entry 9) from <a href="#e10">inferior goods</a> (entry 10), and among normal goods it subdivides into <a href="#e11">income-elastic and income-inelastic</a> (entry 11).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">8.1</span> A household's income rises 25% and its spending on restaurant meals rises 50% in quantity. What is the income elasticity?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>+2. Fifty divided by twenty-five, positive because both rose.</p></div></details></div>
+    <div class="q"><p><span class="qn">8.2</span> Why can the income elasticity of demand be negative when the price elasticity of demand never is?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because quantity demanded can move either way when income moves &mdash; up for a normal good, down for an inferior one. Against the good's own price it can only move one way.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got8"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e9">
+  <div class="entry-head"><span class="entry-num">09</span><h2>Normal goods &mdash; a positive sign</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A <b>positive</b> income elasticity means the good is <b>normal</b>: more income, more of it.</p></div>
+  <p class="reading">Textbook page 476.</p>
+
+  <p>Your textbook's own wording: &ldquo;When the income elasticity of demand is positive, the good
+  is a normal good &mdash; that is, the quantity demanded at any given price increases as income
+  increases.&rdquo;</p>
+  <p>Almost everything is normal. What the number does <i>not</i> tell you is how fast: a normal good
+  can grow faster or slower than income, which is the next distinction.</p>
+
+  <div class="watch"><p><b>Watch out.</b> &ldquo;Positive&rdquo; is the whole answer to &ldquo;what is the income elasticity of a normal good?&rdquo; It is <b>not</b> necessarily 1, or greater than 1 &mdash; your textbook's MCQ 3 is built on exactly this.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Restaurant meals.</span> Positive, and large. A pay rise shows up here first.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Bread.</span> Positive, but small. People do not eat much more bread as they get richer.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Chelsea's CDs, +3.</span> Positive, and very large.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the positive case of <a href="#e8">income elasticity</a> (entry 8), its opposite is <a href="#e10">inferior goods</a> (entry 10), the sign matters for the reason in <a href="#e7">keeping the sign</a> (entry 7), and above or below 1 it splits into <a href="#e11">income-elastic and income-inelastic</a> (entry 11).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">9.1</span> An exam asks for the income elasticity of demand for a normal good. What is the best answer?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Positive. Any specific number would be a guess &mdash; normal goods range from just above zero to well above 1.</p></div></details></div>
+    <div class="q"><p><span class="qn">9.2</span> Income falls 10% and sales of a good fall 6%. Normal or inferior?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Normal: the income elasticity is +0.6, because quantity moved the same way as income.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got9"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e10">
+  <div class="entry-head"><span class="entry-num">10</span><h2>Inferior goods &mdash; a negative sign</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A <b>negative</b> income elasticity means the good is <b>inferior</b>: more income, less of it.</p></div>
+  <p class="reading">Textbook page 476.</p>
+
+  <p>Again your textbook's wording: &ldquo;When the income elasticity of demand is negative, the good
+  is an inferior good &mdash; that is, the quantity demanded at any given price decreases as income
+  increases.&rdquo;</p>
+  <p>This is the Module 46 definition of an inferior good, now measured. There the direction was the
+  definition; here the sign reproduces it.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Inferior is still not an insult. It describes which way demand moves when income moves, and nothing else.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Long-distance coach travel.</span> Negative: people switch to trains and flights as incomes rise.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Supermarket own-brand goods.</span> Negative, though not strongly.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Instant noodles.</span> Negative, and a textbook case.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the negative case of <a href="#e8">income elasticity</a> (entry 8), its opposite is <a href="#e9">normal goods</a> (entry 9), it is why <a href="#e7">keeping the sign</a> (entry 7) matters, and it is half the explanation in <a href="#e19">the story of farming</a> (entry 19).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">10.1</span> A good's income elasticity is &minus;1.5. Describe it.</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Strongly inferior: a 10% rise in income cuts the quantity demanded by 15%.</p></div></details></div>
+    <div class="q"><p><span class="qn">10.2</span> Can a good be inferior for one household and normal for another?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Yes. It depends on where a household sits: own-brand goods may be inferior for a rich household and normal for a very poor one.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got10"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e11">
+  <div class="entry-head"><span class="entry-num">11</span><h2>Income-elastic and income-inelastic</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Among <b>normal</b> goods: above <b>1</b> is <b>income-elastic</b> (demand grows faster than income); between 0 and 1 is <b>income-inelastic</b> (demand grows, but more slowly).</p></div>
+  <p class="reading">Textbook page 476.</p>
+
+  <p>Both kinds are normal &mdash; the sign is positive in each case. The benchmark of 1 now
+  separates two speeds rather than two directions:</p>
+  <ul>
+    <li><b>Income-elastic</b> (above 1): luxuries. Second homes, international travel. Income up 10%,
+      quantity up more than 10%.</li>
+    <li><b>Income-inelastic</b> (between 0 and 1): necessities. Food, clothing. Income up 10%,
+      quantity up less than 10%.</li>
+  </ul>
+  <p>This is what lets economists forecast which industries grow fastest as a country gets richer.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Income-elastic is not the same as price-elastic. A good can be income-elastic and price-inelastic at once, and the two numbers answer different questions.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Chelsea's CDs, +3.</span> Income-elastic: demand grows three times as fast as income.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Food.</span> Income-inelastic: positive but well under 1 &mdash; the first half of the farming story.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Kylie's good X, +1.8.</span> Income-elastic, and comfortably so.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It subdivides <a href="#e8">the income elasticity</a> (entry 8), it applies only to <a href="#e9">normal goods</a> (entry 9), and it is the first half of the explanation in <a href="#e19">why farming shrank</a> (entry 19).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">11.1</span> A good has an income elasticity of 0.3. Is it normal or inferior, and is it a luxury or a necessity?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Normal, because the sign is positive; and a necessity, because 0.3 is below 1 &mdash; income-inelastic.</p></div></details></div>
+    <div class="q"><p><span class="qn">11.2</span> Why is an income elasticity of &minus;0.4 neither income-elastic nor income-inelastic?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because both of those terms describe normal goods. A negative income elasticity means the good is inferior, which is a different category altogether.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got11"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e12">
+  <div class="entry-head"><span class="entry-num">12</span><h2>Price elasticity of supply</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The percentage change in the quantity <b>supplied</b>, divided by the percentage change in price &mdash; measured as you move along the <b>supply</b> curve.</p></div>
+  <p class="reading">Textbook page 477, Equation 48-3.</p>
+
+  <p class="formula">price elasticity of supply = % change in quantity supplied &divide; % change in price</p>
+  <p>Your textbook's example: if the price of tomatoes rises 10% and the quantity supplied also rises
+  10%, the price elasticity of supply is 1. If quantity rises 5%, it is 0.5; if it rises 20%, it is 2.</p>
+  <p>It is the same formula as the price elasticity of demand with one word changed &mdash; and with
+  one convenience: because the supply curve slopes upward, the answer is already positive. There is
+  no minus sign to drop.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Read the question carefully. &ldquo;Quantity supplied&rdquo; and &ldquo;quantity demanded&rdquo; look alike on a busy exam page, and a supply elasticity computed from a demand schedule is simply wrong.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Price +10%, quantity supplied +10%.</span> Elasticity of supply 1 &mdash; unit elastic.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Price +40%, hours supplied +50%.</span> 1.25, from your textbook's web-design question: elastic.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Price +20%, quantity supplied +40%.</span> 2 &mdash; elastic, from the review's second free-response question.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the supply-side member of the family <a href="#e1">the general idea</a> (entry 1) opens up, it is classified by <a href="#e13">the same benchmark of 1</a> (entry 13), and at its extremes it becomes <a href="#e16">a question about inputs</a> (entry 16).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">12.1</span> A 25% price rise brings a 15% rise in quantity supplied. What is the price elasticity of supply?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>0.6, and it is positive without any adjustment.</p></div></details></div>
+    <div class="q"><p><span class="qn">12.2</span> Why does the price elasticity of supply never need a minus sign dropped?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because price and quantity supplied move in the same direction along an upward-sloping supply curve, so the ratio is positive from the start.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got12"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e13">
+  <div class="entry-head"><span class="entry-num">13</span><h2>The benchmark of 1 for supply</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Exactly the same dividing line: above <b>1</b> supply is elastic, below 1 inelastic, at 1 unit elastic.</p></div>
+  <p class="reading">Textbook page 477.</p>
+
+  <p>Your course states this for supply in the same words it uses for demand, with one word changed:
+  the benchmark is a magnitude of 1, &ldquo;where the change in the price and the change in the
+  quantity supplied are proportional&rdquo;.</p>
+  <p>So nothing new has to be learned here. If you can classify a demand elasticity you can classify
+  a supply one.</p>
+
+  <div class="watch"><p><b>Watch out.</b> There is no total-revenue rule on the supply side. The revenue results of Module 47 belong to the <b>demand</b> elasticity; do not try to apply them here.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Supply elasticity 0.4.</span> Inelastic. Producers cannot respond much.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Supply elasticity 1.</span> Unit elastic &mdash; the tomato case.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Supply elasticity 2.</span> Elastic. Output responds twice as fast as price.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It classifies <a href="#e12">the price elasticity of supply</a> (entry 12), and its two limiting cases are <a href="#e14">a vertical supply curve</a> (entry 14) and <a href="#e15">a horizontal one</a> (entry 15).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">13.1</span> Price rises 30% and quantity supplied rises 12%. Elastic or inelastic supply?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Inelastic: 12 &divide; 30 = 0.4, which is below 1.</p></div></details></div>
+    <div class="q"><p><span class="qn">13.2</span> What does a supply elasticity of exactly 1 mean in words?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Quantity supplied changes by exactly the same percentage as the price &mdash; proportionally, in the framework's own word.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got13"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e14">
+  <div class="entry-head"><span class="entry-num">14</span><h2>Perfectly inelastic supply</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The quantity supplied is <b>fixed</b>: the elasticity is <b>0</b> and the supply curve is a <b>vertical line</b>.</p></div>
+  <p class="reading">Textbook page 478, Figure 48.1 panel (a).</p>
+
+  <p>Your textbook's example is the part of the radio spectrum suitable for mobile phones.
+  Governments sell the right to use it, and for technical reasons the number of frequencies cannot be
+  increased at all &mdash; the supply curve is vertical at <b>100 frequencies</b>. Raise the price
+  from $2,000 to $3,000 and the quantity supplied does not move.</p>
+  <p>Your textbook notes something useful: perfectly inelastic and perfectly elastic cases are
+  <b>easier to find in supply than in demand</b>. Land, spectrum, seats in a stadium, an original
+  painting &mdash; the quantity really is fixed.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Fixed is not zero. A vertical supply curve means the quantity cannot change, not that nothing is supplied. Misreading this wrecks every tax diagram you will meet in Topic 2.8.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Mobile phone frequencies.</span> Vertical at 100, whatever the price.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Land in a city centre.</span> Essentially fixed, which is why its price can rise so far.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Tickets for a stadium that seats 60,000.</span> Perfectly inelastic on the night.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the zero end of <a href="#e13">the supply scale</a> (entry 13), its mirror image is <a href="#e15">perfectly elastic supply</a> (entry 15), and it is what you get when <a href="#e16">the inputs</a> (entry 16) are impossible to obtain.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">14.1</span> A supply curve is vertical at 500 units. The price triples. What is the elasticity of supply?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Zero. The percentage change in quantity supplied is zero whatever happens to price.</p></div></details></div>
+    <div class="q"><p><span class="qn">14.2</span> Why is a vertical supply curve more believable than a vertical demand curve?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because physical limits really do fix some quantities &mdash; spectrum, land, seats. On the demand side there is almost always some response at some price.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got14"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e15">
+  <div class="entry-head"><span class="entry-num">15</span><h2>Perfectly elastic supply</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Producers will supply <b>any</b> quantity at one price and <b>none</b> below it: the elasticity is <b>infinite</b> and the supply curve is a <b>horizontal line</b>.</p></div>
+  <p class="reading">Textbook page 479, Figure 48.1 panel (b).</p>
+
+  <p>Your textbook's example is pizza. Suppose a pizza costs <b>$12</b> to make, counting every
+  opportunity cost. Below $12 nobody would bother; at $12 or just above, the ingredients are
+  plentiful and any number of pizza parlours could open. So the supply curve is horizontal at $12.</p>
+  <p>The reason is in the inputs: flour, tomatoes and cheese can all be produced in greater quantity
+  without pushing up their own prices much.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Horizontal supply is about <b>cost</b>, not generosity. The line sits at the price that just covers the cost of production, including opportunity cost.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Pizza at $12.</span> Horizontal: any quantity at $12, none below.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">A standard screw or nail.</span> Close to horizontal &mdash; make as many as you like at the going price.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Bottled water from an ordinary plant.</span> Inputs are cheap and plentiful, so supply is very elastic.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the infinite end of <a href="#e13">the supply scale</a> (entry 13), its mirror image is <a href="#e14">perfectly inelastic supply</a> (entry 14), and it is what <a href="#e17">cheap alternative inputs</a> (entry 17) makes possible.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">15.1</span> A supply curve is horizontal at $40. What happens if buyers want twice as much?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>They get it, at $40. A perfectly elastic supply can expand without the price rising at all.</p></div></details></div>
+    <div class="q"><p><span class="qn">15.2</span> Why would no producer supply below the horizontal line's price?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because that price just covers the cost of production including opportunity cost. Below it, producers do better doing something else.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got15"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e16">
+  <div class="entry-head"><span class="entry-num">16</span><h2>Determinant 1 &mdash; the availability of inputs</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Supply is <b>elastic</b> when the inputs are easy to get and can be moved into and out of production cheaply. It is <b>inelastic</b> when they are fixed or costly to shift.</p></div>
+  <p class="reading">Textbook page 479.</p>
+
+  <p>This is the main determinant, and your textbook's two examples are chosen to make it obvious.
+  Pizza inputs are everywhere, so pizza supply is almost perfectly elastic. Radio spectrum cannot be
+  manufactured at all, so its supply is perfectly inelastic.</p>
+  <p>In between sit the goods that depend on a limited natural resource &mdash; gold, copper, coffee
+  that grows only on certain land, fish that can only be caught up to a point. Their supply is
+  inelastic because the input cannot simply be scaled up.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Ask about the <b>input</b>, not the product. Pizza and spectrum are both ordinary goods; what makes their supply elasticities opposite is what they are made from.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Pizza.</span> Flour, cheese, tomatoes &mdash; all abundant. Supply very elastic.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Radio spectrum.</span> Cannot be made at all. Supply perfectly inelastic.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Gold.</span> A limited natural resource, so supply is inelastic even at high prices.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the determinant behind <a href="#e12">the price elasticity of supply</a> (entry 12), it explains <a href="#e14">a vertical supply curve</a> (entry 14), and your course states it in terms of <a href="#e17">the price of alternative inputs</a> (entry 17).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">16.1</span> Why is the supply of handmade violins by a famous maker inelastic?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because the essential input &mdash; that maker's time and skill &mdash; cannot be increased, however high the price goes.</p></div></details></div>
+    <div class="q"><p><span class="qn">16.2</span> A factory can switch between making chairs and making tables at almost no cost. What does that imply about the supply elasticity of each?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Both are elastic. Inputs that shift cheaply between uses let output respond quickly to a price change.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got16"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e17">
+  <div class="entry-head"><span class="entry-num">17</span><h2>Determinant 2 &mdash; the price of alternative inputs</h2><span class="mark flag">&#9733; &#9873;</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Supply is more <b>elastic</b> when the inputs you would need are <b>cheap to attract</b> away from their other uses.</p></div>
+  <p class="reading">Not in Module 48 &mdash; your textbook talks about availability, your course about price.</p>
+
+  <div class="notinbook"><p><b>&#9873; Not in Module 48 &mdash; learn it from here.</b> Your course names the determinant as the <b>price of alternative inputs</b>. That phrase occurs nowhere in Module 48 &mdash; your textbook says the <i>availability</i> of inputs. The economics is identical, and a question using the framework's wording is asking about your textbook's idea.</p></div>
+
+  <p>Your course names this determinant directly: the price elasticity of supply &ldquo;depends on
+  certain factors such as the <b>price of alternative inputs</b>&rdquo;. Your textbook names the
+  <i>availability</i> of inputs instead, and the phrase <i>alternative inputs</i> never appears.</p>
+  <p>They are the same economics stated from two directions. An input is &ldquo;available&rdquo; to
+  your industry when it is cheap enough to bid away from whoever is using it now:</p>
+  <ul>
+    <li>Tomatoes are cheap to attract into pizza-making, so pizza supply is elastic.</li>
+    <li>A cardiac surgeon's hours are extremely expensive to attract into any new use, so the supply
+      of heart operations is inelastic.</li>
+  </ul>
+  <p>If a question asks about the price of alternative inputs, it is asking this question.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Do not read &ldquo;alternative inputs&rdquo; as &ldquo;substitute goods&rdquo;. It is about what producers buy, not about what consumers buy &mdash; an input price, not a rival product's price.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Cheap, plentiful flour.</span> Easy to attract into baking: supply of bread is elastic.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Specialist aerospace titanium.</span> Expensive and fought over, so supply of aircraft parts is inelastic.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Seasonal farm labour at harvest.</span> If wages elsewhere rise, attracting pickers costs more and supply becomes less elastic.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is your course's wording for <a href="#e16">the availability of inputs</a> (entry 16), and it is the condition that makes <a href="#e15">perfectly elastic supply</a> (entry 15) possible, alongside <a href="#e18">the passage of time</a> (entry 18).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">17.1</span> Two industries need the same input. In one it is cheap to attract; in the other producers must outbid a booming rival sector. Which has the more elastic supply?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>The first. Cheap alternative inputs mean output can be expanded without costs rising much, so quantity supplied responds strongly to price.</p></div></details></div>
+    <div class="q"><p><span class="qn">17.2</span> Your textbook says supply is elastic when inputs are &ldquo;readily available&rdquo;. How is that the same as your course's wording?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>An input is readily available precisely when it is cheap to obtain from its other uses. Availability and price are two ways of describing the same condition.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got17"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e18">
+  <div class="entry-head"><span class="entry-num">18</span><h2>Determinant 3 &mdash; time, and the two runs</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Supply becomes <b>more elastic</b> the longer producers have to respond. The long-run elasticity of supply usually exceeds the short-run one.</p></div>
+  <p class="reading">Textbook pages 479&ndash;480.</p>
+
+  <p>Flu vaccine is your textbook's case. Vaccine has to be grown in cultures over many months, so
+  in the 2004 season no price could have raised output &mdash; the short-run elasticity was close to
+  zero. If the price stayed at $90 for several years, producers would build bigger plants and hire
+  more technicians, and output would rise a great deal.</p>
+  <p>So economists distinguish the <b>short-run</b> elasticity of supply &mdash; weeks or months &mdash;
+  from the <b>long-run</b> elasticity &mdash; several years. The same distinction appears on the
+  demand side in Module 47, and for the same reason.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Short run and long run are about <b>how much producers can change</b>, not about dates on a calendar. In some industries a year is the long run; in others ten years is not.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Flu vaccine in one season.</span> Perfectly inelastic in practice: the cultures take a year.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Flu vaccine over five years.</span> Much more elastic &mdash; new plants, more technicians.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Oil from a new field.</span> Years from decision to first barrel, so very inelastic in the short run.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the third determinant after <a href="#e17">the price of alternative inputs</a> (entry 17), and it is the reason a measured supply elasticity belongs to a period as well as to a market &mdash; as <a href="#e19">the farming story</a> (entry 19) does on the other side.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">18.1</span> A sharp rise in the price of copper produces almost no extra copper for three years, then a lot. What does that show?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>That supply is far more elastic in the long run: opening a mine takes years, so the short-run response is near zero.</p></div></details></div>
+    <div class="q"><p><span class="qn">18.2</span> Why might a government that wants more housing be disappointed in the first year of a subsidy?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because housing supply is very inelastic in the short run &mdash; land, planning and construction all take time. The long-run response is much larger.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got18"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e19">
+  <div class="entry-head"><span class="entry-num">19</span><h2>Why farming shrank</h2><span class="mark bgm">&#9675; Background</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Two elasticities together explain why a sector can succeed technically and still shrink: demand for food is <b>income-inelastic</b> and <b>price-inelastic</b>.</p></div>
+  <p class="reading">Textbook pages 476&ndash;477, the <i>fyi</i> box.</p>
+
+  <p>In the 1940s about one American in six lived on a farm; by 1991 the official figure was 1.9%,
+  and the government stopped publishing it. Your textbook explains the decline with two elasticities
+  and nothing else.</p>
+  <ul>
+    <li><b>Income elasticity below 1.</b> As people get richer they spend more on food, but far less
+      than in proportion. So food's share of national income falls, and with it farming's share.</li>
+    <li><b>Price elasticity of demand below 1.</b> Farming has become steadily more productive, which
+      pushes food prices down &mdash; and with inelastic demand, a lower price <b>reduces</b> total
+      revenue. Progress in farming is good for consumers and bad for farmers.</li>
+  </ul>
+  <p>Your textbook's verdict: the farm sector has been &ldquo;a victim of success&rdquo;.</p>
+
+  <div class="watch"><p><b>Watch out.</b> This story needs <b>both</b> elasticities. Either one alone leaves the puzzle unexplained, and an answer that uses only one will not earn full credit on a question like it.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Incomes double.</span> Food spending rises, but much less than double. Agriculture's share falls.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Yields rise and food prices fall.</span> With demand price-inelastic, farmers' total revenue falls &mdash; the Module 47 rule in action.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A farmer adopts a better seed and prospers.</span> Individually yes. When every farmer does it, the price falls and the sector as a whole loses.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is <a href="#e11">income-inelastic demand</a> (entry 11) and <a href="#e10">the contrast with inferior goods</a> (entry 10) working together, and the second half of it is the same idea as <a href="#e18">a response that takes time</a> (entry 18).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">19.1</span> Which two elasticities does this story need, and what is the sign or size of each?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>The income elasticity of demand for food, positive but below 1; and the price elasticity of demand for food, below 1. One shrinks farming's share of spending, the other turns productivity gains into lower revenue.</p></div></details></div>
+    <div class="q"><p><span class="qn">19.2</span> Is food an inferior good, according to this story?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. Its income elasticity is positive &mdash; spending on food rises with income &mdash; just by less than income does. That is income-inelastic, not inferior.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got19"> Got it</label>
+  </div>
+</article>
+
+
+<!-- ============ TACKLE THE TEST ============ -->
+<section class="section" id="mcq">
+  <h2>Tackle the test</h2>
+  <p>Your textbook&rsquo;s own five questions from the end of Module 48. Click an option to see why it
+  is right or wrong.</p>
+  <div class="mcq" data-key="B">
+    <p class="stem"><span class="qn">1</span> If the cross-price elasticity between two goods is negative, this means that the two goods are</p>
+    <div class="opts">
+      <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>substitutes.<span class="why" hidden>&#10007; Substitutes give a <b>positive</b> cross-price elasticity.</span></span></button>
+      <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>complements.<span class="why" hidden>&#10003; Negative means a rise in one price cuts demand for the other &mdash; hot dogs and buns.</span></span></button>
+      <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>normal.<span class="why" hidden>&#10007; Normal and inferior are about <b>income</b> elasticity, not cross-price.</span></span></button>
+      <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>inferior.<span class="why" hidden>&#10007; Same mistake: wrong elasticity.</span></span></button>
+      <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>luxuries.<span class="why" hidden>&#10007; Luxury describes an income elasticity above 1.</span></span></button>
+    </div>
+  </div>
+  <div class="mcq" data-key="D">
+    <p class="stem"><span class="qn">2</span> If Kylie buys 200 units of good X when her income is $20,000 and 300 units when her income rises to $25,000, her income elasticity of demand, using the midpoint method, is</p>
+    <div class="opts">
+      <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>0.06.<span class="why" hidden>&#10007; Divides the change in quantity by the change in income in raw units.</span></span></button>
+      <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>0.5.<span class="why" hidden>&#10007; The ratio upside down, roughly: 22.2 &divide; 40.</span></span></button>
+      <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>1.65.<span class="why" hidden>&#10007; Mixes a midpoint quantity with an initial-value income.</span></span></button>
+      <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>1.8.<span class="why" hidden>&#10003; Quantity +40% (100 &divide; 250); income +22.2% ($5,000 &divide; $22,500); 40 &divide; 22.2 = 1.8.</span></span></button>
+      <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>2.00.<span class="why" hidden>&#10007; The initial-value answer: 50% &divide; 25%. The question asks for the midpoint method.</span></span></button>
+    </div>
+  </div>
+  <div class="mcq" data-key="D">
+    <p class="stem"><span class="qn">3</span> The income elasticity of demand for a normal good is</p>
+    <div class="opts">
+      <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>zero.<span class="why" hidden>&#10007; Zero would mean income changes leave demand untouched &mdash; neither normal nor inferior.</span></span></button>
+      <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>1.<span class="why" hidden>&#10007; Some normal goods are at 1, but most are not. The question asks what is always true.</span></span></button>
+      <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>infinite.<span class="why" hidden>&#10007; No category of good has an infinite income elasticity.</span></span></button>
+      <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>positive.<span class="why" hidden>&#10003; That is the whole of it: positive means normal. Its size then says income-elastic or income-inelastic.</span></span></button>
+      <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>negative.<span class="why" hidden>&#10007; Negative is the definition of an <b>inferior</b> good.</span></span></button>
+    </div>
+  </div>
+  <div class="mcq" data-key="D">
+    <p class="stem"><span class="qn">4</span> A perfectly elastic supply curve is</p>
+    <div class="opts">
+      <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>positively sloped.<span class="why" hidden>&#10007; True of ordinary supply curves; the perfectly elastic one is flat.</span></span></button>
+      <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>negatively sloped.<span class="why" hidden>&#10007; Supply curves do not slope down.</span></span></button>
+      <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>vertical.<span class="why" hidden>&#10007; Vertical is perfectly <b>in</b>elastic supply: elasticity 0.</span></span></button>
+      <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>horizontal.<span class="why" hidden>&#10003; Any quantity at one price, none below it &mdash; your textbook's $12 pizza.</span></span></button>
+      <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>U-shaped<span class="why" hidden>&#10007; A U-shape belongs to cost curves, which are Unit 3.</span></span></button>
+    </div>
+  </div>
+  <div class="mcq" data-key="C">
+    <p class="stem"><span class="qn">5</span> Which of the following leads to a more inelastic price elasticity of supply? <b>I.</b> the use of inputs that are easily obtained <b>II.</b> a high degree of substitutability between inputs <b>III.</b> a shorter time period in which to supply the good</p>
+    <div class="opts">
+      <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>I only<span class="why" hidden>&#10007; Easily obtained inputs make supply <b>more</b> elastic, not less.</span></span></button>
+      <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>II only<span class="why" hidden>&#10007; Substitutable inputs also make supply more elastic.</span></span></button>
+      <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>III only<span class="why" hidden>&#10003; Less time means less room to adjust, so supply is more inelastic. I and II both push the other way.</span></span></button>
+      <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>I and II only<span class="why" hidden>&#10007; Both of these make supply more elastic.</span></span></button>
+      <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>I, II, and III<span class="why" hidden>&#10007; Only III makes supply more inelastic.</span></span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FREE RESPONSE ============ -->
+<section class="section" id="frq">
+  <h2>The two free-response questions</h2>
+
+  <div class="frq">
+    <p class="stem"><b>1.</b> (5 points) Use the table to answer the following.</p>
+    <table class="tbl">
+      <thead><tr><th>Price of good A</th><th>Quantity of good A demanded</th><th>Quantity of good B demanded</th></tr></thead>
+      <tbody><tr><td>$10</td><td>100</td><td>5</td></tr><tr><td>$8</td><td>110</td><td>10</td></tr></tbody>
+    </table>
+    <p><b>(a)</b> Using the midpoint method, calculate the price elasticity of demand for good A.</p>
+    <p><b>(b)</b> Give the formula for the cross-price elasticity of demand between good A and good B.</p>
+    <p><b>(c)</b> Using the midpoint method, calculate it.</p>
+    <p><b>(d)</b> What does your answer to (c) tell you about the relationship between the two goods?</p>
+    <details class="reveal"><summary>Show the mark scheme</summary><div class="ans">
+      <p><b>1 point</b> &mdash; <b>0.43</b>. Quantity of A: +10 &divide; 105 = +9.5%. Price of A:
+      &minus;$2 &divide; $9 = &minus;22.2%. Dropping the sign, 9.5 &divide; 22.2 = 0.43.</p>
+      <p><b>1 point</b> &mdash; % change in quantity of good B &divide; % change in the price of
+      good A.</p>
+      <p><b>1 point</b> &mdash; <b>&minus;3</b>. Quantity of B: +5 &divide; 7.5 = +66.7%. Price of A:
+      &minus;22.2%. 66.7 &divide; &minus;22.2 = &minus;3.</p>
+      <p><b>1 point</b> &mdash; they are <b>complements</b>.</p>
+      <p><b>1 point</b> &mdash; because the cross-price elasticity is negative: when the price of A
+      falls, people buy more of A <i>and</i> more of B to go with it.</p>
+      <p><b>Two different elasticities from one table</b>, and the sign is dropped in (a) and kept in
+      (c). That contrast is the whole module.</p>
+    </div></details>
+  </div>
+
+  <div class="frq">
+    <p class="stem"><b>2.</b> The price of corn rises by 20% and suppliers increase the quantity of
+    corn supplied by 40%.</p>
+    <p><b>(a)</b> Calculate the price elasticity of supply.</p>
+    <p><b>(b)</b> Is supply elastic or inelastic?</p>
+    <p><b>(c)</b> Draw a correctly labelled graph of the most extreme case of that category.</p>
+    <p><b>(d)</b> What would be true of the availability of inputs for a firm with that supply curve?</p>
+    <details class="reveal"><summary>Show the mark scheme</summary><div class="ans">
+      <p><b>(a)</b> 40% &divide; 20% = <b>2</b>.</p>
+      <p><b>(b)</b> <b>Elastic</b>, because 2 is greater than 1.</p>
+      <p><b>(c)</b> The extreme case of elastic supply is <b>perfectly elastic</b> supply: a
+      <b>horizontal</b> supply curve, with price on the vertical axis and quantity on the
+      horizontal.</p>
+      <p><b>(d)</b> Inputs are readily available and can be shifted into and out of production at
+      low cost &mdash; which is your course&rsquo;s point about the price of alternative inputs.</p>
+    </div></details>
+  </div>
+</section>
+
+<!-- ============ SUMMARY ============ -->
+<section class="section" id="summary">
+  <h2>One page to revise from</h2>
+  <p>Your textbook calls its version of this &ldquo;an elasticity menagerie&rdquo;. Learn the signs
+  first; the sizes follow.</p>
+  <table class="tbl">
+    <thead><tr><th>Term</th><th>In one line</th></tr></thead>
+    <tbody>
+      <tr><td>Elasticity beyond price</td><td>The same ratio, applied to any two variables.</td></tr>
+      <tr><td>Cross-price elasticity</td><td>%&Delta;Q of one good &divide; %&Delta;P of another.</td></tr>
+      <tr><td>Positive cross-price</td><td>Substitutes.</td></tr>
+      <tr><td>Negative cross-price</td><td>Complements.</td></tr>
+      <tr><td>Cross-price of zero</td><td>Not related &mdash; the case your textbook omits.</td></tr>
+      <tr><td>The size of the number</td><td>How strong the relationship is, either way.</td></tr>
+      <tr><td>Keeping the minus sign</td><td>Dropped for price elasticity of demand; never here.</td></tr>
+      <tr><td>Income elasticity</td><td>%&Delta;Q demanded &divide; %&Delta;income.</td></tr>
+      <tr><td>Positive income elasticity</td><td>Normal good.</td></tr>
+      <tr><td>Negative income elasticity</td><td>Inferior good.</td></tr>
+      <tr><td>Income-elastic / inelastic</td><td>Above 1 a luxury, between 0 and 1 a necessity. Both normal.</td></tr>
+      <tr><td>Price elasticity of supply</td><td>%&Delta;Q supplied &divide; %&Delta;P. Always positive.</td></tr>
+      <tr><td>The supply benchmark of 1</td><td>Elastic, inelastic, unit elastic &mdash; the demand rule reworded.</td></tr>
+      <tr><td>Perfectly inelastic supply</td><td>Vertical. A fixed quantity: spectrum, land, stadium seats.</td></tr>
+      <tr><td>Perfectly elastic supply</td><td>Horizontal. Any quantity at one price: $12 pizza.</td></tr>
+      <tr><td>Availability of inputs</td><td>Easy inputs, elastic supply. Fixed inputs, inelastic.</td></tr>
+      <tr><td>Price of alternative inputs</td><td>Your course's wording for the same determinant.</td></tr>
+      <tr><td>Time</td><td>Supply is more elastic in the long run than the short.</td></tr>
+      <tr><td>Why farming shrank</td><td>Income-inelastic and price-inelastic demand, plus rising yields.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section" id="getright">
+  <h2>Things to get right</h2>
+  <ul>
+    <li><b>Keep the sign.</b> It is dropped only for the price elasticity of demand. For cross-price
+      and income elasticity the sign is the answer.</li>
+    <li><b>Say which elasticity.</b> Price-elastic, income-elastic and cross-price are three different
+      measurements.</li>
+    <li><b>Zero means unrelated.</b> Positive is substitutes however small; negative is complements
+      however small.</li>
+    <li><b>Positive is the whole answer</b> for a normal good's income elasticity. Not 1, not above
+      1 &mdash; positive.</li>
+    <li><b>Income-elastic and inferior are different things.</b> Both income-elastic and
+      income-inelastic goods are normal.</li>
+    <li><b>Order matters in cross-price.</b> Quantity of one good over price of the other &mdash; say
+      which is which.</li>
+    <li><b>Vertical supply is fixed supply</b>, not absent supply.</li>
+    <li><b>Supply is more elastic in the long run</b>, because producers can change what they use.</li>
+  </ul>
+</section>
+
+</div>
+
+<script>
+(function(){
+  var N = 19;
+  function $(id){ return document.getElementById(id); }
+
+  /* progress */
+  var KEY = "m48-got";
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ return {}; } }
+  function save(o){ try { localStorage.setItem(KEY, JSON.stringify(o)); } catch(e){} }
+  function paint(){
+    var o = load(), n = 0, i;
+    for (i = 1; i <= N; i++){ var b = $("got" + i); if (b){ b.checked = !!o[i]; if (o[i]) n++; } }
+    $("pnum").textContent = n + " / " + N;
+    $("pfill").style.width = (100 * n / N) + "%";
+  }
+  var boxes = document.querySelectorAll(".gotbox"), bi;
+  for (bi = 0; bi < boxes.length; bi++){
+    boxes[bi].addEventListener("change", function(){
+      var o = load(); o[this.id.replace("got", "")] = this.checked; save(o); paint();
+    });
+  }
+  $("resetBtn").addEventListener("click", function(){ save({}); paint(); });
+  paint();
+
+  /* the identifier */
+  var LABELS = {
+    cross:  ["Quantity of A, before", "Quantity of A, after", "Price of B, before", "Price of B, after"],
+    income: ["Quantity demanded, before", "Quantity demanded, after", "Income, before", "Income, after"],
+    supply: ["Quantity supplied, before", "Quantity supplied, after", "Price, before", "Price, after"]
+  };
+  var PRESETS = {
+    cross:  [{ n: "Good B and good A", v: [5, 10, 10, 8] },
+             { n: "Butter and margarine", v: [105, 110.25, 100, 120] }],
+    income: [{ n: "Chelsea's CDs", v: [10, 40, 12000, 18000] },
+             { n: "Kylie's good X", v: [200, 300, 20000, 25000] }],
+    supply: [{ n: "Web-design hours", v: [300000, 500000, 100, 150] },
+             { n: "Corn", v: [100, 140, 10, 12] }]
+  };
+  var kind = "cross";
+  function num(id){ var v = parseFloat($(id).value); return isFinite(v) ? v : 0; }
+  function pctMid(a, b){ return (a + b) === 0 ? 0 : (b - a) / ((a + b) / 2) * 100; }
+  function f2(x){ return (Math.round(x * 100) / 100).toFixed(2); }
+  function f1(x){ return (Math.round(x * 10) / 10).toFixed(1); }
+  function showIdent(){
+    var ids = ["x1", "x2", "y1", "y2"], i;
+    for (i = 0; i < 4; i++){ $("lab-" + ids[i]).childNodes[0].nodeValue = LABELS[kind][i]; }
+    var dx = pctMid(num("x1"), num("x2")), dy = pctMid(num("y1"), num("y2"));
+    var box = $("vbox");
+    if (dy === 0){
+      $("eVal").textContent = "--"; $("eWhat").textContent = "The cause has to change.";
+      $("eStep").textContent = ""; box.className = "verdictbox"; return;
+    }
+    var e = dx / dy, what;
+    if (kind === "cross"){
+      what = e > 0.0001 ? "Positive \u2014 the goods are <b>substitutes</b>."
+           : (e < -0.0001 ? "Negative \u2014 the goods are <b>complements</b>."
+                          : "Zero \u2014 the goods are <b>not related</b>.");
+      what += Math.abs(e) > 1 ? " A strong relationship." : (Math.abs(e) > 0.0001 ? " A weak one." : "");
+    } else if (kind === "income"){
+      what = e > 0.0001 ? "Positive \u2014 a <b>normal</b> good." : (e < -0.0001 ? "Negative \u2014 an <b>inferior</b> good." : "Zero \u2014 income makes no difference.");
+      if (e > 1) what += " Above 1, so <b>income-elastic</b>: a luxury.";
+      else if (e > 0.0001) what += " Between 0 and 1, so <b>income-inelastic</b>: a necessity.";
+    } else {
+      what = Math.abs(e) > 1 ? "Greater than 1 \u2014 supply is <b>elastic</b>."
+           : (Math.abs(e) < 0.9999 ? "Less than 1 \u2014 supply is <b>inelastic</b>."
+                                   : "Exactly 1 \u2014 supply is <b>unit elastic</b>.");
+      what += " Supply elasticities are positive, so nothing is dropped.";
+    }
+    $("eVal").textContent = (e < 0 ? "\u2212" : "") + f2(Math.abs(e));
+    $("eWhat").innerHTML = what;
+    $("eStep").textContent = "%\u0394 responding = " + f1(dx) + "%   %\u0394 cause = " + f1(dy) + "%";
+    box.className = "verdictbox " + (e > 0.0001 ? "pos" : (e < -0.0001 ? "neg" : ""));
+  }
+  function fillPresets(){
+    var box = $("identPresets"); box.innerHTML = "";
+    var list = PRESETS[kind], k;
+    for (k = 0; k < list.length; k++){
+      (function(pr){
+        var b = document.createElement("button");
+        b.type = "button"; b.className = "chip"; b.textContent = pr.n;
+        b.addEventListener("click", function(){
+          $("x1").value = pr.v[0]; $("x2").value = pr.v[1];
+          $("y1").value = pr.v[2]; $("y2").value = pr.v[3]; showIdent();
+        });
+        box.appendChild(b);
+      })(list[k]);
+    }
+  }
+  var kbtns = document.querySelectorAll("#identKind .chip"), ki;
+  for (ki = 0; ki < kbtns.length; ki++){
+    kbtns[ki].addEventListener("click", function(){
+      kind = this.getAttribute("data-k");
+      var all = document.querySelectorAll("#identKind .chip"), j;
+      for (j = 0; j < all.length; j++){ all[j].setAttribute("aria-pressed", all[j] === this ? "true" : "false"); }
+      fillPresets(); showIdent();
+    });
+  }
+  var inp = ["x1", "x2", "y1", "y2"], ii;
+  for (ii = 0; ii < inp.length; ii++){ $(inp[ii]).addEventListener("input", showIdent); }
+  fillPresets(); showIdent();
+
+  /* what does this number mean? */
+  var SORT = [
+    { t: "A cross-price elasticity of demand of <b>+2.4</b>.", a: "sub",
+      w: "Positive, so substitutes &mdash; and large, so close ones." },
+    { t: "A cross-price elasticity of demand of <b>&minus;1.8</b>.", a: "comp",
+      w: "Negative, so complements, and strongly so." },
+    { t: "A cross-price elasticity of demand of <b>0</b>.", a: "unrel",
+      w: "Not related &mdash; the third case your textbook's table leaves out." },
+    { t: "An income elasticity of demand of <b>+0.4</b>.", a: "normal",
+      w: "Positive, so normal &mdash; and below 1, so income-inelastic. A necessity." },
+    { t: "An income elasticity of demand of <b>&minus;0.7</b>.", a: "inferior",
+      w: "Negative, so inferior: people buy less of it as they get richer." },
+    { t: "A cross-price elasticity of demand of <b>+0.05</b>.", a: "sub",
+      w: "Positive, so still substitutes &mdash; but very weak ones. Only exactly zero means unrelated." },
+    { t: "An income elasticity of demand of <b>+3</b>.", a: "normal",
+      w: "Positive, so normal; and far above 1, so strongly income-elastic. Chelsea's CDs." },
+    { t: "A cross-price elasticity of demand of <b>&minus;0.1</b>.", a: "comp",
+      w: "Negative, so complements &mdash; weak ones." },
+    { t: "An income elasticity of demand of <b>&minus;2</b>.", a: "inferior",
+      w: "Strongly inferior: a 10% rise in income cuts the quantity demanded by 20%." },
+    { t: "The price of bicycle tyres rises 15% and the quantity of toothpaste demanded does not move.", a: "unrel",
+      w: "A cross-price elasticity of zero: the two goods are not related." },
+    { t: "A 20% rise in the price of margarine raises butter demanded by 5%.", a: "sub",
+      w: "Cross-price +0.25 &mdash; substitutes, and weak ones. Your textbook's review question." },
+    { t: "A household's income rises 30% and its coach travel falls 12%.", a: "inferior",
+      w: "Income elasticity &minus;0.4: negative, so coach travel is inferior for them." }
+  ];
+  var sAt = 0, score = 0, done = 0, answered = false;
+  function card(){
+    answered = false;
+    $("sortStem").innerHTML = SORT[sAt].t;
+    $("sortVerdict").textContent = "";
+    $("sortVerdict").className = "verdict";
+  }
+  var opts = document.querySelectorAll("#sortWidget .opts3 button"), oi;
+  for (oi = 0; oi < opts.length; oi++){
+    opts[oi].addEventListener("click", function(){
+      if (answered) return;
+      answered = true; done++;
+      var c = SORT[sAt], ok = (this.getAttribute("data-a") === c.a);
+      if (ok) score++;
+      $("sortVerdict").innerHTML = (ok ? "\u2713 " : "\u2717 ") + c.w;
+      $("sortVerdict").className = "verdict " + (ok ? "ok" : "no");
+      $("sortScore").textContent = score + " / " + done;
+    });
+  }
+  $("sortNext").addEventListener("click", function(){ sAt = (sAt + 1) % SORT.length; card(); });
+  card();
+
+  /* the textbook's multiple choice */
+  var mcqs = document.querySelectorAll(".mcq"), mi;
+  for (mi = 0; mi < mcqs.length; mi++){
+    (function(box){
+      var os = box.querySelectorAll(".opt"), j;
+      for (j = 0; j < os.length; j++){
+        os[j].addEventListener("click", function(){
+          var w = this.querySelector(".why");
+          if (w) w.hidden = !w.hidden;
+          this.classList.toggle("open");
+        });
+      }
+    })(mcqs[mi]);
+  }
+})();
+</script>
+</main>
+<script>window.COURSE_NAV={"kicker": "2.4 Price elasticity of supply · 2.5 Other elasticities", "title": "Module 48 · Other Elasticities", "map": [{"label": "Course", "items": [{"href": "index.html", "label": "Home", "current": false}, {"href": "spec.html", "label": "Course specification", "current": false}]}, {"label": "Unit 1 · Basic Economic Concepts", "items": [{"href": "m01-student.html", "label": "Module 1 · Student guide", "current": false}, {"href": "m01-notes.html", "label": "Module 1 · Teaching notes", "current": false}, {"href": "m01-test.html", "label": "Module 1 · Test", "current": false}, {"label": "Module 2 · Introduction to Macroeconomics", "planned": true}, {"href": "m03-student.html", "label": "Module 3 · Student guide", "current": false}, {"href": "m03-notes.html", "label": "Module 3 · Teaching notes", "current": false}, {"href": "m03-test.html", "label": "Module 3 · Test", "current": false}, {"href": "m04-student.html", "label": "Module 4 · Student guide", "current": false}, {"href": "m04-notes.html", "label": "Module 4 · Teaching notes", "current": false}, {"href": "m04-test.html", "label": "Module 4 · Test", "current": false}, {"href": "m51-student.html", "label": "Module 51 · Student guide", "current": false}, {"href": "m51-notes.html", "label": "Module 51 · Teaching notes", "current": false}, {"href": "m51-test.html", "label": "Module 51 · Test", "current": false}, {"label": "Unit 1 · Gap analysis", "planned": true}]}, {"label": "Unit 2 · Supply and Demand", "items": [{"href": "m05-student.html", "label": "Module 5 · Student guide", "current": false}, {"href": "m05-notes.html", "label": "Module 5 · Teaching notes", "current": false}, {"href": "m05-test.html", "label": "Module 5 · Test", "current": false}, {"href": "m06-student.html", "label": "Module 6 · Student guide", "current": false}, {"href": "m06-notes.html", "label": "Module 6 · Teaching notes", "current": false}, {"href": "m06-test.html", "label": "Module 6 · Test", "current": false}, {"href": "m07-student.html", "label": "Module 7 · Student guide", "current": false}, {"href": "m07-notes.html", "label": "Module 7 · Teaching notes", "current": false}, {"href": "m07-test.html", "label": "Module 7 · Test", "current": false}, {"href": "m08-student.html", "label": "Module 8 · Student guide", "current": false}, {"href": "m08-notes.html", "label": "Module 8 · Teaching notes", "current": false}, {"href": "m08-test.html", "label": "Module 8 · Test", "current": false}, {"href": "m09-student.html", "label": "Module 9 · Student guide", "current": false}, {"href": "m09-notes.html", "label": "Module 9 · Teaching notes", "current": false}, {"href": "m09-test.html", "label": "Module 9 · Test", "current": false}, {"href": "m46-student.html", "label": "Module 46 · Student guide", "current": false}, {"href": "m46-notes.html", "label": "Module 46 · Teaching notes", "current": false}, {"href": "m46-test.html", "label": "Module 46 · Test", "current": false}, {"href": "m47-student.html", "label": "Module 47 · Student guide", "current": false}, {"href": "m47-notes.html", "label": "Module 47 · Teaching notes", "current": false}, {"href": "m47-test.html", "label": "Module 47 · Test", "current": false}, {"href": "m48-student.html", "label": "Module 48 · Student guide", "current": true}, {"href": "m48-notes.html", "label": "Module 48 · Teaching notes", "current": false}, {"href": "m48-test.html", "label": "Module 48 · Test", "current": false}, {"label": "Modules 49–50 · Surplus and Deadweight Loss", "planned": true}, {"label": "Topic 2.9 · International Trade and Public Policy", "planned": true}, {"label": "Unit 2 · Gap analysis", "planned": true}]}, {"label": "Unit 3 · Production, Cost and Perfect Competition", "items": [{"label": "Modules 52–53 · Profit and Profit Maximisation", "planned": true}, {"label": "Module 54 · The Production Function", "planned": true}, {"label": "Module 55 · Firm Costs", "planned": true}, {"label": "Module 56 · Long-Run Costs and Economies of Scale", "planned": true}, {"label": "Module 57 · Introduction to Market Structure", "planned": true}, {"label": "Modules 58–60 · Perfect Competition", "planned": true}, {"label": "Unit 3 · Gap analysis", "planned": true}]}, {"label": "Unit 4 · Imperfect Competition", "items": [{"label": "Topic 4.1 · Introduction to Imperfect Competition", "planned": true}, {"label": "Modules 61–63 · Monopoly", "planned": true}, {"label": "Modules 67–68 · Monopolistic Competition", "planned": true}, {"label": "Modules 64–66 · Oligopoly and Game Theory", "planned": true}, {"label": "Unit 4 · Gap analysis", "planned": true}]}, {"label": "Unit 5 · Factor Markets", "items": [{"label": "Module 69 · Introduction and Factor Demand", "planned": true}, {"label": "Module 70 · The Markets for Land and Capital", "planned": true}, {"label": "Module 71 · The Market for Labor", "planned": true}, {"label": "Module 72 · The Cost-Minimising Input Combination", "planned": true}, {"label": "Module 73 · Theories of Income Distribution", "planned": true}, {"label": "Unit 5 · Gap analysis", "planned": true}]}, {"label": "Unit 6 · Market Failure and the Role of Government", "items": [{"label": "Modules 74–75 · Externalities", "planned": true}, {"label": "Module 76 · Public Goods", "planned": true}, {"label": "Module 77 · Public Policy to Promote Competition", "planned": true}, {"label": "Module 78 · Income Inequality and Income Distribution", "planned": true}, {"label": "Unit 6 · Gap analysis", "planned": true}]}, {"label": "Interactive", "items": [{"label": "PPC explorer", "planned": true}, {"label": "Supply and demand explorer", "planned": true}, {"label": "Elasticity and total revenue", "planned": true}, {"label": "Cost curves", "planned": true}, {"label": "Market structure comparison", "planned": true}]}], "prev": {"href": "m47-test.html", "label": "Module 47 · Test"}, "next": {"href": "m48-notes.html", "label": "Module 48 · Teaching notes"}, "variants": [{"href": "m48-student.html", "label": "Student", "current": true}, {"href": "m48-notes.html", "label": "Notes", "current": false}, {"href": "m48-test.html", "label": "Test", "current": false}]};</script>
+<script src="assets/course.js"></script>
+</body>
+</html>

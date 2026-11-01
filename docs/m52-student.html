@@ -1,0 +1,1619 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 52 · Defining Profit · AP Microeconomics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@600;700&display=swap">
+<link rel="stylesheet" href="assets/course.css">
+<style>.page .bar{position:static;background:none;backdrop-filter:none}.page .bar-in{max-width:none;padding-inline:0}.page .wrap{max-width:none;padding-inline:0;padding-block:0 24px}.page .masthead{padding-block:10px 24px}</style></head>
+<body>
+<main class="page">
+<style>
+
+
+:root{
+  --paper:#f3f5f8;
+  --surface:#ffffff;
+  --surface-2:#eef1f6;
+  --ink:#15181f;
+  --ink-2:#4d5566;
+  --ink-3:#737c8e;
+  --rule:#d6dae2;
+  --rule-strong:#b3bac7;
+  --accent:#1d4e89;
+  --accent-soft:#e6edf7;
+  --down:#a3372a;
+  --down-soft:#fbeeeb;
+  --up:#1a6b55;
+  --up-soft:#e6f2ee;
+  --flag:#7a5310;
+  --flag-soft:#f8f0e0;
+  --shadow:0 1px 2px rgba(21,24,31,.06), 0 8px 24px rgba(21,24,31,.05);
+  --serif:"IBM Plex Serif", Georgia, "Times New Roman", serif;
+  --sans:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0f1218;
+    --surface:#171b23;
+    --surface-2:#1e232d;
+    --ink:#e8ebf1;
+    --ink-2:#a3adc0;
+    --ink-3:#7e8799;
+    --rule:#2c323d;
+    --rule-strong:#3c4351;
+    --accent:#7dabe2;
+    --accent-soft:#1a2634;
+    --down:#e5907f;
+    --down-soft:#2a1d1a;
+    --up:#6cc4a7;
+    --up-soft:#16291f;
+    --flag:#d8b169;
+    --flag-soft:#2a2418;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.28);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0f1218;
+  --surface:#171b23;
+  --surface-2:#1e232d;
+  --ink:#e8ebf1;
+  --ink-2:#a3adc0;
+  --ink-3:#7e8799;
+  --rule:#2c323d;
+  --rule-strong:#3c4351;
+  --accent:#7dabe2;
+  --accent-soft:#1a2634;
+  --down:#e5907f;
+  --down-soft:#2a1d1a;
+  --up:#6cc4a7;
+  --up-soft:#16291f;
+  --flag:#d8b169;
+  --flag-soft:#2a2418;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.28);
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.65;
+  margin:0;
+}
+.wrap{max-width:820px;margin:0 auto;padding-inline:18px;padding-block:0 72px}
+
+/* ---------- sticky bar ---------- */
+.bar{
+  position:sticky;
+  top:env(safe-area-inset-top, 0px);
+  z-index:40;
+  background:color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--rule);
+}
+.bar-in{
+  max-width:820px;margin:0 auto;padding-inline:18px;
+  display:flex;align-items:center;gap:14px;min-height:50px;flex-wrap:wrap;
+}
+.bar-title{font-family:var(--mono);font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-2);white-space:nowrap}
+.progress{flex:1 1 140px;min-width:120px;display:flex;align-items:center;gap:9px}
+.progress-track{flex:1;height:5px;border-radius:3px;background:var(--rule);overflow:hidden}
+.progress-fill{height:100%;width:0;background:var(--accent);transition:width .25s ease}
+.progress-num{font-family:var(--mono);font-size:12px;color:var(--ink-2);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar button{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;
+  background:none;border:1px solid var(--rule-strong);color:var(--ink-2);
+  padding:5px 10px;border-radius:4px;cursor:pointer;
+}
+.bar button:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ---------- masthead ---------- */
+.masthead{padding-block:40px 28px;border-bottom:2px solid var(--ink)}
+.eyebrow{
+  font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);margin:0 0 12px;
+}
+h1{
+  font-family:var(--serif);font-weight:700;font-size:clamp(30px,6.4vw,44px);
+  line-height:1.1;margin:0 0 14px;text-wrap:balance;letter-spacing:-.01em;
+}
+.standfirst{font-size:17.5px;color:var(--ink-2);margin:0;max-width:62ch}
+.source-line{
+  font-family:var(--mono);font-size:12.5px;color:var(--ink-3);margin-top:18px;
+  display:flex;gap:6px 18px;flex-wrap:wrap;
+}
+
+h2{
+  font-family:var(--serif);font-weight:600;font-size:clamp(21px,3.8vw,26px);
+  line-height:1.25;margin:0 0 10px;text-wrap:balance;
+}
+h3{font-family:var(--sans);font-weight:600;font-size:16px;margin:26px 0 8px;letter-spacing:.01em}
+p{margin:0 0 14px}
+a{color:var(--accent)}
+.section{padding-block:34px 4px}
+
+.kicker{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-3);margin:0 0 8px;
+}
+
+/* ---------- entries ---------- */
+.entry{padding-block:34px 10px;border-top:1px solid var(--rule)}
+.entry-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.entry-num{
+  font-family:var(--mono);font-size:13px;font-weight:600;color:var(--accent);
+  font-variant-numeric:tabular-nums;
+}
+.entry h2{margin:0;flex:1 1 auto;min-width:0}
+.mark{
+  font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  padding:3px 8px;border-radius:3px;white-space:nowrap;
+}
+.mark.exam{background:var(--accent-soft);color:var(--accent)}
+.mark.bg{background:var(--surface-2);color:var(--ink-3)}
+.defn{
+  background:var(--surface);border-left:3px solid var(--accent);
+  padding:14px 16px;border-radius:0 5px 5px 0;margin:14px 0 16px;box-shadow:var(--shadow);
+}
+.defn p{margin:0}
+.defn .lbl{
+  display:block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-3);margin-bottom:5px;
+}
+.reading{font-family:var(--mono);font-size:12.5px;color:var(--ink-3);margin:-6px 0 16px}
+
+.watch{
+  background:var(--down-soft);border:1px solid color-mix(in srgb, var(--down) 28%, transparent);
+  border-radius:5px;padding:13px 16px;margin:18px 0;
+}
+.watch p{margin:0;font-size:15.3px}
+.watch b{color:var(--down)}
+
+.notinbook{
+  background:var(--flag-soft);border:1px dashed color-mix(in srgb, var(--flag) 48%, transparent);
+  border-radius:5px;padding:13px 16px;margin:16px 0;
+}
+.notinbook p{margin:0;font-size:15.3px}
+.notinbook b{color:var(--flag)}
+
+.examples{margin:18px 0;display:flex;flex-direction:column;gap:12px}
+.ex{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start}
+.ex-n{
+  font-family:var(--mono);font-size:11px;font-weight:600;color:var(--ink-3);
+  border:1px solid var(--rule-strong);border-radius:3px;padding:1px 6px;margin-top:3px;white-space:nowrap;
+}
+.ex p{margin:0;font-size:15.3px}
+.ex .who{font-weight:600;color:var(--ink)}
+
+.connects{font-size:15.3px;color:var(--ink-2);border-top:1px solid var(--rule);padding-top:12px;margin-top:6px}
+.connects b{color:var(--ink)}
+
+/* ---------- check yourself ---------- */
+.check{margin:20px 0 6px;background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:14px 16px}
+.check > .lbl{
+  font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);display:block;margin-bottom:10px;
+}
+.q{margin-bottom:12px}
+.q:last-child{margin-bottom:0}
+.q > p{margin:0 0 7px;font-size:15.3px}
+.q .qn{font-family:var(--mono);font-weight:600;color:var(--accent);font-size:13.5px;margin-right:4px}
+details.reveal{border-top:1px dashed var(--rule)}
+details.reveal > summary{
+  list-style:none;cursor:pointer;font-family:var(--mono);font-size:11.5px;
+  letter-spacing:.07em;text-transform:uppercase;color:var(--accent);padding:7px 0 0;
+}
+details.reveal > summary::-webkit-details-marker{display:none}
+details.reveal > summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details.reveal[open] > summary::before{content:"▾ "}
+details.reveal > summary:hover{text-decoration:underline}
+details.reveal .ans{font-size:15.3px;color:var(--ink-2);padding:6px 0 4px}
+details.reveal .ans p{margin:0 0 8px}
+details.reveal .ans p:last-child{margin:0}
+
+.got{
+  display:flex;align-items:center;gap:8px;margin-top:16px;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);
+  cursor:pointer;user-select:none;
+}
+.got input{width:15px;height:15px;accent-color:var(--accent);cursor:pointer}
+
+/* ---------- tables ---------- */
+.tablewrap{overflow-x:auto;margin:18px 0;border:1px solid var(--rule);border-radius:6px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:15px;min-width:420px}
+th,td{padding:10px 13px;text-align:left;border-bottom:1px solid var(--rule);vertical-align:top}
+thead th{
+  font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-3);background:var(--surface-2);font-weight:600;
+}
+tbody tr:last-child td{border-bottom:none}
+td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right}
+.tight td,.tight th{padding:8px 12px;font-size:14.5px}
+
+/* ---------- widgets ---------- */
+.widget{
+  background:var(--surface);border:1px solid var(--rule-strong);border-radius:8px;
+  padding:18px;margin:26px 0;box-shadow:var(--shadow);
+}
+.widget-title{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);margin:0 0 4px;
+}
+.widget h3{margin-top:0}
+.widget-note{font-size:14.5px;color:var(--ink-2);margin:12px 0 0}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{
+  font-family:var(--mono);font-size:12px;letter-spacing:.04em;
+  border:1px solid var(--rule-strong);background:var(--surface);color:var(--ink-2);
+  border-radius:16px;padding:5px 13px;cursor:pointer;transition:all .15s;
+}
+.chip:hover{border-color:var(--accent);color:var(--accent)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+:root[data-theme="dark"] .chip[aria-pressed="true"],
+:root:not([data-theme="light"]) .chip[aria-pressed="true"]{color:#0f1218}
+
+.cyclefig{width:100%;height:auto;display:block;overflow:visible}
+.figcap{font-size:14.5px;color:var(--ink-2);margin:10px 0 0;min-height:3em}
+.figcap b{color:var(--ink)}
+
+.svg-dim{opacity:.22;transition:opacity .2s}
+.svg-lit{opacity:1;transition:opacity .2s}
+
+.calc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:14px 0}
+.field label{
+  display:block;font-family:var(--mono);font-size:11px;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--ink-3);margin-bottom:5px;
+}
+.field input[type=number]{
+  width:100%;font-family:var(--mono);font-size:16px;padding:8px 10px;
+  border:1px solid var(--rule-strong);border-radius:5px;background:var(--paper);color:var(--ink);
+}
+.field input[type=range]{width:100%;accent-color:var(--accent)}
+.field input:focus-visible,.chip:focus-visible,button:focus-visible,summary:focus-visible,a:focus-visible{
+  outline:2px solid var(--accent);outline-offset:2px;
+}
+.readouts{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:6px;overflow:hidden;margin-top:6px}
+.ro{background:var(--surface-2);padding:12px 14px}
+.ro .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);display:block;margin-bottom:3px}
+.ro .v{font-family:var(--mono);font-size:22px;font-weight:600;font-variant-numeric:tabular-nums;color:var(--ink)}
+.ro .v.hl{color:var(--accent)}
+
+/* ---------- quiz ---------- */
+.mcq{border-top:1px solid var(--rule);padding-top:18px;margin-top:18px}
+.mcq:first-of-type{border-top:none;padding-top:0;margin-top:0}
+.mcq .stem{font-size:15.6px;margin:0 0 12px}
+.mcq .stem .qn{font-family:var(--mono);font-weight:600;color:var(--accent);margin-right:6px}
+.opts{display:flex;flex-direction:column;gap:7px}
+.opt{
+  display:flex;gap:11px;align-items:flex-start;text-align:left;width:100%;
+  font-family:var(--sans);font-size:15.2px;line-height:1.5;color:var(--ink);
+  background:var(--surface);border:1px solid var(--rule);border-radius:6px;
+  padding:10px 13px;cursor:pointer;transition:border-color .15s,background .15s;
+}
+.opt:hover{border-color:var(--accent)}
+.opt .ltr{font-family:var(--mono);font-weight:600;color:var(--ink-3);flex:0 0 auto}
+.opt .why{display:block;font-size:14.3px;color:var(--ink-2);margin-top:6px}
+.opt[data-state="right"]{border-color:var(--up);background:var(--up-soft)}
+.opt[data-state="right"] .ltr{color:var(--up)}
+.opt[data-state="wrong"]{border-color:var(--down);background:var(--down-soft)}
+.opt[data-state="wrong"] .ltr{color:var(--down)}
+.opt[disabled]{cursor:default}
+.score{
+  font-family:var(--mono);font-size:13px;color:var(--ink-2);
+  border:1px solid var(--rule-strong);border-radius:6px;padding:11px 14px;margin-top:20px;
+  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;
+}
+.score b{color:var(--ink);font-size:15px}
+
+.frq{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:15px 17px;margin:16px 0}
+.frq .stem{margin:0 0 6px;font-size:15.6px}
+.frq .pts{font-family:var(--mono);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3)}
+.rubric{margin:8px 0 0;padding:0;list-style:none}
+.rubric li{display:grid;grid-template-columns:auto 1fr;gap:10px;padding:7px 0;border-top:1px dotted var(--rule);font-size:15.2px}
+.rubric li .pt{font-family:var(--mono);font-size:11.5px;color:var(--up);white-space:nowrap;padding-top:3px}
+
+.closing{background:var(--accent-soft);border-radius:8px;padding:20px 22px;margin-top:28px}
+.closing h2{margin-top:0}
+.closing ol{margin:0;padding-left:20px}
+.closing li{margin-bottom:10px;font-size:15.5px}
+.closing li:last-child{margin-bottom:0}
+
+.toc{columns:2 220px;column-gap:26px;margin:16px 0 0;padding:0;list-style:none}
+.toc li{break-inside:avoid;padding:3px 0;font-size:15px}
+.toc a{text-decoration:none;color:var(--ink)}
+.toc a:hover{color:var(--accent);text-decoration:underline}
+.toc .n{font-family:var(--mono);font-size:12.5px;color:var(--ink-3);margin-right:7px;font-variant-numeric:tabular-nums}
+.toc .m{font-size:11px;color:var(--ink-3);margin-left:5px}
+
+.footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--rule);font-family:var(--mono);font-size:12px;color:var(--ink-3);line-height:1.8}
+
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+@media print{
+  .bar,.got,.chips{display:none}
+  body{background:#fff}
+  details.reveal > *{display:block!important}
+  .entry{break-inside:avoid-page}
+}
+@media (max-width:520px){
+  .toc{columns:1}
+  .ro .v{font-size:19px}
+}
+
+/* ---------- Module 3 supplement ---------- */
+.mark.flag{background:var(--flag-soft);color:var(--flag)}
+.ppc-wrap{display:grid;grid-template-columns:1fr;gap:14px}
+@media (min-width:720px){.ppc-wrap{grid-template-columns:1fr 210px}}
+.ppc-svg{width:100%;height:auto;display:block;background:var(--surface);
+  border:1px solid var(--rule);border-radius:6px;cursor:crosshair;touch-action:none}
+.ppc-side{display:flex;flex-direction:column;gap:10px}
+.status{font-family:var(--mono);font-size:12.5px;padding:9px 11px;border-radius:5px;
+  border:1px solid var(--rule-strong);background:var(--surface-2);line-height:1.45}
+.status[data-s="on"]{border-color:color-mix(in srgb,var(--up) 45%,transparent);background:var(--up-soft);color:var(--up)}
+.status[data-s="in"]{border-color:var(--rule-strong);color:var(--ink-2)}
+.status[data-s="out"]{border-color:color-mix(in srgb,var(--down) 45%,transparent);background:var(--down-soft);color:var(--down)}
+.ppc-legend{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);line-height:1.6}
+.ppc-legend b{color:var(--ink-2);font-weight:600}
+.chips.tight{gap:6px}
+.tbl{overflow-x:auto;max-width:100%}
+.sumtable{width:100%;border-collapse:collapse;font-size:14.5px;margin:16px 0}
+.sumtable th,.sumtable td{border-bottom:1px solid var(--rule);padding:8px 10px;text-align:left;vertical-align:top}
+.sumtable th{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+.sumtable td.mk{font-family:var(--mono);font-size:12px;white-space:nowrap;color:var(--accent)}
+.sumtable td.mk.bgm{color:var(--ink-3)}
+.sumtable td.mk.flagm{color:var(--flag)}
+.final{background:var(--surface);border:1px solid var(--rule);border-radius:6px;
+  padding:18px 20px;margin:22px 0;box-shadow:var(--shadow)}
+.final ol{margin:0;padding-left:20px}
+.final li{margin:0 0 9px}
+.final li:last-child{margin-bottom:0}
+
+/* ---------- PPC explorer svg ---------- */
+.ppc-svg .ax{stroke:var(--ink);stroke-width:1.6}
+.ppc-svg .tick{stroke:var(--ink-3);stroke-width:1.1}
+.ppc-svg .tl{font-family:var(--mono);font-size:11px;fill:var(--ink-3)}
+.ppc-svg .al{font-family:var(--sans);font-size:12px;font-weight:600;fill:var(--ink-2)}
+.ppc-svg .curve{fill:none;stroke:var(--accent);stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round}
+.ppc-svg .ghost{fill:none;stroke:var(--rule-strong);stroke-width:1.8;stroke-dasharray:6 5}
+.ppc-svg .cl{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--accent)}
+.ppc-svg .drop{stroke:var(--rule-strong);stroke-width:1;stroke-dasharray:3 3}
+.ppc-svg .pt{stroke:var(--surface);stroke-width:2}
+.ppc-svg .pt-on{fill:var(--up)}
+.ppc-svg .pt-in{fill:var(--ink-3)}
+.ppc-svg .pt-out{fill:var(--down)}
+
+
+/* ---------- Module 4 supplement ---------- */
+.two-panel{width:100%;height:auto;display:block;background:var(--surface);
+  border:1px solid var(--rule);border-radius:6px}
+.ca-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:0 0 14px}
+@media (min-width:640px){.ca-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.ca-grid .field{display:flex;flex-direction:column;gap:5px}
+.ca-grid .field span{font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--ink-3)}
+.ca-grid .field b{color:var(--ink-2);font-weight:600;text-transform:none;letter-spacing:0}
+.ca-grid input{font-family:var(--mono);font-size:15px;padding:7px 9px;width:100%;
+  color:var(--ink);background:var(--paper);border:1px solid var(--rule-strong);border-radius:5px}
+.ca-grid input:focus{outline:2px solid var(--accent);outline-offset:1px}
+.catab{width:100%;border-collapse:collapse;font-size:14px;margin:4px 0 14px}
+.catab th,.catab td{border-bottom:1px solid var(--rule);padding:7px 9px;text-align:left}
+.catab th{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:600}
+.catab td.v{font-family:var(--mono);color:var(--ink)}
+.catab td.win{font-family:var(--mono);color:var(--up);font-weight:600}
+.dealrow{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;margin:0 0 12px}
+.dealrow .field{display:flex;flex-direction:column;gap:5px;min-width:190px;flex:1}
+.dealrow .field span{font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--ink-3)}
+.dealrow input{font-family:var(--mono);font-size:16px;padding:8px 10px;
+  color:var(--ink);background:var(--paper);border:1px solid var(--rule-strong);border-radius:5px}
+.line-svg{width:100%;height:auto;display:block;margin:6px 0 2px}
+.line-svg g[hidden]{display:none}
+.line-svg .band{fill:var(--up-soft);stroke:none}
+.line-svg .axl{stroke:var(--ink);stroke-width:1.6}
+.line-svg .tk{stroke:var(--ink-3);stroke-width:1.1}
+.line-svg .tlb{font-family:var(--mono);font-size:11px;fill:var(--ink-3)}
+.line-svg .edge{stroke:var(--up);stroke-width:2}
+.line-svg .edgel{font-family:var(--mono);font-size:11.5px;font-weight:600;fill:var(--up)}
+.line-svg .prop{stroke:var(--accent);stroke-width:2.4}
+.line-svg .propbad{stroke:var(--down);stroke-width:2.4}
+.line-svg .propl{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--accent)}
+.line-svg .propl.bad{fill:var(--down)}
+.two-panel .ax{stroke:var(--ink);stroke-width:1.6}
+.two-panel .tick{stroke:var(--ink-3);stroke-width:1.1}
+.two-panel .tl{font-family:var(--mono);font-size:10.5px;fill:var(--ink-3)}
+.two-panel .al{font-family:var(--sans);font-size:11.5px;font-weight:600;fill:var(--ink-2)}
+.two-panel .ph{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--ink-2)}
+.two-panel .curve{fill:none;stroke:var(--accent);stroke-width:2.4;stroke-linecap:round}
+.two-panel .slope{font-family:var(--mono);font-size:11px;fill:var(--accent)}
+.two-panel .drop{stroke:var(--rule-strong);stroke-width:1;stroke-dasharray:3 3}
+.two-panel .pt{stroke:var(--surface);stroke-width:2}
+.two-panel .pt-on{fill:var(--ink-2)}
+.two-panel .pt-out{fill:var(--up)}
+.two-panel .ptl{font-family:var(--mono);font-size:11px;fill:var(--ink-2)}
+.two-panel .ptl.good{fill:var(--up);font-weight:600}
+
+
+/* The inherited stylesheet styles .curve, .ax, .tick, .tl, .cl, .pt and .ptl only under .ppc-svg and
+   .two-panel, and its .line-svg .axl rule is for an axis LINE - so give the figure's own classes rules
+   under .line-svg. Without these the curves, axes and ticks have stroke:none and do not render. */
+.line-svg .ax{stroke:var(--ink);stroke-width:1.6}
+.line-svg .tick{stroke:var(--ink-3);stroke-width:1.1}
+.line-svg .tl{font-family:var(--mono);font-size:11px;fill:var(--ink-3)}
+.line-svg text.axl{stroke:none;font-family:var(--mono);font-size:12px;fill:var(--ink-2)}
+.line-svg .curve{fill:none;stroke:var(--accent);stroke-width:2.6;stroke-linecap:round}
+.line-svg .cl{font-family:var(--mono);font-size:13px;font-weight:600;fill:var(--accent)}
+.line-svg .pt{stroke:var(--surface);stroke-width:2}
+.line-svg .pt-on{fill:var(--ink-2)}
+.line-svg .ptl{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--ink-2)}
+/* Module 8 price-control figure */
+.pc-line{stroke:var(--down);stroke-width:2.2;stroke-dasharray:7 4}
+.pc-lab{font-family:var(--mono);font-size:12px;fill:var(--down)}
+.pc-gap{stroke:var(--ink-2);stroke-width:1.4}
+.pc-gl{font-family:var(--mono);font-size:11.5px;fill:var(--ink-2)}
+.pc-dwl{fill:var(--flag-soft);stroke:var(--flag);stroke-width:1}
+.pc-dl{font-family:var(--mono);font-size:11.5px;fill:var(--flag)}
+
+/* Module 9 quota figure */
+.qt-line{stroke:var(--down);stroke-width:2.2;stroke-dasharray:7 4}
+.qt-lab{font-family:var(--mono);font-size:12px;fill:var(--down)}
+.qt-rent{fill:var(--up-soft);stroke:var(--up);stroke-width:1}
+.qt-rl{font-family:var(--mono);font-size:11.5px;fill:var(--up)}
+
+/* Module 46: the base figure classes, the calculator and the sorter */
+.line-svg .ax{stroke:var(--ink);stroke-width:1.6}
+.line-svg text.axl{stroke:none;font-family:var(--mono);font-size:12px;fill:var(--ink-2)}
+.line-svg .tick{stroke:var(--ink-3);stroke-width:1.1}
+.line-svg .tl{font-family:var(--mono);font-size:11px;fill:var(--ink-3)}
+.line-svg .curve{fill:none;stroke:var(--accent);stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round}
+.line-svg .cl{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--accent)}
+.line-svg .pt{stroke:var(--surface);stroke-width:2}
+.line-svg .pt-on{fill:var(--ink-2)}
+.line-svg .ptl{font-family:var(--mono);font-size:11.5px;font-weight:600;fill:var(--ink-2)}
+.formula{font-family:var(--mono);font-size:13.5px;background:var(--surface-2);border-left:3px solid var(--accent);
+  padding:9px 12px;margin:10px 0;border-radius:0 6px 6px 0;line-height:1.5}
+.calc-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:10px 0}
+.calc-grid label{display:flex;flex-direction:column;gap:4px;font-family:var(--mono);font-size:11.5px;color:var(--ink-3)}
+.calc-grid input{font-family:var(--mono);font-size:14px;padding:6px 8px;border:1px solid var(--rule);
+  border-radius:6px;background:var(--surface);color:var(--ink)}
+.two-ways{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}
+.way{border:1px solid var(--rule);border-radius:8px;padding:11px 13px;background:var(--surface-2)}
+.way h4{margin:0 0 7px;font-size:13px;letter-spacing:.02em}
+.way .big{font-family:var(--mono);font-size:22px;font-weight:600;color:var(--accent)}
+.way .step{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);margin:3px 0 0}
+.way.mid .big{color:var(--up)}
+.sorter .opts3{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}
+.sorter .opts3 button{font:inherit;font-size:12.5px;padding:6px 11px;border:1px solid var(--rule);
+  border-radius:999px;background:var(--surface);color:var(--ink);cursor:pointer}
+.sorter .opts3 button:hover{border-color:var(--accent)}
+.sorter .verdict{margin-top:9px;font-size:13.5px}
+.sorter .verdict.ok{color:var(--up)}
+.sorter .verdict.no{color:var(--down)}
+@media (max-width:620px){.calc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .two-ways{grid-template-columns:1fr}}
+
+/* Module 47: the revenue bars and the elasticity zones */
+.line-svg .trbar{fill:var(--accent);opacity:.45}
+.line-svg .trbar.peak{fill:var(--up);opacity:.85}
+.line-svg .zone{font-family:var(--mono);font-size:11.5px;fill:var(--ink-3);text-anchor:middle}
+.line-svg .zone.unit{fill:var(--up);font-weight:600}
+.cases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:12px}
+.case{border:1px solid var(--rule);border-radius:8px;padding:11px 13px;background:var(--surface-2)}
+.case h4{margin:0 0 7px;font-size:13px;letter-spacing:.02em}
+.case .big{font-family:var(--mono);font-size:19px;font-weight:600;color:var(--accent)}
+.case .step{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);margin:3px 0 0}
+.case.up .big{color:var(--up)}
+.case.down .big{color:var(--down)}
+.sorter .opts3{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}
+.sorter .opts3 button{font:inherit;font-size:12.5px;padding:6px 11px;border:1px solid var(--rule);
+  border-radius:999px;background:var(--surface);color:var(--ink);cursor:pointer}
+.sorter .opts3 button:hover{border-color:var(--accent)}
+.sorter .verdict{margin-top:9px;font-size:13.5px}
+.sorter .verdict.ok{color:var(--up)}
+.sorter .verdict.no{color:var(--down)}
+@media (max-width:620px){.cases{grid-template-columns:1fr}}
+
+/* Module 48: the two-panel supply figure and the identifier */
+.line-svg .curve.sup{stroke:var(--up)}
+.line-svg .cl.sup{fill:var(--up)}
+.line-svg .zone{font-family:var(--mono);font-size:11.5px;fill:var(--ink-3);text-anchor:middle}
+.ident-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:10px 0}
+.ident-grid label{display:flex;flex-direction:column;gap:4px;font-family:var(--mono);font-size:11.5px;color:var(--ink-3)}
+.ident-grid input{font-family:var(--mono);font-size:14px;padding:6px 8px;border:1px solid var(--rule);
+  border-radius:6px;background:var(--surface);color:var(--ink)}
+.verdictbox{border:1px solid var(--rule);border-radius:8px;padding:12px 14px;background:var(--surface-2);margin-top:12px}
+.verdictbox .big{font-family:var(--mono);font-size:22px;font-weight:600;color:var(--accent);margin:0}
+.verdictbox .what{font-size:14px;margin:6px 0 0}
+.verdictbox .step{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);margin:4px 0 0}
+.verdictbox.pos .big{color:var(--up)}
+.verdictbox.neg .big{color:var(--down)}
+.sorter .opts3{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}
+.sorter .opts3 button{font:inherit;font-size:12.5px;padding:6px 11px;border:1px solid var(--rule);
+  border-radius:999px;background:var(--surface);color:var(--ink);cursor:pointer}
+.sorter .opts3 button:hover{border-color:var(--accent)}
+.sorter .verdict{margin-top:9px;font-size:13.5px}
+.sorter .verdict.ok{color:var(--up)}
+.sorter .verdict.no{color:var(--down)}
+@media (max-width:620px){.ident-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Module 49: the surplus blocks and the price line */
+.line-svg .cs-block{fill:var(--accent);opacity:.28;stroke:var(--accent);stroke-width:.8}
+.line-svg .ps-block{fill:var(--up);opacity:.28;stroke:var(--up);stroke-width:.8}
+.line-svg .pline{stroke:var(--ink-2);stroke-width:1.6;stroke-dasharray:6 4}
+.line-svg g[hidden]{display:none}
+.sorter .opts3{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}
+.sorter .opts3 button{font:inherit;font-size:12.5px;padding:6px 11px;border:1px solid var(--rule);
+  border-radius:999px;background:var(--surface);color:var(--ink);cursor:pointer}
+.sorter .opts3 button:hover{border-color:var(--accent)}
+.sorter .verdict{margin-top:9px;font-size:13.5px}
+.sorter .verdict.ok{color:var(--up)}
+.sorter .verdict.no{color:var(--down)}
+
+/* Module 50: the surplus, revenue, cost and deadweight-loss areas */
+.line-svg .cs-area{fill:var(--accent);opacity:.26;stroke:var(--accent);stroke-width:.8}
+.line-svg .ps-area{fill:var(--up);opacity:.26;stroke:var(--up);stroke-width:.8}
+.line-svg .rev-area{fill:var(--ink-3);opacity:.30;stroke:var(--ink-2);stroke-width:.8}
+.line-svg .cost-area{fill:var(--amber-rule,#c98a1e);opacity:.30;stroke:var(--amber-rule,#c98a1e);stroke-width:.8}
+.line-svg .dwl-area{fill:var(--down);opacity:.42;stroke:var(--down);stroke-width:.8}
+.line-svg .qline{stroke:var(--ink-3);stroke-width:1.1;stroke-dasharray:4 3}
+.inc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:12px}
+.inc{border:1px solid var(--rule);border-radius:8px;padding:11px 13px;background:var(--surface-2)}
+.inc h4{margin:0 0 7px;font-size:13px;letter-spacing:.02em}
+.inc .big{font-family:var(--mono);font-size:19px;font-weight:600;color:var(--accent);margin:0}
+.inc .step{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);margin:3px 0 0}
+@media (max-width:620px){.inc-grid{grid-template-columns:1fr}}
+
+/* Topic 2.9: the gain-from-trade triangle and the world-price line */
+.line-svg .gain-area{fill:var(--up);opacity:.38;stroke:var(--up);stroke-width:.8}
+.line-svg .wline{stroke:var(--accent);stroke-width:1.8;stroke-dasharray:7 4}
+
+/* Module 52: the cost-and-profit bars */
+.line-svg .bar-rev{fill:var(--accent);opacity:.30;stroke:var(--accent);stroke-width:.8}
+.line-svg .bar-exp{fill:var(--ink-3);opacity:.32;stroke:var(--ink-2);stroke-width:.8}
+.line-svg .bar-imp{fill:var(--flag);opacity:.34;stroke:var(--flag);stroke-width:.8}
+.line-svg .bar-risk{fill:var(--flag);opacity:.70;stroke:var(--flag);stroke-width:.8}
+.line-svg .bar-prof{fill:var(--up);opacity:.45;stroke:var(--up);stroke-width:.8}
+.line-svg .bar-loss{fill:var(--down);opacity:.55;stroke:var(--down);stroke-width:.8}
+.line-svg .rline{stroke:var(--ink-2);stroke-width:1.4;stroke-dasharray:6 4}
+.line-svg .blab{font-family:var(--mono);font-size:11px;font-weight:600;fill:var(--ink);text-anchor:middle}
+.line-svg .blab.side{text-anchor:start}
+.line-svg .blab.good{fill:var(--up)}
+.line-svg .blab.bad{fill:var(--down)}
+</style>
+
+
+<div class="bar">
+  <div class="bar-in">
+    <span class="bar-title">Micro &middot; Module 52</span>
+    <span class="progress">
+      <span class="progress-track"><span class="progress-fill" id="pfill"></span></span>
+      <span class="progress-num" id="pnum">0 / 18</span>
+    </span>
+    <button type="button" id="resetBtn">Reset progress</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+<p class="eyebrow">AP Microeconomics &middot; Unit 3 &middot; Student guide</p>
+  <h1>Defining Profit</h1>
+  <p class="standfirst">Eighteen terms for the first profit topic of Unit 3. Two ways of counting cost,
+  two kinds of profit, and why a business with $35,000 on its books can still be better off
+  closing.</p>
+  <div class="source-line">
+    <span>Krugman, Module 52, pages 530&ndash;535</span><span>&middot;</span>
+    <span>18 terms</span><span>&middot;</span><span>Topic 3.4</span><span>&middot;</span><span>1 period</span>
+  </div>
+<section class="section" id="howto">
+  <h2>How to use this guide</h2>
+  <p>Entries 1 to 6 are cost: what counts, and why using your own resources is never free. Entries 7
+  to 15 are the kinds of profit. Entries 16 to 18 are what firms do about profit, and how you will be
+  asked to calculate it.</p>
+  <ul>
+    <li><b>&#9733; Exam</b> means the framework can test it.</li>
+    <li><b>&#9733; &#9873;</b> means it is examinable <b>and Module 52 does not teach it</b>. Entries 12,
+      17 and 18 carry the flag.</li>
+    <li><b>&#9675; Background</b> means it helps you understand the topic but will not be asked about
+      on its own.</li>
+    <li>Every entry ends with two <b>Check yourself</b> questions. Answer them before opening the
+      answer, then tick <b>Got it</b>.</li>
+  </ul>
+  <div class="flag">
+    <p><b>The one idea.</b> Accounting profit subtracts the costs you <b>pay</b>. Economic profit also
+    subtracts the costs you <b>give up</b>. Firms decide by economic profit &mdash; and zero economic
+    profit, normal profit, is a perfectly good result.</p>
+  </div>
+  <div class="notinbook"><p><b>&#9873; Three things Module 52 leaves out.</b> Your course names three
+  implicit costs and your textbook teaches two: <b>compensation for risk</b> is missing (entry 12).
+  Your course also asks how firms respond to profit (entry 17) and how to calculate profit from
+  per-unit figures (entry 18); your textbook does both in later modules.</p></div>
+</section>
+
+<!-- ============ THE DIAGRAM ============ -->
+<section class="section" id="diagram">
+  <h2>The accountant and the economist look at Babette's caf&eacute;</h2>
+  <p>Babette takes in <b>$100,000</b> a year. Her accountant subtracts the $65,000 she pays out (food,
+  wages, rent and $5,000 of equipment wear) and reports a profit of <b>$35,000</b>. The economist also
+  subtracts what Babette gives up: $3,000 her equipment would earn if sold and banked, and the salary
+  she could earn as a chef elsewhere. Switch between the cases and watch only the economist's answer
+  change. Every figure is in thousands of dollars.</p>
+  <div class="widget">
+    <div class="widget-title">Babette's Cajun Caf&eacute;</div>
+    <div class="chips" id="sChips">
+      <button type="button" class="chip" aria-pressed="true" data-k="c1">Case 1</button>
+      <button type="button" class="chip" aria-pressed="false" data-k="c2">Case 2</button>
+      <button type="button" class="chip" aria-pressed="false" data-k="c2r">Case 2 with risk</button>
+    </div>
+    <svg class="line-svg" viewBox="0 0 680 400" role="img"
+         aria-label="Babette's cafe: revenue, the accountant's costs and profit, and the economist's costs including implicit costs, with economic profit or loss">
+      <line class="ax" x1="80" y1="25" x2="80" y2="350"></line>
+      <line class="ax" x1="80" y1="350" x2="640" y2="350"></line>
+      <text class="axl" x="16" y="18" text-anchor="start">Thousands of dollars a year</text>
+      <line class="tick" x1="76" y1="350" x2="80" y2="350"></line>
+      <text class="tl" x="70" y="354" text-anchor="end">0</text>
+      <line class="tick" x1="76" y1="292.7" x2="80" y2="292.7"></line>
+      <text class="tl" x="70" y="296.7" text-anchor="end">20</text>
+      <line class="tick" x1="76" y1="235.5" x2="80" y2="235.5"></line>
+      <text class="tl" x="70" y="239.5" text-anchor="end">40</text>
+      <line class="tick" x1="76" y1="178.2" x2="80" y2="178.2"></line>
+      <text class="tl" x="70" y="182.2" text-anchor="end">60</text>
+      <line class="tick" x1="76" y1="120.9" x2="80" y2="120.9"></line>
+      <text class="tl" x="70" y="124.9" text-anchor="end">80</text>
+      <line class="tick" x1="76" y1="63.6" x2="80" y2="63.6"></line>
+      <text class="tl" x="70" y="67.6" text-anchor="end">100</text>
+      <text class="tl" x="160" y="368" text-anchor="middle">Revenue</text>
+      <text class="tl" x="340" y="368" text-anchor="middle">The accountant</text>
+      <text class="tl" x="520" y="368" text-anchor="middle">The economist</text>
+      <g id="g-c1">
+        <rect class="bar-rev" x="100" y="63.6" width="120" height="286.4"></rect>
+        <text class="blab" x="160" y="203.8">Revenue</text>
+        <text class="blab" x="160" y="217.8">$100k</text>
+        <rect class="bar-exp" x="280" y="163.9" width="120" height="186.1"></rect>
+        <text class="blab" x="340" y="253.9">Explicit</text>
+        <text class="blab" x="340" y="267.9">$65k</text>
+        <rect class="bar-prof" x="280" y="63.6" width="120" height="100.2"></rect>
+        <text class="blab" x="340" y="110.7">Accounting</text>
+        <text class="blab" x="340" y="124.7">profit $35k</text>
+        <rect class="bar-exp" x="460" y="163.9" width="120" height="186.1"></rect>
+        <text class="blab" x="520" y="253.9">Explicit</text>
+        <text class="blab" x="520" y="267.9">$65k</text>
+        <rect class="bar-imp" x="460" y="155.3" width="120" height="8.6"></rect>
+        <text class="blab side" x="586" y="163.6">capital $3k</text>
+        <rect class="bar-imp" x="460" y="57.9" width="120" height="97.4"></rect>
+        <text class="blab" x="520" y="103.6">Her time</text>
+        <text class="blab" x="520" y="117.6">$34k</text>
+        <rect class="bar-loss" x="460" y="57.9" width="120" height="5.7"></rect>
+        <text class="blab side bad" x="586" y="64.8">loss $2k</text>
+      </g>
+      <g id="g-c2" hidden="hidden">
+        <rect class="bar-rev" x="100" y="63.6" width="120" height="286.4"></rect>
+        <text class="blab" x="160" y="203.8">Revenue</text>
+        <text class="blab" x="160" y="217.8">$100k</text>
+        <rect class="bar-exp" x="280" y="163.9" width="120" height="186.1"></rect>
+        <text class="blab" x="340" y="253.9">Explicit</text>
+        <text class="blab" x="340" y="267.9">$65k</text>
+        <rect class="bar-prof" x="280" y="63.6" width="120" height="100.2"></rect>
+        <text class="blab" x="340" y="110.7">Accounting</text>
+        <text class="blab" x="340" y="124.7">profit $35k</text>
+        <rect class="bar-exp" x="460" y="163.9" width="120" height="186.1"></rect>
+        <text class="blab" x="520" y="253.9">Explicit</text>
+        <text class="blab" x="520" y="267.9">$65k</text>
+        <rect class="bar-imp" x="460" y="155.3" width="120" height="8.6"></rect>
+        <text class="blab side" x="586" y="163.6">capital $3k</text>
+        <rect class="bar-imp" x="460" y="69.4" width="120" height="85.9"></rect>
+        <text class="blab" x="520" y="109.3">Her time</text>
+        <text class="blab" x="520" y="123.3">$30k</text>
+        <rect class="bar-prof" x="460" y="63.6" width="120" height="5.7"></rect>
+        <text class="blab side good" x="586" y="70.5">profit $2k</text>
+      </g>
+      <g id="g-c2r" hidden="hidden">
+        <rect class="bar-rev" x="100" y="63.6" width="120" height="286.4"></rect>
+        <text class="blab" x="160" y="203.8">Revenue</text>
+        <text class="blab" x="160" y="217.8">$100k</text>
+        <rect class="bar-exp" x="280" y="163.9" width="120" height="186.1"></rect>
+        <text class="blab" x="340" y="253.9">Explicit</text>
+        <text class="blab" x="340" y="267.9">$65k</text>
+        <rect class="bar-prof" x="280" y="63.6" width="120" height="100.2"></rect>
+        <text class="blab" x="340" y="110.7">Accounting</text>
+        <text class="blab" x="340" y="124.7">profit $35k</text>
+        <rect class="bar-exp" x="460" y="163.9" width="120" height="186.1"></rect>
+        <text class="blab" x="520" y="253.9">Explicit</text>
+        <text class="blab" x="520" y="267.9">$65k</text>
+        <rect class="bar-imp" x="460" y="155.3" width="120" height="8.6"></rect>
+        <text class="blab side" x="586" y="163.6">capital $3k</text>
+        <rect class="bar-imp" x="460" y="69.4" width="120" height="85.9"></rect>
+        <text class="blab" x="520" y="109.3">Her time</text>
+        <text class="blab" x="520" y="123.3">$30k</text>
+        <rect class="bar-risk" x="460" y="63.6" width="120" height="5.7"></rect>
+        <text class="blab side" x="586" y="70.5">risk $2k</text>
+        <text class="blab good" x="520" y="55.6">normal profit</text>
+      </g>
+      <line class="rline" x1="80" y1="63.6" x2="580" y2="63.6"></line>
+    </svg>
+    <div class="readouts">
+      <div class="ro"><span class="k">Revenue</span><span class="v">$100k</span></div>
+      <div class="ro"><span class="k">Accounting profit</span><span class="v" id="racc">$35k</span></div>
+      <div class="ro"><span class="k">Implicit costs</span><span class="v" id="rimp">$37k</span></div>
+      <div class="ro"><span class="k">Economic profit</span><span class="v" id="reco">&minus;$2k</span></div>
+    </div>
+    <p class="figcap" id="scap"></p>
+  </div>
+  <p>Grey is the explicit cost both of them subtract, amber the implicit costs only the economist
+  subtracts, green a profit and red a loss. The dashed line is revenue. In the third case Babette
+  needs $2,000 a year as <b>compensation for risk</b>: her implicit costs reach $35,000, exactly her
+  accounting profit, and her economic profit is <b>zero</b> &mdash; normal profit.</p>
+</section>
+
+<!-- ============ THE DRILL ============ -->
+<section class="section" id="sorter">
+  <h2>Explicit or implicit?</h2>
+  <p>Sixteen costs a small business might face. Decide whether each is paid out in money or is a
+  benefit given up. The pairs to watch: interest <b>paid</b> against interest <b>given up</b>, and a van
+  that is <b>leased</b> against one that is <b>owned</b>.</p>
+  <div class="widget sorter" id="sortWidget">
+    <div class="widget-title">Which kind of cost is it?</div>
+    <p class="stem" id="sortStem"></p>
+    <div class="opts3">
+      <button type="button" data-a="explicit">Explicit</button>
+      <button type="button" data-a="implicit">Implicit</button>
+    </div>
+    <p class="verdict" id="sortVerdict"></p>
+    <div class="chips">
+      <button type="button" class="chip" id="sortNext">Next cost</button>
+      <span class="progress-num" id="sortScore">0 / 0</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE ENTRIES ============ -->
+<section class="section" id="entries">
+  <h2>The eighteen terms</h2>
+</section>
+
+<article class="entry" id="e1">
+  <div class="entry-head"><span class="entry-num">01</span><h2>Profit</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p><b>Total revenue minus total cost.</b> The goal economists assume every firm pursues.</p></div>
+  <p class="reading">Textbook page 530.</p>
+
+  <p>Your textbook starts from one line: <b>Profit = Total Revenue &minus; Total Cost</b>. Everything
+  in this module is about the second term &mdash; which costs count. Count only the bills a business
+  pays and you get one kind of profit; count everything its owner gives up and you get another.</p>
+  <p>Firms may have other goals too, but the model assumes they try to make profit as large as
+  possible. The next module shows how they choose the quantity that does it.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Profit is not the same as revenue. A business that takes in $100,000 has not earned $100,000; what it earns depends on what it gave up to take that money in.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Babette's caf&eacute; takes in $100,000.</span> That is revenue. Profit is what remains after the costs.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">A lemonade stand sells $40 of lemonade using $15 of lemons and cups.</span> Profit, counting only those costs, is $25.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A firm whose costs exceed its revenue.</span> Its profit is negative: a loss.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> Its first term is <a href="#e2">total revenue</a> (entry 2); the two ways of counting the second give <a href="#e7">accounting profit</a> (entry 7) and <a href="#e9">economic profit</a> (entry 9).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">1.1</span> A store's revenue is $500,000 and its total cost is $430,000. What is its profit?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>$500,000 &minus; $430,000 = $70,000.</p></div></details></div>
+    <div class="q"><p><span class="qn">1.2</span> Why does the module spend so long on cost rather than revenue?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because revenue is simple &mdash; price times quantity &mdash; while which costs to count is what separates the two kinds of profit.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got1"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e2">
+  <div class="entry-head"><span class="entry-num">02</span><h2>Total revenue</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The price of the output times the quantity sold: <b>TR = P &times; Q</b>.</p></div>
+  <p class="reading">Textbook page 530.</p>
+
+  <p>Total revenue is the money a firm takes in from selling its output. If you sell 100 T-shirts
+  at $10 each, total revenue is <b>$1,000</b> &mdash; whatever the shirts cost you to make.</p>
+  <p>It is the same number from either side of the market: what sellers receive as revenue is what
+  buyers pay as total expenditure.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Total revenue is a sales figure, not a profit figure. Exam questions often give price and quantity and expect you to multiply before subtracting anything.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">100 T-shirts at $10.</span> TR = $1,000.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Sunny sells 2,000 sno cones at $2.</span> TR = $4,000.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A farm sells 5 bushels at $18.</span> TR = $90.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the first term of <a href="#e1">profit</a> (entry 1), and dividing it by quantity gives the price used in <a href="#e18">profit per unit</a> (entry 18).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">2.1</span> A firm sells 400 books at $15. What is its total revenue?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>400 &times; $15 = $6,000.</p></div></details></div>
+    <div class="q"><p><span class="qn">2.2</span> If price stays at $15 and the firm sells 50 more books, by how much does total revenue rise?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>50 &times; $15 = $750.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got2"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e3">
+  <div class="entry-head"><span class="entry-num">03</span><h2>Explicit cost</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A cost that involves <b>actually laying out money</b>: rent, wages, materials, bills.</p></div>
+  <p class="reading">Textbook page 530, Table 52.1.</p>
+
+  <p>Explicit costs are the ones that show up as payments. For a year at college they are tuition
+  ($17,000), books and supplies ($1,000) and a computer ($1,500) &mdash; <b>$19,500</b> in Table
+  52.1. For a business they are the wages it pays, the rent it pays, the ingredients it buys.</p>
+  <p>Your exam uses the phrase often. It is the half of cost that an accountant records.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Interest the business <b>pays</b> on a loan is explicit &mdash; money changes hands. Interest the owner's own savings <b>would have earned</b> is implicit. Same word, opposite category.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Tuition.</span> Explicit: you write a check for it.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Babette's food, wages and rent.</span> $60,000 of explicit cost.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Interest paid on a bank loan.</span> Explicit: the payment leaves the business.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> Its partner is <a href="#e4">implicit cost</a> (entry 4); together they make <a href="#e5">the full cost of a choice</a> (entry 5), and it is all that <a href="#e7">accounting profit</a> (entry 7) subtracts.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">3.1</span> A bakery pays $2,000 a month in rent and $1,500 for flour. Which of these are explicit costs?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Both: each is a payment of money.</p></div></details></div>
+    <div class="q"><p><span class="qn">3.2</span> Karma and Don pay a part-time helper. Is the helper's wage explicit or implicit?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Explicit &mdash; it is paid out in money.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got3"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e4">
+  <div class="entry-head"><span class="entry-num">04</span><h2>Implicit cost</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A cost that requires <b>no outlay of money</b>. It is measured by the value, in dollars, of the benefits <b>given up</b>.</p></div>
+  <p class="reading">Textbook page 530, Table 52.1.</p>
+
+  <p>An implicit cost is an opportunity cost that nobody sends you a bill for. A year at college
+  costs you the <b>$35,000</b> salary you could have earned &mdash; no money leaves your pocket, but
+  you are $35,000 worse off than in your next-best choice.</p>
+  <p>Your textbook warns that ignoring implicit costs is &ldquo;a common mistake, both in economic
+  analysis and in real business situations&rdquo;. They are often the larger part of the cost.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Implicit does not mean imaginary. If the next-best use of a resource would have earned money, using it here costs that money just as surely as a bill would.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Forgone salary at college.</span> $35,000, more than the explicit cost of $19,500.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">The time you spend eating lunch.</span> An implicit cost of going out to lunch.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A van the owners inherited and use for deliveries.</span> Implicit: they could have sold it.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the other half of <a href="#e3">cost</a> (entry 3), it completes <a href="#e5">the full cost of a choice</a> (entry 5), it is what separates <a href="#e9">economic profit</a> (entry 9) from accounting profit, and in a business it comes as <a href="#e10">the cost of the owner's capital</a> (entry 10).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">4.1</span> A student gives up a $12-an-hour job to study for four hours. What is the implicit cost of studying?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>4 &times; $12 = $48.</p></div></details></div>
+    <div class="q"><p><span class="qn">4.2</span> Karma and Don use a basement workroom that nobody would ever rent. Is there an implicit cost?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No &mdash; or rather, it is zero. An implicit cost is a benefit given up, and if the space has no other use, nothing is given up.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got4"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e5">
+  <div class="entry-head"><span class="entry-num">05</span><h2>The full cost of a choice</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The opportunity cost of an activity is its <b>explicit cost plus its implicit cost</b>.</p></div>
+  <p class="reading">Textbook page 531, Table 52.1.</p>
+
+  <p>Table 52.1 adds the two together for one more year of school:</p>
+  <ul>
+    <li>Explicit: $17,000 + $1,000 + $1,500 = <b>$19,500</b></li>
+    <li>Implicit: forgone salary of <b>$35,000</b></li>
+    <li>Total opportunity cost: <b>$54,500</b></li>
+  </ul>
+  <p>Leave out the implicit part and the year looks to cost about a third of what it really
+  costs.</p>
+
+  <div class="watch"><p><b>Watch out.</b> The full cost is a sum, not a choice between the two. Students sometimes report only the larger figure.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">A year of college.</span> $19,500 + $35,000 = $54,500.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Selling T-shirts for two hours.</span> $500 of shirts plus $16 of time you could have spent at an $8-an-hour job.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Babette's caf&eacute; in Case 1.</span> $65,000 on the books plus $37,000 of implicit cost: $102,000.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It adds <a href="#e3">explicit cost</a> (entry 3) to <a href="#e4">implicit cost</a> (entry 4), and <a href="#e6">using your own resources</a> (entry 6) explains why the second part is real.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">5.1</span> A summer course costs $1,200 in fees and means giving up $3,000 of wages. What is its full cost?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>$1,200 + $3,000 = $4,200.</p></div></details></div>
+    <div class="q"><p><span class="qn">5.2</span> If the wages given up rose to $4,000, which part of the cost would change?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Only the implicit part. The full cost would be $5,200.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got5"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e6">
+  <div class="entry-head"><span class="entry-num">06</span><h2>Using your own resources</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Using a resource you already own is <b>still costly</b>: it costs whatever the resource would have earned in its next-best use.</p></div>
+  <p class="reading">Textbook page 531.</p>
+
+  <p>Your textbook puts it as a rule: &ldquo;in considering the cost of an activity, you should
+  include the cost of using any of your own resources for that activity.&rdquo; Your time, your
+  savings, your building and your equipment all have other uses.</p>
+  <p>To put a number on it, ask what the resource would have earned in its <b>next-best
+  alternative</b>. That is the implicit cost.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Owning something does not make it free to use. A farmer who owns her land still gives up the rent a developer would pay for it.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Your time at college.</span> Costs the salary it would have earned.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Farmland near a growing city.</span> Costs what a developer would pay to use it &mdash; your textbook's New England farms.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Babette's own equipment.</span> Costs the $3,000 interest it could earn if she sold it.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is why <a href="#e5">the full cost</a> (entry 5) counts, and it covers both <a href="#e10">the owner's capital</a> (entry 10) and <a href="#e11">the owner's time</a> (entry 11).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">6.1</span> Why does owning your building not make your shop's space free?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because you could rent the space to someone else. The rent you give up is an implicit cost.</p></div></details></div>
+    <div class="q"><p><span class="qn">6.2</span> How do you put a dollar value on using your own resource?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Find what it would earn in its next-best alternative use.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got6"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e7">
+  <div class="entry-head"><span class="entry-num">07</span><h2>Accounting profit</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p><b>Total revenue minus explicit costs.</b> The profit a business reports on its books and its tax forms.</p></div>
+  <p class="reading">Textbook pages 531 and 539.</p>
+
+  <p>Babette takes in <b>$100,000</b>. Her food, wages and rent cost <b>$60,000</b>, and her
+  accountant records <b>$5,000</b> of wear on her equipment. Her accounting profit is
+  $100,000 &minus; $60,000 &minus; $5,000 = <b>$35,000</b>.</p>
+  <p>Your exam's definition is the short one: total revenue minus explicit costs. Your textbook's
+  margin adds &ldquo;and depreciation&rdquo; &mdash; that is one of the costs an accountant records,
+  so the two say the same thing (entry 8).</p>
+
+  <div class="watch"><p><b>Watch out.</b> Accounting profit is a useful number but the wrong one for deciding whether to stay in business. It leaves out every implicit cost.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Babette's caf&eacute;.</span> $100,000 &minus; $65,000 = $35,000.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">T-shirts at a football game.</span> $1,000 &minus; $500 = $500.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Sunny's Sno Cone Stand.</span> $4,000 &minus; $400 &minus; $100 = $3,500.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is <a href="#e1">profit</a> (entry 1) with only <a href="#e3">explicit costs</a> (entry 3) subtracted, it includes <a href="#e8">depreciation</a> (entry 8), and it is never less than <a href="#e13">economic profit</a> (entry 13).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">7.1</span> A firm sells 400 books at $15 and its explicit costs are $4,500. What is its accounting profit?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>$6,000 &minus; $4,500 = $1,500.</p></div></details></div>
+    <div class="q"><p><span class="qn">7.2</span> Which costs does accounting profit leave out?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Every implicit cost: the owner's time, the earnings of the owner's own capital, and the reward for risk.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got7"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e8">
+  <div class="entry-head"><span class="entry-num">08</span><h2>Depreciation</h2><span class="mark bgm">&#9675; Background</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The loss in value of equipment as it wears out. Accountants record it as a yearly cost.</p></div>
+  <p class="reading">Textbook page 531.</p>
+
+  <p>Babette's appliances and furniture wear out and must be replaced every few years. Her
+  accountant spreads that cost over the years by recording <b>$5,000</b> of depreciation each
+  year.</p>
+  <p>You will not be asked about depreciation on its own. It matters only because your textbook's
+  definition of accounting profit mentions it: treat it as one of the explicit costs on the
+  accountant's books.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Depreciation is not the implicit cost of capital. Depreciation is wear; the implicit cost is the income the equipment's value could have earned elsewhere. Babette has both.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Babette's equipment.</span> $5,000 a year of depreciation.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">A delivery van bought for $30,000 that lasts six years.</span> About $5,000 a year.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Sunny's sno cone machine.</span> $100 of depreciation in January.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is one of the costs subtracted in <a href="#e7">accounting profit</a> (entry 7).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">8.1</span> Is depreciation an explicit or an implicit cost in this course?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Treat it as one of the explicit costs an accountant records.</p></div></details></div>
+    <div class="q"><p><span class="qn">8.2</span> Babette's equipment depreciates by $5,000 and could earn $3,000 in a bank. How much of that is the implicit cost of capital?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>$3,000. The $5,000 is depreciation, already on the accountant's books.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got8"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e9">
+  <div class="entry-head"><span class="entry-num">09</span><h2>Economic profit</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p><b>Total revenue minus explicit and implicit costs</b> &mdash; minus the full opportunity cost of every resource the business uses.</p></div>
+  <p class="reading">Textbook page 532, Table 52.2.</p>
+
+  <p>Economic profit starts where accounting profit stops and subtracts the implicit costs as
+  well:</p>
+  <p><b>Economic profit = accounting profit &minus; implicit costs.</b></p>
+  <p>In Case 1, Babette's $35,000 of accounting profit loses her $3,000 implicit cost of capital and
+  the $34,000 she could earn as a chef: <b>&minus;$2,000</b>. When economists say <i>profit</i>
+  without a qualifier, they mean this one.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Economic profit can be negative while accounting profit is positive. Babette's books show $35,000 and she would still be better off closing.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Babette, Case 1.</span> $35,000 &minus; $37,000 = &minus;$2,000.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Babette, Case 2.</span> $35,000 &minus; $33,000 = +$2,000.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">T-shirts at a football game.</span> $500 &minus; $16 = $484.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is <a href="#e1">profit</a> (entry 1) measured properly: it subtracts <a href="#e4">implicit costs</a> (entry 4) as well, it is <a href="#e13">never more than accounting profit</a> (entry 13), and when it is zero it is <a href="#e14">normal profit</a> (entry 14).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">9.1</span> A firm sells 400 books at $15, its explicit costs are $4,500 and its implicit costs $1,000. What is its economic profit?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>$6,000 &minus; $4,500 &minus; $1,000 = $500.</p></div></details></div>
+    <div class="q"><p><span class="qn">9.2</span> Economic profit can be found from accounting profit by subtracting what?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Implicit costs.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got9"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e10">
+  <div class="entry-head"><span class="entry-num">10</span><h2>Cost of financial capital</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The income the owner could have earned from the money or equipment tied up in the business, in its next-best use. Your textbook calls it the <b>implicit cost of capital</b>.</p></div>
+  <p class="reading">Textbook page 532.</p>
+
+  <p>Babette owns her equipment. She pays no rent on it, but she could sell it for <b>$50,000</b> and
+  put the money in a bank at <b>$3,000</b> a year. That $3,000 is an implicit cost of running the
+  caf&eacute;.</p>
+  <p>Your exam calls this the <b>cost of financial capital</b>. It applies to any money an owner puts
+  into the business: it could have earned interest somewhere else.</p>
+
+  <div class="watch"><p><b>Watch out.</b> If Babette rented her equipment instead, the rent would be an explicit cost. Owning it does not remove the cost; it only moves it from the explicit column to the implicit one.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Babette's $50,000 of equipment.</span> $3,000 a year of interest given up.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">$20,000 of savings put into a bike shop at 5% interest.</span> $1,000 a year.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Farmland a family owns outright.</span> The rent or development income the land could earn.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is one of <a href="#e4">the implicit costs</a> (entry 4), a special case of <a href="#e6">using your own resources</a> (entry 6), and the safe return it measures is the starting point for <a href="#e12">compensation for risk</a> (entry 12).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">10.1</span> An owner puts $80,000 of her savings into a business. A bank would pay 4%. What is the implicit cost of that capital?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>4% of $80,000 = $3,200 a year.</p></div></details></div>
+    <div class="q"><p><span class="qn">10.2</span> Why is this cost left out of accounting profit?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because no money is paid out for it &mdash; the owner simply gives up the interest.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got10"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e11">
+  <div class="entry-head"><span class="entry-num">11</span><h2>The entrepreneur's time</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>What the owner could have earned by working elsewhere. Your exam calls it <b>an entrepreneur's time</b>; your textbook says the owner &ldquo;devotes time and energy to the business that could have been used elsewhere&rdquo;.</p></div>
+  <p class="reading">Textbook page 532, Table 52.2.</p>
+
+  <p>Babette could earn <b>$34,000</b> as a chef in someone else's restaurant. Running her own costs
+  her that salary &mdash; the largest of her implicit costs, and the one that turns her
+  $35,000 of accounting profit into a loss.</p>
+  <p>In Case 2 a soft labor market cuts what she could earn to <b>$30,000</b>, and her economic profit
+  turns positive. Nothing about the caf&eacute; changed; her next-best alternative did.</p>
+
+  <div class="watch"><p><b>Watch out.</b> The owner's time is valued at what it would earn elsewhere, not at the hours worked. Long hours do not make it larger unless the alternative pays by the hour.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Babette, Case 1.</span> $34,000 as a chef elsewhere.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Babette, Case 2.</span> $30,000: the alternative got worse, so the caf&eacute; looks better.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Selling T-shirts for two hours.</span> $16, at the $8 an hour you could earn at your other job.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the largest kind of <a href="#e6">own resource</a> (entry 6) for a small business, and with <a href="#e12">compensation for risk</a> (entry 12) it completes the framework's list.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">11.1</span> An owner could earn $45,000 managing another firm's store. What implicit cost does that create for her own store?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>$45,000 a year &mdash; the salary she gives up.</p></div></details></div>
+    <div class="q"><p><span class="qn">11.2</span> Babette's café does not change, but the salary she could earn elsewhere falls. What happens to her economic profit?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>It rises by the same amount, because her implicit cost has fallen.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got11"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e12">
+  <div class="entry-head"><span class="entry-num">12</span><h2>Compensation for risk</h2><span class="mark flag">&#9733; &#9873;</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The extra return an owner needs for putting money into a <b>risky</b> business rather than a safe one. It is an implicit cost.</p></div>
+  <p class="reading">Not in Module 52 &mdash; or anywhere else in your textbook.</p>
+
+  <div class="notinbook"><p><b>&#9873; Not in Module 52 &mdash; learn it from here.</b> Your course lists three implicit costs: the cost of financial capital, compensation for risk, and an entrepreneur's time. Your textbook teaches the first and the third and never mentions risk.</p></div>
+
+  <p>A bank account pays its interest whatever happens. A new caf&eacute; might fail and lose the
+  owner's savings. Nobody would take that risk for the same return as the bank, so part of what the
+  owner needs to earn is a reward for bearing it.</p>
+  <p>Suppose Babette needs <b>$2,000</b> a year on top of the bank's $3,000 to make the risk
+  worthwhile. In Case 2 her implicit costs become $3,000 + $30,000 + $2,000 = <b>$35,000</b>, and her
+  economic profit falls from +$2,000 to <b>$0</b>. Try it in the diagram above.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Risk compensation is not an insurance premium. A premium is paid out in money, so it is explicit. Risk compensation is the return the owner gives up demanding, so it is implicit.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Babette with a $2,000 risk premium.</span> Implicit costs $35,000; economic profit $0.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Savings in a government bond at 3% or in a new restaurant.</span> The restaurant must earn more than 3% to be worth it.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A start-up with a high chance of failing.</span> Needs a large expected return to compensate its founders.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It sits alongside <a href="#e10">the cost of financial capital</a> (entry 10) and <a href="#e11">the entrepreneur's time</a> (entry 11), and once all three are covered the owner is earning <a href="#e14">normal profit</a> (entry 14).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">12.1</span> Two owners each put $100,000 to work. One buys a bond paying $3,000; the other opens a restaurant. Why is the restaurant owner's implicit cost of capital more than $3,000?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because the restaurant is riskier. The owner needs compensation for risk on top of the safe return.</p></div></details></div>
+    <div class="q"><p><span class="qn">12.2</span> Is compensation for risk part of accounting profit?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. Nobody pays it out in money, so accounting profit ignores it. Economic profit subtracts it.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got12"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e13">
+  <div class="entry-head"><span class="entry-num">13</span><h2>Accounting profit is never less than economic profit</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The two differ by the implicit costs. Implicit costs cannot be negative, so economic profit is <b>at most</b> equal to accounting profit.</p></div>
+  <p class="reading">Textbook page 532, Table 52.2.</p>
+
+  <p>Your textbook says economic profit is &ldquo;usually less&rdquo; than accounting profit. It is
+  <b>always</b> less or equal: subtracting implicit costs can never raise a number. The two are equal
+  only when there are no implicit costs at all.</p>
+  <p>Exam questions test this directly. &ldquo;Accounting profit is greater than economic profit
+  because accounting profit does not consider implicit costs&rdquo; is the kind of statement to
+  recognise as true.</p>
+
+  <div class="watch"><p><b>Watch out.</b> An option saying economic profit is larger than accounting profit is always wrong, however the question is dressed up.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Babette, Case 1.</span> Accounting $35,000; economic &minus;$2,000.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">T-shirts.</span> Accounting $500; economic $484.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A firm with no implicit costs.</span> The two are equal.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It compares <a href="#e7">accounting profit</a> (entry 7) with <a href="#e9">economic profit</a> (entry 9).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">13.1</span> A firm reports accounting profit of $50,000. Could its economic profit be $60,000?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. Economic profit is accounting profit minus implicit costs, and those cannot be negative.</p></div></details></div>
+    <div class="q"><p><span class="qn">13.2</span> When are the two equal?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Only when the firm has no implicit costs.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got13"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e14">
+  <div class="entry-head"><span class="entry-num">14</span><h2>Normal profit</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p><b>An economic profit of zero.</b> Every cost, explicit and implicit, is just covered, so the resources could not do better anywhere else.</p></div>
+  <p class="reading">Textbook pages 533&ndash;534.</p>
+
+  <p>Zero sounds like failure. It is not: an owner earning normal profit is earning exactly what her
+  money, time and risk would earn in their best alternative. Your textbook: a firm earning normal
+  profit &ldquo;could not do any better using its resources in any alternative activity&rdquo;.</p>
+  <p>Two things follow, and exams ask about both:</p>
+  <ul>
+    <li><b>Accounting profit is positive</b> &mdash; it equals the implicit costs. Babette with a risk
+      premium shows $35,000 of accounting profit and $35,000 of implicit cost.</li>
+    <li>The owner has <b>no reason to leave</b> the business.</li>
+  </ul>
+
+  <div class="watch"><p><b>Watch out.</b> Normal profit is zero <b>economic</b> profit, not zero accounting profit. A firm earning normal profit has an accounting profit exactly equal to its implicit costs.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Babette, Case 2 with risk.</span> Economic profit $0; accounting profit $35,000 = implicit costs $35,000.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">A firm with $30,000 of accounting profit and $30,000 of implicit costs.</span> Normal profit.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A competitive firm in long-run equilibrium.</span> Earns normal profit &mdash; and a positive accounting profit.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is <a href="#e9">economic profit</a> (entry 9) at zero, reached when <a href="#e12">risk</a> (entry 12) is covered, it is the point where <a href="#e17">entry and exit</a> (entry 17) stops, and below it is <a href="#e15">an economic loss</a> (entry 15).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">14.1</span> A firm earns normal profit and its implicit costs are $40,000. What is its accounting profit?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>$40,000. At normal profit, accounting profit equals implicit costs.</p></div></details></div>
+    <div class="q"><p><span class="qn">14.2</span> Should a firm earning normal profit close?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. It is doing as well as its resources could anywhere else.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got14"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e15">
+  <div class="entry-head"><span class="entry-num">15</span><h2>Economic loss</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p><b>Negative economic profit.</b> Total revenue does not cover explicit and implicit costs, so the resources would earn more elsewhere.</p></div>
+  <p class="reading">Textbook page 533.</p>
+
+  <p>Your textbook says a negative economic profit &ldquo;can also be described as a loss&rdquo;. Your
+  exam's phrase is <b>economic loss</b>. Babette in Case 1 has one: <b>&minus;$2,000</b>, even with
+  $35,000 of accounting profit.</p>
+  <p>An economic loss is a signal that &ldquo;there is a better alternative use for resources&rdquo;. It
+  does not mean the business is losing money on its books.</p>
+
+  <div class="watch"><p><b>Watch out.</b> A firm can make an economic loss and an accounting profit at the same time. The first is the one it responds to.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Babette, Case 1.</span> Economic loss of $2,000; accounting profit $35,000.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">A firm with revenue $90,000, explicit costs $60,000, implicit costs $35,000.</span> Economic loss of $5,000.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A firm with revenue below its explicit costs.</span> Both an accounting loss and an economic loss.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the other side of <a href="#e14">normal profit</a> (entry 14), and it is one of the two signals in <a href="#e16">how firms respond</a> (entry 16).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">15.1</span> Revenue is $200,000, explicit costs $150,000 and implicit costs $60,000. Profit or loss?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Accounting profit $50,000; economic loss of $10,000.</p></div></details></div>
+    <div class="q"><p><span class="qn">15.2</span> What does an economic loss tell the owner?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>That her resources would earn more in their next-best use.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got15"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e16">
+  <div class="entry-head"><span class="entry-num">16</span><h2>Firms respond to economic profit</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Owners decide whether a business is worth continuing by its <b>economic</b> profit or loss, not its accounting profit.</p></div>
+  <p class="reading">Textbook pages 533 and 539.</p>
+
+  <p>Your textbook: economic profits &ldquo;signal the best use of resources&rdquo;. Positive economic
+  profit says the current use is the best one; an economic loss says there is a better one. A firm's
+  decision to stay in business or close for good &ldquo;should be based on economic profit, not
+  accounting profit&rdquo;.</p>
+  <p>Babette's books show $35,000 in both cases. In Case 1 she should close; in Case 2 she should
+  stay. Only economic profit tells the two apart.</p>
+
+  <div class="watch"><p><b>Watch out.</b> This is the long-run decision: stay or leave. In the short run a firm that has already paid for its equipment may keep producing at a loss for a while. You will meet that rule in Topic 3.6.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Babette, Case 1.</span> Economic loss: close and work as a chef.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Babette, Case 2.</span> Economic profit: stay open.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">New England farms near cities.</span> High land values raise the implicit cost of farming; many farmers sell up.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It reads the sign of <a href="#e15">economic profit or loss</a> (entry 15) and acts on it through <a href="#e17">entry and exit</a> (entry 17).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">16.1</span> Two firms report the same accounting profit. Why might one stay in business and the other close?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Their implicit costs differ. The one whose owner has a better alternative may have an economic loss.</p></div></details></div>
+    <div class="q"><p><span class="qn">16.2</span> Which number did Sunny need to know before deciding whether to keep her sno cone stand?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>The opportunity cost of her own time, so that she could calculate her economic profit.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got16"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e17">
+  <div class="entry-head"><span class="entry-num">17</span><h2>Entry and exit</h2><span class="mark flag">&#9733; &#9873;</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>In the long run, with no barriers, firms <b>enter</b> a market where there is economic profit and <b>exit</b> one where there are economic losses.</p></div>
+  <p class="reading">Not in Module 52 &mdash; Textbook pages 601&ndash;602, Module 60.</p>
+
+  <div class="notinbook"><p><b>&#9873; Not in Module 52 &mdash; learn it from here.</b> Your course asks you to explain how firms respond to profit opportunities. Module 52 stops at one owner's decision; the market's response, entry and exit, is in Module 60.</p></div>
+
+  <p>One owner deciding to stay or close is the same decision as a firm deciding whether to be in a
+  market at all. If firms in an industry earn economic profit, outsiders can do better there than in
+  their current use &mdash; so they come in. If firms make economic losses, some leave.</p>
+  <p>Entry adds to supply and pushes the price down; exit does the reverse. Both continue until
+  the firms left are earning <b>normal profit</b>. Module 60 draws the whole process.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Firms enter because of economic profit, not accounting profit. An industry where everyone earns normal profit has positive accounting profits and no entry.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">A new food-truck craze with high economic profits.</span> More trucks arrive until profits fall to normal.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Video rental stores making losses.</span> Stores close until the survivors earn normal profit.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">An industry earning normal profit.</span> No entry, no exit &mdash; and positive accounting profits.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is how <a href="#e16">firms' response to profit</a> (entry 16) works across a market, it stops at <a href="#e14">normal profit</a> (entry 14), and its long-run outcome is calculated with <a href="#e18">profit per unit</a> (entry 18).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">17.1</span> Firms in an industry with no barriers earn economic profit. What happens in the long run?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>New firms enter, market supply rises, the price falls, and economic profit falls to zero.</p></div></details></div>
+    <div class="q"><p><span class="qn">17.2</span> Why do firms not leave an industry where they earn normal profit?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because they could not do better anywhere else.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got17"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e18">
+  <div class="entry-head"><span class="entry-num">18</span><h2>Profit per unit</h2><span class="mark flag">&#9733; &#9873;</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Profit can be calculated per unit: <b>Profit = (P &minus; ATC) &times; Q</b>, where ATC, average total cost, is total cost divided by quantity.</p></div>
+  <p class="reading">Not in Module 52 &mdash; Textbook page 590, Module 59.</p>
+
+  <div class="notinbook"><p><b>&#9873; Not in Module 52 &mdash; learn it from here.</b> Your course asks you to calculate a firm's profit or loss, and exam questions do it with average total cost. Module 52 works only with totals; the per-unit form is in Module 59, after costs are taught.</p></div>
+
+  <p>Exam questions usually give you a price, an average total cost and a quantity rather than
+  totals. Divide total revenue and total cost by quantity and you get price and average total cost;
+  multiply the gap by quantity and you are back at profit.</p>
+  <p>Jennifer and Jason (Module 53) sell 5 bushels at <b>$18</b> with a total cost of $72, so ATC is
+  $72 &divide; 5 = <b>$14.40</b>. Profit = ($18 &minus; $14.40) &times; 5 = <b>$18</b> &mdash; the same as
+  $90 &minus; $72.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Multiply by quantity. (P &minus; ATC) alone is the profit on <b>one</b> unit, and exam options often offer it as a trap.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">P $18, ATC $14.40, Q 5.</span> Profit $18.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">P $10, ATC $12, Q 100.</span> Loss of $200.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">P $10, ATC $10.</span> Zero economic profit: normal profit.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It rewrites <a href="#e2">total revenue minus total cost</a> (entry 2) per unit, and it is the calculation used to show <a href="#e17">entry and exit</a> (entry 17) on a graph.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">18.1</span> A firm sells 200 units at $8. Its average total cost is $6.50. What is its economic profit?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>($8 &minus; $6.50) &times; 200 = $300.</p></div></details></div>
+    <div class="q"><p><span class="qn">18.2</span> Price is $10, average total cost $10 and average variable cost $8. What kind of profit does the firm earn?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Normal profit: price equals average total cost, so economic profit is zero.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got18"> Got it</label>
+  </div>
+</article>
+
+
+<!-- ============ PRACTICE ============ -->
+<section class="section" id="mcq">
+  <h2>Five questions to try</h2>
+  <p>Click an option to see why it is right or wrong.</p>
+  <div class="mcq" data-key="C">
+    <p class="stem"><span class="qn">1</span> Maya leaves a job paying $40,000 a year to open a bakery. Which is an implicit cost of the bakery?</p>
+    <div class="opts">
+      <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>The rent she pays for the shop<span class="why" hidden>&#10007; Paid in money, so explicit.</span></span></button>
+      <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>The flour she buys<span class="why" hidden>&#10007; A purchase: explicit.</span></span></button>
+      <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>The $40,000 salary she gave up<span class="why" hidden>&#10003; No money is paid, but she gives up the salary &mdash; an implicit cost.</span></span></button>
+      <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>The wages she pays her assistant<span class="why" hidden>&#10007; Explicit.</span></span></button>
+      <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>The interest she pays on a bank loan<span class="why" hidden>&#10007; A payment, so explicit.</span></span></button>
+    </div>
+  </div>
+  <div class="mcq" data-key="A">
+    <p class="stem"><span class="qn">2</span> A firm's revenue is $150,000, its explicit costs $90,000 and its implicit costs $45,000. What are its accounting profit and its economic profit?</p>
+    <div class="opts">
+      <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>$60,000 and $15,000<span class="why" hidden>&#10003; $150,000 &minus; $90,000 = $60,000; then $60,000 &minus; $45,000 = $15,000.</span></span></button>
+      <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>$15,000 and $60,000<span class="why" hidden>&#10007; The two are swapped. Economic profit can never be the larger.</span></span></button>
+      <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>$60,000 and $60,000<span class="why" hidden>&#10007; Ignores the implicit costs.</span></span></button>
+      <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>$105,000 and $15,000<span class="why" hidden>&#10007; Subtracts the implicit costs, not the explicit ones, to get accounting profit.</span></span></button>
+      <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>$60,000 and &minus;$30,000<span class="why" hidden>&#10007; Subtracts the implicit costs twice.</span></span></button>
+    </div>
+  </div>
+  <div class="mcq" data-key="E">
+    <p class="stem"><span class="qn">3</span> A firm earns a normal profit. Its implicit costs are $30,000. Which is true?</p>
+    <div class="opts">
+      <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>Its accounting profit is zero<span class="why" hidden>&#10007; Normal profit is zero <i>economic</i> profit.</span></span></button>
+      <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>Its economic profit is $30,000<span class="why" hidden>&#10007; Normal profit means economic profit is zero.</span></span></button>
+      <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>Its accounting profit is negative<span class="why" hidden>&#10007; It is positive.</span></span></button>
+      <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>It should leave the industry<span class="why" hidden>&#10007; It could not do better elsewhere.</span></span></button>
+      <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>Its accounting profit is $30,000<span class="why" hidden>&#10003; At normal profit, accounting profit just covers the implicit costs.</span></span></button>
+    </div>
+  </div>
+  <div class="mcq" data-key="B">
+    <p class="stem"><span class="qn">4</span> Two owners each invest $100,000. One buys a government bond paying $3,000 a year; the other opens a restaurant. Why is the restaurant owner's implicit cost of capital more than $3,000?</p>
+    <div class="opts">
+      <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>Restaurants pay more tax than bonds<span class="why" hidden>&#10007; Taxes are explicit costs.</span></span></button>
+      <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>The restaurant is riskier, so the owner needs compensation for risk<span class="why" hidden>&#10003; The safe return is only part of what a risky business must earn.</span></span></button>
+      <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>The restaurant's equipment depreciates<span class="why" hidden>&#10007; Depreciation is on the accountant's books, not an implicit cost.</span></span></button>
+      <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>Bond interest is an explicit cost<span class="why" hidden>&#10007; It is income, and for the restaurant owner it is given up &mdash; implicit.</span></span></button>
+      <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>It is not: both owners have an implicit cost of exactly $3,000<span class="why" hidden>&#10007; Leaves out compensation for risk.</span></span></button>
+    </div>
+  </div>
+  <div class="mcq" data-key="D">
+    <p class="stem"><span class="qn">5</span> Firms in a market with no barriers to entry are earning positive economic profit. What happens in the long run?</p>
+    <div class="opts">
+      <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>Firms exit the market<span class="why" hidden>&#10007; Firms exit when there are losses.</span></span></button>
+      <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>Nothing, because firms respond to accounting profit<span class="why" hidden>&#10007; Firms respond to economic profit.</span></span></button>
+      <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>Firms leave to earn normal profit elsewhere<span class="why" hidden>&#10007; They are already doing better than normal profit.</span></span></button>
+      <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>New firms enter until economic profit falls to zero<span class="why" hidden>&#10003; Entry raises supply and lowers the price until profit is normal.</span></span></button>
+      <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>Economic profit keeps rising as the market grows<span class="why" hidden>&#10007; Entry pushes it down.</span></span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FREE RESPONSE ============ -->
+<section class="section" id="frq">
+  <h2>A free-response question</h2>
+
+  <div class="frq">
+    <p class="stem"><b>1.</b> (6 points) Lena runs a bike-repair shop. This year it took in
+    <b>$90,000</b>. She paid <b>$50,000</b> for rent, parts and a helper's wages. She owns her tools,
+    which she could sell for $20,000 and put in a bank paying 5% a year. She left a job paying
+    <b>$36,000</b>, and she needs <b>$3,000</b> a year to compensate her for the risk of running her own
+    business.</p>
+    <p><b>(a)</b> Calculate Lena's accounting profit. <b>(b)</b> Calculate her total implicit costs.
+    <b>(c)</b> Calculate her economic profit. <b>(d)</b> Should Lena keep the shop open? Explain.
+    <b>(e)</b> Revenue rises to $96,000 with no change in costs. Calculate her economic profit.
+    <b>(f)</b> If every shop in the town earns what Lena earns in part (e), and nothing stops new shops
+    from opening, what will happen to economic profit in the long run? Explain.</p>
+    <details class="reveal"><summary>Show the mark scheme</summary><div class="ans">
+      <p><b>(a) 1 point</b> &mdash; $90,000 &minus; $50,000 = <b>$40,000</b>.</p>
+      <p><b>(b) 1 point</b> &mdash; $1,000 (5% of $20,000) + $36,000 + $3,000 = <b>$40,000</b>.</p>
+      <p><b>(c) 1 point</b> &mdash; $40,000 &minus; $40,000 = <b>$0</b>.</p>
+      <p><b>(d) 1 point</b> &mdash; yes. She earns a <b>normal profit</b>: her resources could not do better
+      anywhere else.</p>
+      <p><b>(e) 1 point</b> &mdash; $96,000 &minus; $50,000 &minus; $40,000 = <b>$6,000</b>.</p>
+      <p><b>(f) 1 point</b> &mdash; it falls to <b>zero</b>. Economic profit attracts new shops; as they
+      enter, the price of repairs falls until shops earn normal profit.</p>
+    </div></details>
+  </div>
+</section>
+
+<!-- ============ SUMMARY ============ -->
+<section class="section" id="summary">
+  <h2>One page to revise from</h2>
+  <table class="tbl">
+    <thead><tr><th>Term</th><th>In one line</th></tr></thead>
+    <tbody>
+      <tr><td>Profit</td><td>Total revenue minus total cost.</td></tr>
+      <tr><td>Total revenue</td><td>P &times; Q.</td></tr>
+      <tr><td>Explicit cost</td><td>Paid out in money.</td></tr>
+      <tr><td>Implicit cost</td><td>A benefit given up; no money paid.</td></tr>
+      <tr><td>Full cost of a choice</td><td>Explicit plus implicit.</td></tr>
+      <tr><td>Your own resources</td><td>Still cost what they would earn elsewhere.</td></tr>
+      <tr><td>Accounting profit</td><td>Revenue minus explicit costs.</td></tr>
+      <tr><td>Depreciation</td><td>Wear on equipment; one of the accountant's costs.</td></tr>
+      <tr><td>Economic profit</td><td>Revenue minus explicit and implicit costs.</td></tr>
+      <tr><td>Cost of financial capital</td><td>What the owner's money or equipment would earn elsewhere.</td></tr>
+      <tr><td>Entrepreneur's time</td><td>What the owner would earn working elsewhere.</td></tr>
+      <tr><td>Compensation for risk</td><td>The extra return a risky business must earn.</td></tr>
+      <tr><td>Never larger</td><td>Economic profit &le; accounting profit, always.</td></tr>
+      <tr><td>Normal profit</td><td>Zero economic profit. Accounting profit = implicit costs.</td></tr>
+      <tr><td>Economic loss</td><td>Negative economic profit.</td></tr>
+      <tr><td>Firms respond</td><td>To economic profit, not accounting profit.</td></tr>
+      <tr><td>Entry and exit</td><td>Profit draws firms in; losses push them out; both stop at normal profit.</td></tr>
+      <tr><td>Profit per unit</td><td>(P &minus; ATC) &times; Q.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section" id="getright">
+  <h2>Things to get right</h2>
+  <ul>
+    <li><b>Accounting profit = revenue &minus; explicit costs.</b> Economic profit subtracts the implicit
+      costs as well.</li>
+    <li><b>Interest paid is explicit; interest given up is implicit.</b> The same goes for rent.</li>
+    <li><b>Three implicit costs:</b> the cost of financial capital, the entrepreneur's time, and
+      compensation for risk.</li>
+    <li><b>Economic profit is never larger than accounting profit.</b></li>
+    <li><b>Normal profit is zero economic profit</b>, and then accounting profit equals implicit
+      costs &mdash; it is positive, not zero.</li>
+    <li><b>Firms respond to economic profit:</b> they enter where it is positive and exit where it is
+      negative.</li>
+    <li><b>Profit = (P &minus; ATC) &times; Q.</b> Do not forget to multiply by quantity.</li>
+  </ul>
+</section>
+
+</div>
+
+<script>
+(function(){
+  var N = 18;
+  function $(id){ return document.getElementById(id); }
+  function k$(x){ return (x < 0 ? "\u2212$" : "$") + String(Math.abs(x)) + "k"; }
+
+  /* progress */
+  var KEY = "m52-got";
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ return {}; } }
+  function save(o){ try { localStorage.setItem(KEY, JSON.stringify(o)); } catch(e){} }
+  function paint(){
+    var o = load(), n = 0, i;
+    for (i = 1; i <= N; i++){ var b = $("got" + i); if (b){ b.checked = !!o[i]; if (o[i]) n++; } }
+    $("pnum").textContent = n + " / " + N;
+    $("pfill").style.width = (100 * n / N) + "%";
+  }
+  var boxes = document.querySelectorAll(".gotbox"), bi;
+  for (bi = 0; bi < boxes.length; bi++){
+    boxes[bi].addEventListener("change", function(){
+      var o = load(); o[this.id.replace("got", "")] = this.checked; save(o); paint();
+    });
+  }
+  $("resetBtn").addEventListener("click", function(){ save({}); paint(); });
+  paint();
+
+  /* Babette's cafe */
+  var STATES = [
+    { k: "c1", n: "Case 1", acc: 35, imp: 37, econ: -2, v: "Better to close: her resources earn more elsewhere" },
+    { k: "c2", n: "Case 2", acc: 35, imp: 33, econ: 2, v: "Stay open: she earns more here than anywhere else" },
+    { k: "c2r", n: "Case 2 with risk", acc: 35, imp: 35, econ: 0, v: "Normal profit: no better use for her resources" }
+  ];
+  function show(k){
+    var s = null, i;
+    for (i = 0; i < STATES.length; i++){ if (STATES[i].k === k) s = STATES[i]; }
+    if (!s) return;
+    var gs = document.querySelectorAll("#diagram svg g[id^='g-']");
+    for (i = 0; i < gs.length; i++){
+      if (gs[i].id === "g-" + k) gs[i].removeAttribute("hidden"); else gs[i].setAttribute("hidden", "hidden");
+    }
+    var chips = document.querySelectorAll("#sChips .chip");
+    for (i = 0; i < chips.length; i++){
+      chips[i].setAttribute("aria-pressed", chips[i].getAttribute("data-k") === k ? "true" : "false");
+    }
+    $("racc").textContent = k$(s.acc);
+    $("rimp").textContent = k$(s.imp);
+    $("reco").textContent = k$(s.econ);
+    $("scap").textContent = s.n + ". Accounting profit " + k$(s.acc) + " minus implicit costs " + k$(s.imp)
+        + " leaves an economic profit of " + k$(s.econ) + ". " + s.v + ".";
+  }
+  var sc = document.querySelectorAll("#sChips .chip"), si;
+  for (si = 0; si < sc.length; si++){
+    sc[si].addEventListener("click", function(){ show(this.getAttribute("data-k")); });
+  }
+  show("c1");
+
+  /* explicit or implicit? */
+  var SORT = [
+    { t: "Rent paid each month for the caf&eacute;'s space.", a: "explicit",
+      w: "Money is paid out to the landlord." },
+    { t: "The salary the owner gave up to run the business.", a: "implicit",
+      w: "Nobody pays it; the owner simply does not earn it." },
+    { t: "Wages paid to a part-time helper.", a: "explicit",
+      w: "Paid in money to someone else." },
+    { t: "The interest the owner's savings would have earned in a bank, now that they are in the business.", a: "implicit",
+      w: "The cost of financial capital: income given up, not paid." },
+    { t: "Interest paid on a bank loan.", a: "explicit",
+      w: "A payment leaves the business. Compare the interest the owner's own savings would have earned." },
+    { t: "The income from selling the equipment the owner already owns and investing the money.", a: "implicit",
+      w: "Babette's $3,000: the implicit cost of capital." },
+    { t: "Flour bought from a supplier.", a: "explicit",
+      w: "A purchase." },
+    { t: "The extra return the owner needs for risking her savings on a new business.", a: "implicit",
+      w: "Compensation for risk." },
+    { t: "The electricity bill.", a: "explicit",
+      w: "A bill, paid in money." },
+    { t: "The wage the owner's brother could earn elsewhere, working unpaid in the shop.", a: "implicit",
+      w: "His time has a next-best use, even though nobody pays him here." },
+    { t: "The insurance premium paid on the shop.", a: "explicit",
+      w: "A premium is paid out. Do not confuse it with compensation for risk." },
+    { t: "A basement workroom that could have been rented to a student.", a: "implicit",
+      w: "The rent given up. If nobody would rent it, the cost is zero." },
+    { t: "Lease payments on a delivery van.", a: "explicit",
+      w: "Paid every month. Had the owners inherited the van, its cost would be implicit." },
+    { t: "The yearly income a farmer could earn by leasing her own land to a developer.", a: "implicit",
+      w: "Owning the land does not make farming it free." },
+    { t: "A licence fee paid to the city.", a: "explicit",
+      w: "Paid in money." },
+    { t: "The value of the owner's time, at her next-best job.", a: "implicit",
+      w: "The entrepreneur's time." }
+  ];
+  var sAt = 0, score = 0, done = 0, answered = false;
+  function card(){
+    answered = false;
+    $("sortStem").innerHTML = SORT[sAt].t;
+    $("sortVerdict").textContent = "";
+    $("sortVerdict").className = "verdict";
+  }
+  var opts = document.querySelectorAll("#sortWidget .opts3 button"), oi;
+  for (oi = 0; oi < opts.length; oi++){
+    opts[oi].addEventListener("click", function(){
+      if (answered) return;
+      answered = true; done++;
+      var c = SORT[sAt], ok = (this.getAttribute("data-a") === c.a);
+      if (ok) score++;
+      $("sortVerdict").innerHTML = (ok ? "\u2713 " : "\u2717 ") + c.w;
+      $("sortVerdict").className = "verdict " + (ok ? "ok" : "no");
+      $("sortScore").textContent = score + " / " + done;
+    });
+  }
+  $("sortNext").addEventListener("click", function(){ sAt = (sAt + 1) % SORT.length; card(); });
+  card();
+
+  /* the practice questions */
+  var mcqs = document.querySelectorAll(".mcq"), mi;
+  for (mi = 0; mi < mcqs.length; mi++){
+    (function(box){
+      var os = box.querySelectorAll(".opt"), j;
+      for (j = 0; j < os.length; j++){
+        os[j].addEventListener("click", function(){
+          var w = this.querySelector(".why");
+          if (w) w.hidden = !w.hidden;
+          this.classList.toggle("open");
+        });
+      }
+    })(mcqs[mi]);
+  }
+})();
+</script>
+</main>
+<script>window.COURSE_NAV={"kicker": "3.4 Types of profit", "title": "Module 52 · Defining Profit", "map": [{"label": "Course", "items": [{"href": "index.html", "label": "Home", "current": false}, {"href": "spec.html", "label": "Course specification", "current": false}]}, {"label": "Unit 1 · Basic Economic Concepts", "items": [{"href": "m01-student.html", "label": "Module 1 · Student guide", "current": false}, {"href": "m01-notes.html", "label": "Module 1 · Teaching notes", "current": false}, {"href": "m01-test.html", "label": "Module 1 · Test", "current": false}, {"label": "Module 2 · Introduction to Macroeconomics", "planned": true}, {"href": "m03-student.html", "label": "Module 3 · Student guide", "current": false}, {"href": "m03-notes.html", "label": "Module 3 · Teaching notes", "current": false}, {"href": "m03-test.html", "label": "Module 3 · Test", "current": false}, {"href": "m04-student.html", "label": "Module 4 · Student guide", "current": false}, {"href": "m04-notes.html", "label": "Module 4 · Teaching notes", "current": false}, {"href": "m04-test.html", "label": "Module 4 · Test", "current": false}, {"href": "m51-student.html", "label": "Module 51 · Student guide", "current": false}, {"href": "m51-notes.html", "label": "Module 51 · Teaching notes", "current": false}, {"href": "m51-test.html", "label": "Module 51 · Test", "current": false}, {"label": "Unit 1 · Gap analysis", "planned": true}]}, {"label": "Unit 2 · Supply and Demand", "items": [{"href": "m05-student.html", "label": "Module 5 · Student guide", "current": false}, {"href": "m05-notes.html", "label": "Module 5 · Teaching notes", "current": false}, {"href": "m05-test.html", "label": "Module 5 · Test", "current": false}, {"href": "m06-student.html", "label": "Module 6 · Student guide", "current": false}, {"href": "m06-notes.html", "label": "Module 6 · Teaching notes", "current": false}, {"href": "m06-test.html", "label": "Module 6 · Test", "current": false}, {"href": "m07-student.html", "label": "Module 7 · Student guide", "current": false}, {"href": "m07-notes.html", "label": "Module 7 · Teaching notes", "current": false}, {"href": "m07-test.html", "label": "Module 7 · Test", "current": false}, {"href": "m08-student.html", "label": "Module 8 · Student guide", "current": false}, {"href": "m08-notes.html", "label": "Module 8 · Teaching notes", "current": false}, {"href": "m08-test.html", "label": "Module 8 · Test", "current": false}, {"href": "m09-student.html", "label": "Module 9 · Student guide", "current": false}, {"href": "m09-notes.html", "label": "Module 9 · Teaching notes", "current": false}, {"href": "m09-test.html", "label": "Module 9 · Test", "current": false}, {"href": "m46-student.html", "label": "Module 46 · Student guide", "current": false}, {"href": "m46-notes.html", "label": "Module 46 · Teaching notes", "current": false}, {"href": "m46-test.html", "label": "Module 46 · Test", "current": false}, {"href": "m47-student.html", "label": "Module 47 · Student guide", "current": false}, {"href": "m47-notes.html", "label": "Module 47 · Teaching notes", "current": false}, {"href": "m47-test.html", "label": "Module 47 · Test", "current": false}, {"href": "m48-student.html", "label": "Module 48 · Student guide", "current": false}, {"href": "m48-notes.html", "label": "Module 48 · Teaching notes", "current": false}, {"href": "m48-test.html", "label": "Module 48 · Test", "current": false}, {"href": "m49-student.html", "label": "Module 49 · Student guide", "current": false}, {"href": "m49-notes.html", "label": "Module 49 · Teaching notes", "current": false}, {"href": "m49-test.html", "label": "Module 49 · Test", "current": false}, {"href": "m50-student.html", "label": "Module 50 · Student guide", "current": false}, {"href": "m50-notes.html", "label": "Module 50 · Teaching notes", "current": false}, {"href": "m50-test.html", "label": "Module 50 · Test", "current": false}, {"href": "t29-student.html", "label": "Topic 2.9 · Student guide", "current": false}, {"href": "t29-notes.html", "label": "Topic 2.9 · Teaching notes", "current": false}, {"href": "t29-test.html", "label": "Topic 2.9 · Test", "current": false}, {"label": "Unit 2 · Gap analysis", "planned": true}]}, {"label": "Unit 3 · Production, Cost and Perfect Competition", "items": [{"href": "m52-student.html", "label": "Module 52 · Student guide", "current": true}, {"href": "m52-notes.html", "label": "Module 52 · Teaching notes", "current": false}, {"href": "m52-test.html", "label": "Module 52 · Test", "current": false}, {"href": "m53-student.html", "label": "Module 53 · Student guide", "current": false}, {"href": "m53-notes.html", "label": "Module 53 · Teaching notes", "current": false}, {"href": "m53-test.html", "label": "Module 53 · Test", "current": false}, {"label": "Module 54 · The Production Function", "planned": true}, {"label": "Module 55 · Firm Costs", "planned": true}, {"label": "Module 56 · Long-Run Costs and Economies of Scale", "planned": true}, {"label": "Module 57 · Introduction to Market Structure", "planned": true}, {"label": "Modules 58–60 · Perfect Competition", "planned": true}, {"label": "Unit 3 · Gap analysis", "planned": true}]}, {"label": "Unit 4 · Imperfect Competition", "items": [{"label": "Topic 4.1 · Introduction to Imperfect Competition", "planned": true}, {"label": "Modules 61–63 · Monopoly", "planned": true}, {"label": "Modules 67–68 · Monopolistic Competition", "planned": true}, {"label": "Modules 64–66 · Oligopoly and Game Theory", "planned": true}, {"label": "Unit 4 · Gap analysis", "planned": true}]}, {"label": "Unit 5 · Factor Markets", "items": [{"label": "Module 69 · Introduction and Factor Demand", "planned": true}, {"label": "Module 70 · The Markets for Land and Capital", "planned": true}, {"label": "Module 71 · The Market for Labor", "planned": true}, {"label": "Module 72 · The Cost-Minimising Input Combination", "planned": true}, {"label": "Module 73 · Theories of Income Distribution", "planned": true}, {"label": "Unit 5 · Gap analysis", "planned": true}]}, {"label": "Unit 6 · Market Failure and the Role of Government", "items": [{"label": "Modules 74–75 · Externalities", "planned": true}, {"label": "Module 76 · Public Goods", "planned": true}, {"label": "Module 77 · Public Policy to Promote Competition", "planned": true}, {"label": "Module 78 · Income Inequality and Income Distribution", "planned": true}, {"label": "Unit 6 · Gap analysis", "planned": true}]}, {"label": "Interactive", "items": [{"label": "PPC explorer", "planned": true}, {"label": "Supply and demand explorer", "planned": true}, {"label": "Elasticity and total revenue", "planned": true}, {"label": "Cost curves", "planned": true}, {"label": "Market structure comparison", "planned": true}]}], "prev": {"href": "t29-test.html", "label": "Topic 2.9 · Test"}, "next": {"href": "m52-notes.html", "label": "Module 52 · Teaching notes"}, "variants": [{"href": "m52-student.html", "label": "Student", "current": true}, {"href": "m52-notes.html", "label": "Notes", "current": false}, {"href": "m52-test.html", "label": "Test", "current": false}]};</script>
+<script src="assets/course.js"></script>
+</body>
+</html>

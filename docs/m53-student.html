@@ -1,0 +1,1568 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 53 · Profit Maximization · AP Microeconomics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@600;700&display=swap">
+<link rel="stylesheet" href="assets/course.css">
+<style>.page .bar{position:static;background:none;backdrop-filter:none}.page .bar-in{max-width:none;padding-inline:0}.page .wrap{max-width:none;padding-inline:0;padding-block:0 24px}.page .masthead{padding-block:10px 24px}</style></head>
+<body>
+<main class="page">
+<style>
+
+
+:root{
+  --paper:#f3f5f8;
+  --surface:#ffffff;
+  --surface-2:#eef1f6;
+  --ink:#15181f;
+  --ink-2:#4d5566;
+  --ink-3:#737c8e;
+  --rule:#d6dae2;
+  --rule-strong:#b3bac7;
+  --accent:#1d4e89;
+  --accent-soft:#e6edf7;
+  --down:#a3372a;
+  --down-soft:#fbeeeb;
+  --up:#1a6b55;
+  --up-soft:#e6f2ee;
+  --flag:#7a5310;
+  --flag-soft:#f8f0e0;
+  --shadow:0 1px 2px rgba(21,24,31,.06), 0 8px 24px rgba(21,24,31,.05);
+  --serif:"IBM Plex Serif", Georgia, "Times New Roman", serif;
+  --sans:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0f1218;
+    --surface:#171b23;
+    --surface-2:#1e232d;
+    --ink:#e8ebf1;
+    --ink-2:#a3adc0;
+    --ink-3:#7e8799;
+    --rule:#2c323d;
+    --rule-strong:#3c4351;
+    --accent:#7dabe2;
+    --accent-soft:#1a2634;
+    --down:#e5907f;
+    --down-soft:#2a1d1a;
+    --up:#6cc4a7;
+    --up-soft:#16291f;
+    --flag:#d8b169;
+    --flag-soft:#2a2418;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.28);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0f1218;
+  --surface:#171b23;
+  --surface-2:#1e232d;
+  --ink:#e8ebf1;
+  --ink-2:#a3adc0;
+  --ink-3:#7e8799;
+  --rule:#2c323d;
+  --rule-strong:#3c4351;
+  --accent:#7dabe2;
+  --accent-soft:#1a2634;
+  --down:#e5907f;
+  --down-soft:#2a1d1a;
+  --up:#6cc4a7;
+  --up-soft:#16291f;
+  --flag:#d8b169;
+  --flag-soft:#2a2418;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.28);
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.65;
+  margin:0;
+}
+.wrap{max-width:820px;margin:0 auto;padding-inline:18px;padding-block:0 72px}
+
+/* ---------- sticky bar ---------- */
+.bar{
+  position:sticky;
+  top:env(safe-area-inset-top, 0px);
+  z-index:40;
+  background:color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--rule);
+}
+.bar-in{
+  max-width:820px;margin:0 auto;padding-inline:18px;
+  display:flex;align-items:center;gap:14px;min-height:50px;flex-wrap:wrap;
+}
+.bar-title{font-family:var(--mono);font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-2);white-space:nowrap}
+.progress{flex:1 1 140px;min-width:120px;display:flex;align-items:center;gap:9px}
+.progress-track{flex:1;height:5px;border-radius:3px;background:var(--rule);overflow:hidden}
+.progress-fill{height:100%;width:0;background:var(--accent);transition:width .25s ease}
+.progress-num{font-family:var(--mono);font-size:12px;color:var(--ink-2);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar button{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;
+  background:none;border:1px solid var(--rule-strong);color:var(--ink-2);
+  padding:5px 10px;border-radius:4px;cursor:pointer;
+}
+.bar button:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ---------- masthead ---------- */
+.masthead{padding-block:40px 28px;border-bottom:2px solid var(--ink)}
+.eyebrow{
+  font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);margin:0 0 12px;
+}
+h1{
+  font-family:var(--serif);font-weight:700;font-size:clamp(30px,6.4vw,44px);
+  line-height:1.1;margin:0 0 14px;text-wrap:balance;letter-spacing:-.01em;
+}
+.standfirst{font-size:17.5px;color:var(--ink-2);margin:0;max-width:62ch}
+.source-line{
+  font-family:var(--mono);font-size:12.5px;color:var(--ink-3);margin-top:18px;
+  display:flex;gap:6px 18px;flex-wrap:wrap;
+}
+
+h2{
+  font-family:var(--serif);font-weight:600;font-size:clamp(21px,3.8vw,26px);
+  line-height:1.25;margin:0 0 10px;text-wrap:balance;
+}
+h3{font-family:var(--sans);font-weight:600;font-size:16px;margin:26px 0 8px;letter-spacing:.01em}
+p{margin:0 0 14px}
+a{color:var(--accent)}
+.section{padding-block:34px 4px}
+
+.kicker{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-3);margin:0 0 8px;
+}
+
+/* ---------- entries ---------- */
+.entry{padding-block:34px 10px;border-top:1px solid var(--rule)}
+.entry-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.entry-num{
+  font-family:var(--mono);font-size:13px;font-weight:600;color:var(--accent);
+  font-variant-numeric:tabular-nums;
+}
+.entry h2{margin:0;flex:1 1 auto;min-width:0}
+.mark{
+  font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  padding:3px 8px;border-radius:3px;white-space:nowrap;
+}
+.mark.exam{background:var(--accent-soft);color:var(--accent)}
+.mark.bg{background:var(--surface-2);color:var(--ink-3)}
+.defn{
+  background:var(--surface);border-left:3px solid var(--accent);
+  padding:14px 16px;border-radius:0 5px 5px 0;margin:14px 0 16px;box-shadow:var(--shadow);
+}
+.defn p{margin:0}
+.defn .lbl{
+  display:block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-3);margin-bottom:5px;
+}
+.reading{font-family:var(--mono);font-size:12.5px;color:var(--ink-3);margin:-6px 0 16px}
+
+.watch{
+  background:var(--down-soft);border:1px solid color-mix(in srgb, var(--down) 28%, transparent);
+  border-radius:5px;padding:13px 16px;margin:18px 0;
+}
+.watch p{margin:0;font-size:15.3px}
+.watch b{color:var(--down)}
+
+.notinbook{
+  background:var(--flag-soft);border:1px dashed color-mix(in srgb, var(--flag) 48%, transparent);
+  border-radius:5px;padding:13px 16px;margin:16px 0;
+}
+.notinbook p{margin:0;font-size:15.3px}
+.notinbook b{color:var(--flag)}
+
+.examples{margin:18px 0;display:flex;flex-direction:column;gap:12px}
+.ex{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start}
+.ex-n{
+  font-family:var(--mono);font-size:11px;font-weight:600;color:var(--ink-3);
+  border:1px solid var(--rule-strong);border-radius:3px;padding:1px 6px;margin-top:3px;white-space:nowrap;
+}
+.ex p{margin:0;font-size:15.3px}
+.ex .who{font-weight:600;color:var(--ink)}
+
+.connects{font-size:15.3px;color:var(--ink-2);border-top:1px solid var(--rule);padding-top:12px;margin-top:6px}
+.connects b{color:var(--ink)}
+
+/* ---------- check yourself ---------- */
+.check{margin:20px 0 6px;background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:14px 16px}
+.check > .lbl{
+  font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);display:block;margin-bottom:10px;
+}
+.q{margin-bottom:12px}
+.q:last-child{margin-bottom:0}
+.q > p{margin:0 0 7px;font-size:15.3px}
+.q .qn{font-family:var(--mono);font-weight:600;color:var(--accent);font-size:13.5px;margin-right:4px}
+details.reveal{border-top:1px dashed var(--rule)}
+details.reveal > summary{
+  list-style:none;cursor:pointer;font-family:var(--mono);font-size:11.5px;
+  letter-spacing:.07em;text-transform:uppercase;color:var(--accent);padding:7px 0 0;
+}
+details.reveal > summary::-webkit-details-marker{display:none}
+details.reveal > summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details.reveal[open] > summary::before{content:"▾ "}
+details.reveal > summary:hover{text-decoration:underline}
+details.reveal .ans{font-size:15.3px;color:var(--ink-2);padding:6px 0 4px}
+details.reveal .ans p{margin:0 0 8px}
+details.reveal .ans p:last-child{margin:0}
+
+.got{
+  display:flex;align-items:center;gap:8px;margin-top:16px;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);
+  cursor:pointer;user-select:none;
+}
+.got input{width:15px;height:15px;accent-color:var(--accent);cursor:pointer}
+
+/* ---------- tables ---------- */
+.tablewrap{overflow-x:auto;margin:18px 0;border:1px solid var(--rule);border-radius:6px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:15px;min-width:420px}
+th,td{padding:10px 13px;text-align:left;border-bottom:1px solid var(--rule);vertical-align:top}
+thead th{
+  font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-3);background:var(--surface-2);font-weight:600;
+}
+tbody tr:last-child td{border-bottom:none}
+td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right}
+.tight td,.tight th{padding:8px 12px;font-size:14.5px}
+
+/* ---------- widgets ---------- */
+.widget{
+  background:var(--surface);border:1px solid var(--rule-strong);border-radius:8px;
+  padding:18px;margin:26px 0;box-shadow:var(--shadow);
+}
+.widget-title{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);margin:0 0 4px;
+}
+.widget h3{margin-top:0}
+.widget-note{font-size:14.5px;color:var(--ink-2);margin:12px 0 0}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{
+  font-family:var(--mono);font-size:12px;letter-spacing:.04em;
+  border:1px solid var(--rule-strong);background:var(--surface);color:var(--ink-2);
+  border-radius:16px;padding:5px 13px;cursor:pointer;transition:all .15s;
+}
+.chip:hover{border-color:var(--accent);color:var(--accent)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+:root[data-theme="dark"] .chip[aria-pressed="true"],
+:root:not([data-theme="light"]) .chip[aria-pressed="true"]{color:#0f1218}
+
+.cyclefig{width:100%;height:auto;display:block;overflow:visible}
+.figcap{font-size:14.5px;color:var(--ink-2);margin:10px 0 0;min-height:3em}
+.figcap b{color:var(--ink)}
+
+.svg-dim{opacity:.22;transition:opacity .2s}
+.svg-lit{opacity:1;transition:opacity .2s}
+
+.calc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:14px 0}
+.field label{
+  display:block;font-family:var(--mono);font-size:11px;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--ink-3);margin-bottom:5px;
+}
+.field input[type=number]{
+  width:100%;font-family:var(--mono);font-size:16px;padding:8px 10px;
+  border:1px solid var(--rule-strong);border-radius:5px;background:var(--paper);color:var(--ink);
+}
+.field input[type=range]{width:100%;accent-color:var(--accent)}
+.field input:focus-visible,.chip:focus-visible,button:focus-visible,summary:focus-visible,a:focus-visible{
+  outline:2px solid var(--accent);outline-offset:2px;
+}
+.readouts{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:6px;overflow:hidden;margin-top:6px}
+.ro{background:var(--surface-2);padding:12px 14px}
+.ro .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);display:block;margin-bottom:3px}
+.ro .v{font-family:var(--mono);font-size:22px;font-weight:600;font-variant-numeric:tabular-nums;color:var(--ink)}
+.ro .v.hl{color:var(--accent)}
+
+/* ---------- quiz ---------- */
+.mcq{border-top:1px solid var(--rule);padding-top:18px;margin-top:18px}
+.mcq:first-of-type{border-top:none;padding-top:0;margin-top:0}
+.mcq .stem{font-size:15.6px;margin:0 0 12px}
+.mcq .stem .qn{font-family:var(--mono);font-weight:600;color:var(--accent);margin-right:6px}
+.opts{display:flex;flex-direction:column;gap:7px}
+.opt{
+  display:flex;gap:11px;align-items:flex-start;text-align:left;width:100%;
+  font-family:var(--sans);font-size:15.2px;line-height:1.5;color:var(--ink);
+  background:var(--surface);border:1px solid var(--rule);border-radius:6px;
+  padding:10px 13px;cursor:pointer;transition:border-color .15s,background .15s;
+}
+.opt:hover{border-color:var(--accent)}
+.opt .ltr{font-family:var(--mono);font-weight:600;color:var(--ink-3);flex:0 0 auto}
+.opt .why{display:block;font-size:14.3px;color:var(--ink-2);margin-top:6px}
+.opt[data-state="right"]{border-color:var(--up);background:var(--up-soft)}
+.opt[data-state="right"] .ltr{color:var(--up)}
+.opt[data-state="wrong"]{border-color:var(--down);background:var(--down-soft)}
+.opt[data-state="wrong"] .ltr{color:var(--down)}
+.opt[disabled]{cursor:default}
+.score{
+  font-family:var(--mono);font-size:13px;color:var(--ink-2);
+  border:1px solid var(--rule-strong);border-radius:6px;padding:11px 14px;margin-top:20px;
+  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;
+}
+.score b{color:var(--ink);font-size:15px}
+
+.frq{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:15px 17px;margin:16px 0}
+.frq .stem{margin:0 0 6px;font-size:15.6px}
+.frq .pts{font-family:var(--mono);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3)}
+.rubric{margin:8px 0 0;padding:0;list-style:none}
+.rubric li{display:grid;grid-template-columns:auto 1fr;gap:10px;padding:7px 0;border-top:1px dotted var(--rule);font-size:15.2px}
+.rubric li .pt{font-family:var(--mono);font-size:11.5px;color:var(--up);white-space:nowrap;padding-top:3px}
+
+.closing{background:var(--accent-soft);border-radius:8px;padding:20px 22px;margin-top:28px}
+.closing h2{margin-top:0}
+.closing ol{margin:0;padding-left:20px}
+.closing li{margin-bottom:10px;font-size:15.5px}
+.closing li:last-child{margin-bottom:0}
+
+.toc{columns:2 220px;column-gap:26px;margin:16px 0 0;padding:0;list-style:none}
+.toc li{break-inside:avoid;padding:3px 0;font-size:15px}
+.toc a{text-decoration:none;color:var(--ink)}
+.toc a:hover{color:var(--accent);text-decoration:underline}
+.toc .n{font-family:var(--mono);font-size:12.5px;color:var(--ink-3);margin-right:7px;font-variant-numeric:tabular-nums}
+.toc .m{font-size:11px;color:var(--ink-3);margin-left:5px}
+
+.footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--rule);font-family:var(--mono);font-size:12px;color:var(--ink-3);line-height:1.8}
+
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+@media print{
+  .bar,.got,.chips{display:none}
+  body{background:#fff}
+  details.reveal > *{display:block!important}
+  .entry{break-inside:avoid-page}
+}
+@media (max-width:520px){
+  .toc{columns:1}
+  .ro .v{font-size:19px}
+}
+
+/* ---------- Module 3 supplement ---------- */
+.mark.flag{background:var(--flag-soft);color:var(--flag)}
+.ppc-wrap{display:grid;grid-template-columns:1fr;gap:14px}
+@media (min-width:720px){.ppc-wrap{grid-template-columns:1fr 210px}}
+.ppc-svg{width:100%;height:auto;display:block;background:var(--surface);
+  border:1px solid var(--rule);border-radius:6px;cursor:crosshair;touch-action:none}
+.ppc-side{display:flex;flex-direction:column;gap:10px}
+.status{font-family:var(--mono);font-size:12.5px;padding:9px 11px;border-radius:5px;
+  border:1px solid var(--rule-strong);background:var(--surface-2);line-height:1.45}
+.status[data-s="on"]{border-color:color-mix(in srgb,var(--up) 45%,transparent);background:var(--up-soft);color:var(--up)}
+.status[data-s="in"]{border-color:var(--rule-strong);color:var(--ink-2)}
+.status[data-s="out"]{border-color:color-mix(in srgb,var(--down) 45%,transparent);background:var(--down-soft);color:var(--down)}
+.ppc-legend{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);line-height:1.6}
+.ppc-legend b{color:var(--ink-2);font-weight:600}
+.chips.tight{gap:6px}
+.tbl{overflow-x:auto;max-width:100%}
+.sumtable{width:100%;border-collapse:collapse;font-size:14.5px;margin:16px 0}
+.sumtable th,.sumtable td{border-bottom:1px solid var(--rule);padding:8px 10px;text-align:left;vertical-align:top}
+.sumtable th{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+.sumtable td.mk{font-family:var(--mono);font-size:12px;white-space:nowrap;color:var(--accent)}
+.sumtable td.mk.bgm{color:var(--ink-3)}
+.sumtable td.mk.flagm{color:var(--flag)}
+.final{background:var(--surface);border:1px solid var(--rule);border-radius:6px;
+  padding:18px 20px;margin:22px 0;box-shadow:var(--shadow)}
+.final ol{margin:0;padding-left:20px}
+.final li{margin:0 0 9px}
+.final li:last-child{margin-bottom:0}
+
+/* ---------- PPC explorer svg ---------- */
+.ppc-svg .ax{stroke:var(--ink);stroke-width:1.6}
+.ppc-svg .tick{stroke:var(--ink-3);stroke-width:1.1}
+.ppc-svg .tl{font-family:var(--mono);font-size:11px;fill:var(--ink-3)}
+.ppc-svg .al{font-family:var(--sans);font-size:12px;font-weight:600;fill:var(--ink-2)}
+.ppc-svg .curve{fill:none;stroke:var(--accent);stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round}
+.ppc-svg .ghost{fill:none;stroke:var(--rule-strong);stroke-width:1.8;stroke-dasharray:6 5}
+.ppc-svg .cl{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--accent)}
+.ppc-svg .drop{stroke:var(--rule-strong);stroke-width:1;stroke-dasharray:3 3}
+.ppc-svg .pt{stroke:var(--surface);stroke-width:2}
+.ppc-svg .pt-on{fill:var(--up)}
+.ppc-svg .pt-in{fill:var(--ink-3)}
+.ppc-svg .pt-out{fill:var(--down)}
+
+
+/* ---------- Module 4 supplement ---------- */
+.two-panel{width:100%;height:auto;display:block;background:var(--surface);
+  border:1px solid var(--rule);border-radius:6px}
+.ca-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:0 0 14px}
+@media (min-width:640px){.ca-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.ca-grid .field{display:flex;flex-direction:column;gap:5px}
+.ca-grid .field span{font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--ink-3)}
+.ca-grid .field b{color:var(--ink-2);font-weight:600;text-transform:none;letter-spacing:0}
+.ca-grid input{font-family:var(--mono);font-size:15px;padding:7px 9px;width:100%;
+  color:var(--ink);background:var(--paper);border:1px solid var(--rule-strong);border-radius:5px}
+.ca-grid input:focus{outline:2px solid var(--accent);outline-offset:1px}
+.catab{width:100%;border-collapse:collapse;font-size:14px;margin:4px 0 14px}
+.catab th,.catab td{border-bottom:1px solid var(--rule);padding:7px 9px;text-align:left}
+.catab th{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:600}
+.catab td.v{font-family:var(--mono);color:var(--ink)}
+.catab td.win{font-family:var(--mono);color:var(--up);font-weight:600}
+.dealrow{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;margin:0 0 12px}
+.dealrow .field{display:flex;flex-direction:column;gap:5px;min-width:190px;flex:1}
+.dealrow .field span{font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--ink-3)}
+.dealrow input{font-family:var(--mono);font-size:16px;padding:8px 10px;
+  color:var(--ink);background:var(--paper);border:1px solid var(--rule-strong);border-radius:5px}
+.line-svg{width:100%;height:auto;display:block;margin:6px 0 2px}
+.line-svg g[hidden]{display:none}
+.line-svg .band{fill:var(--up-soft);stroke:none}
+.line-svg .axl{stroke:var(--ink);stroke-width:1.6}
+.line-svg .tk{stroke:var(--ink-3);stroke-width:1.1}
+.line-svg .tlb{font-family:var(--mono);font-size:11px;fill:var(--ink-3)}
+.line-svg .edge{stroke:var(--up);stroke-width:2}
+.line-svg .edgel{font-family:var(--mono);font-size:11.5px;font-weight:600;fill:var(--up)}
+.line-svg .prop{stroke:var(--accent);stroke-width:2.4}
+.line-svg .propbad{stroke:var(--down);stroke-width:2.4}
+.line-svg .propl{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--accent)}
+.line-svg .propl.bad{fill:var(--down)}
+.two-panel .ax{stroke:var(--ink);stroke-width:1.6}
+.two-panel .tick{stroke:var(--ink-3);stroke-width:1.1}
+.two-panel .tl{font-family:var(--mono);font-size:10.5px;fill:var(--ink-3)}
+.two-panel .al{font-family:var(--sans);font-size:11.5px;font-weight:600;fill:var(--ink-2)}
+.two-panel .ph{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--ink-2)}
+.two-panel .curve{fill:none;stroke:var(--accent);stroke-width:2.4;stroke-linecap:round}
+.two-panel .slope{font-family:var(--mono);font-size:11px;fill:var(--accent)}
+.two-panel .drop{stroke:var(--rule-strong);stroke-width:1;stroke-dasharray:3 3}
+.two-panel .pt{stroke:var(--surface);stroke-width:2}
+.two-panel .pt-on{fill:var(--ink-2)}
+.two-panel .pt-out{fill:var(--up)}
+.two-panel .ptl{font-family:var(--mono);font-size:11px;fill:var(--ink-2)}
+.two-panel .ptl.good{fill:var(--up);font-weight:600}
+
+
+/* The inherited stylesheet styles .curve, .ax, .tick, .tl, .cl, .pt and .ptl only under .ppc-svg and
+   .two-panel, and its .line-svg .axl rule is for an axis LINE - so give the figure's own classes rules
+   under .line-svg. Without these the curves, axes and ticks have stroke:none and do not render. */
+.line-svg .ax{stroke:var(--ink);stroke-width:1.6}
+.line-svg .tick{stroke:var(--ink-3);stroke-width:1.1}
+.line-svg .tl{font-family:var(--mono);font-size:11px;fill:var(--ink-3)}
+.line-svg text.axl{stroke:none;font-family:var(--mono);font-size:12px;fill:var(--ink-2)}
+.line-svg .curve{fill:none;stroke:var(--accent);stroke-width:2.6;stroke-linecap:round}
+.line-svg .cl{font-family:var(--mono);font-size:13px;font-weight:600;fill:var(--accent)}
+.line-svg .pt{stroke:var(--surface);stroke-width:2}
+.line-svg .pt-on{fill:var(--ink-2)}
+.line-svg .ptl{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--ink-2)}
+/* Module 8 price-control figure */
+.pc-line{stroke:var(--down);stroke-width:2.2;stroke-dasharray:7 4}
+.pc-lab{font-family:var(--mono);font-size:12px;fill:var(--down)}
+.pc-gap{stroke:var(--ink-2);stroke-width:1.4}
+.pc-gl{font-family:var(--mono);font-size:11.5px;fill:var(--ink-2)}
+.pc-dwl{fill:var(--flag-soft);stroke:var(--flag);stroke-width:1}
+.pc-dl{font-family:var(--mono);font-size:11.5px;fill:var(--flag)}
+
+/* Module 9 quota figure */
+.qt-line{stroke:var(--down);stroke-width:2.2;stroke-dasharray:7 4}
+.qt-lab{font-family:var(--mono);font-size:12px;fill:var(--down)}
+.qt-rent{fill:var(--up-soft);stroke:var(--up);stroke-width:1}
+.qt-rl{font-family:var(--mono);font-size:11.5px;fill:var(--up)}
+
+/* Module 46: the base figure classes, the calculator and the sorter */
+.line-svg .ax{stroke:var(--ink);stroke-width:1.6}
+.line-svg text.axl{stroke:none;font-family:var(--mono);font-size:12px;fill:var(--ink-2)}
+.line-svg .tick{stroke:var(--ink-3);stroke-width:1.1}
+.line-svg .tl{font-family:var(--mono);font-size:11px;fill:var(--ink-3)}
+.line-svg .curve{fill:none;stroke:var(--accent);stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round}
+.line-svg .cl{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--accent)}
+.line-svg .pt{stroke:var(--surface);stroke-width:2}
+.line-svg .pt-on{fill:var(--ink-2)}
+.line-svg .ptl{font-family:var(--mono);font-size:11.5px;font-weight:600;fill:var(--ink-2)}
+.formula{font-family:var(--mono);font-size:13.5px;background:var(--surface-2);border-left:3px solid var(--accent);
+  padding:9px 12px;margin:10px 0;border-radius:0 6px 6px 0;line-height:1.5}
+.calc-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:10px 0}
+.calc-grid label{display:flex;flex-direction:column;gap:4px;font-family:var(--mono);font-size:11.5px;color:var(--ink-3)}
+.calc-grid input{font-family:var(--mono);font-size:14px;padding:6px 8px;border:1px solid var(--rule);
+  border-radius:6px;background:var(--surface);color:var(--ink)}
+.two-ways{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}
+.way{border:1px solid var(--rule);border-radius:8px;padding:11px 13px;background:var(--surface-2)}
+.way h4{margin:0 0 7px;font-size:13px;letter-spacing:.02em}
+.way .big{font-family:var(--mono);font-size:22px;font-weight:600;color:var(--accent)}
+.way .step{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);margin:3px 0 0}
+.way.mid .big{color:var(--up)}
+.sorter .opts3{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}
+.sorter .opts3 button{font:inherit;font-size:12.5px;padding:6px 11px;border:1px solid var(--rule);
+  border-radius:999px;background:var(--surface);color:var(--ink);cursor:pointer}
+.sorter .opts3 button:hover{border-color:var(--accent)}
+.sorter .verdict{margin-top:9px;font-size:13.5px}
+.sorter .verdict.ok{color:var(--up)}
+.sorter .verdict.no{color:var(--down)}
+@media (max-width:620px){.calc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .two-ways{grid-template-columns:1fr}}
+
+/* Module 47: the revenue bars and the elasticity zones */
+.line-svg .trbar{fill:var(--accent);opacity:.45}
+.line-svg .trbar.peak{fill:var(--up);opacity:.85}
+.line-svg .zone{font-family:var(--mono);font-size:11.5px;fill:var(--ink-3);text-anchor:middle}
+.line-svg .zone.unit{fill:var(--up);font-weight:600}
+.cases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:12px}
+.case{border:1px solid var(--rule);border-radius:8px;padding:11px 13px;background:var(--surface-2)}
+.case h4{margin:0 0 7px;font-size:13px;letter-spacing:.02em}
+.case .big{font-family:var(--mono);font-size:19px;font-weight:600;color:var(--accent)}
+.case .step{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);margin:3px 0 0}
+.case.up .big{color:var(--up)}
+.case.down .big{color:var(--down)}
+.sorter .opts3{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}
+.sorter .opts3 button{font:inherit;font-size:12.5px;padding:6px 11px;border:1px solid var(--rule);
+  border-radius:999px;background:var(--surface);color:var(--ink);cursor:pointer}
+.sorter .opts3 button:hover{border-color:var(--accent)}
+.sorter .verdict{margin-top:9px;font-size:13.5px}
+.sorter .verdict.ok{color:var(--up)}
+.sorter .verdict.no{color:var(--down)}
+@media (max-width:620px){.cases{grid-template-columns:1fr}}
+
+/* Module 48: the two-panel supply figure and the identifier */
+.line-svg .curve.sup{stroke:var(--up)}
+.line-svg .cl.sup{fill:var(--up)}
+.line-svg .zone{font-family:var(--mono);font-size:11.5px;fill:var(--ink-3);text-anchor:middle}
+.ident-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:10px 0}
+.ident-grid label{display:flex;flex-direction:column;gap:4px;font-family:var(--mono);font-size:11.5px;color:var(--ink-3)}
+.ident-grid input{font-family:var(--mono);font-size:14px;padding:6px 8px;border:1px solid var(--rule);
+  border-radius:6px;background:var(--surface);color:var(--ink)}
+.verdictbox{border:1px solid var(--rule);border-radius:8px;padding:12px 14px;background:var(--surface-2);margin-top:12px}
+.verdictbox .big{font-family:var(--mono);font-size:22px;font-weight:600;color:var(--accent);margin:0}
+.verdictbox .what{font-size:14px;margin:6px 0 0}
+.verdictbox .step{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);margin:4px 0 0}
+.verdictbox.pos .big{color:var(--up)}
+.verdictbox.neg .big{color:var(--down)}
+.sorter .opts3{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}
+.sorter .opts3 button{font:inherit;font-size:12.5px;padding:6px 11px;border:1px solid var(--rule);
+  border-radius:999px;background:var(--surface);color:var(--ink);cursor:pointer}
+.sorter .opts3 button:hover{border-color:var(--accent)}
+.sorter .verdict{margin-top:9px;font-size:13.5px}
+.sorter .verdict.ok{color:var(--up)}
+.sorter .verdict.no{color:var(--down)}
+@media (max-width:620px){.ident-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Module 49: the surplus blocks and the price line */
+.line-svg .cs-block{fill:var(--accent);opacity:.28;stroke:var(--accent);stroke-width:.8}
+.line-svg .ps-block{fill:var(--up);opacity:.28;stroke:var(--up);stroke-width:.8}
+.line-svg .pline{stroke:var(--ink-2);stroke-width:1.6;stroke-dasharray:6 4}
+.line-svg g[hidden]{display:none}
+.sorter .opts3{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}
+.sorter .opts3 button{font:inherit;font-size:12.5px;padding:6px 11px;border:1px solid var(--rule);
+  border-radius:999px;background:var(--surface);color:var(--ink);cursor:pointer}
+.sorter .opts3 button:hover{border-color:var(--accent)}
+.sorter .verdict{margin-top:9px;font-size:13.5px}
+.sorter .verdict.ok{color:var(--up)}
+.sorter .verdict.no{color:var(--down)}
+
+/* Module 50: the surplus, revenue, cost and deadweight-loss areas */
+.line-svg .cs-area{fill:var(--accent);opacity:.26;stroke:var(--accent);stroke-width:.8}
+.line-svg .ps-area{fill:var(--up);opacity:.26;stroke:var(--up);stroke-width:.8}
+.line-svg .rev-area{fill:var(--ink-3);opacity:.30;stroke:var(--ink-2);stroke-width:.8}
+.line-svg .cost-area{fill:var(--amber-rule,#c98a1e);opacity:.30;stroke:var(--amber-rule,#c98a1e);stroke-width:.8}
+.line-svg .dwl-area{fill:var(--down);opacity:.42;stroke:var(--down);stroke-width:.8}
+.line-svg .qline{stroke:var(--ink-3);stroke-width:1.1;stroke-dasharray:4 3}
+.inc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:12px}
+.inc{border:1px solid var(--rule);border-radius:8px;padding:11px 13px;background:var(--surface-2)}
+.inc h4{margin:0 0 7px;font-size:13px;letter-spacing:.02em}
+.inc .big{font-family:var(--mono);font-size:19px;font-weight:600;color:var(--accent);margin:0}
+.inc .step{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);margin:3px 0 0}
+@media (max-width:620px){.inc-grid{grid-template-columns:1fr}}
+
+/* Topic 2.9: the gain-from-trade triangle and the world-price line */
+.line-svg .gain-area{fill:var(--up);opacity:.38;stroke:var(--up);stroke-width:.8}
+.line-svg .wline{stroke:var(--accent);stroke-width:1.8;stroke-dasharray:7 4}
+
+/* Module 53: the marginal revenue line, the net gain of each unit, and the crossings */
+.line-svg .mrline{stroke:var(--up);stroke-width:2.2}
+.line-svg .mrl{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--up)}
+.line-svg .nbar.gain{fill:var(--up);opacity:.32}
+.line-svg .nbar.loss{fill:var(--down);opacity:.45}
+.line-svg .mcpt{fill:var(--accent)}
+.line-svg .pt-off{fill:var(--surface);stroke:var(--ink-3);stroke-width:1.6}
+.line-svg .ptl.low{font-size:11px;font-weight:400;fill:var(--ink-3)}
+</style>
+
+
+<div class="bar">
+  <div class="bar-in">
+    <span class="bar-title">Micro &middot; Module 53</span>
+    <span class="progress">
+      <span class="progress-track"><span class="progress-fill" id="pfill"></span></span>
+      <span class="progress-num" id="pnum">0 / 16</span>
+    </span>
+    <button type="button" id="resetBtn">Reset progress</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+<p class="eyebrow">AP Microeconomics &middot; Unit 3 &middot; Student guide</p>
+  <h1>Profit Maximization</h1>
+  <p class="standfirst">Sixteen terms for one rule. How much should a firm produce? Keep going while
+  the next unit brings in at least what it costs &mdash; and stop where marginal revenue equals
+  marginal cost.</p>
+  <div class="source-line">
+    <span>Krugman pp. 536&ndash;541</span><span>&middot;</span>
+    <span>16 terms</span><span>&middot;</span><span>Topic 3.5</span><span>&middot;</span><span>1&frac12; periods</span>
+  </div>
+<section class="section" id="howto">
+  <h2>How to use this guide</h2>
+  <p>Entries 1 to 3 are the goal and the two ways to reach it; entries 4 to 8 are the numbers;
+  entries 9 to 14 are the graph and who the rule applies to; entries 15 and 16 are the decision
+  that comes before the rule.</p>
+  <ul>
+    <li><b>&#9733; Exam</b> means the framework can test it.</li>
+    <li><b>&#9733; &#9873;</b> means it is examinable <b>and Module 53 does not teach it</b>. Entry 14
+      carries the flag.</li>
+    <li><b>&#9675; Background</b> means it helps you understand the module but will not be asked about
+      on its own.</li>
+    <li>Every entry ends with two <b>Check yourself</b> questions. Answer them before opening the
+      answer, then tick <b>Got it</b>.</li>
+  </ul>
+  <div class="flag">
+    <p><b>The one idea.</b> A unit is worth producing if it adds at least as much to revenue as to
+    cost. Produce every such unit and stop before the first that does not: that is where
+    <b>marginal revenue equals marginal cost</b>, and where profit is largest.</p>
+  </div>
+  <div class="notinbook"><p><b>&#9873; One thing to translate.</b> Your textbook calls the rule the
+  <i>optimal output rule</i>. Your exam calls it the <b>profit-maximizing rule</b> and writes it
+  <b>MR = MC</b>. Learn both names, and always write the comparison itself in your answers.</p></div>
+</section>
+
+<!-- ============ THE DIAGRAM ============ -->
+<section class="section" id="diagram">
+  <h2>One farm, three prices</h2>
+  <p>Jennifer and Jason's tomato farm, from Tables 53.1 and 53.2. The blue curve is their marginal
+  cost; the green line is their marginal revenue, flat at the market price. Each bar is one bushel's
+  net gain &mdash; green if it adds to profit, red if it would take profit away. Change the price and
+  watch where the farm stops.</p>
+  <div class="widget">
+    <div class="widget-title">Jennifer and Jason's farm</div>
+    <div class="chips" id="sChips">
+      <button type="button" class="chip" aria-pressed="false" data-k="p14">$14 a bushel</button>
+      <button type="button" class="chip" aria-pressed="true" data-k="p18">$18 a bushel (the book's)</button>
+      <button type="button" class="chip" aria-pressed="false" data-k="p22">$22 a bushel</button>
+    </div>
+    <svg class="line-svg" viewBox="0 0 680 400" role="img"
+         aria-label="Jennifer and Jason's marginal cost curve and a horizontal marginal revenue line at the market price, with each bushel's net gain drawn as a bar and the profit-maximizing quantity marked">
+      <line class="ax" x1="80" y1="25" x2="80" y2="350"></line>
+      <line class="ax" x1="80" y1="350" x2="640" y2="350"></line>
+      <text class="axl" x="16" y="18" text-anchor="start">Price, cost of a bushel ($)</text>
+      <text class="axl" x="640" y="392" text-anchor="end">Bushels of tomatoes</text>
+      <line class="tick" x1="76" y1="301.5" x2="80" y2="301.5"></line>
+      <text class="tl" x="70" y="305.5" text-anchor="end">$4</text>
+      <line class="tick" x1="76" y1="253.1" x2="80" y2="253.1"></line>
+      <text class="tl" x="70" y="257.1" text-anchor="end">$8</text>
+      <line class="tick" x1="76" y1="204.6" x2="80" y2="204.6"></line>
+      <text class="tl" x="70" y="208.6" text-anchor="end">$12</text>
+      <line class="tick" x1="76" y1="156.2" x2="80" y2="156.2"></line>
+      <text class="tl" x="70" y="160.2" text-anchor="end">$16</text>
+      <line class="tick" x1="76" y1="107.7" x2="80" y2="107.7"></line>
+      <text class="tl" x="70" y="111.7" text-anchor="end">$20</text>
+      <line class="tick" x1="76" y1="59.2" x2="80" y2="59.2"></line>
+      <text class="tl" x="70" y="63.2" text-anchor="end">$24</text>
+      <line class="tick" x1="149.3" y1="350" x2="149.3" y2="354"></line>
+      <text class="tl" x="149.3" y="368" text-anchor="middle">1</text>
+      <line class="tick" x1="218.7" y1="350" x2="218.7" y2="354"></line>
+      <text class="tl" x="218.7" y="368" text-anchor="middle">2</text>
+      <line class="tick" x1="288" y1="350" x2="288" y2="354"></line>
+      <text class="tl" x="288" y="368" text-anchor="middle">3</text>
+      <line class="tick" x1="357.3" y1="350" x2="357.3" y2="354"></line>
+      <text class="tl" x="357.3" y="368" text-anchor="middle">4</text>
+      <line class="tick" x1="426.7" y1="350" x2="426.7" y2="354"></line>
+      <text class="tl" x="426.7" y="368" text-anchor="middle">5</text>
+      <line class="tick" x1="496" y1="350" x2="496" y2="354"></line>
+      <text class="tl" x="496" y="368" text-anchor="middle">6</text>
+      <line class="tick" x1="565.3" y1="350" x2="565.3" y2="354"></line>
+      <text class="tl" x="565.3" y="368" text-anchor="middle">7</text>
+      <g id="g-p14" hidden="hidden">
+        <rect class="nbar loss" x="103.6" y="156.2" width="22.2" height="24.2"></rect>
+        <rect class="nbar gain" x="172.9" y="180.4" width="22.2" height="96.9"></rect>
+        <rect class="nbar gain" x="242.2" y="180.4" width="22.2" height="72.7"></rect>
+        <rect class="nbar gain" x="311.6" y="180.4" width="22.2" height="24.2"></rect>
+        <rect class="nbar loss" x="380.9" y="156.2" width="22.2" height="24.2"></rect>
+        <rect class="nbar loss" x="450.2" y="107.7" width="22.2" height="72.7"></rect>
+        <rect class="nbar loss" x="519.6" y="59.2" width="22.2" height="121.2"></rect>
+        <line class="mrline" x1="80" y1="180.4" x2="565.3" y2="180.4"></line>
+        <text class="mrl" x="571.3" y="184.4">MR = $14</text>
+        <line class="qline" x1="357.3" y1="180.4" x2="357.3" y2="350"></line>
+        <circle class="pt pt-on" cx="357.3" cy="180.4" r="5"></circle>
+        <text class="ptl" x="364.3" y="172.4">E</text>
+        <circle class="pt pt-off" cx="128.5" cy="180.4" r="5"></circle>
+        <text class="ptl low" x="124.5" y="200.4">not here</text>
+      </g>
+      <g id="g-p18">
+        <rect class="nbar gain" x="103.6" y="131.9" width="22.2" height="24.2"></rect>
+        <rect class="nbar gain" x="172.9" y="131.9" width="22.2" height="145.4"></rect>
+        <rect class="nbar gain" x="242.2" y="131.9" width="22.2" height="121.2"></rect>
+        <rect class="nbar gain" x="311.6" y="131.9" width="22.2" height="72.7"></rect>
+        <rect class="nbar gain" x="380.9" y="131.9" width="22.2" height="24.2"></rect>
+        <rect class="nbar loss" x="450.2" y="107.7" width="22.2" height="24.2"></rect>
+        <rect class="nbar loss" x="519.6" y="59.2" width="22.2" height="72.7"></rect>
+        <line class="mrline" x1="80" y1="131.9" x2="565.3" y2="131.9"></line>
+        <text class="mrl" x="571.3" y="135.9">MR = $18</text>
+        <line class="qline" x1="426.7" y1="131.9" x2="426.7" y2="350"></line>
+        <circle class="pt pt-on" cx="426.7" cy="131.9" r="5"></circle>
+        <text class="ptl" x="433.7" y="123.9">E</text>
+      </g>
+      <g id="g-p22" hidden="hidden">
+        <rect class="nbar gain" x="103.6" y="83.5" width="22.2" height="72.7"></rect>
+        <rect class="nbar gain" x="172.9" y="83.5" width="22.2" height="193.8"></rect>
+        <rect class="nbar gain" x="242.2" y="83.5" width="22.2" height="169.6"></rect>
+        <rect class="nbar gain" x="311.6" y="83.5" width="22.2" height="121.2"></rect>
+        <rect class="nbar gain" x="380.9" y="83.5" width="22.2" height="72.7"></rect>
+        <rect class="nbar gain" x="450.2" y="83.5" width="22.2" height="24.2"></rect>
+        <rect class="nbar loss" x="519.6" y="59.2" width="22.2" height="24.2"></rect>
+        <line class="mrline" x1="80" y1="83.5" x2="565.3" y2="83.5"></line>
+        <text class="mrl" x="571.3" y="87.5">MR = $22</text>
+        <line class="qline" x1="496" y1="83.5" x2="496" y2="350"></line>
+        <circle class="pt pt-on" cx="496" cy="83.5" r="5"></circle>
+        <text class="ptl" x="503" y="75.5">E</text>
+      </g>
+      <polyline class="curve" points="114.7,156.2 184,277.3 253.3,253.1 322.7,204.6 392,156.2 461.3,107.7 530.7,59.2"></polyline>
+      <circle class="pt mcpt" cx="114.7" cy="156.2" r="3.5"></circle>
+      <circle class="pt mcpt" cx="184" cy="277.3" r="3.5"></circle>
+      <circle class="pt mcpt" cx="253.3" cy="253.1" r="3.5"></circle>
+      <circle class="pt mcpt" cx="322.7" cy="204.6" r="3.5"></circle>
+      <circle class="pt mcpt" cx="392" cy="156.2" r="3.5"></circle>
+      <circle class="pt mcpt" cx="461.3" cy="107.7" r="3.5"></circle>
+      <circle class="pt mcpt" cx="530.7" cy="59.2" r="3.5"></circle>
+      <text class="cl" x="538.7" y="63.2">MC</text>
+    </svg>
+    <div class="readouts">
+      <div class="ro"><span class="k">Price = MR</span><span class="v" id="rp">$18</span></div>
+      <div class="ro"><span class="k">Best output</span><span class="v" id="rq">5 bushels</span></div>
+      <div class="ro"><span class="k">Total revenue</span><span class="v" id="rtr">$90</span></div>
+      <div class="ro"><span class="k">Total cost</span><span class="v" id="rtc">$72</span></div>
+      <div class="ro"><span class="k">Profit</span><span class="v" id="rpr">$18</span></div>
+    </div>
+    <p class="figcap" id="scap"></p>
+  </div>
+  <p>Notice two things. As the price rises, the best output slides <b>up the marginal cost
+  curve</b>. And at $14 the green line crosses marginal cost twice &mdash; only the crossing on the
+  rising part is the answer.</p>
+</section>
+
+<!-- ============ THE DRILL ============ -->
+<section class="section" id="sorter">
+  <h2>Produce more, produce less, or stay?</h2>
+  <p>Fifteen firms, each told the marginal revenue and marginal cost of the last unit it produced and
+  of the next unit it could produce. Decide what each should do.</p>
+  <div class="widget sorter" id="sortWidget">
+    <div class="widget-title">What should the firm do?</div>
+    <p class="stem" id="sortStem"></p>
+    <div class="opts3">
+      <button type="button" data-a="more">Produce more</button>
+      <button type="button" data-a="less">Produce less</button>
+      <button type="button" data-a="stay">Stay</button>
+    </div>
+    <p class="verdict" id="sortVerdict"></p>
+    <div class="chips">
+      <button type="button" class="chip" id="sortNext">Next firm</button>
+      <span class="progress-num" id="sortScore">0 / 0</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE ENTRIES ============ -->
+<section class="section" id="entries">
+  <h2>The sixteen terms</h2>
+</section>
+
+<article class="entry" id="e1">
+  <div class="entry-head"><span class="entry-num">01</span><h2>Profit maximization</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The assumption that a firm chooses its output to make its <b>economic profit</b> as large as possible.</p></div>
+  <p class="reading">Textbook page 536.</p>
+
+  <p>Your textbook opens Module 53 with one question: <i>what quantity of output would maximize
+  the producer's profit?</i> Everything in this module is an answer to it.</p>
+  <p>The profit in question is <b>economic</b> profit, from Module 52 &mdash; total revenue minus
+  <b>all</b> costs, implicit as well as explicit. Your textbook says so on page 539: the costs in its
+  tables include every opportunity cost, so its profits are economic profits.</p>
+
+  <div class="watch"><p><b>Watch out.</b> A firm maximizes <b>profit</b>, not revenue, not sales and not profit per unit. Each of those can peak at a different quantity.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Jennifer and Jason at $18 a bushel.</span> Their profit is largest, $18, at 5 bushels &mdash; not at 7, where revenue is largest.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">A cafe choosing how many cakes to bake.</span> It bakes the number that leaves the most profit after every cost, including the owner's time.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A firm that can only lose money.</span> Maximizing profit then means making the loss as small as possible.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is measured by <a href="#e2">total revenue minus total cost</a> (entry 2), it is reached in two steps, <a href="#e15">whether and how much</a> (entry 15), and the profit that counts is the one in <a href="#e16">economic profit decides whether</a> (entry 16).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">1.1</span> At $18 a bushel, Jennifer and Jason's revenue is $126 at 7 bushels and $90 at 5. Why do they choose 5?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because profit, not revenue, is the goal: $90 &minus; $72 = $18 at 5 bushels against $126 &minus; $116 = $10 at 7.</p></div></details></div>
+    <div class="q"><p><span class="qn">1.2</span> Why does the textbook insist the costs in its tables include implicit costs?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because the firm maximizes economic profit. Leave out the owner's time or capital and the profit you maximize is the wrong number.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got1"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e2">
+  <div class="entry-head"><span class="entry-num">02</span><h2>Profit is total revenue minus total cost</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Profit = TR &minus; TC, where total revenue is TR = P &times; Q. Computing it at every quantity and picking the largest is the <b>total route</b> to the best output.</p></div>
+  <p class="reading">Textbook pages 536&ndash;537, Table 53.1.</p>
+
+  <p>Table 53.1 does it the long way for Jennifer and Jason at $18 a bushel:</p>
+  <table class="tbl">
+    <thead><tr><th>Bushels</th><th>TR</th><th>TC</th><th>Profit</th></tr></thead>
+    <tbody>
+      <tr><td>0</td><td>$0</td><td>$14</td><td>&minus;$14</td></tr>
+      <tr><td>1</td><td>$18</td><td>$30</td><td>&minus;$12</td></tr>
+      <tr><td>2</td><td>$36</td><td>$36</td><td>$0</td></tr>
+      <tr><td>3</td><td>$54</td><td>$44</td><td>$10</td></tr>
+      <tr><td>4</td><td>$72</td><td>$56</td><td>$16</td></tr>
+      <tr><td>5</td><td>$90</td><td>$72</td><td>$18</td></tr>
+      <tr><td>6</td><td>$108</td><td>$92</td><td>$16</td></tr>
+      <tr><td>7</td><td>$126</td><td>$116</td><td>$10</td></tr>
+    </tbody>
+  </table>
+  <p>The largest number in the last column is <b>$18</b>, at <b>5 bushels</b>. That is the answer,
+  and the marginal route in the rest of this module reaches it faster.</p>
+
+  <div class="watch"><p><b>Watch out.</b> The profit at zero output is not zero. Jennifer and Jason lose $14 even if they grow nothing &mdash; the cost they cannot avoid in the short run.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">5 bushels at $18.</span> TR $90, TC $72, profit $18 &mdash; the largest in the table.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">7 bushels at $18.</span> TR $126, TC $116, profit $10. More revenue, less profit.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">0 bushels at $18.</span> TR $0, TC $14, profit &minus;$14.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the number <a href="#e1">the firm maximizes</a> (entry 1), it is built from <a href="#e4">total revenue</a> (entry 4), and <a href="#e7">the profit-maximizing rule</a> (entry 7) reaches the same answer without the whole table.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">2.1</span> At $18, what is Jennifer and Jason's profit at 3 bushels?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>TR = $18 &times; 3 = $54 and TC = $44, so profit = $10.</p></div></details></div>
+    <div class="q"><p><span class="qn">2.2</span> Name one weakness of the total route.</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>You have to compute profit at every quantity. The marginal route only asks whether each next unit is worth it.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got2"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e3">
+  <div class="entry-head"><span class="entry-num">03</span><h2>The principle of marginal analysis</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Keep doing something as long as the extra benefit of doing it once more is <b>at least</b> the extra cost. Stop where marginal benefit equals marginal cost.</p></div>
+  <p class="reading">Textbook page 537.</p>
+
+  <p>You met this rule in Unit 1, for a consumer choosing how much to buy and a student choosing
+  how long to study. Your textbook's margin definition: &ldquo;every activity should continue until
+  marginal benefit equals marginal cost.&rdquo;</p>
+  <p>Module 53 applies it to a firm. The <b>benefit</b> of one more unit of output is the revenue it
+  brings in &mdash; marginal revenue. The <b>cost</b> is what it adds to total cost &mdash; marginal
+  cost.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Marginal analysis compares the <b>next</b> unit's benefit and cost. It does not compare totals, and it does not care what was spent before.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">A student studying for a test.</span> Another hour is worth it while the extra marks are worth more to them than the hour.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">A consumer buying pizza slices.</span> One more slice while its marginal benefit is at least its price.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Jennifer and Jason's fifth bushel.</span> It brings in $18 and costs $16 more to grow, so it is worth growing.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> For a firm, its benefit side is <a href="#e4">marginal revenue</a> (entry 4) and its cost side <a href="#e5">marginal cost</a> (entry 5); the difference is <a href="#e6">the net gain of a unit</a> (entry 6), the firm's version of the rule is <a href="#e7">the profit-maximizing rule</a> (entry 7), and with whole units it becomes <a href="#e8">the last unit worth producing</a> (entry 8).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">3.1</span> What are the marginal benefit and the marginal cost of a firm's next unit of output?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>The marginal benefit is the extra revenue it brings in, marginal revenue. The marginal cost is the extra cost of producing it.</p></div></details></div>
+    <div class="q"><p><span class="qn">3.2</span> Why does the rule say &ldquo;at least&rdquo; rather than &ldquo;more than&rdquo;?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>A unit whose benefit exactly equals its cost leaves you no worse off. Doing it or not makes no difference, and the rule's convention is to do it.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got3"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e4">
+  <div class="entry-head"><span class="entry-num">04</span><h2>Marginal revenue</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The change in total revenue from selling <b>one more unit</b>: MR = &Delta;TR / &Delta;Q.</p></div>
+  <p class="reading">Textbook page 537.</p>
+
+  <p>For Jennifer and Jason, every extra bushel sells for the market price of $18, so total
+  revenue rises by $18 each time: $0, $18, $36, $54 &hellip; Their marginal revenue is
+  <b>$18 for every bushel</b>.</p>
+  <p>That is a special case. A seller who has to cut its price to sell more gains less than the
+  price on the extra unit, because the lower price applies to every unit it sells. Entry 14 returns
+  to this.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Marginal revenue is a <b>change</b> in total revenue, not total revenue itself. The marginal revenue of Jennifer and Jason's third bushel is $18, not $54.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">The third bushel at $18.</span> TR rises from $36 to $54: MR = $18.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Any bushel at $22.</span> MR = $22 &mdash; for a firm that takes the market price, MR is the price.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A bookshop that must cut its price to sell more.</span> Selling 10 at $20 brings in $200; selling 11 at $19 brings in $209. The eleventh book's MR is $9.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the change in <a href="#e2">total revenue</a> (entry 2), it is the benefit side of <a href="#e3">marginal analysis</a> (entry 3), it is drawn as <a href="#e9">the marginal revenue curve</a> (entry 9), and it equals the price only for <a href="#e13">a price taker</a> (entry 13).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">4.1</span> A firm's total revenue is $150 at 10 units and $165 at 11 units. What is the marginal revenue of the eleventh unit?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>$165 &minus; $150 = $15.</p></div></details></div>
+    <div class="q"><p><span class="qn">4.2</span> Why is Jennifer and Jason's marginal revenue the same for every bushel?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because they can sell as many bushels as they like at the market price of $18, so each extra bushel adds exactly $18 to revenue.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got4"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e5">
+  <div class="entry-head"><span class="entry-num">05</span><h2>Marginal cost</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The change in total cost from producing <b>one more unit</b>: MC = &Delta;TC / &Delta;Q.</p></div>
+  <p class="reading">Textbook page 538, Table 53.2.</p>
+
+  <p>Table 53.2 takes the differences in Jennifer and Jason's total cost:</p>
+  <table class="tbl">
+    <thead><tr><th>Bushel</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th></tr></thead>
+    <tbody><tr><td>Marginal cost</td><td>$16</td><td>$6</td><td>$8</td><td>$12</td><td>$16</td><td>$20</td><td>$24</td></tr></tbody>
+  </table>
+  <p>The $14 the farm pays at zero output never appears in this row. A cost that does not change with
+  output cannot change the cost of one more bushel &mdash; so it cannot change how many bushels are
+  worth growing either.</p>
+
+  <div class="watch"><p><b>Watch out.</b> The marginal cost of the first bushel is $30 &minus; $14 = $16. It is not $30, the total cost, and not $14, the fixed cost.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">The first bushel.</span> $30 &minus; $14 = $16.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">The sixth bushel.</span> $92 &minus; $72 = $20.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A rent rise of $10 a year.</span> Every total cost rises by $10; every marginal cost, and the best output, stays the same.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the cost side of <a href="#e3">marginal analysis</a> (entry 3), its row against marginal revenue gives <a href="#e6">the net gain of each unit</a> (entry 6), it is drawn as <a href="#e10">the marginal cost curve</a> (entry 10), and the curve's points are placed by <a href="#e12">plotting between quantities</a> (entry 12).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">5.1</span> Total cost is $56 at 4 bushels and $72 at 5. What is the marginal cost of the fifth bushel?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>$72 &minus; $56 = $16.</p></div></details></div>
+    <div class="q"><p><span class="qn">5.2</span> Jennifer and Jason's fixed cost rises from $14 to $24. What happens to their profit-maximizing output at $18?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Nothing. Every marginal cost is unchanged, so they still grow 5 bushels. Their profit falls by $10, from $18 to $8.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got5"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e6">
+  <div class="entry-head"><span class="entry-num">06</span><h2>The net gain of a unit</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Marginal revenue minus marginal cost: how much one more unit adds to <b>profit</b>. Produce a unit if its net gain is not negative.</p></div>
+  <p class="reading">Textbook page 538, Table 53.2.</p>
+
+  <p>The last column of Table 53.2 is the whole decision in one row:</p>
+  <table class="tbl">
+    <thead><tr><th>Bushel</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th></tr></thead>
+    <tbody><tr><td>MR &minus; MC at $18</td><td>+$2</td><td>+$12</td><td>+$10</td><td>+$6</td><td>+$2</td><td>&minus;$2</td><td>&minus;$6</td></tr></tbody>
+  </table>
+  <p>The first five bushels each add to profit; the sixth and seventh would take profit away. So
+  Jennifer and Jason grow <b>5</b>. In the diagram above, each unit's net gain is a bar: green where
+  the unit pays, red where it does not.</p>
+
+  <div class="watch"><p><b>Watch out.</b> The net gains of the first five bushels add up to $32, not to the $18 profit. The difference is the $14 fixed cost, which no single bushel pays for.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">The second bushel at $18.</span> $18 &minus; $6 = +$12.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">The sixth bushel at $18.</span> $18 &minus; $20 = &minus;$2: growing it would cut profit from $18 to $16.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">The sixth bushel at $22.</span> $22 &minus; $20 = +$2: at the higher price it is worth growing.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It applies <a href="#e3">the principle of marginal analysis</a> (entry 3) to one unit, its two parts are <a href="#e5">marginal cost</a> (entry 5) and marginal revenue, and its sign decides <a href="#e8">the last unit worth producing</a> (entry 8).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">6.1</span> At $18, what is the net gain of the seventh bushel?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>$18 &minus; $24 = &minus;$6. It would reduce profit by $6.</p></div></details></div>
+    <div class="q"><p><span class="qn">6.2</span> Add the net gains of bushels 1 to 5 at $18 and compare with the profit at 5 bushels. Why do they differ?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>$2 + $12 + $10 + $6 + $2 = $32, while profit is $18. The $14 fixed cost is paid whatever the output, so it is not part of any unit's gain.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got6"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e7">
+  <div class="entry-head"><span class="entry-num">07</span><h2>The profit-maximizing rule</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Profit is maximized at the quantity where <b>marginal revenue equals marginal cost</b>: MR = MC.</p></div>
+  <p class="reading">Textbook page 537. Your textbook calls it the optimal output rule.</p>
+
+  <p>Your textbook's margin definition: profit is maximized &ldquo;by producing the quantity of
+  output at which the marginal revenue of the last unit produced is equal to its marginal
+  cost.&rdquo; It names this the <b>optimal output rule</b>. Your exam calls it the
+  <b>profit-maximizing rule</b>, and writes it <b>MR = MC</b>. They are the same rule.</p>
+  <p>Below that quantity, one more unit adds more revenue than cost, so profit can still rise. Above
+  it, the last unit adds more cost than revenue, so profit has already started to fall.</p>
+
+  <div class="watch"><p><b>Watch out.</b> On your exam, state the comparison, not the name: &ldquo;produce where marginal revenue equals marginal cost.&rdquo; An answer that just says &ldquo;use the optimal output rule&rdquo; may not earn the point.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Jennifer and Jason at $18.</span> MR = MC at 5 bushels, where profit is $18.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">The same farm at $22.</span> MR = MC at 6 bushels, where profit is $40.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A firm whose MR is $30 and MC is $24 at its current output.</span> MR &gt; MC: it should produce more.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is <a href="#e3">the principle of marginal analysis</a> (entry 3) restated for a firm, it is the shortcut to the answer of <a href="#e2">the total route</a> (entry 2), it is read off a graph at <a href="#e11">the profit-maximizing quantity</a> (entry 11), and it holds for <a href="#e14">every firm</a> (entry 14).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">7.1</span> A firm is producing where marginal revenue is $12 and marginal cost is $9. What should it do, and why?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Produce more. The next unit adds $12 to revenue and less than that to cost, so profit rises.</p></div></details></div>
+    <div class="q"><p><span class="qn">7.2</span> Write the profit-maximizing rule in words a marker will accept.</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Produce the quantity at which marginal revenue equals marginal cost.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got7"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e8">
+  <div class="entry-head"><span class="entry-num">08</span><h2>The last unit worth producing</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>With whole units, MR may never exactly equal MC. Then produce the <b>last</b> unit whose marginal revenue is <b>at least</b> its marginal cost, and stop before the first one that costs more than it brings in.</p></div>
+  <p class="reading">Textbook page 537, and the free-response rubric on page 541.</p>
+
+  <p>Your textbook says it in one sentence: when no quantity makes the two exactly equal,
+  &ldquo;the producer should produce until one more unit would cause marginal benefit to fall below
+  marginal cost.&rdquo;</p>
+  <p>Its own free-response answer puts it the way to write it on an exam: produce &ldquo;the largest
+  quantity at which MR exceeds MC.&rdquo; In that question the fifth unit's MC is $16 against MR of
+  $18, and the sixth unit's MC is $22, so the answer is <b>5</b>.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Do not stop at the first unit where MC is greater than MR &mdash; that unit should not be produced at all. The answer is the unit <b>before</b> it.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Price $15, marginal costs $8, $10, $13, $17, $21.</span> The third unit adds $2; the fourth would lose $2. Produce 3.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Jennifer and Jason at $18.</span> The fifth bushel adds $2; the sixth would lose $2. Produce 5.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Price $12, marginal costs $9, $7, $10, $12, $15.</span> The fourth unit's MR equals its MC, so produce it; the fifth would lose $3. Produce 4.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It applies <a href="#e6">the net gain</a> (entry 6) unit by unit, it is <a href="#e3">the principle of marginal analysis</a> (entry 3) when units are whole, and on a graph it becomes <a href="#e11">the crossing of the two curves</a> (entry 11).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">8.1</span> A firm sells at $20. The marginal costs of its first five units are $11, $14, $18, $23 and $29. How many units maximize profit?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Three. The third adds $20 &minus; $18 = $2; the fourth would add $20 of revenue for $23 of cost.</p></div></details></div>
+    <div class="q"><p><span class="qn">8.2</span> A student says the answer to the last question is 4, &ldquo;the first unit where MC is above MR&rdquo;. What is wrong?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>The fourth unit loses $3, so producing it lowers profit. The answer is the last unit that pays its way, not the first that does not.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got8"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e9">
+  <div class="entry-head"><span class="entry-num">09</span><h2>The marginal revenue curve</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A curve showing marginal revenue at each quantity. For a firm that sells at a given market price, it is a <b>horizontal line at the price</b>.</p></div>
+  <p class="reading">Textbook page 538, and Figure 53.1 on page 539.</p>
+
+  <p>Your textbook's definition: the marginal revenue curve &ldquo;shows how marginal revenue
+  varies as output varies.&rdquo; For Jennifer and Jason it does not vary &mdash; it is a flat line at
+  $18, labelled <b>MR = P</b> in Figure 53.1.</p>
+  <p>Change the price and the whole line moves. Press the chips in the diagram above: at $14 and $22
+  the line sits lower and higher, and the profit-maximizing quantity moves with it.</p>
+
+  <div class="watch"><p><b>Watch out.</b> A horizontal MR line belongs to a firm that can sell any quantity at the market price. A firm that must cut its price to sell more has a downward-sloping MR curve.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Jennifer and Jason at $18.</span> A horizontal line at $18.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">The market price rises to $22.</span> The line shifts up to $22.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A firm with a downward-sloping demand curve.</span> Its MR curve slopes down, below its demand curve.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It plots <a href="#e4">marginal revenue</a> (entry 4), it meets the marginal cost curve at <a href="#e11">the profit-maximizing quantity</a> (entry 11), and it is horizontal because of <a href="#e13">price taking</a> (entry 13).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">9.1</span> Draw, in words, the marginal revenue curve of a firm that can sell any quantity at $5.</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>A horizontal line at $5 across the whole range of quantities.</p></div></details></div>
+    <div class="q"><p><span class="qn">9.2</span> The market price of tomatoes falls from $18 to $14. What happens to Jennifer and Jason's marginal revenue curve?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>It shifts down to a horizontal line at $14.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got9"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e10">
+  <div class="entry-head"><span class="entry-num">10</span><h2>The marginal cost curve</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A curve showing the cost of one more unit at each quantity. In your textbook it <b>falls, then rises</b> &mdash; a swoosh.</p></div>
+  <p class="reading">Textbook page 538, and Figure 53.1 on page 539.</p>
+
+  <p>Your textbook's definition: the marginal cost curve &ldquo;shows how the cost of producing
+  one more unit depends on the quantity that has already been produced.&rdquo; Jennifer and Jason's
+  marginal cost falls from $16 to $6, then climbs: $8, $12, $16, $20, $24.</p>
+  <p>Your textbook promises the reason later. It is the production function in the next modules:
+  the first few workers make each other more productive, and then each extra worker adds less.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Because of the swoosh, a low price line can cross marginal cost <b>twice</b>. The crossing on the falling part is not the answer; profit is maximized where MC crosses MR from <b>below</b>, on the rising part.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">From the first bushel to the second.</span> MC falls from $16 to $6.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">From the fifth bushel to the seventh.</span> MC rises from $16 to $20 to $24.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A price of $14.</span> The line crosses the falling MC near 0.7 bushels and the rising MC at 4. Only 4 maximizes profit.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It plots <a href="#e5">marginal cost</a> (entry 5), its points sit <a href="#e12">halfway between quantities</a> (entry 12), and where it meets marginal revenue from below is <a href="#e11">the profit-maximizing quantity</a> (entry 11).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">10.1</span> At $14, why is the crossing near 0.7 bushels not the profit-maximizing quantity?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because after it, marginal cost is below $14: the second, third and fourth bushels each add more to revenue than to cost. Profit keeps rising until the crossing at 4.</p></div></details></div>
+    <div class="q"><p><span class="qn">10.2</span> What shape is Jennifer and Jason's marginal cost curve, and when does your course explain it?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>A swoosh: it falls, then rises. The reason comes with the production function and short-run costs.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got10"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e11">
+  <div class="entry-head"><span class="entry-num">11</span><h2>The profit-maximizing quantity</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>On a graph, the quantity directly below the point where the marginal cost curve crosses the marginal revenue curve <b>from below</b>.</p></div>
+  <p class="reading">Textbook page 539, Figure 53.1.</p>
+
+  <p>Figure 53.1 draws Table 53.2: the swoosh-shaped MC curve, the flat MR line at $18, and their
+  crossing at point <b>E</b>. Drop a line from E to the quantity axis and you read <b>5 bushels</b>.</p>
+  <p>The graph and the table give the same answer because they are the same comparison. To the left
+  of E, MR is above MC &mdash; the green bars in the diagram. To the right, MC is above MR &mdash; the
+  red bars.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Read the quantity from the crossing, not from the lowest point of the MC curve and not from where MC meets the price axis.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Price $18.</span> MC crosses MR at 5 bushels: Figure 53.1's point E.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Price $22.</span> The crossing moves up the MC curve to 6 bushels.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Price $14.</span> The crossing on the rising MC is at 4 bushels, where profit is $0.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is <a href="#e7">the profit-maximizing rule</a> (entry 7) drawn, it is the graph of <a href="#e8">the last unit worth producing</a> (entry 8), and it needs both <a href="#e9">the marginal revenue curve</a> (entry 9) and <a href="#e10">the marginal cost curve</a> (entry 10).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">11.1</span> The price of tomatoes rises from $18 to $22. What happens to the profit-maximizing quantity, and why?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>It rises from 5 to 6 bushels. The MR line moves up, so it crosses the rising MC curve further to the right.</p></div></details></div>
+    <div class="q"><p><span class="qn">11.2</span> On a graph, how do you find the profit-maximizing quantity?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Find where the MC curve crosses the MR curve from below, and read the quantity directly beneath that point.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got11"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e12">
+  <div class="entry-head"><span class="entry-num">12</span><h2>Plotting marginal cost between quantities</h2><span class="mark bgm">&#9675; Background</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Each unit's marginal cost is the change from one quantity to the next, so your textbook plots it <b>halfway</b> between the two.</p></div>
+  <p class="reading">Textbook page 538.</p>
+
+  <p>The sixth bushel's marginal cost, $20, is the change in total cost from 5 bushels to 6. Your
+  textbook draws it at <b>5.5</b>, between the two. That is why the diagram's MC points sit at the
+  half-units.</p>
+  <p>Plotted this way, the MC line crosses $18 at exactly 5 bushels, $14 at exactly 4 and $22 at
+  exactly 6 &mdash; the same answers as the table.</p>
+
+  <div class="watch"><p><b>Watch out.</b> This is a drawing convention. On your exam you will usually be given a smooth curve, or asked to sketch one; nobody will mark where you put the half-units.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">The fifth bushel's $16.</span> Plotted at 4.5 bushels.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">The sixth bushel's $20.</span> Plotted at 5.5 bushels.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">The line between them.</span> It passes $18 at exactly 5 bushels.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It places the points of <a href="#e10">the marginal cost curve</a> (entry 10), and it is why the curve agrees with <a href="#e5">the marginal cost row</a> (entry 5).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">12.1</span> Where does your textbook plot the marginal cost of the third bushel?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>At 2.5 bushels, halfway between 2 and 3.</p></div></details></div>
+    <div class="q"><p><span class="qn">12.2</span> Why does the curve cross $18 at exactly 5 bushels?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>The points either side are $16 at 4.5 and $20 at 5.5. Halfway between them, at 5, the straight line is at $18.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got12"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e13">
+  <div class="entry-head"><span class="entry-num">13</span><h2>A price taker: marginal revenue equals price</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A firm that can sell any quantity it likes at the market price is a <b>price taker</b>. Each extra unit brings in exactly the price, so MR = P.</p></div>
+  <p class="reading">Textbook page 538. The term itself is in Module 58, page 585.</p>
+
+  <p>Your textbook says it assumes Jennifer and Jason's marginal revenue is constant at $18
+  &ldquo;just to make the calculations easier&rdquo;, and that this is true of perfectly competitive
+  markets, which come later in the course. That is why Figure 53.1 labels the line
+  <b>MR = P</b>.</p>
+  <p>For a price taker, the profit-maximizing rule can be written <b>P = MC</b>, because P and MR are
+  the same number. Keep the general version too: entry 14.</p>
+
+  <div class="watch"><p><b>Watch out.</b> MR = P is true <b>only</b> for a price taker. Do not write it for a firm that sets its own price.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Jennifer and Jason.</span> They sell any number of bushels at $18, so MR = P = $18.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">A wheat farmer.</span> One of thousands; nothing they do moves the market price.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A firm that sets its own price.</span> Not a price taker; its MR is below its price.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It explains why <a href="#e4">marginal revenue</a> (entry 4) equals the price, why <a href="#e9">the marginal revenue curve</a> (entry 9) is flat, and why the general case is <a href="#e14">MR = MC</a> (entry 14).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">13.1</span> Why can a price-taking firm write the profit-maximizing rule as P = MC?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because each extra unit sells at the market price, so its marginal revenue is the price.</p></div></details></div>
+    <div class="q"><p><span class="qn">13.2</span> A firm sells 100 units at $8 each, and could sell 101 at $8 each. What is its marginal revenue?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>$808 &minus; $800 = $8, the price.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got13"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e14">
+  <div class="entry-head"><span class="entry-num">14</span><h2>MR = MC for every firm</h2><span class="mark flag">&#9733; &#9873;</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The profit-maximizing rule compares <b>marginal revenue</b> with marginal cost for <b>every</b> firm. Price equals marginal revenue only for a price taker.</p></div>
+  <p class="reading">Not in Module 53 &mdash; textbook page 584, Module 58, and page 611, Module 61.</p>
+
+  <div class="notinbook"><p><b>&#9873; Not in Module 53 &mdash; learn it from here.</b> Module 53's firm always sells at the same price, so its marginal revenue never differs from price, and it never says the rule holds for every firm. Your textbook says that first in Module 58: MR = MC &ldquo;will be true for any profit-maximizing firm in any market structure.&rdquo; The rule's exam name, the <b>profit-maximizing rule</b>, appears nowhere in your textbook.</p></div>
+
+  <p>Take a firm that must lower its price to sell more: demand is P = 32 &minus; 2Q, and the
+  marginal cost of the <i>q</i>th unit is $6 + $2<i>q</i>.</p>
+  <table class="tbl">
+    <thead><tr><th>Unit</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th></tr></thead>
+    <tbody>
+      <tr><td>Price</td><td>$30</td><td>$28</td><td>$26</td><td>$24</td><td>$22</td><td>$20</td></tr>
+      <tr><td>MR</td><td>$30</td><td>$26</td><td>$22</td><td>$18</td><td>$14</td><td>$10</td></tr>
+      <tr><td>MC</td><td>$8</td><td>$10</td><td>$12</td><td>$14</td><td>$16</td><td>$18</td></tr>
+    </tbody>
+  </table>
+  <p>The fourth unit's MR, $18, is above its MC, $14; the fifth unit's MR, $14, is below its MC,
+  $16. So the firm makes <b>4</b> units and charges <b>$24</b>. If it went on to where price
+  equals marginal cost, between 6 and 7 units, it would sell units whose MR is below their MC, and profit
+  would fall.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Never write &ldquo;P = MC&rdquo; as the profit-maximizing rule for a firm that sets its own price. Write MR = MC, then read the price from the demand curve.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Jennifer and Jason.</span> MR = P = $18, so MR = MC and P = MC give the same answer: 5 bushels.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">The firm in the table.</span> MR = MC at 4 units and a price of $24. P = MC would wrongly say 6 or more.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A firm with a patent on a medicine.</span> It sets its price, so its MR is below the price; it still produces where MR = MC.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is <a href="#e7">the profit-maximizing rule</a> (entry 7) in its general form, and <a href="#e13">a price taker</a> (entry 13) is its special case.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">14.1</span> For the firm in the table, what are total revenue and total cost at 4 units if its cost at zero output is $10?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>TR = 4 &times; $24 = $96. TC = $10 + $8 + $10 + $12 + $14 = $54. Profit is $42.</p></div></details></div>
+    <div class="q"><p><span class="qn">14.2</span> Why is price not equal to marginal revenue for this firm?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>To sell one more unit it must lower the price on every unit it sells, so the extra revenue is less than the new price.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got14"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e15">
+  <div class="entry-head"><span class="entry-num">15</span><h2>Whether to produce, then how much</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A producer's decision has two steps: an either&ndash;or question, <b>whether</b> to produce at all; and, if yes, a how-much question answered by MR = MC.</p></div>
+  <p class="reading">Textbook pages 538&ndash;539.</p>
+
+  <p>Your textbook is careful here. Before applying the marginal rule, &ldquo;a potential producer
+  must, as a first step, answer an &lsquo;either&ndash;or&rsquo; question: Should I produce at
+  all?&rdquo; Only then does it make the &ldquo;how much&rdquo; decision.</p>
+  <p>The marginal rule answers only the second question. It always finds the <b>best</b> quantity,
+  even when the best is a loss. Whether to produce that quantity, or nothing, needs a different
+  comparison.</p>
+
+  <div class="watch"><p><b>Watch out.</b> MR = MC tells a firm how much to produce if it produces. It does not tell the firm that producing is worth it.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Jennifer and Jason at $18.</span> Producing beats not producing, and the best quantity is 5.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">The farm at $14.</span> The best quantity, 4, makes exactly normal profit.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">The farm at $12.</span> The best it can do, at 4 bushels, is a loss of $8. Whether to produce is now the real question.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> The how-much step is <a href="#e1">profit maximization</a> (entry 1); the whether step depends on <a href="#e16">economic profit</a> (entry 16).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">15.1</span> Which question does the profit-maximizing rule answer: whether to produce, or how much?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>How much. It finds the best quantity; whether producing it beats producing nothing is a separate question.</p></div></details></div>
+    <div class="q"><p><span class="qn">15.2</span> At $12 Jennifer and Jason's best output loses $8. Does MR = MC still tell them how much to grow if they grow anything?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Yes &mdash; 4 bushels, where the fourth bushel's MC of $12 equals the price. It is the quantity that makes the loss smallest.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got15"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e16">
+  <div class="entry-head"><span class="entry-num">16</span><h2>Economic profit decides whether</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Whether to stay in a business depends on <b>economic</b> profit, not accounting profit. A firm making at least zero economic profit &mdash; a normal profit &mdash; is doing as well as it could anywhere else.</p></div>
+  <p class="reading">Textbook page 539.</p>
+
+  <p>Your textbook links back to Module 52: accounting profit ignores implicit costs, so a firm
+  can show an accounting profit while its economic profit is zero or negative. &ldquo;A firm's
+  decision to produce or not, to stay in business or to close down permanently, should be based on
+  economic profit, not accounting profit.&rdquo;</p>
+  <p>At $14, Jennifer and Jason's best economic profit is exactly <b>$0</b>: a normal profit. They
+  cover every cost, including what their time and land could earn elsewhere, and have no reason to
+  leave.</p>
+
+  <div class="watch"><p><b>Watch out.</b> That is the long-run rule. In the short run a firm can keep producing at a loss: at $12 Jennifer and Jason lose $8 at 4 bushels, but would lose the whole $14 they owe whatever they grow if they stopped. When to stop producing is the next topic in your course.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">The farm at $14.</span> Economic profit $0 at 4 bushels: a normal profit.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">The farm at $22.</span> Economic profit $40 at 6 bushels: better than any alternative.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A shop with an accounting profit of $20,000 whose owner could earn $30,000 elsewhere.</span> Economic profit is &minus;$10,000. In the long run it should close.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the second of <a href="#e15">the two decisions</a> (entry 15), and it uses the profit that <a href="#e1">profit maximization</a> (entry 1) maximizes.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">16.1</span> A firm's best output gives total revenue equal to total cost, implicit costs included. Should it stay in business?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Yes. Its economic profit is zero &mdash; a normal profit &mdash; so no alternative use of its resources would do better.</p></div></details></div>
+    <div class="q"><p><span class="qn">16.2</span> At $12 a bushel Jennifer and Jason lose $8 at their best output. Why might they keep growing tomatoes this season?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because if they grow nothing they still pay the $14 they owe, and lose $14. Producing loses less.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got16"> Got it</label>
+  </div>
+</article>
+
+
+<!-- ============ PRACTICE ============ -->
+<section class="section" id="mcq">
+  <h2>Five questions to try</h2>
+  <p>Click an option to see why it is right or wrong.</p>
+  <div class="mcq" data-key="A">
+    <p class="stem"><span class="qn">1</span> A firm sells its output at $10 a unit. Its total cost rises from $40 to $47 when it makes a fifth unit. Should it make the fifth unit?</p>
+    <div class="opts">
+      <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>Yes: it adds $10 to revenue and $7 to cost<span class="why" hidden>&#10003; MR $10 is above MC $7, so the fifth unit adds $3 to profit.</span></span></button>
+      <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>No: total cost rises<span class="why" hidden>&#10007; Every unit raises total cost. What matters is whether revenue rises by more.</span></span></button>
+      <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>Yes: total revenue rises<span class="why" hidden>&#10007; Right answer, wrong reason. Revenue rising is not enough; it must rise by more than cost.</span></span></button>
+      <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>No: $47 is more than $10<span class="why" hidden>&#10007; Compares total cost with marginal revenue. Compare marginal with marginal.</span></span></button>
+      <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>It cannot be decided without knowing the fixed cost<span class="why" hidden>&#10007; Fixed cost does not change marginal cost, so it does not change the decision.</span></span></button>
+    </div>
+  </div>
+  <div class="mcq" data-key="B">
+    <p class="stem"><span class="qn">2</span> Which statement is the profit-maximizing rule?</p>
+    <div class="opts">
+      <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>Produce where total revenue is largest<span class="why" hidden>&#10007; Revenue can keep rising after profit has started to fall.</span></span></button>
+      <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>Produce where marginal revenue equals marginal cost<span class="why" hidden>&#10003; The rule your exam names.</span></span></button>
+      <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>Produce where total cost is smallest<span class="why" hidden>&#10007; That is zero output, or close to it.</span></span></button>
+      <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>Produce where marginal cost is lowest<span class="why" hidden>&#10007; The bottom of the swoosh is not where profit peaks.</span></span></button>
+      <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>Produce where price equals total cost<span class="why" hidden>&#10007; That is where profit is zero, not largest.</span></span></button>
+    </div>
+  </div>
+  <div class="mcq" data-key="C">
+    <p class="stem"><span class="qn">3</span> A firm sells at $12. The marginal costs of its first five units are $9, $7, $10, $12 and $15. How many units maximize profit?</p>
+    <div class="opts">
+      <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>2, where marginal cost is lowest<span class="why" hidden>&#10007; The third and fourth units still add revenue at least equal to their cost.</span></span></button>
+      <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>3, the last unit where MR is greater than MC<span class="why" hidden>&#10007; The fourth unit's MR equals its MC; the rule produces it.</span></span></button>
+      <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>4<span class="why" hidden>&#10003; The fourth unit's MR, $12, equals its MC; the fifth would cost $15 for $12 of revenue.</span></span></button>
+      <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>5, the first unit where MC is greater than MR<span class="why" hidden>&#10007; That unit lowers profit by $3.</span></span></button>
+      <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>1<span class="why" hidden>&#10007; Stops after the first unit, though the next three each pay their way.</span></span></button>
+    </div>
+  </div>
+  <div class="mcq" data-key="D">
+    <p class="stem"><span class="qn">4</span> Why is marginal revenue equal to the price for a price-taking firm?</p>
+    <div class="opts">
+      <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>Because the firm sets the price equal to its marginal cost<span class="why" hidden>&#10007; A price taker does not set its price at all.</span></span></button>
+      <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>Because total revenue is constant<span class="why" hidden>&#10007; Total revenue rises with every unit sold.</span></span></button>
+      <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>Because its demand curve slopes downward<span class="why" hidden>&#10007; Then MR would be below the price.</span></span></button>
+      <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>Because it can sell each extra unit at the market price<span class="why" hidden>&#10003; So each unit adds exactly the price to total revenue.</span></span></button>
+      <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>Because it always earns a normal profit<span class="why" hidden>&#10007; Its profit has nothing to do with why MR equals P.</span></span></button>
+    </div>
+  </div>
+  <div class="mcq" data-key="E">
+    <p class="stem"><span class="qn">5</span> At its profit-maximizing output a firm's total revenue is $500 and its total cost, implicit costs included, is $540. Which is correct?</p>
+    <div class="opts">
+      <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>It should shut down at once<span class="why" hidden>&#10007; In the short run it may lose less by producing; that depends on its variable cost.</span></span></button>
+      <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>It is not maximizing profit, because its profit is negative<span class="why" hidden>&#10007; Maximizing profit can mean making the loss as small as possible.</span></span></button>
+      <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>Its accounting profit is &minus;$40<span class="why" hidden>&#10007; Total cost includes implicit costs, so &minus;$40 is economic profit.</span></span></button>
+      <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>It should produce more until its profit reaches zero<span class="why" hidden>&#10007; Producing past MR = MC makes the loss larger.</span></span></button>
+      <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>Its economic loss of $40 is the smallest loss it can make at this price<span class="why" hidden>&#10003; MR = MC finds the best quantity, even when the best is a loss.</span></span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FREE RESPONSE ============ -->
+<section class="section" id="frq">
+  <h2>A free-response question</h2>
+
+  <div class="frq">
+    <p class="stem"><b>1.</b> (6 points) A candle maker can sell as many candles as it likes at $12
+    each. Its total cost, implicit costs included, is $5 at zero output, then $13, $19, $27, $37, $50
+    and $66 for 1 to 6 candles.</p>
+    <p><b>(a)</b> What is the marginal revenue of the third candle? <b>(b)</b> Calculate the profit at
+    2 candles. <b>(c)</b> Identify the profit-maximizing number of candles, and explain using
+    marginal revenue and marginal cost. <b>(d)</b> The price rises to $14. Identify the new
+    profit-maximizing number of candles. <b>(e)</b> At the original price of $12, the candle maker's
+    rent rises by $10. What happens to its profit-maximizing output? Explain.</p>
+    <details class="reveal"><summary>Show the mark scheme</summary><div class="ans">
+      <p><b>(a) 1 point</b> &mdash; <b>$12</b>, the price: each candle sells for $12.</p>
+      <p><b>(b) 1 point</b> &mdash; $24 &minus; $19 = <b>$5</b>.</p>
+      <p><b>(c) 2 points</b> &mdash; <b>4 candles</b>. The fourth candle's marginal cost is
+      $37 &minus; $27 = $10, below its $12 marginal revenue; the fifth's is $13, above it. Profit is
+      $48 &minus; $37 = $11.</p>
+      <p><b>(d) 1 point</b> &mdash; <b>5 candles</b>: the fifth's MC of $13 is now below $14, the
+      sixth's $16 is above it.</p>
+      <p><b>(e) 1 point</b> &mdash; <b>no change</b>, still 4 candles. Rent is a fixed cost, so every
+      marginal cost is unchanged; only profit falls, to $1.</p>
+    </div></details>
+  </div>
+</section>
+
+<!-- ============ SUMMARY ============ -->
+<section class="section" id="summary">
+  <h2>One page to revise from</h2>
+  <table class="tbl">
+    <thead><tr><th>Term</th><th>In one line</th></tr></thead>
+    <tbody>
+      <tr><td>Profit maximization</td><td>The goal: the largest economic profit, not the largest revenue.</td></tr>
+      <tr><td>Total revenue minus total cost</td><td>Profit at every quantity; pick the largest. The total route.</td></tr>
+      <tr><td>Marginal analysis</td><td>Keep going while marginal benefit is at least marginal cost.</td></tr>
+      <tr><td>Marginal revenue</td><td>&Delta;TR / &Delta;Q. For a price taker, the price.</td></tr>
+      <tr><td>Marginal cost</td><td>&Delta;TC / &Delta;Q. Fixed cost drops out.</td></tr>
+      <tr><td>Net gain of a unit</td><td>MR &minus; MC. Produce the unit if it is not negative.</td></tr>
+      <tr><td>Profit-maximizing rule</td><td>MR = MC. Your textbook calls it the optimal output rule.</td></tr>
+      <tr><td>The last unit worth producing</td><td>With whole units: the last one with MR at least MC.</td></tr>
+      <tr><td>MR curve</td><td>Horizontal at the price for a price taker.</td></tr>
+      <tr><td>MC curve</td><td>Falls, then rises: the swoosh.</td></tr>
+      <tr><td>Profit-maximizing quantity</td><td>Below the point where MC crosses MR from below.</td></tr>
+      <tr><td>Plotting between quantities</td><td>Each MC point sits halfway between the two quantities.</td></tr>
+      <tr><td>Price taker</td><td>Sells any quantity at the market price, so MR = P.</td></tr>
+      <tr><td>MR = MC for every firm</td><td>Not P = MC, unless the firm is a price taker.</td></tr>
+      <tr><td>Two decisions</td><td>Whether to produce, then how much.</td></tr>
+      <tr><td>Economic profit decides whether</td><td>In the long run. In the short run a firm may produce at a loss.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section" id="getright">
+  <h2>Things to get right</h2>
+  <ul>
+    <li><b>Maximize profit</b>, not revenue, not sales, not profit per unit.</li>
+    <li><b>Marginal means the change.</b> MR and MC are differences between neighbouring totals.</li>
+    <li><b>The first unit's marginal cost</b> is its total cost minus the cost at zero output.</li>
+    <li><b>Write MR = MC</b>, and say it in words: produce where marginal revenue equals marginal
+      cost.</li>
+    <li><b>With whole units</b>, produce the last unit whose MR is at least its MC &mdash; not the first
+      one where MC is higher.</li>
+    <li><b>Read the graph</b> where MC crosses MR from below.</li>
+    <li><b>MR = P only for a price taker.</b> The rule is MR = MC for every firm.</li>
+    <li><b>Fixed cost does not change the best output.</b> It changes the profit.</li>
+  </ul>
+</section>
+
+</div>
+
+<script>
+(function(){
+  var N = 16;
+  function $(id){ return document.getElementById(id); }
+  function money(x){ return (x < 0 ? "\u2212$" : "$") + String(Math.abs(Math.round(x))); }
+
+  /* progress */
+  var KEY = "m53-got";
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ return {}; } }
+  function save(o){ try { localStorage.setItem(KEY, JSON.stringify(o)); } catch(e){} }
+  function paint(){
+    var o = load(), n = 0, i;
+    for (i = 1; i <= N; i++){ var b = $("got" + i); if (b){ b.checked = !!o[i]; if (o[i]) n++; } }
+    $("pnum").textContent = n + " / " + N;
+    $("pfill").style.width = (100 * n / N) + "%";
+  }
+  var boxes = document.querySelectorAll(".gotbox"), bi;
+  for (bi = 0; bi < boxes.length; bi++){
+    boxes[bi].addEventListener("change", function(){
+      var o = load(); o[this.id.replace("got", "")] = this.checked; save(o); paint();
+    });
+  }
+  $("resetBtn").addEventListener("click", function(){ save({}); paint(); });
+  paint();
+
+  /* the farm */
+  var STATES = [
+    { k: "p14", p: 14, q: 4, tr: 56, tc: 56, pr: 0, mcn: 16 },
+    { k: "p18", p: 18, q: 5, tr: 90, tc: 72, pr: 18, mcn: 20 },
+    { k: "p22", p: 22, q: 6, tr: 132, tc: 92, pr: 40, mcn: 24 }
+  ];
+  function show(k){
+    var s = null, i;
+    for (i = 0; i < STATES.length; i++){ if (STATES[i].k === k) s = STATES[i]; }
+    if (!s) return;
+    var gs = document.querySelectorAll("#diagram svg g[id^='g-']");
+    for (i = 0; i < gs.length; i++){
+      if (gs[i].id === "g-" + k) gs[i].removeAttribute("hidden"); else gs[i].setAttribute("hidden", "hidden");
+    }
+    var chips = document.querySelectorAll("#sChips .chip");
+    for (i = 0; i < chips.length; i++){
+      chips[i].setAttribute("aria-pressed", chips[i].getAttribute("data-k") === k ? "true" : "false");
+    }
+    $("rp").textContent = money(s.p);
+    $("rq").textContent = s.q + " bushels";
+    $("rtr").textContent = money(s.tr);
+    $("rtc").textContent = money(s.tc);
+    $("rpr").textContent = money(s.pr);
+    var cap = "At $" + s.p + " a bushel, profit is largest at " + s.q + " bushels: $" + s.tr + " \u2212 $" + s.tc
+            + " = " + money(s.pr) + ". One more bushel would add $" + s.mcn + " to cost and only $" + s.p + " to revenue.";
+    if (s.pr === 0){ cap += " That is a normal profit: every cost, implicit ones included, is covered."; }
+    if (k === "p14"){ cap += " The open circle is where MR crosses the falling part of MC \u2014 a profit minimum, not the answer."; }
+    $("scap").textContent = cap;
+  }
+  var sc = document.querySelectorAll("#sChips .chip"), si;
+  for (si = 0; si < sc.length; si++){
+    sc[si].addEventListener("click", function(){ show(this.getAttribute("data-k")); });
+  }
+  show("p18");
+
+  /* produce more, produce less, or stay? */
+  var SORT = [
+    { t: "Last unit produced: MR $20, MC $12. Next unit: MR $20, MC $16.", a: "more",
+      w: "The next unit brings in $20 and costs only $16, so it adds to profit. Produce more." },
+    { t: "Last unit produced: MR $18, MC $22. Next unit: MR $18, MC $26.", a: "less",
+      w: "The last unit cost $22 and brought in only $18, so it lowered profit. Produce less." },
+    { t: "Last unit produced: MR $18, MC $16. Next unit: MR $18, MC $20.", a: "stay",
+      w: "The last unit paid its way ($18 in, $16 out) and the next would not ($18 in, $20 out). Stay." },
+    { t: "Last unit produced: MR $15, MC $9. Next unit: MR $15, MC $13.", a: "more",
+      w: "The next unit brings in $15 and costs only $13, so it adds to profit. Produce more." },
+    { t: "Last unit produced: MR $10, MC $14. Next unit: MR $10, MC $17.", a: "less",
+      w: "The last unit cost $14 and brought in only $10, so it lowered profit. Produce less." },
+    { t: "Last unit produced: MR $22, MC $22. Next unit: MR $22, MC $24.", a: "stay",
+      w: "The last unit paid its way ($22 in, $22 out) and the next would not ($22 in, $24 out). Stay." },
+    { t: "Last unit produced: MR $30, MC $18. Next unit: MR $28, MC $24.", a: "more",
+      w: "The next unit brings in $28 and costs only $24, so it adds to profit. Produce more." },
+    { t: "Last unit produced: MR $40, MC $45. Next unit: MR $36, MC $50.", a: "less",
+      w: "The last unit cost $45 and brought in only $40, so it lowered profit. Produce less." },
+    { t: "Last unit produced: MR $30, MC $25. Next unit: MR $26, MC $32.", a: "stay",
+      w: "The last unit paid its way ($30 in, $25 out) and the next would not ($26 in, $32 out). Stay." },
+    { t: "Last unit produced: MR $12, MC $6. Next unit: MR $12, MC $11.", a: "more",
+      w: "The next unit brings in $12 and costs only $11, so it adds to profit. Produce more." },
+    { t: "Last unit produced: MR $25, MC $30. Next unit: MR $25, MC $35.", a: "less",
+      w: "The last unit cost $30 and brought in only $25, so it lowered profit. Produce less." },
+    { t: "Last unit produced: MR $12, MC $10. Next unit: MR $12, MC $14.", a: "stay",
+      w: "The last unit paid its way ($12 in, $10 out) and the next would not ($12 in, $14 out). Stay." },
+    { t: "Last unit produced: MR $25, MC $20. Next unit: MR $25, MC $24.", a: "more",
+      w: "The next unit brings in $25 and costs only $24, so it adds to profit. Produce more." },
+    { t: "Last unit produced: MR $16, MC $19. Next unit: MR $16, MC $23.", a: "less",
+      w: "The last unit cost $19 and brought in only $16, so it lowered profit. Produce less." },
+    { t: "Last unit produced: MR $50, MC $44. Next unit: MR $46, MC $52.", a: "stay",
+      w: "The last unit paid its way ($50 in, $44 out) and the next would not ($46 in, $52 out). Stay." }
+  ];
+  var sAt = 0, score = 0, done = 0, answered = false;
+  function card(){
+    answered = false;
+    $("sortStem").innerHTML = SORT[sAt].t;
+    $("sortVerdict").textContent = "";
+    $("sortVerdict").className = "verdict";
+  }
+  var opts = document.querySelectorAll("#sortWidget .opts3 button"), oi;
+  for (oi = 0; oi < opts.length; oi++){
+    opts[oi].addEventListener("click", function(){
+      if (answered) return;
+      answered = true; done++;
+      var c = SORT[sAt], ok = (this.getAttribute("data-a") === c.a);
+      if (ok) score++;
+      $("sortVerdict").innerHTML = (ok ? "\u2713 " : "\u2717 ") + c.w;
+      $("sortVerdict").className = "verdict " + (ok ? "ok" : "no");
+      $("sortScore").textContent = score + " / " + done;
+    });
+  }
+  $("sortNext").addEventListener("click", function(){ sAt = (sAt + 1) % SORT.length; card(); });
+  card();
+
+  /* the practice questions */
+  var mcqs = document.querySelectorAll(".mcq"), mi;
+  for (mi = 0; mi < mcqs.length; mi++){
+    (function(box){
+      var os = box.querySelectorAll(".opt"), j;
+      for (j = 0; j < os.length; j++){
+        os[j].addEventListener("click", function(){
+          var w = this.querySelector(".why");
+          if (w) w.hidden = !w.hidden;
+          this.classList.toggle("open");
+        });
+      }
+    })(mcqs[mi]);
+  }
+})();
+</script>
+</main>
+<script>window.COURSE_NAV={"kicker": "3.5 Profit maximisation", "title": "Module 53 · Profit Maximization", "map": [{"label": "Course", "items": [{"href": "index.html", "label": "Home", "current": false}, {"href": "spec.html", "label": "Course specification", "current": false}]}, {"label": "Unit 1 · Basic Economic Concepts", "items": [{"href": "m01-student.html", "label": "Module 1 · Student guide", "current": false}, {"href": "m01-notes.html", "label": "Module 1 · Teaching notes", "current": false}, {"href": "m01-test.html", "label": "Module 1 · Test", "current": false}, {"label": "Module 2 · Introduction to Macroeconomics", "planned": true}, {"href": "m03-student.html", "label": "Module 3 · Student guide", "current": false}, {"href": "m03-notes.html", "label": "Module 3 · Teaching notes", "current": false}, {"href": "m03-test.html", "label": "Module 3 · Test", "current": false}, {"href": "m04-student.html", "label": "Module 4 · Student guide", "current": false}, {"href": "m04-notes.html", "label": "Module 4 · Teaching notes", "current": false}, {"href": "m04-test.html", "label": "Module 4 · Test", "current": false}, {"href": "m51-student.html", "label": "Module 51 · Student guide", "current": false}, {"href": "m51-notes.html", "label": "Module 51 · Teaching notes", "current": false}, {"href": "m51-test.html", "label": "Module 51 · Test", "current": false}, {"label": "Unit 1 · Gap analysis", "planned": true}]}, {"label": "Unit 2 · Supply and Demand", "items": [{"href": "m05-student.html", "label": "Module 5 · Student guide", "current": false}, {"href": "m05-notes.html", "label": "Module 5 · Teaching notes", "current": false}, {"href": "m05-test.html", "label": "Module 5 · Test", "current": false}, {"href": "m06-student.html", "label": "Module 6 · Student guide", "current": false}, {"href": "m06-notes.html", "label": "Module 6 · Teaching notes", "current": false}, {"href": "m06-test.html", "label": "Module 6 · Test", "current": false}, {"href": "m07-student.html", "label": "Module 7 · Student guide", "current": false}, {"href": "m07-notes.html", "label": "Module 7 · Teaching notes", "current": false}, {"href": "m07-test.html", "label": "Module 7 · Test", "current": false}, {"href": "m08-student.html", "label": "Module 8 · Student guide", "current": false}, {"href": "m08-notes.html", "label": "Module 8 · Teaching notes", "current": false}, {"href": "m08-test.html", "label": "Module 8 · Test", "current": false}, {"href": "m09-student.html", "label": "Module 9 · Student guide", "current": false}, {"href": "m09-notes.html", "label": "Module 9 · Teaching notes", "current": false}, {"href": "m09-test.html", "label": "Module 9 · Test", "current": false}, {"href": "m46-student.html", "label": "Module 46 · Student guide", "current": false}, {"href": "m46-notes.html", "label": "Module 46 · Teaching notes", "current": false}, {"href": "m46-test.html", "label": "Module 46 · Test", "current": false}, {"href": "m47-student.html", "label": "Module 47 · Student guide", "current": false}, {"href": "m47-notes.html", "label": "Module 47 · Teaching notes", "current": false}, {"href": "m47-test.html", "label": "Module 47 · Test", "current": false}, {"href": "m48-student.html", "label": "Module 48 · Student guide", "current": false}, {"href": "m48-notes.html", "label": "Module 48 · Teaching notes", "current": false}, {"href": "m48-test.html", "label": "Module 48 · Test", "current": false}, {"href": "m49-student.html", "label": "Module 49 · Student guide", "current": false}, {"href": "m49-notes.html", "label": "Module 49 · Teaching notes", "current": false}, {"href": "m49-test.html", "label": "Module 49 · Test", "current": false}, {"href": "m50-student.html", "label": "Module 50 · Student guide", "current": false}, {"href": "m50-notes.html", "label": "Module 50 · Teaching notes", "current": false}, {"href": "m50-test.html", "label": "Module 50 · Test", "current": false}, {"href": "t29-student.html", "label": "Topic 2.9 · Student guide", "current": false}, {"href": "t29-notes.html", "label": "Topic 2.9 · Teaching notes", "current": false}, {"href": "t29-test.html", "label": "Topic 2.9 · Test", "current": false}, {"label": "Unit 2 · Gap analysis", "planned": true}]}, {"label": "Unit 3 · Production, Cost and Perfect Competition", "items": [{"href": "m52-student.html", "label": "Module 52 · Student guide", "current": false}, {"href": "m52-notes.html", "label": "Module 52 · Teaching notes", "current": false}, {"href": "m52-test.html", "label": "Module 52 · Test", "current": false}, {"href": "m53-student.html", "label": "Module 53 · Student guide", "current": true}, {"href": "m53-notes.html", "label": "Module 53 · Teaching notes", "current": false}, {"href": "m53-test.html", "label": "Module 53 · Test", "current": false}, {"label": "Module 54 · The Production Function", "planned": true}, {"label": "Module 55 · Firm Costs", "planned": true}, {"label": "Module 56 · Long-Run Costs and Economies of Scale", "planned": true}, {"label": "Module 57 · Introduction to Market Structure", "planned": true}, {"label": "Modules 58–60 · Perfect Competition", "planned": true}, {"label": "Unit 3 · Gap analysis", "planned": true}]}, {"label": "Unit 4 · Imperfect Competition", "items": [{"label": "Topic 4.1 · Introduction to Imperfect Competition", "planned": true}, {"label": "Modules 61–63 · Monopoly", "planned": true}, {"label": "Modules 67–68 · Monopolistic Competition", "planned": true}, {"label": "Modules 64–66 · Oligopoly and Game Theory", "planned": true}, {"label": "Unit 4 · Gap analysis", "planned": true}]}, {"label": "Unit 5 · Factor Markets", "items": [{"label": "Module 69 · Introduction and Factor Demand", "planned": true}, {"label": "Module 70 · The Markets for Land and Capital", "planned": true}, {"label": "Module 71 · The Market for Labor", "planned": true}, {"label": "Module 72 · The Cost-Minimising Input Combination", "planned": true}, {"label": "Module 73 · Theories of Income Distribution", "planned": true}, {"label": "Unit 5 · Gap analysis", "planned": true}]}, {"label": "Unit 6 · Market Failure and the Role of Government", "items": [{"label": "Modules 74–75 · Externalities", "planned": true}, {"label": "Module 76 · Public Goods", "planned": true}, {"label": "Module 77 · Public Policy to Promote Competition", "planned": true}, {"label": "Module 78 · Income Inequality and Income Distribution", "planned": true}, {"label": "Unit 6 · Gap analysis", "planned": true}]}, {"label": "Interactive", "items": [{"label": "PPC explorer", "planned": true}, {"label": "Supply and demand explorer", "planned": true}, {"label": "Elasticity and total revenue", "planned": true}, {"label": "Cost curves", "planned": true}, {"label": "Market structure comparison", "planned": true}]}], "prev": {"href": "m52-test.html", "label": "Module 52 · Test"}, "next": {"href": "m53-notes.html", "label": "Module 53 · Teaching notes"}, "variants": [{"href": "m53-student.html", "label": "Student", "current": true}, {"href": "m53-notes.html", "label": "Notes", "current": false}, {"href": "m53-test.html", "label": "Test", "current": false}]};</script>
+<script src="assets/course.js"></script>
+</body>
+</html>

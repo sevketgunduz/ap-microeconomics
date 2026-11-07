@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 400" width="560" height="400" role="img" aria-label="Model answer: Bellmont's production possibilities curve with point T beyond it" style="font-family:Helvetica,Arial,sans-serif;max-width:100%;height:auto">
+<line x1="70" y1="340" x2="530" y2="340" stroke="currentColor" stroke-width="1.6"/>
+<line x1="70" y1="340" x2="70" y2="30" stroke="currentColor" stroke-width="1.6"/>
+<text x="530" y="384" text-anchor="end" font-size="13" fill="currentColor">Wheat (tons)</text>
+<text x="8" y="18" text-anchor="start" font-size="13" fill="currentColor">Cloth (bolts)</text>
+<line x1="162" y1="340" x2="162" y2="345" stroke="currentColor" stroke-width="1"/>
+<text x="162" y="360" text-anchor="middle" font-size="13" fill="currentColor">20</text>
+<line x1="254" y1="340" x2="254" y2="345" stroke="currentColor" stroke-width="1"/>
+<text x="254" y="360" text-anchor="middle" font-size="13" fill="currentColor">40</text>
+<line x1="346" y1="340" x2="346" y2="345" stroke="currentColor" stroke-width="1"/>
+<text x="346" y="360" text-anchor="middle" font-size="13" fill="currentColor">60</text>
+<line x1="438" y1="340" x2="438" y2="345" stroke="currentColor" stroke-width="1"/>
+<text x="438" y="360" text-anchor="middle" font-size="13" fill="currentColor">80</text>
+<line x1="65" y1="236.7" x2="70" y2="236.7" stroke="currentColor" stroke-width="1"/>
+<text x="61" y="240.7" text-anchor="end" font-size="13" fill="currentColor">10</text>
+<line x1="65" y1="133.3" x2="70" y2="133.3" stroke="currentColor" stroke-width="1"/>
+<text x="61" y="137.3" text-anchor="end" font-size="13" fill="currentColor">20</text>
+<line x1="70" y1="133.3" x2="438" y2="340" stroke="currentColor" stroke-width="2.2"/>
+<circle cx="438" cy="340" r="3.6" fill="currentColor"/>
+<circle cx="300" cy="236.7" r="3.6" fill="currentColor"/>
+<line x1="70" y1="236.7" x2="300" y2="236.7" stroke="currentColor" stroke-width="1" stroke-dasharray="4 3"/>
+<line x1="300" y1="340" x2="300" y2="236.7" stroke="currentColor" stroke-width="1" stroke-dasharray="4 3"/>
+<text x="308" y="230.7" text-anchor="start" font-size="13" fill="currentColor" font-weight="700">T (50 wheat, 10 cloth)</text>
+<text x="224" y="218.7" text-anchor="start" font-size="13" fill="currentColor" font-weight="700">PPC</text>
+</svg>

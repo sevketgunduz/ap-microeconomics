@@ -1,0 +1,1790 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 54 · The Production Function · AP Microeconomics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@600;700&display=swap">
+<link rel="stylesheet" href="assets/course.css">
+<style>.page .bar{position:static;background:none;backdrop-filter:none}.page .bar-in{max-width:none;padding-inline:0}.page .wrap{max-width:none;padding-inline:0;padding-block:0 24px}.page .masthead{padding-block:10px 24px}</style></head>
+<body>
+<main class="page">
+<style>
+
+
+:root{
+  --paper:#f3f5f8;
+  --surface:#ffffff;
+  --surface-2:#eef1f6;
+  --ink:#15181f;
+  --ink-2:#4d5566;
+  --ink-3:#737c8e;
+  --rule:#d6dae2;
+  --rule-strong:#b3bac7;
+  --accent:#1d4e89;
+  --accent-soft:#e6edf7;
+  --down:#a3372a;
+  --down-soft:#fbeeeb;
+  --up:#1a6b55;
+  --up-soft:#e6f2ee;
+  --flag:#7a5310;
+  --flag-soft:#f8f0e0;
+  --shadow:0 1px 2px rgba(21,24,31,.06), 0 8px 24px rgba(21,24,31,.05);
+  --serif:"IBM Plex Serif", Georgia, "Times New Roman", serif;
+  --sans:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0f1218;
+    --surface:#171b23;
+    --surface-2:#1e232d;
+    --ink:#e8ebf1;
+    --ink-2:#a3adc0;
+    --ink-3:#7e8799;
+    --rule:#2c323d;
+    --rule-strong:#3c4351;
+    --accent:#7dabe2;
+    --accent-soft:#1a2634;
+    --down:#e5907f;
+    --down-soft:#2a1d1a;
+    --up:#6cc4a7;
+    --up-soft:#16291f;
+    --flag:#d8b169;
+    --flag-soft:#2a2418;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.28);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0f1218;
+  --surface:#171b23;
+  --surface-2:#1e232d;
+  --ink:#e8ebf1;
+  --ink-2:#a3adc0;
+  --ink-3:#7e8799;
+  --rule:#2c323d;
+  --rule-strong:#3c4351;
+  --accent:#7dabe2;
+  --accent-soft:#1a2634;
+  --down:#e5907f;
+  --down-soft:#2a1d1a;
+  --up:#6cc4a7;
+  --up-soft:#16291f;
+  --flag:#d8b169;
+  --flag-soft:#2a2418;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.28);
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.65;
+  margin:0;
+}
+.wrap{max-width:820px;margin:0 auto;padding-inline:18px;padding-block:0 72px}
+
+/* ---------- sticky bar ---------- */
+.bar{
+  position:sticky;
+  top:env(safe-area-inset-top, 0px);
+  z-index:40;
+  background:color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--rule);
+}
+.bar-in{
+  max-width:820px;margin:0 auto;padding-inline:18px;
+  display:flex;align-items:center;gap:14px;min-height:50px;flex-wrap:wrap;
+}
+.bar-title{font-family:var(--mono);font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-2);white-space:nowrap}
+.progress{flex:1 1 140px;min-width:120px;display:flex;align-items:center;gap:9px}
+.progress-track{flex:1;height:5px;border-radius:3px;background:var(--rule);overflow:hidden}
+.progress-fill{height:100%;width:0;background:var(--accent);transition:width .25s ease}
+.progress-num{font-family:var(--mono);font-size:12px;color:var(--ink-2);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar button{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;
+  background:none;border:1px solid var(--rule-strong);color:var(--ink-2);
+  padding:5px 10px;border-radius:4px;cursor:pointer;
+}
+.bar button:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ---------- masthead ---------- */
+.masthead{padding-block:40px 28px;border-bottom:2px solid var(--ink)}
+.eyebrow{
+  font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);margin:0 0 12px;
+}
+h1{
+  font-family:var(--serif);font-weight:700;font-size:clamp(30px,6.4vw,44px);
+  line-height:1.1;margin:0 0 14px;text-wrap:balance;letter-spacing:-.01em;
+}
+.standfirst{font-size:17.5px;color:var(--ink-2);margin:0;max-width:62ch}
+.source-line{
+  font-family:var(--mono);font-size:12.5px;color:var(--ink-3);margin-top:18px;
+  display:flex;gap:6px 18px;flex-wrap:wrap;
+}
+
+h2{
+  font-family:var(--serif);font-weight:600;font-size:clamp(21px,3.8vw,26px);
+  line-height:1.25;margin:0 0 10px;text-wrap:balance;
+}
+h3{font-family:var(--sans);font-weight:600;font-size:16px;margin:26px 0 8px;letter-spacing:.01em}
+p{margin:0 0 14px}
+a{color:var(--accent)}
+.section{padding-block:34px 4px}
+
+.kicker{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-3);margin:0 0 8px;
+}
+
+/* ---------- entries ---------- */
+.entry{padding-block:34px 10px;border-top:1px solid var(--rule)}
+.entry-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.entry-num{
+  font-family:var(--mono);font-size:13px;font-weight:600;color:var(--accent);
+  font-variant-numeric:tabular-nums;
+}
+.entry h2{margin:0;flex:1 1 auto;min-width:0}
+.mark{
+  font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  padding:3px 8px;border-radius:3px;white-space:nowrap;
+}
+.mark.exam{background:var(--accent-soft);color:var(--accent)}
+.mark.bg{background:var(--surface-2);color:var(--ink-3)}
+.defn{
+  background:var(--surface);border-left:3px solid var(--accent);
+  padding:14px 16px;border-radius:0 5px 5px 0;margin:14px 0 16px;box-shadow:var(--shadow);
+}
+.defn p{margin:0}
+.defn .lbl{
+  display:block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-3);margin-bottom:5px;
+}
+.reading{font-family:var(--mono);font-size:12.5px;color:var(--ink-3);margin:-6px 0 16px}
+
+.watch{
+  background:var(--down-soft);border:1px solid color-mix(in srgb, var(--down) 28%, transparent);
+  border-radius:5px;padding:13px 16px;margin:18px 0;
+}
+.watch p{margin:0;font-size:15.3px}
+.watch b{color:var(--down)}
+
+.notinbook{
+  background:var(--flag-soft);border:1px dashed color-mix(in srgb, var(--flag) 48%, transparent);
+  border-radius:5px;padding:13px 16px;margin:16px 0;
+}
+.notinbook p{margin:0;font-size:15.3px}
+.notinbook b{color:var(--flag)}
+
+.examples{margin:18px 0;display:flex;flex-direction:column;gap:12px}
+.ex{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start}
+.ex-n{
+  font-family:var(--mono);font-size:11px;font-weight:600;color:var(--ink-3);
+  border:1px solid var(--rule-strong);border-radius:3px;padding:1px 6px;margin-top:3px;white-space:nowrap;
+}
+.ex p{margin:0;font-size:15.3px}
+.ex .who{font-weight:600;color:var(--ink)}
+
+.connects{font-size:15.3px;color:var(--ink-2);border-top:1px solid var(--rule);padding-top:12px;margin-top:6px}
+.connects b{color:var(--ink)}
+
+/* ---------- check yourself ---------- */
+.check{margin:20px 0 6px;background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:14px 16px}
+.check > .lbl{
+  font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);display:block;margin-bottom:10px;
+}
+.q{margin-bottom:12px}
+.q:last-child{margin-bottom:0}
+.q > p{margin:0 0 7px;font-size:15.3px}
+.q .qn{font-family:var(--mono);font-weight:600;color:var(--accent);font-size:13.5px;margin-right:4px}
+details.reveal{border-top:1px dashed var(--rule)}
+details.reveal > summary{
+  list-style:none;cursor:pointer;font-family:var(--mono);font-size:11.5px;
+  letter-spacing:.07em;text-transform:uppercase;color:var(--accent);padding:7px 0 0;
+}
+details.reveal > summary::-webkit-details-marker{display:none}
+details.reveal > summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details.reveal[open] > summary::before{content:"▾ "}
+details.reveal > summary:hover{text-decoration:underline}
+details.reveal .ans{font-size:15.3px;color:var(--ink-2);padding:6px 0 4px}
+details.reveal .ans p{margin:0 0 8px}
+details.reveal .ans p:last-child{margin:0}
+
+.got{
+  display:flex;align-items:center;gap:8px;margin-top:16px;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);
+  cursor:pointer;user-select:none;
+}
+.got input{width:15px;height:15px;accent-color:var(--accent);cursor:pointer}
+
+/* ---------- tables ---------- */
+.tablewrap{overflow-x:auto;margin:18px 0;border:1px solid var(--rule);border-radius:6px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:15px;min-width:420px}
+th,td{padding:10px 13px;text-align:left;border-bottom:1px solid var(--rule);vertical-align:top}
+thead th{
+  font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-3);background:var(--surface-2);font-weight:600;
+}
+tbody tr:last-child td{border-bottom:none}
+td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right}
+.tight td,.tight th{padding:8px 12px;font-size:14.5px}
+
+/* ---------- widgets ---------- */
+.widget{
+  background:var(--surface);border:1px solid var(--rule-strong);border-radius:8px;
+  padding:18px;margin:26px 0;box-shadow:var(--shadow);
+}
+.widget-title{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);margin:0 0 4px;
+}
+.widget h3{margin-top:0}
+.widget-note{font-size:14.5px;color:var(--ink-2);margin:12px 0 0}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{
+  font-family:var(--mono);font-size:12px;letter-spacing:.04em;
+  border:1px solid var(--rule-strong);background:var(--surface);color:var(--ink-2);
+  border-radius:16px;padding:5px 13px;cursor:pointer;transition:all .15s;
+}
+.chip:hover{border-color:var(--accent);color:var(--accent)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+:root[data-theme="dark"] .chip[aria-pressed="true"],
+:root:not([data-theme="light"]) .chip[aria-pressed="true"]{color:#0f1218}
+
+.cyclefig{width:100%;height:auto;display:block;overflow:visible}
+.figcap{font-size:14.5px;color:var(--ink-2);margin:10px 0 0;min-height:3em}
+.figcap b{color:var(--ink)}
+
+.svg-dim{opacity:.22;transition:opacity .2s}
+.svg-lit{opacity:1;transition:opacity .2s}
+
+.calc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:14px 0}
+.field label{
+  display:block;font-family:var(--mono);font-size:11px;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--ink-3);margin-bottom:5px;
+}
+.field input[type=number]{
+  width:100%;font-family:var(--mono);font-size:16px;padding:8px 10px;
+  border:1px solid var(--rule-strong);border-radius:5px;background:var(--paper);color:var(--ink);
+}
+.field input[type=range]{width:100%;accent-color:var(--accent)}
+.field input:focus-visible,.chip:focus-visible,button:focus-visible,summary:focus-visible,a:focus-visible{
+  outline:2px solid var(--accent);outline-offset:2px;
+}
+.readouts{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:6px;overflow:hidden;margin-top:6px}
+.ro{background:var(--surface-2);padding:12px 14px}
+.ro .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);display:block;margin-bottom:3px}
+.ro .v{font-family:var(--mono);font-size:22px;font-weight:600;font-variant-numeric:tabular-nums;color:var(--ink)}
+.ro .v.hl{color:var(--accent)}
+
+/* ---------- quiz ---------- */
+.mcq{border-top:1px solid var(--rule);padding-top:18px;margin-top:18px}
+.mcq:first-of-type{border-top:none;padding-top:0;margin-top:0}
+.mcq .stem{font-size:15.6px;margin:0 0 12px}
+.mcq .stem .qn{font-family:var(--mono);font-weight:600;color:var(--accent);margin-right:6px}
+.opts{display:flex;flex-direction:column;gap:7px}
+.opt{
+  display:flex;gap:11px;align-items:flex-start;text-align:left;width:100%;
+  font-family:var(--sans);font-size:15.2px;line-height:1.5;color:var(--ink);
+  background:var(--surface);border:1px solid var(--rule);border-radius:6px;
+  padding:10px 13px;cursor:pointer;transition:border-color .15s,background .15s;
+}
+.opt:hover{border-color:var(--accent)}
+.opt .ltr{font-family:var(--mono);font-weight:600;color:var(--ink-3);flex:0 0 auto}
+.opt .why{display:block;font-size:14.3px;color:var(--ink-2);margin-top:6px}
+.opt[data-state="right"]{border-color:var(--up);background:var(--up-soft)}
+.opt[data-state="right"] .ltr{color:var(--up)}
+.opt[data-state="wrong"]{border-color:var(--down);background:var(--down-soft)}
+.opt[data-state="wrong"] .ltr{color:var(--down)}
+.opt[disabled]{cursor:default}
+.score{
+  font-family:var(--mono);font-size:13px;color:var(--ink-2);
+  border:1px solid var(--rule-strong);border-radius:6px;padding:11px 14px;margin-top:20px;
+  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;
+}
+.score b{color:var(--ink);font-size:15px}
+
+.frq{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:15px 17px;margin:16px 0}
+.frq .stem{margin:0 0 6px;font-size:15.6px}
+.frq .pts{font-family:var(--mono);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3)}
+.rubric{margin:8px 0 0;padding:0;list-style:none}
+.rubric li{display:grid;grid-template-columns:auto 1fr;gap:10px;padding:7px 0;border-top:1px dotted var(--rule);font-size:15.2px}
+.rubric li .pt{font-family:var(--mono);font-size:11.5px;color:var(--up);white-space:nowrap;padding-top:3px}
+
+.closing{background:var(--accent-soft);border-radius:8px;padding:20px 22px;margin-top:28px}
+.closing h2{margin-top:0}
+.closing ol{margin:0;padding-left:20px}
+.closing li{margin-bottom:10px;font-size:15.5px}
+.closing li:last-child{margin-bottom:0}
+
+.toc{columns:2 220px;column-gap:26px;margin:16px 0 0;padding:0;list-style:none}
+.toc li{break-inside:avoid;padding:3px 0;font-size:15px}
+.toc a{text-decoration:none;color:var(--ink)}
+.toc a:hover{color:var(--accent);text-decoration:underline}
+.toc .n{font-family:var(--mono);font-size:12.5px;color:var(--ink-3);margin-right:7px;font-variant-numeric:tabular-nums}
+.toc .m{font-size:11px;color:var(--ink-3);margin-left:5px}
+
+.footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--rule);font-family:var(--mono);font-size:12px;color:var(--ink-3);line-height:1.8}
+
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+@media print{
+  .bar,.got,.chips{display:none}
+  body{background:#fff}
+  details.reveal > *{display:block!important}
+  .entry{break-inside:avoid-page}
+}
+@media (max-width:520px){
+  .toc{columns:1}
+  .ro .v{font-size:19px}
+}
+
+/* ---------- Module 3 supplement ---------- */
+.mark.flag{background:var(--flag-soft);color:var(--flag)}
+.ppc-wrap{display:grid;grid-template-columns:1fr;gap:14px}
+@media (min-width:720px){.ppc-wrap{grid-template-columns:1fr 210px}}
+.ppc-svg{width:100%;height:auto;display:block;background:var(--surface);
+  border:1px solid var(--rule);border-radius:6px;cursor:crosshair;touch-action:none}
+.ppc-side{display:flex;flex-direction:column;gap:10px}
+.status{font-family:var(--mono);font-size:12.5px;padding:9px 11px;border-radius:5px;
+  border:1px solid var(--rule-strong);background:var(--surface-2);line-height:1.45}
+.status[data-s="on"]{border-color:color-mix(in srgb,var(--up) 45%,transparent);background:var(--up-soft);color:var(--up)}
+.status[data-s="in"]{border-color:var(--rule-strong);color:var(--ink-2)}
+.status[data-s="out"]{border-color:color-mix(in srgb,var(--down) 45%,transparent);background:var(--down-soft);color:var(--down)}
+.ppc-legend{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);line-height:1.6}
+.ppc-legend b{color:var(--ink-2);font-weight:600}
+.chips.tight{gap:6px}
+.tbl{overflow-x:auto;max-width:100%}
+.sumtable{width:100%;border-collapse:collapse;font-size:14.5px;margin:16px 0}
+.sumtable th,.sumtable td{border-bottom:1px solid var(--rule);padding:8px 10px;text-align:left;vertical-align:top}
+.sumtable th{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+.sumtable td.mk{font-family:var(--mono);font-size:12px;white-space:nowrap;color:var(--accent)}
+.sumtable td.mk.bgm{color:var(--ink-3)}
+.sumtable td.mk.flagm{color:var(--flag)}
+.final{background:var(--surface);border:1px solid var(--rule);border-radius:6px;
+  padding:18px 20px;margin:22px 0;box-shadow:var(--shadow)}
+.final ol{margin:0;padding-left:20px}
+.final li{margin:0 0 9px}
+.final li:last-child{margin-bottom:0}
+
+/* ---------- PPC explorer svg ---------- */
+.ppc-svg .ax{stroke:var(--ink);stroke-width:1.6}
+.ppc-svg .tick{stroke:var(--ink-3);stroke-width:1.1}
+.ppc-svg .tl{font-family:var(--mono);font-size:11px;fill:var(--ink-3)}
+.ppc-svg .al{font-family:var(--sans);font-size:12px;font-weight:600;fill:var(--ink-2)}
+.ppc-svg .curve{fill:none;stroke:var(--accent);stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round}
+.ppc-svg .ghost{fill:none;stroke:var(--rule-strong);stroke-width:1.8;stroke-dasharray:6 5}
+.ppc-svg .cl{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--accent)}
+.ppc-svg .drop{stroke:var(--rule-strong);stroke-width:1;stroke-dasharray:3 3}
+.ppc-svg .pt{stroke:var(--surface);stroke-width:2}
+.ppc-svg .pt-on{fill:var(--up)}
+.ppc-svg .pt-in{fill:var(--ink-3)}
+.ppc-svg .pt-out{fill:var(--down)}
+
+
+/* ---------- Module 4 supplement ---------- */
+.two-panel{width:100%;height:auto;display:block;background:var(--surface);
+  border:1px solid var(--rule);border-radius:6px}
+.ca-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:0 0 14px}
+@media (min-width:640px){.ca-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.ca-grid .field{display:flex;flex-direction:column;gap:5px}
+.ca-grid .field span{font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--ink-3)}
+.ca-grid .field b{color:var(--ink-2);font-weight:600;text-transform:none;letter-spacing:0}
+.ca-grid input{font-family:var(--mono);font-size:15px;padding:7px 9px;width:100%;
+  color:var(--ink);background:var(--paper);border:1px solid var(--rule-strong);border-radius:5px}
+.ca-grid input:focus{outline:2px solid var(--accent);outline-offset:1px}
+.catab{width:100%;border-collapse:collapse;font-size:14px;margin:4px 0 14px}
+.catab th,.catab td{border-bottom:1px solid var(--rule);padding:7px 9px;text-align:left}
+.catab th{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:600}
+.catab td.v{font-family:var(--mono);color:var(--ink)}
+.catab td.win{font-family:var(--mono);color:var(--up);font-weight:600}
+.dealrow{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;margin:0 0 12px}
+.dealrow .field{display:flex;flex-direction:column;gap:5px;min-width:190px;flex:1}
+.dealrow .field span{font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--ink-3)}
+.dealrow input{font-family:var(--mono);font-size:16px;padding:8px 10px;
+  color:var(--ink);background:var(--paper);border:1px solid var(--rule-strong);border-radius:5px}
+.line-svg{width:100%;height:auto;display:block;margin:6px 0 2px}
+.line-svg g[hidden]{display:none}
+.line-svg .band{fill:var(--up-soft);stroke:none}
+.line-svg .axl{stroke:var(--ink);stroke-width:1.6}
+.line-svg .tk{stroke:var(--ink-3);stroke-width:1.1}
+.line-svg .tlb{font-family:var(--mono);font-size:11px;fill:var(--ink-3)}
+.line-svg .edge{stroke:var(--up);stroke-width:2}
+.line-svg .edgel{font-family:var(--mono);font-size:11.5px;font-weight:600;fill:var(--up)}
+.line-svg .prop{stroke:var(--accent);stroke-width:2.4}
+.line-svg .propbad{stroke:var(--down);stroke-width:2.4}
+.line-svg .propl{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--accent)}
+.line-svg .propl.bad{fill:var(--down)}
+.two-panel .ax{stroke:var(--ink);stroke-width:1.6}
+.two-panel .tick{stroke:var(--ink-3);stroke-width:1.1}
+.two-panel .tl{font-family:var(--mono);font-size:10.5px;fill:var(--ink-3)}
+.two-panel .al{font-family:var(--sans);font-size:11.5px;font-weight:600;fill:var(--ink-2)}
+.two-panel .ph{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--ink-2)}
+.two-panel .curve{fill:none;stroke:var(--accent);stroke-width:2.4;stroke-linecap:round}
+.two-panel .slope{font-family:var(--mono);font-size:11px;fill:var(--accent)}
+.two-panel .drop{stroke:var(--rule-strong);stroke-width:1;stroke-dasharray:3 3}
+.two-panel .pt{stroke:var(--surface);stroke-width:2}
+.two-panel .pt-on{fill:var(--ink-2)}
+.two-panel .pt-out{fill:var(--up)}
+.two-panel .ptl{font-family:var(--mono);font-size:11px;fill:var(--ink-2)}
+.two-panel .ptl.good{fill:var(--up);font-weight:600}
+
+
+/* The inherited stylesheet styles .curve, .ax, .tick, .tl, .cl, .pt and .ptl only under .ppc-svg and
+   .two-panel, and its .line-svg .axl rule is for an axis LINE - so give the figure's own classes rules
+   under .line-svg. Without these the curves, axes and ticks have stroke:none and do not render. */
+.line-svg .ax{stroke:var(--ink);stroke-width:1.6}
+.line-svg .tick{stroke:var(--ink-3);stroke-width:1.1}
+.line-svg .tl{font-family:var(--mono);font-size:11px;fill:var(--ink-3)}
+.line-svg text.axl{stroke:none;font-family:var(--mono);font-size:12px;fill:var(--ink-2)}
+.line-svg .curve{fill:none;stroke:var(--accent);stroke-width:2.6;stroke-linecap:round}
+.line-svg .cl{font-family:var(--mono);font-size:13px;font-weight:600;fill:var(--accent)}
+.line-svg .pt{stroke:var(--surface);stroke-width:2}
+.line-svg .pt-on{fill:var(--ink-2)}
+.line-svg .ptl{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--ink-2)}
+/* Module 8 price-control figure */
+.pc-line{stroke:var(--down);stroke-width:2.2;stroke-dasharray:7 4}
+.pc-lab{font-family:var(--mono);font-size:12px;fill:var(--down)}
+.pc-gap{stroke:var(--ink-2);stroke-width:1.4}
+.pc-gl{font-family:var(--mono);font-size:11.5px;fill:var(--ink-2)}
+.pc-dwl{fill:var(--flag-soft);stroke:var(--flag);stroke-width:1}
+.pc-dl{font-family:var(--mono);font-size:11.5px;fill:var(--flag)}
+
+/* Module 9 quota figure */
+.qt-line{stroke:var(--down);stroke-width:2.2;stroke-dasharray:7 4}
+.qt-lab{font-family:var(--mono);font-size:12px;fill:var(--down)}
+.qt-rent{fill:var(--up-soft);stroke:var(--up);stroke-width:1}
+.qt-rl{font-family:var(--mono);font-size:11.5px;fill:var(--up)}
+
+/* Module 46: the base figure classes, the calculator and the sorter */
+.line-svg .ax{stroke:var(--ink);stroke-width:1.6}
+.line-svg text.axl{stroke:none;font-family:var(--mono);font-size:12px;fill:var(--ink-2)}
+.line-svg .tick{stroke:var(--ink-3);stroke-width:1.1}
+.line-svg .tl{font-family:var(--mono);font-size:11px;fill:var(--ink-3)}
+.line-svg .curve{fill:none;stroke:var(--accent);stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round}
+.line-svg .cl{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--accent)}
+.line-svg .pt{stroke:var(--surface);stroke-width:2}
+.line-svg .pt-on{fill:var(--ink-2)}
+.line-svg .ptl{font-family:var(--mono);font-size:11.5px;font-weight:600;fill:var(--ink-2)}
+.formula{font-family:var(--mono);font-size:13.5px;background:var(--surface-2);border-left:3px solid var(--accent);
+  padding:9px 12px;margin:10px 0;border-radius:0 6px 6px 0;line-height:1.5}
+.calc-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:10px 0}
+.calc-grid label{display:flex;flex-direction:column;gap:4px;font-family:var(--mono);font-size:11.5px;color:var(--ink-3)}
+.calc-grid input{font-family:var(--mono);font-size:14px;padding:6px 8px;border:1px solid var(--rule);
+  border-radius:6px;background:var(--surface);color:var(--ink)}
+.two-ways{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}
+.way{border:1px solid var(--rule);border-radius:8px;padding:11px 13px;background:var(--surface-2)}
+.way h4{margin:0 0 7px;font-size:13px;letter-spacing:.02em}
+.way .big{font-family:var(--mono);font-size:22px;font-weight:600;color:var(--accent)}
+.way .step{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);margin:3px 0 0}
+.way.mid .big{color:var(--up)}
+.sorter .opts3{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}
+.sorter .opts3 button{font:inherit;font-size:12.5px;padding:6px 11px;border:1px solid var(--rule);
+  border-radius:999px;background:var(--surface);color:var(--ink);cursor:pointer}
+.sorter .opts3 button:hover{border-color:var(--accent)}
+.sorter .verdict{margin-top:9px;font-size:13.5px}
+.sorter .verdict.ok{color:var(--up)}
+.sorter .verdict.no{color:var(--down)}
+@media (max-width:620px){.calc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .two-ways{grid-template-columns:1fr}}
+
+/* Module 47: the revenue bars and the elasticity zones */
+.line-svg .trbar{fill:var(--accent);opacity:.45}
+.line-svg .trbar.peak{fill:var(--up);opacity:.85}
+.line-svg .zone{font-family:var(--mono);font-size:11.5px;fill:var(--ink-3);text-anchor:middle}
+.line-svg .zone.unit{fill:var(--up);font-weight:600}
+.cases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:12px}
+.case{border:1px solid var(--rule);border-radius:8px;padding:11px 13px;background:var(--surface-2)}
+.case h4{margin:0 0 7px;font-size:13px;letter-spacing:.02em}
+.case .big{font-family:var(--mono);font-size:19px;font-weight:600;color:var(--accent)}
+.case .step{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);margin:3px 0 0}
+.case.up .big{color:var(--up)}
+.case.down .big{color:var(--down)}
+.sorter .opts3{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}
+.sorter .opts3 button{font:inherit;font-size:12.5px;padding:6px 11px;border:1px solid var(--rule);
+  border-radius:999px;background:var(--surface);color:var(--ink);cursor:pointer}
+.sorter .opts3 button:hover{border-color:var(--accent)}
+.sorter .verdict{margin-top:9px;font-size:13.5px}
+.sorter .verdict.ok{color:var(--up)}
+.sorter .verdict.no{color:var(--down)}
+@media (max-width:620px){.cases{grid-template-columns:1fr}}
+
+/* Module 48: the two-panel supply figure and the identifier */
+.line-svg .curve.sup{stroke:var(--up)}
+.line-svg .cl.sup{fill:var(--up)}
+.line-svg .zone{font-family:var(--mono);font-size:11.5px;fill:var(--ink-3);text-anchor:middle}
+.ident-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:10px 0}
+.ident-grid label{display:flex;flex-direction:column;gap:4px;font-family:var(--mono);font-size:11.5px;color:var(--ink-3)}
+.ident-grid input{font-family:var(--mono);font-size:14px;padding:6px 8px;border:1px solid var(--rule);
+  border-radius:6px;background:var(--surface);color:var(--ink)}
+.verdictbox{border:1px solid var(--rule);border-radius:8px;padding:12px 14px;background:var(--surface-2);margin-top:12px}
+.verdictbox .big{font-family:var(--mono);font-size:22px;font-weight:600;color:var(--accent);margin:0}
+.verdictbox .what{font-size:14px;margin:6px 0 0}
+.verdictbox .step{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);margin:4px 0 0}
+.verdictbox.pos .big{color:var(--up)}
+.verdictbox.neg .big{color:var(--down)}
+.sorter .opts3{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}
+.sorter .opts3 button{font:inherit;font-size:12.5px;padding:6px 11px;border:1px solid var(--rule);
+  border-radius:999px;background:var(--surface);color:var(--ink);cursor:pointer}
+.sorter .opts3 button:hover{border-color:var(--accent)}
+.sorter .verdict{margin-top:9px;font-size:13.5px}
+.sorter .verdict.ok{color:var(--up)}
+.sorter .verdict.no{color:var(--down)}
+@media (max-width:620px){.ident-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Module 49: the surplus blocks and the price line */
+.line-svg .cs-block{fill:var(--accent);opacity:.28;stroke:var(--accent);stroke-width:.8}
+.line-svg .ps-block{fill:var(--up);opacity:.28;stroke:var(--up);stroke-width:.8}
+.line-svg .pline{stroke:var(--ink-2);stroke-width:1.6;stroke-dasharray:6 4}
+.line-svg g[hidden]{display:none}
+.sorter .opts3{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}
+.sorter .opts3 button{font:inherit;font-size:12.5px;padding:6px 11px;border:1px solid var(--rule);
+  border-radius:999px;background:var(--surface);color:var(--ink);cursor:pointer}
+.sorter .opts3 button:hover{border-color:var(--accent)}
+.sorter .verdict{margin-top:9px;font-size:13.5px}
+.sorter .verdict.ok{color:var(--up)}
+.sorter .verdict.no{color:var(--down)}
+
+/* Module 50: the surplus, revenue, cost and deadweight-loss areas */
+.line-svg .cs-area{fill:var(--accent);opacity:.26;stroke:var(--accent);stroke-width:.8}
+.line-svg .ps-area{fill:var(--up);opacity:.26;stroke:var(--up);stroke-width:.8}
+.line-svg .rev-area{fill:var(--ink-3);opacity:.30;stroke:var(--ink-2);stroke-width:.8}
+.line-svg .cost-area{fill:var(--amber-rule,#c98a1e);opacity:.30;stroke:var(--amber-rule,#c98a1e);stroke-width:.8}
+.line-svg .dwl-area{fill:var(--down);opacity:.42;stroke:var(--down);stroke-width:.8}
+.line-svg .qline{stroke:var(--ink-3);stroke-width:1.1;stroke-dasharray:4 3}
+.inc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:12px}
+.inc{border:1px solid var(--rule);border-radius:8px;padding:11px 13px;background:var(--surface-2)}
+.inc h4{margin:0 0 7px;font-size:13px;letter-spacing:.02em}
+.inc .big{font-family:var(--mono);font-size:19px;font-weight:600;color:var(--accent);margin:0}
+.inc .step{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);margin:3px 0 0}
+@media (max-width:620px){.inc-grid{grid-template-columns:1fr}}
+
+/* Topic 2.9: the gain-from-trade triangle and the world-price line */
+.line-svg .gain-area{fill:var(--up);opacity:.38;stroke:var(--up);stroke-width:.8}
+.line-svg .wline{stroke:var(--accent);stroke-width:1.8;stroke-dasharray:7 4}
+
+/* Module 54: the rise over the run, the marginal and average curves, and the two machines */
+.line-svg .run{stroke:var(--ink-3);stroke-width:1.6;stroke-dasharray:5 3}
+.line-svg .rise{stroke:var(--up);stroke-width:3.4}
+.line-svg .rl{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--up)}
+.line-svg .tpd{fill:var(--accent)}
+.line-svg .mpd{fill:var(--accent)}
+.line-svg .apd{fill:var(--up)}
+.line-svg .bigd{fill:var(--up)}
+.line-svg .curve.avg{stroke:var(--up)}
+.line-svg .cl.avg{fill:var(--up)}
+.line-svg .curve.big{stroke:var(--up)}
+.line-svg .cl.big{fill:var(--up)}
+.line-svg .pt-mp{fill:var(--accent)}
+.line-svg .pt-av{fill:var(--up)}
+.line-svg .pt-x{fill:var(--surface);stroke:var(--ink-2);stroke-width:2}
+.line-svg .ptl.mp{fill:var(--accent)}
+.line-svg .ptl.av{fill:var(--up)}
+.tblscroll{overflow-x:auto;margin:10px 0}
+.tblscroll .tbl{margin:0}
+</style>
+
+
+<div class="bar">
+  <div class="bar-in">
+    <span class="bar-title">Micro &middot; Module 54</span>
+    <span class="progress">
+      <span class="progress-track"><span class="progress-fill" id="pfill"></span></span>
+      <span class="progress-num" id="pnum">0 / 15</span>
+    </span>
+    <button type="button" id="resetBtn">Reset progress</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+<p class="eyebrow">AP Microeconomics &middot; Unit 3 &middot; Student guide</p>
+  <h1>The Production Function</h1>
+  <p class="standfirst">Fifteen terms for one idea. A firm turns inputs into output; with one input
+  fixed, each extra unit of the other adds less than the last. Three measures &mdash; total, marginal
+  and average product &mdash; describe the same schedule.</p>
+  <div class="source-line">
+    <span>Krugman pp. 542&ndash;547</span><span>&middot;</span>
+    <span>15 terms</span><span>&middot;</span><span>Topic 3.1</span><span>&middot;</span><span>2 periods</span>
+  </div>
+<section class="section" id="howto">
+  <h2>How to use this guide</h2>
+  <p>Entries 1 to 3 set the scene &mdash; inputs, outputs and the short run; entries 4 to 7 are total
+  and marginal product; entries 8 to 11 are diminishing returns and the averages; entries 12 to 15
+  look past a single curve.</p>
+  <ul>
+    <li><b>&#9733; Exam</b> means the framework can test it.</li>
+    <li><b>&#9733; &#9873;</b> means it is examinable <b>and Module 54 does not teach it</b>. Entries 9,
+      10 and 11 carry the flag.</li>
+    <li><b>&#9675; Background</b> means it helps you understand the module but will not be asked about
+      on its own.</li>
+    <li>Every entry ends with two <b>Check yourself</b> questions. Answer them before opening the
+      answer, then tick <b>Got it</b>.</li>
+  </ul>
+  <div class="flag">
+    <p><b>The one idea.</b> Hold one input fixed and add more of the other. Total product keeps
+    rising, but each new unit usually adds <b>less</b> than the last: marginal product falls. The
+    average moves toward the marginal.</p>
+  </div>
+  <div class="notinbook"><p><b>&#9873; One thing to translate.</b> Your textbook says <i>diminishing
+  returns</i>. Your exam writes <b>diminishing marginal returns</b>, and it asks for <b>average
+  product of labor</b> and <b>marginal product of labor</b> in tables. Learn all three, and always
+  say which input is fixed.</p></div>
+</section>
+
+<!-- ============ THE FARM ============ -->
+<section class="section" id="diagram1">
+  <h2>One farm, one worker at a time</h2>
+  <p>George and Martha's farm, from Figure 54.1. The blue curve is its total product. Choose a worker:
+  the dashed line is one more worker and the green segment is the extra wheat &mdash; the rise over a
+  run of one. Its length is that worker's marginal product.</p>
+  <div class="widget">
+    <div class="widget-title">George and Martha's farm: 10 acres</div>
+    <div class="chips" id="fChips">
+      <button type="button" class="chip" aria-pressed="false" data-k="f1">1 worker</button>
+      <button type="button" class="chip" aria-pressed="false" data-k="f2">2 workers</button>
+      <button type="button" class="chip" aria-pressed="false" data-k="f3">3 workers</button>
+      <button type="button" class="chip" aria-pressed="true" data-k="f4">4 workers</button>
+      <button type="button" class="chip" aria-pressed="false" data-k="f5">5 workers</button>
+      <button type="button" class="chip" aria-pressed="false" data-k="f6">6 workers</button>
+      <button type="button" class="chip" aria-pressed="false" data-k="f7">7 workers</button>
+      <button type="button" class="chip" aria-pressed="false" data-k="f8">8 workers</button>
+    </div>
+    <svg class="line-svg" viewBox="0 0 680 400" role="img"
+         aria-label="George and Martha's total product curve: bushels of wheat against workers, with the rise from one worker to the next marked as that worker's marginal product">
+      <line class="ax" x1="80" y1="25" x2="80" y2="350"></line>
+      <line class="ax" x1="80" y1="350" x2="640" y2="350"></line>
+      <text class="axl" x="16" y="18" text-anchor="start">Bushels of wheat</text>
+      <text class="axl" x="640" y="392" text-anchor="end">Workers</text>
+      <line class="tick" x1="76" y1="292.7" x2="80" y2="292.7"></line>
+      <text class="tl" x="70" y="296.7" text-anchor="end">20</text>
+      <line class="tick" x1="76" y1="235.5" x2="80" y2="235.5"></line>
+      <text class="tl" x="70" y="239.5" text-anchor="end">40</text>
+      <line class="tick" x1="76" y1="178.2" x2="80" y2="178.2"></line>
+      <text class="tl" x="70" y="182.2" text-anchor="end">60</text>
+      <line class="tick" x1="76" y1="120.9" x2="80" y2="120.9"></line>
+      <text class="tl" x="70" y="124.9" text-anchor="end">80</text>
+      <line class="tick" x1="76" y1="63.6" x2="80" y2="63.6"></line>
+      <text class="tl" x="70" y="67.6" text-anchor="end">100</text>
+      <line class="tick" x1="141.2" y1="350" x2="141.2" y2="354"></line>
+      <text class="tl" x="141.2" y="368" text-anchor="middle">1</text>
+      <line class="tick" x1="202.4" y1="350" x2="202.4" y2="354"></line>
+      <text class="tl" x="202.4" y="368" text-anchor="middle">2</text>
+      <line class="tick" x1="263.5" y1="350" x2="263.5" y2="354"></line>
+      <text class="tl" x="263.5" y="368" text-anchor="middle">3</text>
+      <line class="tick" x1="324.7" y1="350" x2="324.7" y2="354"></line>
+      <text class="tl" x="324.7" y="368" text-anchor="middle">4</text>
+      <line class="tick" x1="385.9" y1="350" x2="385.9" y2="354"></line>
+      <text class="tl" x="385.9" y="368" text-anchor="middle">5</text>
+      <line class="tick" x1="447.1" y1="350" x2="447.1" y2="354"></line>
+      <text class="tl" x="447.1" y="368" text-anchor="middle">6</text>
+      <line class="tick" x1="508.2" y1="350" x2="508.2" y2="354"></line>
+      <text class="tl" x="508.2" y="368" text-anchor="middle">7</text>
+      <line class="tick" x1="569.4" y1="350" x2="569.4" y2="354"></line>
+      <text class="tl" x="569.4" y="368" text-anchor="middle">8</text>
+      <polyline class="curve" points="80,350 141.2,295.6 202.4,246.9 263.5,204 324.7,166.7 385.9,135.2 447.1,109.5 508.2,89.4 569.4,75.1"></polyline>
+      <circle class="pt tpd" cx="80" cy="350" r="3.2"></circle>
+      <circle class="pt tpd" cx="141.2" cy="295.6" r="3.2"></circle>
+      <circle class="pt tpd" cx="202.4" cy="246.9" r="3.2"></circle>
+      <circle class="pt tpd" cx="263.5" cy="204" r="3.2"></circle>
+      <circle class="pt tpd" cx="324.7" cy="166.7" r="3.2"></circle>
+      <circle class="pt tpd" cx="385.9" cy="135.2" r="3.2"></circle>
+      <circle class="pt tpd" cx="447.1" cy="109.5" r="3.2"></circle>
+      <circle class="pt tpd" cx="508.2" cy="89.4" r="3.2"></circle>
+      <circle class="pt tpd" cx="569.4" cy="75.1" r="3.2"></circle>
+      <text class="cl" x="578.4" y="79.1">TP</text>
+      <g id="g-f1" hidden="hidden">
+        <line class="run" x1="80" y1="350" x2="141.2" y2="350"></line>
+        <line class="rise" x1="141.2" y1="350" x2="141.2" y2="295.6"></line>
+        <circle class="pt pt-on" cx="141.2" cy="295.6" r="5"></circle>
+        <text class="rl" x="150.2" y="326.8">MP = 19</text>
+      </g>
+      <g id="g-f2" hidden="hidden">
+        <line class="run" x1="141.2" y1="295.6" x2="202.4" y2="295.6"></line>
+        <line class="rise" x1="202.4" y1="295.6" x2="202.4" y2="246.9"></line>
+        <circle class="pt pt-on" cx="202.4" cy="246.9" r="5"></circle>
+        <text class="rl" x="211.4" y="275.2">MP = 17</text>
+      </g>
+      <g id="g-f3" hidden="hidden">
+        <line class="run" x1="202.4" y1="246.9" x2="263.5" y2="246.9"></line>
+        <line class="rise" x1="263.5" y1="246.9" x2="263.5" y2="204"></line>
+        <circle class="pt pt-on" cx="263.5" cy="204" r="5"></circle>
+        <text class="rl" x="272.5" y="229.4">MP = 15</text>
+      </g>
+      <g id="g-f4">
+        <line class="run" x1="263.5" y1="204" x2="324.7" y2="204"></line>
+        <line class="rise" x1="324.7" y1="204" x2="324.7" y2="166.7"></line>
+        <circle class="pt pt-on" cx="324.7" cy="166.7" r="5"></circle>
+        <text class="rl" x="333.7" y="189.3">MP = 13</text>
+      </g>
+      <g id="g-f5" hidden="hidden">
+        <line class="run" x1="324.7" y1="166.7" x2="385.9" y2="166.7"></line>
+        <line class="rise" x1="385.9" y1="166.7" x2="385.9" y2="135.2"></line>
+        <circle class="pt pt-on" cx="385.9" cy="135.2" r="5"></circle>
+        <text class="rl" x="394.9" y="155">MP = 11</text>
+      </g>
+      <g id="g-f6" hidden="hidden">
+        <line class="run" x1="385.9" y1="135.2" x2="447.1" y2="135.2"></line>
+        <line class="rise" x1="447.1" y1="135.2" x2="447.1" y2="109.5"></line>
+        <circle class="pt pt-on" cx="447.1" cy="109.5" r="5"></circle>
+        <text class="rl" x="456.1" y="126.3">MP = 9</text>
+      </g>
+      <g id="g-f7" hidden="hidden">
+        <line class="run" x1="447.1" y1="109.5" x2="508.2" y2="109.5"></line>
+        <line class="rise" x1="508.2" y1="109.5" x2="508.2" y2="89.4"></line>
+        <circle class="pt pt-on" cx="508.2" cy="89.4" r="5"></circle>
+        <text class="rl" x="517.2" y="103.4">MP = 7</text>
+      </g>
+      <g id="g-f8" hidden="hidden">
+        <line class="run" x1="508.2" y1="89.4" x2="569.4" y2="89.4"></line>
+        <line class="rise" x1="569.4" y1="89.4" x2="569.4" y2="75.1"></line>
+        <circle class="pt pt-on" cx="569.4" cy="75.1" r="5"></circle>
+        <text class="rl" x="578.4" y="86.2">MP = 5</text>
+      </g>
+    </svg>
+    <div class="readouts">
+      <div class="ro"><span class="k">Workers</span><span class="v" id="fl">4</span></div>
+      <div class="ro"><span class="k">Total product</span><span class="v" id="fq">64 bushels</span></div>
+      <div class="ro"><span class="k">Marginal product</span><span class="v hl" id="fmp">13 bushels</span></div>
+      <div class="ro"><span class="k">Average product</span><span class="v" id="fap">16 bushels</span></div>
+    </div>
+    <p class="figcap" id="fcap"></p>
+  </div>
+  <p>Notice that the green segments get <b>shorter</b>, while the curve keeps rising. That is
+  diminishing marginal returns: each worker adds less, and total product still grows.</p>
+</section>
+
+<!-- ============ THE BAKERY ============ -->
+<section class="section" id="diagram2">
+  <h2>One bakery, eight bakers</h2>
+  <p>Maple Street Bakery has one oven and hires bakers one at a time. The blue curve is the marginal
+  product of each baker, plotted halfway between baker numbers; the green curve is the average product
+  of all the bakers so far. Choose a baker and compare his or her marginal product with the average.</p>
+  <div class="widget">
+    <div class="widget-title">Maple Street Bakery: one oven</div>
+    <div class="chips" id="bChips">
+      <button type="button" class="chip" aria-pressed="false" data-k="b1">1 baker</button>
+      <button type="button" class="chip" aria-pressed="false" data-k="b2">2 bakers</button>
+      <button type="button" class="chip" aria-pressed="false" data-k="b3">3 bakers</button>
+      <button type="button" class="chip" aria-pressed="true" data-k="b4">4 bakers</button>
+      <button type="button" class="chip" aria-pressed="false" data-k="b5">5 bakers</button>
+      <button type="button" class="chip" aria-pressed="false" data-k="b6">6 bakers</button>
+      <button type="button" class="chip" aria-pressed="false" data-k="b7">7 bakers</button>
+      <button type="button" class="chip" aria-pressed="false" data-k="b8">8 bakers</button>
+    </div>
+    <svg class="line-svg" viewBox="0 0 680 400" role="img"
+         aria-label="Maple Street Bakery's marginal product and average product of bakers: marginal product rises and then falls, and crosses average product at its peak">
+      <line class="ax" x1="80" y1="25" x2="80" y2="350"></line>
+      <line class="ax" x1="80" y1="350" x2="640" y2="350"></line>
+      <text class="axl" x="16" y="18" text-anchor="start">Loaves of bread</text>
+      <text class="axl" x="640" y="392" text-anchor="end">Bakers</text>
+      <line class="tick" x1="76" y1="271.2" x2="80" y2="271.2"></line>
+      <text class="tl" x="70" y="275.2" text-anchor="end">10</text>
+      <line class="tick" x1="76" y1="192.5" x2="80" y2="192.5"></line>
+      <text class="tl" x="70" y="196.5" text-anchor="end">20</text>
+      <line class="tick" x1="76" y1="113.8" x2="80" y2="113.8"></line>
+      <text class="tl" x="70" y="117.8" text-anchor="end">30</text>
+      <line class="tick" x1="76" y1="35" x2="80" y2="35"></line>
+      <text class="tl" x="70" y="39" text-anchor="end">40</text>
+      <line class="tick" x1="141.2" y1="350" x2="141.2" y2="354"></line>
+      <text class="tl" x="141.2" y="368" text-anchor="middle">1</text>
+      <line class="tick" x1="202.4" y1="350" x2="202.4" y2="354"></line>
+      <text class="tl" x="202.4" y="368" text-anchor="middle">2</text>
+      <line class="tick" x1="263.5" y1="350" x2="263.5" y2="354"></line>
+      <text class="tl" x="263.5" y="368" text-anchor="middle">3</text>
+      <line class="tick" x1="324.7" y1="350" x2="324.7" y2="354"></line>
+      <text class="tl" x="324.7" y="368" text-anchor="middle">4</text>
+      <line class="tick" x1="385.9" y1="350" x2="385.9" y2="354"></line>
+      <text class="tl" x="385.9" y="368" text-anchor="middle">5</text>
+      <line class="tick" x1="447.1" y1="350" x2="447.1" y2="354"></line>
+      <text class="tl" x="447.1" y="368" text-anchor="middle">6</text>
+      <line class="tick" x1="508.2" y1="350" x2="508.2" y2="354"></line>
+      <text class="tl" x="508.2" y="368" text-anchor="middle">7</text>
+      <line class="tick" x1="569.4" y1="350" x2="569.4" y2="354"></line>
+      <text class="tl" x="569.4" y="368" text-anchor="middle">8</text>
+      <polyline class="curve" points="110.6,255.5 171.8,192.5 232.9,129.5 294.1,98 355.3,168.9 416.5,216.1 477.6,231.9 538.8,247.6"></polyline>
+      <polyline class="curve avg" points="141.2,255.5 202.4,224 263.5,192.5 324.7,168.9 385.9,168.9 447.1,176.8 508.2,184.6 569.4,192.5"></polyline>
+      <circle class="pt mpd" cx="110.6" cy="255.5" r="3.2"></circle>
+      <circle class="pt mpd" cx="171.8" cy="192.5" r="3.2"></circle>
+      <circle class="pt mpd" cx="232.9" cy="129.5" r="3.2"></circle>
+      <circle class="pt mpd" cx="294.1" cy="98" r="3.2"></circle>
+      <circle class="pt mpd" cx="355.3" cy="168.9" r="3.2"></circle>
+      <circle class="pt mpd" cx="416.5" cy="216.1" r="3.2"></circle>
+      <circle class="pt mpd" cx="477.6" cy="231.9" r="3.2"></circle>
+      <circle class="pt mpd" cx="538.8" cy="247.6" r="3.2"></circle>
+      <circle class="pt apd" cx="141.2" cy="255.5" r="3.2"></circle>
+      <circle class="pt apd" cx="202.4" cy="224" r="3.2"></circle>
+      <circle class="pt apd" cx="263.5" cy="192.5" r="3.2"></circle>
+      <circle class="pt apd" cx="324.7" cy="168.9" r="3.2"></circle>
+      <circle class="pt apd" cx="385.9" cy="168.9" r="3.2"></circle>
+      <circle class="pt apd" cx="447.1" cy="176.8" r="3.2"></circle>
+      <circle class="pt apd" cx="508.2" cy="184.6" r="3.2"></circle>
+      <circle class="pt apd" cx="569.4" cy="192.5" r="3.2"></circle>
+      <circle class="pt pt-x" cx="355.3" cy="168.9" r="6.5"></circle>
+      <text class="ptl" x="366.3" y="156.9">MP = AP</text>
+      <text class="cl" x="547.8" y="264.6">MP</text>
+      <text class="cl avg" x="578.4" y="186.5">AP</text>
+      <g id="g-b1" hidden="hidden">
+        <line class="qline" x1="141.2" y1="255.5" x2="141.2" y2="350"></line>
+        <circle class="pt pt-mp" cx="110.6" cy="255.5" r="5.5"></circle>
+        <circle class="pt pt-av" cx="141.2" cy="255.5" r="5.5"></circle>
+        <text class="ptl mp" x="102.6" y="247.5" text-anchor="end">12</text>
+        <text class="ptl av" x="150.2" y="272.5">12</text>
+      </g>
+      <g id="g-b2" hidden="hidden">
+        <line class="qline" x1="202.4" y1="224" x2="202.4" y2="350"></line>
+        <circle class="pt pt-mp" cx="171.8" cy="192.5" r="5.5"></circle>
+        <circle class="pt pt-av" cx="202.4" cy="224" r="5.5"></circle>
+        <text class="ptl mp" x="163.8" y="184.5" text-anchor="end">20</text>
+        <text class="ptl av" x="211.4" y="241">16</text>
+      </g>
+      <g id="g-b3" hidden="hidden">
+        <line class="qline" x1="263.5" y1="192.5" x2="263.5" y2="350"></line>
+        <circle class="pt pt-mp" cx="232.9" cy="129.5" r="5.5"></circle>
+        <circle class="pt pt-av" cx="263.5" cy="192.5" r="5.5"></circle>
+        <text class="ptl mp" x="224.9" y="121.5" text-anchor="end">28</text>
+        <text class="ptl av" x="272.5" y="209.5">20</text>
+      </g>
+      <g id="g-b4">
+        <line class="qline" x1="324.7" y1="168.9" x2="324.7" y2="350"></line>
+        <circle class="pt pt-mp" cx="294.1" cy="98" r="5.5"></circle>
+        <circle class="pt pt-av" cx="324.7" cy="168.9" r="5.5"></circle>
+        <text class="ptl mp" x="286.1" y="90" text-anchor="end">32</text>
+        <text class="ptl av" x="333.7" y="185.9">23</text>
+      </g>
+      <g id="g-b5" hidden="hidden">
+        <line class="qline" x1="385.9" y1="168.9" x2="385.9" y2="350"></line>
+        <circle class="pt pt-mp" cx="355.3" cy="168.9" r="5.5"></circle>
+        <circle class="pt pt-av" cx="385.9" cy="168.9" r="5.5"></circle>
+        <text class="ptl mp" x="347.3" y="160.9" text-anchor="end">23</text>
+        <text class="ptl av" x="394.9" y="185.9">23</text>
+      </g>
+      <g id="g-b6" hidden="hidden">
+        <line class="qline" x1="447.1" y1="176.8" x2="447.1" y2="350"></line>
+        <circle class="pt pt-mp" cx="416.5" cy="216.1" r="5.5"></circle>
+        <circle class="pt pt-av" cx="447.1" cy="176.8" r="5.5"></circle>
+        <text class="ptl mp" x="408.5" y="208.1" text-anchor="end">17</text>
+        <text class="ptl av" x="456.1" y="193.8">22</text>
+      </g>
+      <g id="g-b7" hidden="hidden">
+        <line class="qline" x1="508.2" y1="184.6" x2="508.2" y2="350"></line>
+        <circle class="pt pt-mp" cx="477.6" cy="231.9" r="5.5"></circle>
+        <circle class="pt pt-av" cx="508.2" cy="184.6" r="5.5"></circle>
+        <text class="ptl mp" x="469.6" y="223.9" text-anchor="end">15</text>
+        <text class="ptl av" x="517.2" y="201.6">21</text>
+      </g>
+      <g id="g-b8" hidden="hidden">
+        <line class="qline" x1="569.4" y1="192.5" x2="569.4" y2="350"></line>
+        <circle class="pt pt-mp" cx="538.8" cy="247.6" r="5.5"></circle>
+        <circle class="pt pt-av" cx="569.4" cy="192.5" r="5.5"></circle>
+        <text class="ptl mp" x="530.8" y="239.6" text-anchor="end">13</text>
+        <text class="ptl av" x="578.4" y="209.5">20</text>
+      </g>
+    </svg>
+    <div class="readouts">
+      <div class="ro"><span class="k">Bakers</span><span class="v" id="bl">4</span></div>
+      <div class="ro"><span class="k">Loaves in all</span><span class="v" id="bq">92</span></div>
+      <div class="ro"><span class="k">Marginal product</span><span class="v hl" id="bmp">32 loaves</span></div>
+      <div class="ro"><span class="k">Average product</span><span class="v" id="bap">23 loaves</span></div>
+      <div class="ro"><span class="k">This baker's returns</span><span class="v" id="bret">increasing</span></div>
+    </div>
+    <p class="figcap" id="bcap"></p>
+  </div>
+  <p>Notice three things. Marginal product <b>rises</b> before it falls. Diminishing returns begin
+  with the fifth baker. And average product does <b>not</b> turn down with them: it falls only once
+  marginal product has dropped below it, which is why the curves cross at the average's peak.</p>
+</section>
+
+<!-- ============ THE DRILL ============ -->
+<section class="section" id="sorter">
+  <h2>Does the average rise, fall or stay?</h2>
+  <p>Fifteen firms, each told the average product of the workers so far and the marginal product of
+  the next worker. Decide what happens to average product.</p>
+  <div class="widget sorter" id="sortWidget">
+    <div class="widget-title">What happens to average product?</div>
+    <p class="stem" id="sortStem"></p>
+    <div class="opts3">
+      <button type="button" data-a="up">It rises</button>
+      <button type="button" data-a="down">It falls</button>
+      <button type="button" data-a="same">It stays the same</button>
+    </div>
+    <p class="verdict" id="sortVerdict"></p>
+    <div class="chips">
+      <button type="button" class="chip" id="sortNext">Next firm</button>
+      <span class="progress-num" id="sortScore">0 / 0</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE ENTRIES ============ -->
+<section class="section" id="entries">
+  <h2>The fifteen terms</h2>
+</section>
+
+<article class="entry" id="e1">
+  <div class="entry-head"><span class="entry-num">01</span><h2>Production function</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The relationship between the quantity of inputs a firm uses and the quantity of output it produces.</p></div>
+  <p class="reading">Textbook pages 542&ndash;543.</p>
+
+  <p>A firm turns inputs into output. Your textbook's example is a farm that grows wheat from two
+  inputs, <b>land</b> and <b>labor</b>. How much wheat the farm grows depends on how many workers it
+  hires: that dependence <i>is</i> the production function.</p>
+  <p>George and Martha's farm has 10 acres, and the table below is its production function. Every
+  number in it is a quantity &mdash; workers in, bushels out. There is no price anywhere, and none is
+  needed in this module.</p>
+  <div class="tblscroll"><table class="tbl">
+    <tbody>
+      <tr><th>Workers</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr>
+      <tr><td>Bushels of wheat</td><td>0</td><td>19</td><td>36</td><td>51</td><td>64</td><td>75</td><td>84</td><td>91</td><td>96</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="watch"><p><b>Watch out.</b> A production function is about <b>physical</b> quantities &mdash; bushels, loaves, pounds &mdash; for a given technology. Money does not enter until the next module.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">George and Martha's farm.</span> 4 workers produce 64 bushels; 8 workers produce 96.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">A bakery with one oven.</span> Each number of bakers goes with a number of loaves a day: its table of bakers and loaves is its production function.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Bernie's ice company.</span> Using 3 kilowatt-hours of electricity with its 10-ton machine, it makes 2,400 pounds of ice.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It has two kinds of input, <a href="#e2">fixed and variable</a> (entry 2), it is read as <a href="#e4">total product</a> (entry 4), and it moves up when <a href="#e12">the fixed input or the technology improves</a> (entry 12).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">1.1</span> What does a production function relate?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>The quantity of inputs a firm uses to the quantity of output it produces.</p></div></details></div>
+    <div class="q"><p><span class="qn">1.2</span> A bakery's production function says 5 bakers make 115 loaves a day. Is the 115 a quantity or an amount of money?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>A quantity: 115 loaves. A production function stays in physical units.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got1"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e2">
+  <div class="entry-head"><span class="entry-num">02</span><h2>Fixed input and variable input</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A <b>fixed input</b> is one whose quantity cannot be changed for a period of time. A <b>variable input</b> is one whose quantity the firm can change at any time.</p></div>
+  <p class="reading">Textbook page 542.</p>
+
+  <p>On George and Martha's farm the <b>land</b> is fixed: 10 acres, and they cannot buy or sell
+  any for now. The <b>labor</b> is variable: they can hire as many workers as they like.</p>
+  <p>Every production function in this module works the same way. One input is held constant, and the
+  table shows what happens to output as the other changes. The firms change; the pattern does not.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Whether an input is fixed depends on the <b>time period</b>, not on what kind of input it is. Land is fixed for a season; over ten years the same farm could buy more.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">The farm.</span> Land (10 acres) is fixed; workers are variable.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">A bakery with one oven.</span> The oven is fixed this month; the bakers are variable.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Bernie's ice company.</span> The 10-ton machine is fixed; electricity, in kilowatt-hours, is variable.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> They are the two kinds of input in <a href="#e1">the production function</a> (entry 1), they define <a href="#e3">the short run</a> (entry 3), the long run releases the fixed one, the variable input is the one <a href="#e5">marginal product</a> (entry 5) measures, changing the fixed one is <a href="#e12">a shift of the curves</a> (entry 12), and changing every input is <a href="#e14">a question of scale</a> (entry 14).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">2.1</span> In the short run, a farm can change the number of workers but not its acreage. Which is the fixed input?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>The land. The number of workers is the variable input.</p></div></details></div>
+    <div class="q"><p><span class="qn">2.2</span> Can an input that is fixed this month be variable next year?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Yes. Fixed means it cannot be changed during the period you are looking at; with more time, a firm can change it.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got2"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e3">
+  <div class="entry-head"><span class="entry-num">03</span><h2>Short run and long run</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The <b>short run</b> is the period in which at least one input is fixed. The <b>long run</b> is the period in which all inputs can be varied.</p></div>
+  <p class="reading">Textbook page 542.</p>
+
+  <p>These are not lengths of time. The short run is any period in which the firm is stuck with at
+  least one input; the long run is any period long enough for it to change <b>every</b> input.</p>
+  <p>Everything in this module is a <b>short-run</b> story, because the farm's 10 acres never change.
+  In the long run there is no fixed input, and the question becomes a different one &mdash; what
+  happens when the farm changes <i>everything</i> at once (see <a href="#e14">entry 14</a> (entry 14)).</p>
+
+  <div class="watch"><p><b>Watch out.</b> The short run is a <b>condition</b>, not a number of days or months. For a pizza shop it may be a year; for an online seller, a week.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">A farm with 10 acres.</span> Short run: the land cannot change.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">The same farm, deciding what to do over twenty years.</span> Long run: it can buy land, build barns and change every input.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A restaurant that signed a five-year lease.</span> Short run in its building, for as long as the lease runs.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> The short run is the period in which one input is <a href="#e2">fixed</a> (entry 2); its other input is the <a href="#e2">variable input</a> (entry 2); and <a href="#e14">the long run's question</a> (entry 14) describes what changes when both are varied.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">3.1</span> Is &ldquo;the short run&rdquo; the same as &ldquo;less than a year&rdquo;?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. It is the period in which at least one input is fixed, however long that takes.</p></div></details></div>
+    <div class="q"><p><span class="qn">3.2</span> A bakery can hire bakers next week but cannot add an oven for six months. Over the next month, is it in the short run or the long run?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>The short run: the oven is fixed.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got3"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e4">
+  <div class="entry-head"><span class="entry-num">04</span><h2>Total product</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The quantity of output produced at each quantity of the variable input, with the fixed input held constant. Drawn as a graph, it is the <b>total product curve</b>.</p></div>
+  <p class="reading">Textbook pages 542&ndash;543, Figure 54.1.</p>
+
+  <p>The second row of George and Martha's table is their <b>total product</b>: 0, 19, 36, 51 &hellip;
+  bushels as the number of workers goes 0, 1, 2, 3 &hellip; Plot it, with workers across and bushels
+  up, and you have the total product curve in the diagram above.</p>
+  <p>The curve slopes up: more workers, more wheat. It also gets <b>flatter</b> as it goes, and that
+  flattening is the subject of the rest of the module.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Total product is <b>output</b>, not revenue. It is measured in bushels, loaves or pounds, and it rises as long as another worker adds anything at all.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">5 workers on the farm.</span> Total product is 75 bushels.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">8 workers on the farm.</span> Total product is 96 bushels.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">No workers.</span> Total product is 0: the land produces nothing by itself.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is <a href="#e1">the production function</a> (entry 1) drawn as a curve, its change from one worker to the next is <a href="#e5">marginal product</a> (entry 5), its slope is <a href="#e6">that marginal product</a> (entry 6), its output divided by the workers is <a href="#e9">average product</a> (entry 9), and it moves up when <a href="#e12">the fixed input grows</a> (entry 12).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">4.1</span> The farm's total product is 64 bushels with 4 workers. What is it with 6 workers?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>84 bushels.</p></div></details></div>
+    <div class="q"><p><span class="qn">4.2</span> Does total product measure output or the money it earns?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Output, in physical units. Money does not appear in a production function.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got4"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e5">
+  <div class="entry-head"><span class="entry-num">05</span><h2>Marginal product</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The additional output from using <b>one more unit</b> of an input, with all other inputs held fixed: MP = &Delta;Q / &Delta;L for labor.</p></div>
+  <p class="reading">Textbook pages 543&ndash;544, equation 54-1.</p>
+
+  <p>Take the differences in George and Martha's total product:</p>
+  <div class="tblscroll"><table class="tbl">
+    <tbody>
+      <tr><th>Worker</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr>
+      <tr><td>Marginal product</td><td>19</td><td>17</td><td>15</td><td>13</td><td>11</td><td>9</td><td>7</td><td>5</td></tr>
+    </tbody>
+  </table></div>
+  <p>The first worker adds 19 bushels, the second 17, the third 15. Sometimes data come in bigger
+  steps. Then divide the change in output by the change in the input: if 40 workers produce 400 units
+  and 50 workers produce 480, the marginal product is (480 &minus; 400) &divide; (50 &minus; 40) =
+  <b>8 units per worker</b>.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Marginal product is a <b>change</b>, not a total. The fifth worker's marginal product is 11 bushels &mdash; not the 75 bushels of total product.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">The 2nd worker on the farm.</span> 36 &minus; 19 = 17 bushels.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">The 7th worker.</span> 91 &minus; 84 = 7 bushels.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">40 workers make 400 units; 50 make 480.</span> (480 &minus; 400) &divide; 10 = 8 units per worker.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the change in <a href="#e4">total product</a> (entry 4), it is the <a href="#e6">slope of the total product curve</a> (entry 6), it is drawn <a href="#e7">halfway between quantities</a> (entry 7), it is the output of the <a href="#e2">variable input</a> (entry 2), it is compared with <a href="#e9">average product</a> (entry 9), it pulls <a href="#e11">the average along with it</a> (entry 11), and when it falls we have <a href="#e8">diminishing marginal returns</a> (entry 8).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">5.1</span> The farm produces 64 bushels with 4 workers and 75 with 5. What is the marginal product of the 5th worker?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>75 &minus; 64 = 11 bushels.</p></div></details></div>
+    <div class="q"><p><span class="qn">5.2</span> A firm's output is 500 units with 20 workers and 560 with 30 workers. What is the marginal product of labor?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>(560 &minus; 500) &divide; (30 &minus; 20) = 6 units per worker.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got5"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e6">
+  <div class="entry-head"><span class="entry-num">06</span><h2>The slope of the total product curve</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The slope of the total product curve is its rise over its run &mdash; the change in output divided by the change in labor &mdash; and that is the <b>marginal product</b>.</p></div>
+  <p class="reading">Textbook page 544.</p>
+
+  <p>Pick any two neighbouring points on the curve. The &ldquo;rise&rdquo; between them is the extra
+  output; the &ldquo;run&rdquo; is one more worker. Rise over run is &Delta;Q / &Delta;L &mdash; the
+  marginal product. In the first diagram, choose a worker and the green segment shows the rise: its
+  length is that worker's marginal product.</p>
+  <p>So the curve flattens because marginal product falls. The slope from 0 to 1 worker is 19; from
+  4 to 5 workers it is 11; from 7 to 8 it is 5.</p>
+
+  <div class="watch"><p><b>Watch out.</b> A flattening curve is still <b>sloping upward</b>. &ldquo;Flatter&rdquo; means a smaller positive slope, not a negative one: output is still rising.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">From 0 to 1 worker.</span> The curve rises 19 over a run of 1: a slope of 19.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">From 4 to 5 workers.</span> The curve rises 75 &minus; 64 = 11: a slope of 11.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A total product curve that is a straight line.</span> Its slope never changes, so each worker adds the same: constant marginal product.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> That slope is <a href="#e5">marginal product</a> (entry 5), the curve is <a href="#e4">total product</a> (entry 4), its flattening is <a href="#e8">diminishing marginal returns</a> (entry 8), and a curve that turned down would need a marginal product below zero.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">6.1</span> Between 6 and 7 workers the farm's curve rises from 84 to 91. What is its slope there?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>7 bushels per worker: the rise is 7 over a run of 1, the 7th worker's marginal product.</p></div></details></div>
+    <div class="q"><p><span class="qn">6.2</span> A total product curve gets flatter as workers are added but never turns down. Is its slope still positive?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Yes. Flatter means a smaller positive slope: each worker adds less, but still adds something.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got6"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e7">
+  <div class="entry-head"><span class="entry-num">07</span><h2>Plotting marginal product between quantities</h2><span class="mark bgm">&#9675; Background</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Marginal product is a change <b>between</b> two numbers of workers, so it is plotted <b>halfway</b> between them.</p></div>
+  <p class="reading">Textbook pages 544&ndash;545, Figure 54.2.</p>
+
+  <p>The 11 bushels you get when the farm goes from 4 workers to 5 does not belong to 4 workers or
+  to 5. Your textbook puts the point halfway, at 4.5. So the first worker's 19 sits at 0.5, the
+  second's 17 at 1.5, and so on &mdash; and the marginal product curve in the second diagram is drawn
+  that way.</p>
+  <p><b>Average product has no such rule.</b> It belongs to a number of workers, so the average of 5
+  workers is plotted at 5.</p>
+
+  <div class="watch"><p><b>Watch out.</b> If you plot marginal product at the whole-worker numbers you shift the whole curve half a worker to the right. Read the half-way points when you read a graph.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">The first worker's marginal product.</span> Plotted at 0.5 workers.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">The fifth worker's 11 bushels.</span> Plotted at 4.5 workers, halfway between 4 and 5.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">The average product of 5 workers.</span> Plotted at 5: an average belongs to a number of workers.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is how we draw <a href="#e5">marginal product</a> (entry 5), and it is why the two curves in <a href="#e11">the marginal-and-average diagram</a> (entry 11) cross between whole numbers of workers.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">7.1</span> Where is the third worker's marginal product plotted?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>At 2.5 workers, halfway between 2 and 3.</p></div></details></div>
+    <div class="q"><p><span class="qn">7.2</span> Where is the average product of 6 workers plotted?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>At 6 workers.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got7"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e8">
+  <div class="entry-head"><span class="entry-num">08</span><h2>Diminishing marginal returns</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>When the quantity of one input is increased and all other inputs are held fixed, the marginal product of that input <b>falls</b>.</p></div>
+  <p class="reading">Textbook page 545.</p>
+
+  <p>On George and Martha's farm each new worker has a smaller share of the same 10 acres, so
+  each adds less than the one before: 19, 17, 15, 13 &hellip; That falling marginal product is
+  <b>diminishing marginal returns</b>.</p>
+  <p>It is an &ldquo;other things equal&rdquo; statement. It holds as long as the other inputs
+  &mdash; here the land, and the technology &mdash; stay fixed. Change them, and you are asking a
+  different question (see <a href="#e12">entry 12</a> (entry 12) and <a href="#e14">entry 14</a> (entry 14)).</p>
+
+  <div class="watch"><p><b>Watch out.</b> Diminishing returns do not mean output falls. The farm's total product keeps <b>rising</b>; each worker simply adds <b>less</b>. Total product would fall only if marginal product turned negative.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">The farm's second worker.</span> She adds 17 bushels, fewer than the first worker's 19.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">A kitchen with one oven.</span> The sixth cook adds fewer meals than the fifth: they share the same oven.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A farm that doubles its land and its workers together.</span> Not diminishing returns: all inputs changed. That is a long-run question.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is a fall in <a href="#e5">marginal product</a> (entry 5), it shows as a flattening of <a href="#e6">the total product curve</a> (entry 6), it may follow <a href="#e10">a rising phase</a> (entry 10), it is why <a href="#e13">marginal cost rises</a> (entry 13), and <a href="#e15">Malthus's story</a> (entry 15) shows that technology does not remove it.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">8.1</span> Output is 40 for one worker, 70 for two, 90 for three and 100 for four. Are there diminishing marginal returns? Does total product fall?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Yes: marginal product falls 40, 30, 20, 10. No: total product keeps rising, because every marginal product is still positive.</p></div></details></div>
+    <div class="q"><p><span class="qn">8.2</span> Why must the land stay the same for the statement to hold?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because the claim is about one input rising while all the others are held fixed. If land grows too, marginal product need not fall.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got8"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e9">
+  <div class="entry-head"><span class="entry-num">09</span><h2>Average product</h2><span class="mark flag">&#9733; &#9873;</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Output per unit of the variable input: <b>average product</b> = Q &divide; L.</p></div>
+  <p class="reading">Not in Module 54's text. Your textbook uses the words once, as a wrong answer on page 547.</p>
+
+  <div class="notinbook"><p><b>&#9873; Not in Module 54 &mdash; learn it from here.</b> Your textbook never defines average product, but your exam asks for it &mdash; usually as <i>average product of labor</i>. Divide total product by the number of workers.</p></div>
+
+  <p>Total product tells you how much the farm grows; <b>average product</b> tells you how much
+  each worker grows <i>on average</i>. Divide the total by the number of workers:</p>
+  <div class="tblscroll"><table class="tbl">
+    <tbody>
+      <tr><th>Workers</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr>
+      <tr><td>Total product</td><td>19</td><td>36</td><td>51</td><td>64</td><td>75</td><td>84</td><td>91</td><td>96</td></tr>
+      <tr><td>Average product</td><td>19</td><td>18</td><td>17</td><td>16</td><td>15</td><td>14</td><td>13</td><td>12</td></tr>
+    </tbody>
+  </table></div>
+  <p>Five workers produce 75 bushels, so the average product is 75 &divide; 5 = <b>15</b> bushels
+  per worker. Notice that it is also the average of the marginal products so far: (19 + 17 + 15 + 13
+  + 11) &divide; 5 = 15.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Divide <b>total</b> product by the number of workers. Dividing the marginal product by the number of workers is a different number, and the wrong one.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">5 workers on the farm.</span> 75 &divide; 5 = 15 bushels per worker.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">4 bakers at Maple Street Bakery.</span> 92 &divide; 4 = 23 loaves per baker.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">1 worker.</span> With one worker, average product equals total product and marginal product: 19 bushels on the farm.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It comes from <a href="#e4">total product</a> (entry 4), it is not the same as <a href="#e5">marginal product</a> (entry 5), and <a href="#e11">this rule</a> (entry 11) says how the two move together.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">9.1</span> A firm's 6 workers produce 132 units. What is the average product of labor?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>132 &divide; 6 = 22 units per worker.</p></div></details></div>
+    <div class="q"><p><span class="qn">9.2</span> Why is the average product of one worker the same as that worker's marginal product?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Both are the same number: one worker's output, divided by one worker, and the change from zero workers.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got9"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e10">
+  <div class="entry-head"><span class="entry-num">10</span><h2>Increasing marginal returns</h2><span class="mark flag">&#9733; &#9873;</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Marginal product that <b>rises</b> as the variable input increases, usually because the first workers can divide the tasks. <b>Diminishing returns begin where marginal product stops rising.</b></p></div>
+  <p class="reading">Not in Module 54. Your textbook meets the idea on page 556, as &ldquo;increasing returns&rdquo; from specialization.</p>
+
+  <div class="notinbook"><p><b>&#9873; Not in Module 54 &mdash; learn it from here.</b> The book's farm has no rising phase, so it never shows diminishing returns <i>setting in</i>. Your exam does: it asks what happens &ldquo;when diminishing returns set in&rdquo;. They begin at the worker where marginal product peaks and turns down.</p></div>
+
+  <p>George and Martha's farm starts at its highest marginal product and falls. Many firms do
+  not. With one baker and one oven, everything is done by one person. Add a second and they can split
+  the work; the third and fourth specialize further, and each adds <b>more</b> than the one before.
+  Maple Street Bakery, in the second diagram, looks like this:</p>
+  <div class="tblscroll"><table class="tbl">
+    <tbody>
+      <tr><th>Baker</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr>
+      <tr><td>Loaves added</td><td>12</td><td>20</td><td>28</td><td>32</td><td>23</td><td>17</td><td>15</td><td>13</td></tr>
+    </tbody>
+  </table></div>
+  <p>Marginal product rises from 12 to 32 loaves with the fourth baker, and then falls. Diminishing
+  returns <b>set in</b> with the <b>fifth</b> baker, who adds 23: fewer than the fourth's 32.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Rising marginal product within one firm is not the same thing as increasing <b>returns to scale</b>. Here only the workers are increasing and the oven stays fixed.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">The bakery's second baker.</span> He adds 20 loaves, more than the first baker's 12.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">The bakery's fourth baker.</span> She adds 32, the most of any baker.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">The bakery's fifth baker.</span> He adds 23, less than the fourth: diminishing returns have set in.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the opposite phase to <a href="#e8">diminishing marginal returns</a> (entry 8), it is why the <a href="#e11">marginal product curve</a> (entry 11) starts low, and the point where it ends is where <a href="#e13">rising marginal cost</a> (entry 13) begins.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">10.1</span> A firm's marginal products are 8, 14, 18, 16 and 10 as it hires its first five workers. With which worker do diminishing returns set in?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>The fourth: 16 is the first marginal product below its predecessor's 18.</p></div></details></div>
+    <div class="q"><p><span class="qn">10.2</span> The farm's marginal product is highest for the first worker. When do diminishing returns begin there?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>From the second worker. There is no rising phase, so they set in at once.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got10"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e11">
+  <div class="entry-head"><span class="entry-num">11</span><h2>Marginal product pulls average product</h2><span class="mark flag">&#9733; &#9873;</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Average product <b>rises</b> while marginal product is above it, <b>falls</b> while marginal product is below it, and is unchanged where the two are equal.</p></div>
+  <p class="reading">Not in Module 54. Your textbook teaches the same logic for cost on pages 555&ndash;556, with a grade-point average.</p>
+
+  <div class="notinbook"><p><b>&#9873; Not in Module 54 &mdash; learn it from here.</b> Your exam tests this with a table or a graph: a sample question asks what happens to average product &ldquo;when diminishing returns set in&rdquo;. The answer is <b>not</b> that it begins to fall. Your textbook teaches the rule only for costs.</p></div>
+
+  <p>Think of your grade-point average. A new grade above your average pulls it up; one below
+  pulls it down. Marginal product is the &ldquo;new grade&rdquo; and average product is the average.
+  Compare each baker's marginal product with the average <i>before</i> that baker joined:</p>
+  <div class="tblscroll"><table class="tbl">
+    <tbody>
+      <tr><th>Baker</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr>
+      <tr><td>Marginal product</td><td>20</td><td>28</td><td>32</td><td>23</td><td>17</td><td>15</td><td>13</td></tr>
+      <tr><td>Average before</td><td>12</td><td>16</td><td>20</td><td>23</td><td>23</td><td>22</td><td>21</td></tr>
+      <tr><td>Average now</td><td>16</td><td>20</td><td>23</td><td>23</td><td>22</td><td>21</td><td>20</td></tr>
+      <tr><td>Average</td><td>rises</td><td>rises</td><td>rises</td><td>same</td><td>falls</td><td>falls</td><td>falls</td></tr>
+    </tbody>
+  </table></div>
+  <p>The marginal products of the second to fourth baker (20, 28, 32) are above the average before
+  them, so the average rises. The fifth baker's 23 equals the average of 23, so it does not move. From
+  the sixth baker the marginal product is below the average, so the average falls.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Diminishing returns <b>set in</b> with the fifth baker, but average product does not start to fall until the <b>sixth</b>. Marginal product has to fall all the way down to the average before it drags the average down.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">The 3rd baker adds 28 loaves; the first two averaged 16.</span> 28 is above 16, so the average rises, to (32 + 28) &divide; 3 = 20.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">The 5th baker adds 23; the first four averaged 23.</span> Equal, so the average does not change: it stays at 23.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">The 6th baker adds 17; the first five averaged 23.</span> 17 is below 23, so the average falls, to (115 + 17) &divide; 6 = 22.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It links <a href="#e5">marginal product</a> (entry 5) to <a href="#e9">average product</a> (entry 9), it is why average product peaks where the two meet, the two curves are drawn as in <a href="#e7">plotting between quantities</a> (entry 7), and it is <a href="#e10">the moment diminishing returns set in</a> (entry 10) that the exam asks about.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">11.1</span> Five workers produce an average of 18 units. The sixth adds 12. Does the average rise, fall or stay the same, and to what?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>It falls: 12 is below 18. The new average is (5 &times; 18 + 12) &divide; 6 = 102 &divide; 6 = 17.</p></div></details></div>
+    <div class="q"><p><span class="qn">11.2</span> When marginal product is above average product, what is happening to average product?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>It is rising: a new unit above the average pulls the average up.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got11"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e12">
+  <div class="entry-head"><span class="entry-num">12</span><h2>A bigger fixed input shifts the curves</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>More of the fixed input &mdash; or better technology &mdash; raises output at <b>every</b> quantity of the variable input: total product shifts <b>up</b>, and so does marginal product.</p></div>
+  <p class="reading">Textbook pages 545&ndash;546, Figure 54.3; Bernie's ice, page 546.</p>
+
+  <p>Bernie makes ice with a 10-ton machine and electricity. A bigger, 15-ton machine lifts his
+  output at every quantity of electricity &mdash; in your textbook's exercise, it doubles it:</p>
+  <div class="tblscroll"><table class="tbl">
+    <tbody>
+      <tr><th>Kilowatt-hours</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th></tr>
+      <tr><td>Ice, 10-ton machine (pounds)</td><td>0</td><td>1,000</td><td>1,800</td><td>2,400</td><td>2,800</td></tr>
+      <tr><td>Ice, 15-ton machine (pounds)</td><td>0</td><td>2,000</td><td>3,600</td><td>4,800</td><td>5,600</td></tr>
+    </tbody>
+  </table></div>
+      <svg class="line-svg" viewBox="0 0 680 400" role="img"
+         aria-label="Bernie's ice company: total product curves for a 10-ton machine and a 15-ton machine; the larger machine's curve lies above the smaller one's at every quantity of electricity">
+      <line class="ax" x1="80" y1="25" x2="80" y2="350"></line>
+      <line class="ax" x1="80" y1="350" x2="640" y2="350"></line>
+      <text class="axl" x="16" y="18" text-anchor="start">Pounds of ice</text>
+      <text class="axl" x="640" y="392" text-anchor="end">Kilowatt-hours of electricity</text>
+      <line class="tick" x1="76" y1="253.1" x2="80" y2="253.1"></line>
+      <text class="tl" x="70" y="257.1" text-anchor="end">2,000</text>
+      <line class="tick" x1="76" y1="156.2" x2="80" y2="156.2"></line>
+      <text class="tl" x="70" y="160.2" text-anchor="end">4,000</text>
+      <line class="tick" x1="76" y1="59.2" x2="80" y2="59.2"></line>
+      <text class="tl" x="70" y="63.2" text-anchor="end">6,000</text>
+      <line class="tick" x1="195.6" y1="350" x2="195.6" y2="354"></line>
+      <text class="tl" x="195.6" y="368" text-anchor="middle">1</text>
+      <line class="tick" x1="311.1" y1="350" x2="311.1" y2="354"></line>
+      <text class="tl" x="311.1" y="368" text-anchor="middle">2</text>
+      <line class="tick" x1="426.7" y1="350" x2="426.7" y2="354"></line>
+      <text class="tl" x="426.7" y="368" text-anchor="middle">3</text>
+      <line class="tick" x1="542.2" y1="350" x2="542.2" y2="354"></line>
+      <text class="tl" x="542.2" y="368" text-anchor="middle">4</text>
+      <polyline class="curve" points="80,350 195.6,301.5 311.1,262.8 426.7,233.7 542.2,214.3"></polyline>
+      <polyline class="curve big" points="80,350 195.6,253.1 311.1,175.5 426.7,117.4 542.2,78.6"></polyline>
+      <circle class="pt tpd" cx="80" cy="350" r="3.2"></circle>
+      <circle class="pt tpd" cx="195.6" cy="301.5" r="3.2"></circle>
+      <circle class="pt tpd" cx="311.1" cy="262.8" r="3.2"></circle>
+      <circle class="pt tpd" cx="426.7" cy="233.7" r="3.2"></circle>
+      <circle class="pt tpd" cx="542.2" cy="214.3" r="3.2"></circle>
+      <circle class="pt bigd" cx="80" cy="350" r="3.2"></circle>
+      <circle class="pt bigd" cx="195.6" cy="253.1" r="3.2"></circle>
+      <circle class="pt bigd" cx="311.1" cy="175.5" r="3.2"></circle>
+      <circle class="pt bigd" cx="426.7" cy="117.4" r="3.2"></circle>
+      <circle class="pt bigd" cx="542.2" cy="78.6" r="3.2"></circle>
+      <text class="cl" x="551.2" y="218.3">TP, 10-ton</text>
+      <text class="cl big" x="442.2" y="66.6">TP, 15-ton</text>
+    </svg>
+
+  <p>The marginal products shift up as well, from 1,000, 800, 600, 400 to 2,000, 1,600, 1,200, 800
+  &mdash; and they still <b>fall</b>. The new curve has the same shape, higher.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Hiring another worker is a <b>movement along</b> a total product curve. Changing the fixed input is a <b>shift</b> of the whole curve.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Bernie's bigger machine.</span> With 2 kilowatt-hours he makes 3,600 pounds instead of 1,800.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">The farm buys 10 more acres.</span> Every number of workers now produces more wheat.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A better recipe at the bakery.</span> Technology improves: the same bakers and oven make more loaves, whatever the number of bakers.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It changes the position of <a href="#e4">total product</a> (entry 4), not its shape, so <a href="#e8">diminishing marginal returns</a> (entry 8) still hold; it moves the whole of <a href="#e1">the production function</a> (entry 1), it changes the input that <a href="#e2">the short run</a> (entry 2) kept fixed, its cost side is <a href="#e13">marginal cost</a> (entry 13), and <a href="#e15">technology</a> (entry 15) is the long view of the same idea.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">12.1</span> Bernie switches from the 10-ton to the 15-ton machine. Is this a movement along his total product curve or a shift of it?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>A shift: the fixed input changed. His output rises at every quantity of electricity.</p></div></details></div>
+    <div class="q"><p><span class="qn">12.2</span> After the shift, does electricity still show diminishing returns?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Yes. The marginal products, 2,000, 1,600, 1,200 and 800, still fall.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got12"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e13">
+  <div class="entry-head"><span class="entry-num">13</span><h2>Diminishing returns raise marginal cost</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>If each extra worker costs the same, the cost of one more unit of output is the worker's pay <b>divided by the marginal product</b> &mdash; so it rises as marginal product falls.</p></div>
+  <p class="reading">Not in Module 54. Your textbook makes the link in Module 55, pages 552 and 555.</p>
+
+  <p>Suppose a worker costs $60 a day. When that worker adds 12 units, each extra unit costs
+  $60 &divide; 12 = <b>$5</b>. When the next adds only 10, each extra unit costs $60 &divide; 10 =
+  <b>$6</b>. When a later one adds only 6, it costs $60 &divide; 6 = <b>$10</b>.</p>
+  <p>The falling marginal product is the reason the cost of each extra unit rises. This is a
+  preview of the next module: it is where the upward-sloping marginal cost curve comes from.</p>
+
+  <div class="watch"><p><b>Watch out.</b> This is only a preview. It needs the price of the variable input, which Module 54 does not have, and it ignores the fixed cost, which does not affect the cost of one more unit.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">A $60 worker with a marginal product of 12.</span> $60 &divide; 12 = $5 for each extra unit.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">The same worker, once marginal product has fallen to 6.</span> $60 &divide; 6 = $10 for each extra unit.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A $90 worker with a marginal product of 9.</span> $90 &divide; 9 = $10 for each extra unit.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the cost side of <a href="#e8">diminishing marginal returns</a> (entry 8), it runs the other way during <a href="#e10">increasing marginal returns</a> (entry 10), and it is shifted by <a href="#e12">a change in the fixed input</a> (entry 12).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">13.1</span> A worker costs $80 a day and adds 16 units. What does each extra unit cost?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>$80 &divide; 16 = $5.</p></div></details></div>
+    <div class="q"><p><span class="qn">13.2</span> What happens to the cost of each extra unit while marginal product is rising?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>It falls: the same pay buys more output, so the divisor is growing.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got13"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e14">
+  <div class="entry-head"><span class="entry-num">14</span><h2>Diminishing returns are not diseconomies of scale</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Diminishing returns: <b>one</b> input rises, the others are fixed, and its marginal product falls. Diseconomies of scale: <b>every</b> input rises together, in the long run, and average cost rises.</p></div>
+  <p class="reading">Not in Module 54. Your textbook teaches scale in Module 56.</p>
+
+  <p>The two ideas sound alike and answer different questions.</p>
+  <table class="tbl">
+    <thead><tr><th></th><th>Diminishing returns</th><th>Returns to scale</th></tr></thead>
+    <tbody>
+      <tr><td>What changes</td><td>One input; the others are fixed</td><td>All inputs, together</td></tr>
+      <tr><td>Period</td><td>Short run</td><td>Long run</td></tr>
+      <tr><td>The question</td><td>Does marginal product fall?</td><td>Does output rise by more, less or the same percentage as the inputs?</td></tr>
+    </tbody>
+  </table>
+  <p>On the farm, adding workers to 10 acres is a diminishing-returns question. Doubling the land
+  <i>and</i> the workers is a returns-to-scale question, and diminishing returns say nothing about
+  it.</p>
+
+  <div class="watch"><p><b>Watch out.</b> If every input changes, it is not a diminishing-returns question &mdash; whatever happens to output. The phrase needs one input that rises and the rest that stay fixed.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">A farm adds workers to its 10 acres.</span> Diminishing returns: one input varies.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">A farm doubles its land, its barns and its workers.</span> Returns to scale: every input varies.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A bakery adds a sixth baker to its one oven.</span> Diminishing returns, if the sixth baker adds less than the fifth.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> Diminishing returns are <a href="#e8">a short-run statement</a> (entry 8) with <a href="#e2">one input</a> (entry 2) fixed, and scale is the long run of <a href="#e3">entry 3</a> (entry 3).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">14.1</span> A firm doubles its workers and its machines together. Output rises by only 80%. Is that diminishing marginal returns?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. Every input changed together: it is a question of returns to scale, and the firm shows decreasing returns to scale.</p></div></details></div>
+    <div class="q"><p><span class="qn">14.2</span> A farm hires a ninth worker on its fixed acreage and total product rises by less than for the eighth. Which idea is this?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Diminishing marginal returns: one input rose and the land stayed fixed.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got14"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e15">
+  <div class="entry-head"><span class="entry-num">15</span><h2>Malthus and technology</h2><span class="mark bgm">&#9675; Background</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Technology raises the whole production function. It does not remove the fall in marginal product at a given level of technology.</p></div>
+  <p class="reading">Textbook page 546, the FYI &ldquo;Was Malthus Right?&rdquo;.</p>
+
+  <p>In 1798 Thomas Malthus argued that a growing population on a fixed amount of land would face
+  falling marginal products and, in the end, hunger. He was wrong about the outcome: farming
+  technology advanced so fast that food output rose faster than population.</p>
+  <p>But he was not wrong about the <b>shape</b>. At any one level of technology, an extra worker on
+  fixed land still adds less than the last. Better technology shifts the whole production function up
+  (see <a href="#e12">entry 12</a> (entry 12)); it does not flatten the curve at the new level. Your textbook adds that technology relaxes
+  the limits only over the very long term: in 2008 farmers ran into limits in land and fertilizer.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Malthus's <b>prediction</b> failed; the <b>principle</b> of diminishing returns did not. The curve moved up; its shape stayed.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">A new wheat variety.</span> The farm's total product shifts up: the same workers and land grow more.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">An extra worker on the same land and technology.</span> Still adds less than the last.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">The 2008 grain price spike.</span> Farmers scrambling to plant more acreage ran into limits in land and fertilizer.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the long view of <a href="#e8">diminishing marginal returns</a> (entry 8), and its relief of the limits is the shift described in <a href="#e12">entry 12</a> (entry 12).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">15.1</span> Did Malthus's wrong prediction show that diminishing returns do not exist?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. Technology shifted the production function up. At any given technology, the marginal product of labor on fixed land still falls.</p></div></details></div>
+    <div class="q"><p><span class="qn">15.2</span> Does better technology cancel diminishing returns?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. It raises the curve, and the curve at the new level still flattens.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got15"> Got it</label>
+  </div>
+</article>
+
+
+<!-- ============ PRACTICE ============ -->
+<section class="section" id="mcq">
+  <h2>Five questions to try</h2>
+  <p>Click an option to see why it is right or wrong.</p>
+  <div class="mcq" data-key="A">
+    <p class="stem"><span class="qn">1</span> Maple Street Bakery has one oven and hires more bakers to make more loaves. In the short run, which is true?</p>
+    <div class="opts">
+      <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>The oven is a fixed input and the bakers are a variable input<span class="why" hidden>&#10003; The oven cannot be changed in the period; the number of bakers can.</span></span></button>
+      <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>The bakers are a fixed input because the bakery has already hired them<span class="why" hidden>&#10007; Whether an input is fixed depends on whether the firm can change it. It can hire more bakers.</span></span></button>
+      <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>Both are variable, because the bakery can buy a second oven<span class="why" hidden>&#10007; Buying one is possible only in the long run. In the short run the oven is fixed.</span></span></button>
+      <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>Both are fixed in the short run<span class="why" hidden>&#10007; Then there would be nothing to vary, and no production function to read.</span></span></button>
+      <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>The oven is variable and the bakers are fixed<span class="why" hidden>&#10007; Reversed.</span></span></button>
+    </div>
+  </div>
+  <div class="mcq" data-key="B">
+    <p class="stem"><span class="qn">2</span> George and Martha's farm produces 75 bushels with 5 workers and 84 bushels with 6. What is the marginal product of the sixth worker?</p>
+    <div class="opts">
+      <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>84 bushels<span class="why" hidden>&#10007; That is total product.</span></span></button>
+      <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>9 bushels<span class="why" hidden>&#10003; 84 &minus; 75 = 9: the extra output from one more worker.</span></span></button>
+      <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>14 bushels<span class="why" hidden>&#10007; 84 &divide; 6 = 14 is the average product.</span></span></button>
+      <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>75 bushels<span class="why" hidden>&#10007; That is the total product with five workers.</span></span></button>
+      <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>10 bushels<span class="why" hidden>&#10007; Not a difference or an average of these numbers.</span></span></button>
+    </div>
+  </div>
+  <div class="mcq" data-key="C">
+    <p class="stem"><span class="qn">3</span> Six workers at a firm produce 132 units. What is the average product of labor?</p>
+    <div class="opts">
+      <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>132 units<span class="why" hidden>&#10007; That is total product.</span></span></button>
+      <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>6 units<span class="why" hidden>&#10007; That is the number of workers.</span></span></button>
+      <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>22 units per worker<span class="why" hidden>&#10003; 132 &divide; 6 = 22.</span></span></button>
+      <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>17 units per worker<span class="why" hidden>&#10007; That would be the marginal product if the fifth worker's output were 115; it is not an average.</span></span></button>
+      <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>792 units<span class="why" hidden>&#10007; 132 &times; 6 multiplies instead of dividing.</span></span></button>
+    </div>
+  </div>
+  <div class="mcq" data-key="D">
+    <p class="stem"><span class="qn">4</span> Five workers produce an average of 18 units each. The sixth worker adds 12 units. What happens to average product?</p>
+    <div class="opts">
+      <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>It rises to 19<span class="why" hidden>&#10007; A marginal product below the average cannot pull it up.</span></span></button>
+      <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>It stays at 18<span class="why" hidden>&#10007; It would stay only if the sixth worker added exactly 18.</span></span></button>
+      <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>It falls to 12<span class="why" hidden>&#10007; The average falls toward the marginal product, but not all the way.</span></span></button>
+      <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>It falls to 17<span class="why" hidden>&#10003; (5 &times; 18 + 12) &divide; 6 = 102 &divide; 6 = 17.</span></span></button>
+      <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>It cannot be determined without total product<span class="why" hidden>&#10007; Average and marginal product are enough: 5 &times; 18 is the total.</span></span></button>
+    </div>
+  </div>
+  <div class="mcq" data-key="E">
+    <p class="stem"><span class="qn">5</span> Which statement about diminishing marginal returns is correct?</p>
+    <div class="opts">
+      <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>Total product falls as each worker is added<span class="why" hidden>&#10007; Total product keeps rising while marginal product is positive.</span></span></button>
+      <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>Marginal product is negative from the first worker<span class="why" hidden>&#10007; Diminishing returns means it falls, not that it is below zero.</span></span></button>
+      <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>Average product begins to fall at the same moment<span class="why" hidden>&#10007; Average product falls only when marginal product drops below it.</span></span></button>
+      <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>It occurs when every input is increased together<span class="why" hidden>&#10007; Then it is a question of returns to scale.</span></span></button>
+      <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>Total product can keep rising while marginal product falls<span class="why" hidden>&#10003; Each worker adds something, but less than the last.</span></span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FREE RESPONSE ============ -->
+<section class="section" id="frq">
+  <h2>A free-response question</h2>
+
+  <div class="frq">
+    <p class="stem"><b>1.</b> (6 points) A print shop has one printing press. The table shows the
+    number of posters it prints in a day as it hires more workers.</p>
+    <div class="tblscroll"><table class="tbl">
+    <tbody>
+      <tr><th>Workers</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th></tr>
+      <tr><td>Posters a day</td><td>0</td><td>10</td><td>30</td><td>60</td><td>80</td><td>90</td><td>96</td></tr>
+    </tbody>
+  </table></div>
+    <p><b>(a)</b> Calculate the marginal product of the fourth worker. <b>(b)</b> Calculate the
+    average product of labor when the shop employs five workers. <b>(c)</b> With which worker do
+    diminishing marginal returns set in? Explain. <b>(d)</b> The average product rises when the third
+    worker is hired. Explain, using marginal product. <b>(e)</b> The shop buys a second press. What
+    happens to its total product curve?</p>
+    <details class="reveal"><summary>Show the mark scheme</summary><div class="ans">
+      <p><b>(a) 1 point</b> &mdash; 80 &minus; 60 = <b>20</b> posters.</p>
+      <p><b>(b) 1 point</b> &mdash; 90 &divide; 5 = <b>18</b> posters per worker.</p>
+      <p><b>(c) 2 points</b> &mdash; the <b>fourth</b> worker. Marginal product rises from 10 to 20
+      to 30 and then falls to 20 with the fourth worker: it is the first marginal product below its
+      predecessor's.</p>
+      <p><b>(d) 1 point</b> &mdash; the third worker's marginal product, 30, is above the average of
+      the first two workers, 15, so the average rises, to 60 &divide; 3 = 20.</p>
+      <p><b>(e) 1 point</b> &mdash; the total product curve <b>shifts up</b>: more posters at every
+      number of workers, because the fixed input has increased.</p>
+    </div></details>
+  </div>
+</section>
+
+<!-- ============ SUMMARY ============ -->
+<section class="section" id="summary">
+  <h2>One page to revise from</h2>
+  <table class="tbl">
+    <thead><tr><th>Term</th><th>In one line</th></tr></thead>
+    <tbody>
+      <tr><td>Production function</td><td>Inputs in, output out, for given technology. Physical units, no prices.</td></tr>
+      <tr><td>Fixed and variable input</td><td>One input cannot change in the period; the other can.</td></tr>
+      <tr><td>Short run and long run</td><td>Short run: at least one fixed input. Long run: every input can be varied.</td></tr>
+      <tr><td>Total product</td><td>Output at each quantity of the variable input.</td></tr>
+      <tr><td>Marginal product</td><td>&Delta;Q / &Delta;L: the extra output from one more unit of the variable input.</td></tr>
+      <tr><td>Slope of total product</td><td>Rise over run, which is marginal product.</td></tr>
+      <tr><td>Plotting marginal product</td><td>Halfway between the two quantities. Average product sits at the whole number.</td></tr>
+      <tr><td>Diminishing marginal returns</td><td>One input rises, the rest are fixed, its marginal product falls. Total product still rises.</td></tr>
+      <tr><td>Average product</td><td>Q / L: total product divided by the number of workers.</td></tr>
+      <tr><td>Increasing marginal returns</td><td>Marginal product rises first; diminishing returns begin where it peaks.</td></tr>
+      <tr><td>Marginal pulls average</td><td>AP rises if MP is above it, falls if below, is unchanged where they are equal.</td></tr>
+      <tr><td>A shift of the curves</td><td>More of the fixed input, or better technology, lifts the whole curve.</td></tr>
+      <tr><td>Rising marginal cost</td><td>Cost of one more unit = the input's price &divide; marginal product.</td></tr>
+      <tr><td>Not scale</td><td>Diminishing returns: one input varies. Scale: all inputs vary.</td></tr>
+      <tr><td>Malthus and technology</td><td>Technology lifts the function; the curve at any technology still flattens.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section" id="getright">
+  <h2>Things to get right</h2>
+  <ul>
+    <li><b>Name the fixed input.</b> Diminishing returns are about one input rising while the rest stay fixed.</li>
+    <li><b>Marginal means the change.</b> Marginal product is the difference between neighbouring totals.</li>
+    <li><b>Average means divide.</b> Average product is total product over the number of workers.</li>
+    <li><b>Total product keeps rising</b> while marginal product is positive, even as marginal product falls.</li>
+    <li><b>Diminishing returns set in</b> where marginal product peaks, which may be after the first worker.</li>
+    <li><b>Compare marginal with average.</b> Above it, the average rises; below it, the average falls; equal, it stays.</li>
+    <li><b>A new fixed input shifts the curves;</b> a new worker moves along them.</li>
+    <li><b>The short run is a condition,</b> not a length of time.</li>
+  </ul>
+</section>
+
+</div>
+
+<script>
+(function(){
+  var N = 15;
+  function $(id){ return document.getElementById(id); }
+  function plural(x, one, many){ return x + " " + (x === 1 ? one : many); }
+
+  /* progress */
+  var KEY = "m54-got";
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ return {}; } }
+  function save(o){ try { localStorage.setItem(KEY, JSON.stringify(o)); } catch(e){} }
+  function paint(){
+    var o = load(), n = 0, i;
+    for (i = 1; i <= N; i++){ var b = $("got" + i); if (b){ b.checked = !!o[i]; if (o[i]) n++; } }
+    $("pnum").textContent = n + " / " + N;
+    $("pfill").style.width = (100 * n / N) + "%";
+  }
+  var boxes = document.querySelectorAll(".gotbox"), bi;
+  for (bi = 0; bi < boxes.length; bi++){
+    boxes[bi].addEventListener("change", function(){
+      var o = load(); o[this.id.replace("got", "")] = this.checked; save(o); paint();
+    });
+  }
+  $("resetBtn").addEventListener("click", function(){ save({}); paint(); });
+  paint();
+
+  function pick(secId, chipsId, rows, apply){
+    function show(k){
+      var s = null, i;
+      for (i = 0; i < rows.length; i++){ if (rows[i].k === k) s = rows[i]; }
+      if (!s) return;
+      var gs = document.querySelectorAll("#" + secId + " svg g[id^='g-']");
+      for (i = 0; i < gs.length; i++){
+        if (gs[i].id === "g-" + k) gs[i].removeAttribute("hidden"); else gs[i].setAttribute("hidden", "hidden");
+      }
+      var chips = document.querySelectorAll("#" + chipsId + " .chip");
+      for (i = 0; i < chips.length; i++){
+        chips[i].setAttribute("aria-pressed", chips[i].getAttribute("data-k") === k ? "true" : "false");
+      }
+      apply(s);
+    }
+    var cs = document.querySelectorAll("#" + chipsId + " .chip"), ci;
+    for (ci = 0; ci < cs.length; ci++){
+      cs[ci].addEventListener("click", function(){ show(this.getAttribute("data-k")); });
+    }
+    return show;
+  }
+
+  /* the farm */
+  var FARM = [
+    { k: "f1", l: 1, q: 19, mp: 19, ap: 19 },
+    { k: "f2", l: 2, q: 36, mp: 17, ap: 18 },
+    { k: "f3", l: 3, q: 51, mp: 15, ap: 17 },
+    { k: "f4", l: 4, q: 64, mp: 13, ap: 16 },
+    { k: "f5", l: 5, q: 75, mp: 11, ap: 15 },
+    { k: "f6", l: 6, q: 84, mp: 9, ap: 14 },
+    { k: "f7", l: 7, q: 91, mp: 7, ap: 13 },
+    { k: "f8", l: 8, q: 96, mp: 5, ap: 12 }
+  ];
+  pick("diagram1", "fChips", FARM, function(s){
+    $("fl").textContent = s.l;
+    $("fq").textContent = plural(s.q, "bushel", "bushels");
+    $("fmp").textContent = plural(s.mp, "bushel", "bushels");
+    $("fap").textContent = plural(s.ap, "bushel", "bushels");
+    $("fcap").textContent = "Worker " + s.l + " takes output from " + (s.q - s.mp) + " to " + s.q
+      + " bushels: a rise of " + s.mp + " over a run of one worker, so the curve's slope here is "
+      + s.mp + ". Average product is " + s.q + " \u00f7 " + s.l + " = " + s.ap + ".";
+  })("f4");
+
+  /* the bakery */
+  var BAKE = [
+    { k: "b1", l: 1, q: 12, mp: 12, ap: 12, ret: "&mdash;", what: "the first baker" },
+    { k: "b2", l: 2, q: 32, mp: 20, ap: 16, ret: "increasing", what: "the average rises, from 12 to 16" },
+    { k: "b3", l: 3, q: 60, mp: 28, ap: 20, ret: "increasing", what: "the average rises, from 16 to 20" },
+    { k: "b4", l: 4, q: 92, mp: 32, ap: 23, ret: "increasing", what: "the average rises, from 20 to 23" },
+    { k: "b5", l: 5, q: 115, mp: 23, ap: 23, ret: "diminishing", what: "the average stays the same at 23" },
+    { k: "b6", l: 6, q: 132, mp: 17, ap: 22, ret: "diminishing", what: "the average falls, from 23 to 22" },
+    { k: "b7", l: 7, q: 147, mp: 15, ap: 21, ret: "diminishing", what: "the average falls, from 22 to 21" },
+    { k: "b8", l: 8, q: 160, mp: 13, ap: 20, ret: "diminishing", what: "the average falls, from 21 to 20" }
+  ];
+  pick("diagram2", "bChips", BAKE, function(s){
+    $("bl").textContent = s.l;
+    $("bq").textContent = s.q;
+    $("bmp").textContent = plural(s.mp, "loaf", "loaves");
+    $("bap").textContent = plural(s.ap, "loaf", "loaves");
+    $("bret").innerHTML = s.ret;
+    $("bcap").textContent = "Baker " + s.l + " adds " + s.mp + " loaves; the " + s.l + " bakers together average "
+      + s.ap + ". " + (s.l === 1 ? "With one baker the marginal and average product are the same."
+      : "Compare " + s.mp + " with the average before this baker: " + s.what + ".");
+  })("b4");
+
+  /* does the average rise, fall or stay? */
+  var SORT = [
+    { t: "3 workers produce an average of 20 units each. Worker 4 adds 28 units.", a: "up",
+      w: "28 is above the average of 20, so the average rises, to (3 &times; 20 + 28) &divide; 4 = 22." },
+    { t: "4 workers produce an average of 15 units each. Worker 5 adds 10 units.", a: "down",
+      w: "10 is below the average of 15, so the average falls, to (4 &times; 15 + 10) &divide; 5 = 14." },
+    { t: "5 workers produce an average of 18 units each. Worker 6 adds 18 units.", a: "same",
+      w: "18 equals the average of 18, so the average does not change: (5 &times; 18 + 18) &divide; 6 = 18." },
+    { t: "2 workers produce an average of 30 units each. Worker 3 adds 33 units.", a: "up",
+      w: "33 is above the average of 30, so the average rises, to (2 &times; 30 + 33) &divide; 3 = 31." },
+    { t: "6 workers produce an average of 21 units each. Worker 7 adds 7 units.", a: "down",
+      w: "7 is below the average of 21, so the average falls, to (6 &times; 21 + 7) &divide; 7 = 19." },
+    { t: "3 workers produce an average of 16 units each. Worker 4 adds 16 units.", a: "same",
+      w: "16 equals the average of 16, so the average does not change: (3 &times; 16 + 16) &divide; 4 = 16." },
+    { t: "7 workers produce an average of 12 units each. Worker 8 adds 20 units.", a: "up",
+      w: "20 is above the average of 12, so the average rises, to (7 &times; 12 + 20) &divide; 8 = 13." },
+    { t: "4 workers produce an average of 25 units each. Worker 5 adds 10 units.", a: "down",
+      w: "10 is below the average of 25, so the average falls, to (4 &times; 25 + 10) &divide; 5 = 22." },
+    { t: "5 workers produce an average of 14 units each. Worker 6 adds 14 units.", a: "same",
+      w: "14 equals the average of 14, so the average does not change: (5 &times; 14 + 14) &divide; 6 = 14." },
+    { t: "1 worker produce an average of 10 units each. Worker 2 adds 16 units.", a: "up",
+      w: "16 is above the average of 10, so the average rises, to (1 &times; 10 + 16) &divide; 2 = 13." },
+    { t: "7 workers produce an average of 20 units each. Worker 8 adds 12 units.", a: "down",
+      w: "12 is below the average of 20, so the average falls, to (7 &times; 20 + 12) &divide; 8 = 19." },
+    { t: "2 workers produce an average of 24 units each. Worker 3 adds 30 units.", a: "up",
+      w: "30 is above the average of 24, so the average rises, to (2 &times; 24 + 30) &divide; 3 = 26." },
+    { t: "6 workers produce an average of 9 units each. Worker 7 adds 9 units.", a: "same",
+      w: "9 equals the average of 9, so the average does not change: (6 &times; 9 + 9) &divide; 7 = 9." },
+    { t: "3 workers produce an average of 27 units each. Worker 4 adds 19 units.", a: "down",
+      w: "19 is below the average of 27, so the average falls, to (3 &times; 27 + 19) &divide; 4 = 25." },
+    { t: "9 workers produce an average of 8 units each. Worker 10 adds 8 units.", a: "same",
+      w: "8 equals the average of 8, so the average does not change: (9 &times; 8 + 8) &divide; 10 = 8." }
+  ];
+  var sAt = 0, score = 0, done = 0, answered = false;
+  function card(){
+    answered = false;
+    $("sortStem").innerHTML = SORT[sAt].t;
+    $("sortVerdict").textContent = "";
+    $("sortVerdict").className = "verdict";
+  }
+  var opts = document.querySelectorAll("#sortWidget .opts3 button"), oi;
+  for (oi = 0; oi < opts.length; oi++){
+    opts[oi].addEventListener("click", function(){
+      if (answered) return;
+      answered = true; done++;
+      var c = SORT[sAt], ok = (this.getAttribute("data-a") === c.a);
+      if (ok) score++;
+      $("sortVerdict").innerHTML = (ok ? "\u2713 " : "\u2717 ") + c.w;
+      $("sortVerdict").className = "verdict " + (ok ? "ok" : "no");
+      $("sortScore").textContent = score + " / " + done;
+    });
+  }
+  $("sortNext").addEventListener("click", function(){ sAt = (sAt + 1) % SORT.length; card(); });
+  card();
+
+  /* the practice questions */
+  var mcqs = document.querySelectorAll(".mcq"), mi;
+  for (mi = 0; mi < mcqs.length; mi++){
+    (function(box){
+      var os = box.querySelectorAll(".opt"), j;
+      for (j = 0; j < os.length; j++){
+        os[j].addEventListener("click", function(){
+          var w = this.querySelector(".why");
+          if (w) w.hidden = !w.hidden;
+          this.classList.toggle("open");
+        });
+      }
+    })(mcqs[mi]);
+  }
+})();
+</script>
+</main>
+<script>window.COURSE_NAV={"kicker": "3.1 The production function", "title": "Module 54 · The Production Function", "map": [{"label": "Course", "items": [{"href": "index.html", "label": "Home", "current": false}, {"href": "spec.html", "label": "Course specification", "current": false}]}, {"label": "Unit 1 · Basic Economic Concepts", "items": [{"href": "m01-student.html", "label": "Module 1 · Student guide", "current": false}, {"href": "m01-notes.html", "label": "Module 1 · Teaching notes", "current": false}, {"href": "m01-test.html", "label": "Module 1 · Test", "current": false}, {"label": "Module 2 · Introduction to Macroeconomics", "planned": true}, {"href": "m03-student.html", "label": "Module 3 · Student guide", "current": false}, {"href": "m03-notes.html", "label": "Module 3 · Teaching notes", "current": false}, {"href": "m03-test.html", "label": "Module 3 · Test", "current": false}, {"href": "m04-student.html", "label": "Module 4 · Student guide", "current": false}, {"href": "m04-notes.html", "label": "Module 4 · Teaching notes", "current": false}, {"href": "m04-test.html", "label": "Module 4 · Test", "current": false}, {"href": "m51-student.html", "label": "Module 51 · Student guide", "current": false}, {"href": "m51-notes.html", "label": "Module 51 · Teaching notes", "current": false}, {"href": "m51-test.html", "label": "Module 51 · Test", "current": false}, {"label": "Unit 1 · Gap analysis", "planned": true}]}, {"label": "Unit 2 · Supply and Demand", "items": [{"href": "m05-student.html", "label": "Module 5 · Student guide", "current": false}, {"href": "m05-notes.html", "label": "Module 5 · Teaching notes", "current": false}, {"href": "m05-test.html", "label": "Module 5 · Test", "current": false}, {"href": "m06-student.html", "label": "Module 6 · Student guide", "current": false}, {"href": "m06-notes.html", "label": "Module 6 · Teaching notes", "current": false}, {"href": "m06-test.html", "label": "Module 6 · Test", "current": false}, {"href": "m07-student.html", "label": "Module 7 · Student guide", "current": false}, {"href": "m07-notes.html", "label": "Module 7 · Teaching notes", "current": false}, {"href": "m07-test.html", "label": "Module 7 · Test", "current": false}, {"href": "m08-student.html", "label": "Module 8 · Student guide", "current": false}, {"href": "m08-notes.html", "label": "Module 8 · Teaching notes", "current": false}, {"href": "m08-test.html", "label": "Module 8 · Test", "current": false}, {"href": "m09-student.html", "label": "Module 9 · Student guide", "current": false}, {"href": "m09-notes.html", "label": "Module 9 · Teaching notes", "current": false}, {"href": "m09-test.html", "label": "Module 9 · Test", "current": false}, {"href": "m46-student.html", "label": "Module 46 · Student guide", "current": false}, {"href": "m46-notes.html", "label": "Module 46 · Teaching notes", "current": false}, {"href": "m46-test.html", "label": "Module 46 · Test", "current": false}, {"href": "m47-student.html", "label": "Module 47 · Student guide", "current": false}, {"href": "m47-notes.html", "label": "Module 47 · Teaching notes", "current": false}, {"href": "m47-test.html", "label": "Module 47 · Test", "current": false}, {"href": "m48-student.html", "label": "Module 48 · Student guide", "current": false}, {"href": "m48-notes.html", "label": "Module 48 · Teaching notes", "current": false}, {"href": "m48-test.html", "label": "Module 48 · Test", "current": false}, {"href": "m49-student.html", "label": "Module 49 · Student guide", "current": false}, {"href": "m49-notes.html", "label": "Module 49 · Teaching notes", "current": false}, {"href": "m49-test.html", "label": "Module 49 · Test", "current": false}, {"href": "m50-student.html", "label": "Module 50 · Student guide", "current": false}, {"href": "m50-notes.html", "label": "Module 50 · Teaching notes", "current": false}, {"href": "m50-test.html", "label": "Module 50 · Test", "current": false}, {"href": "t29-student.html", "label": "Topic 2.9 · Student guide", "current": false}, {"href": "t29-notes.html", "label": "Topic 2.9 · Teaching notes", "current": false}, {"href": "t29-test.html", "label": "Topic 2.9 · Test", "current": false}, {"label": "Unit 2 · Gap analysis", "planned": true}]}, {"label": "Unit 3 · Production, Cost and Perfect Competition", "items": [{"href": "m52-student.html", "label": "Module 52 · Student guide", "current": false}, {"href": "m52-notes.html", "label": "Module 52 · Teaching notes", "current": false}, {"href": "m52-test.html", "label": "Module 52 · Test", "current": false}, {"href": "m53-student.html", "label": "Module 53 · Student guide", "current": false}, {"href": "m53-notes.html", "label": "Module 53 · Teaching notes", "current": false}, {"href": "m53-test.html", "label": "Module 53 · Test", "current": false}, {"href": "m54-student.html", "label": "Module 54 · Student guide", "current": true}, {"href": "m54-notes.html", "label": "Module 54 · Teaching notes", "current": false}, {"href": "m54-test.html", "label": "Module 54 · Test", "current": false}, {"label": "Module 55 · Firm Costs", "planned": true}, {"label": "Module 56 · Long-Run Costs and Economies of Scale", "planned": true}, {"label": "Module 57 · Introduction to Market Structure", "planned": true}, {"label": "Modules 58–60 · Perfect Competition", "planned": true}, {"label": "Unit 3 · Gap analysis", "planned": true}]}, {"label": "Unit 4 · Imperfect Competition", "items": [{"label": "Topic 4.1 · Introduction to Imperfect Competition", "planned": true}, {"label": "Modules 61–63 · Monopoly", "planned": true}, {"label": "Modules 67–68 · Monopolistic Competition", "planned": true}, {"label": "Modules 64–66 · Oligopoly and Game Theory", "planned": true}, {"label": "Unit 4 · Gap analysis", "planned": true}]}, {"label": "Unit 5 · Factor Markets", "items": [{"label": "Module 69 · Introduction and Factor Demand", "planned": true}, {"label": "Module 70 · The Markets for Land and Capital", "planned": true}, {"label": "Module 71 · The Market for Labor", "planned": true}, {"label": "Module 72 · The Cost-Minimising Input Combination", "planned": true}, {"label": "Module 73 · Theories of Income Distribution", "planned": true}, {"label": "Unit 5 · Gap analysis", "planned": true}]}, {"label": "Unit 6 · Market Failure and the Role of Government", "items": [{"label": "Modules 74–75 · Externalities", "planned": true}, {"label": "Module 76 · Public Goods", "planned": true}, {"label": "Module 77 · Public Policy to Promote Competition", "planned": true}, {"label": "Module 78 · Income Inequality and Income Distribution", "planned": true}, {"label": "Unit 6 · Gap analysis", "planned": true}]}, {"label": "Practice exams", "items": [{"href": "pe-units-1-2.html", "label": "Practice exam · Units 1 and 2", "current": false}]}, {"label": "Interactive", "items": [{"label": "PPC explorer", "planned": true}, {"label": "Supply and demand explorer", "planned": true}, {"label": "Elasticity and total revenue", "planned": true}, {"label": "Cost curves", "planned": true}, {"label": "Market structure comparison", "planned": true}]}], "prev": {"href": "m53-test.html", "label": "Module 53 · Test"}, "next": {"href": "m54-notes.html", "label": "Module 54 · Teaching notes"}, "variants": [{"href": "m54-student.html", "label": "Student", "current": true}, {"href": "m54-notes.html", "label": "Notes", "current": false}, {"href": "m54-test.html", "label": "Test", "current": false}]};</script>
+<script src="assets/course.js"></script>
+</body>
+</html>

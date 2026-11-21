@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Production Function Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,650&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+:root{
+  --ground:#f4f5f1; --panel:#ffffff; --panel2:#f8f9f5; --ink:#1a2029; --muted:#5a636c; --rule:#d9ddd3; --grid:#e7eae2;
+  --supply:#c0441f; --supply2:#e8876a; --demand:#2451c4; --good:#12795f; --bad:#b3261e; --hl:#6f3aa8; --hlbg:#efe6f8; --slbg:#e2efe9; --sl:#0d6b5c;
+  --tint:#eaf0fc; --focus:#2451c4; --shade:rgba(192,68,31,.14); --shadeb:rgba(36,81,196,.14);
+  --serif:"Source Serif 4",Georgia,serif; --sans:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif; --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;
+  --ground:#12161b; --panel:#1a2027; --panel2:#1f262e; --ink:#e6eaee; --muted:#9ca7b1; --rule:#2e3842; --grid:#252f38;
+  --supply:#ff8d66; --supply2:#b8664b; --demand:#86a6ff; --good:#4fd1a8; --bad:#ff7b72; --hl:#c29af2; --hlbg:#2c2240; --slbg:#173029; --sl:#6fd6bf;
+  --tint:#1b2436; --focus:#86a6ff; --shade:rgba(255,141,102,.18); --shadeb:rgba(134,166,255,.18);}}
+:root[data-theme="dark"]{color-scheme:dark;
+  --ground:#12161b; --panel:#1a2027; --panel2:#1f262e; --ink:#e6eaee; --muted:#9ca7b1; --rule:#2e3842; --grid:#252f38;
+  --supply:#ff8d66; --supply2:#b8664b; --demand:#86a6ff; --good:#4fd1a8; --bad:#ff7b72; --hl:#c29af2; --hlbg:#2c2240; --slbg:#173029; --sl:#6fd6bf;
+  --tint:#1b2436; --focus:#86a6ff; --shade:rgba(255,141,102,.18); --shadeb:rgba(134,166,255,.18);}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font:16px/1.6 var(--sans);margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:20px;padding-block:0 80px}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--ground);border-bottom:1px solid var(--rule)}
+.topin{max-width:1120px;margin:0 auto;padding:10px 20px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.brand{font:650 18px var(--serif);margin-right:auto}
+.brand span{font:600 12px var(--sans);color:var(--muted);margin-left:8px}
+nav.jump{display:flex;gap:2px;flex-wrap:wrap}
+nav.jump a{font:600 12.5px var(--sans);color:var(--muted);text-decoration:none;padding:6px 9px;border-radius:6px}
+nav.jump a:hover{background:var(--panel);color:var(--ink)}
+.lvl{display:flex;border:1px solid var(--rule);border-radius:999px;overflow:hidden}
+.lvl button{font:700 12px var(--sans);border:0;background:var(--panel);color:var(--muted);padding:6px 12px;cursor:pointer}
+.lvl button[aria-pressed="true"]{background:var(--ink);color:var(--ground)}
+h1,h2,h3{font-family:var(--serif);font-weight:650;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:40px;line-height:1.1} h2{font-size:27px;line-height:1.2} h3{font-size:19px}
+p{margin:0} .muted{color:var(--muted)}
+.eyebrow{font:700 11.5px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--demand)}
+.badge{display:inline-block;font:700 10.5px var(--sans);letter-spacing:.06em;padding:2px 7px;border-radius:4px;vertical-align:3px}
+.b-hl{background:var(--hlbg);color:var(--hl)} .b-sl{background:var(--slbg);color:var(--sl)}
+button:focus-visible,input:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+section.step{padding-top:56px;scroll-margin-top:70px}
+.shead{display:grid;gap:8px;max-width:72ch;margin-bottom:20px}
+.shead .num{font:600 13px var(--mono);color:var(--muted)}
+.hero{padding-top:44px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:36px;align-items:center}
+.hero p.lead{font-size:18px;margin-top:14px;max-width:56ch}
+.goals{background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:18px 20px}
+.goals ul{margin:8px 0 0;padding:0;list-style:none;display:grid;gap:8px}
+.goals li{display:grid;grid-template-columns:22px 1fr;gap:8px;font-size:15px}
+.goals input{width:18px;height:18px;accent-color:var(--good);margin-top:3px}
+.lab{background:var(--panel);border:1px solid var(--rule);border-radius:14px;padding:20px}
+.lab2{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px;align-items:start}
+svg.g{width:100%;height:auto;display:block;border-radius:8px;background:var(--panel2);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:26px 26px}
+svg .axis{stroke:var(--ink);stroke-width:1.7;fill:none} svg .axl{fill:var(--ink);font:700 12.5px var(--sans)} svg .tick{fill:var(--muted);font:11.5px var(--mono)}
+svg .guide{stroke:var(--muted);stroke-dasharray:4 4;fill:none}
+svg .s{stroke:var(--supply);stroke-width:3;fill:none;stroke-linecap:round} svg .s2{stroke:var(--supply2);stroke-width:2.2;fill:none;stroke-dasharray:7 5}
+svg .sm{stroke:var(--ink);stroke-width:3;fill:none} svg .d{stroke:var(--demand);stroke-width:3;fill:none}
+svg .ghost{stroke:var(--muted);stroke-width:1.6;stroke-dasharray:3 4;fill:none}
+svg text.ls{fill:var(--supply);font:700 13px var(--sans)} svg text.ld{fill:var(--demand);font:700 13px var(--sans)} svg text.lm{fill:var(--ink);font:700 13px var(--sans)} svg text.lg{fill:var(--muted);font:700 12px var(--sans)}
+svg .dot{fill:var(--ink)} svg .dot2{fill:var(--panel);stroke:var(--ink);stroke-width:1.8}
+svg .arrow{stroke:var(--good);stroke-width:2.4;fill:none;marker-end:url(#ah)} svg .ahead{fill:var(--good)}
+svg .bar{fill:var(--demand);opacity:.7} svg .bar.dim{fill:var(--supply);opacity:.75}
+svg .note{fill:var(--muted);font:600 11.5px var(--sans)} svg .area{fill:var(--shade)}
+.ctl{display:grid;grid-template-columns:1fr 70px;gap:2px 10px;align-items:center;font-size:14px;margin-bottom:12px}
+.ctl span{grid-column:1/-1;font-weight:600;color:var(--muted)} .ctl input{width:100%;accent-color:var(--demand)} .ctl output{font:600 13px var(--mono);text-align:right}
+.read{display:grid;grid-template-columns:1fr auto;gap:6px 14px;font-size:14.5px;margin:6px 0 0}
+.read dt{color:var(--muted)} .read dd{margin:0;font:600 13.5px var(--mono);text-align:right}
+.explain{margin-top:14px;padding:12px 14px;border-left:3px solid var(--demand);background:var(--tint);border-radius:0 8px 8px 0;font-size:14.5px}
+.btn{font:600 14px var(--sans);border:1px solid var(--rule);background:var(--panel);color:var(--ink);padding:9px 13px;border-radius:8px;cursor:pointer;text-align:left}
+.btn:hover{border-color:var(--demand)} .btn.pri{background:var(--ink);color:var(--ground);border-color:var(--ink)} .btn:disabled{opacity:.45;cursor:default}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.flip{perspective:900px;height:170px;border:0;background:none;padding:0;cursor:pointer;text-align:left;font:inherit;color:inherit}
+.flip .in{position:relative;width:100%;height:100%;transition:transform .45s;transform-style:preserve-3d}
+.flip.on .in{transform:rotateY(180deg)}
+.flip .f,.flip .b{position:absolute;inset:0;backface-visibility:hidden;border-radius:12px;border:1px solid var(--rule);padding:16px;display:flex;flex-direction:column;gap:6px}
+.flip .f{background:var(--panel);justify-content:space-between} .flip .f b{font:650 19px var(--serif)}
+.flip .b{background:var(--tint);transform:rotateY(180deg);font-size:14.5px;overflow:auto}
+.flip .hint{font-size:12px;color:var(--muted)}
+.events{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px;margin:14px 0}
+.ev{display:grid;grid-template-columns:30px 1fr;gap:8px;align-items:start}
+.ev .l{font:700 14px var(--mono);color:var(--demand);background:var(--tint);border-radius:6px;text-align:center;padding:2px 0}
+.ev[aria-pressed="true"]{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.predict{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:10px 0}
+.fb{font-weight:600} .fb.ok{color:var(--good)} .fb.no{color:var(--bad)}
+.sorter .card{background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:16px;display:grid;gap:10px}
+.sorter .card p{font-size:16.5px;font-family:var(--serif)}
+.score{font:600 14px var(--mono)}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{padding:7px 9px;border-bottom:1px solid var(--grid);text-align:right;font-variant-numeric:tabular-nums}
+th{font:700 11.5px var(--sans);letter-spacing:.05em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--rule)}
+td:first-child,th:first-child{text-align:left} tr.cur td{background:var(--tint);font-weight:700} tr.dmr td:nth-child(3){color:var(--supply)}
+.tblwrap{overflow-x:auto}
+.case{background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:18px 20px;display:grid;gap:10px}
+.case details{border-top:1px solid var(--grid);padding-top:10px}
+.case summary,.qa summary{cursor:pointer;font-weight:700;color:var(--demand)}
+.case ol{margin:8px 0 0;padding-left:20px}
+.cases{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:14px}
+.mcq{background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:16px 18px;display:grid;gap:8px}
+.mcq .opts{display:grid;gap:6px}
+.mcq .opt{font:500 14.5px var(--sans)} .mcq .opt.ok{border-color:var(--good);background:color-mix(in srgb,var(--good) 12%,var(--panel))} .mcq .opt.no{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 10%,var(--panel))}
+.mcq .why{font-size:14px;color:var(--muted)}
+.quiz{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:14px}
+.qa{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:12px 16px}
+.qa details p{margin-top:6px;padding:8px 10px;background:var(--panel2);border-radius:6px}
+.mist{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px}
+.mist div{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:14px 16px;font-size:14.5px}
+.mist b{display:block;color:var(--bad);font-size:13px;letter-spacing:.03em;margin-bottom:4px} .mist i{display:block;color:var(--good);font-style:normal;font-weight:600;margin-top:6px}
+.stepper{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:12px}
+.dots{display:flex;gap:5px} .dots i{width:9px;height:9px;border-radius:50%;background:var(--rule)} .dots i.on{background:var(--demand)}
+.pill{font:600 12.5px var(--mono);padding:3px 9px;border-radius:99px;background:var(--panel2);border:1px solid var(--rule)}
+footer{margin-top:60px;padding-top:18px;border-top:1px solid var(--rule);font-size:13px;color:var(--muted)}
+.hlonly[hidden]{display:none!important}
+@media (max-width:860px){.hero,.lab2{grid-template-columns:1fr} h1{font-size:32px} nav.jump{display:none}}
+@media (max-width:520px){.wrap,.topin{padding-inline:16px} .lab{padding:14px} h1{font-size:28px} h2{font-size:23px}}
+@media (prefers-reduced-motion:reduce){.flip .in{transition:none}}
+svg .d2{stroke:var(--demand);stroke-width:2.2;fill:none;stroke-dasharray:7 5} svg text.ld2{fill:var(--demand);font:700 12px var(--sans)} svg .spend{fill:var(--shadeb)}
+svg .dwl{fill:rgba(214,151,0,.38)} svg .gap{stroke:var(--supply);stroke-width:5;opacity:.45}
+.sorter .btn[aria-pressed="true"],.lab .btn[aria-pressed="true"]{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.flip .f span:not(.hint){font-size:14.5px;color:var(--muted)}
+.ctl input[type=number]{font:15px var(--mono);padding:7px 10px;border:1px solid var(--rule);border-radius:8px;background:var(--panel);color:var(--ink);width:100%}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px} @media (max-width:860px){.two{grid-template-columns:1fr}}
+</style>
+<style id="cg-css">
+.cg-tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+.cg-tools input{flex:1;min-width:220px;max-width:420px;font:15px var(--sans);padding:9px 12px;border:1px solid var(--rule);border-radius:8px;background:var(--panel);color:var(--ink)}
+.cg-group{margin-top:22px} .cg-group h3{margin-bottom:10px}
+.cg-item{background:var(--panel);border:1px solid var(--rule);border-radius:12px;margin-bottom:10px;overflow:hidden}
+.cg-item summary{cursor:pointer;list-style:none;padding:14px 18px;display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:baseline}
+.cg-item summary::-webkit-details-marker{display:none}
+.cg-item summary b{font:650 18px var(--serif)} .cg-item summary .cg-def{grid-column:1/-1;color:var(--muted);font-size:14.5px}
+.cg-item[open] summary .cg-def{display:none}
+.cg-body{padding:0 18px 16px;display:grid;gap:10px}
+.cg-body .lbl{font:700 11px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:2px}
+.cg-body .defn{font-weight:600}
+.cg-ex{background:var(--tint);border-radius:8px;padding:10px 12px}
+.cg-tip{border-left:3px solid var(--good);padding:6px 12px;background:var(--panel2);border-radius:0 8px 8px 0}
+.cg-rel{display:flex;gap:6px;flex-wrap:wrap} .cg-rel button{font:600 12.5px var(--sans);border:1px solid var(--rule);background:var(--panel2);color:var(--ink);border-radius:99px;padding:3px 10px;cursor:pointer}
+.cg-empty{color:var(--muted)}
+</style>
+<style id="sb-css">
+aside.sb{position:fixed;top:0;left:0;bottom:0;width:250px;overflow:auto;background:var(--panel);border-right:1px solid var(--rule);padding:16px 12px 40px;z-index:15;font-size:13.5px}
+aside.sb .home{display:block;font:700 15px var(--serif);color:var(--ink);text-decoration:none}
+aside.sb .sub{color:var(--muted);font-size:12px;margin:2px 0 14px}
+aside.sb .lbl{font:700 11px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:12px 4px 6px}
+aside.sb a.it{display:grid;grid-template-columns:30px 1fr;gap:2px;padding:6px 8px;border-radius:6px;color:var(--ink);text-decoration:none;line-height:1.3}
+aside.sb a.it span:first-child{font:600 11.5px var(--mono);color:var(--muted);padding-top:1px}
+aside.sb a.it:hover{background:var(--panel2)} aside.sb a.it.act{background:var(--tint);font-weight:700}
+aside.sb .links a{display:block;padding:4px 8px;color:var(--demand);font-weight:600;text-decoration:none}
+.sbbtn{display:none}
+@media (min-width:1100px){header.top,.wrap{margin-left:250px} nav.jump{display:none!important}}
+@media (max-width:1099px){aside.sb{transform:translateX(-105%);transition:transform .2s;box-shadow:0 0 30px rgba(0,0,0,.25);width:84%;max-width:300px}
+ aside.sb.open{transform:none} nav.jump{display:none!important}
+ .sbbtn{display:inline-block;font:700 13px var(--sans);padding:6px 10px;border-radius:8px;border:1px solid var(--rule);background:var(--panel);color:var(--ink);cursor:pointer;order:-1}}
+@media (prefers-reduced-motion:reduce){aside.sb{transition:none}}
+</style>
+</head>
+<body>
+<header class="top"><div class="topin">
+  <div class="brand">Production Function Lab <span>AP Microeconomics Topic 3.1 · Hoang Ch 4</span></div>
+  <nav class="jump" aria-label="Sections"><a href="#terms">Terms</a><a href="#guide">Guide</a><a href="#cases">Cases</a><a href="#quiz">Quiz</a><a href="#exam">Exam</a></nav>
+</div></header>
+
+<div class="wrap">
+<section class="hero">
+  <div><p class="eyebrow">Unit 3 · Production, Cost and the Perfect Competition Model · Module 54</p><h1>What happens when you keep hiring?</h1>
+  <p class="lead">Add workers to a bakery with one oven and measure what each one adds. You will see why output first speeds up, then slows down, and why that slowdown drives every cost curve in Unit 3.</p>
+  <p class="muted" style="margin-top:12px;font-size:14px">Textbook: Hoang, Wray &amp; Chakraborty, <i>Economics</i> (Hodder 2020), pp. 56–58. Hoang explains the ideas in words; the measures the AP exam asks you to calculate are marked <span class="badge b-hl">Added for AP</span>.</p></div>
+  <div class="goals"><p class="eyebrow" style="color:var(--muted)">By the end I can…</p><ul id="goals"></ul></div>
+</section>
+
+<section class="step" id="terms"><div class="shead"><span class="num">01</span><h2>Key terms: flip the cards</h2><p class="muted">Say the definition out loud first, then click to check.</p></div><div class="cards" id="cards"></div></section>
+<section class="step" id="guide"><div class="shead"><span class="num">01b</span><h2>Concept guide: every term explained</h2><p>A fuller explanation of each term in this module, with a worked example and an exam tip. Open a term, read it, then close the page and explain it to a partner in your own words.</p></div>
+  <div class="cg-tools"><input id="cgq" type="search" placeholder="Search terms, examples…" aria-label="Search the concept guide"><button class="btn" id="cgopen">Open all</button><button class="btn" id="cgclose">Close all</button><span class="pill" id="cgcount"></span></div>
+  <div id="cgbox"></div></section>
+
+<!-- LAB SECTIONS -->
+<section class="step" id="bake"><div class="shead"><span class="num"></span><h2>The production function: bakers and loaves</h2><p>Hoang's supermarket keeps its checkouts fixed and hires more staff (p. 57). This bakery does the same with its oven. Add bakers one at a time and watch total, marginal and average product.</p></div>
+  <div class="lab lab2">
+    <div><div id="bkg1"></div><div id="bkg2" style="margin-top:12px"></div></div>
+    <div>
+      <div class="row" role="group" aria-label="Number of ovens"><button class="btn" data-ov="1">One oven</button><button class="btn" data-ov="2">Two ovens</button></div>
+      <label class="ctl" style="margin-top:14px"><span>Bakers (the variable input)</span><input type="range" id="bkl" min="0" max="8" step="1" value="4"><output id="bklo"></output></label>
+      <dl class="read" id="bkread"></dl>
+      <div class="explain" id="bkx"></div>
+      <div class="tblwrap" style="margin-top:12px"><table id="bktab"></table></div>
+      <p class="muted" style="font-size:13px;margin-top:6px">Bars show marginal product, orange once diminishing returns have set in; the line is average product. Illustrative bakery: the loaves are invented so that marginal product first rises and then falls, as Hoang describes.</p>
+    </div>
+  </div></section>
+
+<section class="step" id="avg"><div class="shead"><span class="num"></span><h2>Marginal pulls the average</h2><p>Why does average product rise and then fall? The same rule moves your test average. Choose the score on your next test.</p></div>
+  <div class="lab lab2">
+    <div id="avgg"></div>
+    <div>
+      <label class="ctl"><span>Score on test 5</span><input type="range" id="avs" min="40" max="100" step="1" value="85"><output id="avso"></output></label>
+      <dl class="read" id="avread"></dl>
+      <div class="explain" id="avx"></div>
+    </div>
+  </div></section>
+
+<section class="step" id="stages"><div class="shead"><span class="num"></span><h2>The whole shape: three phases of returns</h2><p>With many workers the curves become smooth. Move along the labor axis and watch where each curve turns.</p></div>
+  <div class="lab lab2">
+    <div><div id="stg1"></div><div id="stg2" style="margin-top:12px"></div></div>
+    <div>
+      <label class="ctl"><span>Workers (L)</span><input type="range" id="stl" min="0" max="18" step="0.5" value="6"><output id="stlo"></output></label>
+      <div class="row"><button class="btn" data-jump="8">Marginal product peaks</button><button class="btn" data-jump="12">Average product peaks</button><button class="btn" data-jump="16">Total product peaks</button></div>
+      <dl class="read" id="stread"></dl>
+      <div class="explain" id="stx"></div>
+      <p class="muted" style="font-size:13px;margin-top:8px">Illustrative firm: TP = 6L² − 0.25L³. Every number is computed from it.</p>
+    </div>
+  </div></section>
+
+<section class="step" id="sort"><div class="shead"><span class="num"></span><h2>Which phase is it?</h2><p>Each card describes a firm adding workers to a fixed plant. Which phase of marginal returns is it in?</p></div>
+  <div class="sorter"><div class="card"><span class="pill" id="son"></span><p id="soq"></p>
+    <div class="row"><button class="btn" data-so="inc">Increasing marginal returns</button><button class="btn" data-so="dim">Diminishing marginal returns</button><button class="btn" data-so="neg">Negative marginal returns</button></div>
+    <p class="fb" id="sofb" aria-live="polite"></p><div class="row"><button class="btn pri" id="sonext" hidden>Next card</button><span class="score" id="sosc"></span></div></div></div></section>
+
+<section class="step" id="draw"><div class="shead"><span class="num"></span><h2>Draw it like an examiner wants</h2><p>The exam asks for total product above and marginal and average product below, on the same labor axis. Build it one label at a time.</p></div>
+  <div class="lab lab2">
+    <div id="drg"></div>
+    <div><h3 id="drt"></h3><div id="drx" style="margin-top:8px"></div>
+      <div class="stepper"><button class="btn" id="drprev">← Back</button><button class="btn pri" id="drnext">Next →</button><div class="dots" id="drdots"></div></div></div>
+  </div></section>
+<!-- /LAB SECTIONS -->
+
+<section class="step" id="cases"><div class="shead"><span class="num"></span><h2>Real-world cases</h2><p>Answer in your notebook, sketch the diagram, then open the model answer.</p></div><div class="cases" id="casebox"></div></section>
+
+<section class="step" id="quiz"><div class="shead"><span class="num"></span><h2>Check yourself</h2><p>Auto-marked multiple choice in the AP format first, then quick-fire questions with model answers.</p><p class="score" id="mcqscore"></p></div><div class="quiz" id="mcqs"></div>
+  <h3 style="margin:30px 0 12px">Quick-fire checklist</h3><div class="quiz" id="qf"></div></section>
+
+<section class="step" id="mistakes"><div class="shead"><span class="num"></span><h2>Common mistakes to avoid</h2></div><div class="mist" id="mist"></div></section>
+
+<section class="step" id="exam"><div class="shead"><span class="num"></span><h2>Exam practice</h2><p>Plan each answer before opening the scoring guide.</p></div><div class="cases" id="exambox"></div></section>
+
+<footer>Production Function Lab · based on the AP Microeconomics Course and Exam Description, Topic 3.1 The Production Function, and Hoang, Wray &amp; Chakraborty, <i>Economics</i> (Hodder 2020), Chapter 4 pp. 56–58, with pp. 118 and 209; the course's other text is Krugman, <i>Economics for AP</i>, Module 54, pp. 542–547. Hoang's examples used: the supermarket with fixed checkouts and the revision sessions. The bakery, the smooth curves and the numbers marked illustrative are invented for practice; the farm and the warehouse cases go beyond Hoang.
+<details style="margin-top:10px"><summary style="cursor:pointer;font-weight:700">For the teacher: where Hoang needs correcting or adding to</summary>
+<ul style="margin:8px 0 0;padding-left:20px;display:grid;gap:4px">
+<li>Hoang never measures production. <i>Production function</i>, <i>marginal product</i> and <i>average product</i> each occur 0 times in the book, and <i>total product</i> once, in an unrelated trade example (p. 428). Every calculation in this lab is added for AP.</li>
+<li>In Hoang the law of diminishing marginal returns is HL only (p. 57). In AP Microeconomics it is core content, and Topic 3.1 adds average product and the marginal–average link.</li>
+<li>Hoang p. 118 says marginal cost rises because "the marginal factors of production" become "more expensive to employ". The mechanism is productivity, not input prices: with the wage unchanged, marginal cost rises because marginal product falls.</li>
+<li>Hoang p. 58 says marginal costs "rise with each successive unit produced". That ignores the phase of increasing marginal returns Hoang itself describes on p. 57, when marginal cost falls.</li>
+<li>Hoang writes <i>marginal returns</i> where the exam writes <i>marginal product</i>, and <i>factor of production</i> where the exam usually writes <i>input</i>.</li>
+<li>Old layout for comparison: <a href="m54-student.html">Module 54 student guide</a>, <a href="m54-test.html">test</a> and <a href="m54-notes.html">teaching notes</a>.</li>
+</ul></details></footer>
+</div>
+
+<script>
+(function(){
+'use strict';
+/* ============================ DATA ============================ */
+const NS='m54lab';
+/* Illustrative bakery: loaves a day with 0-8 bakers, one oven and two ovens */
+const BAKE={1:[0,12,32,60,92,115,132,147,160],2:[0,14,38,72,116,162,200,230,254]};
+const mpOf=tp=>tp.map((q,i)=>i?q-tp[i-1]:null), apOf=tp=>tp.map((q,i)=>i?q/i:null);
+const setIn=tp=>{const m=mpOf(tp);for(let i=2;i<m.length;i++)if(m[i]<m[i-1])return i;return null};
+const B1=BAKE[1],B1MP=mpOf(B1),B1AP=apOf(B1),B1SET=setIn(B1);
+/* Smooth illustrative curves */
+const TPc=L=>6*L*L-.25*L*L*L, MPc=L=>12*L-.75*L*L, APc=L=>L>0?6*L-.25*L*L:0;
+/* Test average */
+const SCORES=[70,75,80,75], SAVG=SCORES.reduce((a,b)=>a+b,0)/SCORES.length;
+/* Exam question 1 */
+const E1={TP:[0,8,20,36,48,56,60],W:96};const E1MP=mpOf(E1.TP),E1AP=apOf(E1.TP),E1SET=setIn(E1.TP);
+const E1APMAX=Math.max(...E1AP.slice(1)),E1APAT=E1AP.map((a,i)=>a===E1APMAX?i:null).filter(x=>x!=null);
+/* MCQ 10 data */
+const Q10=[0,10,25,45,60,70],Q10SET=setIn(Q10);
+const ord=k=>k+(k%100>=11&&k%100<=13?'th':['th','st','nd','rd'][k%10]||'th');
+const n2=v=>(Math.round(v*100)/100).toLocaleString();
+
+/* ============================ CONFIG ============================ */
+const GOALS=[
+ ['Explain the difference between the short run and the long run, and between fixed and variable inputs'],
+ ['Calculate total, marginal and average product from a table'],
+ ['Identify where diminishing marginal returns set in, and explain why they happen'],
+ ['Explain why average product rises while marginal product is above it and falls while it is below'],
+ ['Draw total, marginal and average product curves on two aligned graphs'],
+ ['Explain why diminishing marginal returns make marginal cost rise']];
+const TERMS=[
+ ['Production function','The relationship between the inputs a firm uses and the output it produces.',1],
+ ['Fixed input','An input that cannot be changed in the short run, such as a building or machine.'],
+ ['Variable input','An input the firm can change in the short run, usually labor.'],
+ ['Short run','A period in which at least one input is fixed.'],
+ ['Long run','A period in which all inputs can be changed.'],
+ ['Total product','The total output produced with a given amount of the variable input.',1],
+ ['Marginal product','The extra output from one more unit of an input: ΔTP ÷ ΔL.',1],
+ ['Average product','Output per unit of the variable input: TP ÷ L.',1],
+ ['Increasing marginal returns','Each extra worker adds more output than the one before.'],
+ ['Diminishing marginal returns','With other inputs fixed, the marginal product of an input eventually falls.'],
+ ['Negative marginal returns','An extra worker makes total output fall: MP < 0.',1],
+ ['Division of labor','Splitting work into separate tasks so each worker specializes.'],
+ ['Marginal–average rule','Marginal above average pulls the average up; below pulls it down.',1],
+ ['Increasing marginal cost','The cost of each extra unit rises because marginal product falls.']];
+const CASES=[
+ ['More staff at the supermarket','Hoang\'s supermarket (p. 57) has a fixed number of checkouts and a fixed store, and it can hire more staff. Suppose it has 6 checkouts. Illustrative numbers: 3 staff serve 150 customers an hour, 6 staff serve 330 and 9 staff serve 420.',
+  ['Which input is fixed and which is variable? Which time period is this?','Calculate the marginal product per extra worker from 3 to 6 staff and from 6 to 9 staff.','Explain why the second figure is smaller.'],
+  ['Checkouts and the store are fixed; staff are variable. That makes it the short run.',`From 3 to 6: (330 − 150) ÷ 3 = ${n2((330-150)/3)} customers an hour per worker. From 6 to 9: (420 − 330) ÷ 3 = ${n2((420-330)/3)}.`,'With 6 checkouts, the 7th to 9th staff cannot run a checkout of their own; they pack bags or wait for a free till. They share the same fixed checkouts, so each adds less: diminishing marginal returns.']],
+ ['Revising for an exam','Hoang\'s Top tip (p. 58) applies diminishing marginal returns to revision. Illustrative numbers: a student learns 10 new facts in the first 30-minute block, 14 in the second, 12 in the third, 7 in the fourth and 2 in the fifth, late at night.',
+  ['What is the fixed input, and what is the variable input?','In which block do diminishing marginal returns set in?','Calculate the average number of facts per block after five blocks.'],
+  ['Fixed: the student\'s brain and the evening; variable: the number of 30-minute blocks.','In the third block: it adds 12, fewer than the second block\'s 14. The second block added more than the first, which was increasing marginal returns as the student warmed up.',`Total = 10 + 14 + 12 + 7 + 2 = ${10+14+12+7+2} facts; average = ${10+14+12+7+2} ÷ 5 = ${n2((10+14+12+7+2)/5)} facts per block.`]],
+ ['Family farms with too many hands','On many small farms in low-income countries, more family members work the same plot of land than are needed. Economists have long observed that removing one or two workers from such a farm barely changes the harvest.',
+  ['Which input is fixed here?','What does it mean that removing a worker barely changes output?','Why might this be a reason for workers to move to jobs in towns?'],
+  ['The land: the plot does not grow when the family does.','The marginal product of the last workers is close to zero: diminishing marginal returns have gone so far that extra hands add almost nothing.','If a worker adds almost nothing on the farm but produces something valuable in a town job, moving raises total output in the economy. This goes beyond Hoang: check a development text for the evidence.']],
+ ['Robots in the warehouse','Online retailers have added large numbers of warehouse robots alongside their staff in the 2010s and 2020s, changing how much each worker can pick and pack in an hour.',
+  ['Is adding robots a short-run or a long-run change? Explain.','What happens to the total product curve of warehouse workers when robots are added?','What happens to the marginal and average product of labor at each number of workers?'],
+  ['Long-run: robots are capital, the input that is fixed in the short run. Changing it moves the warehouse onto a new short-run production function.','It shifts upward: the same number of workers now produces more output.','Both are higher at most numbers of workers, because each worker has more capital to work with. Diminishing returns still apply to labor on the new, larger capital stock. This case goes beyond Hoang.']]];
+const MCQ=[
+ ['Diminishing marginal returns occur when',
+  ['total product begins to fall','the marginal product of a variable input falls as more of it is added to a fixed input','average product begins to fall','all inputs increase and output rises less than in proportion','marginal cost begins to fall'],1,
+  'Diminishing marginal returns are about marginal product, with at least one input fixed. Total product can still be rising. All inputs increasing describes returns to scale, a long-run idea; and diminishing returns make marginal cost rise, not fall.'],
+ [`A bakery makes ${B1[4]} loaves a day with 4 bakers and ${B1[5]} with 5 bakers. What is the marginal product of the 5th baker?`,
+  [String(B1MP[5]),String(B1[5]),n2(B1MP[5]/5),String(B1[4]+B1[5]),n2(B1[4]/5)],0,
+  `MP = ΔTP ÷ ΔL = (${B1[5]} − ${B1[4]}) ÷ 1 = ${B1MP[5]} loaves. ${B1[5]} is total product; ${n2(B1MP[5]/5)} divides the marginal product by 5; ${B1[4]+B1[5]} adds two totals; ${n2(B1[4]/5)} divides the 4-baker total by 5.`],
+ [`The same bakery makes ${B1[4]} loaves with 4 bakers. What is the average product of labor?`,
+  [String(B1MP[4]),String(B1[4]),n2(B1AP[4]),n2(B1[4]/3),'It cannot be found without the wage'],2,
+  `AP = TP ÷ L = ${B1[4]} ÷ 4 = ${n2(B1AP[4])} loaves per baker. ${B1MP[4]} is the 4th baker's marginal product. Average product is a physical measure, so the wage is not needed.`],
+ ['For a firm where labor is the only variable input, which of the following begins to rise when diminishing marginal returns to labor set in?',
+  ['Total product','Average product of labor','Marginal cost','Average fixed cost','Fixed cost'],2,
+  'When each extra worker adds less output at the same wage, each extra unit of output costs more, so marginal cost begins to rise. Total product keeps rising, but more slowly, so it does not begin to rise here; average product may still be rising and only falls once marginal product drops below it; fixed and average fixed costs do not depend on returns.'],
+ ['If the marginal product of labor is greater than the average product of labor, then',
+  ['average product is falling','total product is falling','marginal product must be rising','average product is rising','diminishing marginal returns have not set in'],3,
+  'A worker who adds more than the current average pulls the average up. Marginal product can be above average and already falling, so neither rising MP nor the absence of diminishing returns follows.'],
+ ['Total product is at its maximum where',
+  ['average product is at its maximum','marginal product is at its maximum','marginal product equals average product','diminishing marginal returns set in','marginal product equals zero'],4,
+  'Total product rises while each worker adds something (MP > 0) and falls once a worker subtracts (MP < 0), so it peaks where MP = 0. MP = AP marks the peak of average product; the peak of MP marks where diminishing returns set in.'],
+ ['Which of the following defines the short run?',
+  ['At least one input is fixed','The period is less than one year','All inputs can be varied','The firm cannot change its output','Prices are fixed'],0,
+  'The short run is defined by a fixed input, not by a length of time. In the long run all inputs can vary. A firm can change output in the short run by changing its variable inputs.'],
+ ['Which best explains why marginal product rises over the first few workers?',
+  ['The fixed input becomes larger','Wages fall as more workers are hired','Diminishing marginal returns','Workers can specialize through the division of labor','Average product is falling'],3,
+  'With more workers, tasks can be split so each worker specializes and less time is lost switching jobs, so each new worker adds more than the last. The fixed input does not change in the short run, wages are a cost and not a product, and diminishing returns make marginal product fall.'],
+ ['A bakery installs a second oven while keeping the same recipes. Which is most likely to happen to its total product curve for bakers?',
+  ['It does not change, because the oven is a fixed cost','It becomes a straight line','It shifts downward','It moves along the same curve to more bakers','It shifts upward'],4,
+  'More capital means each number of bakers can produce more loaves, so the whole total product curve shifts up. Changing the fixed input is a long-run change that gives the firm a new short-run production function, not a movement along the old one.'],
+ [`A firm's total product with 0 to 5 workers is ${Q10.join(', ')}. With which worker do diminishing marginal returns set in?`,
+  ['The 3rd',`The ${ord(Q10SET)}`,'The 5th','The 2nd','They never set in'],1,
+  `Marginal products are ${mpOf(Q10).slice(1).join(', ')}. They rise to ${mpOf(Q10)[Q10SET-1]} with the ${ord(Q10SET-1)} worker and fall to ${mpOf(Q10)[Q10SET]} with the ${ord(Q10SET)}, so diminishing returns set in with the ${ord(Q10SET)} worker. Total product keeps rising throughout.`]];
+const QF=[
+ ['What is held fixed in the short run?','At least one input, usually capital such as buildings and machinery.'],
+ ['Write the formulas for marginal and average product of labor.','MP = ΔTP ÷ ΔL; AP = TP ÷ L.'],
+ [`With 2 bakers the bakery makes ${B1[2]} loaves and with 3 it makes ${B1[3]}. Find the 3rd baker's marginal product.`,`${B1MP[3]} loaves.`],
+ [`What is the average product of 6 bakers, who make ${B1[6]} loaves?`,`${B1[6]} ÷ 6 = ${n2(B1AP[6])} loaves per baker.`],
+ [`With which baker do diminishing returns set in at the one-oven bakery?`,`The ${ord(B1SET)}: the ${ord(B1SET)} baker adds ${B1MP[B1SET]} loaves, fewer than the ${ord(B1SET-1)} baker's ${B1MP[B1SET-1]}.`],
+ ['Why do marginal returns eventually diminish?','Each new worker shares the same fixed input, so there is less for each to do and workers start to get in each other\'s way.'],
+ ['Does diminishing marginal returns mean total product is falling?','No. Total product is still rising, only by less with each worker. It falls only when marginal product is negative.'],
+ ['Where does marginal product cross average product?','At the maximum of average product.'],
+ ['Where is total product at its maximum?','Where marginal product is zero.'],
+ ['Do diminishing marginal returns apply in the long run?','No. They need a fixed input, and in the long run every input can change.'],
+ ['How is marginal product linked to marginal cost?','MC = wage ÷ MP. When MP rises, MC falls; when MP falls, MC rises.'],
+ ['What is the difference between diminishing marginal returns and diminishing marginal utility?','Returns are about output from production; utility is about satisfaction from consumption (Hoang p. 57).']];
+const MI=[
+ ['Diminishing returns means total output is falling.','Output is still rising, only by less with each worker. Total product falls only when marginal product is negative.'],
+ ['Diminishing returns start with the first worker.','Marginal product usually rises at first, thanks to the division of labor. Diminishing returns set in at the worker whose marginal product is first lower than the one before.'],
+ ['Average product starts to fall when diminishing returns set in.','Average product keeps rising as long as marginal product is above it, even if marginal product is already falling. It falls only once MP drops below AP.'],
+ ['The short run is less than a year.','The short run is any period in which at least one input is fixed. Its length depends on the firm.'],
+ ['Diminishing returns happen because the firm hires worse workers.','The workers can be identical. Returns diminish because each one has less of the fixed input to work with.'],
+ ['MP crosses AP wherever it likes.','Marginal product crosses average product exactly at the top of average product, and examiners check that point.']];
+const EX=[
+ ['Free response · 5 points',`A firm's only variable input is labor. Its total product with 0 to 6 workers is ${E1.TP.join(', ')} units. (a) Calculate the marginal product of the 3rd worker. (b) Calculate the average product of 5 workers. (c) Identify the worker with whom diminishing marginal returns set in, and explain. (d) Each worker is paid $${E1.W} a day. Calculate the marginal cost of a unit of output produced by the 4th worker.`,
+  [`(a) MP = ${E1.TP[3]} − ${E1.TP[2]} = ${E1MP[3]} units (1 point).`,
+   `(b) AP = ${E1.TP[5]} ÷ 5 = ${n2(E1AP[5])} units per worker (1 point).`,
+   `(c) The ${ord(E1SET)} worker (1 point): marginal products are ${E1MP.slice(1).join(', ')}, and the ${ord(E1SET)} worker's ${E1MP[E1SET]} is the first that is lower than the one before (1 point).`,
+   `(d) MC = wage ÷ MP = $${E1.W} ÷ ${E1MP[4]} = $${n2(E1.W/E1MP[4])} per unit (1 point).`]],
+ ['Free response · graph · 4 points','Draw two correctly labeled graphs, one above the other with the same horizontal axis: total product of labor above, and marginal and average product of labor below. Show where diminishing marginal returns set in and where total product is at its maximum.',
+  ['Both horizontal axes labeled quantity of labor (L); vertical axes total product and MP, AP (1 point).','TP rising at an increasing rate, then at a decreasing rate, reaching a maximum (1 point).','MP rising then falling, crossing AP at the maximum of AP (1 point).','Diminishing returns marked at the peak of MP, above which TP changes from getting steeper to getting flatter; TP at its maximum where MP = 0 (1 point).']],
+ ['Free response · 3 points','A bakery has one oven and can hire as many bakers as it wishes this month. (a) Is the bakery operating in the short run or the long run? Explain. (b) Explain why the marginal product of bakers eventually falls. (c) The bakery buys a second oven. What happens to its total product curve?',
+  ['(a) The short run, because the oven is fixed while bakers are variable (1 point).','(b) Each extra baker shares the same oven, so there is less useful work for each one: diminishing marginal returns (1 point).','(c) It shifts upward, because each number of bakers can now produce more loaves (1 point).']],
+ ['Calculation set · 4 points',`The bakery with two ovens makes ${BAKE[2].slice(1).join(', ')} loaves with 1 to 8 bakers. Calculate (a) the marginal product of the 5th baker, (b) the average product of 6 bakers, (c) the worker with whom diminishing returns set in, (d) whether average product is rising or falling when the 7th baker joins.`,
+  [`(a) ${BAKE[2][5]} − ${BAKE[2][4]} = ${mpOf(BAKE[2])[5]} loaves.`,`(b) ${BAKE[2][6]} ÷ 6 = ${n2(apOf(BAKE[2])[6])} loaves per baker.`,`(c) The ${ord(setIn(BAKE[2]))}, who adds ${mpOf(BAKE[2])[setIn(BAKE[2])]} against the ${ord(setIn(BAKE[2])-1)} baker's ${mpOf(BAKE[2])[setIn(BAKE[2])-1]}.`,`(d) ${mpOf(BAKE[2])[7]<apOf(BAKE[2])[6]?'Falling':'Rising'}: the 7th baker adds ${mpOf(BAKE[2])[7]}, ${mpOf(BAKE[2])[7]<apOf(BAKE[2])[6]?'below':'above'} the average of ${n2(apOf(BAKE[2])[6])}, so average product moves to ${n2(apOf(BAKE[2])[7])}.`]]];
+
+/* ============================ CORE (from the IB lab template) ============================ */
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const st={get(k,d){try{const v=localStorage.getItem(NS+'.'+k);return v==null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem(NS+'.'+k,JSON.stringify(v))}catch(e){}}};
+const f0=v=>Math.round(v).toLocaleString(), f1=v=>(Math.round(v*10)/10).toLocaleString(), f2=v=>(Math.round(v*100)/100).toLocaleString(), money=v=>(v<0?'−$':'$')+Math.round(Math.abs(v)).toLocaleString();
+const LC={s:'ls',s2:'ls',d:'ld',d2:'ld2',sm:'lm'};
+function Plot(o){const W=o.w||540,H=o.h||380,L=o.L||54,R=26,T=24,B=44;const sx=x=>L+x/o.xmax*(W-L-R),sy=y=>H-B-y/o.ymax*(H-T-B);const out=[];
+ return{sx,sy,
+  fn(f,cls,label,lx){let d='',pen=false;for(let i=0;i<=160;i++){const x=o.xmax*i/160,y=f(x);if(!isFinite(y)||y<0||y>o.ymax){pen=false;continue}d+=(pen?'L':'M')+sx(x).toFixed(1)+' '+sy(y).toFixed(1)+' ';pen=true}if(d)out.push(`<path class="${cls}" d="${d}"/>`);if(label){const x=lx!=null?lx:o.xmax*.86,y=f(x);if(isFinite(y)&&y>=0&&y<=o.ymax)out.push(`<text class="${LC[cls]||'lg'}" x="${sx(x)+6}" y="${sy(y)-6}">${label}</text>`)}},
+  poly(p,cls){out.push(`<polygon class="${cls}" points="${p.map(q=>sx(q[0]).toFixed(1)+','+sy(q[1]).toFixed(1)).join(' ')}"/>`)},
+  bar(x,w,h,cls,lab){out.push(`<rect class="bar ${cls||''}" x="${sx(x-w/2)}" y="${sy(h)}" width="${sx(w)-sx(0)}" height="${sy(0)-sy(h)}"/>`);if(lab!=null)out.push(`<text class="note" x="${sx(x)}" y="${sy(h)-6}" text-anchor="middle">${lab}</text>`)},
+  seg(x0,y0,x1,y1,cls){out.push(`<path class="${cls}" d="M${sx(x0)} ${sy(y0)} L${sx(x1)} ${sy(y1)}"/>`)},
+  dot(x,y,c){out.push(`<circle class="${c||'dot'}" cx="${sx(x)}" cy="${sy(y)}" r="5"/>`)},
+  guide(x,y,xl,yl){out.push(`<path class="guide" d="M${sx(0)} ${sy(y)} L${sx(x)} ${sy(y)} L${sx(x)} ${sy(0)}"/>`);if(yl)out.push(`<text class="tick" x="${sx(0)-6}" y="${sy(y)+4}" text-anchor="end">${yl}</text>`);if(xl)out.push(`<text class="tick" x="${sx(x)}" y="${sy(0)+17}" text-anchor="middle">${xl}</text>`)},
+  xt(x,t){out.push(`<text class="tick" x="${sx(x)}" y="${sy(0)+17}" text-anchor="middle">${t}</text>`)},
+  yt(y,t){out.push(`<text class="tick" x="${sx(0)-6}" y="${sy(y)+4}" text-anchor="end">${t}</text>`)},
+  text(x,y,t,c,a){out.push(`<text class="${c||'note'}" x="${sx(x)}" y="${sy(y)}" text-anchor="${a||'start'}">${t}</text>`)},
+  svg(aria){return `<svg class="g" viewBox="0 0 ${W} ${H}" role="img" aria-label="${aria||''}">${out.join('')}<path class="axis" d="M${sx(0)} ${sy(o.ymax)} L${sx(0)} ${sy(0)} L${sx(o.xmax)} ${sy(0)}"/><text class="axl" x="${sx(0)-8}" y="${T-8}">${o.yl}</text><text class="axl" x="${sx(o.xmax)}" y="${H-8}" text-anchor="end">${o.xl}</text><text class="tick" x="${sx(0)-6}" y="${sy(0)+17}" text-anchor="end">0</text></svg>`}}}
+function sorter(pre,cards,labels,attr){let i=st.get(pre+'i',0),sc=st.get(pre+'s',[0,0]);
+ const draw=()=>{i%=cards.length;$('#'+pre+'n').textContent=`Card ${i+1} of ${cards.length}`;$('#'+pre+'q').textContent=cards[i][0];$('#'+pre+'fb').textContent='';$('#'+pre+'next').hidden=true;$$(`[${attr}]`).forEach(b=>b.disabled=false);$('#'+pre+'sc').textContent=`Score ${sc[0]} / ${sc[1]}`};
+ $$(`[${attr}]`).forEach(b=>b.addEventListener('click',()=>{const c=cards[i],ok=b.getAttribute(attr)===c[1];sc[1]++;if(ok)sc[0]++;st.set(pre+'s',sc);const fb=$('#'+pre+'fb');fb.className='fb '+(ok?'ok':'no');fb.textContent=(ok?'✓ Correct. ':'✗ Answer: '+labels[c[1]]+'. ')+c[2];$$(`[${attr}]`).forEach(x=>x.disabled=true);$('#'+pre+'next').hidden=false;$('#'+pre+'sc').textContent=`Score ${sc[0]} / ${sc[1]}`}));
+ $('#'+pre+'next').addEventListener('click',()=>{i++;st.set(pre+'i',i);draw()});draw()}
+function stepper(pre,steps,draw){let k=0;const go=()=>{k=Math.max(0,Math.min(steps.length-1,k));draw(k);$('#'+pre+'t').textContent=`Step ${k+1}: ${steps[k][0]}`;$('#'+pre+'x').innerHTML=steps[k][1];$('#'+pre+'dots').innerHTML=steps.map((_,i)=>`<i class="${i<=k?'on':''}"></i>`).join('');$('#'+pre+'prev').disabled=k===0;$('#'+pre+'next').disabled=k===steps.length-1};
+ $('#'+pre+'next').addEventListener('click',()=>{k++;go()});$('#'+pre+'prev').addEventListener('click',()=>{k--;go()});go();return{reset(){k=0;go()}}}
+const ADDED='<span class="badge b-hl">Added for AP</span>';
+function renderGoals(){const d=st.get('goals',[]);$('#goals').innerHTML=GOALS.map((g,i)=>`<li><input type="checkbox" id="g${i}" ${d.includes(i)?'checked':''}><label for="g${i}">${g[0]}</label></li>`).join('');$$('#goals input').forEach(c=>c.addEventListener('change',()=>{const i=+c.id.slice(1);let v=st.get('goals',[]);v=c.checked?[...new Set([...v,i])]:v.filter(x=>x!==i);st.set('goals',v)}))}
+function renderCards(){$('#cards').innerHTML=TERMS.map(t=>`<button class="flip" aria-label="${t[0]}: show definition"><div class="in"><div class="f"><b>${t[0]}</b><span class="hint">${t[2]?ADDED+' ':''}Click to flip</span></div><div class="b">${t[1]}</div></div></button>`).join('');$$('#cards .flip').forEach(b=>b.addEventListener('click',()=>b.classList.toggle('on')))}
+function renderMCQ(){const list=MCQ.map((q,i)=>[q,i]);
+ $('#mcqs').innerHTML=list.map(([q,i],k)=>`<div class="mcq" data-i="${i}"><p><b>${k+1}.</b> ${q[0]}</p><div class="opts">${q[1].map((o,j)=>`<button class="btn opt" data-j="${j}">(${String.fromCharCode(65+j)}) ${o}</button>`).join('')}</div><p class="why" hidden></p></div>`).join('');
+ const sc=()=>{const a=st.get('mcq',{});const done=list.filter(x=>a[x[1]]!=null);const ok=done.filter(x=>a[x[1]]===x[0][2]).length;$('#mcqscore').innerHTML=done.length?`Score: ${ok} / ${list.length} <button class="btn" id="mcqreset" style="margin-left:10px;padding:4px 10px">Try again</button>`:'';const r=$('#mcqreset');if(r)r.addEventListener('click',()=>{st.set('mcq',{});renderMCQ()})};
+ $$('.mcq').forEach(el=>{const i=+el.dataset.i,q=MCQ[i];const mark=j=>{el.querySelectorAll('.opt').forEach(b=>{const k=+b.dataset.j;b.disabled=true;if(k===q[2])b.classList.add('ok');else if(k===j)b.classList.add('no')});const w=el.querySelector('.why');w.hidden=false;w.textContent=(j===q[2]?'✓ ':'✗ ')+q[3]};
+  const a=st.get('mcq',{});if(a[i]!=null)mark(a[i]);el.querySelectorAll('.opt').forEach(b=>b.addEventListener('click',()=>{const a=st.get('mcq',{});a[i]=+b.dataset.j;st.set('mcq',a);mark(+b.dataset.j);sc()}))});sc()}
+function renderQF(){$('#qf').innerHTML=QF.map(q=>`<div class="qa"><p><b>${q[0]}</b></p><details><summary>Show answer</summary><p>${q[1]}</p></details></div>`).join('')}
+function renderStatic(){
+ $('#casebox').innerHTML=CASES.map(c=>`<article class="case"><h3>${c[0]}</h3><p>${c[1]}</p><ol>${c[2].map(q=>`<li>${q}</li>`).join('')}</ol><details><summary>Model answer</summary><ol>${c[3].map(a=>`<li>${a}</li>`).join('')}</ol></details></article>`).join('');
+ $('#mist').innerHTML=MI.map(m=>`<div><b>✗ ${m[0]}</b>${m[1]}</div>`).join('');
+ $('#exambox').innerHTML=EX.map(e=>`<article class="case"><span class="badge b-sl">${e[0]}</span><p style="font-family:var(--serif);font-size:17px">${e[1]}</p><details><summary>Scoring guide</summary><ol>${e[2].map(x=>`<li>${x}</li>`).join('')}</ol></details></article>`).join('')}
+
+/* ============================ LAB CODE ============================ */
+function line(p,pts,cls){for(let i=1;i<pts.length;i++)p.seg(pts[i-1][0],pts[i-1][1],pts[i][0],pts[i][1],cls)}
+/* --- Bakery --- */
+const BK={ov:st.get('ov',1),L:4};
+function phase(mp,L){if(!L)return'–';if(mp[L]<0)return'negative marginal returns';if(L===1)return'the first baker';if(mp[L]>mp[L-1])return'increasing marginal returns';if(mp[L]<mp[L-1])return'diminishing marginal returns';return'constant marginal returns'}
+function bkDraw(){
+ const tp=BAKE[BK.ov],mp=mpOf(tp),ap=apOf(tp),L=BK.L,si=setIn(tp);
+ $$('[data-ov]').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.ov===BK.ov));$('#bklo').textContent=L;
+ const a=Plot({xmax:8.6,ymax:280,xl:'Bakers (L)',yl:'Total product (loaves)',h:270});
+ if(BK.ov===2)line(a,BAKE[1].map((q,i)=>[i,q]),'ghost');
+ line(a,tp.map((q,i)=>[i,q]),'sm');tp.forEach((q,i)=>a.dot(i,q,i===L?'dot':'dot2'));
+ a.text(8.05,tp[8]+14,'TP','lm','end');if(BK.ov===2)a.text(8.05,BAKE[1][8]-16,'one oven','lg','end');
+ for(let i=1;i<=8;i++)a.xt(i,i);[100,200].forEach(y=>a.yt(y,y));if(L)a.guide(L,tp[L],'','');
+ $('#bkg1').innerHTML=a.svg('Total product of bakers');
+ const b=Plot({xmax:8.6,ymax:58,xl:'Bakers (L)',yl:'MP and AP (loaves)',h:270});
+ for(let i=1;i<=8;i++){b.bar(i,.5,mp[i],i>=si?'dim':'',mp[i]);b.xt(i,i)}
+ line(b,ap.slice(1).map((v,i)=>[i+1,v]),'d');ap.forEach((v,i)=>{if(i)b.dot(i,v,'dot2')});
+ b.text(8.3,ap[8]+3,'AP','ld','end');[10,20,30,40].forEach(y=>b.yt(y,y));
+ $('#bkg2').innerHTML=b.svg('Marginal and average product');
+ $('#bkread').innerHTML=`<dt>Total product</dt><dd>${tp[L]} loaves</dd><dt>Marginal product of baker ${L||'–'}</dt><dd>${L?mp[L]+' loaves':'–'}</dd><dt>Average product</dt><dd>${L?n2(ap[L])+' loaves':'–'}</dd><dt>Phase</dt><dd>${phase(mp,L)}</dd>`;
+ $('#bktab').innerHTML='<tr><th>Bakers</th>'+tp.map((_,i)=>`<th>${i}</th>`).join('')+'</tr><tr><td>TP</td>'+tp.map((q,i)=>`<td style="${i===L?'font-weight:700':''}">${q}</td>`).join('')+'</tr><tr><td>MP</td>'+mp.map((q,i)=>`<td style="${i&&i>=si?'color:var(--supply)':''}">${q==null?'–':q}</td>`).join('')+'</tr><tr><td>AP</td>'+ap.map(q=>`<td>${q==null?'–':n2(q)}</td>`).join('')+'</tr>';
+ let x;
+ if(!L)x='With no bakers the oven produces nothing. Add a baker.';
+ else if(L<si)x=`Each baker so far adds more than the one before: <b>increasing marginal returns</b>. With more hands the work can be split, one shaping and one baking, so each new baker is more useful than the last (Hoang p. 57).`;
+ else x=`The ${ord(si)} baker added ${mp[si]} loaves, fewer than the ${ord(si-1)}'s ${mp[si-1]}: <b>diminishing marginal returns</b> set in with the ${ord(si)} baker, because every baker shares the same ${BK.ov===1?'oven':'two ovens'}. Total product is still rising.`;
+ if(L>1){const before=ap[L-1];x+=` Baker ${L} adds ${mp[L]}, ${mp[L]>before?'above':mp[L]<before?'below':'equal to'} the average of ${n2(before)} before them, so average product ${mp[L]>before?'rises':mp[L]<before?'falls':'stays the same'}.`}
+ if(BK.ov===2)x+=' The second oven is more capital: the whole total product curve has shifted up from the dashed one-oven curve, and diminishing returns set in later.';
+ $('#bkx').innerHTML=x}
+$$('[data-ov]').forEach(b=>b.addEventListener('click',()=>{BK.ov=+b.dataset.ov;st.set('ov',BK.ov);bkDraw()}));
+$('#bkl').addEventListener('input',e=>{BK.L=+e.target.value;bkDraw()});
+
+/* --- Test average --- */
+function avDraw(){
+ const s=+$('#avs').value,all=[...SCORES,s],na=all.reduce((a,b)=>a+b,0)/all.length;$('#avso').textContent=s;
+ const p=Plot({xmax:5.8,ymax:100,xl:'Test',yl:'Score',h:300});
+ all.forEach((v,i)=>{p.bar(i+1,.55,v,i===4?'dim':'',v);p.xt(i+1,i+1)});
+ p.seg(.4,SAVG,4.6,SAVG,'guide');p.text(.45,SAVG+3,'average of 4: '+n2(SAVG),'lg');
+ p.seg(.4,na,5.6,na,'d');p.text(5.6,na+3,'new average '+n2(na),'ld','end');[25,50,75,100].forEach(y=>p.yt(y,y));
+ $('#avgg').innerHTML=p.svg('Test scores and their average');
+ $('#avread').innerHTML=`<dt>Average of first four</dt><dd>${n2(SAVG)}</dd><dt>Test 5 (the marginal score)</dt><dd>${s}</dd><dt>New average</dt><dd>${n2(na)}</dd>`;
+ $('#avx').innerHTML=(s>SAVG?`The marginal score (${s}) is above the average (${n2(SAVG)}), so it pulls the average <b>up</b>.`:s<SAVG?`The marginal score (${s}) is below the average (${n2(SAVG)}), so it pulls the average <b>down</b>.`:`The marginal score equals the average, so the average does not move.`)+` Workers do the same to average product: a worker whose marginal product is above average product raises it. At the bakery, the ${ord(B1SET)} baker adds ${B1MP[B1SET]}, ${B1MP[B1SET]===B1AP[B1SET-1]?'exactly':'compared with'} the average of ${n2(B1AP[B1SET-1])}, so average product ${B1MP[B1SET]===B1AP[B1SET-1]?'stays at '+n2(B1AP[B1SET]):'moves to '+n2(B1AP[B1SET])} even though diminishing returns have set in.`}
+$('#avs').addEventListener('input',avDraw);
+
+/* --- Smooth curves --- */
+function stPlots(L,k){/* k: build step for the diagram builder (99 = all) */
+ const t=Plot({xmax:18,ymax:560,xl:'Labor (L)',yl:'Total product',h:250}),m=Plot({xmax:18,ymax:52,xl:'Labor (L)',yl:'MP, AP',h:250});
+ [4,8,12,16].forEach(x=>{t.xt(x,x);m.xt(x,x)});[200,400].forEach(y=>t.yt(y,y));[20,40].forEach(y=>m.yt(y,y));
+ if(k>=2){t.fn(TPc,'sm','TP',17)}
+ if(k>=3){m.fn(MPc,'s','MP',13.6)}
+ if(k>=4){m.fn(APc,'d','AP',16.4)}
+ if(k>=5){t.seg(8,0,8,TPc(8),'guide');m.seg(8,0,8,MPc(8),'guide');t.dot(8,TPc(8),'dot2');m.dot(8,MPc(8),'dot2');t.text(8.3,TPc(8)-40,'diminishing returns set in','note');}
+ if(k>=6){m.seg(12,0,12,APc(12),'guide');m.dot(12,APc(12));m.text(12.3,APc(12)+3,'MP = AP at max AP','note')}
+ if(k>=7){t.seg(16,0,16,TPc(16),'guide');t.dot(16,TPc(16));m.dot(16,0);t.text(15.7,TPc(16)+18,'max TP: MP = 0','note','end')}
+ if(L!=null&&L>0){t.guide(L,TPc(L),'','');t.dot(L,TPc(L));if(MPc(L)>=0)m.dot(L,MPc(L));m.dot(L,APc(L),'dot2')}
+ return[t,m]}
+function stDraw(){
+ const L=+$('#stl').value;$('#stlo').textContent=L;const[t,m]=stPlots(L,99);
+ $('#stg1').innerHTML=t.svg('Total product');$('#stg2').innerHTML=m.svg('Marginal and average product');
+ const mp=MPc(L),ap=APc(L);
+ $('#stread').innerHTML=`<dt>Total product</dt><dd>${n2(TPc(L))}</dd><dt>Marginal product (slope of TP)</dt><dd>${n2(mp)}</dd><dt>Average product</dt><dd>${L?n2(ap):'–'}</dd>`;
+ let x;
+ if(L===0)x='Move the slider to add workers.';
+ else if(L<8)x='<b>Increasing marginal returns.</b> Marginal product is rising, so total product gets steeper with each worker.';
+ else if(L===8)x='<b>Marginal product is at its peak</b>, '+n2(mp)+'. Total product is at its steepest here: from now on diminishing returns set in and it starts to flatten.';
+ else if(L<16)x='<b>Diminishing marginal returns.</b> Marginal product is falling but still positive, so total product rises more slowly.';
+ else if(L===16)x='<b>Marginal product is zero</b>, so total product is at its maximum, '+n2(TPc(16))+'.';
+ else x='<b>Negative marginal returns.</b> Extra workers get in the way and total product falls. No firm would choose to be here.';
+ if(L>0&&L!==12)x+=` Marginal product is ${mp>ap?'above':'below'} average product, so average product is <b>${mp>ap?'rising':'falling'}</b>.`;
+ if(L===12)x+=` Here marginal product equals average product (${n2(ap)}), the <b>peak of average product</b>.`;
+ $('#stx').innerHTML=x}
+$('#stl').addEventListener('input',stDraw);
+$$('[data-jump]').forEach(b=>b.addEventListener('click',()=>{$('#stl').value=b.dataset.jump;stDraw()}));
+
+/* --- Sorter --- */
+const SORT=[
+ ['The 3rd worker adds 15 units; the 2nd added 10.','inc','Marginal product is rising, from 10 to 15.'],
+ ['The 6th worker adds 8 units; the 5th added 12.','dim','Marginal product has fallen from 12 to 8 but is still positive.'],
+ ['Total product falls from 140 to 136 when a 9th worker is hired.','neg','The 9th worker\'s marginal product is −4.'],
+ ['Total output rises from 50 to 58 and then to 64 as the 4th and 5th workers join.','dim','Marginal products are 8 and then 6: falling, but output is still rising.'],
+ ['A second cook lets one chop while the other fries, and the kitchen\'s output more than doubles.','inc','The division of labor makes the second cook add more than the first.'],
+ ['Average product is falling but total product is still rising.','dim','Marginal product is below average product but above zero: in the usual shape this is the diminishing phase.'],
+ ['The 13th worker\'s marginal product is −2.','neg','A negative marginal product means total output falls.'],
+ ['Each of the first four workers adds more output than the one before.','inc','Rising marginal product is increasing marginal returns.'],
+ ['Hoang\'s student learns less in the fifth 30-minute revision block than in the fourth.','dim','Each extra block of revision adds less: diminishing returns to study time (Hoang p. 58).'],
+ ['Marginal product is falling but is still above average product.','dim','Diminishing returns have set in, yet average product is still rising, because MP is above it.']];
+
+/* --- Diagram builder --- */
+const DR=[
+ ['Set up two graphs','Total product on top; marginal and average product below. Both share the same horizontal axis, <b>Labor (L)</b>, so points line up vertically.'],
+ ['Draw total product','TP rises at an increasing rate (getting steeper), then at a decreasing rate (flattening), reaches a maximum and may fall.'],
+ ['Draw marginal product','MP rises, peaks and falls, crossing the axis where TP peaks. MP is the slope of TP.'],
+ ['Draw average product','AP is a hill that rises and falls more gently than MP, with its peak to the right of MP\'s peak.'],
+ ['Mark where diminishing returns set in','At the peak of MP. Directly above, TP is at its steepest: it stops getting steeper and starts to flatten.'],
+ ['Cross MP through the top of AP','MP must cross AP exactly at the maximum of AP. To the left MP > AP and AP rises; to the right MP < AP and AP falls.'],
+ ['Mark the top of total product','TP is at its maximum where MP = 0. Checklist: shared L axis · TP shape · MP peak above the steepest TP · MP through max AP · MP = 0 below max TP.']];
+function drDraw(k){const[t,m]=stPlots(null,k+1);$('#drg').innerHTML=t.svg('Diagram builder, total product')+'<div style="height:10px"></div>'+m.svg('Diagram builder, marginal and average product')}
+
+/* ============================ INIT ============================ */
+$$('section.step').forEach(sec=>{const n=sec.querySelector('.num');const list=[...$$('section.step')].filter(x=>x.id!=='guide');if(n&&sec.id!=='guide'&&!n.dataset.fixed)n.textContent=String(list.indexOf(sec)+1).padStart(2,'0')});
+renderStatic();renderGoals();renderCards();renderMCQ();renderQF();
+bkDraw();avDraw();stDraw();
+sorter('so',SORT,{inc:'Increasing marginal returns',dim:'Diminishing marginal returns',neg:'Negative marginal returns'},'data-so');
+stepper('dr',DR,drDraw);
+})();
+</script>
+<script id="cg-js">
+(function(){
+const CG={"title": "Module 54 · The Production Function", "intro": "Every term you need to describe how a firm's output changes as it adds workers to a fixed plant. Terms marked In Hoang are taught in Hoang, Wray and Chakraborty, Chapter 4, pp. 56–58. Terms marked Added for AP are not in Hoang: the book explains diminishing marginal returns in words but never measures output, so total, marginal and average product are added here because the AP exam asks you to calculate them.", "groups": [{"name": "Inputs and time", "terms": [{"term": "Production function", "level": "Added", "definition": "The relationship between the quantities of inputs a firm uses and the quantity of output it produces.", "explanation": "A production function is a table, a graph or an equation that answers one question: with these inputs, how much can the firm make? It describes technology, not prices, so its output is a physical quantity, not dollars. It holds in the short run, when some inputs are fixed, and in the long run, when all of them can change.", "example": "A bakery with one oven makes 12 loaves a day with one baker, 32 with two and 60 with three: that list of bakers and loaves is its short-run production function.", "exam_tip": "Output in a production function is a quantity (loaves, cars, haircuts). If a number has a dollar sign, it is a cost or a revenue, not a product.", "related": ["Total product", "Fixed input", "Variable input"]}, {"term": "Fixed input", "level": "Hoang", "definition": "An input whose quantity cannot be changed in the short run, such as a building, machinery or a number of checkouts. Hoang calls it a fixed factor.", "explanation": "Capital is usually the fixed input, because buildings and machines take time to buy, build or sell. Holding it fixed is what makes the short run different, and what causes diminishing marginal returns.", "example": "A supermarket can hire more staff this week, but its number of checkouts and the size of its store stay the same (Hoang p. 57).", "exam_tip": "Whether an input is fixed depends on the time span in the question, not on the input itself.", "related": ["Variable input", "Short run", "Diminishing marginal returns"]}, {"term": "Variable input", "level": "Hoang", "definition": "An input whose quantity the firm can change in the short run, usually labor and raw materials.", "explanation": "In the short run the firm changes output by changing its variable inputs while the fixed input stays where it is. Every extra unit of the variable input works with the same fixed plant, which is why its contribution eventually shrinks.", "example": "The supermarket's checkout staff are its variable input (Hoang p. 57).", "exam_tip": "In AP questions labor is the variable input unless the question says otherwise, so marginal product is the marginal product of labor.", "related": ["Fixed input", "Marginal product"]}, {"term": "Short run", "level": "Hoang", "definition": "The period in which at least one input is fixed, so the firm can change output only by changing its variable inputs.", "explanation": "The short run is defined by what is fixed, not by a number of weeks. For a food truck it may be a few days; for a car factory it may be years. Diminishing marginal returns are a short-run idea, because they need a fixed input.", "example": "Hoang defines it as a period when at least one factor of production, such as capital, is fixed while others, such as labor, are variable (p. 57).", "exam_tip": "Never answer \"how long is the short run?\" with a time. Say: as long as at least one input is fixed.", "related": ["Long run", "Fixed input", "Diminishing marginal returns"]}, {"term": "Long run", "level": "Hoang", "definition": "The period long enough for a firm to change all its inputs, so no input is fixed.", "explanation": "In the long run a firm can build a bigger plant, buy more machines or move. Its production function then describes what happens when all inputs change together: returns to scale, which you meet in Module 56.", "example": "A bakery that installs a second oven has moved to a new short-run production function; choosing how many ovens to have is a long-run decision.", "exam_tip": "Diminishing marginal returns do not apply in the long run, because nothing is held fixed.", "related": ["Short run", "Production function"]}]}, {"name": "Measuring output", "terms": [{"term": "Total product", "level": "Added", "definition": "The total quantity of output a firm produces with a given quantity of the variable input (TP, or Q).", "explanation": "Total product is the production function read one row at a time. In the short run it rises as workers are added, first at an increasing rate, then at a decreasing rate, and it can eventually fall if workers get in each other's way.", "example": "With 5 bakers and one oven the bakery makes 115 loaves a day: its total product is 115.", "exam_tip": "Total product falling is negative marginal product, not diminishing returns. Diminishing returns begin long before total product peaks.", "related": ["Marginal product", "Average product", "Production function"]}, {"term": "Marginal product", "level": "Added", "definition": "The additional output from one more unit of an input, other inputs held fixed: MP = ΔTP ÷ ΔL. Hoang calls it the marginal return.", "explanation": "Marginal product is the slope of the total product curve. It rises while the division of labor makes each new worker more useful than the last, peaks, and then falls once the fixed input is crowded. It is plotted at the worker it belongs to.", "example": "Going from 4 to 5 bakers raises output from 92 to 115 loaves, so the 5th baker's marginal product is 23 loaves.", "exam_tip": "When the input rises by more than one unit, divide the change in output by the change in input.", "related": ["Total product", "Average product", "Diminishing marginal returns", "Marginal returns"]}, {"term": "Average product", "level": "Added", "definition": "Output per unit of the variable input: AP = TP ÷ L, also called labor productivity.", "explanation": "Average product tells you how much each worker produces on average. It rises while each new worker adds more than the current average and falls once each new worker adds less. Its peak is where the marginal product curve crosses it. Hoang never measures it: average product is 0 times in the book.", "example": "4 bakers make 92 loaves, so average product is 92 ÷ 4 = 23 loaves per baker.", "exam_tip": "Average product does not start to fall when diminishing returns set in. It falls only once marginal product drops below it.", "related": ["Marginal product", "Marginal–average rule", "Total product"]}, {"term": "Marginal returns", "level": "Hoang", "definition": "Hoang's name for the additional output from one more unit of a variable input: the same thing as marginal product.", "explanation": "Hoang describes the law of diminishing marginal returns entirely in terms of marginal returns, without numbers. The AP exam and its tables use marginal product, so translate whenever you read Hoang.", "example": "Hoang: the marginal returns (additional output) for each additional unit of input will eventually decline (p. 57).", "exam_tip": "On the exam write marginal product (MP), and give its value in units of output.", "related": ["Marginal product", "Diminishing marginal returns"]}]}, {"name": "What happens as you add workers", "terms": [{"term": "Division of labor", "level": "Hoang", "definition": "Splitting production into separate tasks so that each worker can concentrate on one of them.", "explanation": "With one worker, one person does every job. A second and a third can split the work, so each becomes faster at a narrower task and less time is lost switching. This is why the first few workers can each add more output than the one before.", "example": "Teamwork and the division of labor make the first extra workers more productive (Hoang p. 57).", "exam_tip": "Specialization explains rising marginal product, and so falling marginal cost, at low output.", "related": ["Increasing marginal returns", "Marginal product"]}, {"term": "Increasing marginal returns", "level": "Hoang", "definition": "The phase in which each additional worker adds more output than the one before: marginal product is rising.", "explanation": "Increasing marginal returns come before diminishing returns, at low levels of the variable input, because of the division of labor. Total product rises at an increasing rate: the curve gets steeper. Hoang names the phase once (p. 57); the AP course describes it without the name.", "example": "At the bakery the 2nd baker adds 20 loaves, the 3rd 28 and the 4th 32.", "exam_tip": "A question that says diminishing returns set in at a certain worker implies marginal product was not falling before that worker.", "related": ["Division of labor", "Diminishing marginal returns", "Marginal product"]}, {"term": "Diminishing marginal returns", "level": "Hoang", "definition": "As a firm adds more of one input while holding other inputs fixed, the marginal product of that input eventually falls.", "explanation": "Each new worker shares the same fixed plant, so eventually there is less useful work for each one and they start to get in each other's way. Marginal product then falls, though it is still positive: total output keeps rising, only more slowly. It is a short-run idea, and it is why marginal cost rises.", "example": "At the bakery the 5th baker adds 23 loaves, fewer than the 4th baker's 32: diminishing marginal returns set in with the 5th baker.", "exam_tip": "Diminishing returns means marginal product is falling, not that total product is falling.", "related": ["Increasing marginal returns", "Negative marginal returns", "Increasing marginal cost", "Short run"]}, {"term": "Negative marginal returns", "level": "Added", "definition": "The phase in which an additional worker reduces total output: marginal product is below zero.", "explanation": "If so many workers crowd the fixed plant that they obstruct each other, the last one makes total product fall. No firm that pays its workers would choose to be here, but the phase completes the shape of the curves: total product peaks where marginal product is zero.", "example": "A tiny kitchen with ten cooks may serve fewer meals than one with eight, because the extra cooks block the stove.", "exam_tip": "Total product is at its maximum where marginal product equals zero.", "related": ["Diminishing marginal returns", "Total product"]}, {"term": "Marginal–average rule", "level": "Added", "definition": "When the marginal is above the average, the average rises; when the marginal is below it, the average falls; so the marginal crosses the average at the average's maximum (or minimum).", "explanation": "Adding a value above the current average pulls the average up, and adding one below pulls it down. For production this means marginal product crosses average product at the peak of average product. The same rule, applied to costs, makes marginal cost cross average total cost at its minimum (Module 55).", "example": "Your test average is 75. Score 85 on the next test and the average rises; score 60 and it falls. At the bakery the 5th baker adds 23, exactly the average of the first four, so average product stays at 23.", "exam_tip": "Draw MP crossing AP at the highest point of AP. Examiners check this.", "related": ["Average product", "Marginal product"]}]}, {"name": "Links to cost and to other topics", "terms": [{"term": "Increasing marginal cost", "level": "Hoang", "definition": "The rise in the cost of producing one more unit of output that follows from diminishing marginal returns.", "explanation": "If each worker is paid the same wage, a worker who adds fewer units makes each of those units more expensive. So falling marginal product means rising marginal cost, which is why a firm needs a higher price to supply more and why the supply curve slopes upward.", "example": "If a baker costs $115 a day, the 4th baker (32 loaves) adds about $3.59 per loaf and the 5th (23 loaves) $5 per loaf.", "exam_tip": "Marginal cost = wage ÷ marginal product of labor. When MP is at its maximum, MC is at its minimum.", "related": ["Diminishing marginal returns", "Marginal product"]}, {"term": "Diminishing marginal utility", "level": "Hoang", "definition": "The fall in the extra satisfaction a consumer gets from each additional unit of a good consumed.", "explanation": "It sounds like diminishing marginal returns but belongs to the consumer, not the firm. Diminishing marginal utility is about satisfaction from consumption; diminishing marginal returns is about output from production.", "example": "Hoang's Top tip: use diminishing marginal returns for production and diminishing marginal utility for consumption (p. 57).", "exam_tip": "Marginal utility explains the demand curve; marginal product explains the cost curves and the supply curve.", "related": ["Diminishing marginal returns"]}]}]};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const box=document.getElementById('cgbox'),q=document.getElementById('cgq'),cnt=document.getElementById('cgcount');
+const id=t=>'cg-'+t.toLowerCase().replace(/[^a-z0-9]+/g,'-');
+const badge=l=>l==='Added'?'<span class="badge b-hl">Added for AP</span>':'<span class="badge b-sl">In Hoang</span>';
+box.innerHTML='<p style="max-width:72ch">'+esc(CG.intro)+'</p>'+CG.groups.map(g=>`<div class="cg-group"><h3>${esc(g.name)}</h3>`+g.terms.map(t=>`<details class="cg-item" id="${id(t.term)}" data-s="${esc((t.term+' '+t.definition+' '+t.explanation+' '+t.example).toLowerCase())}"><summary><b>${esc(t.term)}</b>${badge(t.level)}<span class="cg-def">${esc(t.definition)}</span></summary><div class="cg-body"><div><span class="lbl">Definition</span><p class="defn">${esc(t.definition)}</p></div><div><span class="lbl">Explanation</span><p>${esc(t.explanation)}</p></div><div class="cg-ex"><span class="lbl">Example</span><p>${esc(t.example)}</p></div><div class="cg-tip"><span class="lbl">Exam tip</span><p>${esc(t.exam_tip)}</p></div>${(t.related||[]).length?`<div><span class="lbl">Related terms</span><div class="cg-rel">${t.related.map(r=>`<button type="button" data-go="${id(r)}">${esc(r)}</button>`).join('')}</div></div>`:''}</div></details>`).join('')+'</div>').join('')+'<p class="cg-empty" id="cgnone" hidden>No terms match your search.</p>';
+function apply(){const s=(q.value||'').trim().toLowerCase();let n=0;
+ box.querySelectorAll('.cg-item').forEach(d=>{const show=!s||d.dataset.s.includes(s);d.hidden=!show;if(show)n++;if(s&&show)d.open=true});
+ box.querySelectorAll('.cg-group').forEach(g=>{g.hidden=![...g.querySelectorAll('.cg-item')].some(d=>!d.hidden)});
+ cnt.textContent=n+' term'+(n===1?'':'s');document.getElementById('cgnone').hidden=n>0}
+q.addEventListener('input',apply);
+document.getElementById('cgopen').addEventListener('click',()=>box.querySelectorAll('.cg-item:not([hidden])').forEach(d=>d.open=true));
+document.getElementById('cgclose').addEventListener('click',()=>box.querySelectorAll('.cg-item').forEach(d=>d.open=false));
+box.addEventListener('click',e=>{const b=e.target.closest('[data-go]');if(!b)return;const t=document.getElementById(b.dataset.go);if(t){q.value='';apply();t.open=true;t.scrollIntoView({block:'center'})}});
+apply();
+})();
+</script>
+<script id="sb-js">
+(function(){
+const secs=[...document.querySelectorAll('section.step[id]')];
+const sb=document.createElement('aside');sb.className='sb';sb.setAttribute('aria-label','Lesson contents');
+const title=document.querySelector('.brand').childNodes[0].textContent.trim(),sub=document.querySelector('.brand span').textContent;
+sb.innerHTML=`<a class="home" href="https://sevketgunduz.github.io/ap-microeconomics/">AP Microeconomics</a><div class="sub">${title} · ${sub}</div><p class="lbl">In this lab</p>`+
+ secs.map(s=>{const n=s.querySelector('.num'),h=s.querySelector('h2');const t=h?h.childNodes[0].textContent.replace(/[:·].*$/,'').trim():s.id;return `<a class="it" href="#${s.id}" data-id="${s.id}"><span>${n?n.textContent:''}</span><span>${t}</span></a>`}).join('')+
+ `<p class="lbl">Same module, old layout</p><div class="links"><a href="m54-student.html">Student guide</a><a href="m54-test.html">Test</a><a href="m54-notes.html">Teaching notes</a></div>`;
+document.body.appendChild(sb);
+const btn=document.createElement('button');btn.className='sbbtn';btn.type='button';btn.textContent='☰ Contents';btn.setAttribute('aria-expanded','false');
+const bar=document.querySelector('.topin');if(bar)bar.insertBefore(btn,bar.firstChild);
+btn.addEventListener('click',()=>{sb.classList.toggle('open');btn.setAttribute('aria-expanded',sb.classList.contains('open'))});
+sb.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>sb.classList.remove('open')));
+if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){sb.querySelectorAll('a.it').forEach(a=>a.classList.toggle('act',a.dataset.id===e.target.id))}}),{rootMargin:'-20% 0px -70% 0px'});secs.forEach(s=>io.observe(s))}
+})();
+</script>
+</body>
+</html>

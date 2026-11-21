@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Profit Maximization Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,650&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+:root{
+  --ground:#f4f5f1; --panel:#ffffff; --panel2:#f8f9f5; --ink:#1a2029; --muted:#5a636c; --rule:#d9ddd3; --grid:#e7eae2;
+  --supply:#c0441f; --supply2:#e8876a; --demand:#2451c4; --good:#12795f; --bad:#b3261e; --hl:#6f3aa8; --hlbg:#efe6f8; --slbg:#e2efe9; --sl:#0d6b5c;
+  --tint:#eaf0fc; --focus:#2451c4; --shade:rgba(192,68,31,.14); --shadeb:rgba(36,81,196,.14);
+  --serif:"Source Serif 4",Georgia,serif; --sans:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif; --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;
+  --ground:#12161b; --panel:#1a2027; --panel2:#1f262e; --ink:#e6eaee; --muted:#9ca7b1; --rule:#2e3842; --grid:#252f38;
+  --supply:#ff8d66; --supply2:#b8664b; --demand:#86a6ff; --good:#4fd1a8; --bad:#ff7b72; --hl:#c29af2; --hlbg:#2c2240; --slbg:#173029; --sl:#6fd6bf;
+  --tint:#1b2436; --focus:#86a6ff; --shade:rgba(255,141,102,.18); --shadeb:rgba(134,166,255,.18);}}
+:root[data-theme="dark"]{color-scheme:dark;
+  --ground:#12161b; --panel:#1a2027; --panel2:#1f262e; --ink:#e6eaee; --muted:#9ca7b1; --rule:#2e3842; --grid:#252f38;
+  --supply:#ff8d66; --supply2:#b8664b; --demand:#86a6ff; --good:#4fd1a8; --bad:#ff7b72; --hl:#c29af2; --hlbg:#2c2240; --slbg:#173029; --sl:#6fd6bf;
+  --tint:#1b2436; --focus:#86a6ff; --shade:rgba(255,141,102,.18); --shadeb:rgba(134,166,255,.18);}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font:16px/1.6 var(--sans);margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:20px;padding-block:0 80px}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--ground);border-bottom:1px solid var(--rule)}
+.topin{max-width:1120px;margin:0 auto;padding:10px 20px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.brand{font:650 18px var(--serif);margin-right:auto}
+.brand span{font:600 12px var(--sans);color:var(--muted);margin-left:8px}
+nav.jump{display:flex;gap:2px;flex-wrap:wrap}
+nav.jump a{font:600 12.5px var(--sans);color:var(--muted);text-decoration:none;padding:6px 9px;border-radius:6px}
+nav.jump a:hover{background:var(--panel);color:var(--ink)}
+.lvl{display:flex;border:1px solid var(--rule);border-radius:999px;overflow:hidden}
+.lvl button{font:700 12px var(--sans);border:0;background:var(--panel);color:var(--muted);padding:6px 12px;cursor:pointer}
+.lvl button[aria-pressed="true"]{background:var(--ink);color:var(--ground)}
+h1,h2,h3{font-family:var(--serif);font-weight:650;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:40px;line-height:1.1} h2{font-size:27px;line-height:1.2} h3{font-size:19px}
+p{margin:0} .muted{color:var(--muted)}
+.eyebrow{font:700 11.5px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--demand)}
+.badge{display:inline-block;font:700 10.5px var(--sans);letter-spacing:.06em;padding:2px 7px;border-radius:4px;vertical-align:3px}
+.b-hl{background:var(--hlbg);color:var(--hl)} .b-sl{background:var(--slbg);color:var(--sl)}
+button:focus-visible,input:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+section.step{padding-top:56px;scroll-margin-top:70px}
+.shead{display:grid;gap:8px;max-width:72ch;margin-bottom:20px}
+.shead .num{font:600 13px var(--mono);color:var(--muted)}
+.hero{padding-top:44px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:36px;align-items:center}
+.hero p.lead{font-size:18px;margin-top:14px;max-width:56ch}
+.goals{background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:18px 20px}
+.goals ul{margin:8px 0 0;padding:0;list-style:none;display:grid;gap:8px}
+.goals li{display:grid;grid-template-columns:22px 1fr;gap:8px;font-size:15px}
+.goals input{width:18px;height:18px;accent-color:var(--good);margin-top:3px}
+.lab{background:var(--panel);border:1px solid var(--rule);border-radius:14px;padding:20px}
+.lab2{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px;align-items:start}
+svg.g{width:100%;height:auto;display:block;border-radius:8px;background:var(--panel2);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:26px 26px}
+svg .axis{stroke:var(--ink);stroke-width:1.7;fill:none} svg .axl{fill:var(--ink);font:700 12.5px var(--sans)} svg .tick{fill:var(--muted);font:11.5px var(--mono)}
+svg .guide{stroke:var(--muted);stroke-dasharray:4 4;fill:none}
+svg .s{stroke:var(--supply);stroke-width:3;fill:none;stroke-linecap:round} svg .s2{stroke:var(--supply2);stroke-width:2.2;fill:none;stroke-dasharray:7 5}
+svg .sm{stroke:var(--ink);stroke-width:3;fill:none} svg .d{stroke:var(--demand);stroke-width:3;fill:none}
+svg .ghost{stroke:var(--muted);stroke-width:1.6;stroke-dasharray:3 4;fill:none}
+svg text.ls{fill:var(--supply);font:700 13px var(--sans)} svg text.ld{fill:var(--demand);font:700 13px var(--sans)} svg text.lm{fill:var(--ink);font:700 13px var(--sans)} svg text.lg{fill:var(--muted);font:700 12px var(--sans)}
+svg .dot{fill:var(--ink)} svg .dot2{fill:var(--panel);stroke:var(--ink);stroke-width:1.8}
+svg .arrow{stroke:var(--good);stroke-width:2.4;fill:none;marker-end:url(#ah)} svg .ahead{fill:var(--good)}
+svg .bar{fill:var(--demand);opacity:.7} svg .bar.dim{fill:var(--supply);opacity:.75}
+svg .note{fill:var(--muted);font:600 11.5px var(--sans)} svg .area{fill:var(--shade)}
+.ctl{display:grid;grid-template-columns:1fr 70px;gap:2px 10px;align-items:center;font-size:14px;margin-bottom:12px}
+.ctl span{grid-column:1/-1;font-weight:600;color:var(--muted)} .ctl input{width:100%;accent-color:var(--demand)} .ctl output{font:600 13px var(--mono);text-align:right}
+.read{display:grid;grid-template-columns:1fr auto;gap:6px 14px;font-size:14.5px;margin:6px 0 0}
+.read dt{color:var(--muted)} .read dd{margin:0;font:600 13.5px var(--mono);text-align:right}
+.explain{margin-top:14px;padding:12px 14px;border-left:3px solid var(--demand);background:var(--tint);border-radius:0 8px 8px 0;font-size:14.5px}
+.btn{font:600 14px var(--sans);border:1px solid var(--rule);background:var(--panel);color:var(--ink);padding:9px 13px;border-radius:8px;cursor:pointer;text-align:left}
+.btn:hover{border-color:var(--demand)} .btn.pri{background:var(--ink);color:var(--ground);border-color:var(--ink)} .btn:disabled{opacity:.45;cursor:default}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.flip{perspective:900px;height:170px;border:0;background:none;padding:0;cursor:pointer;text-align:left;font:inherit;color:inherit}
+.flip .in{position:relative;width:100%;height:100%;transition:transform .45s;transform-style:preserve-3d}
+.flip.on .in{transform:rotateY(180deg)}
+.flip .f,.flip .b{position:absolute;inset:0;backface-visibility:hidden;border-radius:12px;border:1px solid var(--rule);padding:16px;display:flex;flex-direction:column;gap:6px}
+.flip .f{background:var(--panel);justify-content:space-between} .flip .f b{font:650 19px var(--serif)}
+.flip .b{background:var(--tint);transform:rotateY(180deg);font-size:14.5px;overflow:auto}
+.flip .hint{font-size:12px;color:var(--muted)}
+.events{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px;margin:14px 0}
+.ev{display:grid;grid-template-columns:30px 1fr;gap:8px;align-items:start}
+.ev .l{font:700 14px var(--mono);color:var(--demand);background:var(--tint);border-radius:6px;text-align:center;padding:2px 0}
+.ev[aria-pressed="true"]{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.predict{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:10px 0}
+.fb{font-weight:600} .fb.ok{color:var(--good)} .fb.no{color:var(--bad)}
+.sorter .card{background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:16px;display:grid;gap:10px}
+.sorter .card p{font-size:16.5px;font-family:var(--serif)}
+.score{font:600 14px var(--mono)}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{padding:7px 9px;border-bottom:1px solid var(--grid);text-align:right;font-variant-numeric:tabular-nums}
+th{font:700 11.5px var(--sans);letter-spacing:.05em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--rule)}
+td:first-child,th:first-child{text-align:left} tr.cur td{background:var(--tint);font-weight:700} tr.dmr td:nth-child(3){color:var(--supply)}
+.tblwrap{overflow-x:auto}
+.case{background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:18px 20px;display:grid;gap:10px}
+.case details{border-top:1px solid var(--grid);padding-top:10px}
+.case summary,.qa summary{cursor:pointer;font-weight:700;color:var(--demand)}
+.case ol{margin:8px 0 0;padding-left:20px}
+.cases{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:14px}
+.mcq{background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:16px 18px;display:grid;gap:8px}
+.mcq .opts{display:grid;gap:6px}
+.mcq .opt{font:500 14.5px var(--sans)} .mcq .opt.ok{border-color:var(--good);background:color-mix(in srgb,var(--good) 12%,var(--panel))} .mcq .opt.no{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 10%,var(--panel))}
+.mcq .why{font-size:14px;color:var(--muted)}
+.quiz{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:14px}
+.qa{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:12px 16px}
+.qa details p{margin-top:6px;padding:8px 10px;background:var(--panel2);border-radius:6px}
+.mist{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px}
+.mist div{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:14px 16px;font-size:14.5px}
+.mist b{display:block;color:var(--bad);font-size:13px;letter-spacing:.03em;margin-bottom:4px} .mist i{display:block;color:var(--good);font-style:normal;font-weight:600;margin-top:6px}
+.stepper{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:12px}
+.dots{display:flex;gap:5px} .dots i{width:9px;height:9px;border-radius:50%;background:var(--rule)} .dots i.on{background:var(--demand)}
+.pill{font:600 12.5px var(--mono);padding:3px 9px;border-radius:99px;background:var(--panel2);border:1px solid var(--rule)}
+footer{margin-top:60px;padding-top:18px;border-top:1px solid var(--rule);font-size:13px;color:var(--muted)}
+.hlonly[hidden]{display:none!important}
+@media (max-width:860px){.hero,.lab2{grid-template-columns:1fr} h1{font-size:32px} nav.jump{display:none}}
+@media (max-width:520px){.wrap,.topin{padding-inline:16px} .lab{padding:14px} h1{font-size:28px} h2{font-size:23px}}
+@media (prefers-reduced-motion:reduce){.flip .in{transition:none}}
+svg .d2{stroke:var(--demand);stroke-width:2.2;fill:none;stroke-dasharray:7 5} svg text.ld2{fill:var(--demand);font:700 12px var(--sans)} svg .spend{fill:var(--shadeb)}
+svg .dwl{fill:rgba(214,151,0,.38)} svg .gap{stroke:var(--supply);stroke-width:5;opacity:.45}
+.sorter .btn[aria-pressed="true"],.lab .btn[aria-pressed="true"]{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.flip .f span:not(.hint){font-size:14.5px;color:var(--muted)}
+.ctl input[type=number]{font:15px var(--mono);padding:7px 10px;border:1px solid var(--rule);border-radius:8px;background:var(--panel);color:var(--ink);width:100%}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px} @media (max-width:860px){.two{grid-template-columns:1fr}}
+</style>
+<style id="cg-css">
+.cg-tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+.cg-tools input{flex:1;min-width:220px;max-width:420px;font:15px var(--sans);padding:9px 12px;border:1px solid var(--rule);border-radius:8px;background:var(--panel);color:var(--ink)}
+.cg-group{margin-top:22px} .cg-group h3{margin-bottom:10px}
+.cg-item{background:var(--panel);border:1px solid var(--rule);border-radius:12px;margin-bottom:10px;overflow:hidden}
+.cg-item summary{cursor:pointer;list-style:none;padding:14px 18px;display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:baseline}
+.cg-item summary::-webkit-details-marker{display:none}
+.cg-item summary b{font:650 18px var(--serif)} .cg-item summary .cg-def{grid-column:1/-1;color:var(--muted);font-size:14.5px}
+.cg-item[open] summary .cg-def{display:none}
+.cg-body{padding:0 18px 16px;display:grid;gap:10px}
+.cg-body .lbl{font:700 11px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:2px}
+.cg-body .defn{font-weight:600}
+.cg-ex{background:var(--tint);border-radius:8px;padding:10px 12px}
+.cg-tip{border-left:3px solid var(--good);padding:6px 12px;background:var(--panel2);border-radius:0 8px 8px 0}
+.cg-rel{display:flex;gap:6px;flex-wrap:wrap} .cg-rel button{font:600 12.5px var(--sans);border:1px solid var(--rule);background:var(--panel2);color:var(--ink);border-radius:99px;padding:3px 10px;cursor:pointer}
+.cg-empty{color:var(--muted)}
+</style>
+<style id="sb-css">
+aside.sb{position:fixed;top:0;left:0;bottom:0;width:250px;overflow:auto;background:var(--panel);border-right:1px solid var(--rule);padding:16px 12px 40px;z-index:15;font-size:13.5px}
+aside.sb .home{display:block;font:700 15px var(--serif);color:var(--ink);text-decoration:none}
+aside.sb .sub{color:var(--muted);font-size:12px;margin:2px 0 14px}
+aside.sb .lbl{font:700 11px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:12px 4px 6px}
+aside.sb a.it{display:grid;grid-template-columns:30px 1fr;gap:2px;padding:6px 8px;border-radius:6px;color:var(--ink);text-decoration:none;line-height:1.3}
+aside.sb a.it span:first-child{font:600 11.5px var(--mono);color:var(--muted);padding-top:1px}
+aside.sb a.it:hover{background:var(--panel2)} aside.sb a.it.act{background:var(--tint);font-weight:700}
+aside.sb .links a{display:block;padding:4px 8px;color:var(--demand);font-weight:600;text-decoration:none}
+.sbbtn{display:none}
+@media (min-width:1100px){header.top,.wrap{margin-left:250px} nav.jump{display:none!important}}
+@media (max-width:1099px){aside.sb{transform:translateX(-105%);transition:transform .2s;box-shadow:0 0 30px rgba(0,0,0,.25);width:84%;max-width:300px}
+ aside.sb.open{transform:none} nav.jump{display:none!important}
+ .sbbtn{display:inline-block;font:700 13px var(--sans);padding:6px 10px;border-radius:8px;border:1px solid var(--rule);background:var(--panel);color:var(--ink);cursor:pointer;order:-1}}
+@media (prefers-reduced-motion:reduce){aside.sb{transition:none}}
+</style>
+</head>
+<body>
+<header class="top"><div class="topin">
+  <div class="brand">Profit Maximization Lab <span>AP Microeconomics Topic 3.5 · Hoang Ch 14</span></div>
+  <nav class="jump" aria-label="Sections"><a href="#terms">Terms</a><a href="#guide">Guide</a><a href="#cases">Cases</a><a href="#quiz">Quiz</a><a href="#exam">Exam</a></nav>
+</div></header>
+
+<div class="wrap">
+<section class="hero">
+  <div><p class="eyebrow">Unit 3 · Production, Cost and the Perfect Competition Model · Module 53</p><h1>How much should a firm produce?</h1>
+  <p class="lead">Work out a firm's revenue, set it against its costs and find the output that leaves the most profit. Then see why one rule, marginal revenue equals marginal cost, gives that answer for every firm.</p>
+  <p class="muted" style="margin-top:12px;font-size:14px">Textbook: Hoang, Wray &amp; Chakraborty, <i>Economics</i> (Hodder 2020), pp. 87 and 187–197. Ideas the AP course needs that Hoang does not teach are marked <span class="badge b-hl">Added for AP</span>.</p></div>
+  <div class="goals"><p class="eyebrow" style="color:var(--muted)">By the end I can…</p><ul id="goals"></ul></div>
+</section>
+
+<section class="step" id="terms"><div class="shead"><span class="num">01</span><h2>Key terms: flip the cards</h2><p class="muted">Say the definition out loud first, then click to check.</p></div><div class="cards" id="cards"></div></section>
+<section class="step" id="guide"><div class="shead"><span class="num">01b</span><h2>Concept guide: every term explained</h2><p>A fuller explanation of each term in this module, with a worked example and an exam tip. Open a term, read it, then close the page and explain it to a partner in your own words.</p></div>
+  <div class="cg-tools"><input id="cgq" type="search" placeholder="Search terms, examples…" aria-label="Search the concept guide"><button class="btn" id="cgopen">Open all</button><button class="btn" id="cgclose">Close all</button><span class="pill" id="cgcount"></span></div>
+  <div id="cgbox"></div></section>
+
+<!-- LAB SECTIONS -->
+<section class="step" id="rev"><div class="shead"><span class="num"></span><h2>Revenue: total, average and marginal</h2><p>Revenue is the benefit side of the firm's decision. Choose a seller, then change how much it sells and watch the three revenue measures.</p></div>
+  <div class="lab lab2">
+    <div><div id="rvg1"></div><div id="rvg2" style="margin-top:12px"></div></div>
+    <div>
+      <div class="row" role="group" aria-label="Kind of seller"><button class="btn" data-rm="pt">Price taker: lemonade at $5</button><button class="btn" data-rm="pm">Downward-sloping demand</button></div>
+      <label class="ctl" style="margin-top:14px"><span>Quantity sold</span><input type="range" id="rvq" min="0" max="12" step="1" value="6"><output id="rvqo"></output></label>
+      <button class="btn" id="rvfig">Hoang's price cut: $16 → $8 (Figure 14.9)</button>
+      <dl class="read" id="rvread"></dl>
+      <div class="explain" id="rvx"></div>
+    </div>
+  </div></section>
+
+<section class="step" id="table"><div class="shead"><span class="num"></span><h2>Profit two ways: the total route and the marginal route</h2><p>Tandy Toys sells toys at $20 each and pays $15,000 a month in rent and salaries (Hoang p. 188). The batch costs below are invented so that marginal cost first falls and then rises. Change the price and find the best output both ways.</p></div>
+  <div class="lab">
+    <label class="ctl" style="max-width:420px"><span>Market price of a toy ($)</span><input type="range" id="ttp" min="6" max="34" step="1" value="20"><output id="ttpo"></output></label>
+    <div class="two">
+      <div class="tblwrap"><table id="tttab"></table><p class="muted" style="font-size:13px;margin-top:6px">Output in thousands of toys; money in dollars. MR and MC are per toy for that batch of 1,000. Red: the batch costs more than it earns.</p></div>
+      <div><div id="ttg"></div><dl class="read" id="ttread"></dl></div>
+    </div>
+    <div class="explain" id="ttx"></div>
+  </div></section>
+
+<section class="step" id="graph"><div class="shead"><span class="num"></span><h2>The rule on a graph</h2><p>Hoang draws the rule for a price taker in Figure 14.12 and for a monopoly in Figure 14.18. Switch between them, move the price or the demand curve, and read the profit off the graph.</p></div>
+  <div class="lab lab2">
+    <div id="gg"></div>
+    <div>
+      <div class="row" role="group" aria-label="Kind of firm"><button class="btn" data-gm="pt">Price taker</button><button class="btn" data-gm="pm">Price maker</button></div>
+      <label class="ctl" style="margin-top:14px" id="gpl"><span>Market price ($)</span><input type="range" id="gp" min="8" max="50" step="0.5" value="30"><output id="gpo"></output></label>
+      <label class="ctl" style="margin-top:14px;display:none" id="gal"><span>Demand: price at zero output ($)</span><input type="range" id="ga" min="40" max="80" step="1" value="60"><output id="gao"></output></label>
+      <dl class="read" id="gread"></dl>
+      <div class="explain" id="gx"></div>
+      <p class="muted" style="font-size:13px;margin-top:8px">Illustrative firm: fixed cost $30, MC = 24 − 9Q + 1.5Q². Every number is computed from these.</p>
+    </div>
+  </div></section>
+
+<section class="step" id="sort"><div class="shead"><span class="num"></span><h2>More, less, or stay put?</h2><p>Each card describes a firm. Decide what it should do to its output to maximize profit.</p></div>
+  <div class="sorter"><div class="card"><span class="pill" id="son"></span><p id="soq"></p>
+    <div class="row"><button class="btn" data-so="more">Produce more</button><button class="btn" data-so="less">Produce less</button><button class="btn" data-so="stay">Stay where it is</button></div>
+    <p class="fb" id="sofb" aria-live="polite"></p><div class="row"><button class="btn pri" id="sonext" hidden>Next card</button><span class="score" id="sosc"></span></div></div></div></section>
+
+<section class="step" id="draw"><div class="shead"><span class="num"></span><h2>Draw it like an examiner wants</h2><p>The AP exam asks for a correctly labeled graph of a firm maximizing profit. Build it one label at a time.</p></div>
+  <div class="lab lab2">
+    <div id="drg"></div>
+    <div><h3 id="drt"></h3><div id="drx" style="margin-top:8px"></div>
+      <div class="stepper"><button class="btn" id="drprev">← Back</button><button class="btn pri" id="drnext">Next →</button><div class="dots" id="drdots"></div></div></div>
+  </div></section>
+<!-- /LAB SECTIONS -->
+
+<section class="step" id="cases"><div class="shead"><span class="num"></span><h2>Real-world cases</h2><p>Answer in your notebook, sketch the diagram, then open the model answer.</p></div><div class="cases" id="casebox"></div></section>
+
+<section class="step" id="quiz"><div class="shead"><span class="num"></span><h2>Check yourself</h2><p>Auto-marked multiple choice in the AP format first, then quick-fire questions with model answers.</p><p class="score" id="mcqscore"></p></div><div class="quiz" id="mcqs"></div>
+  <h3 style="margin:30px 0 12px">Quick-fire checklist</h3><div class="quiz" id="qf"></div></section>
+
+<section class="step" id="mistakes"><div class="shead"><span class="num"></span><h2>Common mistakes to avoid</h2></div><div class="mist" id="mist"></div></section>
+
+<section class="step" id="exam"><div class="shead"><span class="num"></span><h2>Exam practice</h2><p>Plan each answer before opening the scoring guide.</p></div><div class="cases" id="exambox"></div></section>
+
+<footer>Profit Maximization Lab · based on the AP Microeconomics Course and Exam Description, Topic 3.5 Profit Maximization, and Hoang, Wray &amp; Chakraborty, <i>Economics</i> (Hodder 2020), Chapter 14 pp. 187–197 and Chapter 6 p. 87; the course's other text is Krugman, <i>Economics for AP</i>, Module 53, pp. 536–541. Figures used: Hoang Table 14.2, Figures 14.9, 14.12, 14.14, 14.15 and 14.18, Questions 14.1–14.3. Tandy Toys' batch costs, the graph firm and the numbers marked illustrative are invented for practice; the case on oil output and the airline case go beyond Hoang and should be checked against current reporting.
+<details style="margin-top:10px"><summary style="cursor:pointer;font-weight:700">For the teacher: where Hoang needs correcting or adding to</summary>
+<ul style="margin:8px 0 0;padding-left:20px;display:grid;gap:4px">
+<li>Hoang's margin note on p. 189 defines average fixed cost as costs "that do not change with the level of output". That is total fixed cost; average fixed cost falls as output rises, as Hoang's own p. 193 shows.</li>
+<li>The rule is printed as "Profit maximization = MC = MR" (p. 189) without saying marginal cost must be rising where it meets marginal revenue. The lab's table and graph both show why that matters.</li>
+<li>On p. 194 the loss-making firm "will still produce where MC = MR". That holds only while price covers average variable cost. Hoang never states the shut-down rule: <i>shut down</i> occurs 0 times in the book.</li>
+<li>Vocabulary: Hoang's <i>abnormal</i> or <i>supernormal profit</i> is the AP exam's <i>positive economic profit</i>, and Hoang's <i>average cost (AC)</i> is <i>average total cost (ATC)</i>. <i>Accounting profit</i> occurs 0 times in Hoang, and the AP name <i>profit-maximizing rule</i> occurs 0 times too.</li>
+<li>In Hoang's chapter the topic is HL only. In AP Microeconomics it is core content for every student.</li>
+<li>The answer booklet for Question 14.3(c) says the price rises "from $8 to $12"; the figure's prices are $8 and $16, and its own areas use $16.</li>
+<li>Old layout for comparison: <a href="m53-student.html">Module 53 student guide</a>, <a href="m53-test.html">test</a> and <a href="m53-notes.html">teaching notes</a>.</li>
+</ul></details></footer>
+</div>
+
+<script>
+(function(){
+'use strict';
+/* ============================ DATA ============================ */
+const NS='m53lab';
+/* Tandy Toys (Hoang Q14.1, p. 188): price $20, fixed cost $7,000 rent + $8,000 salaries. Batch MC invented. */
+const TT_FC=15000, TT_MC=[10,8,9,12,16,20,25,31];
+function ttRows(P){const r=[{q:0,tr:0,vc:0,mc:null}];let vc=0;TT_MC.forEach((m,i)=>{vc+=m*1000;r.push({q:i+1,tr:P*1000*(i+1),vc:vc,mc:m})});r.forEach(x=>{x.tc=TT_FC+x.vc;x.pr=x.tr-x.tc;x.avc=x.q?x.vc/(1000*x.q):null});return r}
+function ttBest(r){let b=r[0];r.forEach(x=>{if(x.pr>=b.pr)b=x});return b}
+const TT_MINAVC=Math.min(...ttRows(20).filter(x=>x.q).map(x=>x.avc));
+/* Hoang Figure 14.9 (p. 190): demand through ($16, 90) and ($8, 120) */
+const H_P=q=>16+(q-90)*(8-16)/(120-90);
+const H_TR90=H_P(90)*90, H_TR120=H_P(120)*120, H_A=(H_P(90)-H_P(120))*90, H_B=H_P(120)*(120-90), H_MR=(H_TR120-H_TR90)/(120-90);
+/* Hoang Question 14.2 (p. 189) */
+const Q2={q1:10,vc1:2000,tc1:4545,q2:15,vc2:2850,tc2:5395};Q2.fc=Q2.tc1-Q2.vc1;Q2.mc=(Q2.tc2-Q2.tc1)/(Q2.q2-Q2.q1);
+/* Exam question 1 firm */
+const E1={P:12,TC:[10,18,24,32,42,54,68],P2:9};
+function e1(P){const r=E1.TC.map((tc,q)=>({q,tc,tr:P*q,pr:P*q-tc,mc:q?tc-E1.TC[q-1]:null,avc:q?(tc-E1.TC[0])/q:null}));let b=r[0];r.forEach(x=>{if(x.pr>=b.pr)b=x});return{r,b}}
+const E1a=e1(E1.P), E1b=e1(E1.P2);
+const tt20=ttBest(ttRows(20));
+const $m=v=>(v<0?'−$':'$')+Math.abs(Math.round(v*100)/100).toLocaleString();
+
+/* ============================ CONFIG ============================
+   GOALS [text]   TERMS [term, definition, addedForAP]
+   CASES [title, context, [questions], [model answers]]
+   MCQ   [question, [5 options], correctIndex, explanation]
+   QF    [question, answer]   MI [mistake, correction]
+   EX    [label, question, [scoring guide points]]
+================================================================== */
+const GOALS=[
+ ['Calculate total, average and marginal revenue from a table or a graph'],
+ ['Calculate profit as TR − TC and find the profit-maximizing output from a table'],
+ ['State the profit-maximizing rule, MR = MC, and explain it with marginal analysis'],
+ ['Show the profit-maximizing quantity, price and profit on a correctly labeled graph'],
+ ['Explain why MR equals price for a price taker but is below price for a firm with market power'],
+ ['Explain why a firm can maximize profit and still make a loss']];
+const TERMS=[
+ ['Total revenue','Price × quantity sold: TR = P × Q.'],
+ ['Average revenue','Revenue per unit, TR ÷ Q, which always equals the price.'],
+ ['Marginal revenue','The extra revenue from selling one more unit: ΔTR ÷ ΔQ.'],
+ ['Marginal cost','The extra cost of producing one more unit: ΔTC ÷ ΔQ.'],
+ ['Economic profit','TR − TC, with implicit costs counted in TC. Hoang: abnormal profit when positive.'],
+ ['Normal profit','Zero economic profit: TR = TC, enough to keep the owner in this business.'],
+ ['Accounting profit','TR minus explicit costs only. Larger than economic profit.',1],
+ ['Loss','Negative economic profit: TC > TR, so price is below average total cost.'],
+ ['Price taker','A firm that sells at the market price, so P = AR = MR.'],
+ ['Price maker','A firm with a downward-sloping demand curve, so MR is below price.'],
+ ['Marginal analysis','Compare the extra benefit of one more unit with its extra cost.'],
+ ['Profit-maximizing rule','Produce where MR = MC, with MC rising.',1],
+ ['Loss-minimizing output','MR = MC when the firm makes a loss there: the smallest possible loss.'],
+ ['Shut-down point','Price equal to minimum AVC; below it the firm produces nothing in the short run.',1]];
+const CASES=[
+ ['A late customer at the cinema','A cinema sells tickets for $8, Hoang\'s average revenue figure (p. 187). The film has started, half the seats are empty, and someone asks to buy a ticket. An airline whose plane is waiting at the gate gets a similar request from a late passenger. Hoang\'s Top tip (p. 189) contrasts the two.',
+  ['What are the marginal revenue and the marginal cost of selling the late ticket?','Should the cinema sell it? Use marginal analysis.','Why does the airline decide differently?'],
+  ['MR = $8, the ticket price. The marginal cost is close to $0: the film is being shown and the seat is empty whatever happens.','Yes. MR ($8) > MC (about $0), so the sale adds about $8 to profit. The cost of the screening is fixed and does not enter the decision.','For the airline the marginal cost of waiting is large: airport penalties and compensation for every other passenger on a delayed flight. MC is far above the single fare, so MR < MC and it does not wait.']],
+ ['Saudi Arabia cuts its oil output','In June 2023 Saudi Arabia announced a voluntary cut of about 1 million barrels a day in its crude oil output from July 2023, on top of earlier OPEC+ cuts. Saudi Arabia is large enough that its output affects the world oil price.',
+  ['Is Saudi Arabia a price taker or a price maker in the oil market? Explain.','Why can producing less raise its profit?','Sketch the graph: where is the profit-maximizing output?'],
+  ['A price maker: its output is a large share of world supply, so selling more lowers the world price. It faces a downward-sloping demand curve.','Because it must accept a lower price on every barrel to sell more, the marginal revenue of the last barrels can be below their marginal cost, or even negative. Cutting those barrels removes units where MC > MR, so profit rises even though fewer barrels are sold.','Draw D = AR sloping down and MR below it, steeper. The profit-maximizing output is where MR cuts MC; the price is read from the demand curve above that output, not from the MR curve.']],
+ ['A wheat farm at the world price (illustrative numbers)','A family wheat farm on the Canadian prairies sells at the world price, which this season is $8 a bushel. Growing more bushels on its last field would cost $7 a bushel; adding a further rented field would cost $9 a bushel.',
+  ['What is the farm\'s marginal revenue from one more bushel?','Should it plant the last field, and the rented field?','If the world price rose to $10, what would change?'],
+  ['$8, the world price. The farm is a price taker, so P = MR.','Plant the last field: MR $8 > MC $7, so each bushel adds $1 to profit. Do not rent the extra field: MC $9 > MR $8, so each bushel would lose $1.','At $10, MR > MC for the rented field as well ($10 > $9), so planting it now adds to profit. A higher price raises the output where P = MC: this is why a price taker\'s supply curve slopes upward along its MC curve.']],
+ ['Airlines in the 2020 pandemic','Hoang\'s case study (p. 191) describes how the Covid-19 pandemic pushed businesses around the world into losses. Many airlines kept flying a reduced timetable in 2020 even though full flights were rare and the year as a whole was loss-making.',
+  ['Which of an airline\'s costs are fixed in the short run, and which are variable?','Why might an airline keep flying a route that makes a loss?','When should it stop flying the route altogether?'],
+  ['Fixed: aircraft leases, loan interest, head-office salaries, airport slot fees. Variable: fuel, crew time on the flight, landing fees, catering.','If the fares on a flight cover its variable costs, flying adds to revenue more than to cost, so the airline loses less than by grounding the plane, when it would still pay the fixed costs. It produces where MR = MC to make the loss as small as possible.','When fares no longer cover the variable cost of flying (P < AVC), every flight adds to the loss, so it should stop flying the route in the short run. If losses continue in the long run, it should leave the market (Topic 3.6).']]];
+const MCQ=[
+ ['A firm is producing an output at which marginal revenue is $40 and marginal cost is $32, and marginal cost is rising. To maximize profit, the firm should',
+  ['increase its output','decrease its output','keep its output unchanged','raise its price above marginal revenue','shut down in the short run'],0,
+  'The next unit adds $40 to revenue and only $32 to cost, so producing it raises profit by $8. Output should rise until MR = MC. Decreasing output gives up profitable units; staying put leaves profit unclaimed.'],
+ ['Which condition identifies the profit-maximizing level of output for any firm?',
+  ['Price equals average total cost','Marginal revenue equals marginal cost','Total revenue is at its maximum','Average total cost is at its minimum','Price equals average variable cost'],1,
+  'MR = MC is the profit-maximizing rule for every market structure. P = ATC is the break-even point, maximum TR is where MR = 0, minimum ATC is the cheapest output, and P = AVC is the shut-down point.'],
+ [`A perfectly competitive firm sells 200 units at the market price of $15. What is its marginal revenue from the 201st unit?`,
+  ['$3,000','$3,015',`$15`,'$0.075','It cannot be determined without cost data'],2,
+  'A price taker receives the market price for every extra unit, so MR = P = $15. $3,000 is total revenue and $3,015 is total revenue after the 201st unit. Cost data are not needed to find revenue.'],
+ [`Tandy Toys sells toys at $20 and its batch costs are those in the lab's table. How many thousand toys maximize its profit?`,
+  ['3','4','5',String(tt20.q),'8'],3,
+  `Batches up to the ${tt20.q}th cost no more than $20 a toy; the ${tt20.q}th costs exactly $20, so MR = MC there and profit is ${$m(tt20.pr)}. The next batch costs $${TT_MC[tt20.q]} a toy, more than its $20 of revenue. Profit at 5 is the same, but the rule picks the output where MR = MC.`],
+ [`A seller cuts its price from $16 to $8 and its sales rise from 90 to 120 units (Hoang Figure 14.9). What is the marginal revenue per extra unit over this range?`,
+  ['$8','−$8','$32','−$480',$m(H_MR)],4,
+  `Total revenue falls from ${$m(H_TR90)} to ${$m(H_TR120)}, a change of ${$m(H_TR120-H_TR90)} over 30 extra units, so MR = ${$m(H_MR)} per unit. −$480 is the change in total revenue, not per unit; $8 is the new price.`],
+ ['At the output where MR = MC, a firm\'s price is below its average total cost but above its average variable cost. In the short run the firm',
+  ['minimizes its loss by producing this output','earns a positive economic profit','should shut down immediately','should raise its price to average total cost','is producing more than the profit-maximizing output'],0,
+  'Price below ATC means a loss, but price above AVC means each unit also pays something towards fixed cost. Producing where MR = MC therefore gives a smaller loss than shutting down, which would lose all the fixed cost.'],
+ ['A firm earning a normal profit has',
+  ['zero accounting profit','zero economic profit','total revenue equal to its explicit costs','marginal revenue greater than marginal cost','price below average variable cost'],1,
+  'Normal profit is zero economic profit: TR equals all costs, implicit included, so the owner earns as much as in the next best use. Accounting profit is then positive, because it ignores implicit costs.'],
+ ['A firm\'s total revenue is greatest at 50 units and its profit is greatest at 40 units. To maximize profit it should produce',
+  ['50 units','45 units','40 units','where total revenue equals total cost','0 units'],2,
+  'The goal is the largest TR − TC, which is at 40 units. Beyond 40 the extra units add more to cost than to revenue, even though revenue keeps rising until 50. Where TR = TC profit is zero.'],
+ ['Which is true at the profit-maximizing output of a firm with a downward-sloping demand curve?',
+  ['P = MR = MC','P = MC > MR','P < MR = MC','P > MR = MC','MR > MC > P'],3,
+  'The firm sets MR = MC. Because it must cut its price to sell more, MR is below price, so P > MR = MC. P = MR = MC holds only for a price taker.'],
+ ['A firm\'s marginal cost curve first falls and then rises. It equals marginal revenue at 3 units, where marginal cost is falling, and at 9 units, where marginal cost is rising. The profit-maximizing output is',
+  ['3 units','between 3 and 9 units','where marginal cost is at its minimum','0 units','9 units'],4,
+  'Between 3 and 9 units MR is above MC, so every one of those units adds to profit. Stopping at 3 would give them up. The maximum is where MC cuts MR from below, at 9 units.']];
+const QF=[
+ ['Write the formulas for TR, AR and MR.','TR = P × Q; AR = TR ÷ Q = P; MR = ΔTR ÷ ΔQ.'],
+ [`Hoang's cinema takes $60,000 from 7,500 tickets. What is its average revenue?`,`${$m(60000/7500)} per ticket, the ticket price.`],
+ ['State the profit-maximizing rule.','Produce the output where marginal revenue equals marginal cost, with marginal cost rising.'],
+ ['If MR > MC for the next unit, what should the firm do?','Produce it: it adds MR − MC to profit. Keep expanding until MR = MC.'],
+ ['Why does a price taker have MR = P?','Every extra unit sells at the same market price, so each adds exactly the price to total revenue.'],
+ ['Why is MR below price for a firm with a downward-sloping demand curve?','To sell one more unit it must lower its price on all its units, so the extra revenue is the new price minus the revenue lost on the earlier units.'],
+ [`From Hoang Question 14.2: TC rises from $4,545 to $5,395 as output rises from 10 to 15. Find MC.`,`${$m(Q2.mc)} per unit: (${'$'}5,395 − ${'$'}4,545) ÷ (15 − 10).`],
+ [`Same question: what is the fixed cost if variable cost at 10 units is $2,000?`,`${$m(Q2.fc)}: TC − VC = $4,545 − $2,000.`],
+ ['How do you show economic profit on a graph?','A rectangle with height P − ATC at the profit-maximizing quantity and width Q*.'],
+ ['What does zero economic profit mean for the owner?','A normal profit: they earn as much as in their next best alternative, so they stay.'],
+ ['A firm makes a loss at MR = MC. Should it shut down?','Not necessarily. In the short run it keeps producing if price is at least average variable cost (Topic 3.6).'],
+ ['Does fixed cost affect the profit-maximizing output?','No. Fixed cost does not change marginal cost, so MR = MC is at the same output; it changes only the size of the profit.']];
+const MI=[
+ ['Profit is maximized where total revenue is greatest.','Total revenue peaks where MR = 0. Profit peaks where MR = MC, which is a smaller output whenever MC is positive.'],
+ ['The firm should produce where price equals average total cost.','P = ATC is where profit is zero. The firm chooses Q where MR = MC and then compares P with ATC to see whether it makes a profit.'],
+ ['Stop at the first output where MC equals MR.','If MC is still falling there, the units beyond it earn more than they cost. The maximum is where rising MC meets MR.'],
+ ['Marginal revenue always equals price.','Only for a price taker. A firm that must cut its price to sell more has MR below price, which is why its MR curve lies below its demand curve.'],
+ ['A firm making a loss at MR = MC should shut down.','In the short run it keeps producing whenever price covers average variable cost, because that loss is smaller than its fixed cost (Topic 3.6).'],
+ ['Read the price off the MR curve.','Find Q where MR = MC, then go up to the demand curve: the price is the highest one buyers will pay for that quantity.']];
+const EX=[
+ ['Free response · 5 points',`A perfectly competitive firm sells its product at $${E1.P}. Its total cost at outputs 0 to 6 is ${E1.TC.map(v=>'$'+v).join(', ')}. (a) Calculate the marginal revenue of the 4th unit. (b) Identify the profit-maximizing output and explain using marginal analysis. (c) Calculate the firm's profit at that output. (d) The price falls to $${E1.P2}. Will the firm produce more, less or the same? Explain.`,
+  [`(a) MR = $${E1.P}, the price, because the firm is a price taker (1 point).`,
+   `(b) ${E1a.b.q} units (1 point): marginal cost is ${E1a.r.slice(1,E1a.b.q+1).map(x=>'$'+x.mc).join(', ')} for units 1 to ${E1a.b.q}, none above MR = $${E1.P}; the next unit costs $${E1a.r[E1a.b.q+1].mc}, more than $${E1.P} (1 point).`,
+   `(c) Profit = TR − TC = $${E1a.b.tr} − $${E1a.b.tc} = ${$m(E1a.b.pr)} (1 point).`,
+   `(d) Less: at $${E1.P2} only units with MC ≤ $${E1.P2} are worth producing, so output falls to ${E1b.b.q} units (1 point). The firm makes a loss of ${$m(-E1b.b.pr)}, smaller than its fixed cost of $${E1.TC[0]}, so it keeps producing.`]],
+ ['Free response · graph · 4 points','Draw a correctly labeled graph for a perfectly competitive firm that is earning a positive economic profit. Show the firm\'s profit-maximizing quantity, labeled Q*, and shade the area of economic profit.',
+  ['Axes labeled price (or price and cost) and quantity; a horizontal line labeled MR (or D = MR = P) (1 point).','An upward-sloping MC curve and a U-shaped ATC curve with MC passing through the minimum of ATC (1 point).','Q* where MR = MC on the rising part of MC (1 point).','Profit shaded as the rectangle between price and ATC, from 0 to Q*, with price above ATC at Q* (1 point).']],
+ ['Free response · 3 points','A firm with a downward-sloping demand curve produces where marginal revenue equals marginal cost. (a) Explain why its marginal revenue is less than its price. (b) At that output, is price greater than, less than or equal to marginal cost? (c) Explain why the firm does not produce where price equals marginal cost.',
+  ['(a) To sell one more unit it must lower the price on all units, so the extra revenue is less than the price of the last unit (1 point).','(b) Greater than: P > MR = MC (1 point).','(c) Beyond the MR = MC output the extra units have MC > MR, so producing them up to P = MC would reduce profit (1 point).']],
+ ['Calculation set · 5 points',`Using Hoang Question 14.2: at 10 units variable cost is $${Q2.vc1.toLocaleString()} and total cost $${Q2.tc1.toLocaleString()}; at 15 units variable cost is $${Q2.vc2.toLocaleString()} and total cost $${Q2.tc2.toLocaleString()}. Calculate (a) fixed cost, (b) average fixed cost at 15 units, (c) average variable cost at 15 units, (d) average total cost at 15 units, (e) marginal cost between 10 and 15 units.`,
+  [`(a) FC = TC − VC = ${$m(Q2.fc)}.`,`(b) AFC = ${$m(Q2.fc)} ÷ 15 = ${$m(Q2.fc/15)}.`,`(c) AVC = $${Q2.vc2.toLocaleString()} ÷ 15 = ${$m(Q2.vc2/15)}.`,`(d) ATC = $${Q2.tc2.toLocaleString()} ÷ 15 = ${$m(Q2.tc2/15)}, which equals AFC + AVC.`,`(e) MC = ΔTC ÷ ΔQ = ${$m(Q2.tc2-Q2.tc1)} ÷ 5 = ${$m(Q2.mc)}.`]]];
+
+/* ============================ CORE (from the IB lab template) ============================ */
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const st={get(k,d){try{const v=localStorage.getItem(NS+'.'+k);return v==null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem(NS+'.'+k,JSON.stringify(v))}catch(e){}}};
+const f0=v=>Math.round(v).toLocaleString(), f1=v=>(Math.round(v*10)/10).toLocaleString(), f2=v=>(Math.round(v*100)/100).toLocaleString(), money=v=>(v<0?'−$':'$')+Math.round(Math.abs(v)).toLocaleString();
+const LC={s:'ls',s2:'ls',d:'ld',d2:'ld2',sm:'lm'};
+function Plot(o){const W=o.w||540,H=o.h||380,L=o.L||54,R=26,T=24,B=44;const sx=x=>L+x/o.xmax*(W-L-R),sy=y=>H-B-y/o.ymax*(H-T-B);const out=[];
+ return{sx,sy,
+  fn(f,cls,label,lx){let d='',pen=false;for(let i=0;i<=160;i++){const x=o.xmax*i/160,y=f(x);if(!isFinite(y)||y<0||y>o.ymax){pen=false;continue}d+=(pen?'L':'M')+sx(x).toFixed(1)+' '+sy(y).toFixed(1)+' ';pen=true}if(d)out.push(`<path class="${cls}" d="${d}"/>`);if(label){const x=lx!=null?lx:o.xmax*.86,y=f(x);if(isFinite(y)&&y>=0&&y<=o.ymax)out.push(`<text class="${LC[cls]||'lg'}" x="${sx(x)+6}" y="${sy(y)-6}">${label}</text>`)}},
+  poly(p,cls){out.push(`<polygon class="${cls}" points="${p.map(q=>sx(q[0]).toFixed(1)+','+sy(q[1]).toFixed(1)).join(' ')}"/>`)},
+  bar(x,w,h,cls,lab){out.push(`<rect class="bar ${cls||''}" x="${sx(x-w/2)}" y="${sy(h)}" width="${sx(w)-sx(0)}" height="${sy(0)-sy(h)}"/>`);if(lab!=null)out.push(`<text class="note" x="${sx(x)}" y="${sy(h)-6}" text-anchor="middle">${lab}</text>`)},
+  seg(x0,y0,x1,y1,cls){out.push(`<path class="${cls}" d="M${sx(x0)} ${sy(y0)} L${sx(x1)} ${sy(y1)}"/>`)},
+  dot(x,y,c){out.push(`<circle class="${c||'dot'}" cx="${sx(x)}" cy="${sy(y)}" r="5"/>`)},
+  guide(x,y,xl,yl){out.push(`<path class="guide" d="M${sx(0)} ${sy(y)} L${sx(x)} ${sy(y)} L${sx(x)} ${sy(0)}"/>`);if(yl)out.push(`<text class="tick" x="${sx(0)-6}" y="${sy(y)+4}" text-anchor="end">${yl}</text>`);if(xl)out.push(`<text class="tick" x="${sx(x)}" y="${sy(0)+17}" text-anchor="middle">${xl}</text>`)},
+  xt(x,t){out.push(`<text class="tick" x="${sx(x)}" y="${sy(0)+17}" text-anchor="middle">${t}</text>`)},
+  yt(y,t){out.push(`<text class="tick" x="${sx(0)-6}" y="${sy(y)+4}" text-anchor="end">${t}</text>`)},
+  text(x,y,t,c,a){out.push(`<text class="${c||'note'}" x="${sx(x)}" y="${sy(y)}" text-anchor="${a||'start'}">${t}</text>`)},
+  svg(aria){return `<svg class="g" viewBox="0 0 ${W} ${H}" role="img" aria-label="${aria||''}">${out.join('')}<path class="axis" d="M${sx(0)} ${sy(o.ymax)} L${sx(0)} ${sy(0)} L${sx(o.xmax)} ${sy(0)}"/><text class="axl" x="${sx(0)-8}" y="${T-8}">${o.yl}</text><text class="axl" x="${sx(o.xmax)}" y="${H-8}" text-anchor="end">${o.xl}</text><text class="tick" x="${sx(0)-6}" y="${sy(0)+17}" text-anchor="end">0</text></svg>`}}}
+function sorter(pre,cards,labels,attr){let i=st.get(pre+'i',0),sc=st.get(pre+'s',[0,0]);
+ const draw=()=>{i%=cards.length;$('#'+pre+'n').textContent=`Card ${i+1} of ${cards.length}`;$('#'+pre+'q').textContent=cards[i][0];$('#'+pre+'fb').textContent='';$('#'+pre+'next').hidden=true;$$(`[${attr}]`).forEach(b=>b.disabled=false);$('#'+pre+'sc').textContent=`Score ${sc[0]} / ${sc[1]}`};
+ $$(`[${attr}]`).forEach(b=>b.addEventListener('click',()=>{const c=cards[i],ok=b.getAttribute(attr)===c[1];sc[1]++;if(ok)sc[0]++;st.set(pre+'s',sc);const fb=$('#'+pre+'fb');fb.className='fb '+(ok?'ok':'no');fb.textContent=(ok?'✓ Correct. ':'✗ Answer: '+labels[c[1]]+'. ')+c[2];$$(`[${attr}]`).forEach(x=>x.disabled=true);$('#'+pre+'next').hidden=false;$('#'+pre+'sc').textContent=`Score ${sc[0]} / ${sc[1]}`}));
+ $('#'+pre+'next').addEventListener('click',()=>{i++;st.set(pre+'i',i);draw()});draw()}
+function stepper(pre,steps,draw){let k=0;const go=()=>{k=Math.max(0,Math.min(steps.length-1,k));draw(k);$('#'+pre+'t').textContent=`Step ${k+1}: ${steps[k][0]}`;$('#'+pre+'x').innerHTML=steps[k][1];$('#'+pre+'dots').innerHTML=steps.map((_,i)=>`<i class="${i<=k?'on':''}"></i>`).join('');$('#'+pre+'prev').disabled=k===0;$('#'+pre+'next').disabled=k===steps.length-1};
+ $('#'+pre+'next').addEventListener('click',()=>{k++;go()});$('#'+pre+'prev').addEventListener('click',()=>{k--;go()});go();return{reset(){k=0;go()}}}
+const ADDED='<span class="badge b-hl">Added for AP</span>';
+function renderGoals(){const d=st.get('goals',[]);$('#goals').innerHTML=GOALS.map((g,i)=>`<li><input type="checkbox" id="g${i}" ${d.includes(i)?'checked':''}><label for="g${i}">${g[0]}</label></li>`).join('');$$('#goals input').forEach(c=>c.addEventListener('change',()=>{const i=+c.id.slice(1);let v=st.get('goals',[]);v=c.checked?[...new Set([...v,i])]:v.filter(x=>x!==i);st.set('goals',v)}))}
+function renderCards(){$('#cards').innerHTML=TERMS.map(t=>`<button class="flip" aria-label="${t[0]}: show definition"><div class="in"><div class="f"><b>${t[0]}</b><span class="hint">${t[2]?ADDED+' ':''}Click to flip</span></div><div class="b">${t[1]}</div></div></button>`).join('');$$('#cards .flip').forEach(b=>b.addEventListener('click',()=>b.classList.toggle('on')))}
+function renderMCQ(){const list=MCQ.map((q,i)=>[q,i]);
+ $('#mcqs').innerHTML=list.map(([q,i],k)=>`<div class="mcq" data-i="${i}"><p><b>${k+1}.</b> ${q[0]}</p><div class="opts">${q[1].map((o,j)=>`<button class="btn opt" data-j="${j}">(${String.fromCharCode(65+j)}) ${o}</button>`).join('')}</div><p class="why" hidden></p></div>`).join('');
+ const sc=()=>{const a=st.get('mcq',{});const done=list.filter(x=>a[x[1]]!=null);const ok=done.filter(x=>a[x[1]]===x[0][2]).length;$('#mcqscore').innerHTML=done.length?`Score: ${ok} / ${list.length} <button class="btn" id="mcqreset" style="margin-left:10px;padding:4px 10px">Try again</button>`:'';const r=$('#mcqreset');if(r)r.addEventListener('click',()=>{st.set('mcq',{});renderMCQ()})};
+ $$('.mcq').forEach(el=>{const i=+el.dataset.i,q=MCQ[i];const mark=j=>{el.querySelectorAll('.opt').forEach(b=>{const k=+b.dataset.j;b.disabled=true;if(k===q[2])b.classList.add('ok');else if(k===j)b.classList.add('no')});const w=el.querySelector('.why');w.hidden=false;w.textContent=(j===q[2]?'✓ ':'✗ ')+q[3]};
+  const a=st.get('mcq',{});if(a[i]!=null)mark(a[i]);el.querySelectorAll('.opt').forEach(b=>b.addEventListener('click',()=>{const a=st.get('mcq',{});a[i]=+b.dataset.j;st.set('mcq',a);mark(+b.dataset.j);sc()}))});sc()}
+function renderQF(){$('#qf').innerHTML=QF.map(q=>`<div class="qa"><p><b>${q[0]}</b></p><details><summary>Show answer</summary><p>${q[1]}</p></details></div>`).join('')}
+function renderStatic(){
+ $('#casebox').innerHTML=CASES.map(c=>`<article class="case"><h3>${c[0]}</h3><p>${c[1]}</p><ol>${c[2].map(q=>`<li>${q}</li>`).join('')}</ol><details><summary>Model answer</summary><ol>${c[3].map(a=>`<li>${a}</li>`).join('')}</ol></details></article>`).join('');
+ $('#mist').innerHTML=MI.map(m=>`<div><b>✗ ${m[0]}</b>${m[1]}</div>`).join('');
+ $('#exambox').innerHTML=EX.map(e=>`<article class="case"><span class="badge b-sl">${e[0]}</span><p style="font-family:var(--serif);font-size:17px">${e[1]}</p><details><summary>Scoring guide</summary><ol>${e[2].map(x=>`<li>${x}</li>`).join('')}</ol></details></article>`).join('')}
+
+/* ============================ LAB CODE ============================ */
+/* --- Revenue --- */
+const RV={mode:st.get('rvm','pt'),q:6,fig:false};
+function rvDraw(){
+ const pt=RV.mode==='pt',qmax=pt?12:150;const inp=$('#rvq');inp.max=qmax;inp.step=pt?1:5;if(RV.q>qmax)RV.q=qmax;inp.value=RV.q;const q=RV.q;
+ $$('[data-rm]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.rm===RV.mode));
+ const P=pt?5:H_P(q),TR=P*q,TRprev=q?(pt?5*(q-1):H_P(q-1)*(q-1)):0,MR=q?TR-TRprev:null;
+ const a=Plot({xmax:qmax,ymax:pt?10:45,xl:'Quantity',yl:'Price, revenue per unit ($)',h:290});
+ if(pt){a.fn(x=>5,'d','D = AR = MR = P',qmax*.35);[2,4,6,8,10,12].forEach(x=>a.xt(x,x));[5,10].forEach(y=>a.yt(y,y))}
+ else{if(RV.fig){a.poly([[0,8],[90,8],[90,16],[0,16]],'area');a.poly([[90,0],[120,0],[120,8],[90,8]],'spend');a.text(40,11.2,'A','lm','middle');a.text(105,3,'B','lm','middle')}
+  a.fn(H_P,'d','D = AR',100);a.fn(x=>40-8*x/15,'d2','MR',45);[30,60,90,120,150].forEach(x=>a.xt(x,x));[10,20,30,40].forEach(y=>a.yt(y,y))}
+ if(q>0){a.guide(q,P,'','');a.dot(q,P)}
+ $('#rvg1').innerHTML=a.svg('Average and marginal revenue');
+ const tmax=pt?60:1600,b=Plot({xmax:qmax,ymax:tmax,xl:'Quantity',yl:'Total revenue ($)',h:250});
+ b.fn(x=>(pt?5:H_P(x))*x,'sm','TR',pt?qmax*.8:110);if(q>0){b.guide(q,TR,'','');b.dot(q,TR)}
+ (pt?[2,4,6,8,10,12]:[30,60,90,120,150]).forEach(x=>b.xt(x,x));(pt?[20,40,60]:[500,1000,1500]).forEach(y=>b.yt(y,y));
+ $('#rvg2').innerHTML=b.svg('Total revenue');
+ $('#rvqo').textContent=q;
+ $('#rvread').innerHTML=`<dt>Price = average revenue</dt><dd>${$m(P)}</dd><dt>Total revenue (P × Q)</dt><dd>${$m(TR)}</dd><dt>Marginal revenue of unit ${q||'–'} (ΔTR)</dt><dd>${MR==null?'–':$m(MR)}</dd>`;
+ let qPeak=0;for(let x=0;x<=150;x++)if(H_P(x)*x>H_P(qPeak)*qPeak)qPeak=x;
+ $('#rvx').innerHTML=pt?`Every cup sells for $5, so each extra cup adds exactly $5 to total revenue: <b>P = AR = MR</b> and total revenue is a straight line (Hoang Table 14.2, p. 192). This is what it means to be a price taker.`
+  :RV.fig&&q===120?`At $16 the seller sells 90 units for ${$m(H_TR90)}; at $8 it sells 120 for ${$m(H_TR120)}. It gains area B (${$m(H_B)}, the 30 new sales) but loses area A (${$m(H_A)}, the price cut on the 90 old sales). Revenue changes by ${$m(H_TR120-H_TR90)}, so marginal revenue is ${$m(H_MR)} per extra unit, well below the $8 price.`
+  :`To sell more, the seller must cut its price on every unit, so marginal revenue lies below the demand curve and falls twice as fast. Total revenue peaks at ${qPeak} units, where MR = 0; beyond that, selling more <i>lowers</i> revenue.`}
+$$('[data-rm]').forEach(b=>b.addEventListener('click',()=>{RV.mode=b.dataset.rm;st.set('rvm',RV.mode);RV.fig=false;RV.q=RV.mode==='pt'?6:60;rvDraw()}));
+$('#rvq').addEventListener('input',e=>{RV.q=+e.target.value;RV.fig=false;rvDraw()});
+$('#rvfig').addEventListener('click',()=>{RV.mode='pm';RV.q=120;RV.fig=true;rvDraw()});
+
+/* --- Profit table --- */
+const TT={P:20};
+const ord=k=>k+(k%100>=11&&k%100<=13?'th':['th','st','nd','rd'][k%10]||'th'), kToys=q=>q?q+',000 toys':'0 toys';
+function ttDraw(){
+ const P=TT.P,r=ttRows(P),b=ttBest(r);$('#ttpo').textContent='$'+P;
+ $('#tttab').innerHTML='<tr><th>Q</th><th>TR</th><th>TC</th><th>Profit</th><th>MR</th><th>MC</th></tr>'+r.map(x=>`<tr class="${x===b?'cur':''}"><td>${x.q}</td><td>${money(x.tr)}</td><td>${money(x.tc)}</td><td>${money(x.pr)}</td><td>${x.q?'$'+P:'–'}</td><td style="${x.mc!=null&&x.mc>P?'color:var(--bad)':''}">${x.mc==null?'–':'$'+x.mc}</td></tr>`).join('');
+ const g=Plot({xmax:9,ymax:35,xl:'Batch (1,000 toys)',yl:'$ per toy',h:300});
+ TT_MC.forEach((m,i)=>g.bar(i+1,.62,m,m>P?'dim':'','$'+m));g.fn(x=>P,'d','MR = P',.05);for(let i=1;i<=8;i++)g.xt(i,i);[10,20,30].forEach(y=>g.yt(y,y));
+ $('#ttg').innerHTML=g.svg('Marginal cost of each batch against marginal revenue');
+ const nxt=b.q<TT_MC.length?TT_MC[b.q]:null,tie=b.q>0&&r[b.q-1].pr===b.pr;
+ $('#ttread').innerHTML=`<dt>Profit-maximizing output</dt><dd>${kToys(b.q)}</dd><dt>Profit (TR − TC)</dt><dd>${money(b.pr)}</dd><dt>Last batch made: MR vs MC</dt><dd>${b.q?'$'+P+' vs $'+b.mc:'–'}</dd><dt>Next batch: MR vs MC</dt><dd>${nxt==null?'–':'$'+P+' vs $'+nxt}</dd>`;
+ let x;
+ if(b.q===0)x=`At $${P} no output pays its way: price is below the lowest average variable cost, ${$m(TT_MINAVC)} a toy. Producing nothing limits the loss to the fixed cost, ${money(TT_FC)}. This is the <b>shut-down rule</b> you meet in Topic 3.6.`;
+ else{const allIn=TT_MC.slice(0,b.q).every(m=>m<=P);
+  x=`<b>Total route:</b> the largest number in the profit column is ${money(b.pr)}, at ${kToys(b.q)}. <b>Marginal route:</b> ${allIn?`every batch up to the ${ord(b.q)} costs no more than the $${P} it earns per toy`:`the ${ord(b.q)} batch costs $${b.mc} a toy against the $${P} it earns`}${nxt!=null?`, and the next costs $${nxt}, more than $${P}`:''}. Both routes give the same answer.`;
+  if(tie)x+=` Profit is the same at ${kToys(b.q-1)} because the ${ord(b.q)} batch's MC equals MR; the rule picks the output where <b>MR = MC</b>.`;
+  if(b.pr<0&&b.pr>-TT_FC)x+=` Profit is negative, but the loss of ${money(-b.pr)} is smaller than the ${money(TT_FC)} the firm would lose by shutting down, so this is the <b>loss-minimizing</b> output.`;
+  if(b.pr===-TT_FC)x+=` The loss equals the fixed cost, so producing and shutting down are equally bad: price equals the minimum of average variable cost, the shut-down point.`;
+  if(!allIn)x+=` The first batch alone costs more than it earns, but the cheaper batches after it make up for it: the rule looks at the point where <i>rising</i> MC meets MR, so the falling part of MC does not stop the firm.`}
+ $('#ttx').innerHTML=x}
+$('#ttp').addEventListener('input',e=>{TT.P=+e.target.value;ttDraw()});
+
+/* --- Graph --- */
+const GF=30,MCf=q=>24-9*q+1.5*q*q,AVCf=q=>24-4.5*q+.5*q*q,ATCf=q=>AVCf(q)+GF/q;
+function solve(f,a,b){for(let i=0;i<60;i++){const m=(a+b)/2;if(f(a)*f(m)<=0)b=m;else a=m}return(a+b)/2}
+const G_MINAVC=AVCf(4.5);
+const GG={mode:st.get('ggm','pt'),P:30,A:60};
+function gSolve(mode,P,A){if(mode==='pt'){if(P<G_MINAVC)return{q:0,P};return{q:solve(q=>P-MCf(q),3,10),P}}
+ const q=solve(q=>(A-8*q)-MCf(q),3,10),pr=A-4*q;return pr<AVCf(q)?{q:0,P:pr}:{q,P:pr}}
+function gPlot(o,k){/* k = how many build steps to show (99 = all); o = {mode,P,A} */
+ const p=Plot({xmax:10,ymax:60,xl:'Quantity',yl:'Price, cost and revenue ($)'}),s=gSolve(o.mode,o.P,o.A),q=s.q,P=s.P,atc=q?ATCf(q):null;
+ [2,4,6,8,10].forEach(x=>p.xt(x,x));if(k<1)return p;
+ if(k>=7&&q>0)p.poly([[0,atc],[q,atc],[q,P],[0,P]],P>=atc?'spend':'area');
+ if(k>=2)p.fn(MCf,'s','MC',6.6);
+ if(k>=3){p.fn(ATCf,'sm','ATC',8.4);p.fn(AVCf,'s2','AVC',9.75)}
+ if(k>=4){if(o.mode==='pt')p.fn(x=>o.P,'d','D = MR = AR = P',.9);else{p.fn(x=>o.A-4*x,'d','D = AR',o.A/4*.8);p.fn(x=>o.A-8*x,'d2','MR',o.A/8*.62)}}
+ if(k>=5&&q>0){p.guide(q,MCf(q),'Q*','');p.dot(q,MCf(q))}
+ if(k>=6&&q>0){p.guide(q,P,'','P');p.guide(q,atc,'','ATC');p.dot(q,P,'dot2');p.dot(q,atc,'dot2')}
+ if(k>=7&&q>0)p.text(q/2,P-(P-atc)*.35-1,P>=atc?'Economic profit':'Loss','lm','middle');
+ return p}
+function gDraw(){
+ const pt=GG.mode==='pt';$$('[data-gm]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.gm===GG.mode));$('#gpl').style.display=pt?'':'none';$('#gal').style.display=pt?'none':'';
+ $('#gpo').textContent='$'+f1(GG.P);$('#gao').textContent='$'+GG.A;
+ const s=gSolve(GG.mode,GG.P,GG.A),q=s.q,P=s.P;
+ $('#gg').innerHTML=gPlot(GG,99).svg('Profit-maximizing firm');
+ if(!q){$('#gread').innerHTML=`<dt>Output</dt><dd>0</dd><dt>Minimum AVC</dt><dd>${$m(G_MINAVC)}</dd><dt>Loss (fixed cost)</dt><dd>${$m(-GF)}</dd>`;
+  $('#gx').innerHTML=`Price is below the minimum of average variable cost (${$m(G_MINAVC)}), so every unit loses money before fixed cost is even counted. The firm produces nothing and loses its fixed cost of ${$m(GF)} (Topic 3.6).`;return}
+ const atc=ATCf(q),avc=AVCf(q),pr=(P-atc)*q;
+ $('#gread').innerHTML=`<dt>Q* (MR = MC)</dt><dd>${f2(q)}</dd><dt>MR = MC at Q*</dt><dd>${$m(MCf(q))}</dd><dt>Price</dt><dd>${$m(P)}</dd><dt>ATC at Q*</dt><dd>${$m(atc)}</dd><dt>AVC at Q*</dt><dd>${$m(avc)}</dd><dt>Profit (P − ATC) × Q*</dt><dd>${$m(pr)}</dd>`;
+ let x=pt?`The price taker's MR is the horizontal price line, so MR = MC means <b>P = MC</b>: the firm moves along its MC curve as the price changes.`:`The price maker's MR lies below its demand curve. It chooses Q* where MR = MC, then charges the price on the <b>demand</b> curve above Q*, so P (${$m(P)}) is above MC (${$m(MCf(q))}).`;
+ x+=pr>0.005?` Price is above ATC, so the shaded rectangle is an <b>economic profit</b>.`:pr<-0.005?` Price is below ATC, so the firm makes a <b>loss</b>; because price still covers AVC, producing Q* loses less than the ${$m(GF)} of fixed cost lost by shutting down.`:` Price equals ATC: the firm earns a <b>normal profit</b>.`;
+ $('#gx').innerHTML=x}
+$$('[data-gm]').forEach(b=>b.addEventListener('click',()=>{GG.mode=b.dataset.gm;st.set('ggm',GG.mode);gDraw()}));
+$('#gp').addEventListener('input',e=>{GG.P=+e.target.value;gDraw()});
+$('#ga').addEventListener('input',e=>{GG.A=+e.target.value;gDraw()});
+
+/* --- Sorter --- */
+const SORT=[
+ ['The next unit would add $12 to revenue and $9 to cost.','more','MR > MC: producing it raises profit by $3.'],
+ ['The last unit cost $30 to make and brought in $22.','less','MC > MR: that unit lowered profit by $8, so cutting it raises profit.'],
+ ['For the last unit, MR = MC = $15, and marginal cost is rising.','stay','This is the profit-maximizing rule: no change in output can raise profit.'],
+ ['A wheat farmer sells at the market price of $6 a bushel; the next bushel costs $4.50 to grow.','more','A price taker\'s MR is the price, $6, which is above the MC of $4.50.'],
+ ['To sell one more unit a firm must cut its price; that unit adds $8 to total revenue and $11 to total cost.','less','MR ($8) < MC ($11). The price the unit sells for does not matter; what it adds to revenue does.'],
+ ['Total revenue is still rising, but the last unit\'s MC ($14) is above its MR ($10).','less','Rising revenue is not the goal. The last unit cost $4 more than it brought in.'],
+ ['Price is $50 and average total cost is $55 at the output where MR = MC; price is above average variable cost.','stay','The firm makes a loss, but this is the loss-minimizing output and price covers AVC, so it keeps producing it.'],
+ ['Profit is $900 at 40 units and $940 at 41 units.','more','The 41st unit added $40 to profit, so MR > MC for it. Check the 42nd before stopping.'],
+ ['The firm earns zero economic profit at the output where MR = MC.','stay','That is a normal profit, the best the firm can do at this price.'],
+ ['MR = MC at a low output where marginal cost is still falling.','more','Beyond that point MC is below MR for a while, so the next units add to profit. The maximum is where rising MC meets MR.']];
+
+/* --- Diagram builder --- */
+const DRAW_O={mode:'pt',P:30,A:60};
+const DR=[
+ ['Label the axes','Price, cost and revenue ($) on the vertical axis; <b>Quantity</b> on the horizontal axis. Every curve on this graph is measured in dollars per unit.'],
+ ['Draw marginal cost','MC falls at first, then rises once diminishing marginal returns set in. The rising part is the part that matters for the decision.'],
+ ['Add ATC and AVC','Draw both U-shaped, with ATC above AVC and the gap narrowing. <b>MC must pass through the minimum point of each.</b> Examiners check this.'],
+ ['Draw the demand line','For a price taker the demand curve is horizontal at the market price, and it is also MR and AR: label it <b>D = MR = AR = P</b>.'],
+ ['Find Q* where MR = MC','Mark the point where rising MC meets MR and drop a dashed line to the quantity axis. Label it <b>Q*</b>.'],
+ ['Read price and ATC at Q*','Price is the height of the demand line at Q*. ATC at Q* is the height of the ATC curve <i>directly above Q*</i>, not at its minimum.'],
+ ['Shade the profit','The rectangle from P down to ATC, from 0 to Q*, is the economic profit, (P − ATC) × Q*. Label it. Checklist: axes · MC · ATC through MC\'s crossing · D = MR = AR = P · Q* · P · ATC · shaded area.']];
+function drDraw(k){$('#drg').innerHTML=gPlot(DRAW_O,k+1).svg('Diagram builder')}
+
+/* ============================ INIT ============================ */
+$$('section.step').forEach(sec=>{const n=sec.querySelector('.num');const list=[...$$('section.step')].filter(x=>x.id!=='guide');if(n&&sec.id!=='guide'&&!n.dataset.fixed)n.textContent=String(list.indexOf(sec)+1).padStart(2,'0')});
+renderStatic();renderGoals();renderCards();renderMCQ();renderQF();
+RV.q=RV.mode==='pt'?6:60;rvDraw();ttDraw();gDraw();
+sorter('so',SORT,{more:'Produce more',less:'Produce less',stay:'Stay where it is'},'data-so');
+stepper('dr',DR,drDraw);
+})();
+</script>
+<script id="cg-js">
+(function(){
+const CG={"title": "Module 53 · Profit Maximization", "intro": "Every term a firm needs to choose its output. Terms marked In Hoang are taught in Hoang, Wray and Chakraborty (Chapter 14, pp. 187–197, and Chapter 6, p. 87). Terms marked Added for AP are not in Hoang's pages and are added here because the AP course examines them.", "groups": [{"name": "Revenue: what the firm takes in", "terms": [{"term": "Total revenue", "level": "Hoang", "definition": "The total amount a firm receives from selling its output: price times quantity sold, TR = P × Q.", "explanation": "Total revenue is the first half of every profit calculation. For a firm that can sell any amount at the market price it rises in a straight line with output. For a firm that must lower its price to sell more, it rises, peaks and then falls, because each extra sale is bought with a lower price on every unit.", "example": "Hoang's cinema sells 7,500 tickets and takes $60,000: that $60,000 is its total revenue (p. 187).", "exam_tip": "Total revenue is not the firm's goal. A question that asks for the profit-maximizing output is never answered by finding where total revenue is greatest.", "related": ["Average revenue", "Marginal revenue", "Economic profit"]}, {"term": "Average revenue", "level": "Hoang", "definition": "Revenue per unit sold, AR = TR ÷ Q, which is always equal to the price.", "explanation": "Because TR = P × Q, dividing by Q leaves P. That is why the demand curve a firm faces is also its average revenue curve: it shows the price, and so the revenue per unit, at each quantity.", "example": "$60,000 ÷ 7,500 tickets = $8 per ticket, the cinema's price (Hoang p. 187).", "exam_tip": "Label a firm's demand curve D = AR. For a price taker add = MR = P as well.", "related": ["Total revenue", "Price taker"]}, {"term": "Marginal revenue", "level": "Hoang", "definition": "The additional revenue from selling one more unit of output: MR = ΔTR ÷ ΔQ.", "explanation": "Marginal revenue is the benefit side of the firm's output decision. A price taker gets the market price for every extra unit, so its MR equals price. A firm with a downward-sloping demand curve must cut its price to sell one more unit, so its MR is below price and can even be negative.", "example": "A lemonade stand that always sells at $5 gains $5 from every extra cup (Hoang Table 14.2, p. 192). A seller that cuts its price from $16 to $8 to raise sales from 90 to 120 loses $480 of revenue, a marginal revenue of −$16 per extra unit (Hoang Figure 14.9, p. 190).", "exam_tip": "Show ΔTR ÷ ΔQ in a calculation. When output changes by a batch, divide by the size of the batch.", "related": ["Total revenue", "Price taker", "Price maker", "Profit-maximizing rule"]}, {"term": "Price taker", "level": "Hoang", "definition": "A firm too small to influence the market price, so it sells every unit at the price the market sets.", "explanation": "A price taker faces a horizontal demand curve at the market price. Every unit it sells brings in the same amount, so price, average revenue and marginal revenue are equal. Perfectly competitive firms are price takers.", "example": "A single wheat farm sells at the price set in the world wheat market; growing more or less does not move that price.", "exam_tip": "For a price taker, write P = MR = AR = D on the horizontal line. The profit-maximizing rule then reads P = MC.", "related": ["Average revenue", "Marginal revenue", "Price maker"]}, {"term": "Price maker", "level": "Hoang", "definition": "A firm with market power, which faces a downward-sloping demand curve and so chooses its price by choosing its output.", "explanation": "To sell one more unit a price maker must lower its price on all its units, not only the last one. Its marginal revenue is therefore below its price. It still maximizes profit where MR = MC, then charges the highest price its demand curve allows for that quantity.", "example": "A monopolist such as a sole water supplier in a town faces the whole market demand curve (Hoang p. 197).", "exam_tip": "Find the quantity where MR = MC, then go up to the demand curve for the price. Never read the price off the MR curve.", "related": ["Marginal revenue", "Price taker", "Profit-maximizing rule"]}]}, {"name": "Costs: what the firm pays", "terms": [{"term": "Total cost", "level": "Hoang", "definition": "The sum of fixed and variable costs at a given output: TC = TFC + TVC.", "explanation": "Total cost includes every cost of production, implicit as well as explicit, so it includes the normal profit the owner needs to stay. Fixed cost is paid whatever the output; variable cost rises with output.", "example": "Tandy Toys pays $15,000 a month in rent and salaries and $8 of raw materials per toy, so 5,000 toys cost $15,000 + $40,000 = $55,000 (Hoang p. 188).", "exam_tip": "Economists' total cost includes opportunity costs. That is why zero economic profit is still a normal return.", "related": ["Marginal cost", "Average total cost", "Normal profit"]}, {"term": "Marginal cost", "level": "Hoang", "definition": "The additional cost of producing one more unit of output: MC = ΔTC ÷ ΔQ.", "explanation": "Marginal cost is the cost side of the output decision. In the short run it usually falls at first, as specialization raises the productivity of the variable input, then rises once diminishing marginal returns set in. Fixed cost never enters it, because fixed cost does not change with output.", "example": "From 10 to 15 units, total cost rises from $4,545 to $5,395, so marginal cost is $850 ÷ 5 = $170 per unit (Hoang Question 14.2, p. 189).", "exam_tip": "The first unit's marginal cost is the change in total cost from zero output, not the fixed cost.", "related": ["Total cost", "Average total cost", "Profit-maximizing rule"]}, {"term": "Average total cost", "level": "Hoang", "definition": "Total cost per unit of output: ATC = TC ÷ Q. Hoang calls it average cost (AC).", "explanation": "Average total cost is what you compare with price to see whether the firm makes a profit. Marginal cost cuts it at its minimum: while MC is below ATC it pulls the average down, and once MC is above ATC it pulls the average up.", "example": "At 15 units Hoang's firm has ATC = $5,395 ÷ 15 = $359.67 (Question 14.2, p. 189).", "exam_tip": "Profit per unit is P − ATC at the chosen output. Read ATC at the quantity where MR = MC, not at the bottom of the ATC curve.", "related": ["Total cost", "Average variable cost", "Economic profit"]}, {"term": "Average variable cost", "level": "Hoang", "definition": "Variable cost per unit of output: AVC = TVC ÷ Q.", "explanation": "Average variable cost matters when a firm makes a loss. Producing is worthwhile in the short run only if price covers average variable cost, because fixed cost must be paid anyway. Marginal cost also cuts AVC at its minimum.", "example": "At 10 units Hoang's firm has AVC = $2,000 ÷ 10 = $200; at 15 units it is $2,850 ÷ 15 = $190 (Question 14.2, p. 189).", "exam_tip": "The gap between ATC and AVC is average fixed cost, and it narrows as output rises.", "related": ["Average total cost", "Shut-down point"]}]}, {"name": "Profit: what is left", "terms": [{"term": "Economic profit", "level": "Hoang", "definition": "Total revenue minus total cost, where total cost includes implicit (opportunity) costs: TR − TC. Hoang calls a positive economic profit abnormal or supernormal profit.", "explanation": "A positive economic profit means the owner earns more than in the next best use of their resources. It is the signal that attracts new firms into a market. It can be shown as (P − ATC) × Q, the rectangle between price and average total cost.", "example": "Tandy Toys sells 5,000 toys at $20 for $100,000; with total cost of $55,000 its profit is $45,000 (Hoang p. 188).", "exam_tip": "On the AP exam write economic profit, not abnormal profit, and shade it as the rectangle (P − ATC) × Q.", "related": ["Normal profit", "Accounting profit", "Loss"]}, {"term": "Normal profit", "level": "Hoang", "definition": "The profit just large enough to keep the owner's resources in their current use; it is reached when TR = TC, that is, when economic profit is zero.", "explanation": "Economists count normal profit as a cost, because without it the owner would leave. A firm earning zero economic profit is therefore doing as well as it could anywhere else. In the graph, price equals average total cost (P = ATC).", "example": "If an owner could earn $45,000 a year working elsewhere, the business must pay at least that much to keep them (Hoang p. 190).", "exam_tip": "Zero economic profit does not mean zero profit. Say the firm earns a normal profit.", "related": ["Economic profit", "Accounting profit"]}, {"term": "Accounting profit", "level": "Added", "definition": "Total revenue minus explicit costs only, the money actually paid out.", "explanation": "Accounting profit ignores the opportunity cost of the owner's own time and capital, so it is larger than economic profit. Firms decide whether to stay or leave on economic profit. Hoang explains explicit and implicit costs (p. 190) but never uses the phrase accounting profit.", "example": "A bakery takes $200,000, pays $150,000 in wages, flour and rent, and its owner gives up a $60,000 salary elsewhere: accounting profit is $50,000, economic profit is −$10,000.", "exam_tip": "Accounting profit − implicit costs = economic profit. Topic 3.4 asks you to calculate both.", "related": ["Economic profit", "Normal profit"]}, {"term": "Loss", "level": "Hoang", "definition": "Negative economic profit, when total cost is greater than total revenue (TC > TR), so price is below average total cost.", "explanation": "A firm can make a loss even at its best output. The rule MR = MC then finds the output where the loss is smallest. Whether to keep producing in the short run depends on whether price still covers average variable cost.", "example": "Airlines kept flying some routes during the 2020 pandemic although tickets did not cover the full cost of the aircraft, because the fares still paid for fuel and crew (Hoang's case study, p. 191, describes the losses).", "exam_tip": "Shade a loss as the rectangle (ATC − P) × Q, with ATC above price.", "related": ["Economic profit", "Loss-minimizing output", "Shut-down point"]}]}, {"name": "The decision: how much to produce", "terms": [{"term": "Marginal analysis", "level": "Hoang", "definition": "Deciding by comparing the extra benefit of one more unit with its extra cost, and doing it whenever the benefit is at least as large.", "explanation": "Marginal analysis is how every rational decision in the course is made, by consumers, firms and governments alike. For a firm, the extra benefit is marginal revenue and the extra cost is marginal cost. Past decisions and fixed costs do not change the comparison.", "example": "A cinema lets a late customer buy a ticket because the extra cost of one more person in an empty seat is close to zero (Hoang Top tip, p. 189).", "exam_tip": "When asked to explain using marginal analysis, name both sides: compare MR with MC for the next unit.", "related": ["Marginal revenue", "Marginal cost", "Profit-maximizing rule"]}, {"term": "Profit-maximizing rule", "level": "Added", "definition": "A firm maximizes profit by producing the quantity at which marginal revenue equals marginal cost (MR = MC), with marginal cost rising.", "explanation": "If the next unit's MR is above its MC, producing it adds to profit, so output should rise. If MC is above MR, the last unit lost money, so output should fall. Only where they are equal can no change raise profit. The rule holds for every firm, price taker or price maker. Hoang states the condition (p. 189) but never gives it this name, which is the one the AP course uses.", "example": "At a price of $20 a toy, Tandy Toys' sixth batch costs $20 a toy and its seventh $25. It makes six batches: the sixth adds nothing, the seventh would lose $5 a toy.", "exam_tip": "With data in a table, produce every unit whose MR is at least its MC and stop before the first unit whose MC exceeds MR.", "related": ["Marginal revenue", "Marginal cost", "Profit-maximizing quantity", "Marginal analysis"]}, {"term": "Profit-maximizing quantity", "level": "Hoang", "definition": "The output at which the difference between total revenue and total cost is greatest, found where MR = MC.", "explanation": "There are two routes to it and they always agree. The total route lists TR − TC at every output and picks the largest. The marginal route compares MR with MC unit by unit. Where marginal cost first falls and then rises, MC can equal MR twice; the profit maximum is the crossing where MC is rising.", "example": "Hoang Figure 14.12 (p. 192) marks it Q*, where the rising MC curve meets the horizontal D = AR = MR line.", "exam_tip": "Label it on the quantity axis and draw a dashed line up to the MR = MC point.", "related": ["Profit-maximizing rule", "Economic profit"]}, {"term": "Loss-minimizing output", "level": "Hoang", "definition": "The output where MR = MC when the firm makes a loss there: the best it can do is make its loss as small as possible.", "explanation": "The rule does not change when price falls below average total cost. Producing where MR = MC still gives the smallest loss, provided price covers average variable cost, because each unit then also pays towards fixed cost.", "example": "Hoang Figure 14.15 (p. 194) shows a price taker at Q* making a loss because price is below average cost.", "exam_tip": "A loss at MR = MC is not a reason to shut down. Compare price with AVC first.", "related": ["Loss", "Shut-down point", "Profit-maximizing rule"]}, {"term": "Shut-down point", "level": "Added", "definition": "The price equal to the minimum of average variable cost; below it a firm produces nothing in the short run.", "explanation": "If price is below average variable cost at every output, each unit loses money even before fixed costs. Producing nothing limits the loss to the fixed cost. Hoang never states this rule (the phrase shut down is 0 times in the book); the AP course teaches it in Topic 3.6.", "example": "If toys sell for $8 and Tandy Toys' lowest average variable cost is $9 a toy, it should stop production and lose only its $15,000 of fixed cost.", "exam_tip": "Short run: produce if P ≥ minimum AVC. Long run: stay in the market only if P ≥ minimum ATC.", "related": ["Average variable cost", "Loss-minimizing output", "Loss"]}]}]};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const box=document.getElementById('cgbox'),q=document.getElementById('cgq'),cnt=document.getElementById('cgcount');
+const id=t=>'cg-'+t.toLowerCase().replace(/[^a-z0-9]+/g,'-');
+const badge=l=>l==='Added'?'<span class="badge b-hl">Added for AP</span>':'<span class="badge b-sl">In Hoang</span>';
+box.innerHTML='<p style="max-width:72ch">'+esc(CG.intro)+'</p>'+CG.groups.map(g=>`<div class="cg-group"><h3>${esc(g.name)}</h3>`+g.terms.map(t=>`<details class="cg-item" id="${id(t.term)}" data-s="${esc((t.term+' '+t.definition+' '+t.explanation+' '+t.example).toLowerCase())}"><summary><b>${esc(t.term)}</b>${badge(t.level)}<span class="cg-def">${esc(t.definition)}</span></summary><div class="cg-body"><div><span class="lbl">Definition</span><p class="defn">${esc(t.definition)}</p></div><div><span class="lbl">Explanation</span><p>${esc(t.explanation)}</p></div><div class="cg-ex"><span class="lbl">Example</span><p>${esc(t.example)}</p></div><div class="cg-tip"><span class="lbl">Exam tip</span><p>${esc(t.exam_tip)}</p></div>${(t.related||[]).length?`<div><span class="lbl">Related terms</span><div class="cg-rel">${t.related.map(r=>`<button type="button" data-go="${id(r)}">${esc(r)}</button>`).join('')}</div></div>`:''}</div></details>`).join('')+'</div>').join('')+'<p class="cg-empty" id="cgnone" hidden>No terms match your search.</p>';
+function apply(){const s=(q.value||'').trim().toLowerCase();let n=0;
+ box.querySelectorAll('.cg-item').forEach(d=>{const show=!s||d.dataset.s.includes(s);d.hidden=!show;if(show)n++;if(s&&show)d.open=true});
+ box.querySelectorAll('.cg-group').forEach(g=>{g.hidden=![...g.querySelectorAll('.cg-item')].some(d=>!d.hidden)});
+ cnt.textContent=n+' term'+(n===1?'':'s');document.getElementById('cgnone').hidden=n>0}
+q.addEventListener('input',apply);
+document.getElementById('cgopen').addEventListener('click',()=>box.querySelectorAll('.cg-item:not([hidden])').forEach(d=>d.open=true));
+document.getElementById('cgclose').addEventListener('click',()=>box.querySelectorAll('.cg-item').forEach(d=>d.open=false));
+box.addEventListener('click',e=>{const b=e.target.closest('[data-go]');if(!b)return;const t=document.getElementById(b.dataset.go);if(t){q.value='';apply();t.open=true;t.scrollIntoView({block:'center'})}});
+apply();
+})();
+</script>
+<script id="sb-js">
+(function(){
+const secs=[...document.querySelectorAll('section.step[id]')];
+const sb=document.createElement('aside');sb.className='sb';sb.setAttribute('aria-label','Lesson contents');
+const title=document.querySelector('.brand').childNodes[0].textContent.trim(),sub=document.querySelector('.brand span').textContent;
+sb.innerHTML=`<a class="home" href="https://sevketgunduz.github.io/ap-microeconomics/">AP Microeconomics</a><div class="sub">${title} · ${sub}</div><p class="lbl">In this lab</p>`+
+ secs.map(s=>{const n=s.querySelector('.num'),h=s.querySelector('h2');const t=h?h.childNodes[0].textContent.replace(/[:·].*$/,'').trim():s.id;return `<a class="it" href="#${s.id}" data-id="${s.id}"><span>${n?n.textContent:''}</span><span>${t}</span></a>`}).join('')+
+ `<p class="lbl">Same module, old layout</p><div class="links"><a href="m53-student.html">Student guide</a><a href="m53-test.html">Test</a><a href="m53-notes.html">Teaching notes</a></div>`;
+document.body.appendChild(sb);
+const btn=document.createElement('button');btn.className='sbbtn';btn.type='button';btn.textContent='☰ Contents';btn.setAttribute('aria-expanded','false');
+const bar=document.querySelector('.topin');if(bar)bar.insertBefore(btn,bar.firstChild);
+btn.addEventListener('click',()=>{sb.classList.toggle('open');btn.setAttribute('aria-expanded',sb.classList.contains('open'))});
+sb.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>sb.classList.remove('open')));
+if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){sb.querySelectorAll('a.it').forEach(a=>a.classList.toggle('act',a.dataset.id===e.target.id))}}),{rootMargin:'-20% 0px -70% 0px'});secs.forEach(s=>io.observe(s))}
+})();
+</script>
+</body>
+</html>

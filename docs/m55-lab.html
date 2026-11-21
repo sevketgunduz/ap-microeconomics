@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Firm Costs Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,650&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+:root{
+  --ground:#f4f5f1; --panel:#ffffff; --panel2:#f8f9f5; --ink:#1a2029; --muted:#5a636c; --rule:#d9ddd3; --grid:#e7eae2;
+  --supply:#c0441f; --supply2:#e8876a; --demand:#2451c4; --good:#12795f; --bad:#b3261e; --hl:#6f3aa8; --hlbg:#efe6f8; --slbg:#e2efe9; --sl:#0d6b5c;
+  --tint:#eaf0fc; --focus:#2451c4; --shade:rgba(192,68,31,.14); --shadeb:rgba(36,81,196,.14);
+  --serif:"Source Serif 4",Georgia,serif; --sans:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif; --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;
+  --ground:#12161b; --panel:#1a2027; --panel2:#1f262e; --ink:#e6eaee; --muted:#9ca7b1; --rule:#2e3842; --grid:#252f38;
+  --supply:#ff8d66; --supply2:#b8664b; --demand:#86a6ff; --good:#4fd1a8; --bad:#ff7b72; --hl:#c29af2; --hlbg:#2c2240; --slbg:#173029; --sl:#6fd6bf;
+  --tint:#1b2436; --focus:#86a6ff; --shade:rgba(255,141,102,.18); --shadeb:rgba(134,166,255,.18);}}
+:root[data-theme="dark"]{color-scheme:dark;
+  --ground:#12161b; --panel:#1a2027; --panel2:#1f262e; --ink:#e6eaee; --muted:#9ca7b1; --rule:#2e3842; --grid:#252f38;
+  --supply:#ff8d66; --supply2:#b8664b; --demand:#86a6ff; --good:#4fd1a8; --bad:#ff7b72; --hl:#c29af2; --hlbg:#2c2240; --slbg:#173029; --sl:#6fd6bf;
+  --tint:#1b2436; --focus:#86a6ff; --shade:rgba(255,141,102,.18); --shadeb:rgba(134,166,255,.18);}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font:16px/1.6 var(--sans);margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:20px;padding-block:0 80px}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--ground);border-bottom:1px solid var(--rule)}
+.topin{max-width:1120px;margin:0 auto;padding:10px 20px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.brand{font:650 18px var(--serif);margin-right:auto}
+.brand span{font:600 12px var(--sans);color:var(--muted);margin-left:8px}
+nav.jump{display:flex;gap:2px;flex-wrap:wrap}
+nav.jump a{font:600 12.5px var(--sans);color:var(--muted);text-decoration:none;padding:6px 9px;border-radius:6px}
+nav.jump a:hover{background:var(--panel);color:var(--ink)}
+.lvl{display:flex;border:1px solid var(--rule);border-radius:999px;overflow:hidden}
+.lvl button{font:700 12px var(--sans);border:0;background:var(--panel);color:var(--muted);padding:6px 12px;cursor:pointer}
+.lvl button[aria-pressed="true"]{background:var(--ink);color:var(--ground)}
+h1,h2,h3{font-family:var(--serif);font-weight:650;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:40px;line-height:1.1} h2{font-size:27px;line-height:1.2} h3{font-size:19px}
+p{margin:0} .muted{color:var(--muted)}
+.eyebrow{font:700 11.5px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--demand)}
+.badge{display:inline-block;font:700 10.5px var(--sans);letter-spacing:.06em;padding:2px 7px;border-radius:4px;vertical-align:3px}
+.b-hl{background:var(--hlbg);color:var(--hl)} .b-sl{background:var(--slbg);color:var(--sl)}
+button:focus-visible,input:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+section.step{padding-top:56px;scroll-margin-top:70px}
+.shead{display:grid;gap:8px;max-width:72ch;margin-bottom:20px}
+.shead .num{font:600 13px var(--mono);color:var(--muted)}
+.hero{padding-top:44px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:36px;align-items:center}
+.hero p.lead{font-size:18px;margin-top:14px;max-width:56ch}
+.goals{background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:18px 20px}
+.goals ul{margin:8px 0 0;padding:0;list-style:none;display:grid;gap:8px}
+.goals li{display:grid;grid-template-columns:22px 1fr;gap:8px;font-size:15px}
+.goals input{width:18px;height:18px;accent-color:var(--good);margin-top:3px}
+.lab{background:var(--panel);border:1px solid var(--rule);border-radius:14px;padding:20px}
+.lab2{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px;align-items:start}
+svg.g{width:100%;height:auto;display:block;border-radius:8px;background:var(--panel2);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:26px 26px}
+svg .axis{stroke:var(--ink);stroke-width:1.7;fill:none} svg .axl{fill:var(--ink);font:700 12.5px var(--sans)} svg .tick{fill:var(--muted);font:11.5px var(--mono)}
+svg .guide{stroke:var(--muted);stroke-dasharray:4 4;fill:none}
+svg .s{stroke:var(--supply);stroke-width:3;fill:none;stroke-linecap:round} svg .s2{stroke:var(--supply2);stroke-width:2.2;fill:none;stroke-dasharray:7 5}
+svg .sm{stroke:var(--ink);stroke-width:3;fill:none} svg .d{stroke:var(--demand);stroke-width:3;fill:none}
+svg .ghost{stroke:var(--muted);stroke-width:1.6;stroke-dasharray:3 4;fill:none}
+svg text.ls{fill:var(--supply);font:700 13px var(--sans)} svg text.ld{fill:var(--demand);font:700 13px var(--sans)} svg text.lm{fill:var(--ink);font:700 13px var(--sans)} svg text.lg{fill:var(--muted);font:700 12px var(--sans)}
+svg .dot{fill:var(--ink)} svg .dot2{fill:var(--panel);stroke:var(--ink);stroke-width:1.8}
+svg .arrow{stroke:var(--good);stroke-width:2.4;fill:none;marker-end:url(#ah)} svg .ahead{fill:var(--good)}
+svg .bar{fill:var(--demand);opacity:.7} svg .bar.dim{fill:var(--supply);opacity:.75}
+svg .note{fill:var(--muted);font:600 11.5px var(--sans)} svg .area{fill:var(--shade)}
+.ctl{display:grid;grid-template-columns:1fr 70px;gap:2px 10px;align-items:center;font-size:14px;margin-bottom:12px}
+.ctl span{grid-column:1/-1;font-weight:600;color:var(--muted)} .ctl input{width:100%;accent-color:var(--demand)} .ctl output{font:600 13px var(--mono);text-align:right}
+.read{display:grid;grid-template-columns:1fr auto;gap:6px 14px;font-size:14.5px;margin:6px 0 0}
+.read dt{color:var(--muted)} .read dd{margin:0;font:600 13.5px var(--mono);text-align:right}
+.explain{margin-top:14px;padding:12px 14px;border-left:3px solid var(--demand);background:var(--tint);border-radius:0 8px 8px 0;font-size:14.5px}
+.btn{font:600 14px var(--sans);border:1px solid var(--rule);background:var(--panel);color:var(--ink);padding:9px 13px;border-radius:8px;cursor:pointer;text-align:left}
+.btn:hover{border-color:var(--demand)} .btn.pri{background:var(--ink);color:var(--ground);border-color:var(--ink)} .btn:disabled{opacity:.45;cursor:default}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.flip{perspective:900px;height:170px;border:0;background:none;padding:0;cursor:pointer;text-align:left;font:inherit;color:inherit}
+.flip .in{position:relative;width:100%;height:100%;transition:transform .45s;transform-style:preserve-3d}
+.flip.on .in{transform:rotateY(180deg)}
+.flip .f,.flip .b{position:absolute;inset:0;backface-visibility:hidden;border-radius:12px;border:1px solid var(--rule);padding:16px;display:flex;flex-direction:column;gap:6px}
+.flip .f{background:var(--panel);justify-content:space-between} .flip .f b{font:650 19px var(--serif)}
+.flip .b{background:var(--tint);transform:rotateY(180deg);font-size:14.5px;overflow:auto}
+.flip .hint{font-size:12px;color:var(--muted)}
+.events{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px;margin:14px 0}
+.ev{display:grid;grid-template-columns:30px 1fr;gap:8px;align-items:start}
+.ev .l{font:700 14px var(--mono);color:var(--demand);background:var(--tint);border-radius:6px;text-align:center;padding:2px 0}
+.ev[aria-pressed="true"]{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.predict{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:10px 0}
+.fb{font-weight:600} .fb.ok{color:var(--good)} .fb.no{color:var(--bad)}
+.sorter .card{background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:16px;display:grid;gap:10px}
+.sorter .card p{font-size:16.5px;font-family:var(--serif)}
+.score{font:600 14px var(--mono)}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{padding:7px 9px;border-bottom:1px solid var(--grid);text-align:right;font-variant-numeric:tabular-nums}
+th{font:700 11.5px var(--sans);letter-spacing:.05em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--rule)}
+td:first-child,th:first-child{text-align:left} tr.cur td{background:var(--tint);font-weight:700} tr.dmr td:nth-child(3){color:var(--supply)}
+.tblwrap{overflow-x:auto}
+.case{background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:18px 20px;display:grid;gap:10px}
+.case details{border-top:1px solid var(--grid);padding-top:10px}
+.case summary,.qa summary{cursor:pointer;font-weight:700;color:var(--demand)}
+.case ol{margin:8px 0 0;padding-left:20px}
+.cases{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:14px}
+.mcq{background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:16px 18px;display:grid;gap:8px}
+.mcq .opts{display:grid;gap:6px}
+.mcq .opt{font:500 14.5px var(--sans)} .mcq .opt.ok{border-color:var(--good);background:color-mix(in srgb,var(--good) 12%,var(--panel))} .mcq .opt.no{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 10%,var(--panel))}
+.mcq .why{font-size:14px;color:var(--muted)}
+.quiz{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:14px}
+.qa{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:12px 16px}
+.qa details p{margin-top:6px;padding:8px 10px;background:var(--panel2);border-radius:6px}
+.mist{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px}
+.mist div{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:14px 16px;font-size:14.5px}
+.mist b{display:block;color:var(--bad);font-size:13px;letter-spacing:.03em;margin-bottom:4px} .mist i{display:block;color:var(--good);font-style:normal;font-weight:600;margin-top:6px}
+.stepper{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:12px}
+.dots{display:flex;gap:5px} .dots i{width:9px;height:9px;border-radius:50%;background:var(--rule)} .dots i.on{background:var(--demand)}
+.pill{font:600 12.5px var(--mono);padding:3px 9px;border-radius:99px;background:var(--panel2);border:1px solid var(--rule)}
+footer{margin-top:60px;padding-top:18px;border-top:1px solid var(--rule);font-size:13px;color:var(--muted)}
+.hlonly[hidden]{display:none!important}
+@media (max-width:860px){.hero,.lab2{grid-template-columns:1fr} h1{font-size:32px} nav.jump{display:none}}
+@media (max-width:520px){.wrap,.topin{padding-inline:16px} .lab{padding:14px} h1{font-size:28px} h2{font-size:23px}}
+@media (prefers-reduced-motion:reduce){.flip .in{transition:none}}
+svg .d2{stroke:var(--demand);stroke-width:2.2;fill:none;stroke-dasharray:7 5} svg text.ld2{fill:var(--demand);font:700 12px var(--sans)} svg .spend{fill:var(--shadeb)}
+svg .dwl{fill:rgba(214,151,0,.38)} svg .gap{stroke:var(--supply);stroke-width:5;opacity:.45}
+.sorter .btn[aria-pressed="true"],.lab .btn[aria-pressed="true"]{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.flip .f span:not(.hint){font-size:14.5px;color:var(--muted)}
+.ctl input[type=number]{font:15px var(--mono);padding:7px 10px;border:1px solid var(--rule);border-radius:8px;background:var(--panel);color:var(--ink);width:100%}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px} @media (max-width:860px){.two{grid-template-columns:1fr}}
+</style>
+<style id="cg-css">
+.cg-tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+.cg-tools input{flex:1;min-width:220px;max-width:420px;font:15px var(--sans);padding:9px 12px;border:1px solid var(--rule);border-radius:8px;background:var(--panel);color:var(--ink)}
+.cg-group{margin-top:22px} .cg-group h3{margin-bottom:10px}
+.cg-item{background:var(--panel);border:1px solid var(--rule);border-radius:12px;margin-bottom:10px;overflow:hidden}
+.cg-item summary{cursor:pointer;list-style:none;padding:14px 18px;display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:baseline}
+.cg-item summary::-webkit-details-marker{display:none}
+.cg-item summary b{font:650 18px var(--serif)} .cg-item summary .cg-def{grid-column:1/-1;color:var(--muted);font-size:14.5px}
+.cg-item[open] summary .cg-def{display:none}
+.cg-body{padding:0 18px 16px;display:grid;gap:10px}
+.cg-body .lbl{font:700 11px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:2px}
+.cg-body .defn{font-weight:600}
+.cg-ex{background:var(--tint);border-radius:8px;padding:10px 12px}
+.cg-tip{border-left:3px solid var(--good);padding:6px 12px;background:var(--panel2);border-radius:0 8px 8px 0}
+.cg-rel{display:flex;gap:6px;flex-wrap:wrap} .cg-rel button{font:600 12.5px var(--sans);border:1px solid var(--rule);background:var(--panel2);color:var(--ink);border-radius:99px;padding:3px 10px;cursor:pointer}
+.cg-empty{color:var(--muted)}
+</style>
+<style id="sb-css">
+aside.sb{position:fixed;top:0;left:0;bottom:0;width:250px;overflow:auto;background:var(--panel);border-right:1px solid var(--rule);padding:16px 12px 40px;z-index:15;font-size:13.5px}
+aside.sb .home{display:block;font:700 15px var(--serif);color:var(--ink);text-decoration:none}
+aside.sb .sub{color:var(--muted);font-size:12px;margin:2px 0 14px}
+aside.sb .lbl{font:700 11px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:12px 4px 6px}
+aside.sb a.it{display:grid;grid-template-columns:30px 1fr;gap:2px;padding:6px 8px;border-radius:6px;color:var(--ink);text-decoration:none;line-height:1.3}
+aside.sb a.it span:first-child{font:600 11.5px var(--mono);color:var(--muted);padding-top:1px}
+aside.sb a.it:hover{background:var(--panel2)} aside.sb a.it.act{background:var(--tint);font-weight:700}
+aside.sb .links a{display:block;padding:4px 8px;color:var(--demand);font-weight:600;text-decoration:none}
+.sbbtn{display:none}
+@media (min-width:1100px){header.top,.wrap{margin-left:250px} nav.jump{display:none!important}}
+@media (max-width:1099px){aside.sb{transform:translateX(-105%);transition:transform .2s;box-shadow:0 0 30px rgba(0,0,0,.25);width:84%;max-width:300px}
+ aside.sb.open{transform:none} nav.jump{display:none!important}
+ .sbbtn{display:inline-block;font:700 13px var(--sans);padding:6px 10px;border-radius:8px;border:1px solid var(--rule);background:var(--panel);color:var(--ink);cursor:pointer;order:-1}}
+@media (prefers-reduced-motion:reduce){aside.sb{transition:none}}
+</style>
+</head>
+<body>
+<header class="top"><div class="topin">
+  <div class="brand">Firm Costs Lab <span>AP Microeconomics Topic 3.2 · Hoang Ch 14</span></div>
+  <nav class="jump" aria-label="Sections"><a href="#terms">Terms</a><a href="#guide">Guide</a><a href="#cases">Cases</a><a href="#quiz">Quiz</a><a href="#exam">Exam</a></nav>
+</div></header>
+
+<div class="wrap">
+<section class="hero">
+  <div><p class="eyebrow">Unit 3 · Production, Cost and the Perfect Competition Model · Module 55</p><h1>What does one more unit really cost?</h1>
+  <p class="lead">Split a firm's costs into fixed and variable, turn them into averages and margins, and see why the curves take their U and swoosh shapes. Then change rent, wages and technology and watch which curves move.</p>
+  <p class="muted" style="margin-top:12px;font-size:14px">Textbook: Hoang, Wray &amp; Chakraborty, <i>Economics</i> (Hodder 2020), pp. 57–58 and 187–194. Ideas the AP course needs that Hoang does not teach are marked <span class="badge b-hl">Added for AP</span>.</p></div>
+  <div class="goals"><p class="eyebrow" style="color:var(--muted)">By the end I can…</p><ul id="goals"></ul></div>
+</section>
+
+<section class="step" id="terms"><div class="shead"><span class="num">01</span><h2>Key terms: flip the cards</h2><p class="muted">Say the definition out loud first, then click to check.</p></div><div class="cards" id="cards"></div></section>
+<section class="step" id="guide"><div class="shead"><span class="num">01b</span><h2>Concept guide: every term explained</h2><p>A fuller explanation of each term in this module, with a worked example and an exam tip. Open a term, read it, then close the page and explain it to a partner in your own words.</p></div>
+  <div class="cg-tools"><input id="cgq" type="search" placeholder="Search terms, examples…" aria-label="Search the concept guide"><button class="btn" id="cgopen">Open all</button><button class="btn" id="cgclose">Close all</button><span class="pill" id="cgcount"></span></div>
+  <div id="cgbox"></div></section>
+
+<!-- LAB SECTIONS -->
+<section class="step" id="spread"><div class="shead"><span class="num"></span><h2>Spreading the fixed cost</h2><p>Crispian's Candies pays $4,800 a month in fixed costs and $1.50 in variable cost for every candy, and sells at $4 (Hoang Question 14.9, p. 211). Change its output and watch the average costs.</p></div>
+  <div class="lab lab2">
+    <div id="spg"></div>
+    <div>
+      <label class="ctl"><span>Candies a month</span><input type="range" id="spq" min="500" max="8000" step="100" value="4000"><output id="spqo"></output></label>
+      <dl class="read" id="spread_r"></dl>
+      <div class="explain" id="spx"></div>
+    </div>
+  </div></section>
+
+<section class="step" id="family"><div class="shead"><span class="num"></span><h2>The whole family of cost curves</h2><p>Most firms' variable cost rises slowly at first and then fast. Move along the output axis and read every cost at once.</p></div>
+  <div class="lab lab2">
+    <div><div id="fmg1"></div><div id="fmg2" style="margin-top:12px"></div></div>
+    <div>
+      <label class="ctl"><span>Output (Q)</span><input type="range" id="fmq" min="0.5" max="9" step="0.1" value="3"><output id="fmqo"></output></label>
+      <div class="row"><button class="btn" data-fj="3">Bottom of MC</button><button class="btn" data-fj="4.5">Bottom of AVC</button><button class="btn" data-fj="atc">Bottom of ATC</button></div>
+      <dl class="read" id="fmread"></dl>
+      <div class="explain" id="fmx"></div>
+      <p class="muted" style="font-size:13px;margin-top:8px">Illustrative firm: FC = $30, VC = 24Q − 4.5Q² + 0.5Q³, so MC = 24 − 9Q + 1.5Q². It is the same firm as the graph in the Module 53 lab.</p>
+    </div>
+  </div></section>
+
+<section class="step" id="mirror"><div class="shead"><span class="num"></span><h2>Marginal cost is marginal product upside down</h2><p>Take the bakery from the Module 54 lab and pay each baker a daily wage. The cost of each extra loaf is the wage divided by what the baker adds.</p></div>
+  <div class="lab lab2">
+    <div><div id="mrg1"></div><div id="mrg2" style="margin-top:12px"></div></div>
+    <div>
+      <label class="ctl"><span>Daily wage of a baker ($)</span><input type="range" id="mrw" min="60" max="200" step="5" value="115"><output id="mrwo"></output></label>
+      <div class="tblwrap"><table id="mrtab"></table></div>
+      <div class="explain" id="mrx"></div>
+    </div>
+  </div></section>
+
+<section class="step" id="shift"><div class="shead"><span class="num"></span><h2>What moves the cost curves</h2><p>Hoang shows higher factor costs shifting the supply curve (Chapter 4) but never draws the cost curves behind it. Try each change: the dashed curves are where the firm started.</p></div>
+  <div class="lab lab2">
+    <div id="shg"></div>
+    <div>
+      <div class="row" role="group" aria-label="Cost change"><button class="btn" data-sh="base">Starting costs</button><button class="btn" data-sh="fc">Rent rises: fixed cost $30 → $60</button><button class="btn" data-sh="w">Wages rise 25%</button><button class="btn" data-sh="a">New technology: productivity up 25%</button></div>
+      <dl class="read" id="shread"></dl>
+      <div class="explain" id="shx"></div>
+    </div>
+  </div></section>
+
+<section class="step" id="sort"><div class="shead"><span class="num"></span><h2>Which curves shift?</h2><p>Each card describes a change for a firm. Which cost curves move?</p></div>
+  <div class="sorter"><div class="card"><span class="pill" id="son"></span><p id="soq"></p>
+    <div class="row"><button class="btn" data-so="fc">Only AFC and ATC</button><button class="btn" data-so="var">MC, AVC and ATC</button><button class="btn" data-so="none">No curve shifts</button></div>
+    <p class="fb" id="sofb" aria-live="polite"></p><div class="row"><button class="btn pri" id="sonext" hidden>Next card</button><span class="score" id="sosc"></span></div></div></div></section>
+
+<section class="step" id="draw"><div class="shead"><span class="num"></span><h2>Draw it like an examiner wants</h2><p>The exam often asks for a firm's short-run cost curves on one graph. Build it one label at a time.</p></div>
+  <div class="lab lab2">
+    <div id="drg"></div>
+    <div><h3 id="drt"></h3><div id="drx" style="margin-top:8px"></div>
+      <div class="stepper"><button class="btn" id="drprev">← Back</button><button class="btn pri" id="drnext">Next →</button><div class="dots" id="drdots"></div></div></div>
+  </div></section>
+<!-- /LAB SECTIONS -->
+
+<section class="step" id="cases"><div class="shead"><span class="num"></span><h2>Real-world cases</h2><p>Answer in your notebook, sketch the diagram, then open the model answer.</p></div><div class="cases" id="casebox"></div></section>
+
+<section class="step" id="quiz"><div class="shead"><span class="num"></span><h2>Check yourself</h2><p>Auto-marked multiple choice in the AP format first, then quick-fire questions with model answers.</p><p class="score" id="mcqscore"></p></div><div class="quiz" id="mcqs"></div>
+  <h3 style="margin:30px 0 12px">Quick-fire checklist</h3><div class="quiz" id="qf"></div></section>
+
+<section class="step" id="mistakes"><div class="shead"><span class="num"></span><h2>Common mistakes to avoid</h2></div><div class="mist" id="mist"></div></section>
+
+<section class="step" id="exam"><div class="shead"><span class="num"></span><h2>Exam practice</h2><p>Plan each answer before opening the scoring guide.</p></div><div class="cases" id="exambox"></div></section>
+
+<footer>Firm Costs Lab · based on the AP Microeconomics Course and Exam Description, Topic 3.2 Short-Run Production Costs, and Hoang, Wray &amp; Chakraborty, <i>Economics</i> (Hodder 2020), Chapter 14 pp. 187–194 and 211 and Chapter 4 pp. 57–59; the course's other text is Krugman, <i>Economics for AP</i>, Module 55, pp. 548–558. Hoang's examples used: Tandy Toys, Emirates Airlines, Questions 14.2 and 14.9, Figure 14.13. The curved firm, the bakery wage and the numbers marked illustrative are invented for practice; the energy-price and self-checkout cases go beyond Hoang and should be checked against current reporting.
+<details style="margin-top:10px"><summary style="cursor:pointer;font-weight:700">For the teacher: where Hoang needs correcting or adding to</summary>
+<ul style="margin:8px 0 0;padding-left:20px;display:grid;gap:4px">
+<li>Hoang's margin note on p. 189 defines average fixed cost as production costs "that do not change with the level of output". That is total fixed cost. Average fixed cost falls as output rises, as Hoang's own p. 193 shows.</li>
+<li>No cost curve ever shifts in Hoang. Topic 3.2's statement that cost curves shift with input costs and productivity is added in full; Hoang has the supply-curve version only (costs of factors of production, Chapter 4).</li>
+<li>Hoang states that MC cuts average cost at its minimum (pp. 193–194) but not that it also cuts average variable cost at its minimum, which the exam's graphs need.</li>
+<li>Hoang p. 58 says marginal costs "rise with each successive unit produced". That ignores the falling part of MC that follows from the increasing marginal returns Hoang describes on p. 57.</li>
+<li>Hoang's margin note on p. 194 says long-run average cost equals AFC plus AVC. In the long run there are no fixed costs; that sentence belongs to the short run.</li>
+<li>Vocabulary: Hoang's <i>AC</i> or <i>SRAC</i> is the exam's <i>ATC</i>; Hoang's <i>SRAVC</i> is <i>AVC</i>.</li>
+<li>Old layout for comparison: <a href="m55-student.html">Module 55 student guide</a>, <a href="m55-test.html">test</a> and <a href="m55-notes.html">teaching notes</a>.</li>
+</ul></details></footer>
+</div>
+
+<script>
+(function(){
+'use strict';
+/* ============================ DATA ============================ */
+const NS='m55lab';
+const n2=v=>(Math.round(v*100)/100).toLocaleString(undefined,{minimumFractionDigits:0,maximumFractionDigits:2}), d2=v=>'$'+(Math.round(v*100)/100).toFixed(2);
+const ord=k=>k+(k%100>=11&&k%100<=13?'th':['th','st','nd','rd'][k%10]||'th');
+/* Crispian's Candies (Hoang Q14.9, p. 211) */
+const CC={FC:4800,AVC:1.5,P:4,D:4000};CC.BE=CC.FC/(CC.P-CC.AVC);CC.ATC=(CC.FC+CC.AVC*CC.D)/CC.D;CC.PR=CC.P*CC.D-(CC.FC+CC.AVC*CC.D);
+/* Hoang Q14.2 (p. 189) */
+const Q2={q1:10,vc1:2000,tc1:4545,q2:15,vc2:2850,tc2:5395};Q2.fc=Q2.tc1-Q2.vc1;Q2.mc=(Q2.tc2-Q2.tc1)/(Q2.q2-Q2.q1);
+/* Illustrative firm: k = input-price ÷ productivity factor */
+const V0=Q=>24*Q-4.5*Q*Q+.5*Q*Q*Q, M0=Q=>24-9*Q+1.5*Q*Q, A0=Q=>24-4.5*Q+.5*Q*Q;
+const firm=(F,k)=>({F,k,VC:Q=>k*V0(Q),TC:Q=>F+k*V0(Q),MC:Q=>k*M0(Q),AVC:Q=>k*A0(Q),AFC:Q=>F/Q,ATC:Q=>k*A0(Q)+F/Q});
+function argmin(f,a,b){let best=a,v=f(a);for(let x=a;x<=b;x+=.001){const y=f(x);if(y<v){v=y;best=x}}return best}
+const F0=firm(30,1),F0ATCQ=argmin(F0.ATC,.5,9);
+/* Bakery from the Module 54 lab */
+const BAKE=[0,12,32,60,92,115,132,147,160];const BMP=BAKE.map((q,i)=>i?q-BAKE[i-1]:null);
+/* Exam question data */
+const E1={TC:[40,64,80,90,104,124,152]};E1.FC=E1.TC[0];
+E1.r=E1.TC.map((tc,q)=>({q,tc,vc:tc-E1.FC,mc:q?tc-E1.TC[q-1]:null,afc:q?E1.FC/q:null,avc:q?(tc-E1.FC)/q:null,atc:q?tc/q:null}));
+const E1minATC=Math.min(...E1.r.slice(1).map(x=>x.atc)),E1minQ=E1.r.find(x=>x.q&&x.atc===E1minATC).q;
+
+/* ============================ CONFIG ============================ */
+const GOALS=[
+ ['Calculate fixed, variable and total cost, and the three average costs, from a table'],
+ ['Calculate marginal cost as ΔTC ÷ ΔQ and explain why it ignores fixed cost'],
+ ['Explain why marginal cost falls and then rises, using marginal product'],
+ ['Draw MC through the minimum of AVC and ATC, with AFC as the gap between them'],
+ ['Explain which cost curves shift when fixed cost, input prices or productivity change'],
+ ['Find the minimum-cost output and explain why it is where MC = ATC']];
+const TERMS=[
+ ['Fixed cost','A cost that does not change with output; paid even at zero output.'],
+ ['Variable cost','A cost that rises with output, such as wages and materials.'],
+ ['Total cost','TC = FC + VC.'],
+ ['Marginal cost','The extra cost of one more unit: ΔTC ÷ ΔQ.'],
+ ['Average fixed cost','FC ÷ Q. Falls as output rises.'],
+ ['Average variable cost','VC ÷ Q. U-shaped.'],
+ ['Average total cost','TC ÷ Q = AFC + AVC. Hoang calls it AC.'],
+ ['Rising marginal cost','Diminishing returns mean each unit needs more input, so MC rises.'],
+ ['MC crosses the averages','MC cuts AVC and ATC at their minimum points.'],
+ ['Minimum-cost output','The output where ATC is lowest, where MC = ATC.'],
+ ['Fixed cost rises','Only AFC and ATC shift up.',1],
+ ['Input price rises','MC, AVC and ATC shift up.',1],
+ ['Productivity rises','MC, AVC and ATC shift down.',1],
+ ['Movement along a cost curve','Caused by a change in the firm\'s own output.',1]];
+const CASES=[
+ ['Emirates: fuel and aircraft','Hoang names fuel and in-flight meals as variable costs for Emirates Airlines (p. 188). The aircraft it leases, its head office and its pilots\' training are paid for whether a given flight is full or empty.',
+  ['Classify fuel, meals, aircraft leases and head-office salaries as fixed or variable.','Why does the cost per passenger fall as a flight fills up?','What happens to Emirates\' cost curves if the price of jet fuel rises by a third?'],
+  ['Variable: fuel and meals. Fixed: aircraft leases and head-office salaries.','The fixed costs of the flight are spread over more passengers, so average fixed cost and average total cost fall.','Fuel is a variable input, so MC, AVC and ATC all shift up. Fixed cost, and so AFC, does not change.']],
+ ['Europe\'s energy price shock','In 2022 the price of gas and electricity in much of Europe rose several times over. Bakeries, whose ovens run for every batch, reported energy bills that threatened their survival.',
+  ['Is a bakery\'s oven energy a fixed or a variable cost? Explain.','Which of the bakery\'s cost curves shift, and in which direction?','Why might a bakery raise its prices even if demand has not changed?'],
+  ['Mostly variable: more batches use more energy. A standing charge on the bill is fixed.','MC, AVC and ATC shift up. AFC moves only by any rise in the fixed standing charge.','Higher marginal cost means a higher price is needed to make each loaf worth baking; across the market, supply shifts left and the price rises. This case goes beyond Hoang: check the figures in current reporting.']],
+ ['Crispian\'s Candies breaks even','Crispian\'s Candies has fixed costs of $4,800 a month, an average variable cost of $1.50 and sells at $4 (Hoang Question 14.9, p. 211). Monthly demand is 4,000 candies.',
+  ['Calculate average total cost at 4,000 candies.','Calculate the break-even output.','Why is the break-even output lower than 4,000?'],
+  [`ATC = ($4,800 + $1.50 × 4,000) ÷ 4,000 = ${d2(CC.ATC)}.`,`Each candy earns $4 − $1.50 = $2.50 towards fixed cost, so break-even = $4,800 ÷ $2.50 = ${CC.BE.toLocaleString()} candies.`,`At 4,000 candies ATC (${d2(CC.ATC)}) is below the $4 price, so the firm makes a profit of ${'$'+CC.PR.toLocaleString()}; it covers its costs well before it sells 4,000.`]],
+ ['Self-scan checkouts','Many supermarkets have replaced staffed tills with self-scan checkouts, where one worker supervises several machines. Hoang\'s supermarket (p. 57) has a fixed number of checkouts and adds staff.',
+  ['Is installing self-scan checkouts a short-run or a long-run change?','After the change, what happens to the labor cost of serving one more customer?','Which cost curves shift, and which way?'],
+  ['A long-run change: the checkouts are capital, fixed in the short run.','It falls, because each worker now serves more customers an hour: productivity has risen.','MC, AVC and ATC for serving customers shift down. The machines add to fixed cost, so AFC rises; whether ATC ends up lower depends on how busy the store is. This case goes beyond Hoang.']]];
+const MCQ=[
+ ['Which of the following is a fixed cost for a bakery in the short run?',
+  ['The rent on its shop','Flour','The wages of extra bakers hired for busy days','Electricity used by the ovens for each batch','Packaging for each loaf'],0,
+  'Rent is paid whatever the output. Flour, extra bakers, oven energy per batch and packaging all rise with the number of loaves.'],
+ [`Total cost is $${Q2.tc1.toLocaleString()} at ${Q2.q1} units and $${Q2.tc2.toLocaleString()} at ${Q2.q2} units, and variable cost at ${Q2.q1} units is $${Q2.vc1.toLocaleString()}. What is fixed cost?`,
+  [`$${Q2.vc1.toLocaleString()}`,`$${Q2.fc.toLocaleString()}`,`$${(Q2.tc2-Q2.tc1).toLocaleString()}`,`$${Q2.mc}`,`$${(Q2.tc1/Q2.q1).toLocaleString()}`],1,
+  `FC = TC − VC = $${Q2.tc1.toLocaleString()} − $${Q2.vc1.toLocaleString()} = $${Q2.fc.toLocaleString()} (Hoang Question 14.2). $${(Q2.tc2-Q2.tc1).toLocaleString()} is the change in total cost, $${Q2.mc} is marginal cost and $${(Q2.tc1/Q2.q1).toLocaleString()} is ATC at ${Q2.q1} units.`],
+ ['Using the same data, what is marginal cost per unit between 10 and 15 units?',
+  ['$850','$5,395','$170','$359.67','$254.50'],2,
+  `MC = ΔTC ÷ ΔQ = $850 ÷ 5 = $${Q2.mc}. $850 is the change in total cost, not per unit; $359.67 is ATC at 15 units; $254.50 is AFC at 10 units.`],
+ ['As output increases, average fixed cost',
+  ['rises','first falls and then rises','stays constant','falls continuously','equals marginal cost'],3,
+  'The same fixed cost is spread over more units, so AFC falls at every output. It never rises and never reaches zero.'],
+ ['The marginal cost curve intersects the average total cost curve at',
+  ['the maximum of ATC','the minimum of AFC','the point where AFC equals AVC','the output where marginal product is greatest','the minimum of ATC'],4,
+  'While MC is below ATC it pulls the average down; once above, it pulls it up, so they meet at the minimum of ATC. The maximum of marginal product is the minimum of MC, not of ATC.'],
+ ['Marginal cost begins to rise when',
+  ['diminishing marginal returns set in','average fixed cost begins to fall','total cost begins to rise','average total cost reaches its minimum','fixed cost increases'],0,
+  'When each extra worker adds less output at the same wage, each extra unit costs more. AFC falls from the start, total cost always rises, and ATC reaches its minimum later, where MC crosses it.'],
+ ['A firm\'s rent increases. Which of its cost curves shift?',
+  ['MC, AVC and ATC','ATC and AFC only','MC only','AVC only','None, because rent is a sunk cost'],1,
+  'Rent is a fixed cost: it raises AFC and so ATC at every output, but not the cost of an extra unit or variable cost per unit.'],
+ ['The price of a firm\'s main raw material falls. What happens to its cost curves?',
+  ['ATC and AFC shift down only','Nothing shifts; the firm moves along its curves','MC, AVC and ATC shift down','MC shifts up and AVC shifts down','Only AFC shifts down'],2,
+  'A raw material is a variable input, so a lower price lowers the cost of every unit: MC, AVC and ATC fall. Fixed cost, and so AFC, does not change.'],
+ ['At the output where average total cost is at its minimum,',
+  ['MC is below ATC','AVC is at its minimum','AFC equals zero','MC equals ATC','marginal product is at its maximum'],3,
+  'MC crosses ATC at its minimum. AVC reaches its minimum at a lower output, and marginal product peaks lower still, where MC is at its minimum.'],
+ [`A firm's total cost at outputs 0 to 6 is ${E1.TC.map(v=>'$'+v).join(', ')}. At which output is average total cost lowest?`,
+  ['2','3','4','6',String(E1minQ)],4,
+  `ATC is ${E1.r.slice(1).map(x=>'$'+n2(x.atc)).join(', ')} at 1 to 6 units; the lowest, ${d2(E1minATC)}, is at ${E1minQ} units. Unit ${E1minQ}'s marginal cost ($${E1.r[E1minQ].mc}) is below the average before it, so ATC falls; unit ${E1minQ+1}'s ($${E1.r[E1minQ+1].mc}) is above, so ATC rises.`]];
+const QF=[
+ ['What is total cost at zero output?','Fixed cost: variable cost is zero when nothing is produced.'],
+ ['Write the formulas for AFC, AVC, ATC and MC.','AFC = FC ÷ Q; AVC = VC ÷ Q; ATC = TC ÷ Q = AFC + AVC; MC = ΔTC ÷ ΔQ.'],
+ [`Crispian's Candies: FC $4,800, AVC $1.50. Find ATC at 4,000 candies.`,`$4,800 ÷ 4,000 + $1.50 = ${d2(CC.ATC)}.`],
+ ['Why does fixed cost not affect marginal cost?','Fixed cost does not change when output changes, so it adds nothing to the cost of one more unit.'],
+ ['Why does AFC keep falling?','The same fixed cost is shared among more units as output rises.'],
+ ['What is the vertical gap between ATC and AVC?','Average fixed cost.'],
+ ['Where does MC cross AVC and ATC?','At the minimum point of each.'],
+ ['Why is the minimum of ATC to the right of the minimum of AVC?','AFC keeps falling, so ATC keeps falling for a while after AVC has started to rise.'],
+ ['How is marginal cost linked to marginal product?','MC = wage ÷ MP: when MP is at its peak, MC is at its minimum.'],
+ ['Which curves shift when the wage rises?','MC, AVC and ATC shift up; AFC does not.'],
+ ['Which curves shift when a lump-sum license fee is imposed?','Only AFC and ATC, because the fee is a fixed cost.'],
+ ['What happens to the cost curves when the firm simply produces more?','Nothing shifts: the firm moves along its curves.']];
+const MI=[
+ ['Fixed costs never change.','They do not change with output, but they can change over time, for example when rent rises (Hoang p. 188).'],
+ ['Average fixed cost stays the same as output rises.','Total fixed cost stays the same; average fixed cost falls, because it is spread over more units.'],
+ ['MC crosses ATC wherever it likes.','MC passes through the minimum of AVC and the minimum of ATC. Draw it that way every time.'],
+ ['A rise in rent shifts the marginal cost curve.','Rent is a fixed cost: it shifts AFC and ATC only. MC and AVC depend on variable costs.'],
+ ['Marginal cost rises from the first unit.','With the division of labor, MC usually falls at first and rises only once diminishing returns set in.'],
+ ['Producing more shifts the cost curves.','A change in the firm\'s own output is a movement along the curves. Shifts come from fixed cost, input prices or productivity.']];
+const EX=[
+ ['Free response · 5 points',`A firm's total cost at outputs 0 to 6 is ${E1.TC.map(v=>'$'+v).join(', ')}. (a) What is its fixed cost? (b) Calculate the marginal cost of the 4th unit. (c) Calculate average variable cost at 5 units. (d) At what output is ATC at its minimum? (e) The firm's rent rises by $20. What is the new ATC at 4 units, and does MC change?`,
+  [`(a) $${E1.FC}, total cost at zero output (1 point).`,`(b) $${E1.TC[4]} − $${E1.TC[3]} = $${E1.r[4].mc} (1 point).`,`(c) VC = $${E1.TC[5]} − $${E1.FC} = $${E1.r[5].vc}; AVC = $${E1.r[5].vc} ÷ 5 = ${d2(E1.r[5].avc)} (1 point).`,`(d) ${E1minQ} units, where ATC = ${d2(E1minATC)}, its lowest value (1 point).`,`(e) ATC = ($${E1.TC[4]} + $20) ÷ 4 = ${d2((E1.TC[4]+20)/4)}; MC does not change, because rent is a fixed cost (1 point).`]],
+ ['Free response · graph · 4 points','Draw a correctly labeled graph of a firm\'s short-run cost curves showing MC, ATC and AVC. Show average fixed cost at an output of your choice.',
+  ['Axes labeled cost (or price) and quantity (1 point).','A U-shaped AVC below a U-shaped ATC, getting closer as output rises (1 point).','MC passing through the minimum of AVC and the minimum of ATC (1 point).','AFC shown as the vertical distance between ATC and AVC at the chosen output (1 point).']],
+ ['Free response · 3 points','A firm produces with labor as its only variable input. (a) Explain why its marginal cost eventually rises. (b) The wage rises. Which cost curves shift, and in which direction? (c) The firm introduces software that lets each worker produce more. Which cost curves shift, and in which direction?',
+  ['(a) Diminishing marginal returns: with the fixed input unchanged, each extra worker adds less output, so at the same wage each extra unit costs more (1 point).','(b) MC, AVC and ATC shift up (1 point).','(c) MC, AVC and ATC shift down (1 point).']],
+ ['Calculation set · 4 points',`Crispian's Candies has fixed costs of $${CC.FC.toLocaleString()} a month, an average variable cost of $${CC.AVC} and sells ${CC.D.toLocaleString()} candies at $${CC.P} (Hoang Question 14.9). Calculate (a) average fixed cost, (b) average total cost, (c) the break-even output, (d) profit.`,
+  [`(a) AFC = $${CC.FC.toLocaleString()} ÷ ${CC.D.toLocaleString()} = ${d2(CC.FC/CC.D)}.`,`(b) ATC = ${d2(CC.FC/CC.D)} + $${CC.AVC.toFixed(2)} = ${d2(CC.ATC)}.`,`(c) $${CC.FC.toLocaleString()} ÷ ($${CC.P} − $${CC.AVC}) = ${CC.BE.toLocaleString()} candies.`,`(d) $${CC.P} × ${CC.D.toLocaleString()} − ($${CC.FC.toLocaleString()} + $${CC.AVC} × ${CC.D.toLocaleString()}) = $${CC.PR.toLocaleString()}.`]]];
+
+/* ============================ CORE (from the IB lab template) ============================ */
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const st={get(k,d){try{const v=localStorage.getItem(NS+'.'+k);return v==null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem(NS+'.'+k,JSON.stringify(v))}catch(e){}}};
+const f0=v=>Math.round(v).toLocaleString(), f1=v=>(Math.round(v*10)/10).toLocaleString(), f2=v=>(Math.round(v*100)/100).toLocaleString(), money=v=>(v<0?'−$':'$')+Math.round(Math.abs(v)).toLocaleString();
+const LC={s:'ls',s2:'ls',d:'ld',d2:'ld2',sm:'lm'};
+function Plot(o){const W=o.w||540,H=o.h||380,L=o.L||54,R=26,T=24,B=44;const sx=x=>L+x/o.xmax*(W-L-R),sy=y=>H-B-y/o.ymax*(H-T-B);const out=[];
+ return{sx,sy,
+  fn(f,cls,label,lx){let d='',pen=false;for(let i=0;i<=160;i++){const x=o.xmax*i/160,y=f(x);if(!isFinite(y)||y<0||y>o.ymax){pen=false;continue}d+=(pen?'L':'M')+sx(x).toFixed(1)+' '+sy(y).toFixed(1)+' ';pen=true}if(d)out.push(`<path class="${cls}" d="${d}"/>`);if(label){const x=lx!=null?lx:o.xmax*.86,y=f(x);if(isFinite(y)&&y>=0&&y<=o.ymax)out.push(`<text class="${LC[cls]||'lg'}" x="${sx(x)+6}" y="${sy(y)-6}">${label}</text>`)}},
+  poly(p,cls){out.push(`<polygon class="${cls}" points="${p.map(q=>sx(q[0]).toFixed(1)+','+sy(q[1]).toFixed(1)).join(' ')}"/>`)},
+  bar(x,w,h,cls,lab){out.push(`<rect class="bar ${cls||''}" x="${sx(x-w/2)}" y="${sy(h)}" width="${sx(w)-sx(0)}" height="${sy(0)-sy(h)}"/>`);if(lab!=null)out.push(`<text class="note" x="${sx(x)}" y="${sy(h)-6}" text-anchor="middle">${lab}</text>`)},
+  seg(x0,y0,x1,y1,cls){out.push(`<path class="${cls}" d="M${sx(x0)} ${sy(y0)} L${sx(x1)} ${sy(y1)}"/>`)},
+  dot(x,y,c){out.push(`<circle class="${c||'dot'}" cx="${sx(x)}" cy="${sy(y)}" r="5"/>`)},
+  guide(x,y,xl,yl){out.push(`<path class="guide" d="M${sx(0)} ${sy(y)} L${sx(x)} ${sy(y)} L${sx(x)} ${sy(0)}"/>`);if(yl)out.push(`<text class="tick" x="${sx(0)-6}" y="${sy(y)+4}" text-anchor="end">${yl}</text>`);if(xl)out.push(`<text class="tick" x="${sx(x)}" y="${sy(0)+17}" text-anchor="middle">${xl}</text>`)},
+  xt(x,t){out.push(`<text class="tick" x="${sx(x)}" y="${sy(0)+17}" text-anchor="middle">${t}</text>`)},
+  yt(y,t){out.push(`<text class="tick" x="${sx(0)-6}" y="${sy(y)+4}" text-anchor="end">${t}</text>`)},
+  text(x,y,t,c,a){out.push(`<text class="${c||'note'}" x="${sx(x)}" y="${sy(y)}" text-anchor="${a||'start'}">${t}</text>`)},
+  svg(aria){return `<svg class="g" viewBox="0 0 ${W} ${H}" role="img" aria-label="${aria||''}">${out.join('')}<path class="axis" d="M${sx(0)} ${sy(o.ymax)} L${sx(0)} ${sy(0)} L${sx(o.xmax)} ${sy(0)}"/><text class="axl" x="${sx(0)-8}" y="${T-8}">${o.yl}</text><text class="axl" x="${sx(o.xmax)}" y="${H-8}" text-anchor="end">${o.xl}</text><text class="tick" x="${sx(0)-6}" y="${sy(0)+17}" text-anchor="end">0</text></svg>`}}}
+function sorter(pre,cards,labels,attr){let i=st.get(pre+'i',0),sc=st.get(pre+'s',[0,0]);
+ const draw=()=>{i%=cards.length;$('#'+pre+'n').textContent=`Card ${i+1} of ${cards.length}`;$('#'+pre+'q').textContent=cards[i][0];$('#'+pre+'fb').textContent='';$('#'+pre+'next').hidden=true;$$(`[${attr}]`).forEach(b=>b.disabled=false);$('#'+pre+'sc').textContent=`Score ${sc[0]} / ${sc[1]}`};
+ $$(`[${attr}]`).forEach(b=>b.addEventListener('click',()=>{const c=cards[i],ok=b.getAttribute(attr)===c[1];sc[1]++;if(ok)sc[0]++;st.set(pre+'s',sc);const fb=$('#'+pre+'fb');fb.className='fb '+(ok?'ok':'no');fb.textContent=(ok?'✓ Correct. ':'✗ Answer: '+labels[c[1]]+'. ')+c[2];$$(`[${attr}]`).forEach(x=>x.disabled=true);$('#'+pre+'next').hidden=false;$('#'+pre+'sc').textContent=`Score ${sc[0]} / ${sc[1]}`}));
+ $('#'+pre+'next').addEventListener('click',()=>{i++;st.set(pre+'i',i);draw()});draw()}
+function stepper(pre,steps,draw){let k=0;const go=()=>{k=Math.max(0,Math.min(steps.length-1,k));draw(k);$('#'+pre+'t').textContent=`Step ${k+1}: ${steps[k][0]}`;$('#'+pre+'x').innerHTML=steps[k][1];$('#'+pre+'dots').innerHTML=steps.map((_,i)=>`<i class="${i<=k?'on':''}"></i>`).join('');$('#'+pre+'prev').disabled=k===0;$('#'+pre+'next').disabled=k===steps.length-1};
+ $('#'+pre+'next').addEventListener('click',()=>{k++;go()});$('#'+pre+'prev').addEventListener('click',()=>{k--;go()});go();return{reset(){k=0;go()}}}
+const ADDED='<span class="badge b-hl">Added for AP</span>';
+function renderGoals(){const d=st.get('goals',[]);$('#goals').innerHTML=GOALS.map((g,i)=>`<li><input type="checkbox" id="g${i}" ${d.includes(i)?'checked':''}><label for="g${i}">${g[0]}</label></li>`).join('');$$('#goals input').forEach(c=>c.addEventListener('change',()=>{const i=+c.id.slice(1);let v=st.get('goals',[]);v=c.checked?[...new Set([...v,i])]:v.filter(x=>x!==i);st.set('goals',v)}))}
+function renderCards(){$('#cards').innerHTML=TERMS.map(t=>`<button class="flip" aria-label="${t[0]}: show definition"><div class="in"><div class="f"><b>${t[0]}</b><span class="hint">${t[2]?ADDED+' ':''}Click to flip</span></div><div class="b">${t[1]}</div></div></button>`).join('');$$('#cards .flip').forEach(b=>b.addEventListener('click',()=>b.classList.toggle('on')))}
+function renderMCQ(){const list=MCQ.map((q,i)=>[q,i]);
+ $('#mcqs').innerHTML=list.map(([q,i],k)=>`<div class="mcq" data-i="${i}"><p><b>${k+1}.</b> ${q[0]}</p><div class="opts">${q[1].map((o,j)=>`<button class="btn opt" data-j="${j}">(${String.fromCharCode(65+j)}) ${o}</button>`).join('')}</div><p class="why" hidden></p></div>`).join('');
+ const sc=()=>{const a=st.get('mcq',{});const done=list.filter(x=>a[x[1]]!=null);const ok=done.filter(x=>a[x[1]]===x[0][2]).length;$('#mcqscore').innerHTML=done.length?`Score: ${ok} / ${list.length} <button class="btn" id="mcqreset" style="margin-left:10px;padding:4px 10px">Try again</button>`:'';const r=$('#mcqreset');if(r)r.addEventListener('click',()=>{st.set('mcq',{});renderMCQ()})};
+ $$('.mcq').forEach(el=>{const i=+el.dataset.i,q=MCQ[i];const mark=j=>{el.querySelectorAll('.opt').forEach(b=>{const k=+b.dataset.j;b.disabled=true;if(k===q[2])b.classList.add('ok');else if(k===j)b.classList.add('no')});const w=el.querySelector('.why');w.hidden=false;w.textContent=(j===q[2]?'✓ ':'✗ ')+q[3]};
+  const a=st.get('mcq',{});if(a[i]!=null)mark(a[i]);el.querySelectorAll('.opt').forEach(b=>b.addEventListener('click',()=>{const a=st.get('mcq',{});a[i]=+b.dataset.j;st.set('mcq',a);mark(+b.dataset.j);sc()}))});sc()}
+function renderQF(){$('#qf').innerHTML=QF.map(q=>`<div class="qa"><p><b>${q[0]}</b></p><details><summary>Show answer</summary><p>${q[1]}</p></details></div>`).join('')}
+function renderStatic(){
+ $('#casebox').innerHTML=CASES.map(c=>`<article class="case"><h3>${c[0]}</h3><p>${c[1]}</p><ol>${c[2].map(q=>`<li>${q}</li>`).join('')}</ol><details><summary>Model answer</summary><ol>${c[3].map(a=>`<li>${a}</li>`).join('')}</ol></details></article>`).join('');
+ $('#mist').innerHTML=MI.map(m=>`<div><b>✗ ${m[0]}</b>${m[1]}</div>`).join('');
+ $('#exambox').innerHTML=EX.map(e=>`<article class="case"><span class="badge b-sl">${e[0]}</span><p style="font-family:var(--serif);font-size:17px">${e[1]}</p><details><summary>Scoring guide</summary><ol>${e[2].map(x=>`<li>${x}</li>`).join('')}</ol></details></article>`).join('')}
+
+/* ============================ LAB CODE ============================ */
+/* --- Spreading the fixed cost --- */
+function spDraw(){
+ const q=+$('#spq').value;$('#spqo').textContent=q.toLocaleString();
+ const afc=CC.FC/q,atc=afc+CC.AVC;
+ const p=Plot({xmax:8000,ymax:10.5,xl:'Candies a month',yl:'$ per candy',h:340});
+ p.fn(x=>CC.FC/x,'s2','AFC',7000);p.fn(x=>CC.AVC,'d','AVC',7000);p.fn(x=>CC.FC/x+CC.AVC,'sm','ATC',6400);p.fn(x=>CC.P,'ghost','price $4',300);
+ p.seg(CC.BE,0,CC.BE,CC.P,'guide');p.dot(CC.BE,CC.P,'dot2');p.text(CC.BE+80,CC.P+.6,'break-even '+CC.BE.toLocaleString(),'note');
+ p.guide(q,atc,'','');p.dot(q,atc);p.dot(q,CC.AVC,'dot2');
+ [2000,4000,6000,8000].forEach(x=>p.xt(x,x.toLocaleString()));[2,4,6,8,10].forEach(y=>p.yt(y,'$'+y));
+ $('#spg').innerHTML=p.svg('Average costs of Crispian\'s Candies');
+ $('#spread_r').innerHTML=`<dt>Fixed cost</dt><dd>$${CC.FC.toLocaleString()}</dd><dt>Variable cost</dt><dd>$${(CC.AVC*q).toLocaleString()}</dd><dt>Total cost</dt><dd>$${(CC.FC+CC.AVC*q).toLocaleString()}</dd><dt>AFC</dt><dd>${d2(afc)}</dd><dt>AVC</dt><dd>${d2(CC.AVC)}</dd><dt>ATC = AFC + AVC</dt><dd>${d2(atc)}</dd><dt>Profit at $4</dt><dd>${(CC.P*q-CC.FC-CC.AVC*q<0?'−$':'$')+Math.abs(CC.P*q-CC.FC-CC.AVC*q).toLocaleString()}</dd>`;
+ $('#spx').innerHTML=`The fixed $${CC.FC.toLocaleString()} is shared among ${q.toLocaleString()} candies, so AFC is ${d2(afc)}. Doubling output halves AFC, which is why ATC keeps falling here: this firm's AVC is constant, so the gap between ATC and AVC <b>is</b> AFC. ${q<CC.BE?`Below ${CC.BE.toLocaleString()} candies ATC is above the $4 price and the firm makes a loss.`:q>CC.BE?`Above ${CC.BE.toLocaleString()} candies ATC is below the $4 price and the firm makes a profit.`:'At this output ATC equals the price: the firm breaks even.'}`}
+$('#spq').addEventListener('input',spDraw);
+
+/* --- Family of curves --- */
+function famPlots(f,k,q,ghost){/* k: diagram-builder step (99 = all) */
+ const t=Plot({xmax:9.5,ymax:200,xl:'Output (Q)',yl:'Total cost ($)',h:240}),c=Plot({xmax:9.5,ymax:60,xl:'Output (Q)',yl:'Cost per unit ($)'});
+ [2,4,6,8].forEach(x=>{t.xt(x,x);c.xt(x,x)});[50,100,150].forEach(y=>t.yt(y,y));[20,40,60].forEach(y=>c.yt(y,y));
+ t.fn(f.TC,'sm','TC',7.6);t.fn(f.VC,'s2','VC',8.4);t.fn(x=>f.F,'ghost','FC',8.4);
+ if(ghost){c.fn(ghost.MC,'ghost');c.fn(ghost.ATC,'ghost');c.fn(ghost.AVC,'ghost')}
+ if(k>=2)c.fn(f.MC,'s','MC',6.9);
+ if(k>=3)c.fn(f.AVC,'s2','AVC',7.4);
+ if(k>=4)c.fn(f.ATC,'sm','ATC',8.9);
+ const qa=4.5,qt=argmin(f.ATC,.5,9);
+ if(k>=5){c.dot(qa,f.AVC(qa),'dot2');c.dot(qt,f.ATC(qt),'dot2')}
+ if(k>=6&&q==null){const x=2.2;c.seg(x,f.AVC(x),x,f.ATC(x),'gap');c.text(x+.15,(f.AVC(x)+f.ATC(x))/2,'AFC','lm')}
+ if(k>=7&&q==null)c.text(qt,f.ATC(qt)-3.5,'min ATC','note','middle');
+ if(q!=null){t.guide(q,f.TC(q),'','');t.dot(q,f.TC(q));c.seg(q,0,q,Math.min(60,f.ATC(q)),'guide');[f.MC(q),f.AVC(q),f.ATC(q)].forEach(y=>{if(y<=60)c.dot(q,y)});if(f.ATC(q)<=60)c.seg(q,f.AVC(q),q,f.ATC(q),'gap')}
+ return[t,c]}
+function fmDraw(){
+ const q=+$('#fmq').value;$('#fmqo').textContent=q.toFixed(1);const f=F0,[t,c]=famPlots(f,99,q);
+ $('#fmg1').innerHTML=t.svg('Total, variable and fixed cost');$('#fmg2').innerHTML=c.svg('Per-unit cost curves');
+ $('#fmread').innerHTML=`<dt>FC · VC · TC</dt><dd>${d2(f.F)} · ${d2(f.VC(q))} · ${d2(f.TC(q))}</dd><dt>MC</dt><dd>${d2(f.MC(q))}</dd><dt>AFC</dt><dd>${d2(f.AFC(q))}</dd><dt>AVC</dt><dd>${d2(f.AVC(q))}</dd><dt>ATC</dt><dd>${d2(f.ATC(q))}</dd>`;
+ const mc=f.MC(q),avc=f.AVC(q),atc=f.ATC(q);
+ let x=q<3?'MC is <b>falling</b>: the division of labor makes each extra unit cheaper.':Math.abs(q-3)<.05?'MC is at its <b>minimum</b>: this is where marginal product is greatest.':'MC is <b>rising</b>: diminishing marginal returns have set in.';
+ x+=Math.abs(q-4.5)<.05?' MC equals AVC here, the <b>minimum of AVC</b>.':` MC is ${mc<avc?'below':'above'} AVC, so AVC is ${mc<avc?'falling':'rising'}.`;
+ x+=Math.abs(q-F0ATCQ)<.06?' MC equals ATC here, the <b>minimum of ATC</b>: the minimum-cost output.':` MC is ${mc<atc?'below':'above'} ATC, so ATC is ${mc<atc?'falling':'rising'}.`;
+ x+=` The orange bar between ATC and AVC is AFC, ${d2(f.AFC(q))}.`;
+ $('#fmx').innerHTML=x}
+$('#fmq').addEventListener('input',fmDraw);
+$$('[data-fj]').forEach(b=>b.addEventListener('click',()=>{$('#fmq').value=b.dataset.fj==='atc'?F0ATCQ.toFixed(1):b.dataset.fj;fmDraw()}));
+
+/* --- Mirror: MP and MC --- */
+function mrDraw(){
+ const w=+$('#mrw').value;$('#mrwo').textContent='$'+w;const mc=BMP.map(m=>m?w/m:null),avc=BAKE.map((q,i)=>i?w*i/q:null);
+ const a=Plot({xmax:8.6,ymax:40,xl:'Bakers',yl:'Marginal product (loaves)',h:230});for(let i=1;i<=8;i++){a.bar(i,.5,BMP[i],BMP[i]<BMP[i-1]&&i>1?'dim':'',BMP[i]);a.xt(i,i)}[20,40].forEach(y=>a.yt(y,y));
+ const ymax=Math.ceil(Math.max(...mc.slice(1),...avc.slice(1))/5)*5+5;
+ const b=Plot({xmax:8.6,ymax,xl:'Bakers',yl:'MC per loaf ($)',h:230});for(let i=1;i<=8;i++){b.bar(i,.5,mc[i],BMP[i]<BMP[i-1]&&i>1?'dim':'',n2(mc[i]));b.xt(i,i)}[ymax/2,ymax].forEach(y=>b.yt(y,y));
+ $('#mrg1').innerHTML=a.svg('Marginal product of each baker');$('#mrg2').innerHTML=b.svg('Marginal cost of a loaf from each baker');
+ $('#mrtab').innerHTML='<tr><th>Baker</th><th>MP</th><th>MC = wage ÷ MP</th><th>AVC</th></tr>'+BAKE.slice(1).map((q,j)=>{const i=j+1;return `<tr><td>${i}</td><td>${BMP[i]}</td><td>${d2(mc[i])}</td><td>${d2(avc[i])}</td></tr>`}).join('');
+ const lo=mc.slice(1).indexOf(Math.min(...mc.slice(1)))+1;
+ $('#mrx').innerHTML=`Marginal product rises to ${BMP[lo]} loaves with the ${ord(lo)} baker, so marginal cost falls to its lowest, ${d2(mc[lo])} a loaf. After that each baker adds less, so each loaf costs more: <b>the bottom of MC is the top of MP</b>. A higher wage raises every MC bar in proportion, which is a shift of the MC curve, not a movement along it.`}
+$('#mrw').addEventListener('input',mrDraw);
+
+/* --- Shifts --- */
+const SH={base:firm(30,1),fc:firm(60,1),w:firm(30,1.25),a:firm(30,1/1.25)};
+let shMode=st.get('sh','base');
+function shDraw(){
+ $$('[data-sh]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.sh===shMode));
+ const f=SH[shMode],g=shMode==='base'?null:SH.base,[,c]=famPlots(f,99,null,g);
+ $('#shg').innerHTML=c.svg('Cost curves after the change');
+ const qt=argmin(f.ATC,.5,9),q0=argmin(SH.base.ATC,.5,9);
+ $('#shread').innerHTML=`<dt>Minimum MC</dt><dd>${d2(f.MC(3))} <span class="muted">(was ${d2(SH.base.MC(3))})</span></dd><dt>Minimum AVC</dt><dd>${d2(f.AVC(4.5))} <span class="muted">(was ${d2(SH.base.AVC(4.5))})</span></dd><dt>Minimum ATC</dt><dd>${d2(f.ATC(qt))} at Q ${n2(qt)} <span class="muted">(was ${d2(SH.base.ATC(q0))} at ${n2(q0)})</span></dd>`;
+ const X={base:'These are the starting curves. Choose a change to see which curves move.',
+  fc:'Rent is a <b>fixed cost</b>. MC and AVC do not move at all; only AFC and therefore ATC shift up. The bottom of ATC moves up and to the right, because the larger fixed cost is best spread over more units.',
+  w:'Labor is a <b>variable input</b>, so every unit costs 25% more to make: <b>MC, AVC and ATC</b> all shift up. Fixed cost is unchanged.',
+  a:'Each worker now produces 25% more, so each unit needs fewer worker-hours: <b>MC, AVC and ATC</b> all shift down. Fixed cost is unchanged.'};
+ $('#shx').innerHTML=X[shMode]}
+$$('[data-sh]').forEach(b=>b.addEventListener('click',()=>{shMode=b.dataset.sh;st.set('sh',shMode);shDraw()}));
+
+/* --- Sorter --- */
+const SORT=[
+ ['A café\'s landlord raises its monthly rent.','fc','Rent is fixed: AFC and ATC rise; MC and AVC do not.'],
+ ['A car maker\'s steel price rises by 20%.','var','Steel is used in every car: MC, AVC and ATC shift up.'],
+ ['The government charges every restaurant a $2,000 annual license fee.','fc','A lump-sum fee does not depend on output, so it works like a fixed cost.'],
+ ['New software lets each call-center worker handle more calls an hour.','var','Higher productivity lowers the labor cost of each call: MC, AVC and ATC shift down.'],
+ ['A bakery bakes 500 loaves instead of 400.','none','A change in its own output moves it along its curves.'],
+ ['The minimum wage rises for a fast-food chain\'s staff.','var','Labor is variable: MC, AVC and ATC rise.'],
+ ['A factory\'s insurance premium doubles.','fc','Insurance is a fixed cost: only AFC and ATC move.'],
+ ['A per-unit tax of $1 is placed on every bottle a brewery sells.','var','A per-unit tax raises the cost of each unit: MC, AVC and ATC shift up by $1.'],
+ ['A farm\'s fertilizer price falls.','var','Fertilizer is a variable input: MC, AVC and ATC shift down.'],
+ ['A printer cuts its output because demand has fallen.','none','Lower output is a movement along the existing curves.']];
+
+/* --- Diagram builder --- */
+const DR=[
+ ['Label the axes','Cost (or price, $) on the vertical axis and <b>Quantity</b> on the horizontal. The top graph of total costs is optional; the per-unit graph is what examiners ask for.'],
+ ['Draw marginal cost','MC falls at first (specialization), reaches a minimum and then rises (diminishing returns): a swoosh.'],
+ ['Draw AVC','U-shaped, with its minimum where MC crosses it. MC is below AVC to the left of that point and above it to the right.'],
+ ['Draw ATC','Above AVC, also U-shaped. Its minimum is to the <b>right</b> of the minimum of AVC.'],
+ ['Pass MC through both minimum points','Check: MC cuts AVC at its lowest point and ATC at its lowest point. Examiners award a point for exactly this.'],
+ ['Show AFC as the gap','At any output, the vertical distance between ATC and AVC is AFC. It narrows as output rises.'],
+ ['Label the minimum-cost output','The bottom of ATC, where MC = ATC. Checklist: axes · swoosh MC · U-shaped AVC and ATC · MC through both minima · AFC gap.']];
+function drDraw(k){const[,c]=famPlots(F0,k+1,null);$('#drg').innerHTML=c.svg('Diagram builder')}
+
+/* ============================ INIT ============================ */
+$$('section.step').forEach(sec=>{const n=sec.querySelector('.num');const list=[...$$('section.step')].filter(x=>x.id!=='guide');if(n&&sec.id!=='guide'&&!n.dataset.fixed)n.textContent=String(list.indexOf(sec)+1).padStart(2,'0')});
+renderStatic();renderGoals();renderCards();renderMCQ();renderQF();
+spDraw();fmDraw();mrDraw();shDraw();
+sorter('so',SORT,{fc:'Only AFC and ATC',var:'MC, AVC and ATC',none:'No curve shifts'},'data-so');
+stepper('dr',DR,drDraw);
+})();
+</script>
+<script id="cg-js">
+(function(){
+const CG={"title": "Module 55 · Firm Costs", "intro": "Every short-run cost a firm faces, how the cost curves are shaped and what moves them. Terms marked In Hoang are taught in Hoang, Wray and Chakraborty, Chapter 14, pp. 187–193, and Chapter 4, p. 58. Terms marked Added for AP are not in Hoang: the book never shows a cost curve shifting, and the AP course examines all three causes.", "groups": [{"name": "Short-run costs", "terms": [{"term": "Fixed cost", "level": "Hoang", "definition": "A cost that does not change with the quantity of output, and must be paid even when output is zero (FC or TFC).", "explanation": "Fixed costs come from the fixed inputs of the short run: rent, insurance, loan interest, management salaries. They can change over time, but not because the firm produces more or less. Hoang warns that saying fixed costs never change is a common mistake (p. 188).", "example": "Tandy Toys pays $7,000 rent and $8,000 salaries a month, $15,000 of fixed cost whether it makes 0 toys or 5,000 (Hoang p. 188).", "exam_tip": "Fixed cost is the total cost at zero output. Read it off a table at Q = 0.", "related": ["Variable cost", "Total cost", "Average fixed cost"]}, {"term": "Variable cost", "level": "Hoang", "definition": "A cost that rises and falls with the quantity of output, such as wages and raw materials (VC or TVC).", "explanation": "Variable costs come from the variable inputs. They are zero at zero output and rise as output rises, first more slowly while workers specialize, then faster once diminishing marginal returns set in.", "example": "Fuel and in-flight meals are variable costs for Emirates Airlines (Hoang p. 188).", "exam_tip": "VC = TC − FC at every output.", "related": ["Fixed cost", "Total cost", "Average variable cost"]}, {"term": "Total cost", "level": "Hoang", "definition": "The sum of fixed and variable cost at a given output: TC = FC + VC.", "explanation": "Total cost includes implicit costs, so it covers the normal profit the owner needs. Its curve starts at the level of fixed cost on the vertical axis and rises with output.", "example": "Hoang Question 14.2: total cost is $4,545 at 10 units and $5,395 at 15 units (p. 189).", "exam_tip": "Total and variable cost curves are parallel: the vertical gap between them is always fixed cost.", "related": ["Fixed cost", "Variable cost", "Marginal cost"]}, {"term": "Marginal cost", "level": "Hoang", "definition": "The additional cost of producing one more unit of output: MC = ΔTC ÷ ΔQ, which also equals ΔVC ÷ ΔQ.", "explanation": "Because fixed cost does not change with output, marginal cost depends only on variable cost. With one variable input, marginal cost equals the input price divided by its marginal product, so it is the mirror image of marginal product: it falls while marginal product rises and rises once diminishing returns set in.", "example": "From 10 to 15 units total cost rises by $850, so marginal cost is $170 per unit (Hoang Question 14.2, p. 189).", "exam_tip": "Marginal cost is plotted at the unit it belongs to, or at the midpoint between two outputs on a graph.", "related": ["Total cost", "Rising marginal cost", "Marginal cost crosses the averages at their minimum"]}]}, {"name": "Average costs", "terms": [{"term": "Average fixed cost", "level": "Hoang", "definition": "Fixed cost per unit of output: AFC = FC ÷ Q. It falls continuously as output rises.", "explanation": "The same fixed cost is spread over more and more units, so AFC falls without ever reaching zero. On a graph it is a curve sloping down towards the quantity axis. Hoang's margin note on p. 189 defines it as costs that do not change with output, which is total fixed cost; his own p. 193 shows it falling.", "example": "With fixed costs of $5,000, AFC is $5 at 1,000 units and $2.50 at 2,000 units (Hoang p. 193).", "exam_tip": "AFC is the vertical distance between ATC and AVC. It is the one average cost that never rises.", "related": ["Fixed cost", "Average total cost", "AFC is the gap between ATC and AVC"]}, {"term": "Average variable cost", "level": "Hoang", "definition": "Variable cost per unit of output: AVC = VC ÷ Q.", "explanation": "Average variable cost is U-shaped: it falls while marginal cost is below it and rises once marginal cost is above it. Its minimum matters in Topic 3.6: a firm shuts down in the short run if price is below it.", "example": "Hoang Question 14.2: AVC is $2,000 ÷ 10 = $200 at 10 units and $2,850 ÷ 15 = $190 at 15 units (p. 189).", "exam_tip": "AVC = ATC − AFC. On a graph AVC lies below ATC and gets closer to it as output rises.", "related": ["Variable cost", "Average total cost", "Marginal cost crosses the averages at their minimum"]}, {"term": "Average total cost", "level": "Hoang", "definition": "Total cost per unit of output: ATC = TC ÷ Q = AFC + AVC. Hoang calls it average cost (AC) or short-run average cost (SRAC).", "explanation": "Average total cost is U-shaped. At low output falling AFC and falling AVC pull it down; at high output rising AVC outweighs the still-falling AFC and pulls it up. Its minimum is the minimum-cost output, the cheapest output per unit for this plant.", "example": "Crispian's Candies has fixed costs of $4,800 and AVC of $1.50: at 4,000 units ATC = $1.20 + $1.50 = $2.70 (Hoang Question 14.9, p. 211).", "exam_tip": "Write ATC on the exam even if Hoang writes AC; they are the same curve.", "related": ["Average fixed cost", "Average variable cost", "Minimum-cost output"]}, {"term": "AFC is the gap between ATC and AVC", "level": "Hoang", "definition": "Because ATC = AFC + AVC, the vertical distance between the ATC and AVC curves at any output equals average fixed cost.", "explanation": "The gap narrows as output rises, because AFC keeps falling, but never closes. That is why ATC and AVC get closer together without touching, and why the minimum of ATC lies to the right of the minimum of AVC.", "example": "Hoang states it on p. 193: the vertical distance between SRAC and SRAVC is the AFC at each output level.", "exam_tip": "To find total fixed cost from a graph, multiply the ATC–AVC gap at any output by that output.", "related": ["Average fixed cost", "Average total cost", "Average variable cost"]}]}, {"name": "Why the curves have their shapes", "terms": [{"term": "Rising marginal cost", "level": "Hoang", "definition": "Once diminishing marginal returns set in, each extra unit of output needs more of the variable input, so marginal cost rises.", "explanation": "If the wage stays the same and each new worker adds fewer units, the cost of each of those units goes up. Hoang calls this increasing marginal cost and uses it to explain why the supply curve slopes upward (p. 58).", "example": "At a wage of $115 a day, a baker who adds 32 loaves makes each loaf cost $3.59 extra; one who adds 23 makes each cost $5.", "exam_tip": "MC = input price ÷ MP. The peak of marginal product is the bottom of marginal cost.", "related": ["Marginal cost", "Specialization lowers marginal cost"]}, {"term": "Specialization lowers marginal cost", "level": "Hoang", "definition": "At low output, the division of labor makes each new worker add more than the last, so marginal cost falls.", "explanation": "This is the first part of the swoosh-shaped marginal cost curve. Hoang describes increasing marginal returns from teamwork and the division of labor (p. 57) but then says marginal costs generally rise with each unit (p. 58); both phases belong on the graph.", "example": "A second cook lets one chop while the other fries, so the kitchen's cost per extra meal falls.", "exam_tip": "Draw MC falling first, then rising: a swoosh, not a straight upward line.", "related": ["Rising marginal cost", "Marginal cost"]}, {"term": "Marginal cost crosses the averages at their minimum", "level": "Hoang", "definition": "The marginal cost curve cuts both the AVC and the ATC curve at their lowest points.", "explanation": "Adding a unit that costs less than the current average pulls the average down; one that costs more pulls it up. So the averages fall while MC is below them and rise once MC is above, and MC meets each at its minimum. Hoang states this for average cost (pp. 193–194); the same reasoning applies to AVC.", "example": "Hoang Figure 14.13 (p. 193) shows MC cutting SRAC at its minimum point.", "exam_tip": "Examiners check that MC passes through the minimum of AVC and the minimum of ATC. Draw MC first, then the U's around it.", "related": ["Marginal cost", "Average variable cost", "Average total cost", "Minimum-cost output"]}, {"term": "Minimum-cost output", "level": "Hoang", "definition": "The output at which average total cost is lowest, where MC = ATC.", "explanation": "It is the most efficient output for the existing plant, the point a perfectly competitive firm reaches in the long run (productive efficiency, Topic 3.7). Hoang calls producing there productive efficiency (p. 196).", "example": "For the lab's illustrative firm with fixed cost $30, average total cost is lowest at about 5.5 units.", "exam_tip": "Minimum-cost output is a property of costs alone; it is not the profit-maximizing output, which also depends on price.", "related": ["Average total cost", "Marginal cost crosses the averages at their minimum"]}]}, {"name": "What shifts the cost curves", "terms": [{"term": "A change in fixed cost", "level": "Added", "definition": "A rise in fixed cost shifts the AFC and ATC curves up; MC and AVC do not move.", "explanation": "Fixed cost does not change with output, so it does not change the cost of an extra unit or the variable cost per unit. Only the averages that include fixed cost rise. The minimum of ATC moves up and to the right, because the larger fixed cost is best spread over more units.", "example": "A landlord raises a café's rent from $3,000 to $4,000 a month: its ATC rises at every output, but the cost of one more coffee does not.", "exam_tip": "A lump-sum tax or license fee works like a rise in fixed cost: only AFC and ATC shift.", "related": ["Fixed cost", "Average total cost", "A change in input prices"]}, {"term": "A change in input prices", "level": "Added", "definition": "A rise in the price of a variable input, such as the wage or a raw material, shifts MC, AVC and ATC up.", "explanation": "Every extra unit now needs inputs that cost more, so marginal cost rises at every output, and so do variable and total cost per unit. Hoang shows rising costs of factors of production shifting the supply curve left (Chapter 4) but never draws the cost curves behind that shift.", "example": "When energy prices jumped in Europe in 2022, bakeries' cost of firing ovens for each batch rose, shifting their MC, AVC and ATC up.", "exam_tip": "A per-unit tax works like a higher input price: MC, AVC and ATC all shift up by the tax.", "related": ["A change in fixed cost", "A change in productivity", "Marginal cost"]}, {"term": "A change in productivity", "level": "Added", "definition": "A rise in productivity, through better technology, training or management, shifts MC, AVC and ATC down.", "explanation": "If each worker produces more, fewer worker-hours are needed per unit of output, so the variable cost of each unit falls. Fixed cost is unaffected unless the new technology itself has to be paid for as a fixed cost.", "example": "Self-scan checkouts let one supermarket worker supervise several tills, lowering the labor cost of each customer served.", "exam_tip": "Higher productivity lowers MC, which shifts the firm's supply curve to the right.", "related": ["A change in input prices", "Marginal cost"]}, {"term": "Movement along versus shift", "level": "Added", "definition": "A change in the firm's own output moves it along its cost curves; a change in fixed cost, input prices or productivity shifts them.", "explanation": "Producing more changes the firm's position on the same curves. Only something that changes the cost of producing every unit, or the fixed cost, redraws the curves.", "example": "A bakery that bakes more loaves moves down and then up its ATC curve; a bakery whose flour price rises gets a new, higher ATC curve.", "exam_tip": "When asked which curves shift, list them: fixed cost → AFC and ATC only; variable input price or productivity → MC, AVC and ATC.", "related": ["A change in fixed cost", "A change in input prices", "A change in productivity"]}]}]};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const box=document.getElementById('cgbox'),q=document.getElementById('cgq'),cnt=document.getElementById('cgcount');
+const id=t=>'cg-'+t.toLowerCase().replace(/[^a-z0-9]+/g,'-');
+const badge=l=>l==='Added'?'<span class="badge b-hl">Added for AP</span>':'<span class="badge b-sl">In Hoang</span>';
+box.innerHTML='<p style="max-width:72ch">'+esc(CG.intro)+'</p>'+CG.groups.map(g=>`<div class="cg-group"><h3>${esc(g.name)}</h3>`+g.terms.map(t=>`<details class="cg-item" id="${id(t.term)}" data-s="${esc((t.term+' '+t.definition+' '+t.explanation+' '+t.example).toLowerCase())}"><summary><b>${esc(t.term)}</b>${badge(t.level)}<span class="cg-def">${esc(t.definition)}</span></summary><div class="cg-body"><div><span class="lbl">Definition</span><p class="defn">${esc(t.definition)}</p></div><div><span class="lbl">Explanation</span><p>${esc(t.explanation)}</p></div><div class="cg-ex"><span class="lbl">Example</span><p>${esc(t.example)}</p></div><div class="cg-tip"><span class="lbl">Exam tip</span><p>${esc(t.exam_tip)}</p></div>${(t.related||[]).length?`<div><span class="lbl">Related terms</span><div class="cg-rel">${t.related.map(r=>`<button type="button" data-go="${id(r)}">${esc(r)}</button>`).join('')}</div></div>`:''}</div></details>`).join('')+'</div>').join('')+'<p class="cg-empty" id="cgnone" hidden>No terms match your search.</p>';
+function apply(){const s=(q.value||'').trim().toLowerCase();let n=0;
+ box.querySelectorAll('.cg-item').forEach(d=>{const show=!s||d.dataset.s.includes(s);d.hidden=!show;if(show)n++;if(s&&show)d.open=true});
+ box.querySelectorAll('.cg-group').forEach(g=>{g.hidden=![...g.querySelectorAll('.cg-item')].some(d=>!d.hidden)});
+ cnt.textContent=n+' term'+(n===1?'':'s');document.getElementById('cgnone').hidden=n>0}
+q.addEventListener('input',apply);
+document.getElementById('cgopen').addEventListener('click',()=>box.querySelectorAll('.cg-item:not([hidden])').forEach(d=>d.open=true));
+document.getElementById('cgclose').addEventListener('click',()=>box.querySelectorAll('.cg-item').forEach(d=>d.open=false));
+box.addEventListener('click',e=>{const b=e.target.closest('[data-go]');if(!b)return;const t=document.getElementById(b.dataset.go);if(t){q.value='';apply();t.open=true;t.scrollIntoView({block:'center'})}});
+apply();
+})();
+</script>
+<script id="sb-js">
+(function(){
+const secs=[...document.querySelectorAll('section.step[id]')];
+const sb=document.createElement('aside');sb.className='sb';sb.setAttribute('aria-label','Lesson contents');
+const title=document.querySelector('.brand').childNodes[0].textContent.trim(),sub=document.querySelector('.brand span').textContent;
+sb.innerHTML=`<a class="home" href="https://sevketgunduz.github.io/ap-microeconomics/">AP Microeconomics</a><div class="sub">${title} · ${sub}</div><p class="lbl">In this lab</p>`+
+ secs.map(s=>{const n=s.querySelector('.num'),h=s.querySelector('h2');const t=h?h.childNodes[0].textContent.replace(/[:·].*$/,'').trim():s.id;return `<a class="it" href="#${s.id}" data-id="${s.id}"><span>${n?n.textContent:''}</span><span>${t}</span></a>`}).join('')+
+ `<p class="lbl">Same module, old layout</p><div class="links"><a href="m55-student.html">Student guide</a><a href="m55-test.html">Test</a><a href="m55-notes.html">Teaching notes</a></div>`;
+document.body.appendChild(sb);
+const btn=document.createElement('button');btn.className='sbbtn';btn.type='button';btn.textContent='☰ Contents';btn.setAttribute('aria-expanded','false');
+const bar=document.querySelector('.topin');if(bar)bar.insertBefore(btn,bar.firstChild);
+btn.addEventListener('click',()=>{sb.classList.toggle('open');btn.setAttribute('aria-expanded',sb.classList.contains('open'))});
+sb.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>sb.classList.remove('open')));
+if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){sb.querySelectorAll('a.it').forEach(a=>a.classList.toggle('act',a.dataset.id===e.target.id))}}),{rootMargin:'-20% 0px -70% 0px'});secs.forEach(s=>io.observe(s))}
+})();
+</script>
+</body>
+</html>

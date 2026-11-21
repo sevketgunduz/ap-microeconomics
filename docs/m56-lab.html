@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Economies of Scale Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,650&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+:root{
+  --ground:#f4f5f1; --panel:#ffffff; --panel2:#f8f9f5; --ink:#1a2029; --muted:#5a636c; --rule:#d9ddd3; --grid:#e7eae2;
+  --supply:#c0441f; --supply2:#e8876a; --demand:#2451c4; --good:#12795f; --bad:#b3261e; --hl:#6f3aa8; --hlbg:#efe6f8; --slbg:#e2efe9; --sl:#0d6b5c;
+  --tint:#eaf0fc; --focus:#2451c4; --shade:rgba(192,68,31,.14); --shadeb:rgba(36,81,196,.14);
+  --serif:"Source Serif 4",Georgia,serif; --sans:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif; --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;
+  --ground:#12161b; --panel:#1a2027; --panel2:#1f262e; --ink:#e6eaee; --muted:#9ca7b1; --rule:#2e3842; --grid:#252f38;
+  --supply:#ff8d66; --supply2:#b8664b; --demand:#86a6ff; --good:#4fd1a8; --bad:#ff7b72; --hl:#c29af2; --hlbg:#2c2240; --slbg:#173029; --sl:#6fd6bf;
+  --tint:#1b2436; --focus:#86a6ff; --shade:rgba(255,141,102,.18); --shadeb:rgba(134,166,255,.18);}}
+:root[data-theme="dark"]{color-scheme:dark;
+  --ground:#12161b; --panel:#1a2027; --panel2:#1f262e; --ink:#e6eaee; --muted:#9ca7b1; --rule:#2e3842; --grid:#252f38;
+  --supply:#ff8d66; --supply2:#b8664b; --demand:#86a6ff; --good:#4fd1a8; --bad:#ff7b72; --hl:#c29af2; --hlbg:#2c2240; --slbg:#173029; --sl:#6fd6bf;
+  --tint:#1b2436; --focus:#86a6ff; --shade:rgba(255,141,102,.18); --shadeb:rgba(134,166,255,.18);}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font:16px/1.6 var(--sans);margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:20px;padding-block:0 80px}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--ground);border-bottom:1px solid var(--rule)}
+.topin{max-width:1120px;margin:0 auto;padding:10px 20px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.brand{font:650 18px var(--serif);margin-right:auto}
+.brand span{font:600 12px var(--sans);color:var(--muted);margin-left:8px}
+nav.jump{display:flex;gap:2px;flex-wrap:wrap}
+nav.jump a{font:600 12.5px var(--sans);color:var(--muted);text-decoration:none;padding:6px 9px;border-radius:6px}
+nav.jump a:hover{background:var(--panel);color:var(--ink)}
+.lvl{display:flex;border:1px solid var(--rule);border-radius:999px;overflow:hidden}
+.lvl button{font:700 12px var(--sans);border:0;background:var(--panel);color:var(--muted);padding:6px 12px;cursor:pointer}
+.lvl button[aria-pressed="true"]{background:var(--ink);color:var(--ground)}
+h1,h2,h3{font-family:var(--serif);font-weight:650;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:40px;line-height:1.1} h2{font-size:27px;line-height:1.2} h3{font-size:19px}
+p{margin:0} .muted{color:var(--muted)}
+.eyebrow{font:700 11.5px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--demand)}
+.badge{display:inline-block;font:700 10.5px var(--sans);letter-spacing:.06em;padding:2px 7px;border-radius:4px;vertical-align:3px}
+.b-hl{background:var(--hlbg);color:var(--hl)} .b-sl{background:var(--slbg);color:var(--sl)}
+button:focus-visible,input:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+section.step{padding-top:56px;scroll-margin-top:70px}
+.shead{display:grid;gap:8px;max-width:72ch;margin-bottom:20px}
+.shead .num{font:600 13px var(--mono);color:var(--muted)}
+.hero{padding-top:44px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:36px;align-items:center}
+.hero p.lead{font-size:18px;margin-top:14px;max-width:56ch}
+.goals{background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:18px 20px}
+.goals ul{margin:8px 0 0;padding:0;list-style:none;display:grid;gap:8px}
+.goals li{display:grid;grid-template-columns:22px 1fr;gap:8px;font-size:15px}
+.goals input{width:18px;height:18px;accent-color:var(--good);margin-top:3px}
+.lab{background:var(--panel);border:1px solid var(--rule);border-radius:14px;padding:20px}
+.lab2{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px;align-items:start}
+svg.g{width:100%;height:auto;display:block;border-radius:8px;background:var(--panel2);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:26px 26px}
+svg .axis{stroke:var(--ink);stroke-width:1.7;fill:none} svg .axl{fill:var(--ink);font:700 12.5px var(--sans)} svg .tick{fill:var(--muted);font:11.5px var(--mono)}
+svg .guide{stroke:var(--muted);stroke-dasharray:4 4;fill:none}
+svg .s{stroke:var(--supply);stroke-width:3;fill:none;stroke-linecap:round} svg .s2{stroke:var(--supply2);stroke-width:2.2;fill:none;stroke-dasharray:7 5}
+svg .sm{stroke:var(--ink);stroke-width:3;fill:none} svg .d{stroke:var(--demand);stroke-width:3;fill:none}
+svg .ghost{stroke:var(--muted);stroke-width:1.6;stroke-dasharray:3 4;fill:none}
+svg text.ls{fill:var(--supply);font:700 13px var(--sans)} svg text.ld{fill:var(--demand);font:700 13px var(--sans)} svg text.lm{fill:var(--ink);font:700 13px var(--sans)} svg text.lg{fill:var(--muted);font:700 12px var(--sans)}
+svg .dot{fill:var(--ink)} svg .dot2{fill:var(--panel);stroke:var(--ink);stroke-width:1.8}
+svg .arrow{stroke:var(--good);stroke-width:2.4;fill:none;marker-end:url(#ah)} svg .ahead{fill:var(--good)}
+svg .bar{fill:var(--demand);opacity:.7} svg .bar.dim{fill:var(--supply);opacity:.75}
+svg .note{fill:var(--muted);font:600 11.5px var(--sans)} svg .area{fill:var(--shade)}
+.ctl{display:grid;grid-template-columns:1fr 70px;gap:2px 10px;align-items:center;font-size:14px;margin-bottom:12px}
+.ctl span{grid-column:1/-1;font-weight:600;color:var(--muted)} .ctl input{width:100%;accent-color:var(--demand)} .ctl output{font:600 13px var(--mono);text-align:right}
+.read{display:grid;grid-template-columns:1fr auto;gap:6px 14px;font-size:14.5px;margin:6px 0 0}
+.read dt{color:var(--muted)} .read dd{margin:0;font:600 13.5px var(--mono);text-align:right}
+.explain{margin-top:14px;padding:12px 14px;border-left:3px solid var(--demand);background:var(--tint);border-radius:0 8px 8px 0;font-size:14.5px}
+.btn{font:600 14px var(--sans);border:1px solid var(--rule);background:var(--panel);color:var(--ink);padding:9px 13px;border-radius:8px;cursor:pointer;text-align:left}
+.btn:hover{border-color:var(--demand)} .btn.pri{background:var(--ink);color:var(--ground);border-color:var(--ink)} .btn:disabled{opacity:.45;cursor:default}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.flip{perspective:900px;height:170px;border:0;background:none;padding:0;cursor:pointer;text-align:left;font:inherit;color:inherit}
+.flip .in{position:relative;width:100%;height:100%;transition:transform .45s;transform-style:preserve-3d}
+.flip.on .in{transform:rotateY(180deg)}
+.flip .f,.flip .b{position:absolute;inset:0;backface-visibility:hidden;border-radius:12px;border:1px solid var(--rule);padding:16px;display:flex;flex-direction:column;gap:6px}
+.flip .f{background:var(--panel);justify-content:space-between} .flip .f b{font:650 19px var(--serif)}
+.flip .b{background:var(--tint);transform:rotateY(180deg);font-size:14.5px;overflow:auto}
+.flip .hint{font-size:12px;color:var(--muted)}
+.events{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px;margin:14px 0}
+.ev{display:grid;grid-template-columns:30px 1fr;gap:8px;align-items:start}
+.ev .l{font:700 14px var(--mono);color:var(--demand);background:var(--tint);border-radius:6px;text-align:center;padding:2px 0}
+.ev[aria-pressed="true"]{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.predict{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:10px 0}
+.fb{font-weight:600} .fb.ok{color:var(--good)} .fb.no{color:var(--bad)}
+.sorter .card{background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:16px;display:grid;gap:10px}
+.sorter .card p{font-size:16.5px;font-family:var(--serif)}
+.score{font:600 14px var(--mono)}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{padding:7px 9px;border-bottom:1px solid var(--grid);text-align:right;font-variant-numeric:tabular-nums}
+th{font:700 11.5px var(--sans);letter-spacing:.05em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--rule)}
+td:first-child,th:first-child{text-align:left} tr.cur td{background:var(--tint);font-weight:700} tr.dmr td:nth-child(3){color:var(--supply)}
+.tblwrap{overflow-x:auto}
+.case{background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:18px 20px;display:grid;gap:10px}
+.case details{border-top:1px solid var(--grid);padding-top:10px}
+.case summary,.qa summary{cursor:pointer;font-weight:700;color:var(--demand)}
+.case ol{margin:8px 0 0;padding-left:20px}
+.cases{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:14px}
+.mcq{background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:16px 18px;display:grid;gap:8px}
+.mcq .opts{display:grid;gap:6px}
+.mcq .opt{font:500 14.5px var(--sans)} .mcq .opt.ok{border-color:var(--good);background:color-mix(in srgb,var(--good) 12%,var(--panel))} .mcq .opt.no{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 10%,var(--panel))}
+.mcq .why{font-size:14px;color:var(--muted)}
+.quiz{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:14px}
+.qa{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:12px 16px}
+.qa details p{margin-top:6px;padding:8px 10px;background:var(--panel2);border-radius:6px}
+.mist{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px}
+.mist div{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:14px 16px;font-size:14.5px}
+.mist b{display:block;color:var(--bad);font-size:13px;letter-spacing:.03em;margin-bottom:4px} .mist i{display:block;color:var(--good);font-style:normal;font-weight:600;margin-top:6px}
+.stepper{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:12px}
+.dots{display:flex;gap:5px} .dots i{width:9px;height:9px;border-radius:50%;background:var(--rule)} .dots i.on{background:var(--demand)}
+.pill{font:600 12.5px var(--mono);padding:3px 9px;border-radius:99px;background:var(--panel2);border:1px solid var(--rule)}
+footer{margin-top:60px;padding-top:18px;border-top:1px solid var(--rule);font-size:13px;color:var(--muted)}
+.hlonly[hidden]{display:none!important}
+@media (max-width:860px){.hero,.lab2{grid-template-columns:1fr} h1{font-size:32px} nav.jump{display:none}}
+@media (max-width:520px){.wrap,.topin{padding-inline:16px} .lab{padding:14px} h1{font-size:28px} h2{font-size:23px}}
+@media (prefers-reduced-motion:reduce){.flip .in{transition:none}}
+svg .d2{stroke:var(--demand);stroke-width:2.2;fill:none;stroke-dasharray:7 5} svg text.ld2{fill:var(--demand);font:700 12px var(--sans)} svg .spend{fill:var(--shadeb)}
+svg .dwl{fill:rgba(214,151,0,.38)} svg .gap{stroke:var(--supply);stroke-width:5;opacity:.45}
+.sorter .btn[aria-pressed="true"],.lab .btn[aria-pressed="true"]{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.flip .f span:not(.hint){font-size:14.5px;color:var(--muted)}
+.ctl input[type=number]{font:15px var(--mono);padding:7px 10px;border:1px solid var(--rule);border-radius:8px;background:var(--panel);color:var(--ink);width:100%}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px} @media (max-width:860px){.two{grid-template-columns:1fr}}
+</style>
+<style id="cg-css">
+.cg-tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+.cg-tools input{flex:1;min-width:220px;max-width:420px;font:15px var(--sans);padding:9px 12px;border:1px solid var(--rule);border-radius:8px;background:var(--panel);color:var(--ink)}
+.cg-group{margin-top:22px} .cg-group h3{margin-bottom:10px}
+.cg-item{background:var(--panel);border:1px solid var(--rule);border-radius:12px;margin-bottom:10px;overflow:hidden}
+.cg-item summary{cursor:pointer;list-style:none;padding:14px 18px;display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:baseline}
+.cg-item summary::-webkit-details-marker{display:none}
+.cg-item summary b{font:650 18px var(--serif)} .cg-item summary .cg-def{grid-column:1/-1;color:var(--muted);font-size:14.5px}
+.cg-item[open] summary .cg-def{display:none}
+.cg-body{padding:0 18px 16px;display:grid;gap:10px}
+.cg-body .lbl{font:700 11px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:2px}
+.cg-body .defn{font-weight:600}
+.cg-ex{background:var(--tint);border-radius:8px;padding:10px 12px}
+.cg-tip{border-left:3px solid var(--good);padding:6px 12px;background:var(--panel2);border-radius:0 8px 8px 0}
+.cg-rel{display:flex;gap:6px;flex-wrap:wrap} .cg-rel button{font:600 12.5px var(--sans);border:1px solid var(--rule);background:var(--panel2);color:var(--ink);border-radius:99px;padding:3px 10px;cursor:pointer}
+.cg-empty{color:var(--muted)}
+</style>
+<style id="sb-css">
+aside.sb{position:fixed;top:0;left:0;bottom:0;width:250px;overflow:auto;background:var(--panel);border-right:1px solid var(--rule);padding:16px 12px 40px;z-index:15;font-size:13.5px}
+aside.sb .home{display:block;font:700 15px var(--serif);color:var(--ink);text-decoration:none}
+aside.sb .sub{color:var(--muted);font-size:12px;margin:2px 0 14px}
+aside.sb .lbl{font:700 11px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:12px 4px 6px}
+aside.sb a.it{display:grid;grid-template-columns:30px 1fr;gap:2px;padding:6px 8px;border-radius:6px;color:var(--ink);text-decoration:none;line-height:1.3}
+aside.sb a.it span:first-child{font:600 11.5px var(--mono);color:var(--muted);padding-top:1px}
+aside.sb a.it:hover{background:var(--panel2)} aside.sb a.it.act{background:var(--tint);font-weight:700}
+aside.sb .links a{display:block;padding:4px 8px;color:var(--demand);font-weight:600;text-decoration:none}
+.sbbtn{display:none}
+@media (min-width:1100px){header.top,.wrap{margin-left:250px} nav.jump{display:none!important}}
+@media (max-width:1099px){aside.sb{transform:translateX(-105%);transition:transform .2s;box-shadow:0 0 30px rgba(0,0,0,.25);width:84%;max-width:300px}
+ aside.sb.open{transform:none} nav.jump{display:none!important}
+ .sbbtn{display:inline-block;font:700 13px var(--sans);padding:6px 10px;border-radius:8px;border:1px solid var(--rule);background:var(--panel);color:var(--ink);cursor:pointer;order:-1}}
+@media (prefers-reduced-motion:reduce){aside.sb{transition:none}}
+</style>
+</head>
+<body>
+<header class="top"><div class="topin">
+  <div class="brand">Economies of Scale Lab <span>AP Microeconomics Topic 3.3 · Hoang Ch 14</span></div>
+  <nav class="jump" aria-label="Sections"><a href="#terms">Terms</a><a href="#guide">Guide</a><a href="#cases">Cases</a><a href="#quiz">Quiz</a><a href="#exam">Exam</a></nav>
+</div></header>
+
+<div class="wrap">
+<section class="hero">
+  <div><p class="eyebrow">Unit 3 · Production, Cost and the Perfect Competition Model · Module 56</p><h1>How big should a firm be?</h1>
+  <p class="lead">Let the firm choose its plant as well as its workers. You will build the long-run cost curve from short-run ones, see when growing makes each unit cheaper or dearer, and find out why some markets hold thousands of firms and others only one.</p>
+  <p class="muted" style="margin-top:12px;font-size:14px">Textbook: Hoang, Wray &amp; Chakraborty, <i>Economics</i> (Hodder 2020), pp. 182–183, 194, 199 and 209–211. Ideas the AP course needs that Hoang does not teach are marked <span class="badge b-hl">Added for AP</span>.</p></div>
+  <div class="goals"><p class="eyebrow" style="color:var(--muted)">By the end I can…</p><ul id="goals"></ul></div>
+</section>
+
+<section class="step" id="terms"><div class="shead"><span class="num">01</span><h2>Key terms: flip the cards</h2><p class="muted">Say the definition out loud first, then click to check.</p></div><div class="cards" id="cards"></div></section>
+<section class="step" id="guide"><div class="shead"><span class="num">01b</span><h2>Concept guide: every term explained</h2><p>A fuller explanation of each term in this module, with a worked example and an exam tip. Open a term, read it, then close the page and explain it to a partner in your own words.</p></div>
+  <div class="cg-tools"><input id="cgq" type="search" placeholder="Search terms, examples…" aria-label="Search the concept guide"><button class="btn" id="cgopen">Open all</button><button class="btn" id="cgclose">Close all</button><span class="pill" id="cgcount"></span></div>
+  <div id="cgbox"></div></section>
+
+<!-- LAB SECTIONS -->
+<section class="step" id="plant"><div class="shead"><span class="num"></span><h2>Choosing a plant: short run and long run</h2><p>The firm can build one of five plant sizes. Each has its own short-run ATC curve. Pick a plant, then change output, and compare the cost with the best plant for that output.</p></div>
+  <div class="lab lab2">
+    <div id="plg"></div>
+    <div>
+      <div class="row" role="group" aria-label="Plant built">Plant built: <button class="btn" data-pk="1">1</button><button class="btn" data-pk="2">2</button><button class="btn" data-pk="3">3</button><button class="btn" data-pk="4">4</button><button class="btn" data-pk="5">5</button></div>
+      <label class="ctl" style="margin-top:14px"><span>Output (Q)</span><input type="range" id="plq" min="1" max="13.5" step="0.5" value="6"><output id="plqo"></output></label>
+      <dl class="read" id="plread"></dl>
+      <div class="explain" id="plx"></div>
+      <p class="muted" style="font-size:13px;margin-top:8px">Illustrative industry: plant k has short-run ATC = 0.8 × m(k) × (40k/Q + 4 + 10Q/k), where m(k) = 0.7 + 0.15(k − 3)², so plant k is cheapest at Q = 2k. LRATC is the lowest short-run ATC over every possible plant.</p>
+    </div>
+  </div></section>
+
+<section class="step" id="rts"><div class="shead"><span class="num"></span><h2>Returns to scale: double everything</h2><p>Scale every input up by the same factor and see what happens to output and to cost per unit. Hoang describes the outcome but never names the three cases: <i>returns to scale</i> is 0 times in the book.</p></div>
+  <div class="lab lab2">
+    <div id="rtg"></div>
+    <div>
+      <div class="row" role="group" aria-label="Kind of returns"><button class="btn" data-rt="1.2">Increasing</button><button class="btn" data-rt="1">Constant</button><button class="btn" data-rt="0.8">Decreasing</button></div>
+      <label class="ctl" style="margin-top:14px"><span>Multiply every input by</span><input type="range" id="rtl" min="1" max="3" step="0.1" value="2"><output id="rtlo"></output></label>
+      <dl class="read" id="rtread"></dl>
+      <div class="explain" id="rtx"></div>
+      <p class="muted" style="font-size:13px;margin-top:8px">Illustrative firm: 1 machine ($40) and 1 worker ($20) make 10 units. Output = 10 × (scale)<sup>r</sup>, with r = 1.2, 1 or 0.8.</p>
+    </div>
+  </div></section>
+
+<section class="step" id="mes"><div class="shead"><span class="num"></span><h2>Minimum efficient scale and the number of firms</h2><p>How many firms can a market hold at the lowest cost? Compare the size of the market with the minimum efficient scale.</p></div>
+  <div class="lab lab2">
+    <div id="msg"></div>
+    <div>
+      <label class="ctl"><span>Market demand at the minimum-cost price (units)</span><input type="range" id="msd" min="3" max="70" step="1" value="30"><output id="msdo"></output></label>
+      <dl class="read" id="msread"></dl>
+      <div class="explain" id="msx"></div>
+    </div>
+  </div></section>
+
+<section class="step" id="sort"><div class="shead"><span class="num"></span><h2>Economies, diseconomies or constant returns?</h2><p>Each card describes a firm growing in the long run. What is happening to its long-run average total cost?</p></div>
+  <div class="sorter"><div class="card"><span class="pill" id="son"></span><p id="soq"></p>
+    <div class="row"><button class="btn" data-so="eco">Economies of scale</button><button class="btn" data-so="con">Constant returns to scale</button><button class="btn" data-so="dis">Diseconomies of scale</button></div>
+    <p class="fb" id="sofb" aria-live="polite"></p><div class="row"><button class="btn pri" id="sonext" hidden>Next card</button><span class="score" id="sosc"></span></div></div></div></section>
+
+<section class="step" id="draw"><div class="shead"><span class="num"></span><h2>Draw it like an examiner wants</h2><p>Build the long-run average total cost curve with its short-run curves and label the regions.</p></div>
+  <div class="lab lab2">
+    <div id="drg"></div>
+    <div><h3 id="drt"></h3><div id="drx" style="margin-top:8px"></div>
+      <div class="stepper"><button class="btn" id="drprev">← Back</button><button class="btn pri" id="drnext">Next →</button><div class="dots" id="drdots"></div></div></div>
+  </div></section>
+<!-- /LAB SECTIONS -->
+
+<section class="step" id="cases"><div class="shead"><span class="num"></span><h2>Real-world cases</h2><p>Answer in your notebook, sketch the diagram, then open the model answer.</p></div><div class="cases" id="casebox"></div></section>
+
+<section class="step" id="quiz"><div class="shead"><span class="num"></span><h2>Check yourself</h2><p>Auto-marked multiple choice in the AP format first, then quick-fire questions with model answers.</p><p class="score" id="mcqscore"></p></div><div class="quiz" id="mcqs"></div>
+  <h3 style="margin:30px 0 12px">Quick-fire checklist</h3><div class="quiz" id="qf"></div></section>
+
+<section class="step" id="mistakes"><div class="shead"><span class="num"></span><h2>Common mistakes to avoid</h2></div><div class="mist" id="mist"></div></section>
+
+<section class="step" id="exam"><div class="shead"><span class="num"></span><h2>Exam practice</h2><p>Plan each answer before opening the scoring guide.</p></div><div class="cases" id="exambox"></div></section>
+
+<footer>Economies of Scale Lab · based on the AP Microeconomics Course and Exam Description, Topic 3.3 Long-Run Production Costs, and Hoang, Wray &amp; Chakraborty, <i>Economics</i> (Hodder 2020), Chapter 14 pp. 182–183, 194, 199 and 209–211; the course's other text is Krugman, <i>Economics for AP</i>, Module 56, pp. 559–566. Hoang's examples used: the Paris Métro, Silicon Valley, the 20-per-cent input example and the Common mistake on cans. The plant curves, the returns-to-scale firm and the numbers marked illustrative are invented for practice; the chip-making and craft-brewing cases go beyond Hoang and should be checked against current reporting.
+<details style="margin-top:10px"><summary style="cursor:pointer;font-weight:700">For the teacher: where Hoang needs correcting or adding to</summary>
+<ul style="margin:8px 0 0;padding-left:20px;display:grid;gap:4px">
+<li><i>Returns to scale</i> occurs 0 times in Hoang, so increasing, constant and decreasing returns to scale (the second of Topic 3.3's four statements) are added in full.</li>
+<li>Hoang's diseconomies example on p. 211, inputs up 20 per cent and output up only 10 per cent, is decreasing returns to scale; diseconomies of scale are its effect on average cost. Krugman makes the same slip on p. 562.</li>
+<li>Hoang's margin note on p. 194 says long-run average cost "is equal to the average fixed cost (AFC) plus the average variable cost (AVC)". In the long run there are no fixed costs.</li>
+<li>Hoang marks the minimum efficient scale at "the lowest point" of LRAC (p. 209). Where LRAC has a flat bottom, MES is the smallest output on it; the CED calls the flat part efficient scale.</li>
+<li>Hoang never states the CED's fourth statement, that MES helps decide how concentrated a market is. The link is implicit in his BLADE barriers (p. 182) and natural monopoly (p. 199); the lab's MES section makes it explicit.</li>
+<li>External economies of scale (Hoang pp. 210–211) are not in the AP framework; treat them as background.</li>
+</ul></details></footer>
+</div>
+
+<script>
+(function(){
+'use strict';
+/* ============================ DATA ============================ */
+const NS='m56lab';
+const n2=v=>(Math.round(v*100)/100).toLocaleString(undefined,{maximumFractionDigits:2}), d2=v=>'$'+(Math.round(v*100)/100).toFixed(2);
+/* Plants: short-run ATC of plant k; LRATC is the lower envelope over k */
+const mk=k=>.7+.15*(k-3)*(k-3);
+const SR=(k,Q)=>.8*mk(k)*(40*k/Q+4+10*Q/k);
+function LR(Q){let b=Infinity,kb=0;for(let k=.4;k<=7;k+=.01){const v=SR(k,Q);if(v<b){b=v;kb=k}}return{v:b,k:kb}}
+let MES=0,MESV=Infinity;for(let Q=1;Q<=14;Q+=.01){const v=LR(Q).v;if(v<MESV){MESV=v;MES=Q}}
+const bestPlant=Q=>{let b=1;for(let k=2;k<=5;k++)if(SR(k,Q)<SR(b,Q))b=k;return b};
+/* Returns to scale */
+const RT={base:10,costK:40,costL:20};
+/* Plant choice question */
+const PC=[['A',6000,2],['B',15000,1.25],['C',32000,.5]],PQ=[10000,20000,40000];
+const pcATC=(c,q)=>c[1]/q+c[2];const pcBest=q=>PC.reduce((a,c)=>pcATC(c,q)<pcATC(a,q)?c:a);
+/* Hoang's diseconomies example (p. 211) */
+const HIN=20,HOUT=10;
+
+/* ============================ CONFIG ============================ */
+const GOALS=[
+ ['Explain why all costs are variable in the long run'],
+ ['Explain how the LRATC curve is built from short-run ATC curves'],
+ ['Distinguish increasing, constant and decreasing returns to scale and link them to costs'],
+ ['Identify economies of scale, diseconomies of scale and efficient scale on an LRATC curve'],
+ ['Find the minimum efficient scale and use it to explain how many firms a market can hold'],
+ ['Explain why a sunk cost should not affect a decision']];
+const TERMS=[
+ ['Long run','All inputs can change, so every cost is variable.'],
+ ['Short-run ATC','Average total cost for one given plant size.'],
+ ['Long-run ATC','The lowest ATC at each output when the plant can be chosen freely.'],
+ ['Increasing returns to scale','All inputs up by x%, output up by more than x%.',1],
+ ['Constant returns to scale','All inputs up by x%, output up by exactly x%.',1],
+ ['Decreasing returns to scale','All inputs up by x%, output up by less than x%.',1],
+ ['Economies of scale','LRATC falls as output rises.'],
+ ['Diseconomies of scale','LRATC rises as output rises.'],
+ ['Efficient scale','The flat bottom of LRATC: constant returns to scale.',1],
+ ['Minimum efficient scale','The smallest output at which LRATC is at its minimum.'],
+ ['MES and market structure','Big MES relative to the market means few firms.',1],
+ ['Natural monopoly','One firm can supply the whole market at lower cost than two or more.'],
+ ['Sunk cost','Already paid and unrecoverable: ignore it in decisions.'],
+ ['External economies of scale','Costs fall for every firm as the industry grows (background).']];
+const CASES=[
+ ['The Paris Métro','Hoang uses the Paris Métro as a natural monopoly (p. 199): building an underground network needs enormous set-up, fixed and sunk costs before the first passenger rides, and only after a very large number of passengers do economies of scale bring average cost down.',
+  ['Sketch LRATC and market demand for an underground railway. Where does demand cross LRATC?','Why would a second competing network raise the cost per passenger?','The tunnels are already built. Should their cost affect whether a line keeps running?'],
+  ['LRATC is still falling where it meets market demand: economies of scale continue over the whole market.','Splitting the passengers between two networks would leave each further up its falling LRATC, and the tunnels would be duplicated: a wasteful second set of fixed costs (Hoang p. 199).','No: the tunnel cost is sunk. Whether to keep running depends on whether future fares and benefits cover future costs.']],
+ ['Making leading-edge chips','Only a handful of companies, among them TSMC, Samsung and Intel, can make the most advanced microchips. A single new chip factory can cost tens of billions of dollars before it makes a single chip.',
+  ['What does the cost of a factory suggest about the minimum efficient scale in chip making?','Use MES to explain why so few firms make leading-edge chips.','Is this a barrier to entry? Which kind?'],
+  ['MES is huge: a factory must make an enormous number of chips before its average cost is low.','World demand for the most advanced chips can absorb only a few firms each producing at MES, so the market is an oligopoly.','Yes: high fixed and start-up costs, one of the barriers the CED names (Topic 4.1). This case goes beyond Hoang: check current figures.']],
+ ['Silicon Valley','Hoang describes Silicon Valley\'s large pool of highly skilled tech workers, which lowers recruitment and search costs for every firm in the area (p. 210).',
+  ['Is this an internal or an external economy of scale? Explain.','How would Hoang show it on an LRATC diagram?','Does the AP framework ask for this idea?'],
+  ['External: it comes from the size of the industry in the area, not from any one firm growing.','As a downward shift of the whole LRATC curve, whereas an internal economy is a movement down along it (Hoang p. 211).','No: the CED names economies of scale but not external economies; treat them as background.']],
+ ['Craft brewing','In many countries thousands of small craft breweries sell alongside a few giant brewers. A small brewery can produce good beer at a few thousand barrels a year, while the largest brewers produce millions.',
+  ['What does the survival of small breweries suggest about the shape of LRATC in craft beer?','Why do giant brewers still exist?','How does the size of MES compared with the market explain the number of breweries?'],
+  ['MES for a craft brewery is small, or LRATC is fairly flat over a wide range, so small firms can be cost-competitive.','Mass-market lager has bigger economies of scale in bottling, distribution and advertising, so large firms have lower costs in that segment.','A small MES relative to market demand leaves room for many firms. This case goes beyond Hoang.']]];
+const MCQ=[
+ ['In the long run,',
+  ['all of a firm\'s inputs are variable','all of a firm\'s inputs are fixed','fixed cost is greater than variable cost','diminishing marginal returns always apply','the firm must earn an economic profit'],0,
+  'The long run is defined as the period in which every input can change. Diminishing marginal returns need a fixed input, so they are a short-run idea.'],
+ ['A firm has economies of scale over a range of output if, as it expands its plant to produce more,',
+  ['its total cost falls','its long-run average total cost falls','its short-run average total cost falls because fixed cost is spread','its marginal product of labor rises','the market price falls'],1,
+  'Economies of scale are about cost per unit on the long-run curve. Total cost still rises; spreading a fixed cost and rising marginal product are short-run ideas; price is not a cost.'],
+ ['A firm doubles all its inputs and its output rises by 150%. The firm is experiencing',
+  ['decreasing returns to scale','constant returns to scale','increasing returns to scale','diminishing marginal returns','diseconomies of scale'],2,
+  'Inputs up 100%, output up 150%: output rises more than in proportion, so increasing returns to scale, which bring economies of scale. Diminishing marginal returns involve only one input.'],
+ [`Hoang's example: a firm raises all its inputs by ${HIN}% and its output rises by ${HOUT}%. This is best described as`,
+  ['increasing returns to scale','economies of scale','constant returns to scale','decreasing returns to scale','diminishing marginal returns'],3,
+  `Output rises by less than the ${HIN}% increase in inputs, so returns to scale are decreasing. That makes LRATC rise: diseconomies of scale are the cost result. Diminishing marginal returns would mean only one input changing.`],
+ ['The minimum efficient scale is',
+  ['the output at which short-run ATC is at its minimum','the largest output a firm can produce','the output at which marginal cost is at its minimum','the output at which diseconomies of scale begin to decrease','the smallest output at which long-run average total cost is at its minimum'],4,
+  'MES is defined on the long-run curve: the first output at which all economies of scale have been used up.'],
+ ['If the minimum efficient scale in an industry is large relative to market demand, the industry is most likely to have',
+  ['few firms','many small firms','perfect competition','no barriers to entry','constant returns to scale everywhere'],0,
+  'Only a few firms can each produce at MES before they have supplied the whole market, so the market will be concentrated: an oligopoly or a natural monopoly.'],
+ ['The long-run average total cost curve is U-shaped because of',
+  ['diminishing marginal returns','economies and then diseconomies of scale','falling average fixed cost','rising input prices','the law of demand'],1,
+  'In the long run there is no fixed input, so diminishing returns and AFC do not shape LRATC; scale effects do.'],
+ ['A firm that has built a plant for 4 units a day finds it will produce 10 units a day for the foreseeable future. In the long run its average total cost will',
+  ['rise, because it is moving up its short-run ATC curve','stay the same','fall, as it moves to a plant suited to 9 units','fall, because average fixed cost falls','rise, because of diseconomies of scale'],2,
+  'In the short run it is stuck on the small plant\'s ATC, which is high at 10 units. Given time it builds a plant suited to 10 units, reaching the lower long-run curve.'],
+ ['A city has spent $500 million on a stadium that cannot be sold or used for anything else. In deciding whether to keep running it, the city should',
+  ['include the $500 million in the cost of keeping it open','sell it, because the $500 million is lost','raise ticket prices until the $500 million is recovered','ignore the $500 million and compare future benefits with future costs','close it, because it cannot recover its cost'],3,
+  'The $500 million is a sunk cost: it is the same whatever the city decides, so it cannot help choose. Only future costs and benefits matter.'],
+ ['Which situation describes a natural monopoly?',
+  ['A firm holds a government license that bans rivals','A firm owns the only supply of a mineral','A firm is the only one selling a fashion brand','Many firms each produce at their minimum efficient scale','Long-run average total cost is still falling at the output where it meets market demand'],4,
+  'A natural monopoly arises from costs: economies of scale over the whole market, so one firm can supply it more cheaply than two. Licenses and resource ownership are other barriers to entry.']];
+const QF=[
+ ['Which costs are fixed in the long run?','None: every cost is variable in the long run.'],
+ ['How is the LRATC curve formed?','From the lowest point of all the short-run ATC curves at each output: it touches each short-run curve at one output.'],
+ ['What is the difference between diminishing marginal returns and decreasing returns to scale?','Diminishing returns: one input changes, others fixed, short run. Decreasing returns to scale: all inputs change in proportion, long run.'],
+ ['Inputs double and output triples. Which kind of returns to scale?','Increasing returns to scale.'],
+ ['What do increasing returns to scale do to LRATC?','They make it fall: economies of scale.'],
+ ['Name two sources of economies of scale.','Specialization of workers and managers; large, specialized machines; bulk buying; spreading marketing over more sales (Hoang pp. 209–210).'],
+ ['What usually causes diseconomies of scale?','Problems of coordination, control and communication as a firm grows (Hoang p. 211).'],
+ ['What is the minimum efficient scale?','The smallest output at which LRATC is at its minimum.'],
+ [`In the lab's industry, LRATC is lowest at about ${n2(MES)} units. If the market buys 30 units at that cost, about how many firms fit?`,`30 ÷ ${n2(MES)} ≈ ${Math.floor(30/MES)} firms at minimum cost.`],
+ ['Why is a natural monopoly cheaper with one firm?','Economies of scale continue over the whole market, so one firm producing everything has a lower ATC than two firms each producing half.'],
+ ['Should sunk costs affect a decision?','No: they are the same whatever you decide.'],
+ ['Hoang\'s Common mistake: do economies of scale lower total cost?','No: they lower cost per unit. Total cost still rises with output (p. 211).']];
+const MI=[
+ ['Economies of scale mean total costs fall as output rises.','Total cost rises with output; economies of scale lower cost per unit (Hoang p. 211).'],
+ ['LRATC is U-shaped because of diminishing marginal returns.','Diminishing returns need a fixed input and belong to the short run. LRATC is shaped by economies and diseconomies of scale.'],
+ ['Decreasing returns to scale and diminishing marginal returns are the same thing.','Returns to scale change all inputs together, in the long run; diminishing returns change one input with others fixed, in the short run.'],
+ ['A firm should always build the plant with the lowest minimum ATC.','It should build the plant with the lowest ATC at the output it expects to produce, which may be a smaller or larger plant.'],
+ ['Money already spent should be recovered before stopping a project.','Sunk costs cannot be recovered whatever you do, so they are irrelevant to the decision.'],
+ ['Minimum efficient scale is where the firm makes most profit.','MES is a cost idea: the smallest output with the lowest possible long-run ATC. Profit also depends on price.']];
+const EX=[
+ ['Free response · 5 points',`A firm can choose one of three plants. Plant A has fixed cost $${PC[0][1].toLocaleString()} and average variable cost $${PC[0][2].toFixed(2)}; plant B $${PC[1][1].toLocaleString()} and $${PC[1][2].toFixed(2)}; plant C $${PC[2][1].toLocaleString()} and $${PC[2][2].toFixed(2)}. (a) Calculate ATC for each plant at ${PQ.map(q=>q.toLocaleString()).join(', ')} units. (b) Which plant should the firm build for each output? (c) Is the firm experiencing economies or diseconomies of scale over this range? Explain.`,
+  [`(a) ${PC.map(c=>`Plant ${c[0]}: `+PQ.map(q=>d2(pcATC(c,q))).join(', ')).join('; ')} (2 points).`,
+   `(b) ${PQ.map(q=>`${q.toLocaleString()} units: plant ${pcBest(q)[0]} (${d2(pcATC(pcBest(q),q))})`).join('; ')} (2 points).`,
+   `(c) Economies of scale: the lowest available ATC falls from ${d2(pcATC(pcBest(PQ[0]),PQ[0]))} to ${d2(pcATC(pcBest(PQ[2]),PQ[2]))} as output rises (1 point).`]],
+ ['Free response · graph · 4 points','Draw a correctly labeled long-run average total cost curve with three short-run ATC curves. Label the regions of economies of scale and diseconomies of scale, and the minimum efficient scale.',
+  ['Axes labeled cost per unit and quantity; a U-shaped curve labeled LRATC (1 point).','Three U-shaped short-run ATC curves, each touching LRATC at one point and lying above it elsewhere (1 point).','Economies of scale where LRATC falls and diseconomies where it rises (1 point).','MES marked at the output where LRATC first reaches its minimum (1 point).']],
+ ['Free response · 3 points','In an industry, the minimum efficient scale is 50,000 units a year and the quantity demanded at the minimum average cost is 120,000 units a year. (a) About how many firms can the market hold at minimum cost? (b) Which market structure is this most likely to be? (c) Explain why a new firm planning to sell 5,000 units would struggle.',
+  [`(a) 120,000 ÷ 50,000 = ${120000/50000}, so about ${Math.floor(120000/50000)} firms (1 point).`,'(b) An oligopoly: only a few firms can produce at minimum cost (1 point).','(c) At 5,000 units it would be far below MES, with a much higher ATC than the incumbents: economies of scale act as a barrier to entry (1 point).']],
+ ['Calculation set · 3 points',`(a) A firm increases all inputs by 40% and output rises by 40%. (b) It increases all inputs by 50% and output rises by 80%. (c) Using Hoang's example, inputs up ${HIN}% and output up ${HOUT}%. Name the returns to scale in each case and say what happens to LRATC.`,
+  ['(a) Constant returns to scale; LRATC stays the same (efficient scale).','(b) Increasing returns to scale; LRATC falls (economies of scale).',`(c) Decreasing returns to scale; LRATC rises (diseconomies of scale). Hoang calls this case diseconomies of scale.`]]];
+
+/* ============================ CORE (from the IB lab template) ============================ */
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const st={get(k,d){try{const v=localStorage.getItem(NS+'.'+k);return v==null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem(NS+'.'+k,JSON.stringify(v))}catch(e){}}};
+const f0=v=>Math.round(v).toLocaleString(), f1=v=>(Math.round(v*10)/10).toLocaleString(), f2=v=>(Math.round(v*100)/100).toLocaleString(), money=v=>(v<0?'−$':'$')+Math.round(Math.abs(v)).toLocaleString();
+const LC={s:'ls',s2:'ls',d:'ld',d2:'ld2',sm:'lm'};
+function Plot(o){const W=o.w||540,H=o.h||380,L=o.L||54,R=26,T=24,B=44;const sx=x=>L+x/o.xmax*(W-L-R),sy=y=>H-B-y/o.ymax*(H-T-B);const out=[];
+ return{sx,sy,
+  fn(f,cls,label,lx){let d='',pen=false;for(let i=0;i<=160;i++){const x=o.xmax*i/160,y=f(x);if(!isFinite(y)||y<0||y>o.ymax){pen=false;continue}d+=(pen?'L':'M')+sx(x).toFixed(1)+' '+sy(y).toFixed(1)+' ';pen=true}if(d)out.push(`<path class="${cls}" d="${d}"/>`);if(label){const x=lx!=null?lx:o.xmax*.86,y=f(x);if(isFinite(y)&&y>=0&&y<=o.ymax)out.push(`<text class="${LC[cls]||'lg'}" x="${sx(x)+6}" y="${sy(y)-6}">${label}</text>`)}},
+  poly(p,cls){out.push(`<polygon class="${cls}" points="${p.map(q=>sx(q[0]).toFixed(1)+','+sy(q[1]).toFixed(1)).join(' ')}"/>`)},
+  bar(x,w,h,cls,lab){out.push(`<rect class="bar ${cls||''}" x="${sx(x-w/2)}" y="${sy(h)}" width="${sx(w)-sx(0)}" height="${sy(0)-sy(h)}"/>`);if(lab!=null)out.push(`<text class="note" x="${sx(x)}" y="${sy(h)-6}" text-anchor="middle">${lab}</text>`)},
+  seg(x0,y0,x1,y1,cls){out.push(`<path class="${cls}" d="M${sx(x0)} ${sy(y0)} L${sx(x1)} ${sy(y1)}"/>`)},
+  dot(x,y,c){out.push(`<circle class="${c||'dot'}" cx="${sx(x)}" cy="${sy(y)}" r="5"/>`)},
+  guide(x,y,xl,yl){out.push(`<path class="guide" d="M${sx(0)} ${sy(y)} L${sx(x)} ${sy(y)} L${sx(x)} ${sy(0)}"/>`);if(yl)out.push(`<text class="tick" x="${sx(0)-6}" y="${sy(y)+4}" text-anchor="end">${yl}</text>`);if(xl)out.push(`<text class="tick" x="${sx(x)}" y="${sy(0)+17}" text-anchor="middle">${xl}</text>`)},
+  xt(x,t){out.push(`<text class="tick" x="${sx(x)}" y="${sy(0)+17}" text-anchor="middle">${t}</text>`)},
+  yt(y,t){out.push(`<text class="tick" x="${sx(0)-6}" y="${sy(y)+4}" text-anchor="end">${t}</text>`)},
+  text(x,y,t,c,a){out.push(`<text class="${c||'note'}" x="${sx(x)}" y="${sy(y)}" text-anchor="${a||'start'}">${t}</text>`)},
+  svg(aria){return `<svg class="g" viewBox="0 0 ${W} ${H}" role="img" aria-label="${aria||''}">${out.join('')}<path class="axis" d="M${sx(0)} ${sy(o.ymax)} L${sx(0)} ${sy(0)} L${sx(o.xmax)} ${sy(0)}"/><text class="axl" x="${sx(0)-8}" y="${T-8}">${o.yl}</text><text class="axl" x="${sx(o.xmax)}" y="${H-8}" text-anchor="end">${o.xl}</text><text class="tick" x="${sx(0)-6}" y="${sy(0)+17}" text-anchor="end">0</text></svg>`}}}
+function sorter(pre,cards,labels,attr){let i=st.get(pre+'i',0),sc=st.get(pre+'s',[0,0]);
+ const draw=()=>{i%=cards.length;$('#'+pre+'n').textContent=`Card ${i+1} of ${cards.length}`;$('#'+pre+'q').textContent=cards[i][0];$('#'+pre+'fb').textContent='';$('#'+pre+'next').hidden=true;$$(`[${attr}]`).forEach(b=>b.disabled=false);$('#'+pre+'sc').textContent=`Score ${sc[0]} / ${sc[1]}`};
+ $$(`[${attr}]`).forEach(b=>b.addEventListener('click',()=>{const c=cards[i],ok=b.getAttribute(attr)===c[1];sc[1]++;if(ok)sc[0]++;st.set(pre+'s',sc);const fb=$('#'+pre+'fb');fb.className='fb '+(ok?'ok':'no');fb.textContent=(ok?'✓ Correct. ':'✗ Answer: '+labels[c[1]]+'. ')+c[2];$$(`[${attr}]`).forEach(x=>x.disabled=true);$('#'+pre+'next').hidden=false;$('#'+pre+'sc').textContent=`Score ${sc[0]} / ${sc[1]}`}));
+ $('#'+pre+'next').addEventListener('click',()=>{i++;st.set(pre+'i',i);draw()});draw()}
+function stepper(pre,steps,draw){let k=0;const go=()=>{k=Math.max(0,Math.min(steps.length-1,k));draw(k);$('#'+pre+'t').textContent=`Step ${k+1}: ${steps[k][0]}`;$('#'+pre+'x').innerHTML=steps[k][1];$('#'+pre+'dots').innerHTML=steps.map((_,i)=>`<i class="${i<=k?'on':''}"></i>`).join('');$('#'+pre+'prev').disabled=k===0;$('#'+pre+'next').disabled=k===steps.length-1};
+ $('#'+pre+'next').addEventListener('click',()=>{k++;go()});$('#'+pre+'prev').addEventListener('click',()=>{k--;go()});go();return{reset(){k=0;go()}}}
+const ADDED='<span class="badge b-hl">Added for AP</span>';
+function renderGoals(){const d=st.get('goals',[]);$('#goals').innerHTML=GOALS.map((g,i)=>`<li><input type="checkbox" id="g${i}" ${d.includes(i)?'checked':''}><label for="g${i}">${g[0]}</label></li>`).join('');$$('#goals input').forEach(c=>c.addEventListener('change',()=>{const i=+c.id.slice(1);let v=st.get('goals',[]);v=c.checked?[...new Set([...v,i])]:v.filter(x=>x!==i);st.set('goals',v)}))}
+function renderCards(){$('#cards').innerHTML=TERMS.map(t=>`<button class="flip" aria-label="${t[0]}: show definition"><div class="in"><div class="f"><b>${t[0]}</b><span class="hint">${t[2]?ADDED+' ':''}Click to flip</span></div><div class="b">${t[1]}</div></div></button>`).join('');$$('#cards .flip').forEach(b=>b.addEventListener('click',()=>b.classList.toggle('on')))}
+function renderMCQ(){const list=MCQ.map((q,i)=>[q,i]);
+ $('#mcqs').innerHTML=list.map(([q,i],k)=>`<div class="mcq" data-i="${i}"><p><b>${k+1}.</b> ${q[0]}</p><div class="opts">${q[1].map((o,j)=>`<button class="btn opt" data-j="${j}">(${String.fromCharCode(65+j)}) ${o}</button>`).join('')}</div><p class="why" hidden></p></div>`).join('');
+ const sc=()=>{const a=st.get('mcq',{});const done=list.filter(x=>a[x[1]]!=null);const ok=done.filter(x=>a[x[1]]===x[0][2]).length;$('#mcqscore').innerHTML=done.length?`Score: ${ok} / ${list.length} <button class="btn" id="mcqreset" style="margin-left:10px;padding:4px 10px">Try again</button>`:'';const r=$('#mcqreset');if(r)r.addEventListener('click',()=>{st.set('mcq',{});renderMCQ()})};
+ $$('.mcq').forEach(el=>{const i=+el.dataset.i,q=MCQ[i];const mark=j=>{el.querySelectorAll('.opt').forEach(b=>{const k=+b.dataset.j;b.disabled=true;if(k===q[2])b.classList.add('ok');else if(k===j)b.classList.add('no')});const w=el.querySelector('.why');w.hidden=false;w.textContent=(j===q[2]?'✓ ':'✗ ')+q[3]};
+  const a=st.get('mcq',{});if(a[i]!=null)mark(a[i]);el.querySelectorAll('.opt').forEach(b=>b.addEventListener('click',()=>{const a=st.get('mcq',{});a[i]=+b.dataset.j;st.set('mcq',a);mark(+b.dataset.j);sc()}))});sc()}
+function renderQF(){$('#qf').innerHTML=QF.map(q=>`<div class="qa"><p><b>${q[0]}</b></p><details><summary>Show answer</summary><p>${q[1]}</p></details></div>`).join('')}
+function renderStatic(){
+ $('#casebox').innerHTML=CASES.map(c=>`<article class="case"><h3>${c[0]}</h3><p>${c[1]}</p><ol>${c[2].map(q=>`<li>${q}</li>`).join('')}</ol><details><summary>Model answer</summary><ol>${c[3].map(a=>`<li>${a}</li>`).join('')}</ol></details></article>`).join('');
+ $('#mist').innerHTML=MI.map(m=>`<div><b>✗ ${m[0]}</b>${m[1]}</div>`).join('');
+ $('#exambox').innerHTML=EX.map(e=>`<article class="case"><span class="badge b-sl">${e[0]}</span><p style="font-family:var(--serif);font-size:17px">${e[1]}</p><details><summary>Scoring guide</summary><ol>${e[2].map(x=>`<li>${x}</li>`).join('')}</ol></details></article>`).join('')}
+
+/* ============================ LAB CODE ============================ */
+/* --- Plants --- */
+let PK=st.get('pk',3);
+function plPlot(k,Q,steps){/* steps: diagram-builder step (99 = all) */
+ const p=Plot({xmax:14,ymax:60,xl:'Quantity (Q)',yl:'Cost per unit ($)'});[2,4,6,8,10,12,14].forEach(x=>p.xt(x,x));[20,40,60].forEach(y=>p.yt(y,y));
+ if(steps>=2)for(let j=1;j<=5;j++)p.fn(Q=>SR(j,Q),j===k?'s':'ghost',steps>=99||steps>=2?'SRATC'+j:null,Math.min(13,2*j+.9));
+ if(steps>=3)p.fn(Q=>LR(Q).v,'sm','LRATC',12.6);
+ if(steps>=4){p.text(.6,12,'economies of scale','note');p.text(8.4,12,'diseconomies of scale','note')}
+ if(steps>=5){p.seg(MES,0,MES,MESV,'guide');p.dot(MES,MESV,'dot2');p.text(MES,4,'MES','lm','middle')}
+ if(Q!=null){const s=SR(k,Q),l=LR(Q).v;p.seg(Q,0,Q,Math.min(60,s),'guide');if(s<=60)p.dot(Q,s);p.dot(Q,l,'dot2')}
+ return p}
+function plDraw(){
+ const Q=+$('#plq').value;$('#plqo').textContent=Q;$$('[data-pk]').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.pk===PK));
+ $('#plg').innerHTML=plPlot(PK,Q,99).svg('Short-run and long-run average total cost');
+ const s=SR(PK,Q),l=LR(Q),bp=bestPlant(Q),bv=SR(bp,Q);
+ $('#plread').innerHTML=`<dt>ATC with plant ${PK} (short run)</dt><dd>${d2(s)}</dd><dt>Best of the five plants for Q = ${Q}</dt><dd>plant ${bp}, ${d2(bv)}</dd><dt>LRATC (best possible plant)</dt><dd>${d2(l.v)}</dd><dt>Minimum efficient scale</dt><dd>Q ≈ ${n2(MES)}, ATC ${d2(MESV)}</dd>`;
+ let x=bp===PK?`Plant ${PK} is the cheapest of the five for ${Q} units, so the firm is on (or very near) its long-run curve.`:`With plant ${PK} built, producing ${Q} units costs ${d2(s)} each in the <b>short run</b>. Given time to switch to plant ${bp}, it could produce them for ${d2(bv)}: that is the <b>long-run</b> saving of ${d2(s-bv)} a unit.`;
+ x+=Q<MES-.3?' At this output LRATC is still falling: <b>economies of scale</b>.':Q>MES+.3?' At this output LRATC is rising: <b>diseconomies of scale</b>.':' This is the bottom of LRATC, the <b>minimum efficient scale</b>.';
+ $('#plx').innerHTML=x}
+$$('[data-pk]').forEach(b=>b.addEventListener('click',()=>{PK=+b.dataset.pk;st.set('pk',PK);plDraw()}));
+$('#plq').addEventListener('input',plDraw);
+
+/* --- Returns to scale --- */
+let RR=st.get('rr',1.2);
+function rtDraw(){
+ const l=+$('#rtl').value;$('#rtlo').textContent='× '+l.toFixed(1);$$('[data-rt]').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.rt===RR));
+ const cost0=RT.costK+RT.costL,out=r=>RT.base*Math.pow(l,r),ac=r=>cost0*l/out(r);
+ const p=Plot({xmax:3.1,ymax:8,xl:'Scale (every input × this)',yl:'Cost per unit ($)',h:330});
+ [[1.2,'d','increasing'],[1,'sm','constant'],[.8,'s','decreasing']].forEach(([r,c,lab])=>p.fn(x=>x>=1?cost0*x/(RT.base*Math.pow(x,r)):NaN,r===RR?c:'ghost',lab,2.85));
+ p.seg(l,0,l,ac(RR),'guide');p.dot(l,ac(RR));[1,2,3].forEach(x=>p.xt(x,'×'+x));[2,4,6,8].forEach(y=>p.yt(y,'$'+y));
+ $('#rtg').innerHTML=p.svg('Cost per unit as the firm scales up');
+ const o=out(RR);
+ $('#rtread').innerHTML=`<dt>Inputs</dt><dd>${n2(l)} machines, ${n2(l)} workers</dd><dt>Total cost</dt><dd>${d2(cost0*l)} (× ${l.toFixed(1)})</dd><dt>Output</dt><dd>${n2(o)} units (× ${n2(o/RT.base)})</dd><dt>Cost per unit</dt><dd>${d2(cost0*l/o)} (was ${d2(cost0/RT.base)})</dd>`;
+ const name=RR>1?'increasing':RR<1?'decreasing':'constant';
+ $('#rtx').innerHTML=l===1?'Move the slider to scale up every input.':`Inputs and cost rise ×${l.toFixed(1)}; output rises ×${n2(o/RT.base)}. Output grows ${RR>1?'faster than':RR<1?'more slowly than':'exactly as fast as'} the inputs: <b>${name} returns to scale</b>. So cost per unit ${RR>1?'falls: <b>economies of scale</b>':RR<1?'rises: <b>diseconomies of scale</b>':'stays the same: <b>efficient scale</b>'}.`}
+$$('[data-rt]').forEach(b=>b.addEventListener('click',()=>{RR=+b.dataset.rt;st.set('rr',RR);rtDraw()}));
+$('#rtl').addEventListener('input',rtDraw);
+
+/* --- MES and number of firms --- */
+function msDraw(){
+ const D=+$('#msd').value;$('#msdo').textContent=D;const n=Math.floor(D/MES);
+ const xmax=Math.max(14,D+5),p=Plot({xmax,ymax:60,xl:'Quantity',yl:'Cost per unit ($)',h:330});
+ p.fn(Q=>LR(Q).v,'sm','one firm\'s LRATC',Math.min(xmax*.55,11));
+ for(let i=0;i<n;i++){const x0=i*MES,x1=x0+MES;if(x1<=xmax)p.poly([[x0,0],[x1,0],[x1,3.5],[x0,3.5]],i%2?'spend':'area')}
+ p.seg(D,0,D,55,'d');p.text(D,56.5,'market demand at min cost','ld',D>xmax*.7?'end':'middle');p.seg(MES,0,MES,MESV,'guide');p.dot(MES,MESV,'dot2');p.text(MES+.5,MESV+3,'MES','lm');
+ const ticks=xmax>40?[10,20,30,40,50,60,70]:xmax>20?[5,10,15,20,25,30,35,40]:[2,4,6,8,10,12,14,16,18,20];ticks.filter(t=>t<=xmax).forEach(t=>p.xt(t,t));[20,40,60].forEach(y=>p.yt(y,y));
+ $('#msg').innerHTML=p.svg('Minimum efficient scale against market demand');
+ const label=n<=1?'one firm: a natural monopoly':n<=5?'a few firms: an oligopoly':'many firms: competition is possible';
+ $('#msread').innerHTML=`<dt>Minimum efficient scale</dt><dd>${n2(MES)} units</dd><dt>Market demand ÷ MES</dt><dd>${n2(D/MES)}</dd><dt>Firms that fit at minimum cost</dt><dd>${Math.max(n,1)}</dd><dt>Likely structure</dt><dd>${label}</dd>`;
+ $('#msx').innerHTML=(n<1?`The whole market buys only ${D} units, less than one firm's minimum efficient scale. Even a single firm cannot exhaust its economies of scale: LRATC is still falling where it meets demand, the mark of a <b>natural monopoly</b>.`:`Each coloured block is one firm producing at MES. The market has room for about ${n} of them at the lowest cost: ${label}.`)+' This is the CED\'s point that the minimum efficient scale helps decide how concentrated a market is. A firm smaller than MES has higher costs, so large economies of scale also work as a <b>barrier to entry</b>.'}
+$('#msd').addEventListener('input',msDraw);
+
+/* --- Sorter --- */
+const SORT=[
+ ['A car maker doubles its factory size and its cost per car falls by 15%.','eco','LRATC falls as output rises.'],
+ ['A firm doubles all its inputs and its output exactly doubles.','con','Constant returns to scale: cost per unit stays the same.'],
+ ['A firm grows so large that decisions take months to pass through layers of managers, and cost per unit rises.','dis','Coordination problems are the classic cause of diseconomies of scale.'],
+ ['A retailer buys in bulk and gets a 20% discount on every item as it opens more stores.','eco','Purchasing economies of scale (Hoang p. 210).'],
+ ['All inputs rise by 20% and output rises by 10% (Hoang p. 211).','dis','Decreasing returns to scale raise cost per unit.'],
+ ['A chain opens its 300th identical store; its cost per customer is the same as at 200 stores.','con','LRATC is flat over this range: efficient scale.'],
+ ['A small airline adds aircraft and spreads its booking system and head office over more flights.','eco','Fixed overheads spread over more output lower long-run average cost.'],
+ ['A global company finds that adding another country makes communication and control harder and costlier per unit.','dis','Diseconomies of scale.'],
+ ['A firm\'s inputs rise by 50% and its output rises by 90%.','eco','Increasing returns to scale: output grows faster than inputs, so cost per unit falls.'],
+ ['A bakery twice the size of its rival has exactly the same cost per loaf as the rival.','con','Equal costs at different sizes: the flat part of LRATC.']];
+
+/* --- Diagram builder --- */
+const DR=[
+ ['Label the axes','Cost per unit ($) on the vertical axis and <b>Quantity</b> on the horizontal.'],
+ ['Draw several short-run ATC curves','One U-shaped curve for each plant size, small plants to the left, large plants to the right.'],
+ ['Draw LRATC underneath','A U-shaped curve that touches each short-run curve once and lies below them elsewhere. Label it <b>LRATC</b>.'],
+ ['Label the regions','Where LRATC falls: <b>economies of scale</b>. Where it rises: <b>diseconomies of scale</b>. A flat bottom, if drawn, is constant returns to scale (efficient scale).'],
+ ['Mark the minimum efficient scale','Drop a line from the first point where LRATC reaches its minimum and label it <b>MES</b>. Checklist: axes · SRATC curves above · LRATC touching each · regions · MES.']];
+function drDraw(k){$('#drg').innerHTML=plPlot(0,null,k+1).svg('Diagram builder')}
+
+/* ============================ INIT ============================ */
+$$('section.step').forEach(sec=>{const n=sec.querySelector('.num');const list=[...$$('section.step')].filter(x=>x.id!=='guide');if(n&&sec.id!=='guide'&&!n.dataset.fixed)n.textContent=String(list.indexOf(sec)+1).padStart(2,'0')});
+renderStatic();renderGoals();renderCards();renderMCQ();renderQF();
+plDraw();rtDraw();msDraw();
+sorter('so',SORT,{eco:'Economies of scale',con:'Constant returns to scale',dis:'Diseconomies of scale'},'data-so');
+stepper('dr',DR,drDraw);
+})();
+</script>
+<script id="cg-js">
+(function(){
+const CG={"title": "Module 56 · Long-Run Costs and Economies of Scale", "intro": "Every term you need to describe a firm's costs when it can change all its inputs, and how the size of the cheapest plant shapes a whole market. Terms marked In Hoang are taught in Hoang, Wray and Chakraborty, Chapter 14, pp. 183, 194, 199 and 209–211. Terms marked Added for AP are not in Hoang: returns to scale occurs 0 times in the book, and the AP course asks for all three kinds.", "groups": [{"name": "The long run", "terms": [{"term": "Long run", "level": "Hoang", "definition": "The period in which a firm can change all its inputs, so every cost is variable and none is fixed.", "explanation": "In the long run a firm chooses its plant size: how many machines, how big a building. Once it has chosen, it is back in a short run, with that plant fixed. So the long run is a planning horizon: the set of short runs the firm could choose between.", "example": "A bakery deciding whether to buy a second oven is making a long-run decision; once the oven is installed, it is part of its fixed costs.", "exam_tip": "In the long run there are no fixed costs, so there is no AFC and no distinction between ATC and AVC.", "related": ["Long-run average total cost", "Short-run average total cost"]}, {"term": "Short-run average total cost", "level": "Hoang", "definition": "Average total cost for one given plant size, with at least one input fixed. Hoang writes SRAC.", "explanation": "Each possible plant has its own U-shaped short-run ATC curve. A small plant is cheap at low output but costly at high output, because the fixed input is crowded; a large plant is the reverse, because its high fixed cost is spread over too few units at low output.", "example": "Hoang Figure 14.36 (p. 209) draws two short-run curves, SRAC1 and SRAC2, under one long-run curve.", "exam_tip": "Draw several short-run ATC curves, each just touching the long-run curve at one point.", "related": ["Long-run average total cost", "Long run"]}, {"term": "Long-run average total cost", "level": "Hoang", "definition": "The lowest average total cost of producing each output when the firm can choose its plant size freely (LRATC; Hoang writes LRAC).", "explanation": "For each output the firm picks the plant with the lowest short-run ATC there. Joining those lowest points gives the LRATC curve, which lies below or on every short-run curve. Its shape is set by economies and diseconomies of scale.", "example": "Hoang: the LRAC curve encompasses all SRAC curves, representing the minimum average costs at each level of output (p. 209).", "exam_tip": "LRATC is U-shaped because of economies and then diseconomies of scale, not because of diminishing marginal returns, which are a short-run idea.", "related": ["Short-run average total cost", "Economies of scale", "Diseconomies of scale", "Minimum efficient scale"]}, {"term": "Sunk cost", "level": "Hoang", "definition": "A cost that has already been paid and cannot be recovered, so it should be ignored when deciding what to do next.", "explanation": "Only future costs and benefits can change with a decision. Money already spent and unrecoverable is the same whichever choice is made, so it cannot help to choose. Hoang uses the idea for the high set-up costs of natural monopolies (p. 199).", "example": "A city has spent $2 billion digging a metro tunnel that cannot be used for anything else. Whether to finish the line depends only on the future cost of finishing it and the future fares and benefits.", "exam_tip": "The CED writes \"fixed costs (sunk costs)\": a fixed cost that cannot be recovered is sunk. Do not teach them as opposites.", "related": ["Natural monopoly", "Long run"]}]}, {"name": "Returns to scale", "terms": [{"term": "Increasing returns to scale", "level": "Added", "definition": "When all inputs are increased in the same proportion, output increases by a larger proportion.", "explanation": "If doubling every input more than doubles output, cost per unit falls as the firm grows: increasing returns to scale cause economies of scale. They come from specialization within a bigger operation and from equipment that only pays off at large scale. Hoang describes the outcome but never uses the phrase returns to scale.", "example": "Doubling a factory's workers, machines and floor space raises output from 1,000 to 2,300 units a week.", "exam_tip": "Returns to scale are about inputs and output; economies of scale are about costs. Increasing returns to scale lead to economies of scale.", "related": ["Constant returns to scale", "Decreasing returns to scale", "Economies of scale"]}, {"term": "Constant returns to scale", "level": "Added", "definition": "When all inputs are increased in the same proportion, output increases by exactly that proportion.", "explanation": "Doubling every input exactly doubles output, so cost per unit stays the same as the firm grows and LRATC is flat. The AP course calls the flat stretch efficient scale.", "example": "A franchise that opens a second identical restaurant, with the same staff and kitchen, roughly doubles its meals at the same cost per meal.", "exam_tip": "Constant returns to scale give a horizontal section of LRATC.", "related": ["Increasing returns to scale", "Decreasing returns to scale", "Efficient scale"]}, {"term": "Decreasing returns to scale", "level": "Added", "definition": "When all inputs are increased in the same proportion, output increases by a smaller proportion.", "explanation": "If doubling every input less than doubles output, cost per unit rises as the firm grows: decreasing returns to scale cause diseconomies of scale. Hoang's example, inputs up 20 per cent and output up only 10 per cent (p. 211), is exactly this, though he calls it diseconomies of scale.", "example": "A firm raises all its inputs by 20 per cent and its output rises by only 10 per cent (Hoang p. 211).", "exam_tip": "Do not confuse decreasing returns to scale (all inputs change, long run) with diminishing marginal returns (one input changes, short run).", "related": ["Increasing returns to scale", "Diseconomies of scale"]}]}, {"name": "Economies and diseconomies of scale", "terms": [{"term": "Economies of scale", "level": "Hoang", "definition": "Long-run average total cost falls as output increases.", "explanation": "Economies of scale are the downward-sloping part of LRATC. Hoang lists their sources: specialized labor and managers, specialized machinery, marketing spread over more sales, and bulk purchasing (pp. 209–210). A firm enjoying them has a cost advantage over smaller rivals.", "example": "Car makers, electricity generators and oil refiners must pay huge fixed costs before producing anything, so cost per unit falls steeply as output grows (Krugman p. 562 names all three).", "exam_tip": "Hoang's Common mistake (p. 211): economies of scale lower cost per unit, not total cost. Making 50,000 cans costs more in total than 1,000, but less per can.", "related": ["Diseconomies of scale", "Increasing returns to scale", "Minimum efficient scale"]}, {"term": "Diseconomies of scale", "level": "Hoang", "definition": "Long-run average total cost rises as output increases.", "explanation": "Diseconomies of scale are the upward-sloping part of LRATC. They usually come from problems of coordination, control and communication as a firm grows (Hoang p. 211). They limit how large firms become.", "example": "A company grows so large that decisions pass through many layers of managers and each extra division costs more to run than the last.", "exam_tip": "Diseconomies of scale are a long-run idea. Rising short-run ATC is caused by diminishing returns, not diseconomies.", "related": ["Economies of scale", "Decreasing returns to scale"]}, {"term": "Efficient scale", "level": "Added", "definition": "The range of output over which LRATC is at its minimum and flat: constant returns to scale.", "explanation": "The CED describes LRATC as showing economies of scale, diseconomies of scale or constant returns to scale (efficient scale). Many real industries have a long flat bottom: once firms are big enough, growing further neither lowers nor raises their costs much.", "example": "Supermarkets above a certain size have similar costs per shopper whether they are large or very large.", "exam_tip": "A perfectly competitive firm in long-run equilibrium produces at efficient scale: price equals minimum ATC (Topic 3.7).", "related": ["Constant returns to scale", "Minimum efficient scale"]}, {"term": "Minimum efficient scale", "level": "Hoang", "definition": "The smallest output at which long-run average total cost reaches its minimum (MES).", "explanation": "Below the minimum efficient scale a firm still has economies of scale to gain; at it, all economies of scale have been used up. Hoang marks it at the lowest point of LRAC (p. 209). If LRATC has a flat bottom, MES is where the flat bottom begins.", "example": "In the lab's illustrative industry, LRATC reaches its lowest point, $24.64 a unit, at 6 units: a firm producing fewer than 6 units cannot match that cost.", "exam_tip": "Compare MES with the size of the market: that comparison tells you how many firms the market can hold at low cost.", "related": ["Long-run average total cost", "MES and market structure", "Efficient scale"]}, {"term": "Internal economies of scale", "level": "Hoang", "definition": "Lower long-run average costs that come from the growth of the firm itself.", "explanation": "Hoang groups them by source: managerial (specialized staff), technical (specialized machinery used to its full potential), marketing (advertising spread over more sales) and purchasing (bulk buying) (pp. 209–210). They are movements down the firm's own LRATC curve.", "example": "Nike and McDonald's market their brands to a global audience, so their marketing cost per unit sold is low (Hoang p. 210).", "exam_tip": "When the AP exam says economies of scale, it means internal economies: the firm's own LRATC falling as it grows.", "related": ["Economies of scale", "External economies of scale"]}, {"term": "External economies of scale", "level": "Hoang", "definition": "Lower average costs for every firm in an industry, caused by the growth of the industry as a whole rather than of one firm.", "explanation": "A large industry attracts a pool of skilled workers and specialist suppliers, which lowers every firm's costs. Hoang shows them as a downward shift of the whole LRAC curve, while internal economies are a movement along it (p. 211). The AP framework does not name them; treat them as background.", "example": "Silicon Valley's pool of skilled high-tech workers lowers recruitment costs for every tech firm there (Hoang p. 210).", "exam_tip": "On the AP exam, economies of scale means internal economies unless a question says otherwise.", "related": ["Economies of scale"]}]}, {"name": "Scale and market structure", "terms": [{"term": "MES and market structure", "level": "Added", "definition": "The smaller the minimum efficient scale relative to market demand, the more firms the market can hold at low cost; the larger it is, the more concentrated the market.", "explanation": "If one firm must produce a large share of the market's output to reach low costs, there is room for only a few firms, or one. This is how scale helps decide market structure. Hoang makes the link through economies of scale as a barrier to entry (p. 183) and natural monopoly (p. 199), but never states the comparison with MES.", "example": "If MES is 10,000 units a week and the market buys 300,000, there is room for about 30 low-cost firms; if the market buys only 15,000, there is room for one.", "exam_tip": "Market demand ÷ MES gives a rough count of how many firms can produce at minimum cost.", "related": ["Minimum efficient scale", "Natural monopoly", "Scale as a barrier to entry"]}, {"term": "Natural monopoly", "level": "Hoang", "definition": "A market in which one firm can supply the whole market at lower average cost than two or more firms could, because economies of scale continue over the whole range of market demand.", "explanation": "When fixed and sunk costs are enormous, LRATC is still falling where it meets market demand. Splitting the market between two firms would push both up their cost curves. Hoang's example is the Paris Métro (p. 199).", "example": "Two companies laying parallel water pipes to every house would each have far higher costs per customer than one company serving the whole town.", "exam_tip": "Draw a natural monopoly with LRATC still falling where it crosses the demand curve.", "related": ["MES and market structure", "Sunk cost"]}, {"term": "Scale as a barrier to entry", "level": "Hoang", "definition": "When an incumbent produces at a large scale with low average cost, a new entrant producing less faces higher average cost and struggles to compete.", "explanation": "Economies of scale are the E in Hoang's BLADE list of barriers to entry (p. 182). A new firm would need to win a large share of the market straight away to match the incumbent's costs, and high set-up costs make that risky.", "example": "A new airline starting with three aircraft has far higher cost per seat than a rival flying three hundred.", "exam_tip": "The CED lists high fixed or start-up costs as a barrier to entry (Topic 4.1). Link it to MES.", "related": ["MES and market structure", "Economies of scale"]}]}]};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const box=document.getElementById('cgbox'),q=document.getElementById('cgq'),cnt=document.getElementById('cgcount');
+const id=t=>'cg-'+t.toLowerCase().replace(/[^a-z0-9]+/g,'-');
+const badge=l=>l==='Added'?'<span class="badge b-hl">Added for AP</span>':'<span class="badge b-sl">In Hoang</span>';
+box.innerHTML='<p style="max-width:72ch">'+esc(CG.intro)+'</p>'+CG.groups.map(g=>`<div class="cg-group"><h3>${esc(g.name)}</h3>`+g.terms.map(t=>`<details class="cg-item" id="${id(t.term)}" data-s="${esc((t.term+' '+t.definition+' '+t.explanation+' '+t.example).toLowerCase())}"><summary><b>${esc(t.term)}</b>${badge(t.level)}<span class="cg-def">${esc(t.definition)}</span></summary><div class="cg-body"><div><span class="lbl">Definition</span><p class="defn">${esc(t.definition)}</p></div><div><span class="lbl">Explanation</span><p>${esc(t.explanation)}</p></div><div class="cg-ex"><span class="lbl">Example</span><p>${esc(t.example)}</p></div><div class="cg-tip"><span class="lbl">Exam tip</span><p>${esc(t.exam_tip)}</p></div>${(t.related||[]).length?`<div><span class="lbl">Related terms</span><div class="cg-rel">${t.related.map(r=>`<button type="button" data-go="${id(r)}">${esc(r)}</button>`).join('')}</div></div>`:''}</div></details>`).join('')+'</div>').join('')+'<p class="cg-empty" id="cgnone" hidden>No terms match your search.</p>';
+function apply(){const s=(q.value||'').trim().toLowerCase();let n=0;
+ box.querySelectorAll('.cg-item').forEach(d=>{const show=!s||d.dataset.s.includes(s);d.hidden=!show;if(show)n++;if(s&&show)d.open=true});
+ box.querySelectorAll('.cg-group').forEach(g=>{g.hidden=![...g.querySelectorAll('.cg-item')].some(d=>!d.hidden)});
+ cnt.textContent=n+' term'+(n===1?'':'s');document.getElementById('cgnone').hidden=n>0}
+q.addEventListener('input',apply);
+document.getElementById('cgopen').addEventListener('click',()=>box.querySelectorAll('.cg-item:not([hidden])').forEach(d=>d.open=true));
+document.getElementById('cgclose').addEventListener('click',()=>box.querySelectorAll('.cg-item').forEach(d=>d.open=false));
+box.addEventListener('click',e=>{const b=e.target.closest('[data-go]');if(!b)return;const t=document.getElementById(b.dataset.go);if(t){q.value='';apply();t.open=true;t.scrollIntoView({block:'center'})}});
+apply();
+})();
+</script>
+<script id="sb-js">
+(function(){
+const secs=[...document.querySelectorAll('section.step[id]')];
+const sb=document.createElement('aside');sb.className='sb';sb.setAttribute('aria-label','Lesson contents');
+const title=document.querySelector('.brand').childNodes[0].textContent.trim(),sub=document.querySelector('.brand span').textContent;
+sb.innerHTML=`<a class="home" href="https://sevketgunduz.github.io/ap-microeconomics/">AP Microeconomics</a><div class="sub">${title} · ${sub}</div><p class="lbl">In this lab</p>`+
+ secs.map(s=>{const n=s.querySelector('.num'),h=s.querySelector('h2');const t=h?h.childNodes[0].textContent.replace(/[:·].*$/,'').trim():s.id;return `<a class="it" href="#${s.id}" data-id="${s.id}"><span>${n?n.textContent:''}</span><span>${t}</span></a>`}).join('')+
+ ``;
+document.body.appendChild(sb);
+const btn=document.createElement('button');btn.className='sbbtn';btn.type='button';btn.textContent='☰ Contents';btn.setAttribute('aria-expanded','false');
+const bar=document.querySelector('.topin');if(bar)bar.insertBefore(btn,bar.firstChild);
+btn.addEventListener('click',()=>{sb.classList.toggle('open');btn.setAttribute('aria-expanded',sb.classList.contains('open'))});
+sb.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>sb.classList.remove('open')));
+if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){sb.querySelectorAll('a.it').forEach(a=>a.classList.toggle('act',a.dataset.id===e.target.id))}}),{rootMargin:'-20% 0px -70% 0px'});secs.forEach(s=>io.observe(s))}
+})();
+</script>
+</body>
+</html>

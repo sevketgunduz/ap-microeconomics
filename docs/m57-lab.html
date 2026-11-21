@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Market Structure Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,650&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+:root{
+  --ground:#f4f5f1; --panel:#ffffff; --panel2:#f8f9f5; --ink:#1a2029; --muted:#5a636c; --rule:#d9ddd3; --grid:#e7eae2;
+  --supply:#c0441f; --supply2:#e8876a; --demand:#2451c4; --good:#12795f; --bad:#b3261e; --hl:#6f3aa8; --hlbg:#efe6f8; --slbg:#e2efe9; --sl:#0d6b5c;
+  --tint:#eaf0fc; --focus:#2451c4; --shade:rgba(192,68,31,.14); --shadeb:rgba(36,81,196,.14);
+  --serif:"Source Serif 4",Georgia,serif; --sans:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif; --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;
+  --ground:#12161b; --panel:#1a2027; --panel2:#1f262e; --ink:#e6eaee; --muted:#9ca7b1; --rule:#2e3842; --grid:#252f38;
+  --supply:#ff8d66; --supply2:#b8664b; --demand:#86a6ff; --good:#4fd1a8; --bad:#ff7b72; --hl:#c29af2; --hlbg:#2c2240; --slbg:#173029; --sl:#6fd6bf;
+  --tint:#1b2436; --focus:#86a6ff; --shade:rgba(255,141,102,.18); --shadeb:rgba(134,166,255,.18);}}
+:root[data-theme="dark"]{color-scheme:dark;
+  --ground:#12161b; --panel:#1a2027; --panel2:#1f262e; --ink:#e6eaee; --muted:#9ca7b1; --rule:#2e3842; --grid:#252f38;
+  --supply:#ff8d66; --supply2:#b8664b; --demand:#86a6ff; --good:#4fd1a8; --bad:#ff7b72; --hl:#c29af2; --hlbg:#2c2240; --slbg:#173029; --sl:#6fd6bf;
+  --tint:#1b2436; --focus:#86a6ff; --shade:rgba(255,141,102,.18); --shadeb:rgba(134,166,255,.18);}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font:16px/1.6 var(--sans);margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:20px;padding-block:0 80px}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--ground);border-bottom:1px solid var(--rule)}
+.topin{max-width:1120px;margin:0 auto;padding:10px 20px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.brand{font:650 18px var(--serif);margin-right:auto}
+.brand span{font:600 12px var(--sans);color:var(--muted);margin-left:8px}
+nav.jump{display:flex;gap:2px;flex-wrap:wrap}
+nav.jump a{font:600 12.5px var(--sans);color:var(--muted);text-decoration:none;padding:6px 9px;border-radius:6px}
+nav.jump a:hover{background:var(--panel);color:var(--ink)}
+.lvl{display:flex;border:1px solid var(--rule);border-radius:999px;overflow:hidden}
+.lvl button{font:700 12px var(--sans);border:0;background:var(--panel);color:var(--muted);padding:6px 12px;cursor:pointer}
+.lvl button[aria-pressed="true"]{background:var(--ink);color:var(--ground)}
+h1,h2,h3{font-family:var(--serif);font-weight:650;letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:40px;line-height:1.1} h2{font-size:27px;line-height:1.2} h3{font-size:19px}
+p{margin:0} .muted{color:var(--muted)}
+.eyebrow{font:700 11.5px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--demand)}
+.badge{display:inline-block;font:700 10.5px var(--sans);letter-spacing:.06em;padding:2px 7px;border-radius:4px;vertical-align:3px}
+.b-hl{background:var(--hlbg);color:var(--hl)} .b-sl{background:var(--slbg);color:var(--sl)}
+button:focus-visible,input:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+section.step{padding-top:56px;scroll-margin-top:70px}
+.shead{display:grid;gap:8px;max-width:72ch;margin-bottom:20px}
+.shead .num{font:600 13px var(--mono);color:var(--muted)}
+.hero{padding-top:44px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:36px;align-items:center}
+.hero p.lead{font-size:18px;margin-top:14px;max-width:56ch}
+.goals{background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:18px 20px}
+.goals ul{margin:8px 0 0;padding:0;list-style:none;display:grid;gap:8px}
+.goals li{display:grid;grid-template-columns:22px 1fr;gap:8px;font-size:15px}
+.goals input{width:18px;height:18px;accent-color:var(--good);margin-top:3px}
+.lab{background:var(--panel);border:1px solid var(--rule);border-radius:14px;padding:20px}
+.lab2{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px;align-items:start}
+svg.g{width:100%;height:auto;display:block;border-radius:8px;background:var(--panel2);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:26px 26px}
+svg .axis{stroke:var(--ink);stroke-width:1.7;fill:none} svg .axl{fill:var(--ink);font:700 12.5px var(--sans)} svg .tick{fill:var(--muted);font:11.5px var(--mono)}
+svg .guide{stroke:var(--muted);stroke-dasharray:4 4;fill:none}
+svg .s{stroke:var(--supply);stroke-width:3;fill:none;stroke-linecap:round} svg .s2{stroke:var(--supply2);stroke-width:2.2;fill:none;stroke-dasharray:7 5}
+svg .sm{stroke:var(--ink);stroke-width:3;fill:none} svg .d{stroke:var(--demand);stroke-width:3;fill:none}
+svg .ghost{stroke:var(--muted);stroke-width:1.6;stroke-dasharray:3 4;fill:none}
+svg text.ls{fill:var(--supply);font:700 13px var(--sans)} svg text.ld{fill:var(--demand);font:700 13px var(--sans)} svg text.lm{fill:var(--ink);font:700 13px var(--sans)} svg text.lg{fill:var(--muted);font:700 12px var(--sans)}
+svg .dot{fill:var(--ink)} svg .dot2{fill:var(--panel);stroke:var(--ink);stroke-width:1.8}
+svg .arrow{stroke:var(--good);stroke-width:2.4;fill:none;marker-end:url(#ah)} svg .ahead{fill:var(--good)}
+svg .bar{fill:var(--demand);opacity:.7} svg .bar.dim{fill:var(--supply);opacity:.75}
+svg .note{fill:var(--muted);font:600 11.5px var(--sans)} svg .area{fill:var(--shade)}
+.ctl{display:grid;grid-template-columns:1fr 70px;gap:2px 10px;align-items:center;font-size:14px;margin-bottom:12px}
+.ctl span{grid-column:1/-1;font-weight:600;color:var(--muted)} .ctl input{width:100%;accent-color:var(--demand)} .ctl output{font:600 13px var(--mono);text-align:right}
+.read{display:grid;grid-template-columns:1fr auto;gap:6px 14px;font-size:14.5px;margin:6px 0 0}
+.read dt{color:var(--muted)} .read dd{margin:0;font:600 13.5px var(--mono);text-align:right}
+.explain{margin-top:14px;padding:12px 14px;border-left:3px solid var(--demand);background:var(--tint);border-radius:0 8px 8px 0;font-size:14.5px}
+.btn{font:600 14px var(--sans);border:1px solid var(--rule);background:var(--panel);color:var(--ink);padding:9px 13px;border-radius:8px;cursor:pointer;text-align:left}
+.btn:hover{border-color:var(--demand)} .btn.pri{background:var(--ink);color:var(--ground);border-color:var(--ink)} .btn:disabled{opacity:.45;cursor:default}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.flip{perspective:900px;height:170px;border:0;background:none;padding:0;cursor:pointer;text-align:left;font:inherit;color:inherit}
+.flip .in{position:relative;width:100%;height:100%;transition:transform .45s;transform-style:preserve-3d}
+.flip.on .in{transform:rotateY(180deg)}
+.flip .f,.flip .b{position:absolute;inset:0;backface-visibility:hidden;border-radius:12px;border:1px solid var(--rule);padding:16px;display:flex;flex-direction:column;gap:6px}
+.flip .f{background:var(--panel);justify-content:space-between} .flip .f b{font:650 19px var(--serif)}
+.flip .b{background:var(--tint);transform:rotateY(180deg);font-size:14.5px;overflow:auto}
+.flip .hint{font-size:12px;color:var(--muted)}
+.events{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px;margin:14px 0}
+.ev{display:grid;grid-template-columns:30px 1fr;gap:8px;align-items:start}
+.ev .l{font:700 14px var(--mono);color:var(--demand);background:var(--tint);border-radius:6px;text-align:center;padding:2px 0}
+.ev[aria-pressed="true"]{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.predict{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:10px 0}
+.fb{font-weight:600} .fb.ok{color:var(--good)} .fb.no{color:var(--bad)}
+.sorter .card{background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:16px;display:grid;gap:10px}
+.sorter .card p{font-size:16.5px;font-family:var(--serif)}
+.score{font:600 14px var(--mono)}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{padding:7px 9px;border-bottom:1px solid var(--grid);text-align:right;font-variant-numeric:tabular-nums}
+th{font:700 11.5px var(--sans);letter-spacing:.05em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--rule)}
+td:first-child,th:first-child{text-align:left} tr.cur td{background:var(--tint);font-weight:700} tr.dmr td:nth-child(3){color:var(--supply)}
+.tblwrap{overflow-x:auto}
+.case{background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:18px 20px;display:grid;gap:10px}
+.case details{border-top:1px solid var(--grid);padding-top:10px}
+.case summary,.qa summary{cursor:pointer;font-weight:700;color:var(--demand)}
+.case ol{margin:8px 0 0;padding-left:20px}
+.cases{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:14px}
+.mcq{background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:16px 18px;display:grid;gap:8px}
+.mcq .opts{display:grid;gap:6px}
+.mcq .opt{font:500 14.5px var(--sans)} .mcq .opt.ok{border-color:var(--good);background:color-mix(in srgb,var(--good) 12%,var(--panel))} .mcq .opt.no{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 10%,var(--panel))}
+.mcq .why{font-size:14px;color:var(--muted)}
+.quiz{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:14px}
+.qa{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:12px 16px}
+.qa details p{margin-top:6px;padding:8px 10px;background:var(--panel2);border-radius:6px}
+.mist{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px}
+.mist div{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:14px 16px;font-size:14.5px}
+.mist b{display:block;color:var(--bad);font-size:13px;letter-spacing:.03em;margin-bottom:4px} .mist i{display:block;color:var(--good);font-style:normal;font-weight:600;margin-top:6px}
+.stepper{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:12px}
+.dots{display:flex;gap:5px} .dots i{width:9px;height:9px;border-radius:50%;background:var(--rule)} .dots i.on{background:var(--demand)}
+.pill{font:600 12.5px var(--mono);padding:3px 9px;border-radius:99px;background:var(--panel2);border:1px solid var(--rule)}
+footer{margin-top:60px;padding-top:18px;border-top:1px solid var(--rule);font-size:13px;color:var(--muted)}
+.hlonly[hidden]{display:none!important}
+@media (max-width:860px){.hero,.lab2{grid-template-columns:1fr} h1{font-size:32px} nav.jump{display:none}}
+@media (max-width:520px){.wrap,.topin{padding-inline:16px} .lab{padding:14px} h1{font-size:28px} h2{font-size:23px}}
+@media (prefers-reduced-motion:reduce){.flip .in{transition:none}}
+svg .d2{stroke:var(--demand);stroke-width:2.2;fill:none;stroke-dasharray:7 5} svg text.ld2{fill:var(--demand);font:700 12px var(--sans)} svg .spend{fill:var(--shadeb)}
+svg .dwl{fill:rgba(214,151,0,.38)} svg .gap{stroke:var(--supply);stroke-width:5;opacity:.45}
+.sorter .btn[aria-pressed="true"],.lab .btn[aria-pressed="true"]{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.flip .f span:not(.hint){font-size:14.5px;color:var(--muted)}
+.ctl input[type=number]{font:15px var(--mono);padding:7px 10px;border:1px solid var(--rule);border-radius:8px;background:var(--panel);color:var(--ink);width:100%}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px} @media (max-width:860px){.two{grid-template-columns:1fr}}
+</style>
+<style id="cg-css">
+.cg-tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+.cg-tools input{flex:1;min-width:220px;max-width:420px;font:15px var(--sans);padding:9px 12px;border:1px solid var(--rule);border-radius:8px;background:var(--panel);color:var(--ink)}
+.cg-group{margin-top:22px} .cg-group h3{margin-bottom:10px}
+.cg-item{background:var(--panel);border:1px solid var(--rule);border-radius:12px;margin-bottom:10px;overflow:hidden}
+.cg-item summary{cursor:pointer;list-style:none;padding:14px 18px;display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:baseline}
+.cg-item summary::-webkit-details-marker{display:none}
+.cg-item summary b{font:650 18px var(--serif)} .cg-item summary .cg-def{grid-column:1/-1;color:var(--muted);font-size:14.5px}
+.cg-item[open] summary .cg-def{display:none}
+.cg-body{padding:0 18px 16px;display:grid;gap:10px}
+.cg-body .lbl{font:700 11px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:2px}
+.cg-body .defn{font-weight:600}
+.cg-ex{background:var(--tint);border-radius:8px;padding:10px 12px}
+.cg-tip{border-left:3px solid var(--good);padding:6px 12px;background:var(--panel2);border-radius:0 8px 8px 0}
+.cg-rel{display:flex;gap:6px;flex-wrap:wrap} .cg-rel button{font:600 12.5px var(--sans);border:1px solid var(--rule);background:var(--panel2);color:var(--ink);border-radius:99px;padding:3px 10px;cursor:pointer}
+.cg-empty{color:var(--muted)}
+</style>
+<style id="sb-css">
+aside.sb{position:fixed;top:0;left:0;bottom:0;width:250px;overflow:auto;background:var(--panel);border-right:1px solid var(--rule);padding:16px 12px 40px;z-index:15;font-size:13.5px}
+aside.sb .home{display:block;font:700 15px var(--serif);color:var(--ink);text-decoration:none}
+aside.sb .sub{color:var(--muted);font-size:12px;margin:2px 0 14px}
+aside.sb .lbl{font:700 11px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:12px 4px 6px}
+aside.sb a.it{display:grid;grid-template-columns:30px 1fr;gap:2px;padding:6px 8px;border-radius:6px;color:var(--ink);text-decoration:none;line-height:1.3}
+aside.sb a.it span:first-child{font:600 11.5px var(--mono);color:var(--muted);padding-top:1px}
+aside.sb a.it:hover{background:var(--panel2)} aside.sb a.it.act{background:var(--tint);font-weight:700}
+aside.sb .links a{display:block;padding:4px 8px;color:var(--demand);font-weight:600;text-decoration:none}
+.sbbtn{display:none}
+@media (min-width:1100px){header.top,.wrap{margin-left:250px} nav.jump{display:none!important}}
+@media (max-width:1099px){aside.sb{transform:translateX(-105%);transition:transform .2s;box-shadow:0 0 30px rgba(0,0,0,.25);width:84%;max-width:300px}
+ aside.sb.open{transform:none} nav.jump{display:none!important}
+ .sbbtn{display:inline-block;font:700 13px var(--sans);padding:6px 10px;border-radius:8px;border:1px solid var(--rule);background:var(--panel);color:var(--ink);cursor:pointer;order:-1}}
+@media (prefers-reduced-motion:reduce){aside.sb{transition:none}}
+</style>
+</head>
+<body>
+<header class="top"><div class="topin">
+  <div class="brand">Market Structure Lab <span>AP Microeconomics Topics 3.7 and 4.1 · Hoang Ch 14</span></div>
+  <nav class="jump" aria-label="Sections"><a href="#terms">Terms</a><a href="#guide">Guide</a><a href="#cases">Cases</a><a href="#quiz">Quiz</a><a href="#exam">Exam</a></nav>
+</div></header>
+
+<div class="wrap">
+<section class="hero">
+  <div><p class="eyebrow">Unit 3 → Unit 4 · From perfect competition to market power · Module 57</p><h1>Who sets the price?</h1>
+  <p class="lead">Sort markets into the four structures by asking three questions: how many sellers, how different the products are, and how hard it is to get in. Then see why market power means a higher price, less output and a price above marginal cost.</p>
+  <p class="muted" style="margin-top:12px;font-size:14px">Textbook: Hoang, Wray &amp; Chakraborty, <i>Economics</i> (Hodder 2020), pp. 178–187 and 206. Ideas the AP course needs that Hoang does not teach are marked <span class="badge b-hl">Added for AP</span>.</p></div>
+  <div class="goals"><p class="eyebrow" style="color:var(--muted)">By the end I can…</p><ul id="goals"></ul></div>
+</section>
+
+<section class="step" id="terms"><div class="shead"><span class="num">01</span><h2>Key terms: flip the cards</h2><p class="muted">Say the definition out loud first, then click to check.</p></div><div class="cards" id="cards"></div></section>
+<section class="step" id="guide"><div class="shead"><span class="num">01b</span><h2>Concept guide: every term explained</h2><p>A fuller explanation of each term in this module, with a worked example and an exam tip. Open a term, read it, then close the page and explain it to a partner in your own words.</p></div>
+  <div class="cg-tools"><input id="cgq" type="search" placeholder="Search terms, examples…" aria-label="Search the concept guide"><button class="btn" id="cgopen">Open all</button><button class="btn" id="cgclose">Close all</button><span class="pill" id="cgcount"></span></div>
+  <div id="cgbox"></div></section>
+
+<!-- LAB SECTIONS -->
+<section class="step" id="ident"><div class="shead"><span class="num"></span><h2>Three questions identify the structure</h2><p>Answer the three questions for a market and see which structure it is, and what demand curve each firm in it faces.</p></div>
+  <div class="lab lab2">
+    <div id="idg"></div>
+    <div>
+      <p class="muted" style="font-weight:600;font-size:14px">How many sellers?</p><div class="row" role="group" aria-label="Number of sellers"><button class="btn" data-idn="many">Many</button><button class="btn" data-idn="few">A few large ones</button><button class="btn" data-idn="one">One</button></div>
+      <p class="muted" style="font-weight:600;font-size:14px;margin-top:10px">What kind of product?</p><div class="row" role="group" aria-label="Product"><button class="btn" data-idp="same">Identical</button><button class="btn" data-idp="diff">Differentiated</button></div>
+      <p class="muted" style="font-weight:600;font-size:14px;margin-top:10px">How hard is it to enter?</p><div class="row" role="group" aria-label="Entry"><button class="btn" data-ide="free">Free entry</button><button class="btn" data-ide="high">High barriers</button></div>
+      <dl class="read" id="idread"></dl>
+      <div class="explain" id="idx"></div>
+    </div>
+  </div></section>
+
+<section class="step" id="power"><div class="shead"><span class="num"></span><h2>Market power: a lower price to sell more, and a price above marginal cost</h2><p>Compare a price taker with a firm that has market power. Fewer close substitutes make the firm's demand steeper. Watch the gap between price and marginal cost.</p></div>
+  <div class="lab lab2">
+    <div id="pwg"></div>
+    <div>
+      <div class="row" role="group" aria-label="Kind of firm"><button class="btn" data-pw="pc">Price taker</button><button class="btn" data-pw="mp">Firm with market power</button></div>
+      <label class="ctl" style="margin-top:14px" id="pwbl"><span>Fewer close substitutes → steeper demand</span><input type="range" id="pwb" min="1" max="10" step="0.5" value="4"><output id="pwbo"></output></label>
+      <dl class="read" id="pwread"></dl>
+      <div class="explain" id="pwx"></div>
+      <p class="muted" style="font-size:13px;margin-top:8px">Illustrative firm: MC = 5 + 3Q. Price taker: market price $20. Firm with market power: demand P = 50 − bQ, so MR = 50 − 2bQ.</p>
+    </div>
+  </div></section>
+
+<section class="step" id="entry"><div class="shead"><span class="num"></span><h2>Barriers to entry and the number of firms</h2><p>Economic profit attracts new firms unless something keeps them out. Change the start-up cost a firm must cover, or add a legal limit, and see how many firms the market ends up with.</p></div>
+  <div class="lab lab2">
+    <div id="eng"></div>
+    <div>
+      <label class="ctl"><span>Fixed or start-up cost per period ($)</span><input type="range" id="enf" min="20" max="1500" step="10" value="200"><output id="enfo"></output></label>
+      <div class="row" role="group" aria-label="Legal barrier"><button class="btn" data-lic="0">No license needed</button><button class="btn" data-lic="2">Law allows only 2 licenses</button></div>
+      <dl class="read" id="enread"></dl>
+      <div class="explain" id="enx"></div>
+      <p class="muted" style="font-size:13px;margin-top:8px">Illustrative market: demand P = 100 − Q, marginal cost $20 for every firm. Each firm's profit with n rivals in the market is computed from the model, and firms keep entering while one more can still cover its fixed cost.</p>
+    </div>
+  </div></section>
+
+<section class="step" id="conc"><div class="shead"><span class="num"></span><h2>Measuring concentration</h2><p>Type the market shares of the five largest firms. Hoang uses a concentration ratio and the Herfindahl-Hirschman Index (p. 206); the AP framework uses neither, so treat this section as background.</p></div>
+  <div class="lab lab2">
+    <div id="ccg"></div>
+    <div>
+      <div class="row"><button class="btn" data-cc="30,25,10,0,0">Hoang's Industry A</button><button class="btn" data-cc="25,20,20,0,0">Hoang's Industry B</button><button class="btn" data-cc="100,0,0,0,0">Monopoly</button><button class="btn" data-cc="2,2,2,2,2">Many small firms</button></div>
+      <div class="row" style="margin-top:10px" id="ccin"></div>
+      <dl class="read" id="ccread"></dl>
+      <div class="explain" id="ccx"></div>
+    </div>
+  </div></section>
+
+<section class="step" id="sort"><div class="shead"><span class="num"></span><h2>Which market structure?</h2><p>Each card describes a market. Which of the four structures fits it best?</p></div>
+  <div class="sorter"><div class="card"><span class="pill" id="son"></span><p id="soq"></p>
+    <div class="row"><button class="btn" data-so="pc">Perfect competition</button><button class="btn" data-so="mc">Monopolistic competition</button><button class="btn" data-so="ol">Oligopoly</button><button class="btn" data-so="mo">Monopoly</button></div>
+    <p class="fb" id="sofb" aria-live="polite"></p><div class="row"><button class="btn pri" id="sonext" hidden>Next card</button><span class="score" id="sosc"></span></div></div></div></section>
+
+<section class="step" id="draw"><div class="shead"><span class="num"></span><h2>Draw it like an examiner wants</h2><p>The demand curve a firm faces is the clearest picture of market structure. Build the two cases side by side.</p></div>
+  <div class="lab lab2">
+    <div id="drg"></div>
+    <div><h3 id="drt"></h3><div id="drx" style="margin-top:8px"></div>
+      <div class="stepper"><button class="btn" id="drprev">← Back</button><button class="btn pri" id="drnext">Next →</button><div class="dots" id="drdots"></div></div></div>
+  </div></section>
+<!-- /LAB SECTIONS -->
+
+<section class="step" id="cases"><div class="shead"><span class="num"></span><h2>Real-world cases</h2><p>Answer in your notebook, sketch the diagram, then open the model answer.</p></div><div class="cases" id="casebox"></div></section>
+
+<section class="step" id="quiz"><div class="shead"><span class="num"></span><h2>Check yourself</h2><p>Auto-marked multiple choice in the AP format first, then quick-fire questions with model answers.</p><p class="score" id="mcqscore"></p></div><div class="quiz" id="mcqs"></div>
+  <h3 style="margin:30px 0 12px">Quick-fire checklist</h3><div class="quiz" id="qf"></div></section>
+
+<section class="step" id="mistakes"><div class="shead"><span class="num"></span><h2>Common mistakes to avoid</h2></div><div class="mist" id="mist"></div></section>
+
+<section class="step" id="exam"><div class="shead"><span class="num"></span><h2>Exam practice</h2><p>Plan each answer before opening the scoring guide.</p></div><div class="cases" id="exambox"></div></section>
+
+<footer>Market Structure Lab · based on the AP Microeconomics Course and Exam Description, Topic 3.7 Perfect Competition and Topic 4.1 Introduction to Imperfectly Competitive Markets, and Hoang, Wray &amp; Chakraborty, <i>Economics</i> (Hodder 2020), Chapter 14 pp. 178–187 and 206; the course's other text is Krugman, <i>Economics for AP</i>, Module 57, pp. 567–583 (including the Section 10 review). Hoang's examples used: the Sydney Fish Market, hairdressers, Airbus and Boeing, American Airlines, De Beers, UK supermarkets and Industries A and B. The pricing firm, the entry model and the numbers marked illustrative are invented for practice.
+<details style="margin-top:10px"><summary style="cursor:pointer;font-weight:700">For the teacher: where Hoang needs correcting or adding to</summary>
+<ul style="margin:8px 0 0;padding-left:20px;display:grid;gap:4px">
+<li>Hoang p. 183 says monopolists "enjoy price inelastic demand" and earn more revenue by charging higher prices. A profit-maximizing monopolist produces on the <b>elastic</b> part of its demand curve, where marginal revenue is positive; the CED's sample question 11 lists the inelastic portion as a wrong answer.</li>
+<li><i>Monopsony</i> occurs 0 times in Hoang. The CED names it as the fourth imperfectly competitive structure (Topic 4.1), in factor markets; it is added here and taught in Unit 5.</li>
+<li>Hoang's case study lists Coca-Cola, Google, PayPal and others as monopolies (p. 183). These are dominant firms with market power, mostly in oligopolies; keep "monopoly" for a single seller, as Hoang's own Top tip advises (p. 182).</li>
+<li>Concentration ratio and Herfindahl-Hirschman Index occur 0 times in the CED; the lab's section on them is background.</li>
+<li>Hoang's perfect competition adds perfect information (p. 180). The CED's statements name many firms' lack of market power, no barriers to entry, a constant market price and efficiency; information is not required.</li>
+<li>In Hoang the whole chapter is HL only. In AP Microeconomics it opens Unit 4, the second-heaviest unit on the exam.</li>
+</ul></details></footer>
+</div>
+
+<script>
+(function(){
+'use strict';
+/* ============================ DATA ============================ */
+const NS='m57lab';
+const n2=v=>(Math.round(v*100)/100).toLocaleString(undefined,{maximumFractionDigits:2}), d2=v=>'$'+(Math.round(v*100)/100).toFixed(2);
+/* Pricing firm */
+const MCf=Q=>5+3*Q, PW={P:20,a:50};
+const pcQ=(PW.P-5)/3;
+const mpSolve=b=>{const Q=(PW.a-5)/(2*b+3),P=PW.a-b*Q;return{Q,P,MC:MCf(Q),MR:PW.a-2*b*Q}};
+/* Entry model: demand P = 100 - Q, MC = 20, n firms share the market as in a standard model of a few rival firms */
+const EN={a:100,c:20};
+const enProfit=(n,F)=>Math.pow(EN.a-EN.c,2)/Math.pow(n+1,2)-F, enPrice=n=>n?(EN.a+n*EN.c)/(n+1):null;
+function enFirms(F,cap){let n=0;while(n<60&&enProfit(n+1,F)>=0&&(!cap||n<cap))n++;return n}
+/* Hoang's industries (p. 206) */
+const HA=[30,25,10],HB=[25,20,20];const hhi=s=>s.reduce((a,x)=>a+x*x,0);
+/* Exam data */
+const EX1={a:60,b:2};EX1.Q=(EX1.a-5)/(2*EX1.b+3);EX1.P=EX1.a-EX1.b*EX1.Q;EX1.MC=MCf(EX1.Q);
+
+/* ============================ CONFIG ============================ */
+const GOALS=[
+ ['Classify a market into one of the four structures using the number of firms, the product and the barriers to entry'],
+ ['Explain why a perfectly competitive firm is a price taker and has no market power'],
+ ['Explain why a firm in an imperfectly competitive market must lower its price to sell more'],
+ ['Explain why price is above marginal cost when firms have market power, and why that is inefficient'],
+ ['Explain how barriers to entry such as high start-up costs, legal barriers and key resources sustain market power'],
+ ['Name the four imperfectly competitive structures in the CED, including monopsony']];
+const TERMS=[
+ ['Market structure','How an industry is organized: number of firms, type of product, barriers to entry.'],
+ ['Market power','The ability to raise price above the competitive level without losing all sales.'],
+ ['Price taker','A firm that sells at the market price: P = MR = AR = D.'],
+ ['Price maker','A firm facing downward-sloping demand: it must lower price to sell more.'],
+ ['Perfect competition','Many firms, identical product, no barriers, no market power.'],
+ ['Monopolistic competition','Many firms, differentiated products, low barriers.'],
+ ['Oligopoly','A few large, interdependent firms behind high barriers.'],
+ ['Monopoly','One seller, no close substitutes, high barriers.'],
+ ['Monopsony','One buyer, usually of a factor such as labor.',1],
+ ['Barriers to entry','Anything that keeps new firms out: start-up costs, laws, key resources.'],
+ ['Free entry and exit','No barriers: profits attract entrants, losses drive firms out.'],
+ ['Product differentiation','Making a product different so some buyers prefer it.'],
+ ['Interdependence','In oligopoly each firm\'s best move depends on its rivals.'],
+ ['P > MC','In imperfect competition price is above marginal cost: inefficient.']];
+const CASES=[
+ ['The Sydney Fish Market','Hoang\'s case study (p. 181): the Sydney Fish Market trades more than 14,500 tonnes of seafood a year, with up to a hundred species traded every day, and prices rise and fall with the season\'s supply and demand.',
+  ['Which features of perfect competition does the market have?','Why is a single seller at the market a price taker?','What would happen to a seller who charged 10% above the day\'s price for the same fish?'],
+  ['Many buyers and sellers, a fairly identical product within each species, and easy entry for wholesalers; prices set by the market.','Each seller supplies a tiny share of the market and buyers can buy identical fish from many others, so no single seller can move the price.','Buyers would switch to other sellers and it would sell almost nothing: its demand curve is horizontal at the market price.']],
+ ['Airbus and Boeing','Hoang notes that the market for large commercial aircraft is dominated by Airbus and Boeing (p. 184). Developing a new airliner costs many billions of dollars before the first sale.',
+  ['Which market structure is this? Give two reasons.','Which barrier to entry is most important here?','Why must each firm watch the other\'s pricing and new models?'],
+  ['Oligopoly: two firms supply almost the whole market, and entry is extremely hard.','High fixed or start-up costs: the cost of design and certification is so high that an entrant needs a large market share to cover it.','Interdependence: a price cut or new model by one firm takes orders from the other, so each must anticipate the other\'s reaction.']],
+ ['Hairdressers on the high street','Hoang uses hairdressers as monopolistic competitors (p. 186): many salons, each a little different, with relatively easy entry.',
+  ['Why can a salon raise its price a little without losing every customer?','Why will a salon\'s economic profit tend to disappear in the long run?','Is the salon a price taker or a price maker?'],
+  ['Its service is differentiated (location, style, stylist, brand), so loyal customers prefer it.','Profits attract new salons, which take customers away until economic profit is zero.','A price maker, but with little market power: its demand curve slopes down but is quite elastic.']],
+ ['Diamonds and De Beers','Hoang (p. 183) describes De Beers as the world\'s largest diamond exploration company, which for much of the twentieth century controlled most of the world\'s supply of rough diamonds.',
+  ['Which barrier to entry did De Beers rely on?','How does that barrier let a firm keep its price above marginal cost?','Why does the CED call this inefficient?'],
+  ['Exclusive ownership of a key resource: control of the mines and of the diamonds sold through it.','Rivals cannot enter to sell more diamonds, so the firm can restrict output and keep the price high without being undercut.','At the chosen output buyers value one more diamond above its marginal cost, so producing more would add to total surplus: P > MC means too little is produced.']]];
+const MCQ=[
+ ['Which of the following is a characteristic of a perfectly competitive market?',
+  ['Firms face no barriers to entry and have no market power','A few firms supply most of the output','Firms sell differentiated products','Each firm faces a downward-sloping demand curve','Firms earn economic profit in the long run'],0,
+  'This is the CED\'s own description of perfect competition. A few dominant firms is oligopoly, differentiated products are monopolistic competition, downward-sloping demand means market power, and free entry removes economic profit in the long run.'],
+ ['In an imperfectly competitive output market, all else constant, a firm that wants to sell more units must',
+  ['raise its price','lower its price','keep its price at marginal cost','advertise less','reduce its marginal cost'],1,
+  'A firm with market power faces a downward-sloping demand curve, so it can sell more only by lowering its price, which is why its marginal revenue is below price.'],
+ ['Which of the following is NOT one of the imperfectly competitive market structures named in the AP framework?',
+  ['Monopoly','Oligopoly','Perfect competition','Monopsony','Monopolistic competition'],2,
+  'The CED names monopoly, oligopoly and monopolistic competition in product markets and monopsony in factor markets. Perfect competition is the competitive benchmark.'],
+ ['A market has many firms, each selling a slightly different product, and new firms can enter easily. This market is',
+  ['perfect competition','oligopoly','monopoly','monopolistic competition','monopsony'],3,
+  'Many firms and easy entry, but differentiated products: monopolistic competition. Identical products would make it perfect competition.'],
+ [`A firm with market power faces demand P = ${EX1.a} − ${EX1.b}Q and has MC = 5 + 3Q. At its profit-maximizing output, price is`,
+  [`equal to marginal cost, ${d2(EX1.MC)}`,`equal to marginal revenue`,`below marginal cost`,`equal to average revenue but below marginal cost`,`${d2(EX1.P)}, above marginal cost of ${d2(EX1.MC)}`],4,
+  `MR = ${EX1.a} − ${2*EX1.b}Q = 5 + 3Q gives Q = ${n2(EX1.Q)}. Price from the demand curve is ${d2(EX1.P)} and MC is ${d2(EX1.MC)}, so P > MC: the outcome is inefficient.`],
+ ['Which of the following is the best example of a legal barrier to entry?',
+  ['A patent on a new medicine','A strong brand name','Economies of scale','Control of the only source of a raw material','A price war'],0,
+  'A patent is created by law. Brands, economies of scale and resource control are barriers too, but not legal ones.'],
+ ['The feature that most clearly separates oligopoly from the other market structures is',
+  ['a downward-sloping demand curve','interdependence among firms','product differentiation','free entry','price-taking behavior'],1,
+  'Only in oligopoly is each firm large enough that its rivals\' reactions matter to its decisions. Downward-sloping demand is shared with monopoly and monopolistic competition.'],
+ ['In an imperfectly competitive market, price is greater than marginal cost. This means',
+  ['firms are making losses','the market is allocatively efficient','consumers value additional units more than they cost to produce, so output is too low','marginal revenue is greater than price','the firm should raise its price further'],2,
+  'P measures what buyers value the last unit at; MC is its cost. P > MC means extra units would add more value than cost, so the market produces less than the efficient quantity.'],
+ ['Hoang says a monopolist enjoys price inelastic demand. A profit-maximizing monopolist will in fact produce where demand is',
+  ['perfectly inelastic','inelastic','unit elastic only when costs are zero','elastic, because marginal revenue must be positive','perfectly elastic'],3,
+  'MR = MC and MC is positive, so MR must be positive, which happens only on the elastic part of demand. On the inelastic part, cutting output would raise revenue and lower cost.'],
+ ['Which of the following best explains why economic profits in a monopoly can persist in the long run?',
+  ['The monopolist sets price equal to marginal cost','Demand for its product is perfectly elastic','The monopolist always produces at minimum ATC','Consumers have perfect information','Barriers to entry stop new firms from entering'],4,
+  'Without barriers, profit would attract entrants and be competed away. A monopolist sets P above MC, faces downward-sloping demand and need not produce at minimum ATC.']];
+const QF=[
+ ['What three questions identify a market structure?','How many sellers? Identical or differentiated product? How hard is it to enter?'],
+ ['Why does a perfectly competitive firm face a horizontal demand curve?','It is one of many sellers of an identical product, so it can sell any amount at the market price and nothing above it.'],
+ ['Name the four imperfectly competitive structures in the CED.','Monopoly, oligopoly and monopolistic competition in product markets; monopsony in factor markets.'],
+ ['What is a monopsony?','A market with a single buyer, usually of labor or another factor.'],
+ ['Why is MR below price for a firm with market power?','To sell one more unit it must lower the price on all its units.'],
+ ['Is price equal to marginal cost in perfect competition?','Yes: P = MC, which is why the CED calls the market efficient.'],
+ [`In the lab's pricing firm with b = 4, what are P and MC?`,`Q = 45 ÷ 11 = ${n2(mpSolve(4).Q)}; P = ${d2(mpSolve(4).P)}; MC = ${d2(mpSolve(4).MC)}.`],
+ ['Name three barriers to entry the CED lists.','High fixed or start-up costs, legal barriers, and exclusive ownership of key resources.'],
+ ['What does Hoang\'s BLADE stand for?','Branding, legal barriers, anti-competitive practices, domination of resources, economies of scale (p. 182).'],
+ ['Why do profits disappear in the long run in monopolistic competition?','Free entry: profits attract rivals that take customers until economic profit is zero.'],
+ [`Hoang's Industry A has shares 30, 25 and 10. What is its HHI?`,`30² + 25² + 10² = ${hhi(HA).toLocaleString()} (background only).`],
+ ['Which structure is defined by interdependence?','Oligopoly.']];
+const MI=[
+ ['A monopolist can charge any price it wants.','It cannot control demand: to sell more it must lower its price (Hoang p. 184). It picks a point on its demand curve.'],
+ ['Monopolists produce where demand is inelastic.','A profit-maximizing monopolist produces where demand is elastic, because MR = MC > 0 requires positive marginal revenue.'],
+ ['Many firms always means perfect competition.','Many firms with differentiated products is monopolistic competition.'],
+ ['Oligopoly means exactly two firms.','It means a few firms dominate, whatever the total number; two firms is the special case of duopoly.'],
+ ['Monopoly and monopsony are the same.','Monopoly is one seller of a product; monopsony is one buyer, usually of labor.'],
+ ['Free entry means it costs nothing to start a firm.','It means nothing stops a new firm paying its start-up costs (Hoang Top tip, p. 186).']];
+const EX=[
+ ['Free response · 5 points',`A firm with market power faces the demand P = ${EX1.a} − ${EX1.b}Q and has marginal cost MC = 5 + 3Q. (a) Write its marginal revenue. (b) Calculate its profit-maximizing quantity. (c) Calculate its price. (d) Compare price with marginal cost at that output and say what this implies about efficiency. (e) Would a perfectly competitive firm facing a market price equal to this price produce more, less or the same?`,
+  [`(a) MR = ${EX1.a} − ${2*EX1.b}Q (1 point).`,`(b) ${EX1.a} − ${2*EX1.b}Q = 5 + 3Q gives Q = ${n2(EX1.Q)} (1 point).`,`(c) P = ${EX1.a} − ${EX1.b} × ${n2(EX1.Q)} = ${d2(EX1.P)} (1 point).`,`(d) P (${d2(EX1.P)}) > MC (${d2(EX1.MC)}): buyers value extra units above their cost, so output is below the efficient level (1 point).`,`(e) More: a price taker sets P = MC, so 5 + 3Q = ${n2(EX1.P)} gives Q = ${n2((EX1.P-5)/3)} (1 point).`]],
+ ['Free response · graph · 4 points','Draw two correctly labeled graphs side by side: (a) a perfectly competitive firm, and (b) a monopolist. Show the demand and marginal revenue curves each faces.',
+  ['(a) Axes labeled price and quantity; a horizontal line at the market price labeled D = MR = P (1 point).','(b) A downward-sloping demand curve labeled D (1 point).','(b) An MR curve below the demand curve, falling twice as steeply for a straight-line demand (1 point).','(b) At the profit-maximizing output, price read from the demand curve above MR = MC (1 point).']],
+ ['Free response · 3 points','(a) Identify two barriers to entry that the AP framework names and give an example of each. (b) Explain how barriers to entry allow economic profits to persist. (c) Explain why monopsony is classed as an imperfectly competitive market.',
+  ['(a) Two of: high fixed or start-up costs (an aircraft maker), legal barriers (a patent or license), exclusive ownership of a key resource (diamond mines) (1 point).','(b) Profits would normally attract entrants that increase supply and lower price; barriers stop that, so profits are not competed away (1 point).','(c) A single buyer has market power: it can pay a price below the competitive level (1 point).']],
+ ['Classification set · 4 points','Classify each market and give the feature that decides it: (a) wheat sold by thousands of farms; (b) the only railway between two cities; (c) smartphone makers; (d) restaurants in a large city.',
+  ['(a) Perfect competition: many firms, identical product.','(b) Monopoly: one seller with no close substitute.','(c) Oligopoly: a few large, interdependent firms behind high barriers.','(d) Monopolistic competition: many firms, differentiated products, easy entry.']]];
+
+/* ============================ CORE (from the IB lab template) ============================ */
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const st={get(k,d){try{const v=localStorage.getItem(NS+'.'+k);return v==null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem(NS+'.'+k,JSON.stringify(v))}catch(e){}}};
+const f0=v=>Math.round(v).toLocaleString(), f1=v=>(Math.round(v*10)/10).toLocaleString(), f2=v=>(Math.round(v*100)/100).toLocaleString(), money=v=>(v<0?'−$':'$')+Math.round(Math.abs(v)).toLocaleString();
+const LC={s:'ls',s2:'ls',d:'ld',d2:'ld2',sm:'lm'};
+function Plot(o){const W=o.w||540,H=o.h||380,L=o.L||54,R=26,T=24,B=44;const sx=x=>L+x/o.xmax*(W-L-R),sy=y=>H-B-y/o.ymax*(H-T-B);const out=[];
+ return{sx,sy,
+  fn(f,cls,label,lx){let d='',pen=false;for(let i=0;i<=160;i++){const x=o.xmax*i/160,y=f(x);if(!isFinite(y)||y<0||y>o.ymax){pen=false;continue}d+=(pen?'L':'M')+sx(x).toFixed(1)+' '+sy(y).toFixed(1)+' ';pen=true}if(d)out.push(`<path class="${cls}" d="${d}"/>`);if(label){const x=lx!=null?lx:o.xmax*.86,y=f(x);if(isFinite(y)&&y>=0&&y<=o.ymax)out.push(`<text class="${LC[cls]||'lg'}" x="${sx(x)+6}" y="${sy(y)-6}">${label}</text>`)}},
+  poly(p,cls){out.push(`<polygon class="${cls}" points="${p.map(q=>sx(q[0]).toFixed(1)+','+sy(q[1]).toFixed(1)).join(' ')}"/>`)},
+  bar(x,w,h,cls,lab){out.push(`<rect class="bar ${cls||''}" x="${sx(x-w/2)}" y="${sy(h)}" width="${sx(w)-sx(0)}" height="${sy(0)-sy(h)}"/>`);if(lab!=null)out.push(`<text class="note" x="${sx(x)}" y="${sy(h)-6}" text-anchor="middle">${lab}</text>`)},
+  seg(x0,y0,x1,y1,cls){out.push(`<path class="${cls}" d="M${sx(x0)} ${sy(y0)} L${sx(x1)} ${sy(y1)}"/>`)},
+  dot(x,y,c){out.push(`<circle class="${c||'dot'}" cx="${sx(x)}" cy="${sy(y)}" r="5"/>`)},
+  guide(x,y,xl,yl){out.push(`<path class="guide" d="M${sx(0)} ${sy(y)} L${sx(x)} ${sy(y)} L${sx(x)} ${sy(0)}"/>`);if(yl)out.push(`<text class="tick" x="${sx(0)-6}" y="${sy(y)+4}" text-anchor="end">${yl}</text>`);if(xl)out.push(`<text class="tick" x="${sx(x)}" y="${sy(0)+17}" text-anchor="middle">${xl}</text>`)},
+  xt(x,t){out.push(`<text class="tick" x="${sx(x)}" y="${sy(0)+17}" text-anchor="middle">${t}</text>`)},
+  yt(y,t){out.push(`<text class="tick" x="${sx(0)-6}" y="${sy(y)+4}" text-anchor="end">${t}</text>`)},
+  text(x,y,t,c,a){out.push(`<text class="${c||'note'}" x="${sx(x)}" y="${sy(y)}" text-anchor="${a||'start'}">${t}</text>`)},
+  svg(aria){return `<svg class="g" viewBox="0 0 ${W} ${H}" role="img" aria-label="${aria||''}">${out.join('')}<path class="axis" d="M${sx(0)} ${sy(o.ymax)} L${sx(0)} ${sy(0)} L${sx(o.xmax)} ${sy(0)}"/><text class="axl" x="${sx(0)-8}" y="${T-8}">${o.yl}</text><text class="axl" x="${sx(o.xmax)}" y="${H-8}" text-anchor="end">${o.xl}</text><text class="tick" x="${sx(0)-6}" y="${sy(0)+17}" text-anchor="end">0</text></svg>`}}}
+function sorter(pre,cards,labels,attr){let i=st.get(pre+'i',0),sc=st.get(pre+'s',[0,0]);
+ const draw=()=>{i%=cards.length;$('#'+pre+'n').textContent=`Card ${i+1} of ${cards.length}`;$('#'+pre+'q').textContent=cards[i][0];$('#'+pre+'fb').textContent='';$('#'+pre+'next').hidden=true;$$(`[${attr}]`).forEach(b=>b.disabled=false);$('#'+pre+'sc').textContent=`Score ${sc[0]} / ${sc[1]}`};
+ $$(`[${attr}]`).forEach(b=>b.addEventListener('click',()=>{const c=cards[i],ok=b.getAttribute(attr)===c[1];sc[1]++;if(ok)sc[0]++;st.set(pre+'s',sc);const fb=$('#'+pre+'fb');fb.className='fb '+(ok?'ok':'no');fb.textContent=(ok?'✓ Correct. ':'✗ Answer: '+labels[c[1]]+'. ')+c[2];$$(`[${attr}]`).forEach(x=>x.disabled=true);$('#'+pre+'next').hidden=false;$('#'+pre+'sc').textContent=`Score ${sc[0]} / ${sc[1]}`}));
+ $('#'+pre+'next').addEventListener('click',()=>{i++;st.set(pre+'i',i);draw()});draw()}
+function stepper(pre,steps,draw){let k=0;const go=()=>{k=Math.max(0,Math.min(steps.length-1,k));draw(k);$('#'+pre+'t').textContent=`Step ${k+1}: ${steps[k][0]}`;$('#'+pre+'x').innerHTML=steps[k][1];$('#'+pre+'dots').innerHTML=steps.map((_,i)=>`<i class="${i<=k?'on':''}"></i>`).join('');$('#'+pre+'prev').disabled=k===0;$('#'+pre+'next').disabled=k===steps.length-1};
+ $('#'+pre+'next').addEventListener('click',()=>{k++;go()});$('#'+pre+'prev').addEventListener('click',()=>{k--;go()});go();return{reset(){k=0;go()}}}
+const ADDED='<span class="badge b-hl">Added for AP</span>';
+function renderGoals(){const d=st.get('goals',[]);$('#goals').innerHTML=GOALS.map((g,i)=>`<li><input type="checkbox" id="g${i}" ${d.includes(i)?'checked':''}><label for="g${i}">${g[0]}</label></li>`).join('');$$('#goals input').forEach(c=>c.addEventListener('change',()=>{const i=+c.id.slice(1);let v=st.get('goals',[]);v=c.checked?[...new Set([...v,i])]:v.filter(x=>x!==i);st.set('goals',v)}))}
+function renderCards(){$('#cards').innerHTML=TERMS.map(t=>`<button class="flip" aria-label="${t[0]}: show definition"><div class="in"><div class="f"><b>${t[0]}</b><span class="hint">${t[2]?ADDED+' ':''}Click to flip</span></div><div class="b">${t[1]}</div></div></button>`).join('');$$('#cards .flip').forEach(b=>b.addEventListener('click',()=>b.classList.toggle('on')))}
+function renderMCQ(){const list=MCQ.map((q,i)=>[q,i]);
+ $('#mcqs').innerHTML=list.map(([q,i],k)=>`<div class="mcq" data-i="${i}"><p><b>${k+1}.</b> ${q[0]}</p><div class="opts">${q[1].map((o,j)=>`<button class="btn opt" data-j="${j}">(${String.fromCharCode(65+j)}) ${o}</button>`).join('')}</div><p class="why" hidden></p></div>`).join('');
+ const sc=()=>{const a=st.get('mcq',{});const done=list.filter(x=>a[x[1]]!=null);const ok=done.filter(x=>a[x[1]]===x[0][2]).length;$('#mcqscore').innerHTML=done.length?`Score: ${ok} / ${list.length} <button class="btn" id="mcqreset" style="margin-left:10px;padding:4px 10px">Try again</button>`:'';const r=$('#mcqreset');if(r)r.addEventListener('click',()=>{st.set('mcq',{});renderMCQ()})};
+ $$('.mcq').forEach(el=>{const i=+el.dataset.i,q=MCQ[i];const mark=j=>{el.querySelectorAll('.opt').forEach(b=>{const k=+b.dataset.j;b.disabled=true;if(k===q[2])b.classList.add('ok');else if(k===j)b.classList.add('no')});const w=el.querySelector('.why');w.hidden=false;w.textContent=(j===q[2]?'✓ ':'✗ ')+q[3]};
+  const a=st.get('mcq',{});if(a[i]!=null)mark(a[i]);el.querySelectorAll('.opt').forEach(b=>b.addEventListener('click',()=>{const a=st.get('mcq',{});a[i]=+b.dataset.j;st.set('mcq',a);mark(+b.dataset.j);sc()}))});sc()}
+function renderQF(){$('#qf').innerHTML=QF.map(q=>`<div class="qa"><p><b>${q[0]}</b></p><details><summary>Show answer</summary><p>${q[1]}</p></details></div>`).join('')}
+function renderStatic(){
+ $('#casebox').innerHTML=CASES.map(c=>`<article class="case"><h3>${c[0]}</h3><p>${c[1]}</p><ol>${c[2].map(q=>`<li>${q}</li>`).join('')}</ol><details><summary>Model answer</summary><ol>${c[3].map(a=>`<li>${a}</li>`).join('')}</ol></details></article>`).join('');
+ $('#mist').innerHTML=MI.map(m=>`<div><b>✗ ${m[0]}</b>${m[1]}</div>`).join('');
+ $('#exambox').innerHTML=EX.map(e=>`<article class="case"><span class="badge b-sl">${e[0]}</span><p style="font-family:var(--serif);font-size:17px">${e[1]}</p><details><summary>Scoring guide</summary><ol>${e[2].map(x=>`<li>${x}</li>`).join('')}</ol></details></article>`).join('')}
+
+/* ============================ LAB CODE ============================ */
+/* --- Identify --- */
+const ID={n:st.get('idn','many'),p:st.get('idp','same'),e:st.get('ide','free')};
+function idClassify(){const{n,p,e}=ID;
+ if(n==='one')return{s:'Monopoly',note:e==='free'?'With free entry this monopoly would not last: its profits would attract rivals.':'One seller, protected by barriers.',slope:'steep',ex:'a town\'s only water supplier'};
+ if(n==='few')return{s:'Oligopoly',note:e==='free'?'With free entry the few firms would soon be joined by more; real oligopolies are protected by barriers.':'A few interdependent firms behind high barriers.',slope:'mid',ex:'Airbus and Boeing'};
+ if(p==='diff')return{s:'Monopolistic competition',note:e==='high'?'High barriers are unusual with many sellers; with free entry this is monopolistic competition.':'Many firms, each with a little market power from its differentiated product.',slope:'flat',ex:'hairdressers and restaurants'};
+ return{s:'Perfect competition',note:e==='high'?'Barriers would let firms keep profits, which perfect competition rules out: with free entry this is perfect competition.':'Many price takers selling the same product.',slope:'none',ex:'a large fish or fruit market'}}
+function idDraw(){
+ [['idn','n'],['idp','p'],['ide','e']].forEach(([a,k])=>$$(`[data-${a}]`).forEach(b=>b.setAttribute('aria-pressed',b.getAttribute('data-'+a)===ID[k])));
+ const c=idClassify(),g=Plot({xmax:10,ymax:10,xl:'Quantity (one firm)',yl:'Price',h:320});
+ if(c.slope==='none')g.fn(x=>5,'d','D = MR = P',6.5);
+ else{const b={flat:.25,mid:.55,steep:.85}[c.slope];g.fn(x=>9-b*x,'d','D (firm)',Math.min(8.5,7/b));g.fn(x=>9-2*b*x,'d2','MR',Math.min(4.2/b,8.5))}
+ $('#idg').innerHTML=g.svg('Demand curve facing one firm');
+ $('#idread').innerHTML=`<dt>Structure</dt><dd>${c.s}</dd><dt>Example</dt><dd>${c.ex}</dd><dt>Market power</dt><dd>${c.slope==='none'?'none (price taker)':c.slope==='flat'?'a little':c.slope==='mid'?'considerable':'great'}</dd>`;
+ $('#idx').innerHTML=`<b>${c.s}.</b> ${c.note} ${c.slope==='none'?'The firm faces a horizontal demand curve at the market price: it is a price taker and P = MR.':'The firm faces a downward-sloping demand curve, so it must lower its price to sell more, and its MR lies below its demand curve.'}`}
+[['idn','n'],['idp','p'],['ide','e']].forEach(([a,k])=>$$(`[data-${a}]`).forEach(b=>b.addEventListener('click',()=>{ID[k]=b.getAttribute('data-'+a);st.set(a,ID[k]);idDraw()})));
+
+/* --- Market power --- */
+let PWM=st.get('pwm','mp');
+function pwDraw(){
+ const b=+$('#pwb').value;$('#pwbo').textContent=b;$$('[data-pw]').forEach(x=>x.setAttribute('aria-pressed',x.dataset.pw===PWM));$('#pwbl').style.display=PWM==='mp'?'':'none';
+ const p=Plot({xmax:12,ymax:55,xl:'Quantity',yl:'Price and cost ($)',h:360});[2,4,6,8,10,12].forEach(x=>p.xt(x,x));[10,20,30,40,50].forEach(y=>p.yt(y,y));
+ p.fn(MCf,'s','MC',10.5*.82);
+ if(PWM==='pc'){p.fn(x=>PW.P,'d','D = MR = P',.3);p.guide(pcQ,PW.P,'Q*','P = MC');p.dot(pcQ,PW.P);
+  $('#pwread').innerHTML=`<dt>Quantity (P = MC)</dt><dd>${n2(pcQ)}</dd><dt>Price</dt><dd>${d2(PW.P)}</dd><dt>Marginal cost</dt><dd>${d2(MCf(pcQ))}</dd><dt>P − MC</dt><dd>$0.00</dd>`;
+  $('#pwx').innerHTML='The price taker can sell any quantity at the market price, so its MR is the price. It produces where <b>P = MC</b>: the last unit is worth to buyers exactly what it costs. This is why the CED calls perfect competition <b>efficient</b>.';return}
+ const s=mpSolve(b);p.fn(x=>PW.a-b*x,'d','D',Math.min(11,PW.a/b*.75));p.fn(x=>PW.a-2*b*x,'d2','MR',PW.a/(2*b)*.6);
+ p.guide(s.Q,s.P,'Q*','P');p.dot(s.Q,s.P);p.dot(s.Q,s.MC,'dot2');p.seg(s.Q,s.MC,s.Q,s.P,'gap');p.text(s.Q+.25,(s.P+s.MC)/2,'P − MC','lm');
+ $('#pwread').innerHTML=`<dt>Quantity (MR = MC)</dt><dd>${n2(s.Q)}</dd><dt>Price (from demand)</dt><dd>${d2(s.P)}</dd><dt>Marginal cost</dt><dd>${d2(s.MC)}</dd><dt>P − MC</dt><dd>${d2(s.P-s.MC)}</dd>`;
+ $('#pwx').innerHTML=`To sell more this firm must <b>lower its price</b>, so its MR falls twice as fast as demand. It produces ${n2(s.Q)} units where MR = MC and charges ${d2(s.P)}, which is <b>${d2(s.P-s.MC)} above marginal cost</b>. Buyers would pay more than it costs to make extra units, but the firm does not make them: price above marginal cost is the CED's sign of an <b>inefficient</b> market. Steeper demand (fewer substitutes) means more market power and a bigger gap.`}
+$$('[data-pw]').forEach(x=>x.addEventListener('click',()=>{PWM=x.dataset.pw;st.set('pwm',PWM);pwDraw()}));
+$('#pwb').addEventListener('input',pwDraw);
+
+/* --- Entry --- */
+let LIC=st.get('lic',0);
+function enDraw(){
+ const F=+$('#enf').value;$('#enfo').textContent='$'+F;$$('[data-lic]').forEach(x=>x.setAttribute('aria-pressed',+x.dataset.lic===LIC));
+ const n=enFirms(F,LIC),free=enFirms(F,0),P=enPrice(n);
+ const p=Plot({xmax:20.5,ymax:100,xl:'Number of firms (n)',yl:'Market price ($)',h:330});[1,5,10,15,20].forEach(x=>p.xt(x,x));[20,40,60,80,100].forEach(y=>p.yt(y,y));
+ p.fn(x=>x>=1?enPrice(x):NaN,'ghost','price with n firms',14);p.fn(x=>EN.c,'s','MC = $20',17);
+ for(let k=1;k<=20;k++)p.dot(k,enPrice(k),k<=n?'dot':'dot2');
+ if(n)p.guide(n,P,'','');
+ $('#eng').innerHTML=p.svg('Market price against the number of firms');
+ $('#enread').innerHTML=`<dt>Firms in the market</dt><dd>${n}${LIC&&free>n?` (${free} without the license limit)`:''}</dd><dt>Market price</dt><dd>${n?d2(P):'no firm enters'}</dd><dt>Price − marginal cost</dt><dd>${n?d2(P-EN.c):'–'}</dd><dt>Profit per firm</dt><dd>${n?d2(enProfit(n,F)):'–'}</dd>`;
+ const kind=n===0?'no market at all':n===1?'a monopoly':n<=4?'an oligopoly':'a fairly competitive market';
+ $('#enx').innerHTML=(n===0?`A start-up cost of $${F} is more than even a single firm could earn, so no firm enters.`:`Firms keep entering until one more could not cover the $${F} start-up cost: the market settles at <b>${n} firm${n>1?'s':''}</b>, ${kind}. Price is ${d2(P)}, ${d2(P-EN.c)} above marginal cost.`)+(LIC&&free>n?` The <b>legal barrier</b> holds the market at ${n} firms although ${free} could profitably operate, so price stays higher and the incumbents keep their economic profit.`:'')+' The higher the start-up cost, the fewer firms, the higher the price and the bigger the gap between price and marginal cost: high fixed costs and legal limits are <b>barriers to entry</b> that sustain market power.'}
+$('#enf').addEventListener('input',enDraw);
+$$('[data-lic]').forEach(x=>x.addEventListener('click',()=>{LIC=+x.dataset.lic;st.set('lic',LIC);enDraw()}));
+
+/* --- Concentration --- */
+let CC=[30,25,10,0,0];
+$('#ccin').innerHTML=CC.map((v,i)=>`<label class="ctl" style="width:92px;margin:0;grid-template-columns:1fr"><span>Firm ${i+1} %</span><input type="number" min="0" max="100" step="1" id="cc${i}" value="${v}"></label>`).join('');
+function ccDraw(){
+ CC=CC.map((_,i)=>Math.max(0,Math.min(100,+$('#cc'+i).value||0)));const tot=CC.reduce((a,b)=>a+b,0);
+ const sorted=[...CC].sort((a,b)=>b-a),cr3=sorted[0]+sorted[1]+sorted[2],cr4=cr3+sorted[3],h=hhi(CC);
+ const p=Plot({xmax:6,ymax:100,xl:'Firm',yl:'Market share (%)',h:300});CC.forEach((v,i)=>{p.bar(i+1,.55,v,'',v+'%');p.xt(i+1,i+1)});[25,50,75,100].forEach(y=>p.yt(y,y));
+ $('#ccg').innerHTML=p.svg('Market shares of the five largest firms');
+ $('#ccread').innerHTML=`<dt>Three-firm concentration ratio</dt><dd>${cr3}%</dd><dt>Four-firm concentration ratio</dt><dd>${cr4}%</dd><dt>HHI of these firms</dt><dd>${h.toLocaleString()}</dd><dt>Shares entered</dt><dd>${tot}%${tot>100?' (over 100%!)':''}</dd>`;
+ $('#ccx').innerHTML=(tot>100?'<b>The shares add up to more than 100%.</b> ':'')+`Squaring gives the largest firms the most weight: Hoang's Industries A and B both have a three-firm ratio of ${HA.reduce((a,b)=>a+b,0)}%, but their HHIs are ${hhi(HA).toLocaleString()} and ${hhi(HB).toLocaleString()}, so A is more concentrated (p. 206). A monopoly scores 10,000. Neither measure appears in the AP framework.`}
+$$('#ccin input').forEach(x=>x.addEventListener('input',ccDraw));
+$$('[data-cc]').forEach(b=>b.addEventListener('click',()=>{b.dataset.cc.split(',').forEach((v,i)=>$('#cc'+i).value=v);ccDraw()}));
+
+/* --- Sorter --- */
+const SORT=[
+ ['Thousands of farms sell identical wheat at a price set on world markets.','pc','Many sellers of an identical product, free entry: price takers.'],
+ ['Hundreds of coffee shops in a city, each with its own style and menu; new ones open every month.','mc','Many firms, differentiated products, easy entry.'],
+ ['Three companies supply 85% of a country\'s mobile phone service and watch each other\'s prices closely.','ol','A few dominant, interdependent firms.'],
+ ['The only electricity grid in a region, with no close substitute.','mo','A single seller with no close substitute.'],
+ ['Two firms make almost all the world\'s large passenger jets.','ol','A few firms (here two) behind huge start-up costs: oligopoly.'],
+ ['Hairdressers on a busy high street, each a little different (Hoang p. 186).','mc','Many differentiated sellers with free entry.'],
+ ['A drug company holds the patent on the only treatment for a disease.','mo','A legal barrier makes it the single seller.'],
+ ['Fishermen selling the same species at a large auction market (Hoang p. 181).','pc','Many sellers of identical fish at a market price.'],
+ ['Four supermarket chains have a combined market share of 69% (Hoang p. 206).','ol','A high concentration ratio: a few firms dominate.'],
+ ['Many small bakeries in a town, each known for different breads and cakes.','mc','Many firms, differentiated products.']];
+
+/* --- Diagram builder --- */
+const DR=[
+ ['Set up two graphs','Left: one perfectly competitive firm. Right: a firm with market power, such as a monopolist. Both have price on the vertical axis and quantity on the horizontal.'],
+ ['The price taker\'s demand','A horizontal line at the market price, labeled <b>D = MR = AR = P</b>. The firm can sell any amount at that price.'],
+ ['The price maker\'s demand','A downward-sloping line labeled <b>D</b> (= AR). To sell more, the firm must lower its price.'],
+ ['Add MR below demand','For a straight-line demand, MR starts at the same price and falls twice as steeply: halfway between demand and the price axis at every price.'],
+ ['Add MC and find each output','Draw MC on both graphs. The price taker produces where P = MC. The price maker produces where MR = MC and reads its price off the demand curve above that output, so P > MC. Checklist: horizontal D = MR = P · downward D · MR below D · MR = MC · price on D.']];
+function drDraw(k){
+ const a=Plot({xmax:10,ymax:50,xl:'Q (one firm)',yl:'Price ($)',w:300,h:300,L:40}),b=Plot({xmax:10,ymax:50,xl:'Q',yl:'Price ($)',w:300,h:300,L:40});
+ [a,b].forEach(p=>{[2,4,6,8,10].forEach(x=>p.xt(x,x));[25,50].forEach(y=>p.yt(y,y))});
+ if(k>=1)a.fn(x=>20,'d','D=MR=P',.2);
+ if(k>=2)b.fn(x=>45-4*x,'d','D',7.5);
+ if(k>=3)b.fn(x=>45-8*x,'d2','MR',3.6);
+ if(k>=4){const mc=x=>5+3*x;a.fn(mc,'s','MC',9.2);b.fn(mc,'s','MC',9.2);a.guide(5,20,'Q','');a.dot(5,20);const q=40/11;b.guide(q,45-4*q,'Q','P');b.dot(q,45-4*q);b.dot(q,mc(q),'dot2')}
+ $('#drg').innerHTML='<div class="two">'+a.svg('Perfectly competitive firm')+b.svg('Firm with market power')+'</div>'}
+
+/* ============================ INIT ============================ */
+$$('section.step').forEach(sec=>{const n=sec.querySelector('.num');const list=[...$$('section.step')].filter(x=>x.id!=='guide');if(n&&sec.id!=='guide'&&!n.dataset.fixed)n.textContent=String(list.indexOf(sec)+1).padStart(2,'0')});
+renderStatic();renderGoals();renderCards();renderMCQ();renderQF();
+idDraw();pwDraw();enDraw();ccDraw();
+sorter('so',SORT,{pc:'Perfect competition',mc:'Monopolistic competition',ol:'Oligopoly',mo:'Monopoly'},'data-so');
+stepper('dr',DR,drDraw);
+})();
+</script>
+<script id="cg-js">
+(function(){
+const CG={"title": "Module 57 · Introduction to Market Structure", "intro": "Every term you need to sort markets into the four structures and say why the structure matters for price, output and efficiency. Terms marked In Hoang are taught in Hoang, Wray and Chakraborty, Chapter 14, pp. 178–187 and 206. Terms marked Added for AP are not in Hoang: monopsony, the fourth imperfectly competitive structure the CED names, occurs 0 times in the book.", "groups": [{"name": "Market power", "terms": [{"term": "Market structure", "level": "Hoang", "definition": "The way an industry is organized, classified by the number and size of firms, whether their products are identical or differentiated, and how hard it is to enter.", "explanation": "Knowing the structure lets you predict how firms behave: whether they take the market price or set their own, whether profits last, and whether the outcome is efficient. Hoang defines it by market power and its sources (p. 179).", "example": "Hoang's summary runs from perfect competition through monopolistic competition and oligopoly to monopoly (Figure 14.7, p. 187).", "exam_tip": "Name all three features when classifying a market: number of firms, type of product, barriers to entry.", "related": ["Market power", "Perfect competition", "Monopoly"]}, {"term": "Market power", "level": "Hoang", "definition": "A firm's ability to raise its price above the competitive level without losing all its customers.", "explanation": "A firm with market power faces a downward-sloping demand curve: if it raises its price it loses some, but not all, of its sales. Market power comes from having few rivals, a differentiated product or barriers that keep rivals out.", "example": "A town's only cinema can charge more than the cinemas in a city with dozens of competitors.", "exam_tip": "Market power is the opposite of being a price taker. Every structure except perfect competition has some.", "related": ["Price maker", "Price taker", "Barriers to entry"]}, {"term": "Price taker", "level": "Hoang", "definition": "A firm that cannot influence the price it sells at, and so sells every unit at the price the market sets.", "explanation": "A price taker faces a horizontal demand curve at the market price. If it charged even a little more, buyers would switch to identical products from its many rivals; it has no reason to charge less, because it can sell all it wants at the market price.", "example": "A single fish seller at the Sydney Fish Market sells at the price set by the day's supply and demand (Hoang p. 181).", "exam_tip": "For a price taker, P = MR = AR = D: one horizontal line.", "related": ["Perfect competition", "Price maker"]}, {"term": "Price maker", "level": "Hoang", "definition": "A firm with market power, which faces a downward-sloping demand curve and so must lower its price to sell more. Hoang also calls it a price setter.", "explanation": "Because the firm's demand curve slopes down, each extra unit is sold only by cutting the price, so marginal revenue is less than price. The firm still chooses output where MR = MC, then charges the highest price buyers will pay for it, which is above marginal cost.", "example": "Hoang's Common mistake (p. 184): a monopolist cannot charge whatever price it wants, because it cannot control demand; to sell more it must lower its price.", "exam_tip": "In every imperfectly competitive market, all else constant, a firm must lower its price to sell more units (CED Topic 4.1).", "related": ["Market power", "Price above marginal cost", "Price taker"]}, {"term": "Price above marginal cost", "level": "Hoang", "definition": "In imperfectly competitive markets the profit-maximizing price is greater than marginal cost, so the market produces less than the efficient quantity.", "explanation": "At the chosen output, buyers value one more unit at the price, which is more than the marginal cost of making it. Producing it would add to total surplus, but the firm does not, because selling it would mean lowering the price on all its other units. That missing output is a deadweight loss. Hoang calls the result allocative inefficiency (pp. 194–195, 212).", "example": "A firm with market power sells at $36 when its marginal cost is $22: buyers would gladly pay more than $22 for extra units that are never made.", "exam_tip": "Efficient: P = MC (perfect competition). Inefficient: P > MC (monopoly, oligopoly, monopolistic competition).", "related": ["Price maker", "Perfect competition"]}]}, {"name": "The structures", "terms": [{"term": "Perfect competition", "level": "Hoang", "definition": "A market with many firms selling an identical product, with no barriers to entry or exit, so every firm is a price taker with no market power.", "explanation": "Because buyers can switch freely between identical products, no firm can charge above the market price. Free entry means profits attract new firms until price falls to minimum average total cost. Hoang adds perfect information to the list (p. 180). The CED calls this market efficient.", "example": "Fruit and vegetable stalls in a large market come close, though Hoang notes that even mangoes differ in size, so few markets fit perfectly (p. 181).", "exam_tip": "The CED's own words: firms in perfectly competitive markets face no barriers to entry and have no market power.", "related": ["Price taker", "Free entry and exit", "Market structure"]}, {"term": "Monopolistic competition", "level": "Hoang", "definition": "A market with many firms selling differentiated products, with low barriers to entry, so each firm has a little market power.", "explanation": "Each firm's product is slightly different, so it can raise its price a little without losing every customer: its demand curve slopes down but is quite elastic. Free entry means economic profits attract rivals and disappear in the long run.", "example": "Hairdressers, restaurants and clothes shops: each is a little different from its neighbors (Hoang p. 186).", "exam_tip": "Many firms + differentiated product + easy entry = monopolistic competition, not perfect competition.", "related": ["Product differentiation", "Perfect competition", "Oligopoly"]}, {"term": "Oligopoly", "level": "Hoang", "definition": "A market dominated by a few large firms, protected by high barriers to entry, whose decisions depend on one another.", "explanation": "With only a few rivals, each firm must think about how the others will react: if it cuts its price, they may follow. That interdependence is what sets oligopoly apart. The product may be identical, like steel, or differentiated, like smartphones.", "example": "Commercial aircraft are made by Airbus and Boeing; smartphones mainly by a few firms such as Samsung, Apple and Xiaomi (Hoang p. 184).", "exam_tip": "It is the market share of the few largest firms that matters, not the total number of firms (Hoang Top tip, p. 184).", "related": ["Interdependence", "Barriers to entry", "Concentration ratio"]}, {"term": "Monopoly", "level": "Hoang", "definition": "A market with a single seller of a product that has no close substitutes, protected by barriers to entry.", "explanation": "The monopolist faces the whole market demand curve, so it is a price maker. High barriers stop rivals entering, so its economic profits can last in the long run. Hoang lists Coca-Cola, Google and PayPal as firms with monopoly power (p. 183); strictly these are dominant firms in oligopolies, not single sellers.", "example": "A city's only water supplier, or a drug protected by a patent.", "exam_tip": "Unless a question says otherwise, use the pure definition: one firm, no close substitutes (Hoang Top tip, p. 182).", "related": ["Barriers to entry", "Price maker", "Market power"]}, {"term": "Monopsony", "level": "Added", "definition": "A market with a single buyer, usually of a factor of production such as labor.", "explanation": "The CED names monopsony alongside monopoly, oligopoly and monopolistic competition as an imperfectly competitive market, the one in factor markets. A monopsonist has market power as a buyer: it can pay less than a competitive wage. You study it in Unit 5. Hoang never uses the word, though he describes a supermarket with buying power over milk farmers (p. 179).", "example": "A mining company that is the only employer in a remote town.", "exam_tip": "Monopoly: one seller of a product. Monopsony: one buyer of a factor.", "related": ["Market power", "Monopoly"]}, {"term": "Interdependence", "level": "Hoang", "definition": "In an oligopoly, each firm's best decision depends on what its rivals do, and each knows it.", "explanation": "Interdependence is why oligopolies are studied with game theory (Topic 4.5). It can lead to price wars, to sticky prices, or to firms competing through advertising and product design instead of price.", "example": "If American Airlines cuts its fares, Delta, Southwest and United are likely to follow (Hoang p. 185).", "exam_tip": "Only oligopoly is defined by interdependence; in the other three structures firms can ignore any single rival.", "related": ["Oligopoly"]}, {"term": "Product differentiation", "level": "Hoang", "definition": "Making a product different from rivals' products, by quality, style, location, service or branding, so some buyers prefer it.", "explanation": "Differentiation gives a firm a little market power: its demand curve slopes down because some buyers will pay more for its version. It is what separates monopolistic competition from perfect competition.", "example": "One hairdresser specializes in children's haircuts, another in men's (Hoang p. 186).", "exam_tip": "Identical products → price takers. Differentiated products → some market power.", "related": ["Monopolistic competition", "Market power"]}]}, {"name": "Entry and barriers", "terms": [{"term": "Barriers to entry", "level": "Hoang", "definition": "Anything that makes it hard or costly for new firms to enter a market, and so lets existing firms keep economic profits.", "explanation": "Profits normally attract entrants, whose extra supply drives profits down. Barriers block that process, which is how monopoly and oligopoly last. The CED names high fixed or start-up costs, legal barriers and exclusive ownership of key resources; Hoang remembers them as BLADE: branding, legal barriers, anti-competitive practices, domination of resources and economies of scale (p. 182).", "example": "Patents, licenses, control of the only diamond mines, or the billions needed to build a chip factory.", "exam_tip": "When asked why profits persist in the long run, the answer is barriers to entry.", "related": ["Free entry and exit", "Monopoly", "Oligopoly"]}, {"term": "Free entry and exit", "level": "Hoang", "definition": "The absence of barriers, so firms can join a market when it is profitable and leave when it is not.", "explanation": "Free entry drives economic profit to zero in the long run: profits attract entrants until price falls to minimum average total cost. Free exit lets losses disappear as firms leave. It holds in perfect and monopolistic competition.", "example": "Opening a new food stall at a market needs little more than a pitch and a few days' stock.", "exam_tip": "Free entry does not mean zero set-up cost, only that nothing stops a new firm paying it (Hoang Top tip, p. 186).", "related": ["Barriers to entry", "Perfect competition", "Monopolistic competition"]}, {"term": "High fixed or start-up costs", "level": "Hoang", "definition": "A barrier to entry created when a firm must spend heavily before it can produce, so a new entrant faces high average costs until it is large.", "explanation": "If the minimum efficient scale is large relative to the market, an entrant must win a big share straight away to match the incumbents' costs. Hoang lists this as economies of scale, the E in BLADE (p. 183).", "example": "Car manufacturing, electricity generation and oil refining need huge plants before the first unit is made.", "exam_tip": "Link this barrier to Module 56: large MES relative to demand leaves room for few firms.", "related": ["Barriers to entry", "Oligopoly"]}, {"term": "Legal barriers and key resources", "level": "Hoang", "definition": "Barriers created by law, such as patents, copyrights and licenses, or by one firm's exclusive control of a resource needed to produce.", "explanation": "A patent gives an inventor the sole right to sell a product for a number of years; a license may allow only a few firms to operate; owning the only source of a raw material shuts rivals out. Hoang's examples include De Beers in diamonds (p. 183).", "example": "A new medicine sold by one company under patent; a city that licenses a fixed number of taxis.", "exam_tip": "The CED names legal barriers and exclusive ownership of key resources separately; give one example of each.", "related": ["Barriers to entry", "Monopoly"]}]}, {"name": "Measuring concentration (background)", "terms": [{"term": "Concentration ratio", "level": "Hoang", "definition": "The combined market share of the largest few firms in an industry, such as the four-firm concentration ratio.", "explanation": "A high concentration ratio suggests an oligopoly or monopoly; a low one suggests competition. The AP framework does not use it (concentration ratio occurs 0 times in the CED), but it is a quick way to put a number on structure.", "example": "The UK's four largest supermarkets had a combined share of over 69 per cent (Hoang p. 206).", "exam_tip": "Background only for AP. Do not confuse market share with number of firms.", "related": ["Herfindahl-Hirschman Index", "Oligopoly"]}, {"term": "Herfindahl-Hirschman Index", "level": "Hoang", "definition": "A measure of market concentration: the sum of the squared market shares of the firms in an industry, from close to 0 to 10,000 for a monopoly.", "explanation": "Squaring gives more weight to large firms, so two industries with the same concentration ratio can have different HHIs. It is not in the AP framework (0 times in the CED); competition authorities use it when judging mergers.", "example": "Hoang's two industries both have a three-firm ratio of 65 per cent, but shares of 30, 25 and 10 give an HHI of 1,625 and shares of 25, 20 and 20 give 1,425 (p. 206).", "exam_tip": "Background only for AP.", "related": ["Concentration ratio"]}]}]};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const box=document.getElementById('cgbox'),q=document.getElementById('cgq'),cnt=document.getElementById('cgcount');
+const id=t=>'cg-'+t.toLowerCase().replace(/[^a-z0-9]+/g,'-');
+const badge=l=>l==='Added'?'<span class="badge b-hl">Added for AP</span>':'<span class="badge b-sl">In Hoang</span>';
+box.innerHTML='<p style="max-width:72ch">'+esc(CG.intro)+'</p>'+CG.groups.map(g=>`<div class="cg-group"><h3>${esc(g.name)}</h3>`+g.terms.map(t=>`<details class="cg-item" id="${id(t.term)}" data-s="${esc((t.term+' '+t.definition+' '+t.explanation+' '+t.example).toLowerCase())}"><summary><b>${esc(t.term)}</b>${badge(t.level)}<span class="cg-def">${esc(t.definition)}</span></summary><div class="cg-body"><div><span class="lbl">Definition</span><p class="defn">${esc(t.definition)}</p></div><div><span class="lbl">Explanation</span><p>${esc(t.explanation)}</p></div><div class="cg-ex"><span class="lbl">Example</span><p>${esc(t.example)}</p></div><div class="cg-tip"><span class="lbl">Exam tip</span><p>${esc(t.exam_tip)}</p></div>${(t.related||[]).length?`<div><span class="lbl">Related terms</span><div class="cg-rel">${t.related.map(r=>`<button type="button" data-go="${id(r)}">${esc(r)}</button>`).join('')}</div></div>`:''}</div></details>`).join('')+'</div>').join('')+'<p class="cg-empty" id="cgnone" hidden>No terms match your search.</p>';
+function apply(){const s=(q.value||'').trim().toLowerCase();let n=0;
+ box.querySelectorAll('.cg-item').forEach(d=>{const show=!s||d.dataset.s.includes(s);d.hidden=!show;if(show)n++;if(s&&show)d.open=true});
+ box.querySelectorAll('.cg-group').forEach(g=>{g.hidden=![...g.querySelectorAll('.cg-item')].some(d=>!d.hidden)});
+ cnt.textContent=n+' term'+(n===1?'':'s');document.getElementById('cgnone').hidden=n>0}
+q.addEventListener('input',apply);
+document.getElementById('cgopen').addEventListener('click',()=>box.querySelectorAll('.cg-item:not([hidden])').forEach(d=>d.open=true));
+document.getElementById('cgclose').addEventListener('click',()=>box.querySelectorAll('.cg-item').forEach(d=>d.open=false));
+box.addEventListener('click',e=>{const b=e.target.closest('[data-go]');if(!b)return;const t=document.getElementById(b.dataset.go);if(t){q.value='';apply();t.open=true;t.scrollIntoView({block:'center'})}});
+apply();
+})();
+</script>
+<script id="sb-js">
+(function(){
+const secs=[...document.querySelectorAll('section.step[id]')];
+const sb=document.createElement('aside');sb.className='sb';sb.setAttribute('aria-label','Lesson contents');
+const title=document.querySelector('.brand').childNodes[0].textContent.trim(),sub=document.querySelector('.brand span').textContent;
+sb.innerHTML=`<a class="home" href="https://sevketgunduz.github.io/ap-microeconomics/">AP Microeconomics</a><div class="sub">${title} · ${sub}</div><p class="lbl">In this lab</p>`+
+ secs.map(s=>{const n=s.querySelector('.num'),h=s.querySelector('h2');const t=h?h.childNodes[0].textContent.replace(/[:·].*$/,'').trim():s.id;return `<a class="it" href="#${s.id}" data-id="${s.id}"><span>${n?n.textContent:''}</span><span>${t}</span></a>`}).join('')+
+ ``;
+document.body.appendChild(sb);
+const btn=document.createElement('button');btn.className='sbbtn';btn.type='button';btn.textContent='☰ Contents';btn.setAttribute('aria-expanded','false');
+const bar=document.querySelector('.topin');if(bar)bar.insertBefore(btn,bar.firstChild);
+btn.addEventListener('click',()=>{sb.classList.toggle('open');btn.setAttribute('aria-expanded',sb.classList.contains('open'))});
+sb.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>sb.classList.remove('open')));
+if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){sb.querySelectorAll('a.it').forEach(a=>a.classList.toggle('act',a.dataset.id===e.target.id))}}),{rootMargin:'-20% 0px -70% 0px'});secs.forEach(s=>io.observe(s))}
+})();
+</script>
+</body>
+</html>

@@ -466,6 +466,23 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
 .qt-rent{fill:var(--up-soft);stroke:var(--up);stroke-width:1}
 .qt-rl{font-family:var(--mono);font-size:11.5px;fill:var(--up)}
 </style>
+<style id="entry-toggle-css">
+/* collapsible term entries: build/collapsible.py */
+:where(button.entry-toggle){padding:0;margin:0}
+button.entry-toggle{font:inherit;color:inherit;background:none;border:0;width:100%;text-align:left;cursor:pointer}
+button.entry-toggle:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:4px}
+button.entry-toggle::after{content:"\25BE";margin-left:auto;align-self:center;font-family:var(--mono);font-size:15px;color:var(--ink-3);padding-left:8px}
+.entry.closed button.entry-toggle::after{content:"\25B8"}
+.entry-sum{margin:2px 0 0;color:var(--ink-2);font-size:.97em}
+.entry-sum .entry-sum-l{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-right:8px}
+.entry-body[hidden],.entry-sum[hidden]{display:none!important}
+.entry.closed{padding-bottom:14px}
+.entry-tools{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:6px 0 18px}
+.entry-tools button{font:600 13px var(--sans);color:var(--ink);background:var(--surface);border:1px solid var(--rule-strong);border-radius:999px;padding:6px 14px;cursor:pointer}
+.entry-tools button:hover{border-color:var(--accent);color:var(--accent)}
+.entry-tools .entry-count{font-family:var(--mono);font-size:12px;color:var(--ink-3);margin-left:4px}
+@media print{.entry-body[hidden]{display:block!important}.entry-sum,.entry-tools{display:none!important}button.entry-toggle::after{content:none}}
+</style>
 
 
 <div class="bar">
@@ -700,8 +717,12 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
   <h2>The 16 terms</h2>
 </section>
 
+<div class="entry-tools" id="entryTools"><button type="button" id="expandAll">Expand all</button><button type="button" id="collapseAll">Collapse all</button><span class="entry-count" id="entryCount"></span></div>
+
 <article class="entry" id="e1">
-  <div class="entry-head"><span class="entry-num">01</span><h2>Quantity control, or quota</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e1-body"><span class="entry-num">01</span><h2>Quantity control, or quota</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>An upper limit on the quantity of some good that can be bought or sold.</p>
+  <div class="entry-body" id="e1-body">
   <div class="defn"><span class="lbl">Definition</span><p>An <b>upper limit</b> on the quantity of some good that can be bought or sold. Governments usually enforce it by issuing <b>licenses</b>: only people with a license can legally supply the good.</p></div>
   <p class="reading">Textbook page 88.</p>
 
@@ -732,10 +753,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>A <b>quota</b>, enforced by licenses: it caps the number of trucks, not the price of a meal.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got1"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e2">
-  <div class="entry-head"><span class="entry-num">02</span><h2>Binding and non-binding quotas</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e2-body"><span class="entry-num">02</span><h2>Binding and non-binding quotas</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>A quota is binding when it is set below the equilibrium quantity, so the market cannot reach the quantity it would choose.</p>
+  <div class="entry-body" id="e2-body">
   <div class="defn"><span class="lbl">Definition</span><p>A quota is <b>binding</b> when it is set <b>below</b> the equilibrium quantity, so the market cannot reach the quantity it would choose. A quota at or above the equilibrium quantity has no effect.</p></div>
   <p class="reading">Textbook page 91.</p>
 
@@ -765,10 +789,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. The market already chooses that quantity, so the quota constrains nobody.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got2"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e3">
-  <div class="entry-head"><span class="entry-num">03</span><h2>Demand price</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e3-body"><span class="entry-num">03</span><h2>Demand price</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>The demand price of a given quantity is the price at which consumers will demand exactly that quantity &mdash; the height of the demand curve at that quantity.</p>
+  <div class="entry-body" id="e3-body">
   <div class="defn"><span class="lbl">Definition</span><p>The <b>demand price</b> of a given quantity is the price at which consumers will demand exactly that quantity &mdash; the height of the demand curve at that quantity.</p></div>
   <p class="reading">Textbook page 89, Figure 9.1.</p>
 
@@ -798,10 +825,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p><b>Higher.</b> The demand curve slopes down, so buyers will pay more per unit for fewer units.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got3"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e4">
-  <div class="entry-head"><span class="entry-num">04</span><h2>Supply price</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e4-body"><span class="entry-num">04</span><h2>Supply price</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>The supply price of a given quantity is the price at which producers will supply exactly that quantity &mdash; the height of the supply curve at that quantity.</p>
+  <div class="entry-body" id="e4-body">
   <div class="defn"><span class="lbl">Definition</span><p>The <b>supply price</b> of a given quantity is the price at which producers will supply exactly that quantity &mdash; the height of the supply curve at that quantity.</p></div>
   <p class="reading">Textbook page 90, Figure 9.1.</p>
 
@@ -830,10 +860,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p><b>Higher.</b> The supply curve slopes up: producers need a higher price to supply more.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got4"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e5">
-  <div class="entry-head"><span class="entry-num">05</span><h2>Price and quantity under a binding quota</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e5-body"><span class="entry-num">05</span><h2>Price and quantity under a binding quota</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>A binding quota cuts the quantity traded to the quota.</p>
+  <div class="entry-body" id="e5-body">
   <div class="defn"><span class="lbl">Definition</span><p>A binding quota cuts the quantity traded to the quota. Buyers pay the <b>demand price</b> of that quantity, which is <b>above</b> the equilibrium price; sellers receive the <b>supply price</b>, which is <b>below</b> it.</p></div>
   <p class="reading">Textbook pages 90&ndash;91, Figure 9.2.</p>
 
@@ -863,10 +896,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. The price rises to the demand price of the quota, where buyers want exactly the quantity allowed.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got5"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e6">
-  <div class="entry-head"><span class="entry-num">06</span><h2>Quota rent</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e6-body"><span class="entry-num">06</span><h2>Quota rent</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>The quota rent is the difference between the demand price and the supply price at the quota amount: the earnings that go to the license holder from owning the right to sell the good.</p>
+  <div class="entry-body" id="e6-body">
   <div class="defn"><span class="lbl">Definition</span><p>The <b>quota rent</b> is the difference between the demand price and the supply price at the quota amount: the earnings that go to the license holder from owning the right to sell the good.</p></div>
   <p class="reading">Textbook page 91.</p>
 
@@ -897,10 +933,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Yes. He gives up the rent he could have earned by renting the medallion out, so part of his fare is really the rent.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got6"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e7">
-  <div class="entry-head"><span class="entry-num">07</span><h2>Deadweight loss</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e7-body"><span class="entry-num">07</span><h2>Deadweight loss</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>The lost gains from the trades a market intervention prevents.</p>
+  <div class="entry-body" id="e7-body">
   <div class="defn"><span class="lbl">Definition</span><p>The <b>lost gains</b> from the trades a market intervention prevents. On the diagram it is the <b>triangle</b> between the demand and supply curves, from the quota to the equilibrium quantity.</p></div>
   <p class="reading">Textbook page 92, Figure 9.2.</p>
 
@@ -931,6 +970,7 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>It <b>grows</b>: more trades are lost and the gap between the demand price and the supply price widens.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got7"> Got it</label>
   </div>
+</div>
 </article>
 
 <!-- ============ THE DRILL ============ -->
@@ -947,7 +987,9 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
 </section>
 
 <article class="entry" id="e8">
-  <div class="entry-head"><span class="entry-num">08</span><h2>Allocative efficiency</h2><span class="mark flag">&#9733; &#9873;</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e8-body"><span class="entry-num">08</span><h2>Allocative efficiency</h2><span class="mark flag">&#9733; &#9873;</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>A market is allocatively efficient when it produces the quantity at which the last unit is worth to buyers exactly what it costs sellers to supply &mdash; where demand meets supply.</p>
+  <div class="entry-body" id="e8-body">
   <div class="defn"><span class="lbl">Definition</span><p>A market is <b>allocatively efficient</b> when it produces the quantity at which the last unit is worth to buyers exactly what it costs sellers to supply &mdash; where demand meets supply.</p></div>
   <p class="reading">Not in this module. Your textbook&rsquo;s nearest phrase is &ldquo;efficient in allocation&rdquo;, in Module 3 (page 18).</p>
 
@@ -979,10 +1021,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>The demand price is <b>higher</b>: buyers value one more unit above what it costs to supply, so too little is being traded.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got8"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e9">
-  <div class="entry-head"><span class="entry-num">09</span><h2>Surplus under a quota</h2><span class="mark flag">&#9733; &#9873;</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e9-body"><span class="entry-num">09</span><h2>Surplus under a quota</h2><span class="mark flag">&#9733; &#9873;</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>A binding quota takes surplus from both sides of the market.</p>
+  <div class="entry-body" id="e9-body">
   <div class="defn"><span class="lbl">Definition</span><p>A binding quota takes surplus from <b>both sides</b> of the market. Part of it goes to the license holders as <b>quota rent</b>; the rest is the <b>deadweight loss</b>, lost to everyone.</p></div>
   <p class="reading">Not in this module. Consumer and producer surplus are in Module 49 of your textbook.</p>
 
@@ -1016,10 +1061,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. The quota rent is received by the license holders. Only the triangle between the curves is lost to everyone.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got9"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e10">
-  <div class="entry-head"><span class="entry-num">10</span><h2>Quotas compared with price controls</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e10-body"><span class="entry-num">10</span><h2>Quotas compared with price controls</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>A price control fixes the price and lets the quantity follow; a quota fixes the quantity and lets the price follow.</p>
+  <div class="entry-body" id="e10-body">
   <div class="defn"><span class="lbl">Definition</span><p>A price control fixes the <b>price</b> and lets the quantity follow; a quota fixes the <b>quantity</b> and lets the price follow. Both cut the quantity traded, and both create a deadweight loss.</p></div>
   <p class="reading">Textbook pages 88, 91 and 92.</p>
 
@@ -1051,10 +1099,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Under the floor, the <b>drivers</b> who still sell rides, at $6. Under the quota, the <b>license holders</b>.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got10"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e11">
-  <div class="entry-head"><span class="entry-num">11</span><h2>When demand or supply shifts</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e11-body"><span class="entry-num">11</span><h2>When demand or supply shifts</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>A quota fixes the quantity, so a shift in demand or supply changes the prices and the quota rent instead.</p>
+  <div class="entry-body" id="e11-body">
   <div class="defn"><span class="lbl">Definition</span><p>A quota fixes the quantity, so a shift in demand or supply changes the <b>prices</b> and the <b>quota rent</b> instead. A fall in demand can make a quota stop binding; a rise in demand makes it bite harder.</p></div>
   <p class="reading">Textbook page 93, Check Your Understanding 2.</p>
 
@@ -1085,6 +1136,7 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>An <b>increase</b>. Buyers pay more for the same limited quantity, and the supply price of that quantity has not changed.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got11"> Got it</label>
   </div>
+</div>
 </article>
 
 <!-- ============ CALCULATOR ============ -->
@@ -1113,7 +1165,9 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
 </section>
 
 <article class="entry" id="e12">
-  <div class="entry-head"><span class="entry-num">12</span><h2>License</h2><span class="mark bgm">&#9675; Background</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e12-body"><span class="entry-num">12</span><h2>License</h2><span class="mark bgm">&#9675; Background</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>A license gives its owner the right to supply a good or service.</p>
+  <div class="entry-body" id="e12-body">
   <div class="defn"><span class="lbl">Definition</span><p>A <b>license</b> gives its owner the right to supply a good or service.</p></div>
   <p class="reading">Textbook page 88.</p>
 
@@ -1138,10 +1192,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. The quota would not bind, so there would be no rent for a license to earn.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got12"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e13">
-  <div class="entry-head"><span class="entry-num">13</span><h2>The wedge</h2><span class="mark bgm">&#9675; Background</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e13-body"><span class="entry-num">13</span><h2>The wedge</h2><span class="mark bgm">&#9675; Background</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Your textbook says a quota drives a wedge between the demand price and the supply price: the price paid by buyers ends up higher than the price received by sellers.</p>
+  <div class="entry-body" id="e13-body">
   <div class="defn"><span class="lbl">Definition</span><p>Your textbook says a quota <b>drives a wedge</b> between the demand price and the supply price: the price paid by buyers ends up higher than the price received by sellers.</p></div>
   <p class="reading">Textbook page 91.</p>
 
@@ -1167,10 +1224,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>The <b>price</b> axis: it is the vertical gap between the two curves at the quota.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got13"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e14">
-  <div class="entry-head"><span class="entry-num">14</span><h2>The price of a license</h2><span class="mark bgm">&#9675; Background</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e14-body"><span class="entry-num">14</span><h2>The price of a license</h2><span class="mark bgm">&#9675; Background</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>When licenses can be traded, a license is worth the quota rent it earns.</p>
+  <div class="entry-body" id="e14-body">
   <div class="defn"><span class="lbl">Definition</span><p>When licenses can be traded, a license is worth the <b>quota rent</b> it earns. Renting one for a day costs a day&rsquo;s rent; buying one outright costs what all its future rent is worth.</p></div>
   <p class="reading">Textbook pages 88 and 91.</p>
 
@@ -1196,10 +1256,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>The license earns the quota rent on a restricted catch; a boat can be bought by anyone.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got14"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e15">
-  <div class="entry-head"><span class="entry-num">15</span><h2>The incentive to evade</h2><span class="mark bgm">&#9675; Background</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e15-body"><span class="entry-num">15</span><h2>The incentive to evade</h2><span class="mark bgm">&#9675; Background</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Because buyers would pay more than sellers need for the trades a quota forbids, both have an incentive to make those trades anyway &mdash; around the rule, or against it.</p>
+  <div class="entry-body" id="e15-body">
   <div class="defn"><span class="lbl">Definition</span><p>Because buyers would pay more than sellers need for the trades a quota forbids, both have an <b>incentive</b> to make those trades anyway &mdash; around the rule, or against it.</p></div>
   <p class="reading">Textbook page 92.</p>
 
@@ -1225,10 +1288,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Both are trades the control forbids but that buyers and sellers both want.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got15"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e16">
-  <div class="entry-head"><span class="entry-num">16</span><h2>Why quotas exist and persist</h2><span class="mark bgm">&#9675; Background</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e16-body"><span class="entry-num">16</span><h2>Why quotas exist and persist</h2><span class="mark bgm">&#9675; Background</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Some quotas have a good reason &mdash; protecting a resource that unlimited use would destroy.</p>
+  <div class="entry-body" id="e16-body">
   <div class="defn"><span class="lbl">Definition</span><p>Some quotas have a good reason &mdash; protecting a resource that unlimited use would destroy. Others outlive their reason, because the license holders who earn the rent defend them.</p></div>
   <p class="reading">Textbook pages 88&ndash;89 and 92&ndash;93.</p>
 
@@ -1255,6 +1321,7 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>The license holders earn the quota rent and lobby to keep it; the cost is spread thinly over many buyers.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got16"> Got it</label>
   </div>
+</div>
 </article>
 
 <!-- ============ MCQ ============ -->
@@ -1570,6 +1637,61 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       });
     });
   });
+})();
+</script>
+
+<script id="entry-toggle-js">
+(function(){
+  var OPENKEY = "micro-mod9-progress-open";
+  var arts = [].slice.call(document.querySelectorAll("article.entry"));
+  function load(){ try { return JSON.parse(localStorage.getItem(OPENKEY) || "{}") || {}; } catch(e){ return {}; } }
+  function save(o){ try { localStorage.setItem(OPENKEY, JSON.stringify(o)); } catch(e){} }
+  function parts(a){ return { btn: a.querySelector(".entry-toggle"), sum: a.querySelector(".entry-sum"),
+                              body: a.querySelector(".entry-body") }; }
+  function set(a, open){
+    var p = parts(a);
+    if (!p.btn || !p.body) return;
+    if (open){ p.body.removeAttribute("hidden"); p.sum.setAttribute("hidden", "hidden"); a.classList.remove("closed"); }
+    else { p.body.setAttribute("hidden", "hidden"); p.sum.removeAttribute("hidden"); a.classList.add("closed"); }
+    p.btn.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+  function count(){
+    var n = arts.filter(function(a){ return !a.classList.contains("closed"); }).length;
+    var c = document.getElementById("entryCount");
+    if (c) c.textContent = n + " of " + arts.length + " open";
+  }
+  function remember(){
+    var o = {};
+    arts.forEach(function(a){ if (a.classList.contains("closed")) o[a.id] = 1; });
+    save(o);
+  }
+  var closed = load();
+  arts.forEach(function(a){
+    if (closed[a.id]) set(a, false);
+    var p = parts(a);
+    if (p.btn) p.btn.addEventListener("click", function(){
+      set(a, a.classList.contains("closed")); remember(); count();
+    });
+  });
+  function all(open){ arts.forEach(function(a){ set(a, open); }); remember(); count(); }
+  var ea = document.getElementById("expandAll"), ca = document.getElementById("collapseAll");
+  if (ea) ea.addEventListener("click", function(){ all(true); });
+  if (ca) ca.addEventListener("click", function(){ all(false); });
+  function openTarget(hash){
+    var m = /^#(e\d+)$/.exec(hash || "");
+    if (!m) return;
+    var a = document.getElementById(m[1]);
+    if (a && a.classList.contains("closed")){ set(a, true); remember(); count(); }
+  }
+  document.addEventListener("click", function(ev){
+    var l = ev.target.closest ? ev.target.closest('a[href^="#e"]') : null;
+    if (l) openTarget(l.getAttribute("href"));
+  }, true);
+  window.addEventListener("hashchange", function(){ openTarget(location.hash); });
+  openTarget(location.hash);
+  var rb = document.getElementById("resetBtn");
+  if (rb) rb.addEventListener("click", function(){ save({}); arts.forEach(function(a){ set(a, true); }); count(); });
+  count();
 })();
 </script>
 </main>

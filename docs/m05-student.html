@@ -473,6 +473,23 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
   border-radius:16px;padding:5px 13px;cursor:pointer}
 #sorter-reset:hover{border-color:var(--accent);color:var(--accent)}
 </style>
+<style id="entry-toggle-css">
+/* collapsible term entries: build/collapsible.py */
+:where(button.entry-toggle){padding:0;margin:0}
+button.entry-toggle{font:inherit;color:inherit;background:none;border:0;width:100%;text-align:left;cursor:pointer}
+button.entry-toggle:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:4px}
+button.entry-toggle::after{content:"\25BE";margin-left:auto;align-self:center;font-family:var(--mono);font-size:15px;color:var(--ink-3);padding-left:8px}
+.entry.closed button.entry-toggle::after{content:"\25B8"}
+.entry-sum{margin:2px 0 0;color:var(--ink-2);font-size:.97em}
+.entry-sum .entry-sum-l{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-right:8px}
+.entry-body[hidden],.entry-sum[hidden]{display:none!important}
+.entry.closed{padding-bottom:14px}
+.entry-tools{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:6px 0 18px}
+.entry-tools button{font:600 13px var(--sans);color:var(--ink);background:var(--surface);border:1px solid var(--rule-strong);border-radius:999px;padding:6px 14px;cursor:pointer}
+.entry-tools button:hover{border-color:var(--accent);color:var(--accent)}
+.entry-tools .entry-count{font-family:var(--mono);font-size:12px;color:var(--ink-3);margin-left:4px}
+@media print{.entry-body[hidden]{display:block!important}.entry-sum,.entry-tools{display:none!important}button.entry-toggle::after{content:none}}
+</style>
 
 
 <div class="bar">
@@ -617,8 +634,12 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
   <h2>The 20 terms</h2>
 </section>
 
+<div class="entry-tools" id="entryTools"><button type="button" id="expandAll">Expand all</button><button type="button" id="collapseAll">Collapse all</button><span class="entry-count" id="entryCount"></span></div>
+
 <article class="entry" id="e1">
-  <div class="entry-head"><span class="entry-num">01</span><h2>Competitive market</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e1-body"><span class="entry-num">01</span><h2>Competitive market</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>A market in which there are many buyers and sellers of the same good or service, none of whom can influence the price at which it is sold.</p>
+  <div class="entry-body" id="e1-body">
   <div class="defn"><span class="lbl">Definition</span><p>A market in which there are <b>many buyers and sellers of the same good or service</b>, none of whom can influence the price at which it is sold.</p></div>
   <p class="reading">Textbook page 48.</p>
 
@@ -654,10 +675,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because the model predicts that price is settled by demand and supply together. If one participant can choose the price instead, the prediction is wrong, and the diagram would be telling you something false.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got1"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e2">
-  <div class="entry-head"><span class="entry-num">02</span><h2>The supply and demand model</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e2-body"><span class="entry-num">02</span><h2>The supply and demand model</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>A model of how a competitive market works.</p>
+  <div class="entry-body" id="e2-body">
   <div class="defn"><span class="lbl">Definition</span><p>A model of how a competitive market works. It has <b>five elements</b>.</p></div>
   <p class="reading">Textbook page 48.</p>
 
@@ -696,10 +720,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. The law holds <i>all other things being equal</i>, and other things changed &mdash; population grew and lattes became popular. The whole curve moved. Element 3 is exactly this case.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got2"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e3">
-  <div class="entry-head"><span class="entry-num">03</span><h2>Property rights</h2><span class="mark flag">&#9733; &#9873;</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e3-body"><span class="entry-num">03</span><h2>Property rights</h2><span class="mark flag">&#9733; &#9873;</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Property rights establish ownership and grant individuals the right to trade goods and services with each other.</p>
+  <div class="entry-body" id="e3-body">
   <div class="defn"><span class="lbl">Definition</span><p>Property rights <b>establish ownership</b> and grant individuals the <b>right to trade</b> goods and services with each other.</p></div>
   <p class="reading">Not in this module. Your textbook defines it in Module 1, page 3.</p>
 
@@ -730,10 +757,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Buyers will only pay for ownership they can rely on, and sellers will only produce what they are allowed to keep or sell. If goods can be taken or their ownership is unclear, willingness to pay collapses and trades that would benefit both sides never happen.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got3"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e4">
-  <div class="entry-head"><span class="entry-num">04</span><h2>Incentives and constraints</h2><span class="mark flag">&#9733; &#9873;</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e4-body"><span class="entry-num">04</span><h2>Incentives and constraints</h2><span class="mark flag">&#9733; &#9873;</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>An incentive is a reward or punishment that motivates a particular choice.</p>
+  <div class="entry-body" id="e4-body">
   <div class="defn"><span class="lbl">Definition</span><p>An <b>incentive</b> is a reward or punishment that motivates a particular choice. A <b>constraint</b> is a limit on the choices you can make &mdash; your <b>income</b>, your <b>time</b>, and the <b>law</b>.</p></div>
   <p class="reading">Not in this module. Incentives are defined in your textbook&rsquo;s Module 1, page 2; the word <i>constraint</i> does not appear until Module 51.</p>
 
@@ -766,10 +796,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p><b>Income</b> &mdash; you cannot buy a $900 phone with $300. <b>Time</b> &mdash; a free concert is no use if it clashes with an exam. <b>Legal and regulatory frameworks</b> &mdash; a minimum age for buying some goods keeps willing buyers out of the market.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got4"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e5">
-  <div class="entry-head"><span class="entry-num">05</span><h2>Demand schedule</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e5-body"><span class="entry-num">05</span><h2>Demand schedule</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>A table showing how much of a good consumers will be willing and able to buy at different prices.</p>
+  <div class="entry-body" id="e5-body">
   <div class="defn"><span class="lbl">Definition</span><p>A <b>table</b> showing how much of a good consumers will be willing and able to buy at different prices.</p></div>
   <p class="reading">Textbook page 49, the right-hand side of Figure 5.1.</p>
 
@@ -801,10 +834,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Two, as long as they show the negative relationship. Your textbook&rsquo;s printed rubric awards one mark for the labelled table and one for the values having the right direction.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got5"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e6">
-  <div class="entry-head"><span class="entry-num">06</span><h2>Quantity demanded</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e6-body"><span class="entry-num">06</span><h2>Quantity demanded</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>The actual amount of a good or service consumers are willing and able to buy at some specific price.</p>
+  <div class="entry-body" id="e6-body">
   <div class="defn"><span class="lbl">Definition</span><p>The <b>actual amount</b> of a good or service consumers are willing and able to buy <b>at some specific price</b>.</p></div>
   <p class="reading">Textbook page 49.</p>
 
@@ -837,10 +873,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Only if they are <i>able</i> to buy one at the going price. Demand requires willingness and ability together.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got6"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e7">
-  <div class="entry-head"><span class="entry-num">07</span><h2>Demand curve</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e7-body"><span class="entry-num">07</span><h2>Demand curve</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>A graphical representation of the demand schedule.</p>
+  <div class="entry-body" id="e7-body">
   <div class="defn"><span class="lbl">Definition</span><p>A <b>graphical representation of the demand schedule</b>. It shows the relationship between quantity demanded and price.</p></div>
   <p class="reading">Textbook page 49, Figure 5.1.</p>
 
@@ -877,10 +916,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>At least one, for &ldquo;negatively sloped curve labelled Demand or D&rdquo;, and a second if the shifted curve is also unlabelled. Labelling costs four seconds.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got7"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e8">
-  <div class="entry-head"><span class="entry-num">08</span><h2>Law of demand</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e8-body"><span class="entry-num">08</span><h2>Law of demand</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>A higher price for a good or service, all other things being equal, leads people to demand a smaller quantity of it.</p>
+  <div class="entry-body" id="e8-body">
   <div class="defn"><span class="lbl">Definition</span><p>A higher price for a good or service, <b>all other things being equal</b>, leads people to demand a <b>smaller quantity</b> of it.</p></div>
   <p class="reading">Textbook page 50.</p>
 
@@ -916,10 +958,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Almost certainly not. Something else changed &mdash; incomes rose, or the population grew, or more people bought cars. The curve shifted right by more than the price rise moved you up along it.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got8"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e9">
-  <div class="entry-head"><span class="entry-num">09</span><h2>Substitution effect</h2><span class="mark flag">&#9733; &#9873;</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e9-body"><span class="entry-num">09</span><h2>Substitution effect</h2><span class="mark flag">&#9733; &#9873;</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>The change in the quantity of a good demanded as the consumer substitutes the good that has become relatively cheaper for the good that has become relatively more expensive.</p>
+  <div class="entry-body" id="e9-body">
   <div class="defn"><span class="lbl">Definition</span><p>The change in the quantity of a good demanded as the consumer <b>substitutes the good that has become relatively cheaper</b> for the good that has become relatively more expensive.</p></div>
   <p class="reading">Not in this module. Your textbook defines it in Module 46, page 458. Read pages 458&ndash;459 now &mdash; they need nothing from the modules in between.</p>
 
@@ -952,10 +997,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because it depends only on relative prices, not on how much you spend. Any price rise makes the good dearer compared with its alternatives, so some buyers switch away, however small the purchase.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got9"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e10">
-  <div class="entry-head"><span class="entry-num">10</span><h2>Income effect</h2><span class="mark flag">&#9733; &#9873;</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e10-body"><span class="entry-num">10</span><h2>Income effect</h2><span class="mark flag">&#9733; &#9873;</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>The change in the quantity of a good demanded that results from a change in the consumer&rsquo;s purchasing power when the price of the good changes.</p>
+  <div class="entry-body" id="e10-body">
   <div class="defn"><span class="lbl">Definition</span><p>The change in the quantity of a good demanded that results from a change in the consumer&rsquo;s <b>purchasing power</b> when the <b>price of the good</b> changes.</p></div>
   <p class="reading">Not in this module. Your textbook defines it in Module 46, page 459.</p>
 
@@ -989,10 +1037,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>It pushes quantity demanded <b>up</b>: the buyer is poorer, and poorer people buy more of an inferior good. The curve still slopes down because the substitution effect, which pushes quantity down, is normally the larger of the two.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got10"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e11">
-  <div class="entry-head"><span class="entry-num">11</span><h2>Diminishing marginal utility &mdash; the marginal benefit curve</h2><span class="mark flag">&#9733; &#9873;</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e11-body"><span class="entry-num">11</span><h2>Diminishing marginal utility &mdash; the marginal benefit curve</h2><span class="mark flag">&#9733; &#9873;</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Each successive unit of a good consumed adds less to total utility than the unit before.</p>
+  <div class="entry-body" id="e11-body">
   <div class="defn"><span class="lbl">Definition</span><p>Each successive unit of a good consumed <b>adds less to total utility</b> than the unit before. Because of it, the demand curve is also a <b>marginal benefit curve</b>: its height at any quantity is what that unit is worth to the buyer.</p></div>
   <p class="reading">Not in this module. You met diminishing marginal utility in Module 51, page 513; the link to demand is on page 521.</p>
 
@@ -1025,10 +1076,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Its marginal benefit is <b>$4</b>. At $5 it is not bought &mdash; it is worth less than it costs &mdash; so quantity demanded at $5 is fewer than 6.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got11"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e12">
-  <div class="entry-head"><span class="entry-num">12</span><h2>Movement along the demand curve</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e12-body"><span class="entry-num">12</span><h2>Movement along the demand curve</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>A change in the quantity demanded of a good that is the result of a change in that good&rsquo;s own price.</p>
+  <div class="entry-body" id="e12-body">
   <div class="defn"><span class="lbl">Definition</span><p>A change in the quantity demanded of a good that is the result of a change in <b>that good&rsquo;s own price</b>.</p></div>
   <p class="reading">Textbook page 51, Figure 5.3, the arrow from A to B.</p>
 
@@ -1060,10 +1114,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Movement along the demand curve for petrol. Petrol&rsquo;s own price rose, so quantity demanded fell. Carpooling is <i>how</i> they buy less, not a separate cause.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got12"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e13">
-  <div class="entry-head"><span class="entry-num">13</span><h2>Change in demand &mdash; a shift</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e13-body"><span class="entry-num">13</span><h2>Change in demand &mdash; a shift</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>A shift of the demand curve, which changes the quantity demanded at any given price.</p>
+  <div class="entry-body" id="e13-body">
   <div class="defn"><span class="lbl">Definition</span><p>A <b>shift of the demand curve</b>, which changes the quantity demanded <b>at any given price</b>.</p></div>
   <p class="reading">Textbook pages 51&ndash;52, Figures 5.2 and 5.3, the arrow from A to C.</p>
 
@@ -1097,6 +1154,7 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because for a downward-sloping curve, moving up and moving left look similar but mean opposite things. Say <b>right</b> for an increase and <b>left</b> for a decrease and you can never be misread.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got13"> Got it</label>
   </div>
+</div>
 </article>
 
 <!-- ============ THE SORTER ============ -->
@@ -1119,7 +1177,9 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
 </section>
 
 <article class="entry" id="e14">
-  <div class="entry-head"><span class="entry-num">14</span><h2>Substitutes</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e14-body"><span class="entry-num">14</span><h2>Substitutes</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Two goods are substitutes if a rise in the price of one leads to an increase in the demand for the other.</p>
+  <div class="entry-body" id="e14-body">
   <div class="defn"><span class="lbl">Definition</span><p>Two goods are substitutes if a <b>rise</b> in the price of one leads to an <b>increase in the demand</b> for the other.</p></div>
   <p class="reading">Textbook page 52. This is the first of the five shift factors: <i>prices of related goods</i>.</p>
 
@@ -1151,10 +1211,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. It is not <i>this</i> good&rsquo;s own price, so the whole curve shifts. Only the good&rsquo;s own price produces a movement.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got14"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e15">
-  <div class="entry-head"><span class="entry-num">15</span><h2>Complements</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e15-body"><span class="entry-num">15</span><h2>Complements</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Two goods are complements if a rise in the price of one leads to a decrease in the demand for the other.</p>
+  <div class="entry-body" id="e15-body">
   <div class="defn"><span class="lbl">Definition</span><p>Two goods are complements if a <b>rise</b> in the price of one leads to a <b>decrease in the demand</b> for the other.</p></div>
   <p class="reading">Textbook page 52.</p>
 
@@ -1185,10 +1248,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Complements &mdash; you cannot use one without the other. Cheaper cartridges increase the demand for printers, shifting that curve right.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got15"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e16">
-  <div class="entry-head"><span class="entry-num">16</span><h2>Normal goods</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e16-body"><span class="entry-num">16</span><h2>Normal goods</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>A good whose demand increases when consumer income rises &mdash; the normal case.</p>
+  <div class="entry-body" id="e16-body">
   <div class="defn"><span class="lbl">Definition</span><p>A good whose demand <b>increases when consumer income rises</b> &mdash; the normal case.</p></div>
   <p class="reading">Textbook page 52. This is the second shift factor: <i>changes in income</i>.</p>
 
@@ -1221,10 +1287,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>A constraint limits what you are <i>able</i> to buy. When income rises the limit loosens, so at every price you can buy more &mdash; and for a normal good you do. More demanded at every price is a shift to the right.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got16"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e17">
-  <div class="entry-head"><span class="entry-num">17</span><h2>Inferior goods</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e17-body"><span class="entry-num">17</span><h2>Inferior goods</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>A good whose demand decreases when consumer income rises.</p>
+  <div class="entry-body" id="e17-body">
   <div class="defn"><span class="lbl">Definition</span><p>A good whose demand <b>decreases when consumer income rises</b>.</p></div>
   <p class="reading">Textbook page 53.</p>
 
@@ -1256,10 +1325,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>It shifts right &mdash; demand increases. Instant noodles behave as an inferior good, so income and demand move in opposite directions.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got17"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e18">
-  <div class="entry-head"><span class="entry-num">18</span><h2>Tastes, expectations and the number of consumers</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e18-body"><span class="entry-num">18</span><h2>Tastes, expectations and the number of consumers</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>The remaining three of the five factors that shift demand: changes in tastes, changes in expectations, and changes in the number of consumers.</p>
+  <div class="entry-body" id="e18-body">
   <div class="defn"><span class="lbl">Definition</span><p>The remaining three of the <b>five factors that shift demand</b>: changes in tastes, changes in expectations, and changes in the number of consumers.</p></div>
   <p class="reading">Textbook pages 53&ndash;55, summarised in Table 5.1 on page 56.</p>
 
@@ -1296,10 +1368,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Tastes, and the curve shifts right. This is your textbook&rsquo;s second free-response question.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got18"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e19">
-  <div class="entry-head"><span class="entry-num">19</span><h2>Individual demand curve</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e19-body"><span class="entry-num">19</span><h2>Individual demand curve</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>The relationship between quantity demanded and price for one consumer.</p>
+  <div class="entry-body" id="e19-body">
   <div class="defn"><span class="lbl">Definition</span><p>The relationship between quantity demanded and price for <b>one consumer</b>.</p></div>
   <p class="reading">Textbook page 55, panels (a) and (b) of Figure 5.5.</p>
 
@@ -1330,10 +1405,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Yes &mdash; it slopes downward for one buyer just as it does for the market. That is why adding them up produces a downward-sloping market curve.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got19"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e20">
-  <div class="entry-head"><span class="entry-num">20</span><h2>Market demand curve</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e20-body"><span class="entry-num">20</span><h2>Market demand curve</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Shows how the combined quantity demanded by all consumers depends on the market price.</p>
+  <div class="entry-body" id="e20-body">
   <div class="defn"><span class="lbl">Definition</span><p>Shows how the <b>combined</b> quantity demanded by all consumers depends on the market price. It is the <b>horizontal sum</b> of the individual demand curves.</p></div>
   <p class="reading">Textbook page 55, panel (c) of Figure 5.5.</p>
 
@@ -1365,6 +1443,7 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>The market curve, and it shifts right. Every existing buyer&rsquo;s individual curve is exactly where it was &mdash; there are simply more curves in the sum.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got20"> Got it</label>
   </div>
+</div>
 </article>
 
 <!-- ============ MARKET DEMAND WIDGET ============ -->
@@ -1732,6 +1811,61 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       });
     });
   });
+})();
+</script>
+
+<script id="entry-toggle-js">
+(function(){
+  var OPENKEY = "micro-mod5-progress-open";
+  var arts = [].slice.call(document.querySelectorAll("article.entry"));
+  function load(){ try { return JSON.parse(localStorage.getItem(OPENKEY) || "{}") || {}; } catch(e){ return {}; } }
+  function save(o){ try { localStorage.setItem(OPENKEY, JSON.stringify(o)); } catch(e){} }
+  function parts(a){ return { btn: a.querySelector(".entry-toggle"), sum: a.querySelector(".entry-sum"),
+                              body: a.querySelector(".entry-body") }; }
+  function set(a, open){
+    var p = parts(a);
+    if (!p.btn || !p.body) return;
+    if (open){ p.body.removeAttribute("hidden"); p.sum.setAttribute("hidden", "hidden"); a.classList.remove("closed"); }
+    else { p.body.setAttribute("hidden", "hidden"); p.sum.removeAttribute("hidden"); a.classList.add("closed"); }
+    p.btn.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+  function count(){
+    var n = arts.filter(function(a){ return !a.classList.contains("closed"); }).length;
+    var c = document.getElementById("entryCount");
+    if (c) c.textContent = n + " of " + arts.length + " open";
+  }
+  function remember(){
+    var o = {};
+    arts.forEach(function(a){ if (a.classList.contains("closed")) o[a.id] = 1; });
+    save(o);
+  }
+  var closed = load();
+  arts.forEach(function(a){
+    if (closed[a.id]) set(a, false);
+    var p = parts(a);
+    if (p.btn) p.btn.addEventListener("click", function(){
+      set(a, a.classList.contains("closed")); remember(); count();
+    });
+  });
+  function all(open){ arts.forEach(function(a){ set(a, open); }); remember(); count(); }
+  var ea = document.getElementById("expandAll"), ca = document.getElementById("collapseAll");
+  if (ea) ea.addEventListener("click", function(){ all(true); });
+  if (ca) ca.addEventListener("click", function(){ all(false); });
+  function openTarget(hash){
+    var m = /^#(e\d+)$/.exec(hash || "");
+    if (!m) return;
+    var a = document.getElementById(m[1]);
+    if (a && a.classList.contains("closed")){ set(a, true); remember(); count(); }
+  }
+  document.addEventListener("click", function(ev){
+    var l = ev.target.closest ? ev.target.closest('a[href^="#e"]') : null;
+    if (l) openTarget(l.getAttribute("href"));
+  }, true);
+  window.addEventListener("hashchange", function(){ openTarget(location.hash); });
+  openTarget(location.hash);
+  var rb = document.getElementById("resetBtn");
+  if (rb) rb.addEventListener("click", function(){ save({}); arts.forEach(function(a){ set(a, true); }); count(); });
+  count();
 })();
 </script>
 </main>

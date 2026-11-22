@@ -586,6 +586,23 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
 .line-svg .blab.good{fill:var(--up)}
 .line-svg .blab.bad{fill:var(--down)}
 </style>
+<style id="entry-toggle-css">
+/* collapsible term entries: build/collapsible.py */
+:where(button.entry-toggle){padding:0;margin:0}
+button.entry-toggle{font:inherit;color:inherit;background:none;border:0;width:100%;text-align:left;cursor:pointer}
+button.entry-toggle:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:4px}
+button.entry-toggle::after{content:"\25BE";margin-left:auto;align-self:center;font-family:var(--mono);font-size:15px;color:var(--ink-3);padding-left:8px}
+.entry.closed button.entry-toggle::after{content:"\25B8"}
+.entry-sum{margin:2px 0 0;color:var(--ink-2);font-size:.97em}
+.entry-sum .entry-sum-l{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-right:8px}
+.entry-body[hidden],.entry-sum[hidden]{display:none!important}
+.entry.closed{padding-bottom:14px}
+.entry-tools{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:6px 0 18px}
+.entry-tools button{font:600 13px var(--sans);color:var(--ink);background:var(--surface);border:1px solid var(--rule-strong);border-radius:999px;padding:6px 14px;cursor:pointer}
+.entry-tools button:hover{border-color:var(--accent);color:var(--accent)}
+.entry-tools .entry-count{font-family:var(--mono);font-size:12px;color:var(--ink-3);margin-left:4px}
+@media print{.entry-body[hidden]{display:block!important}.entry-sum,.entry-tools{display:none!important}button.entry-toggle::after{content:none}}
+</style>
 
 
 <div class="bar">
@@ -776,8 +793,12 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
   <h2>The eighteen terms</h2>
 </section>
 
+<div class="entry-tools" id="entryTools"><button type="button" id="expandAll">Expand all</button><button type="button" id="collapseAll">Collapse all</button><span class="entry-count" id="entryCount"></span></div>
+
 <article class="entry" id="e1">
-  <div class="entry-head"><span class="entry-num">01</span><h2>Profit</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e1-body"><span class="entry-num">01</span><h2>Profit</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Total revenue minus total cost.</p>
+  <div class="entry-body" id="e1-body">
   <div class="defn"><span class="lbl">Definition</span><p><b>Total revenue minus total cost.</b> The goal economists assume every firm pursues.</p></div>
   <p class="reading">Textbook page 530.</p>
 
@@ -805,10 +826,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because revenue is simple &mdash; price times quantity &mdash; while which costs to count is what separates the two kinds of profit.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got1"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e2">
-  <div class="entry-head"><span class="entry-num">02</span><h2>Total revenue</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e2-body"><span class="entry-num">02</span><h2>Total revenue</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>The price of the output times the quantity sold: TR = P &times; Q.</p>
+  <div class="entry-body" id="e2-body">
   <div class="defn"><span class="lbl">Definition</span><p>The price of the output times the quantity sold: <b>TR = P &times; Q</b>.</p></div>
   <p class="reading">Textbook page 530.</p>
 
@@ -835,10 +859,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>50 &times; $15 = $750.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got2"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e3">
-  <div class="entry-head"><span class="entry-num">03</span><h2>Explicit cost</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e3-body"><span class="entry-num">03</span><h2>Explicit cost</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>A cost that involves actually laying out money: rent, wages, materials, bills.</p>
+  <div class="entry-body" id="e3-body">
   <div class="defn"><span class="lbl">Definition</span><p>A cost that involves <b>actually laying out money</b>: rent, wages, materials, bills.</p></div>
   <p class="reading">Textbook page 530, Table 52.1.</p>
 
@@ -865,10 +892,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Explicit &mdash; it is paid out in money.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got3"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e4">
-  <div class="entry-head"><span class="entry-num">04</span><h2>Implicit cost</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e4-body"><span class="entry-num">04</span><h2>Implicit cost</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>A cost that requires no outlay of money.</p>
+  <div class="entry-body" id="e4-body">
   <div class="defn"><span class="lbl">Definition</span><p>A cost that requires <b>no outlay of money</b>. It is measured by the value, in dollars, of the benefits <b>given up</b>.</p></div>
   <p class="reading">Textbook page 530, Table 52.1.</p>
 
@@ -896,10 +926,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No &mdash; or rather, it is zero. An implicit cost is a benefit given up, and if the space has no other use, nothing is given up.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got4"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e5">
-  <div class="entry-head"><span class="entry-num">05</span><h2>The full cost of a choice</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e5-body"><span class="entry-num">05</span><h2>The full cost of a choice</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>The opportunity cost of an activity is its explicit cost plus its implicit cost.</p>
+  <div class="entry-body" id="e5-body">
   <div class="defn"><span class="lbl">Definition</span><p>The opportunity cost of an activity is its <b>explicit cost plus its implicit cost</b>.</p></div>
   <p class="reading">Textbook page 531, Table 52.1.</p>
 
@@ -930,10 +963,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Only the implicit part. The full cost would be $5,200.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got5"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e6">
-  <div class="entry-head"><span class="entry-num">06</span><h2>Using your own resources</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e6-body"><span class="entry-num">06</span><h2>Using your own resources</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Using a resource you already own is still costly: it costs whatever the resource would have earned in its next-best use.</p>
+  <div class="entry-body" id="e6-body">
   <div class="defn"><span class="lbl">Definition</span><p>Using a resource you already own is <b>still costly</b>: it costs whatever the resource would have earned in its next-best use.</p></div>
   <p class="reading">Textbook page 531.</p>
 
@@ -961,10 +997,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Find what it would earn in its next-best alternative use.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got6"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e7">
-  <div class="entry-head"><span class="entry-num">07</span><h2>Accounting profit</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e7-body"><span class="entry-num">07</span><h2>Accounting profit</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Total revenue minus explicit costs.</p>
+  <div class="entry-body" id="e7-body">
   <div class="defn"><span class="lbl">Definition</span><p><b>Total revenue minus explicit costs.</b> The profit a business reports on its books and its tax forms.</p></div>
   <p class="reading">Textbook pages 531 and 539.</p>
 
@@ -993,10 +1032,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Every implicit cost: the owner's time, the earnings of the owner's own capital, and the reward for risk.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got7"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e8">
-  <div class="entry-head"><span class="entry-num">08</span><h2>Depreciation</h2><span class="mark bgm">&#9675; Background</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e8-body"><span class="entry-num">08</span><h2>Depreciation</h2><span class="mark bgm">&#9675; Background</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>The loss in value of equipment as it wears out.</p>
+  <div class="entry-body" id="e8-body">
   <div class="defn"><span class="lbl">Definition</span><p>The loss in value of equipment as it wears out. Accountants record it as a yearly cost.</p></div>
   <p class="reading">Textbook page 531.</p>
 
@@ -1025,10 +1067,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>$3,000. The $5,000 is depreciation, already on the accountant's books.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got8"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e9">
-  <div class="entry-head"><span class="entry-num">09</span><h2>Economic profit</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e9-body"><span class="entry-num">09</span><h2>Economic profit</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Total revenue minus explicit and implicit costs &mdash; minus the full opportunity cost of every resource the business uses.</p>
+  <div class="entry-body" id="e9-body">
   <div class="defn"><span class="lbl">Definition</span><p><b>Total revenue minus explicit and implicit costs</b> &mdash; minus the full opportunity cost of every resource the business uses.</p></div>
   <p class="reading">Textbook page 532, Table 52.2.</p>
 
@@ -1057,10 +1102,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Implicit costs.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got9"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e10">
-  <div class="entry-head"><span class="entry-num">10</span><h2>Cost of financial capital</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e10-body"><span class="entry-num">10</span><h2>Cost of financial capital</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>The income the owner could have earned from the money or equipment tied up in the business, in its next-best use.</p>
+  <div class="entry-body" id="e10-body">
   <div class="defn"><span class="lbl">Definition</span><p>The income the owner could have earned from the money or equipment tied up in the business, in its next-best use. Your textbook calls it the <b>implicit cost of capital</b>.</p></div>
   <p class="reading">Textbook page 532.</p>
 
@@ -1088,10 +1136,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because no money is paid out for it &mdash; the owner simply gives up the interest.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got10"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e11">
-  <div class="entry-head"><span class="entry-num">11</span><h2>The entrepreneur's time</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e11-body"><span class="entry-num">11</span><h2>The entrepreneur's time</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>What the owner could have earned by working elsewhere.</p>
+  <div class="entry-body" id="e11-body">
   <div class="defn"><span class="lbl">Definition</span><p>What the owner could have earned by working elsewhere. Your exam calls it <b>an entrepreneur's time</b>; your textbook says the owner &ldquo;devotes time and energy to the business that could have been used elsewhere&rdquo;.</p></div>
   <p class="reading">Textbook page 532, Table 52.2.</p>
 
@@ -1119,10 +1170,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>It rises by the same amount, because her implicit cost has fallen.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got11"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e12">
-  <div class="entry-head"><span class="entry-num">12</span><h2>Compensation for risk</h2><span class="mark flag">&#9733; &#9873;</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e12-body"><span class="entry-num">12</span><h2>Compensation for risk</h2><span class="mark flag">&#9733; &#9873;</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>The extra return an owner needs for putting money into a risky business rather than a safe one.</p>
+  <div class="entry-body" id="e12-body">
   <div class="defn"><span class="lbl">Definition</span><p>The extra return an owner needs for putting money into a <b>risky</b> business rather than a safe one. It is an implicit cost.</p></div>
   <p class="reading">Not in Module 52 &mdash; or anywhere else in your textbook.</p>
 
@@ -1153,10 +1207,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. Nobody pays it out in money, so accounting profit ignores it. Economic profit subtracts it.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got12"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e13">
-  <div class="entry-head"><span class="entry-num">13</span><h2>Accounting profit is never less than economic profit</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e13-body"><span class="entry-num">13</span><h2>Accounting profit is never less than economic profit</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>The two differ by the implicit costs.</p>
+  <div class="entry-body" id="e13-body">
   <div class="defn"><span class="lbl">Definition</span><p>The two differ by the implicit costs. Implicit costs cannot be negative, so economic profit is <b>at most</b> equal to accounting profit.</p></div>
   <p class="reading">Textbook page 532, Table 52.2.</p>
 
@@ -1185,10 +1242,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Only when the firm has no implicit costs.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got13"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e14">
-  <div class="entry-head"><span class="entry-num">14</span><h2>Normal profit</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e14-body"><span class="entry-num">14</span><h2>Normal profit</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>An economic profit of zero.</p>
+  <div class="entry-body" id="e14-body">
   <div class="defn"><span class="lbl">Definition</span><p><b>An economic profit of zero.</b> Every cost, explicit and implicit, is just covered, so the resources could not do better anywhere else.</p></div>
   <p class="reading">Textbook pages 533&ndash;534.</p>
 
@@ -1220,10 +1280,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. It is doing as well as its resources could anywhere else.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got14"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e15">
-  <div class="entry-head"><span class="entry-num">15</span><h2>Economic loss</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e15-body"><span class="entry-num">15</span><h2>Economic loss</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Negative economic profit.</p>
+  <div class="entry-body" id="e15-body">
   <div class="defn"><span class="lbl">Definition</span><p><b>Negative economic profit.</b> Total revenue does not cover explicit and implicit costs, so the resources would earn more elsewhere.</p></div>
   <p class="reading">Textbook page 533.</p>
 
@@ -1251,10 +1314,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>That her resources would earn more in their next-best use.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got15"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e16">
-  <div class="entry-head"><span class="entry-num">16</span><h2>Firms respond to economic profit</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e16-body"><span class="entry-num">16</span><h2>Firms respond to economic profit</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Owners decide whether a business is worth continuing by its economic profit or loss, not its accounting profit.</p>
+  <div class="entry-body" id="e16-body">
   <div class="defn"><span class="lbl">Definition</span><p>Owners decide whether a business is worth continuing by its <b>economic</b> profit or loss, not its accounting profit.</p></div>
   <p class="reading">Textbook pages 533 and 539.</p>
 
@@ -1283,10 +1349,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>The opportunity cost of her own time, so that she could calculate her economic profit.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got16"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e17">
-  <div class="entry-head"><span class="entry-num">17</span><h2>Entry and exit</h2><span class="mark flag">&#9733; &#9873;</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e17-body"><span class="entry-num">17</span><h2>Entry and exit</h2><span class="mark flag">&#9733; &#9873;</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>In the long run, with no barriers, firms enter a market where there is economic profit and exit one where there are economic losses.</p>
+  <div class="entry-body" id="e17-body">
   <div class="defn"><span class="lbl">Definition</span><p>In the long run, with no barriers, firms <b>enter</b> a market where there is economic profit and <b>exit</b> one where there are economic losses.</p></div>
   <p class="reading">Not in Module 52 &mdash; Textbook pages 601&ndash;602, Module 60.</p>
 
@@ -1316,10 +1385,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because they could not do better anywhere else.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got17"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e18">
-  <div class="entry-head"><span class="entry-num">18</span><h2>Profit per unit</h2><span class="mark flag">&#9733; &#9873;</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e18-body"><span class="entry-num">18</span><h2>Profit per unit</h2><span class="mark flag">&#9733; &#9873;</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Profit can be calculated per unit: Profit = (P &minus; ATC) &times; Q, where ATC, average total cost, is total cost divided by quantity.</p>
+  <div class="entry-body" id="e18-body">
   <div class="defn"><span class="lbl">Definition</span><p>Profit can be calculated per unit: <b>Profit = (P &minus; ATC) &times; Q</b>, where ATC, average total cost, is total cost divided by quantity.</p></div>
   <p class="reading">Not in Module 52 &mdash; Textbook page 590, Module 59.</p>
 
@@ -1350,6 +1422,7 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Normal profit: price equals average total cost, so economic profit is zero.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got18"> Got it</label>
   </div>
+</div>
 </article>
 
 
@@ -1610,6 +1683,60 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       }
     })(mcqs[mi]);
   }
+})();
+</script>
+<script id="entry-toggle-js">
+(function(){
+  var OPENKEY = "m52-got-open";
+  var arts = [].slice.call(document.querySelectorAll("article.entry"));
+  function load(){ try { return JSON.parse(localStorage.getItem(OPENKEY) || "{}") || {}; } catch(e){ return {}; } }
+  function save(o){ try { localStorage.setItem(OPENKEY, JSON.stringify(o)); } catch(e){} }
+  function parts(a){ return { btn: a.querySelector(".entry-toggle"), sum: a.querySelector(".entry-sum"),
+                              body: a.querySelector(".entry-body") }; }
+  function set(a, open){
+    var p = parts(a);
+    if (!p.btn || !p.body) return;
+    if (open){ p.body.removeAttribute("hidden"); p.sum.setAttribute("hidden", "hidden"); a.classList.remove("closed"); }
+    else { p.body.setAttribute("hidden", "hidden"); p.sum.removeAttribute("hidden"); a.classList.add("closed"); }
+    p.btn.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+  function count(){
+    var n = arts.filter(function(a){ return !a.classList.contains("closed"); }).length;
+    var c = document.getElementById("entryCount");
+    if (c) c.textContent = n + " of " + arts.length + " open";
+  }
+  function remember(){
+    var o = {};
+    arts.forEach(function(a){ if (a.classList.contains("closed")) o[a.id] = 1; });
+    save(o);
+  }
+  var closed = load();
+  arts.forEach(function(a){
+    if (closed[a.id]) set(a, false);
+    var p = parts(a);
+    if (p.btn) p.btn.addEventListener("click", function(){
+      set(a, a.classList.contains("closed")); remember(); count();
+    });
+  });
+  function all(open){ arts.forEach(function(a){ set(a, open); }); remember(); count(); }
+  var ea = document.getElementById("expandAll"), ca = document.getElementById("collapseAll");
+  if (ea) ea.addEventListener("click", function(){ all(true); });
+  if (ca) ca.addEventListener("click", function(){ all(false); });
+  function openTarget(hash){
+    var m = /^#(e\d+)$/.exec(hash || "");
+    if (!m) return;
+    var a = document.getElementById(m[1]);
+    if (a && a.classList.contains("closed")){ set(a, true); remember(); count(); }
+  }
+  document.addEventListener("click", function(ev){
+    var l = ev.target.closest ? ev.target.closest('a[href^="#e"]') : null;
+    if (l) openTarget(l.getAttribute("href"));
+  }, true);
+  window.addEventListener("hashchange", function(){ openTarget(location.hash); });
+  openTarget(location.hash);
+  var rb = document.getElementById("resetBtn");
+  if (rb) rb.addEventListener("click", function(){ save({}); arts.forEach(function(a){ set(a, true); }); count(); });
+  count();
 })();
 </script>
 </main>

@@ -439,6 +439,23 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
 .two-panel .ptl.good{fill:var(--up);font-weight:600}
 
 </style>
+<style id="entry-toggle-css">
+/* collapsible term entries: build/collapsible.py */
+:where(button.entry-toggle){padding:0;margin:0}
+button.entry-toggle{font:inherit;color:inherit;background:none;border:0;width:100%;text-align:left;cursor:pointer}
+button.entry-toggle:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:4px}
+button.entry-toggle::after{content:"\25BE";margin-left:auto;align-self:center;font-family:var(--mono);font-size:15px;color:var(--ink-3);padding-left:8px}
+.entry.closed button.entry-toggle::after{content:"\25B8"}
+.entry-sum{margin:2px 0 0;color:var(--ink-2);font-size:.97em}
+.entry-sum .entry-sum-l{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-right:8px}
+.entry-body[hidden],.entry-sum[hidden]{display:none!important}
+.entry.closed{padding-bottom:14px}
+.entry-tools{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:6px 0 18px}
+.entry-tools button{font:600 13px var(--sans);color:var(--ink);background:var(--surface);border:1px solid var(--rule-strong);border-radius:999px;padding:6px 14px;cursor:pointer}
+.entry-tools button:hover{border-color:var(--accent);color:var(--accent)}
+.entry-tools .entry-count{font-family:var(--mono);font-size:12px;color:var(--ink-3);margin-left:4px}
+@media print{.entry-body[hidden]{display:block!important}.entry-sum,.entry-tools{display:none!important}button.entry-toggle::after{content:none}}
+</style>
 
 
 <div class="bar">
@@ -575,8 +592,12 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
   <h2>The 13 terms</h2>
 </section>
 
+<div class="entry-tools" id="entryTools"><button type="button" id="expandAll">Expand all</button><button type="button" id="collapseAll">Collapse all</button><span class="entry-count" id="entryCount"></span></div>
+
 <article class="entry" id="e1">
-  <div class="entry-head"><span class="entry-num">01</span><h2>Trade</h2><span class="mark exam">★ Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e1-body"><span class="entry-num">01</span><h2>Trade</h2><span class="mark exam">★ Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>In a market economy people trade: they provide goods and services to others and receive goods and services in return.</p>
+  <div class="entry-body" id="e1-body">
   <div class="defn"><span class="lbl">Definition</span><p>In a market economy people <b>trade</b>: they provide goods and services to others and receive goods and services in return.</p></div>
   <p class="reading">Textbook page 23.</p>
 
@@ -606,11 +627,14 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. Tom gives Hank fish and Hank gives Tom coconuts. Money makes trade easier by removing the need to find someone who wants exactly what you have, but the exchange is the trade.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got1"> Got it</label>
   </div>
+</div>
 </article>
 
 
 <article class="entry" id="e2">
-  <div class="entry-head"><span class="entry-num">02</span><h2>Self-sufficiency</h2><span class="mark exam">★ Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e2-body"><span class="entry-num">02</span><h2>Self-sufficiency</h2><span class="mark exam">★ Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>A producer is self-sufficient when it consumes only what it produces itself.</p>
+  <div class="entry-body" id="e2-body">
   <div class="defn"><span class="lbl">Definition</span><p>A producer is <b>self-sufficient</b> when it consumes only what it produces itself. It is the <b>no-trade baseline</b> — the thing every gain in this module is measured against.</p></div>
   <p class="reading">Textbook pages 23 and 27.</p>
 
@@ -643,11 +667,14 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because a gain is a difference. “Tom gains 2 fish” only means something against the 28 he had before.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got2"> Got it</label>
   </div>
+</div>
 </article>
 
 
 <article class="entry" id="e3">
-  <div class="entry-head"><span class="entry-num">03</span><h2>Gains from trade</h2><span class="mark exam">★ Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e3-body"><span class="entry-num">03</span><h2>Gains from trade</h2><span class="mark exam">★ Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>There are gains from trade: by dividing tasks and trading, people can each get more of what they want than they could by being self-sufficient.</p>
+  <div class="entry-body" id="e3-body">
   <div class="defn"><span class="lbl">Definition</span><p>There are <b>gains from trade</b>: by dividing tasks and trading, people can each get <b>more of what they want</b> than they could by being self-sufficient.</p></div>
   <p class="reading">Textbook page 23, and Table 4.2 on page 25.</p>
 
@@ -689,11 +716,14 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>That both parties gained in both goods — Tom +2 fish and +1 coconut, Hank +4 fish and +2 coconuts. A voluntary trade is refused by anyone it would make worse off, which is why both columns are positive.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got3"> Got it</label>
   </div>
+</div>
 </article>
 
 
 <article class="entry" id="e4">
-  <div class="entry-head"><span class="entry-num">04</span><h2>Specialization</h2><span class="mark exam">★ Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e4-body"><span class="entry-num">04</span><h2>Specialization</h2><span class="mark exam">★ Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Specialization is a situation in which different people each engage in a different task — each person concentrating on the one thing they are comparatively good at.</p>
+  <div class="entry-body" id="e4-body">
   <div class="defn"><span class="lbl">Definition</span><p><b>Specialization</b> is a situation in which different people each engage in a <b>different task</b> — each person concentrating on the one thing they are comparatively good at.</p></div>
   <p class="reading">Textbook pages 23–24, with the Adam Smith pin factory.</p>
 
@@ -722,11 +752,14 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because its gain comes from splitting a task and from practice, not from workers having different opportunity costs. Comparative advantage works even when nobody gets better at anything.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got4"> Got it</label>
   </div>
+</div>
 </article>
 
 
 <article class="entry" id="e5">
-  <div class="entry-head"><span class="entry-num">05</span><h2>Opportunity cost as a ratio</h2><span class="mark exam">★ Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e5-body"><span class="entry-num">05</span><h2>Opportunity cost as a ratio</h2><span class="mark exam">★ Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>On a straight-line PPC, the opportunity cost of one unit of a good is the ratio of the two intercepts — and it is the same everywhere on the curve.</p>
+  <div class="entry-body" id="e5-body">
   <div class="defn"><span class="lbl">Definition</span><p>On a straight-line PPC, the opportunity cost of one unit of a good is the <b>ratio of the two intercepts</b> — and it is the same everywhere on the curve.</p></div>
   <p class="reading">Textbook pages 24–25, Figure 4.1 and Table 4.1. Topic 1.3 supplies the method.</p>
 
@@ -769,11 +802,14 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because the slope is the same everywhere, so one ratio describes the whole curve. On a bowed curve the opportunity cost changes as you move, and you have to say <em>where</em>.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got5"> Got it</label>
   </div>
+</div>
 </article>
 
 
 <article class="entry" id="e6">
-  <div class="entry-head"><span class="entry-num">06</span><h2>Absolute advantage</h2><span class="mark exam">★ Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e6-body"><span class="entry-num">06</span><h2>Absolute advantage</h2><span class="mark exam">★ Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>A producer has an absolute advantage in a good if it can make more of it with a given amount of time and resources than any other producer.</p>
+  <div class="entry-body" id="e6-body">
   <div class="defn"><span class="lbl">Definition</span><p>A producer has an <b>absolute advantage</b> in a good if it can make <b>more of it</b> with a given amount of time and resources than any other producer. Having an absolute advantage is <b>not</b> the same as having a comparative advantage.</p></div>
   <p class="reading">Textbook page 27, margin definition.</p>
 
@@ -802,11 +838,14 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because assuming absolute advantage determines who should specialise is the standard error in this topic, and the framework says so explicitly: specialisation follows comparative advantage, not absolute advantage.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got6"> Got it</label>
   </div>
+</div>
 </article>
 
 
 <article class="entry" id="e7">
-  <div class="entry-head"><span class="entry-num">07</span><h2>Comparative advantage</h2><span class="mark exam">★ Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e7-body"><span class="entry-num">07</span><h2>Comparative advantage</h2><span class="mark exam">★ Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>A producer has a comparative advantage in a good if the opportunity cost of producing it is lower for that producer than for others.</p>
+  <div class="entry-body" id="e7-body">
   <div class="defn"><span class="lbl">Definition</span><p>A producer has a <b>comparative advantage</b> in a good if the <b>opportunity cost</b> of producing it is <b>lower</b> for that producer than for others.</p></div>
   <p class="reading">Textbook page 26, margin definition. This is the centre of the module.</p>
 
@@ -841,11 +880,14 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Neither has a comparative advantage in anything, and there are no gains from trade. Specialising would reshuffle who produces what without making either better off.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got7"> Got it</label>
   </div>
+</div>
 </article>
 
 
 <article class="entry" id="e8">
-  <div class="entry-head"><span class="entry-num">08</span><h2>Comparative disadvantage</h2><span class="mark exam">★ Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e8-body"><span class="entry-num">08</span><h2>Comparative disadvantage</h2><span class="mark exam">★ Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>As long as opportunity costs differ, everyone has a comparative advantage in something and a comparative disadvantage in something.</p>
+  <div class="entry-body" id="e8-body">
   <div class="defn"><span class="lbl">Definition</span><p>As long as opportunity costs differ, <b>everyone</b> has a comparative advantage in something and a <b>comparative disadvantage</b> in something.</p></div>
   <p class="reading">Textbook page 27.</p>
 
@@ -875,11 +917,14 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because the productivity gap is much smaller in clothing than in sophisticated goods such as aircraft. Clothing is what it does comparatively well, so clothing is its comparative advantage.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got8"> Got it</label>
   </div>
+</div>
 </article>
 
 
 <article class="entry" id="e9">
-  <div class="entry-head"><span class="entry-num">09</span><h2>Output per worker against input per unit</h2><span class="mark exam">★ Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e9-body"><span class="entry-num">09</span><h2>Output per worker against input per unit</h2><span class="mark exam">★ Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Data can be given as output per input (bushels per worker) or as input per output (workers per car).</p>
+  <div class="entry-body" id="e9-body">
   <div class="defn"><span class="lbl">Definition</span><p>Data can be given as <b>output per input</b> (bushels per worker) or as <b>input per output</b> (workers per car). <b>Which way the table runs decides whether a bigger number is better.</b></p></div>
   <p class="reading">Textbook page 29, Check Your Understanding 1 and Free-response 2. Topic 1.4, LO <code>MKT-2.A</code>(b).</p>
 
@@ -918,11 +963,14 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Worse. Needing more workers per tonne means being less productive. Check the heading before you compare anything.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got9"> Got it</label>
   </div>
+</div>
 </article>
 
 
 <article class="entry" id="e10">
-  <div class="entry-head"><span class="entry-num">10</span><h2>Terms of trade</h2><span class="mark flag">★ ⚑</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e10-body"><span class="entry-num">10</span><h2>Terms of trade</h2><span class="mark flag">★ ⚑</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>The terms of trade are the rate at which the two goods are exchanged — the “price” of one good in units of the other.</p>
+  <div class="entry-body" id="e10-body">
   <div class="defn"><span class="lbl">Definition</span><p>The <b>terms of trade</b> are the rate at which the two goods are exchanged — the “price” of one good in units of the other. A trade is <b>mutually beneficial</b> only if that rate lies <b>between the two producers' opportunity costs</b>.</p></div>
   <p class="reading">The phrase does not appear in your textbook. The reasoning is on pages 26–27. Topic 1.4, <code>MKT-2.B.2</code>.</p>
 
@@ -963,11 +1011,14 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>B will pay at most <b>2 units</b> — above that it is cheaper to grow its own. A will accept no less than <b>⅔ of a unit</b>. Any price strictly between the two works.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got10"> Got it</label>
   </div>
+</div>
 </article>
 
 
 <article class="entry" id="e11">
-  <div class="entry-head"><span class="entry-num">11</span><h2>Consumption possibilities beyond the PPC</h2><span class="mark flag">★ ⚑</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e11-body"><span class="entry-num">11</span><h2>Consumption possibilities beyond the PPC</h2><span class="mark flag">★ ⚑</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Specialising according to comparative advantage and trading lets a producer consume outside its own production possibilities curve — a combination it could never have produced alone.</p>
+  <div class="entry-body" id="e11-body">
   <div class="defn"><span class="lbl">Definition</span><p>Specialising according to comparative advantage and trading lets a producer <b>consume outside its own production possibilities curve</b> — a combination it could never have produced alone.</p></div>
   <p class="reading">Shown in Figure 4.2 on page 26; the phrase is never used. Topic 1.4, <code>MKT-2.B.1</code>.</p>
 
@@ -1012,11 +1063,14 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No — it is still exactly right about production. What trade changes is what you can <em>consume</em>. The curve still limits what this producer can make.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got11"> Got it</label>
   </div>
+</div>
 </article>
 
 
 <article class="entry" id="e12">
-  <div class="entry-head"><span class="entry-num">12</span><h2>Comparative advantage between countries</h2><span class="mark exam">★ Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e12-body"><span class="entry-num">12</span><h2>Comparative advantage between countries</h2><span class="mark exam">★ Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>The same model applies to countries.</p>
+  <div class="entry-body" id="e12-body">
   <div class="defn"><span class="lbl">Definition</span><p>The same model applies to <b>countries</b>. On a graph with the same axes, the country with the <b>flatter</b> PPC has the comparative advantage in the good on the <b>horizontal</b> axis.</p></div>
   <p class="reading">Textbook pages 28–29, Figure 4.3.</p>
 
@@ -1049,11 +1103,14 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Yes. Your textbook says so directly: mutual gains do not depend on either country being better at producing one kind of good. What matters is that the two opportunity costs differ.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got12"> Got it</label>
   </div>
+</div>
 </article>
 
 
 <article class="entry" id="e13">
-  <div class="entry-head"><span class="entry-num">13</span><h2>Imports and exports</h2><span class="mark exam">★ Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e13-body"><span class="entry-num">13</span><h2>Imports and exports</h2><span class="mark exam">★ Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>After specialising, a producer exports the good in which it has the comparative advantage and imports the other one.</p>
+  <div class="entry-body" id="e13-body">
   <div class="defn"><span class="lbl">Definition</span><p>After specialising, a producer <b>exports</b> the good in which it has the comparative advantage and <b>imports</b> the other one.</p></div>
   <p class="reading">Textbook pages 28–29, and multiple-choice 4. The welfare analysis of trade is Topic 2.9.</p>
 
@@ -1082,6 +1139,7 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. This module gives the direction of trade, not the quantity. The world-price model is Topic 2.9 and uses supply and demand rather than a PPC.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got13"> Got it</label>
   </div>
+</div>
 </article>
 
 
@@ -1567,6 +1625,60 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
   });
 })();
 
+</script>
+<script id="entry-toggle-js">
+(function(){
+  var OPENKEY = "micro-mod4-progress-open";
+  var arts = [].slice.call(document.querySelectorAll("article.entry"));
+  function load(){ try { return JSON.parse(localStorage.getItem(OPENKEY) || "{}") || {}; } catch(e){ return {}; } }
+  function save(o){ try { localStorage.setItem(OPENKEY, JSON.stringify(o)); } catch(e){} }
+  function parts(a){ return { btn: a.querySelector(".entry-toggle"), sum: a.querySelector(".entry-sum"),
+                              body: a.querySelector(".entry-body") }; }
+  function set(a, open){
+    var p = parts(a);
+    if (!p.btn || !p.body) return;
+    if (open){ p.body.removeAttribute("hidden"); p.sum.setAttribute("hidden", "hidden"); a.classList.remove("closed"); }
+    else { p.body.setAttribute("hidden", "hidden"); p.sum.removeAttribute("hidden"); a.classList.add("closed"); }
+    p.btn.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+  function count(){
+    var n = arts.filter(function(a){ return !a.classList.contains("closed"); }).length;
+    var c = document.getElementById("entryCount");
+    if (c) c.textContent = n + " of " + arts.length + " open";
+  }
+  function remember(){
+    var o = {};
+    arts.forEach(function(a){ if (a.classList.contains("closed")) o[a.id] = 1; });
+    save(o);
+  }
+  var closed = load();
+  arts.forEach(function(a){
+    if (closed[a.id]) set(a, false);
+    var p = parts(a);
+    if (p.btn) p.btn.addEventListener("click", function(){
+      set(a, a.classList.contains("closed")); remember(); count();
+    });
+  });
+  function all(open){ arts.forEach(function(a){ set(a, open); }); remember(); count(); }
+  var ea = document.getElementById("expandAll"), ca = document.getElementById("collapseAll");
+  if (ea) ea.addEventListener("click", function(){ all(true); });
+  if (ca) ca.addEventListener("click", function(){ all(false); });
+  function openTarget(hash){
+    var m = /^#(e\d+)$/.exec(hash || "");
+    if (!m) return;
+    var a = document.getElementById(m[1]);
+    if (a && a.classList.contains("closed")){ set(a, true); remember(); count(); }
+  }
+  document.addEventListener("click", function(ev){
+    var l = ev.target.closest ? ev.target.closest('a[href^="#e"]') : null;
+    if (l) openTarget(l.getAttribute("href"));
+  }, true);
+  window.addEventListener("hashchange", function(){ openTarget(location.hash); });
+  openTarget(location.hash);
+  var rb = document.getElementById("resetBtn");
+  if (rb) rb.addEventListener("click", function(){ save({}); arts.forEach(function(a){ set(a, true); }); count(); });
+  count();
+})();
 </script>
 </main>
 <script>window.COURSE_NAV={"kicker": "1.4 Comparative advantage and trade", "title": "Module 4 · Comparative Advantage and Trade", "map": [{"label": "Course", "items": [{"href": "index.html", "label": "Home", "current": false}, {"href": "spec.html", "label": "Course specification", "current": false}]}, {"label": "Unit 1 · Basic Economic Concepts", "items": [{"href": "m01-student.html", "label": "Module 1 · Student guide", "current": false}, {"href": "m01-notes.html", "label": "Module 1 · Teaching notes", "current": false}, {"href": "m01-test.html", "label": "Module 1 · Test", "current": false}, {"label": "Module 2 · Introduction to Macroeconomics", "planned": true}, {"href": "m03-student.html", "label": "Module 3 · Student guide", "current": false}, {"href": "m03-notes.html", "label": "Module 3 · Teaching notes", "current": false}, {"href": "m03-test.html", "label": "Module 3 · Test", "current": false}, {"href": "m04-student.html", "label": "Module 4 · Student guide", "current": true}, {"href": "m04-notes.html", "label": "Module 4 · Teaching notes", "current": false}, {"href": "m04-test.html", "label": "Module 4 · Test", "current": false}, {"href": "m51-student.html", "label": "Module 51 · Student guide", "current": false}, {"href": "m51-notes.html", "label": "Module 51 · Teaching notes", "current": false}, {"href": "m51-test.html", "label": "Module 51 · Test", "current": false}, {"label": "Unit 1 · Gap analysis", "planned": true}]}, {"label": "Unit 2 · Supply and Demand", "items": [{"href": "m05-student.html", "label": "Module 5 · Student guide", "current": false}, {"href": "m05-notes.html", "label": "Module 5 · Teaching notes", "current": false}, {"href": "m05-test.html", "label": "Module 5 · Test", "current": false}, {"href": "m06-student.html", "label": "Module 6 · Student guide", "current": false}, {"href": "m06-notes.html", "label": "Module 6 · Teaching notes", "current": false}, {"href": "m06-test.html", "label": "Module 6 · Test", "current": false}, {"href": "m07-student.html", "label": "Module 7 · Student guide", "current": false}, {"href": "m07-notes.html", "label": "Module 7 · Teaching notes", "current": false}, {"href": "m07-test.html", "label": "Module 7 · Test", "current": false}, {"href": "m08-student.html", "label": "Module 8 · Student guide", "current": false}, {"href": "m08-notes.html", "label": "Module 8 · Teaching notes", "current": false}, {"href": "m08-test.html", "label": "Module 8 · Test", "current": false}, {"href": "m09-student.html", "label": "Module 9 · Student guide", "current": false}, {"href": "m09-notes.html", "label": "Module 9 · Teaching notes", "current": false}, {"href": "m09-test.html", "label": "Module 9 · Test", "current": false}, {"href": "m46-student.html", "label": "Module 46 · Student guide", "current": false}, {"href": "m46-notes.html", "label": "Module 46 · Teaching notes", "current": false}, {"href": "m46-test.html", "label": "Module 46 · Test", "current": false}, {"href": "m47-student.html", "label": "Module 47 · Student guide", "current": false}, {"href": "m47-notes.html", "label": "Module 47 · Teaching notes", "current": false}, {"href": "m47-test.html", "label": "Module 47 · Test", "current": false}, {"href": "m48-student.html", "label": "Module 48 · Student guide", "current": false}, {"href": "m48-notes.html", "label": "Module 48 · Teaching notes", "current": false}, {"href": "m48-test.html", "label": "Module 48 · Test", "current": false}, {"href": "m49-student.html", "label": "Module 49 · Student guide", "current": false}, {"href": "m49-notes.html", "label": "Module 49 · Teaching notes", "current": false}, {"href": "m49-test.html", "label": "Module 49 · Test", "current": false}, {"href": "m50-student.html", "label": "Module 50 · Student guide", "current": false}, {"href": "m50-notes.html", "label": "Module 50 · Teaching notes", "current": false}, {"href": "m50-test.html", "label": "Module 50 · Test", "current": false}, {"href": "t29-student.html", "label": "Topic 2.9 · Student guide", "current": false}, {"href": "t29-notes.html", "label": "Topic 2.9 · Teaching notes", "current": false}, {"href": "t29-test.html", "label": "Topic 2.9 · Test", "current": false}, {"label": "Unit 2 · Gap analysis", "planned": true}]}, {"label": "Unit 3 · Production, Cost and Perfect Competition", "items": [{"href": "m52-student.html", "label": "Module 52 · Student guide", "current": false}, {"href": "m52-notes.html", "label": "Module 52 · Teaching notes", "current": false}, {"href": "m52-test.html", "label": "Module 52 · Test", "current": false}, {"href": "m53-student.html", "label": "Module 53 · Student guide", "current": false}, {"href": "m53-notes.html", "label": "Module 53 · Teaching notes", "current": false}, {"href": "m53-test.html", "label": "Module 53 · Test", "current": false}, {"href": "m53-lab.html", "label": "Module 53 · Lab", "current": false}, {"href": "m54-student.html", "label": "Module 54 · Student guide", "current": false}, {"href": "m54-notes.html", "label": "Module 54 · Teaching notes", "current": false}, {"href": "m54-test.html", "label": "Module 54 · Test", "current": false}, {"href": "m54-lab.html", "label": "Module 54 · Lab", "current": false}, {"href": "m55-student.html", "label": "Module 55 · Student guide", "current": false}, {"href": "m55-notes.html", "label": "Module 55 · Teaching notes", "current": false}, {"href": "m55-test.html", "label": "Module 55 · Test", "current": false}, {"href": "m55-lab.html", "label": "Module 55 · Lab", "current": false}, {"href": "m56-student.html", "label": "Module 56 · Student guide", "current": false}, {"href": "m56-notes.html", "label": "Module 56 · Teaching notes", "current": false}, {"href": "m56-test.html", "label": "Module 56 · Test", "current": false}, {"href": "m56-lab.html", "label": "Module 56 · Lab", "current": false}, {"label": "Module 57 · Introduction to Market Structure", "planned": true}, {"href": "m57-lab.html", "label": "Module 57 · Lab", "current": false}, {"label": "Modules 58–60 · Perfect Competition", "planned": true}, {"label": "Unit 3 · Gap analysis", "planned": true}]}, {"label": "Unit 4 · Imperfect Competition", "items": [{"label": "Topic 4.1 · Introduction to Imperfect Competition", "planned": true}, {"label": "Modules 61–63 · Monopoly", "planned": true}, {"label": "Modules 67–68 · Monopolistic Competition", "planned": true}, {"label": "Modules 64–66 · Oligopoly and Game Theory", "planned": true}, {"label": "Unit 4 · Gap analysis", "planned": true}]}, {"label": "Unit 5 · Factor Markets", "items": [{"label": "Module 69 · Introduction and Factor Demand", "planned": true}, {"label": "Module 70 · The Markets for Land and Capital", "planned": true}, {"label": "Module 71 · The Market for Labor", "planned": true}, {"label": "Module 72 · The Cost-Minimising Input Combination", "planned": true}, {"label": "Module 73 · Theories of Income Distribution", "planned": true}, {"label": "Unit 5 · Gap analysis", "planned": true}]}, {"label": "Unit 6 · Market Failure and the Role of Government", "items": [{"label": "Modules 74–75 · Externalities", "planned": true}, {"label": "Module 76 · Public Goods", "planned": true}, {"label": "Module 77 · Public Policy to Promote Competition", "planned": true}, {"label": "Module 78 · Income Inequality and Income Distribution", "planned": true}, {"label": "Unit 6 · Gap analysis", "planned": true}]}, {"label": "Practice exams", "items": [{"href": "pe-units-1-2.html", "label": "Practice exam · Units 1 and 2", "current": false}]}, {"label": "Interactive", "items": [{"label": "PPC explorer", "planned": true}, {"label": "Supply and demand explorer", "planned": true}, {"label": "Elasticity and total revenue", "planned": true}, {"label": "Cost curves", "planned": true}, {"label": "Market structure comparison", "planned": true}]}], "prev": {"href": "m03-test.html", "label": "Module 3 · Test"}, "next": {"href": "m04-notes.html", "label": "Module 4 · Teaching notes"}, "variants": [{"href": "m04-student.html", "label": "Student", "current": true}, {"href": "m04-notes.html", "label": "Notes", "current": false}, {"href": "m04-test.html", "label": "Test", "current": false}]};</script>

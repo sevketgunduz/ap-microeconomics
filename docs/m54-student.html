@@ -593,6 +593,23 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
 .tblscroll{overflow-x:auto;margin:10px 0}
 .tblscroll .tbl{margin:0}
 </style>
+<style id="entry-toggle-css">
+/* collapsible term entries: build/collapsible.py */
+:where(button.entry-toggle){padding:0;margin:0}
+button.entry-toggle{font:inherit;color:inherit;background:none;border:0;width:100%;text-align:left;cursor:pointer}
+button.entry-toggle:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:4px}
+button.entry-toggle::after{content:"\25BE";margin-left:auto;align-self:center;font-family:var(--mono);font-size:15px;color:var(--ink-3);padding-left:8px}
+.entry.closed button.entry-toggle::after{content:"\25B8"}
+.entry-sum{margin:2px 0 0;color:var(--ink-2);font-size:.97em}
+.entry-sum .entry-sum-l{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-right:8px}
+.entry-body[hidden],.entry-sum[hidden]{display:none!important}
+.entry.closed{padding-bottom:14px}
+.entry-tools{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:6px 0 18px}
+.entry-tools button{font:600 13px var(--sans);color:var(--ink);background:var(--surface);border:1px solid var(--rule-strong);border-radius:999px;padding:6px 14px;cursor:pointer}
+.entry-tools button:hover{border-color:var(--accent);color:var(--accent)}
+.entry-tools .entry-count{font-family:var(--mono);font-size:12px;color:var(--ink-3);margin-left:4px}
+@media print{.entry-body[hidden]{display:block!important}.entry-sum,.entry-tools{display:none!important}button.entry-toggle::after{content:none}}
+</style>
 
 
 <div class="bar">
@@ -931,8 +948,12 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
   <h2>The fifteen terms</h2>
 </section>
 
+<div class="entry-tools" id="entryTools"><button type="button" id="expandAll">Expand all</button><button type="button" id="collapseAll">Collapse all</button><span class="entry-count" id="entryCount"></span></div>
+
 <article class="entry" id="e1">
-  <div class="entry-head"><span class="entry-num">01</span><h2>Production function</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e1-body"><span class="entry-num">01</span><h2>Production function</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>The relationship between the quantity of inputs a firm uses and the quantity of output it produces.</p>
+  <div class="entry-body" id="e1-body">
   <div class="defn"><span class="lbl">Definition</span><p>The relationship between the quantity of inputs a firm uses and the quantity of output it produces.</p></div>
   <p class="reading">Textbook pages 542&ndash;543.</p>
 
@@ -967,10 +988,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>A quantity: 115 loaves. A production function stays in physical units.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got1"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e2">
-  <div class="entry-head"><span class="entry-num">02</span><h2>Fixed input and variable input</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e2-body"><span class="entry-num">02</span><h2>Fixed input and variable input</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>A fixed input is one whose quantity cannot be changed for a period of time.</p>
+  <div class="entry-body" id="e2-body">
   <div class="defn"><span class="lbl">Definition</span><p>A <b>fixed input</b> is one whose quantity cannot be changed for a period of time. A <b>variable input</b> is one whose quantity the firm can change at any time.</p></div>
   <p class="reading">Textbook page 542.</p>
 
@@ -997,10 +1021,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Yes. Fixed means it cannot be changed during the period you are looking at; with more time, a firm can change it.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got2"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e3">
-  <div class="entry-head"><span class="entry-num">03</span><h2>Short run and long run</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e3-body"><span class="entry-num">03</span><h2>Short run and long run</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>The short run is the period in which at least one input is fixed.</p>
+  <div class="entry-body" id="e3-body">
   <div class="defn"><span class="lbl">Definition</span><p>The <b>short run</b> is the period in which at least one input is fixed. The <b>long run</b> is the period in which all inputs can be varied.</p></div>
   <p class="reading">Textbook page 542.</p>
 
@@ -1028,10 +1055,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>The short run: the oven is fixed.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got3"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e4">
-  <div class="entry-head"><span class="entry-num">04</span><h2>Total product</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e4-body"><span class="entry-num">04</span><h2>Total product</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>The quantity of output produced at each quantity of the variable input, with the fixed input held constant.</p>
+  <div class="entry-body" id="e4-body">
   <div class="defn"><span class="lbl">Definition</span><p>The quantity of output produced at each quantity of the variable input, with the fixed input held constant. Drawn as a graph, it is the <b>total product curve</b>.</p></div>
   <p class="reading">Textbook pages 542&ndash;543, Figure 54.1.</p>
 
@@ -1059,10 +1089,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Output, in physical units. Money does not appear in a production function.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got4"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e5">
-  <div class="entry-head"><span class="entry-num">05</span><h2>Marginal product</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e5-body"><span class="entry-num">05</span><h2>Marginal product</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>The additional output from using one more unit of an input, with all other inputs held fixed: MP = &Delta;Q / &Delta;L for labor.</p>
+  <div class="entry-body" id="e5-body">
   <div class="defn"><span class="lbl">Definition</span><p>The additional output from using <b>one more unit</b> of an input, with all other inputs held fixed: MP = &Delta;Q / &Delta;L for labor.</p></div>
   <p class="reading">Textbook pages 543&ndash;544, equation 54-1.</p>
 
@@ -1096,10 +1129,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>(560 &minus; 500) &divide; (30 &minus; 20) = 6 units per worker.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got5"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e6">
-  <div class="entry-head"><span class="entry-num">06</span><h2>The slope of the total product curve</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e6-body"><span class="entry-num">06</span><h2>The slope of the total product curve</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>The slope of the total product curve is its rise over its run &mdash; the change in output divided by the change in labor &mdash; and that is the marginal product.</p>
+  <div class="entry-body" id="e6-body">
   <div class="defn"><span class="lbl">Definition</span><p>The slope of the total product curve is its rise over its run &mdash; the change in output divided by the change in labor &mdash; and that is the <b>marginal product</b>.</p></div>
   <p class="reading">Textbook page 544.</p>
 
@@ -1128,10 +1164,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Yes. Flatter means a smaller positive slope: each worker adds less, but still adds something.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got6"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e7">
-  <div class="entry-head"><span class="entry-num">07</span><h2>Plotting marginal product between quantities</h2><span class="mark bgm">&#9675; Background</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e7-body"><span class="entry-num">07</span><h2>Plotting marginal product between quantities</h2><span class="mark bgm">&#9675; Background</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Marginal product is a change between two numbers of workers, so it is plotted halfway between them.</p>
+  <div class="entry-body" id="e7-body">
   <div class="defn"><span class="lbl">Definition</span><p>Marginal product is a change <b>between</b> two numbers of workers, so it is plotted <b>halfway</b> between them.</p></div>
   <p class="reading">Textbook pages 544&ndash;545, Figure 54.2.</p>
 
@@ -1160,10 +1199,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>At 6 workers.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got7"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e8">
-  <div class="entry-head"><span class="entry-num">08</span><h2>Diminishing marginal returns</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e8-body"><span class="entry-num">08</span><h2>Diminishing marginal returns</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>When the quantity of one input is increased and all other inputs are held fixed, the marginal product of that input falls.</p>
+  <div class="entry-body" id="e8-body">
   <div class="defn"><span class="lbl">Definition</span><p>When the quantity of one input is increased and all other inputs are held fixed, the marginal product of that input <b>falls</b>.</p></div>
   <p class="reading">Textbook page 545.</p>
 
@@ -1192,10 +1234,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because the claim is about one input rising while all the others are held fixed. If land grows too, marginal product need not fall.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got8"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e9">
-  <div class="entry-head"><span class="entry-num">09</span><h2>Average product</h2><span class="mark flag">&#9733; &#9873;</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e9-body"><span class="entry-num">09</span><h2>Average product</h2><span class="mark flag">&#9733; &#9873;</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Output per unit of the variable input: average product = Q &divide; L.</p>
+  <div class="entry-body" id="e9-body">
   <div class="defn"><span class="lbl">Definition</span><p>Output per unit of the variable input: <b>average product</b> = Q &divide; L.</p></div>
   <p class="reading">Not in Module 54's text. Your textbook uses the words once, as a wrong answer on page 547.</p>
 
@@ -1232,10 +1277,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Both are the same number: one worker's output, divided by one worker, and the change from zero workers.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got9"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e10">
-  <div class="entry-head"><span class="entry-num">10</span><h2>Increasing marginal returns</h2><span class="mark flag">&#9733; &#9873;</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e10-body"><span class="entry-num">10</span><h2>Increasing marginal returns</h2><span class="mark flag">&#9733; &#9873;</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Marginal product that rises as the variable input increases, usually because the first workers can divide the tasks.</p>
+  <div class="entry-body" id="e10-body">
   <div class="defn"><span class="lbl">Definition</span><p>Marginal product that <b>rises</b> as the variable input increases, usually because the first workers can divide the tasks. <b>Diminishing returns begin where marginal product stops rising.</b></p></div>
   <p class="reading">Not in Module 54. Your textbook meets the idea on page 556, as &ldquo;increasing returns&rdquo; from specialization.</p>
 
@@ -1272,10 +1320,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>From the second worker. There is no rising phase, so they set in at once.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got10"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e11">
-  <div class="entry-head"><span class="entry-num">11</span><h2>Marginal product pulls average product</h2><span class="mark flag">&#9733; &#9873;</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e11-body"><span class="entry-num">11</span><h2>Marginal product pulls average product</h2><span class="mark flag">&#9733; &#9873;</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Average product rises while marginal product is above it, falls while marginal product is below it, and is unchanged where the two are equal.</p>
+  <div class="entry-body" id="e11-body">
   <div class="defn"><span class="lbl">Definition</span><p>Average product <b>rises</b> while marginal product is above it, <b>falls</b> while marginal product is below it, and is unchanged where the two are equal.</p></div>
   <p class="reading">Not in Module 54. Your textbook teaches the same logic for cost on pages 555&ndash;556, with a grade-point average.</p>
 
@@ -1315,10 +1366,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>It is rising: a new unit above the average pulls the average up.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got11"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e12">
-  <div class="entry-head"><span class="entry-num">12</span><h2>A bigger fixed input shifts the curves</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e12-body"><span class="entry-num">12</span><h2>A bigger fixed input shifts the curves</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>More of the fixed input &mdash; or better technology &mdash; raises output at every quantity of the variable input: total product shifts up, and so does marginal product.</p>
+  <div class="entry-body" id="e12-body">
   <div class="defn"><span class="lbl">Definition</span><p>More of the fixed input &mdash; or better technology &mdash; raises output at <b>every</b> quantity of the variable input: total product shifts <b>up</b>, and so does marginal product.</p></div>
   <p class="reading">Textbook pages 545&ndash;546, Figure 54.3; Bernie's ice, page 546.</p>
 
@@ -1388,10 +1442,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Yes. The marginal products, 2,000, 1,600, 1,200 and 800, still fall.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got12"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e13">
-  <div class="entry-head"><span class="entry-num">13</span><h2>Diminishing returns raise marginal cost</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e13-body"><span class="entry-num">13</span><h2>Diminishing returns raise marginal cost</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>If each extra worker costs the same, the cost of one more unit of output is the worker's pay divided by the marginal product &mdash; so it rises as marginal product falls.</p>
+  <div class="entry-body" id="e13-body">
   <div class="defn"><span class="lbl">Definition</span><p>If each extra worker costs the same, the cost of one more unit of output is the worker's pay <b>divided by the marginal product</b> &mdash; so it rises as marginal product falls.</p></div>
   <p class="reading">Not in Module 54. Your textbook makes the link in Module 55, pages 552 and 555.</p>
 
@@ -1419,10 +1476,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>It falls: the same pay buys more output, so the divisor is growing.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got13"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e14">
-  <div class="entry-head"><span class="entry-num">14</span><h2>Diminishing returns are not diseconomies of scale</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e14-body"><span class="entry-num">14</span><h2>Diminishing returns are not diseconomies of scale</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Diminishing returns: one input rises, the others are fixed, and its marginal product falls.</p>
+  <div class="entry-body" id="e14-body">
   <div class="defn"><span class="lbl">Definition</span><p>Diminishing returns: <b>one</b> input rises, the others are fixed, and its marginal product falls. Diseconomies of scale: <b>every</b> input rises together, in the long run, and average cost rises.</p></div>
   <p class="reading">Not in Module 54. Your textbook teaches scale in Module 56.</p>
 
@@ -1457,10 +1517,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Diminishing marginal returns: one input rose and the land stayed fixed.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got14"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e15">
-  <div class="entry-head"><span class="entry-num">15</span><h2>Malthus and technology</h2><span class="mark bgm">&#9675; Background</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e15-body"><span class="entry-num">15</span><h2>Malthus and technology</h2><span class="mark bgm">&#9675; Background</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Technology raises the whole production function.</p>
+  <div class="entry-body" id="e15-body">
   <div class="defn"><span class="lbl">Definition</span><p>Technology raises the whole production function. It does not remove the fall in marginal product at a given level of technology.</p></div>
   <p class="reading">Textbook page 546, the FYI &ldquo;Was Malthus Right?&rdquo;.</p>
 
@@ -1490,6 +1553,7 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. It raises the curve, and the curve at the new level still flattens.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got15"> Got it</label>
   </div>
+</div>
 </article>
 
 
@@ -1781,6 +1845,60 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       }
     })(mcqs[mi]);
   }
+})();
+</script>
+<script id="entry-toggle-js">
+(function(){
+  var OPENKEY = "m54-got-open";
+  var arts = [].slice.call(document.querySelectorAll("article.entry"));
+  function load(){ try { return JSON.parse(localStorage.getItem(OPENKEY) || "{}") || {}; } catch(e){ return {}; } }
+  function save(o){ try { localStorage.setItem(OPENKEY, JSON.stringify(o)); } catch(e){} }
+  function parts(a){ return { btn: a.querySelector(".entry-toggle"), sum: a.querySelector(".entry-sum"),
+                              body: a.querySelector(".entry-body") }; }
+  function set(a, open){
+    var p = parts(a);
+    if (!p.btn || !p.body) return;
+    if (open){ p.body.removeAttribute("hidden"); p.sum.setAttribute("hidden", "hidden"); a.classList.remove("closed"); }
+    else { p.body.setAttribute("hidden", "hidden"); p.sum.removeAttribute("hidden"); a.classList.add("closed"); }
+    p.btn.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+  function count(){
+    var n = arts.filter(function(a){ return !a.classList.contains("closed"); }).length;
+    var c = document.getElementById("entryCount");
+    if (c) c.textContent = n + " of " + arts.length + " open";
+  }
+  function remember(){
+    var o = {};
+    arts.forEach(function(a){ if (a.classList.contains("closed")) o[a.id] = 1; });
+    save(o);
+  }
+  var closed = load();
+  arts.forEach(function(a){
+    if (closed[a.id]) set(a, false);
+    var p = parts(a);
+    if (p.btn) p.btn.addEventListener("click", function(){
+      set(a, a.classList.contains("closed")); remember(); count();
+    });
+  });
+  function all(open){ arts.forEach(function(a){ set(a, open); }); remember(); count(); }
+  var ea = document.getElementById("expandAll"), ca = document.getElementById("collapseAll");
+  if (ea) ea.addEventListener("click", function(){ all(true); });
+  if (ca) ca.addEventListener("click", function(){ all(false); });
+  function openTarget(hash){
+    var m = /^#(e\d+)$/.exec(hash || "");
+    if (!m) return;
+    var a = document.getElementById(m[1]);
+    if (a && a.classList.contains("closed")){ set(a, true); remember(); count(); }
+  }
+  document.addEventListener("click", function(ev){
+    var l = ev.target.closest ? ev.target.closest('a[href^="#e"]') : null;
+    if (l) openTarget(l.getAttribute("href"));
+  }, true);
+  window.addEventListener("hashchange", function(){ openTarget(location.hash); });
+  openTarget(location.hash);
+  var rb = document.getElementById("resetBtn");
+  if (rb) rb.addEventListener("click", function(){ save({}); arts.forEach(function(a){ set(a, true); }); count(); });
+  count();
 })();
 </script>
 </main>

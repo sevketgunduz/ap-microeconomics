@@ -555,6 +555,23 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
 .sorter .verdict.ok{color:var(--up)}
 .sorter .verdict.no{color:var(--down)}
 </style>
+<style id="entry-toggle-css">
+/* collapsible term entries: build/collapsible.py */
+:where(button.entry-toggle){padding:0;margin:0}
+button.entry-toggle{font:inherit;color:inherit;background:none;border:0;width:100%;text-align:left;cursor:pointer}
+button.entry-toggle:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:4px}
+button.entry-toggle::after{content:"\25BE";margin-left:auto;align-self:center;font-family:var(--mono);font-size:15px;color:var(--ink-3);padding-left:8px}
+.entry.closed button.entry-toggle::after{content:"\25B8"}
+.entry-sum{margin:2px 0 0;color:var(--ink-2);font-size:.97em}
+.entry-sum .entry-sum-l{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-right:8px}
+.entry-body[hidden],.entry-sum[hidden]{display:none!important}
+.entry.closed{padding-bottom:14px}
+.entry-tools{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:6px 0 18px}
+.entry-tools button{font:600 13px var(--sans);color:var(--ink);background:var(--surface);border:1px solid var(--rule-strong);border-radius:999px;padding:6px 14px;cursor:pointer}
+.entry-tools button:hover{border-color:var(--accent);color:var(--accent)}
+.entry-tools .entry-count{font-family:var(--mono);font-size:12px;color:var(--ink-3);margin-left:4px}
+@media print{.entry-body[hidden]{display:block!important}.entry-sum,.entry-tools{display:none!important}button.entry-toggle::after{content:none}}
+</style>
 
 
 <div class="bar">
@@ -748,8 +765,12 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
   <h2>The sixteen terms</h2>
 </section>
 
+<div class="entry-tools" id="entryTools"><button type="button" id="expandAll">Expand all</button><button type="button" id="collapseAll">Collapse all</button><span class="entry-count" id="entryCount"></span></div>
+
 <article class="entry" id="e1">
-  <div class="entry-head"><span class="entry-num">01</span><h2>Willingness to pay</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e1-body"><span class="entry-num">01</span><h2>Willingness to pay</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>The most a buyer would pay for a good rather than go without it.</p>
+  <div class="entry-body" id="e1-body">
   <div class="defn"><span class="lbl">Definition</span><p>The <b>most</b> a buyer would pay for a good rather than go without it.</p></div>
   <p class="reading">Textbook page 483.</p>
 
@@ -779,10 +800,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>They are indifferent, so either answer is fine &mdash; and either way they gain nothing from the purchase. That case matters in entry 14.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got1"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e2">
-  <div class="entry-head"><span class="entry-num">02</span><h2>The demand curve as a list of willingness to pay</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e2-body"><span class="entry-num">02</span><h2>The demand curve as a list of willingness to pay</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Every point on a demand curve is some buyer's maximum price.</p>
+  <div class="entry-body" id="e2-body">
   <div class="defn"><span class="lbl">Definition</span><p>Every point on a demand curve is some buyer's <b>maximum price</b>. The curve slopes downward because buyers are lined up from the most eager to the least.</p></div>
   <p class="reading">Textbook page 484, Figure 49.1.</p>
 
@@ -811,10 +835,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because there are only five buyers. With many buyers the steps become too small to see, and we draw the smooth line they add up to.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got2"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e3">
-  <div class="entry-head"><span class="entry-num">03</span><h2>Individual consumer surplus</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e3-body"><span class="entry-num">03</span><h2>Individual consumer surplus</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>A buyer's net gain: willingness to pay minus the price actually paid.</p>
+  <div class="entry-body" id="e3-body">
   <div class="defn"><span class="lbl">Definition</span><p>A buyer's <b>net gain</b>: willingness to pay minus the price actually paid.</p></div>
   <p class="reading">Textbook pages 484&ndash;485, Table 49.1.</p>
 
@@ -850,10 +877,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because nobody is forced to trade. Not buying leaves you exactly where you started, so the gain is zero, never a loss.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got3"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e4">
-  <div class="entry-head"><span class="entry-num">04</span><h2>Total consumer surplus</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e4-body"><span class="entry-num">04</span><h2>Total consumer surplus</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>The sum of every buyer's individual consumer surplus in the market.</p>
+  <div class="entry-body" id="e4-body">
   <div class="defn"><span class="lbl">Definition</span><p>The <b>sum</b> of every buyer's individual consumer surplus in the market.</p></div>
   <p class="reading">Textbook page 485.</p>
 
@@ -882,10 +912,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>It rises twice over: every existing buyer gains more, and the new buyer adds a gain of their own. That is entry 6.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got4"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e5">
-  <div class="entry-head"><span class="entry-num">05</span><h2>Consumer surplus as an area</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e5-body"><span class="entry-num">05</span><h2>Consumer surplus as an area</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>On a diagram, total consumer surplus is the area below the demand curve and above the price.</p>
+  <div class="entry-body" id="e5-body">
   <div class="defn"><span class="lbl">Definition</span><p>On a diagram, total consumer surplus is the area <b>below the demand curve and above the price</b>.</p></div>
   <p class="reading">Textbook pages 485&ndash;487, Figures 49.2 and 49.3.</p>
 
@@ -915,10 +948,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because the last buyer's willingness to pay is the price itself, so their gain is zero &mdash; the idea in entry 14.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got5"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e6">
-  <div class="entry-head"><span class="entry-num">06</span><h2>A price fall raises consumer surplus</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e6-body"><span class="entry-num">06</span><h2>A price fall raises consumer surplus</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>A lower price adds two pieces of surplus: a rectangle for buyers who were already buying, and a triangle for buyers who were not.</p>
+  <div class="entry-body" id="e6-body">
   <div class="defn"><span class="lbl">Definition</span><p>A lower price adds <b>two</b> pieces of surplus: a rectangle for buyers who were already buying, and a triangle for buyers who were not.</p></div>
   <p class="reading">Textbook pages 487&ndash;488, Figures 49.4 and 49.5.</p>
 
@@ -950,10 +986,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because each new buyer gains a different amount &mdash; the first new buyer nearly as much as the old ones, the last one almost nothing. Stacked together they taper to a point.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got6"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e7">
-  <div class="entry-head"><span class="entry-num">07</span><h2>A seller's cost</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e7-body"><span class="entry-num">07</span><h2>A seller's cost</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>The lowest price at which a seller is willing to part with the good.</p>
+  <div class="entry-body" id="e7-body">
   <div class="defn"><span class="lbl">Definition</span><p>The <b>lowest</b> price at which a seller is willing to part with the good.</p></div>
   <p class="reading">Textbook page 489.</p>
 
@@ -982,10 +1021,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because sellers are better off the higher the price. The binding question for them is how low they would go.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got7"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e8">
-  <div class="entry-head"><span class="entry-num">08</span><h2>Cost means opportunity cost</h2><span class="mark bgm">&#9675; Background</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e8-body"><span class="entry-num">08</span><h2>Cost means opportunity cost</h2><span class="mark bgm">&#9675; Background</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>The seller's cost is what they give up by selling &mdash; not money they have spent.</p>
+  <div class="entry-body" id="e8-body">
   <div class="defn"><span class="lbl">Definition</span><p>The seller's cost is what they <b>give up</b> by selling &mdash; not money they have spent.</p></div>
   <p class="reading">Textbook page 489.</p>
 
@@ -1016,10 +1058,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because the relevant cost is what they give up now, not what they spent then. Yesterday's price is sunk.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got8"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e9">
-  <div class="entry-head"><span class="entry-num">09</span><h2>The supply curve as a list of costs</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e9-body"><span class="entry-num">09</span><h2>The supply curve as a list of costs</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Every point on a supply curve is some seller's minimum price.</p>
+  <div class="entry-body" id="e9-body">
   <div class="defn"><span class="lbl">Definition</span><p>Every point on a supply curve is some seller's <b>minimum price</b>. The curve slopes upward because sellers are lined up from the cheapest to the dearest.</p></div>
   <p class="reading">Textbook page 489, Figure 49.6.</p>
 
@@ -1047,10 +1092,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because sellers are ordered by cost. Getting more units means reaching sellers who give up more, so the price has to rise.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got9"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e10">
-  <div class="entry-head"><span class="entry-num">10</span><h2>Individual producer surplus</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e10-body"><span class="entry-num">10</span><h2>Individual producer surplus</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>A seller's net gain: the price received minus their cost.</p>
+  <div class="entry-body" id="e10-body">
   <div class="defn"><span class="lbl">Definition</span><p>A seller's <b>net gain</b>: the price received minus their cost.</p></div>
   <p class="reading">Textbook page 490, Table 49.2.</p>
 
@@ -1085,10 +1133,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because their costs differ. The seller who would have accepted less gains more from the same price.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got10"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e11">
-  <div class="entry-head"><span class="entry-num">11</span><h2>Total producer surplus</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e11-body"><span class="entry-num">11</span><h2>Total producer surplus</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>The sum of every seller's individual producer surplus in the market.</p>
+  <div class="entry-body" id="e11-body">
   <div class="defn"><span class="lbl">Definition</span><p>The <b>sum</b> of every seller's individual producer surplus in the market.</p></div>
   <p class="reading">Textbook page 490.</p>
 
@@ -1115,10 +1166,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because the price is the top of the sellers' gain and the bottom of the buyers'. Raising it enlarges one area and shrinks the other.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got11"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e12">
-  <div class="entry-head"><span class="entry-num">12</span><h2>Producer surplus as an area</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e12-body"><span class="entry-num">12</span><h2>Producer surplus as an area</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>On a diagram, total producer surplus is the area above the supply curve and below the price.</p>
+  <div class="entry-body" id="e12-body">
   <div class="defn"><span class="lbl">Definition</span><p>On a diagram, total producer surplus is the area <b>above the supply curve and below the price</b>.</p></div>
   <p class="reading">Textbook pages 490&ndash;491, Figures 49.7 and 49.8.</p>
 
@@ -1147,10 +1201,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Consumer surplus, usually. A flat supply curve leaves little room between it and the price, so sellers gain little and buyers keep most of the gain.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got12"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e13">
-  <div class="entry-head"><span class="entry-num">13</span><h2>A price rise raises producer surplus</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e13-body"><span class="entry-num">13</span><h2>A price rise raises producer surplus</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>A higher price adds two pieces: a rectangle for sellers who were already selling, and a triangle for sellers newly drawn in.</p>
+  <div class="entry-body" id="e13-body">
   <div class="defn"><span class="lbl">Definition</span><p>A higher price adds <b>two</b> pieces: a rectangle for sellers who were already selling, and a triangle for sellers newly drawn in.</p></div>
   <p class="reading">Textbook page 492, Figure 49.9.</p>
 
@@ -1182,10 +1239,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because their costs are higher &mdash; that is why they were not selling before. The last one in gains almost nothing.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got13"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e14">
-  <div class="entry-head"><span class="entry-num">14</span><h2>The buyer and seller at the margin gain nothing</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e14-body"><span class="entry-num">14</span><h2>The buyer and seller at the margin gain nothing</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>The last buyer's willingness to pay equals the price, and the last seller's cost equals the price.</p>
+  <div class="entry-body" id="e14-body">
   <div class="defn"><span class="lbl">Definition</span><p>The <b>last</b> buyer's willingness to pay equals the price, and the <b>last</b> seller's cost equals the price. Both gain exactly <b>zero</b>.</p></div>
   <p class="reading">Textbook pages 485 and 490, and the review questions.</p>
 
@@ -1214,10 +1274,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>That the price is well below their willingness to pay &mdash; so there are buyers beyond them who would also trade, and the market has not reached the quantity where the two curves meet.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got14"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e15">
-  <div class="entry-head"><span class="entry-num">15</span><h2>Total economic surplus, and what surplus is for</h2><span class="mark flag">&#9733; &#9873;</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e15-body"><span class="entry-num">15</span><h2>Total economic surplus, and what surplus is for</h2><span class="mark flag">&#9733; &#9873;</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Total economic surplus is consumer surplus plus producer surplus.</p>
+  <div class="entry-body" id="e15-body">
   <div class="defn"><span class="lbl">Definition</span><p><b>Total economic surplus</b> is consumer surplus plus producer surplus. Economists measure it to judge whether a market is <b>efficient</b>.</p></div>
   <p class="reading">Not in Module 49 &mdash; your textbook computes the two halves and never adds them.</p>
 
@@ -1254,10 +1317,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Yes. The price decides how the gain is divided between buyers and sellers; the quantity decides how big the gain is.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got15"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e16">
-  <div class="entry-head"><span class="entry-num">16</span><h2>Calculating the areas</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e16-body"><span class="entry-num">16</span><h2>Calculating the areas</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>On a straight-line diagram each surplus is a triangle: &frac12; &times; base &times; height.</p>
+  <div class="entry-body" id="e16-body">
   <div class="defn"><span class="lbl">Definition</span><p>On a straight-line diagram each surplus is a <b>triangle</b>: &frac12; &times; base &times; height. On a table or a step diagram it is a <b>sum of rectangles</b>.</p></div>
   <p class="reading">Textbook pages 486 and 491, and the review questions.</p>
 
@@ -1292,6 +1358,7 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because its demand curve is a staircase, not a straight line. Triangles are what staircases become when there are many buyers; with five, add the rectangles.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got16"> Got it</label>
   </div>
+</div>
 </article>
 
 
@@ -1576,6 +1643,60 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       }
     })(mcqs[mi]);
   }
+})();
+</script>
+<script id="entry-toggle-js">
+(function(){
+  var OPENKEY = "m49-got-open";
+  var arts = [].slice.call(document.querySelectorAll("article.entry"));
+  function load(){ try { return JSON.parse(localStorage.getItem(OPENKEY) || "{}") || {}; } catch(e){ return {}; } }
+  function save(o){ try { localStorage.setItem(OPENKEY, JSON.stringify(o)); } catch(e){} }
+  function parts(a){ return { btn: a.querySelector(".entry-toggle"), sum: a.querySelector(".entry-sum"),
+                              body: a.querySelector(".entry-body") }; }
+  function set(a, open){
+    var p = parts(a);
+    if (!p.btn || !p.body) return;
+    if (open){ p.body.removeAttribute("hidden"); p.sum.setAttribute("hidden", "hidden"); a.classList.remove("closed"); }
+    else { p.body.setAttribute("hidden", "hidden"); p.sum.removeAttribute("hidden"); a.classList.add("closed"); }
+    p.btn.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+  function count(){
+    var n = arts.filter(function(a){ return !a.classList.contains("closed"); }).length;
+    var c = document.getElementById("entryCount");
+    if (c) c.textContent = n + " of " + arts.length + " open";
+  }
+  function remember(){
+    var o = {};
+    arts.forEach(function(a){ if (a.classList.contains("closed")) o[a.id] = 1; });
+    save(o);
+  }
+  var closed = load();
+  arts.forEach(function(a){
+    if (closed[a.id]) set(a, false);
+    var p = parts(a);
+    if (p.btn) p.btn.addEventListener("click", function(){
+      set(a, a.classList.contains("closed")); remember(); count();
+    });
+  });
+  function all(open){ arts.forEach(function(a){ set(a, open); }); remember(); count(); }
+  var ea = document.getElementById("expandAll"), ca = document.getElementById("collapseAll");
+  if (ea) ea.addEventListener("click", function(){ all(true); });
+  if (ca) ca.addEventListener("click", function(){ all(false); });
+  function openTarget(hash){
+    var m = /^#(e\d+)$/.exec(hash || "");
+    if (!m) return;
+    var a = document.getElementById(m[1]);
+    if (a && a.classList.contains("closed")){ set(a, true); remember(); count(); }
+  }
+  document.addEventListener("click", function(ev){
+    var l = ev.target.closest ? ev.target.closest('a[href^="#e"]') : null;
+    if (l) openTarget(l.getAttribute("href"));
+  }, true);
+  window.addEventListener("hashchange", function(){ openTarget(location.hash); });
+  openTarget(location.hash);
+  var rb = document.getElementById("resetBtn");
+  if (rb) rb.addEventListener("click", function(){ save({}); arts.forEach(function(a){ set(a, true); }); count(); });
+  count();
 })();
 </script>
 </main>

@@ -573,6 +573,23 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
 .line-svg .gain-area{fill:var(--up);opacity:.38;stroke:var(--up);stroke-width:.8}
 .line-svg .wline{stroke:var(--accent);stroke-width:1.8;stroke-dasharray:7 4}
 </style>
+<style id="entry-toggle-css">
+/* collapsible term entries: build/collapsible.py */
+:where(button.entry-toggle){padding:0;margin:0}
+button.entry-toggle{font:inherit;color:inherit;background:none;border:0;width:100%;text-align:left;cursor:pointer}
+button.entry-toggle:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:4px}
+button.entry-toggle::after{content:"\25BE";margin-left:auto;align-self:center;font-family:var(--mono);font-size:15px;color:var(--ink-3);padding-left:8px}
+.entry.closed button.entry-toggle::after{content:"\25B8"}
+.entry-sum{margin:2px 0 0;color:var(--ink-2);font-size:.97em}
+.entry-sum .entry-sum-l{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-right:8px}
+.entry-body[hidden],.entry-sum[hidden]{display:none!important}
+.entry.closed{padding-bottom:14px}
+.entry-tools{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:6px 0 18px}
+.entry-tools button{font:600 13px var(--sans);color:var(--ink);background:var(--surface);border:1px solid var(--rule-strong);border-radius:999px;padding:6px 14px;cursor:pointer}
+.entry-tools button:hover{border-color:var(--accent);color:var(--accent)}
+.entry-tools .entry-count{font-family:var(--mono);font-size:12px;color:var(--ink-3);margin-left:4px}
+@media print{.entry-body[hidden]{display:block!important}.entry-sum,.entry-tools{display:none!important}button.entry-toggle::after{content:none}}
+</style>
 
 
 <div class="bar">
@@ -759,8 +776,12 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
   <h2>The nineteen terms</h2>
 </section>
 
+<div class="entry-tools" id="entryTools"><button type="button" id="expandAll">Expand all</button><button type="button" id="collapseAll">Collapse all</button><span class="entry-count" id="entryCount"></span></div>
+
 <article class="entry" id="e1">
-  <div class="entry-head"><span class="entry-num">01</span><h2>Autarky</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e1-body"><span class="entry-num">01</span><h2>Autarky</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>A country that does not trade with the rest of the world.</p>
+  <div class="entry-body" id="e1-body">
   <div class="defn"><span class="lbl">Definition</span><p>A country that does <b>not trade</b> with the rest of the world. Its market settles at its own domestic equilibrium.</p></div>
   <p class="reading">Reference book, page 428.</p>
 
@@ -789,10 +810,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because the gains and losses from trade are measured as changes from it. Without the no-trade equilibrium there is nothing to compare free trade with.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got1"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e2">
-  <div class="entry-head"><span class="entry-num">02</span><h2>World price</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e2-body"><span class="entry-num">02</span><h2>World price</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>The price at which the rest of the world will buy or sell any quantity of a good.</p>
+  <div class="entry-body" id="e2-body">
   <div class="defn"><span class="lbl">Definition</span><p>The price at which the rest of the world will buy or sell <b>any quantity</b> of a good. A country open to trade faces it in place of its own equilibrium price.</p></div>
   <p class="reading">Reference book, page 425, Figures 27.5 and 27.6.</p>
 
@@ -820,10 +844,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Yes &mdash; it imports whenever the world price is below its autarky price, which means other countries can supply it more cheaply. Domestic producers keep supplying the part they can sell at the world price.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got2"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e3">
-  <div class="entry-head"><span class="entry-num">03</span><h2>A small country is a price taker</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e3-body"><span class="entry-num">03</span><h2>A small country is a price taker</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>The world market is so large that one country's purchases or sales cannot move the world price.</p>
+  <div class="entry-body" id="e3-body">
   <div class="defn"><span class="lbl">Definition</span><p>The world market is so large that one country's purchases or sales cannot move the world price. It faces a <b>perfectly elastic</b> world supply: a horizontal line at <i>P</i><sub>w</sub>.</p></div>
   <p class="reading">Reference book, pages 438 and 445.</p>
 
@@ -852,10 +879,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because with a horizontal world supply, a $1 tariff raises the domestic price of imports by the full $1. If the country could push the world price down, part of the tariff would fall on foreign sellers.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got3"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e4">
-  <div class="entry-head"><span class="entry-num">04</span><h2>A world price below autarky</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e4-body"><span class="entry-num">04</span><h2>A world price below autarky</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>When the world price is below the autarky price, the domestic price falls to it: quantity demanded rises, domestic quantity supplied falls, and the country imports.</p>
+  <div class="entry-body" id="e4-body">
   <div class="defn"><span class="lbl">Definition</span><p>When the world price is <b>below</b> the autarky price, the domestic price falls to it: quantity demanded <b>rises</b>, domestic quantity supplied <b>falls</b>, and the country <b>imports</b>.</p></div>
   <p class="reading">Reference book, page 425, Figure 27.6.</p>
 
@@ -887,10 +917,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Domestic producers: they sell less, at a lower price. Who gains is entry 7.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got4"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e5">
-  <div class="entry-head"><span class="entry-num">05</span><h2>A world price above autarky</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e5-body"><span class="entry-num">05</span><h2>A world price above autarky</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>When the world price is above the autarky price, the domestic price rises to it: domestic quantity supplied rises, quantity demanded falls, and the country exports the difference.</p>
+  <div class="entry-body" id="e5-body">
   <div class="defn"><span class="lbl">Definition</span><p>When the world price is <b>above</b> the autarky price, the domestic price rises to it: domestic quantity supplied <b>rises</b>, quantity demanded <b>falls</b>, and the country <b>exports</b> the difference.</p></div>
   <p class="reading">Reference book, page 425, Figure 27.5.</p>
 
@@ -922,10 +955,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Qs = 100 &minus; 20 = 80 and Qd = 120 &minus; 100 = 20, so exports are 60 thousand kilograms.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got5"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e6">
-  <div class="entry-head"><span class="entry-num">06</span><h2>Trade fills the gap</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e6-body"><span class="entry-num">06</span><h2>Trade fills the gap</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Imports equal domestic quantity demanded minus domestic quantity supplied; exports equal domestic quantity supplied minus domestic quantity demanded, both at the world price.</p>
+  <div class="entry-body" id="e6-body">
   <div class="defn"><span class="lbl">Definition</span><p>Imports equal domestic quantity demanded <b>minus</b> domestic quantity supplied; exports equal domestic quantity supplied <b>minus</b> domestic quantity demanded, both at the world price.</p></div>
   <p class="reading">Reference book, pages 425 and 442.</p>
 
@@ -954,10 +990,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because once the market is open, the world price is the price everyone faces. At the autarky price there is no gap at all.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got6"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e7">
-  <div class="entry-head"><span class="entry-num">07</span><h2>Who gains when a country imports</h2><span class="mark flag">&#9733; &#9873;</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e7-body"><span class="entry-num">07</span><h2>Who gains when a country imports</h2><span class="mark flag">&#9733; &#9873;</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>When a country opens to imports, consumers gain &mdash; they pay less and buy more &mdash; and domestic producers lose.</p>
+  <div class="entry-body" id="e7-body">
   <div class="defn"><span class="lbl">Definition</span><p>When a country opens to imports, <b>consumers gain</b> &mdash; they pay less and buy more &mdash; and <b>domestic producers lose</b>. Consumers gain more than producers lose.</p></div>
   <p class="reading">Not in your textbook &mdash; your reference book draws the diagram but never measures it.</p>
 
@@ -995,10 +1034,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because the lower price is partly a transfer from producers to consumers, and on top of that consumers buy units that were never worth producing at home. That extra triangle is the net gain.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got7"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e8">
-  <div class="entry-head"><span class="entry-num">08</span><h2>Who gains when a country exports</h2><span class="mark flag">&#9733; &#9873;</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e8-body"><span class="entry-num">08</span><h2>Who gains when a country exports</h2><span class="mark flag">&#9733; &#9873;</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>When a country opens to exports, producers gain &mdash; they sell more at a higher price &mdash; and domestic consumers lose, because they now pay the world price too.</p>
+  <div class="entry-body" id="e8-body">
   <div class="defn"><span class="lbl">Definition</span><p>When a country opens to exports, <b>producers gain</b> &mdash; they sell more at a higher price &mdash; and <b>domestic consumers lose</b>, because they now pay the world price too. Producers gain more than consumers lose.</p></div>
   <p class="reading">Not in your textbook &mdash; the exporting diagram is there, the surplus is not.</p>
 
@@ -1035,10 +1077,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Domestic consumers &mdash; and firms that use the good as an input. In the importing case it is domestic producers.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got8"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e9">
-  <div class="entry-head"><span class="entry-num">09</span><h2>Total economic surplus rises with trade</h2><span class="mark flag">&#9733; &#9873;</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e9-body"><span class="entry-num">09</span><h2>Total economic surplus rises with trade</h2><span class="mark flag">&#9733; &#9873;</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Opening to trade raises total economic surplus in either direction.</p>
+  <div class="entry-body" id="e9-body">
   <div class="defn"><span class="lbl">Definition</span><p>Opening to trade <b>raises total economic surplus</b> in either direction. The gain is the <b>triangle</b> between domestic demand and domestic supply, out to the world price.</p></div>
   <p class="reading">Not in your textbook &mdash; it calls the total &ldquo;social surplus&rdquo; and never measures it for trade.</p>
 
@@ -1073,10 +1118,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because each extra unit traded is worth a little less than the one before. The first imported kilogram saves nearly the whole $3 price gap; the last saves almost nothing.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got9"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e10">
-  <div class="entry-head"><span class="entry-num">10</span><h2>Tariff</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e10-body"><span class="entry-num">10</span><h2>Tariff</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>A tax on imported goods.</p>
+  <div class="entry-body" id="e10-body">
   <div class="defn"><span class="lbl">Definition</span><p>A <b>tax on imported</b> goods. In your course it is a per-unit tax: a fixed amount on each imported unit.</p></div>
   <p class="reading">Reference book, page 437.</p>
 
@@ -1105,10 +1153,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because domestic and imported olives are the same good. Domestic growers can charge what an imported kilogram costs, so they do.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got10"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e11">
-  <div class="entry-head"><span class="entry-num">11</span><h2>What a tariff does to prices and quantities</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e11-body"><span class="entry-num">11</span><h2>What a tariff does to prices and quantities</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>A tariff raises the domestic price by the tariff.</p>
+  <div class="entry-body" id="e11-body">
   <div class="defn"><span class="lbl">Definition</span><p>A tariff raises the domestic price by the tariff. Domestic production <b>rises</b>, domestic consumption <b>falls</b>, and imports fall from both ends.</p></div>
   <p class="reading">Reference book, pages 437&ndash;438, Figure 28.2.</p>
 
@@ -1142,10 +1193,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>$3, because it raises the domestic price to $7, the autarky price, where domestic quantity supplied equals quantity demanded.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got11"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e12">
-  <div class="entry-head"><span class="entry-num">12</span><h2>Tariff revenue</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e12-body"><span class="entry-num">12</span><h2>Tariff revenue</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>The government collects the tariff on each unit still imported: tariff &times; (quantity demanded &minus; domestic quantity supplied) at the new price.</p>
+  <div class="entry-body" id="e12-body">
   <div class="defn"><span class="lbl">Definition</span><p>The government collects the <b>tariff on each unit still imported</b>: tariff &times; (quantity demanded &minus; domestic quantity supplied) at the new price.</p></div>
   <p class="reading">Reference book, page 444.</p>
 
@@ -1174,10 +1228,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because revenue is the rate times the imports that remain, and imports fall as the rate rises. Push the tariff high enough and imports, and revenue, fall to zero.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got12"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e13">
-  <div class="entry-head"><span class="entry-num">13</span><h2>The tariff's surplus account</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e13-body"><span class="entry-num">13</span><h2>The tariff's surplus account</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>A tariff lowers consumer surplus; part of the loss goes to domestic producers, part to the government, and two triangles go to nobody.</p>
+  <div class="entry-body" id="e13-body">
   <div class="defn"><span class="lbl">Definition</span><p>A tariff <b>lowers consumer surplus</b>; part of the loss goes to <b>domestic producers</b>, part to the <b>government</b>, and two triangles go to <b>nobody</b>.</p></div>
   <p class="reading">Reference book, pages 438&ndash;440 and 444, Figures 28.2 and 28.5.</p>
 
@@ -1214,10 +1271,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>A tariff of zero. Any positive tariff creates a deadweight loss, so free trade gives the largest total.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got13"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e14">
-  <div class="entry-head"><span class="entry-num">14</span><h2>Deadweight loss of a tariff</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e14-body"><span class="entry-num">14</span><h2>Deadweight loss of a tariff</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Two triangles: one for domestic production that costs more than the world price, and one for consumption that no longer happens.</p>
+  <div class="entry-body" id="e14-body">
   <div class="defn"><span class="lbl">Definition</span><p><b>Two triangles</b>: one for domestic production that costs more than the world price, and one for consumption that no longer happens. Your reference book calls it <b>welfare loss</b>.</p></div>
   <p class="reading">Reference book, pages 440 and 444.</p>
 
@@ -1250,10 +1310,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because both the base and the height of each triangle double: twice the price gap, and twice the lost quantity.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got14"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e15">
-  <div class="entry-head"><span class="entry-num">15</span><h2>Quota</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e15-body"><span class="entry-num">15</span><h2>Quota</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>A legal limit on the quantity of a good that may be imported.</p>
+  <div class="entry-body" id="e15-body">
   <div class="defn"><span class="lbl">Definition</span><p>A legal <b>limit on the quantity</b> of a good that may be imported.</p></div>
   <p class="reading">Reference book, page 445.</p>
 
@@ -1282,10 +1345,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Explain how it changes the quantity imported and produced, the domestic price, consumer surplus and total economic surplus.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got15"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e16">
-  <div class="entry-head"><span class="entry-num">16</span><h2>What a quota does</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e16-body"><span class="entry-num">16</span><h2>What a quota does</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>A quota raises the domestic price until imports equal the quota.</p>
+  <div class="entry-body" id="e16-body">
   <div class="defn"><span class="lbl">Definition</span><p>A quota raises the domestic price until imports equal the quota. The effects on price, quantities and deadweight loss match the equivalent tariff &mdash; but the government collects <b>nothing</b>.</p></div>
   <p class="reading">Reference book, pages 445&ndash;446.</p>
 
@@ -1316,10 +1382,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Whoever holds the right to import &mdash; the licence holders. It is called quota rent.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got16"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e17">
-  <div class="entry-head"><span class="entry-num">17</span><h2>Tariff and quota compared</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e17-body"><span class="entry-num">17</span><h2>Tariff and quota compared</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Set to restrict imports equally, a tariff and a quota give the same price, quantities, consumer-surplus loss, producer-surplus gain and deadweight loss.</p>
+  <div class="entry-body" id="e17-body">
   <div class="defn"><span class="lbl">Definition</span><p>Set to restrict imports equally, a tariff and a quota give the <b>same price, quantities, consumer-surplus loss, producer-surplus gain and deadweight loss</b>. Only the tariff raises <b>government revenue</b>.</p></div>
   <p class="reading">Reference book, pages 437&ndash;447.</p>
 
@@ -1356,10 +1425,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because it keeps the rectangle as revenue rather than handing it to licence holders &mdash; the same protection, with money for the government.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got17"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e18">
-  <div class="entry-head"><span class="entry-num">18</span><h2>Calculating from a linear graph</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e18-body"><span class="entry-num">18</span><h2>Calculating from a linear graph</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Every number in this topic is an area or a gap on a straight-line graph: quantities from the curves, rectangles for revenue, triangles for surplus and deadweight loss.</p>
+  <div class="entry-body" id="e18-body">
   <div class="defn"><span class="lbl">Definition</span><p>Every number in this topic is an <b>area</b> or a <b>gap</b> on a straight-line graph: quantities from the curves, rectangles for revenue, triangles for surplus and deadweight loss.</p></div>
   <p class="reading">Reference book, pages 440&ndash;444.</p>
 
@@ -1394,10 +1466,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because the triangle method assumes the curve is a straight line to the intercept. Its points are not on one straight line; these are.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got18"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e19">
-  <div class="entry-head"><span class="entry-num">19</span><h2>Protectionism and other barriers</h2><span class="mark bgm">&#9675; Background</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e19-body"><span class="entry-num">19</span><h2>Protectionism and other barriers</h2><span class="mark bgm">&#9675; Background</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Protectionism is any policy that shields domestic producers from foreign competition.</p>
+  <div class="entry-body" id="e19-body">
   <div class="defn"><span class="lbl">Definition</span><p><b>Protectionism</b> is any policy that shields domestic producers from foreign competition. Besides tariffs and quotas it includes subsidies to domestic firms and administrative barriers such as standards and regulations.</p></div>
   <p class="reading">Reference book, pages 436 and 448&ndash;454, and Chapter 29.</p>
 
@@ -1428,6 +1503,7 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. For a small price-taking country, every barrier creates a deadweight loss. The arguments for protection rest on things the model leaves out, such as jobs or security.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got19"> Got it</label>
   </div>
+</div>
 </article>
 
 
@@ -1710,6 +1786,60 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       }
     })(mcqs[mi]);
   }
+})();
+</script>
+<script id="entry-toggle-js">
+(function(){
+  var OPENKEY = "t29-got-open";
+  var arts = [].slice.call(document.querySelectorAll("article.entry"));
+  function load(){ try { return JSON.parse(localStorage.getItem(OPENKEY) || "{}") || {}; } catch(e){ return {}; } }
+  function save(o){ try { localStorage.setItem(OPENKEY, JSON.stringify(o)); } catch(e){} }
+  function parts(a){ return { btn: a.querySelector(".entry-toggle"), sum: a.querySelector(".entry-sum"),
+                              body: a.querySelector(".entry-body") }; }
+  function set(a, open){
+    var p = parts(a);
+    if (!p.btn || !p.body) return;
+    if (open){ p.body.removeAttribute("hidden"); p.sum.setAttribute("hidden", "hidden"); a.classList.remove("closed"); }
+    else { p.body.setAttribute("hidden", "hidden"); p.sum.removeAttribute("hidden"); a.classList.add("closed"); }
+    p.btn.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+  function count(){
+    var n = arts.filter(function(a){ return !a.classList.contains("closed"); }).length;
+    var c = document.getElementById("entryCount");
+    if (c) c.textContent = n + " of " + arts.length + " open";
+  }
+  function remember(){
+    var o = {};
+    arts.forEach(function(a){ if (a.classList.contains("closed")) o[a.id] = 1; });
+    save(o);
+  }
+  var closed = load();
+  arts.forEach(function(a){
+    if (closed[a.id]) set(a, false);
+    var p = parts(a);
+    if (p.btn) p.btn.addEventListener("click", function(){
+      set(a, a.classList.contains("closed")); remember(); count();
+    });
+  });
+  function all(open){ arts.forEach(function(a){ set(a, open); }); remember(); count(); }
+  var ea = document.getElementById("expandAll"), ca = document.getElementById("collapseAll");
+  if (ea) ea.addEventListener("click", function(){ all(true); });
+  if (ca) ca.addEventListener("click", function(){ all(false); });
+  function openTarget(hash){
+    var m = /^#(e\d+)$/.exec(hash || "");
+    if (!m) return;
+    var a = document.getElementById(m[1]);
+    if (a && a.classList.contains("closed")){ set(a, true); remember(); count(); }
+  }
+  document.addEventListener("click", function(ev){
+    var l = ev.target.closest ? ev.target.closest('a[href^="#e"]') : null;
+    if (l) openTarget(l.getAttribute("href"));
+  }, true);
+  window.addEventListener("hashchange", function(){ openTarget(location.hash); });
+  openTarget(location.hash);
+  var rb = document.getElementById("resetBtn");
+  if (rb) rb.addEventListener("click", function(){ save({}); arts.forEach(function(a){ set(a, true); }); count(); });
+  count();
 })();
 </script>
 </main>

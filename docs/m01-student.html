@@ -208,6 +208,23 @@ tbody tr:last-child td{border-bottom:none}
 @media print{.bar,.got,.chips{display:none}body{background:#fff}details.reveal > *{display:block!important}.entry{break-inside:avoid-page}}
 @media (max-width:520px){.toc{columns:1}.ro .v{font-size:19px}}
 </style>
+<style id="entry-toggle-css">
+/* collapsible term entries: build/collapsible.py */
+:where(button.entry-toggle){padding:0;margin:0}
+button.entry-toggle{font:inherit;color:inherit;background:none;border:0;width:100%;text-align:left;cursor:pointer}
+button.entry-toggle:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:4px}
+button.entry-toggle::after{content:"\25BE";margin-left:auto;align-self:center;font-family:var(--mono);font-size:15px;color:var(--ink-3);padding-left:8px}
+.entry.closed button.entry-toggle::after{content:"\25B8"}
+.entry-sum{margin:2px 0 0;color:var(--ink-2);font-size:.97em}
+.entry-sum .entry-sum-l{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-right:8px}
+.entry-body[hidden],.entry-sum[hidden]{display:none!important}
+.entry.closed{padding-bottom:14px}
+.entry-tools{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:6px 0 18px}
+.entry-tools button{font:600 13px var(--sans);color:var(--ink);background:var(--surface);border:1px solid var(--rule-strong);border-radius:999px;padding:6px 14px;cursor:pointer}
+.entry-tools button:hover{border-color:var(--accent);color:var(--accent)}
+.entry-tools .entry-count{font-family:var(--mono);font-size:12px;color:var(--ink-3);margin-left:4px}
+@media print{.entry-body[hidden]{display:block!important}.entry-sum,.entry-tools{display:none!important}button.entry-toggle::after{content:none}}
+</style>
 
 
 <div class="bar">
@@ -319,8 +336,12 @@ tbody tr:last-child td{border-bottom:none}
 
 <!-- ============ ENTRIES ============ -->
 
+<div class="entry-tools" id="entryTools"><button type="button" id="expandAll">Expand all</button><button type="button" id="collapseAll">Collapse all</button><span class="entry-count" id="entryCount"></span></div>
+
 <article class="entry" id="e1">
-  <div class="entry-head"><span class="entry-num">01</span><h2>Economics</h2><span class="mark exam">★ Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e1-body"><span class="entry-num">01</span><h2>Economics</h2><span class="mark exam">★ Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Economics is the study of scarcity and choice.</p>
+  <div class="entry-body" id="e1-body">
   <div class="defn"><span class="lbl">Definition</span><p>Economics is the study of <b>scarcity and
   choice</b>.</p></div>
   <p class="reading">Textbook page 2.</p>
@@ -372,10 +393,13 @@ tbody tr:last-child td{border-bottom:none}
       worked, then it is.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="g1"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e2">
-  <div class="entry-head"><span class="entry-num">02</span><h2>Scarcity</h2><span class="mark exam">★ Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e2-body"><span class="entry-num">02</span><h2>Scarcity</h2><span class="mark exam">★ Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>A resource is scarce when there is not enough of it available to satisfy all the different ways a society wants to use it.</p>
+  <div class="entry-body" id="e2-body">
   <div class="defn"><span class="lbl">Definition</span><p>A resource is <b>scarce</b> when there is not
   enough of it available to satisfy all the different ways a society wants to use it.</p></div>
   <p class="reading">Textbook pages 3–4.</p>
@@ -432,10 +456,13 @@ tbody tr:last-child td{border-bottom:none}
       stop anyone else using it, so no use competes with another.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="g2"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e3">
-  <div class="entry-head"><span class="entry-num">03</span><h2>Resources (factors of production)</h2><span class="mark exam">★ Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e3-body"><span class="entry-num">03</span><h2>Resources (factors of production)</h2><span class="mark exam">★ Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>A resource is anything that can be used to produce something else.</p>
+  <div class="entry-body" id="e3-body">
   <div class="defn"><span class="lbl">Definition</span>
     <p>A <b>resource</b> is anything that can be used to produce something else. Resources are
     sometimes called <b>factors of production</b> and fall into four categories:</p>
@@ -486,10 +513,13 @@ tbody tr:last-child td{border-bottom:none}
       capital is what it buys.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="g3"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e4">
-  <div class="entry-head"><span class="entry-num">04</span><h2>Individual choice</h2><span class="mark exam">★ Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e4-body"><span class="entry-num">04</span><h2>Individual choice</h2><span class="mark exam">★ Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Individual choice is decisions by individuals about what to do, which necessarily involve decisions about what not to do.</p>
+  <div class="entry-body" id="e4-body">
   <div class="defn"><span class="lbl">Definition</span><p>Individual choice is decisions by individuals
   about <b>what to do</b>, which necessarily involve decisions about <b>what not to do</b>.</p></div>
   <p class="reading">Textbook page 2.</p>
@@ -536,10 +566,13 @@ tbody tr:last-child td{border-bottom:none}
       case being analysed.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="g4"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e5">
-  <div class="entry-head"><span class="entry-num">05</span><h2>Opportunity cost</h2><span class="mark exam">★ Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e5-body"><span class="entry-num">05</span><h2>Opportunity cost</h2><span class="mark exam">★ Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>The real cost of an item is its opportunity cost: what you must give up in order to get it.</p>
+  <div class="entry-body" id="e5-body">
   <div class="defn"><span class="lbl">Definition</span><p>The real cost of an item is its <b>opportunity
   cost</b>: what you must give up in order to get it.</p></div>
   <p class="reading">Textbook pages 4–5.</p>
@@ -619,6 +652,7 @@ tbody tr:last-child td{border-bottom:none}
       different opportunity cost — which is why price never measures cost on its own.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="g5"> Got it</label>
   </div>
+</div>
 </article>
 
 <section class="section">
@@ -630,7 +664,9 @@ tbody tr:last-child td{border-bottom:none}
 </section>
 
 <article class="entry" id="e6">
-  <div class="entry-head"><span class="entry-num">06</span><h2>Marginal benefit and marginal cost</h2><span class="mark exam">★ Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e6-body"><span class="entry-num">06</span><h2>Marginal benefit and marginal cost</h2><span class="mark exam">★ Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Marginal benefit is the gain from doing something one more time.</p>
+  <div class="entry-body" id="e6-body">
   <div class="defn"><span class="lbl">Definition</span><p><b>Marginal benefit</b> is the gain from doing
   something <b>one more time</b>. <b>Marginal cost</b> is what that one extra time costs.</p></div>
   <p class="reading">Textbook page 3. Topics 1.5 and 1.6.</p>
@@ -678,10 +714,13 @@ tbody tr:last-child td{border-bottom:none}
       it adds less.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="g6"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e7">
-  <div class="entry-head"><span class="entry-num">07</span><h2>Marginal analysis</h2><span class="mark exam">★ Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e7-body"><span class="entry-num">07</span><h2>Marginal analysis</h2><span class="mark exam">★ Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>The study of the costs and benefits of doing a little bit more of an activity versus a little bit less.</p>
+  <div class="entry-body" id="e7-body">
   <div class="defn"><span class="lbl">Definition</span><p>The study of the costs and benefits of doing
   <b>a little bit more</b> of an activity versus a little bit less.</p></div>
   <p class="reading">Textbook page 3. Topic 1.6.</p>
@@ -727,10 +766,13 @@ tbody tr:last-child td{border-bottom:none}
       unit.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="g7"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e8">
-  <div class="entry-head"><span class="entry-num">08</span><h2>Economy</h2><span class="mark bg">○ Background</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e8-body"><span class="entry-num">08</span><h2>Economy</h2><span class="mark bg">○ Background</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>An economy is a system for coordinating a society's productive and consumptive activities.</p>
+  <div class="entry-body" id="e8-body">
   <div class="defn"><span class="lbl">Definition</span><p>An economy is a <b>system for coordinating</b>
   a society's productive and consumptive activities.</p></div>
   <p class="reading">Textbook page 2.</p>
@@ -776,10 +818,13 @@ tbody tr:last-child td{border-bottom:none}
       produce it; for whom — who ends up consuming it.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="g8"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e9">
-  <div class="entry-head"><span class="entry-num">09</span><h2>Market economy</h2><span class="mark exam">★ Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e9-body"><span class="entry-num">09</span><h2>Market economy</h2><span class="mark exam">★ Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>In a market economy, the decisions of individual producers and consumers largely determine what, how and for whom to produce, with little government involvement in those decisions.</p>
+  <div class="entry-body" id="e9-body">
   <div class="defn"><span class="lbl">Definition</span><p>In a market economy, the decisions of
   <b>individual producers and consumers</b> largely determine what, how and for whom to produce, with
   little government involvement in those decisions.</p></div>
@@ -823,10 +868,13 @@ tbody tr:last-child td{border-bottom:none}
       do not settle the question.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="g9"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e10">
-  <div class="entry-head"><span class="entry-num">10</span><h2>Command economy</h2><span class="mark exam">★ Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e10-body"><span class="entry-num">10</span><h2>Command economy</h2><span class="mark exam">★ Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>In a command economy, industry is publicly owned and a central authority makes the production and consumption decisions.</p>
+  <div class="entry-body" id="e10-body">
   <div class="defn"><span class="lbl">Definition</span><p>In a command economy, industry is <b>publicly
   owned</b> and a <b>central authority</b> makes the production and consumption decisions.</p></div>
   <p class="reading">Textbook pages 2–3. Topic 1.2, MKT-1.B.2.</p>
@@ -868,10 +916,13 @@ tbody tr:last-child td{border-bottom:none}
       anyone has a reason to act on.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="g10"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e11">
-  <div class="entry-head"><span class="entry-num">11</span><h2>Mixed economy</h2><span class="mark exam">★ Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e11-body"><span class="entry-num">11</span><h2>Mixed economy</h2><span class="mark exam">★ Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>An economy in which both markets and government make resource allocation decisions — which is what every real economy is.</p>
+  <div class="entry-body" id="e11-body">
   <div class="defn"><span class="lbl">Definition</span><p>An economy in which <b>both markets and
   government</b> make resource allocation decisions — which is what every real economy is.</p></div>
   <p class="reading">Not in your textbook. Topic 1.2, MKT-1.B.2.</p>
@@ -923,10 +974,13 @@ tbody tr:last-child td{border-bottom:none}
       This is a gap between the book and the framework, and you close it here.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="g11"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e12">
-  <div class="entry-head"><span class="entry-num">12</span><h2>Incentives</h2><span class="mark exam">★ Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e12-body"><span class="entry-num">12</span><h2>Incentives</h2><span class="mark exam">★ Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Incentives are rewards or punishments that motivate particular choices.</p>
+  <div class="entry-body" id="e12-body">
   <div class="defn"><span class="lbl">Definition</span><p>Incentives are <b>rewards or punishments</b>
   that motivate particular choices.</p></div>
   <p class="reading">Textbook pages 2–3. Topic 2.1, MKT-3.A.2.</p>
@@ -976,10 +1030,13 @@ tbody tr:last-child td{border-bottom:none}
       directions.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="g12"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e13">
-  <div class="entry-head"><span class="entry-num">13</span><h2>Property rights</h2><span class="mark exam">★ Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e13-body"><span class="entry-num">13</span><h2>Property rights</h2><span class="mark exam">★ Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Property rights establish ownership and grant individuals the right to trade goods and services with one another.</p>
+  <div class="entry-body" id="e13-body">
   <div class="defn"><span class="lbl">Definition</span><p>Property rights establish <b>ownership</b> and
   grant individuals the <b>right to trade</b> goods and services with one another.</p></div>
   <p class="reading">Textbook page 3. Topic 2.1, MKT-3.A.1; Topic 6.2, POL-3.A.2.</p>
@@ -1026,10 +1083,13 @@ tbody tr:last-child td{border-bottom:none}
       Owning something you may not sell or exchange does not create a market.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="g13"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e14">
-  <div class="entry-head"><span class="entry-num">14</span><h2>Microeconomics and macroeconomics</h2><span class="mark bg">○ But read this one</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e14-body"><span class="entry-num">14</span><h2>Microeconomics and macroeconomics</h2><span class="mark bg">○ But read this one</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Microeconomics is the study of how people make decisions and how those decisions interact.</p>
+  <div class="entry-body" id="e14-body">
   <div class="defn"><span class="lbl">Definitions</span>
     <p><b>Microeconomics</b> is the study of how people make decisions and how those decisions interact.</p>
     <p><b>Macroeconomics</b> is concerned with the overall ups and downs in the economy.</p>
@@ -1082,10 +1142,13 @@ tbody tr:last-child td{border-bottom:none}
       down and they can all earn less. Standing at a concert works as well.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="g14"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e15">
-  <div class="entry-head"><span class="entry-num">15</span><h2>Economic aggregates</h2><span class="mark bg">○ Background</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e15-body"><span class="entry-num">15</span><h2>Economic aggregates</h2><span class="mark bg">○ Background</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Economic measures that summarise data across many different markets.</p>
+  <div class="entry-body" id="e15-body">
   <div class="defn"><span class="lbl">Definition</span><p>Economic measures that <b>summarise data
   across many different markets</b>.</p></div>
   <p class="reading">Textbook page 5.</p>
@@ -1132,10 +1195,13 @@ tbody tr:last-child td{border-bottom:none}
       once. None of them is examined in this course.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="g15"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e16">
-  <div class="entry-head"><span class="entry-num">16</span><h2>Positive and normative economics</h2><span class="mark bg">○ Background</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e16-body"><span class="entry-num">16</span><h2>Positive and normative economics</h2><span class="mark bg">○ Background</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Positive economics describes the way the economy actually works.</p>
+  <div class="entry-body" id="e16-body">
   <div class="defn"><span class="lbl">Definitions</span>
     <p><b>Positive economics</b> describes the way the economy <b>actually works</b>.</p>
     <p><b>Normative economics</b> makes prescriptions about the way the economy <b>should work</b>.</p>
@@ -1182,10 +1248,13 @@ tbody tr:last-child td{border-bottom:none}
       That is a question about values, not arithmetic.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="g16"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e17">
-  <div class="entry-head"><span class="entry-num">17</span><h2>Economic model</h2><span class="mark bg">○ But read this one</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e17-body"><span class="entry-num">17</span><h2>Economic model</h2><span class="mark bg">○ But read this one</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>A simplified representation of reality, such as a graph or an equation, used to understand a real situation.</p>
+  <div class="entry-body" id="e17-body">
   <div class="defn"><span class="lbl">Definition</span><p>A <b>simplified representation</b> of reality,
   such as a graph or an equation, used to understand a real situation.</p></div>
   <p class="reading">Textbook pages 6–8.</p>
@@ -1232,6 +1301,7 @@ tbody tr:last-child td{border-bottom:none}
       out changes the answer to the question being asked. Usually it does not.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="g17"> Got it</label>
   </div>
+</div>
 </article>
 
 <!-- ============ QUIZ ============ -->
@@ -1520,6 +1590,60 @@ tbody tr:last-child td{border-bottom:none}
       });
     });
   });
+})();
+</script>
+<script id="entry-toggle-js">
+(function(){
+  var OPENKEY = "micro-mod1-progress-open";
+  var arts = [].slice.call(document.querySelectorAll("article.entry"));
+  function load(){ try { return JSON.parse(localStorage.getItem(OPENKEY) || "{}") || {}; } catch(e){ return {}; } }
+  function save(o){ try { localStorage.setItem(OPENKEY, JSON.stringify(o)); } catch(e){} }
+  function parts(a){ return { btn: a.querySelector(".entry-toggle"), sum: a.querySelector(".entry-sum"),
+                              body: a.querySelector(".entry-body") }; }
+  function set(a, open){
+    var p = parts(a);
+    if (!p.btn || !p.body) return;
+    if (open){ p.body.removeAttribute("hidden"); p.sum.setAttribute("hidden", "hidden"); a.classList.remove("closed"); }
+    else { p.body.setAttribute("hidden", "hidden"); p.sum.removeAttribute("hidden"); a.classList.add("closed"); }
+    p.btn.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+  function count(){
+    var n = arts.filter(function(a){ return !a.classList.contains("closed"); }).length;
+    var c = document.getElementById("entryCount");
+    if (c) c.textContent = n + " of " + arts.length + " open";
+  }
+  function remember(){
+    var o = {};
+    arts.forEach(function(a){ if (a.classList.contains("closed")) o[a.id] = 1; });
+    save(o);
+  }
+  var closed = load();
+  arts.forEach(function(a){
+    if (closed[a.id]) set(a, false);
+    var p = parts(a);
+    if (p.btn) p.btn.addEventListener("click", function(){
+      set(a, a.classList.contains("closed")); remember(); count();
+    });
+  });
+  function all(open){ arts.forEach(function(a){ set(a, open); }); remember(); count(); }
+  var ea = document.getElementById("expandAll"), ca = document.getElementById("collapseAll");
+  if (ea) ea.addEventListener("click", function(){ all(true); });
+  if (ca) ca.addEventListener("click", function(){ all(false); });
+  function openTarget(hash){
+    var m = /^#(e\d+)$/.exec(hash || "");
+    if (!m) return;
+    var a = document.getElementById(m[1]);
+    if (a && a.classList.contains("closed")){ set(a, true); remember(); count(); }
+  }
+  document.addEventListener("click", function(ev){
+    var l = ev.target.closest ? ev.target.closest('a[href^="#e"]') : null;
+    if (l) openTarget(l.getAttribute("href"));
+  }, true);
+  window.addEventListener("hashchange", function(){ openTarget(location.hash); });
+  openTarget(location.hash);
+  var rb = document.getElementById("resetBtn");
+  if (rb) rb.addEventListener("click", function(){ save({}); arts.forEach(function(a){ set(a, true); }); count(); });
+  count();
 })();
 </script>
 </main>

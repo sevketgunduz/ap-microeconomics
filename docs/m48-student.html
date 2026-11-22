@@ -542,6 +542,23 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
 .sorter .verdict.no{color:var(--down)}
 @media (max-width:620px){.ident-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style>
+<style id="entry-toggle-css">
+/* collapsible term entries: build/collapsible.py */
+:where(button.entry-toggle){padding:0;margin:0}
+button.entry-toggle{font:inherit;color:inherit;background:none;border:0;width:100%;text-align:left;cursor:pointer}
+button.entry-toggle:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:4px}
+button.entry-toggle::after{content:"\25BE";margin-left:auto;align-self:center;font-family:var(--mono);font-size:15px;color:var(--ink-3);padding-left:8px}
+.entry.closed button.entry-toggle::after{content:"\25B8"}
+.entry-sum{margin:2px 0 0;color:var(--ink-2);font-size:.97em}
+.entry-sum .entry-sum-l{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-right:8px}
+.entry-body[hidden],.entry-sum[hidden]{display:none!important}
+.entry.closed{padding-bottom:14px}
+.entry-tools{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:6px 0 18px}
+.entry-tools button{font:600 13px var(--sans);color:var(--ink);background:var(--surface);border:1px solid var(--rule-strong);border-radius:999px;padding:6px 14px;cursor:pointer}
+.entry-tools button:hover{border-color:var(--accent);color:var(--accent)}
+.entry-tools .entry-count{font-family:var(--mono);font-size:12px;color:var(--ink-3);margin-left:4px}
+@media print{.entry-body[hidden]{display:block!important}.entry-sum,.entry-tools{display:none!important}button.entry-toggle::after{content:none}}
+</style>
 
 
 <div class="bar">
@@ -686,8 +703,12 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
   <h2>The nineteen terms</h2>
 </section>
 
+<div class="entry-tools" id="entryTools"><button type="button" id="expandAll">Expand all</button><button type="button" id="collapseAll">Collapse all</button><span class="entry-count" id="entryCount"></span></div>
+
 <article class="entry" id="e1">
-  <div class="entry-head"><span class="entry-num">01</span><h2>Elasticity beyond price</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e1-body"><span class="entry-num">01</span><h2>Elasticity beyond price</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Elasticity measures how responsive any variable is to a change in any other.</p>
+  <div class="entry-body" id="e1-body">
   <div class="defn"><span class="lbl">Definition</span><p>Elasticity measures how responsive <b>any</b> variable is to a change in <b>any</b> other. Price and quantity demanded were only the first pair.</p></div>
   <p class="reading">Textbook page 475.</p>
 
@@ -716,10 +737,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because there are now three elasticities in play. Price-elastic, income-elastic and cross-price are different measurements and can point different ways for the same good.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got1"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e2">
-  <div class="entry-head"><span class="entry-num">02</span><h2>Cross-price elasticity of demand</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e2-body"><span class="entry-num">02</span><h2>Cross-price elasticity of demand</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>The percentage change in the quantity demanded of one good, divided by the percentage change in the price of another.</p>
+  <div class="entry-body" id="e2-body">
   <div class="defn"><span class="lbl">Definition</span><p>The percentage change in the quantity demanded of <b>one</b> good, divided by the percentage change in the price of <b>another</b>.</p></div>
   <p class="reading">Textbook page 475, Equation 48-1.</p>
 
@@ -749,10 +773,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because the formula divides a quantity change for one good by a price change for the other. Reversing them measures the reverse relationship and generally gives a different number.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got2"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e3">
-  <div class="entry-head"><span class="entry-num">03</span><h2>Substitutes &mdash; a positive sign</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e3-body"><span class="entry-num">03</span><h2>Substitutes &mdash; a positive sign</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>If the cross-price elasticity is positive, the goods are substitutes: a rise in one price raises demand for the other.</p>
+  <div class="entry-body" id="e3-body">
   <div class="defn"><span class="lbl">Definition</span><p>If the cross-price elasticity is <b>positive</b>, the goods are <b>substitutes</b>: a rise in one price raises demand for the other.</p></div>
   <p class="reading">Textbook pages 475&ndash;476.</p>
 
@@ -780,10 +807,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>The goods are substitutes in principle, but very weak ones: a price change in one barely moves demand for the other.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got3"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e4">
-  <div class="entry-head"><span class="entry-num">04</span><h2>Complements &mdash; a negative sign</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e4-body"><span class="entry-num">04</span><h2>Complements &mdash; a negative sign</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>If the cross-price elasticity is negative, the goods are complements: a rise in one price reduces demand for the other.</p>
+  <div class="entry-body" id="e4-body">
   <div class="defn"><span class="lbl">Definition</span><p>If the cross-price elasticity is <b>negative</b>, the goods are <b>complements</b>: a rise in one price <b>reduces</b> demand for the other.</p></div>
   <p class="reading">Textbook page 476.</p>
 
@@ -812,10 +842,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because the sign alone settles the relationship. The size says how strong it is: &minus;0.1 is a weak complement, &minus;4 a very strong one.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got4"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e5">
-  <div class="entry-head"><span class="entry-num">05</span><h2>Goods that are not related</h2><span class="mark flag">&#9733; &#9873;</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e5-body"><span class="entry-num">05</span><h2>Goods that are not related</h2><span class="mark flag">&#9733; &#9873;</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>If the cross-price elasticity is about zero, the two goods are not related: a change in one price leaves demand for the other where it was.</p>
+  <div class="entry-body" id="e5-body">
   <div class="defn"><span class="lbl">Definition</span><p>If the cross-price elasticity is <b>about zero</b>, the two goods are <b>not related</b>: a change in one price leaves demand for the other where it was.</p></div>
   <p class="reading">Not in Module 48 &mdash; your textbook's table lists only two cases.</p>
 
@@ -848,10 +881,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Any pair with no connection in use or in production &mdash; socks and garden gnomes, say. A change in one price gives buyers no reason at all to change their purchases of the other.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got5"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e6">
-  <div class="entry-head"><span class="entry-num">06</span><h2>How big the number is</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e6-body"><span class="entry-num">06</span><h2>How big the number is</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>The sign says which relationship.</p>
+  <div class="entry-body" id="e6-body">
   <div class="defn"><span class="lbl">Definition</span><p>The <b>sign</b> says which relationship. The <b>size</b> says how strong it is.</p></div>
   <p class="reading">Textbook pages 475&ndash;476.</p>
 
@@ -880,10 +916,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Technically substitutes, but so weakly related that in practice they behave almost like unrelated goods.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got6"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e7">
-  <div class="entry-head"><span class="entry-num">07</span><h2>Keeping the minus sign</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e7-body"><span class="entry-num">07</span><h2>Keeping the minus sign</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>For the price elasticity of demand the sign is always negative and is dropped.</p>
+  <div class="entry-body" id="e7-body">
   <div class="defn"><span class="lbl">Definition</span><p>For the price elasticity of demand the sign is always negative and is dropped. For <b>cross-price</b> and <b>income</b> elasticity the sign <b>is</b> the answer.</p></div>
   <p class="reading">Textbook page 476.</p>
 
@@ -918,10 +957,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because the supply curve slopes upward: price and quantity supplied move the same way, so the ratio is positive to begin with.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got7"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e8">
-  <div class="entry-head"><span class="entry-num">08</span><h2>Income elasticity of demand</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e8-body"><span class="entry-num">08</span><h2>Income elasticity of demand</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>The percentage change in the quantity of a good demanded, divided by the percentage change in the consumer's income.</p>
+  <div class="entry-body" id="e8-body">
   <div class="defn"><span class="lbl">Definition</span><p>The percentage change in the quantity of a good demanded, divided by the percentage change in the consumer's <b>income</b>.</p></div>
   <p class="reading">Textbook page 476, Equation 48-2.</p>
 
@@ -950,10 +992,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because quantity demanded can move either way when income moves &mdash; up for a normal good, down for an inferior one. Against the good's own price it can only move one way.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got8"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e9">
-  <div class="entry-head"><span class="entry-num">09</span><h2>Normal goods &mdash; a positive sign</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e9-body"><span class="entry-num">09</span><h2>Normal goods &mdash; a positive sign</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>A positive income elasticity means the good is normal: more income, more of it.</p>
+  <div class="entry-body" id="e9-body">
   <div class="defn"><span class="lbl">Definition</span><p>A <b>positive</b> income elasticity means the good is <b>normal</b>: more income, more of it.</p></div>
   <p class="reading">Textbook page 476.</p>
 
@@ -981,10 +1026,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Normal: the income elasticity is +0.6, because quantity moved the same way as income.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got9"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e10">
-  <div class="entry-head"><span class="entry-num">10</span><h2>Inferior goods &mdash; a negative sign</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e10-body"><span class="entry-num">10</span><h2>Inferior goods &mdash; a negative sign</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>A negative income elasticity means the good is inferior: more income, less of it.</p>
+  <div class="entry-body" id="e10-body">
   <div class="defn"><span class="lbl">Definition</span><p>A <b>negative</b> income elasticity means the good is <b>inferior</b>: more income, less of it.</p></div>
   <p class="reading">Textbook page 476.</p>
 
@@ -1012,10 +1060,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Yes. It depends on where a household sits: own-brand goods may be inferior for a rich household and normal for a very poor one.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got10"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e11">
-  <div class="entry-head"><span class="entry-num">11</span><h2>Income-elastic and income-inelastic</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e11-body"><span class="entry-num">11</span><h2>Income-elastic and income-inelastic</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Among normal goods: above 1 is income-elastic (demand grows faster than income); between 0 and 1 is income-inelastic (demand grows, but more slowly).</p>
+  <div class="entry-body" id="e11-body">
   <div class="defn"><span class="lbl">Definition</span><p>Among <b>normal</b> goods: above <b>1</b> is <b>income-elastic</b> (demand grows faster than income); between 0 and 1 is <b>income-inelastic</b> (demand grows, but more slowly).</p></div>
   <p class="reading">Textbook page 476.</p>
 
@@ -1047,10 +1098,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because both of those terms describe normal goods. A negative income elasticity means the good is inferior, which is a different category altogether.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got11"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e12">
-  <div class="entry-head"><span class="entry-num">12</span><h2>Price elasticity of supply</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e12-body"><span class="entry-num">12</span><h2>Price elasticity of supply</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>The percentage change in the quantity supplied, divided by the percentage change in price &mdash; measured as you move along the supply curve.</p>
+  <div class="entry-body" id="e12-body">
   <div class="defn"><span class="lbl">Definition</span><p>The percentage change in the quantity <b>supplied</b>, divided by the percentage change in price &mdash; measured as you move along the <b>supply</b> curve.</p></div>
   <p class="reading">Textbook page 477, Equation 48-3.</p>
 
@@ -1079,10 +1133,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because price and quantity supplied move in the same direction along an upward-sloping supply curve, so the ratio is positive from the start.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got12"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e13">
-  <div class="entry-head"><span class="entry-num">13</span><h2>The benchmark of 1 for supply</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e13-body"><span class="entry-num">13</span><h2>The benchmark of 1 for supply</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Exactly the same dividing line: above 1 supply is elastic, below 1 inelastic, at 1 unit elastic.</p>
+  <div class="entry-body" id="e13-body">
   <div class="defn"><span class="lbl">Definition</span><p>Exactly the same dividing line: above <b>1</b> supply is elastic, below 1 inelastic, at 1 unit elastic.</p></div>
   <p class="reading">Textbook page 477.</p>
 
@@ -1110,10 +1167,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Quantity supplied changes by exactly the same percentage as the price &mdash; proportionally, in the framework's own word.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got13"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e14">
-  <div class="entry-head"><span class="entry-num">14</span><h2>Perfectly inelastic supply</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e14-body"><span class="entry-num">14</span><h2>Perfectly inelastic supply</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>The quantity supplied is fixed: the elasticity is 0 and the supply curve is a vertical line.</p>
+  <div class="entry-body" id="e14-body">
   <div class="defn"><span class="lbl">Definition</span><p>The quantity supplied is <b>fixed</b>: the elasticity is <b>0</b> and the supply curve is a <b>vertical line</b>.</p></div>
   <p class="reading">Textbook page 478, Figure 48.1 panel (a).</p>
 
@@ -1143,10 +1203,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because physical limits really do fix some quantities &mdash; spectrum, land, seats. On the demand side there is almost always some response at some price.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got14"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e15">
-  <div class="entry-head"><span class="entry-num">15</span><h2>Perfectly elastic supply</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e15-body"><span class="entry-num">15</span><h2>Perfectly elastic supply</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Producers will supply any quantity at one price and none below it: the elasticity is infinite and the supply curve is a horizontal line.</p>
+  <div class="entry-body" id="e15-body">
   <div class="defn"><span class="lbl">Definition</span><p>Producers will supply <b>any</b> quantity at one price and <b>none</b> below it: the elasticity is <b>infinite</b> and the supply curve is a <b>horizontal line</b>.</p></div>
   <p class="reading">Textbook page 479, Figure 48.1 panel (b).</p>
 
@@ -1174,10 +1237,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because that price just covers the cost of production including opportunity cost. Below it, producers do better doing something else.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got15"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e16">
-  <div class="entry-head"><span class="entry-num">16</span><h2>Determinant 1 &mdash; the availability of inputs</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e16-body"><span class="entry-num">16</span><h2>Determinant 1 &mdash; the availability of inputs</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Supply is elastic when the inputs are easy to get and can be moved into and out of production cheaply.</p>
+  <div class="entry-body" id="e16-body">
   <div class="defn"><span class="lbl">Definition</span><p>Supply is <b>elastic</b> when the inputs are easy to get and can be moved into and out of production cheaply. It is <b>inelastic</b> when they are fixed or costly to shift.</p></div>
   <p class="reading">Textbook page 479.</p>
 
@@ -1206,10 +1272,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Both are elastic. Inputs that shift cheaply between uses let output respond quickly to a price change.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got16"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e17">
-  <div class="entry-head"><span class="entry-num">17</span><h2>Determinant 2 &mdash; the price of alternative inputs</h2><span class="mark flag">&#9733; &#9873;</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e17-body"><span class="entry-num">17</span><h2>Determinant 2 &mdash; the price of alternative inputs</h2><span class="mark flag">&#9733; &#9873;</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Supply is more elastic when the inputs you would need are cheap to attract away from their other uses.</p>
+  <div class="entry-body" id="e17-body">
   <div class="defn"><span class="lbl">Definition</span><p>Supply is more <b>elastic</b> when the inputs you would need are <b>cheap to attract</b> away from their other uses.</p></div>
   <p class="reading">Not in Module 48 &mdash; your textbook talks about availability, your course about price.</p>
 
@@ -1245,10 +1314,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>An input is readily available precisely when it is cheap to obtain from its other uses. Availability and price are two ways of describing the same condition.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got17"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e18">
-  <div class="entry-head"><span class="entry-num">18</span><h2>Determinant 3 &mdash; time, and the two runs</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e18-body"><span class="entry-num">18</span><h2>Determinant 3 &mdash; time, and the two runs</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Supply becomes more elastic the longer producers have to respond.</p>
+  <div class="entry-body" id="e18-body">
   <div class="defn"><span class="lbl">Definition</span><p>Supply becomes <b>more elastic</b> the longer producers have to respond. The long-run elasticity of supply usually exceeds the short-run one.</p></div>
   <p class="reading">Textbook pages 479&ndash;480.</p>
 
@@ -1278,10 +1350,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because housing supply is very inelastic in the short run &mdash; land, planning and construction all take time. The long-run response is much larger.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got18"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e19">
-  <div class="entry-head"><span class="entry-num">19</span><h2>Why farming shrank</h2><span class="mark bgm">&#9675; Background</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e19-body"><span class="entry-num">19</span><h2>Why farming shrank</h2><span class="mark bgm">&#9675; Background</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Two elasticities together explain why a sector can succeed technically and still shrink: demand for food is income-inelastic and price-inelastic.</p>
+  <div class="entry-body" id="e19-body">
   <div class="defn"><span class="lbl">Definition</span><p>Two elasticities together explain why a sector can succeed technically and still shrink: demand for food is <b>income-inelastic</b> and <b>price-inelastic</b>.</p></div>
   <p class="reading">Textbook pages 476&ndash;477, the <i>fyi</i> box.</p>
 
@@ -1315,6 +1390,7 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. Its income elasticity is positive &mdash; spending on food rises with income &mdash; just by less than income does. That is income-inelastic, not inferior.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got19"> Got it</label>
   </div>
+</div>
 </article>
 
 
@@ -1640,6 +1716,60 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       }
     })(mcqs[mi]);
   }
+})();
+</script>
+<script id="entry-toggle-js">
+(function(){
+  var OPENKEY = "m48-got-open";
+  var arts = [].slice.call(document.querySelectorAll("article.entry"));
+  function load(){ try { return JSON.parse(localStorage.getItem(OPENKEY) || "{}") || {}; } catch(e){ return {}; } }
+  function save(o){ try { localStorage.setItem(OPENKEY, JSON.stringify(o)); } catch(e){} }
+  function parts(a){ return { btn: a.querySelector(".entry-toggle"), sum: a.querySelector(".entry-sum"),
+                              body: a.querySelector(".entry-body") }; }
+  function set(a, open){
+    var p = parts(a);
+    if (!p.btn || !p.body) return;
+    if (open){ p.body.removeAttribute("hidden"); p.sum.setAttribute("hidden", "hidden"); a.classList.remove("closed"); }
+    else { p.body.setAttribute("hidden", "hidden"); p.sum.removeAttribute("hidden"); a.classList.add("closed"); }
+    p.btn.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+  function count(){
+    var n = arts.filter(function(a){ return !a.classList.contains("closed"); }).length;
+    var c = document.getElementById("entryCount");
+    if (c) c.textContent = n + " of " + arts.length + " open";
+  }
+  function remember(){
+    var o = {};
+    arts.forEach(function(a){ if (a.classList.contains("closed")) o[a.id] = 1; });
+    save(o);
+  }
+  var closed = load();
+  arts.forEach(function(a){
+    if (closed[a.id]) set(a, false);
+    var p = parts(a);
+    if (p.btn) p.btn.addEventListener("click", function(){
+      set(a, a.classList.contains("closed")); remember(); count();
+    });
+  });
+  function all(open){ arts.forEach(function(a){ set(a, open); }); remember(); count(); }
+  var ea = document.getElementById("expandAll"), ca = document.getElementById("collapseAll");
+  if (ea) ea.addEventListener("click", function(){ all(true); });
+  if (ca) ca.addEventListener("click", function(){ all(false); });
+  function openTarget(hash){
+    var m = /^#(e\d+)$/.exec(hash || "");
+    if (!m) return;
+    var a = document.getElementById(m[1]);
+    if (a && a.classList.contains("closed")){ set(a, true); remember(); count(); }
+  }
+  document.addEventListener("click", function(ev){
+    var l = ev.target.closest ? ev.target.closest('a[href^="#e"]') : null;
+    if (l) openTarget(l.getAttribute("href"));
+  }, true);
+  window.addEventListener("hashchange", function(){ openTarget(location.hash); });
+  openTarget(location.hash);
+  var rb = document.getElementById("resetBtn");
+  if (rb) rb.addEventListener("click", function(){ save({}); arts.forEach(function(a){ set(a, true); }); count(); });
+  count();
 })();
 </script>
 </main>

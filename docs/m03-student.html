@@ -388,6 +388,23 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
 .ppc-svg .pt-out{fill:var(--down)}
 
 </style>
+<style id="entry-toggle-css">
+/* collapsible term entries: build/collapsible.py */
+:where(button.entry-toggle){padding:0;margin:0}
+button.entry-toggle{font:inherit;color:inherit;background:none;border:0;width:100%;text-align:left;cursor:pointer}
+button.entry-toggle:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:4px}
+button.entry-toggle::after{content:"\25BE";margin-left:auto;align-self:center;font-family:var(--mono);font-size:15px;color:var(--ink-3);padding-left:8px}
+.entry.closed button.entry-toggle::after{content:"\25B8"}
+.entry-sum{margin:2px 0 0;color:var(--ink-2);font-size:.97em}
+.entry-sum .entry-sum-l{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-right:8px}
+.entry-body[hidden],.entry-sum[hidden]{display:none!important}
+.entry.closed{padding-bottom:14px}
+.entry-tools{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:6px 0 18px}
+.entry-tools button{font:600 13px var(--sans);color:var(--ink);background:var(--surface);border:1px solid var(--rule-strong);border-radius:999px;padding:6px 14px;cursor:pointer}
+.entry-tools button:hover{border-color:var(--accent);color:var(--accent)}
+.entry-tools .entry-count{font-family:var(--mono);font-size:12px;color:var(--ink-3);margin-left:4px}
+@media print{.entry-body[hidden]{display:block!important}.entry-sum,.entry-tools{display:none!important}button.entry-toggle::after{content:none}}
+</style>
 
 
 <div class="bar">
@@ -479,8 +496,12 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
 </section>
 
 
+<div class="entry-tools" id="entryTools"><button type="button" id="expandAll">Expand all</button><button type="button" id="collapseAll">Collapse all</button><span class="entry-count" id="entryCount"></span></div>
+
 <article class="entry" id="e1">
-  <div class="entry-head"><span class="entry-num">01</span><h2>Trade-off</h2><span class="mark exam">★ Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e1-body"><span class="entry-num">01</span><h2>Trade-off</h2><span class="mark exam">★ Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>You make a trade-off when you give up something in order to have something else.</p>
+  <div class="entry-body" id="e1-body">
   <div class="defn"><span class="lbl">Definition</span><p>You make a <b>trade-off</b> when you give up something in order to have something else.</p></div>
   <p class="reading">Textbook page 16.</p>
 
@@ -509,10 +530,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Working harder can add resources, which shifts the curve outward — but you still have to pick a point on the <i>new</i> curve. More resources move the trade-off; they never remove it.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got1"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e2">
-  <div class="entry-head"><span class="entry-num">02</span><h2>Production possibilities curve (PPC)</h2><span class="mark exam">★ Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e2-body"><span class="entry-num">02</span><h2>Production possibilities curve (PPC)</h2><span class="mark exam">★ Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>The production possibilities curve shows the trade-offs facing an economy that produces only two goods.</p>
+  <div class="entry-body" id="e2-body">
   <div class="defn"><span class="lbl">Definition</span><p>The <b>production possibilities curve</b> shows the trade-offs facing an economy that produces only two goods. It shows the <b>maximum</b> quantity of one good that can be produced for each possible quantity of the other.</p></div>
   <p class="reading">Textbook pages 16–17, Figure 3.1.</p>
 
@@ -547,10 +571,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>It slopes down because resources are fixed: more of one good means less of the other. An upward slope would mean you could get more of both at once — which would mean you were not on the frontier at all.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got2"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e3">
-  <div class="entry-head"><span class="entry-num">03</span><h2>Feasible and not feasible</h2><span class="mark exam">★ Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e3-body"><span class="entry-num">03</span><h2>Feasible and not feasible</h2><span class="mark exam">★ Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>A production point is feasible if it lies inside or on the curve.</p>
+  <div class="entry-body" id="e3-body">
   <div class="defn"><span class="lbl">Definition</span><p>A production point is <b>feasible</b> if it lies <b>inside or on</b> the curve. It is <b>not feasible</b> if it lies <b>outside</b> the curve.</p></div>
   <p class="reading">Textbook page 17.</p>
 
@@ -579,10 +606,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>False, and both halves are backwards. Points inside are possible but <i>wasteful</i>. Points outside are not possible at all with current resources and technology.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got3"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e4">
-  <div class="entry-head"><span class="entry-num">04</span><h2>Efficient in production</h2><span class="mark exam">★ Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e4-body"><span class="entry-num">04</span><h2>Efficient in production</h2><span class="mark exam">★ Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>An economy is efficient if there is no way to make anyone better off without making at least one person worse off.</p>
+  <div class="entry-body" id="e4-body">
   <div class="defn"><span class="lbl">Definition</span><p>An economy is <b>efficient</b> if there is no way to make anyone better off without making at least one person worse off. An economy producing <b>on</b> its PPC is <b>efficient in production</b> — it cannot get more of one good without giving up some of the other.</p></div>
   <p class="reading">Textbook pages 17–18.</p>
 
@@ -612,10 +642,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Yes. An end point is still on the curve, so nothing is wasted. It may be a terrible <i>choice</i> — but that is a question about the mix, not about productive efficiency.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got4"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e5">
-  <div class="entry-head"><span class="entry-num">05</span><h2>Underutilized resources</h2><span class="mark exam">★ Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e5-body"><span class="entry-num">05</span><h2>Underutilized resources</h2><span class="mark exam">★ Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Resources are underutilized when production sits at a point inside the PPC: some resources are available and are not being used, so more of both goods could be had at no cost.</p>
+  <div class="entry-body" id="e5-body">
   <div class="defn"><span class="lbl">Definition</span><p>Resources are <b>underutilized</b> when production sits at a point <b>inside</b> the PPC: some resources are available and are not being used, so more of both goods could be had at no cost.</p></div>
   <p class="reading">Textbook page 18. Topic 1.3, MKT-1.C.2.</p>
 
@@ -659,10 +692,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Something else. Underutilisation leaves the curve where it is and moves production inside it. Destroyed factories move the <i>curve</i> itself inward — a contraction (entry 12).</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got5"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e6">
-  <div class="entry-head"><span class="entry-num">06</span><h2>Opportunity cost on a PPC</h2><span class="mark exam">★ Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e6-body"><span class="entry-num">06</span><h2>Opportunity cost on a PPC</h2><span class="mark exam">★ Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>On a PPC, the opportunity cost of one more unit of the good on the horizontal axis is the quantity of the other good given up.</p>
+  <div class="entry-body" id="e6-body">
   <div class="defn"><span class="lbl">Definition</span><p>On a PPC, the <b>opportunity cost</b> of one more unit of the good on the horizontal axis is the quantity of the other good given up. On a <b>straight-line</b> PPC that is the <b>slope</b>.</p></div>
   <p class="reading">Textbook page 19.</p>
 
@@ -697,10 +733,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>It has no units and does not say the cost <i>of what, in what</i>. The full answer is &ldquo;one fish costs 0.75 of a coconut.&rdquo;</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got6"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e7">
-  <div class="entry-head"><span class="entry-num">07</span><h2>Constant opportunity cost</h2><span class="mark exam">★ Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e7-body"><span class="entry-num">07</span><h2>Constant opportunity cost</h2><span class="mark exam">★ Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Opportunity cost is constant when one more unit of a good always costs the same amount of the other good.</p>
+  <div class="entry-body" id="e7-body">
   <div class="defn"><span class="lbl">Definition</span><p>Opportunity cost is <b>constant</b> when one more unit of a good always costs the same amount of the other good. The PPC is then a <b>straight line</b>.</p></div>
   <p class="reading">Textbook page 19.</p>
 
@@ -731,10 +770,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>That they are equally suited to both, so switching them across always trades at the same rate.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got7"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e8">
-  <div class="entry-head"><span class="entry-num">08</span><h2>Increasing opportunity cost</h2><span class="mark exam">★ Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e8-body"><span class="entry-num">08</span><h2>Increasing opportunity cost</h2><span class="mark exam">★ Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Opportunity cost is increasing when each extra unit of a good costs more of the other good than the last one did.</p>
+  <div class="entry-body" id="e8-body">
   <div class="defn"><span class="lbl">Definition</span><p>Opportunity cost is <b>increasing</b> when each extra unit of a good costs <b>more</b> of the other good than the last one did. The PPC is <b>bowed outward</b> — away from the origin.</p></div>
   <p class="reading">Textbook pages 19–20, Figure 3.2.</p>
 
@@ -767,10 +809,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because you have already used the resources best at that good. To make more you must bring in resources that are poor at it and good at the other one, so you give up more of the other good each time.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got8"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e9">
-  <div class="entry-head"><span class="entry-num">09</span><h2>Decreasing opportunity cost</h2><span class="mark flag">★ ⚑</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e9-body"><span class="entry-num">09</span><h2>Decreasing opportunity cost</h2><span class="mark flag">★ ⚑</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Opportunity cost is decreasing when each extra unit of a good costs less of the other good than the last one did.</p>
+  <div class="entry-body" id="e9-body">
   <div class="defn"><span class="lbl">Definition</span><p>Opportunity cost is <b>decreasing</b> when each extra unit of a good costs <b>less</b> of the other good than the last one did. The PPC is <b>bowed inward</b> — toward the origin.</p></div>
   <p class="reading">Not in your textbook.</p>
 
@@ -805,10 +850,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Every point on <i>any</i> PPC is efficient in production — nothing is wasted anywhere on it. The bow describes how costs change as you move along the curve, not how well the economy performs.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got9"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e10">
-  <div class="entry-head"><span class="entry-num">10</span><h2>Economic growth</h2><span class="mark exam">★ Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e10-body"><span class="entry-num">10</span><h2>Economic growth</h2><span class="mark exam">★ Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Economic growth is an expansion of what the economy is able to produce — it can produce more of everything.</p>
+  <div class="entry-body" id="e10-body">
   <div class="defn"><span class="lbl">Definition</span><p><b>Economic growth</b> is an expansion of what the economy is able to produce — it can produce more of everything. On the diagram it is an <b>outward shift</b> of the whole PPC.</p></div>
   <p class="reading">Textbook pages 20–21, Figure 3.3.</p>
 
@@ -844,10 +892,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>More resources — a rising population, or discovering oil. Better technology — a new farming method, or a faster machine.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got10"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e11">
-  <div class="entry-head"><span class="entry-num">11</span><h2>Technology</h2><span class="mark exam">★ Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e11-body"><span class="entry-num">11</span><h2>Technology</h2><span class="mark exam">★ Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Technology is the technical means for producing goods and services.</p>
+  <div class="entry-body" id="e11-body">
   <div class="defn"><span class="lbl">Definition</span><p><b>Technology</b> is the technical means for producing goods and services.</p></div>
   <p class="reading">Textbook page 21.</p>
 
@@ -880,10 +931,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>More resources means a larger quantity of inputs. Better technology means more output from the same inputs. Both shift the curve outward, but technology helping only one good pivots it instead of moving all of it.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got11"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e12">
-  <div class="entry-head"><span class="entry-num">12</span><h2>Contraction</h2><span class="mark flag">★ ⚑</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e12-body"><span class="entry-num">12</span><h2>Contraction</h2><span class="mark flag">★ ⚑</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>A contraction is an inward shift of the PPC — the economy has become smaller and can now produce less than before.</p>
+  <div class="entry-body" id="e12-body">
   <div class="defn"><span class="lbl">Definition</span><p>A <b>contraction</b> is an <b>inward shift</b> of the PPC — the economy has become smaller and can now produce less than before. It is caused by losing resources or losing technology.</p></div>
   <p class="reading">One sentence on textbook page 21, and no diagram.</p>
 
@@ -914,10 +968,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>A contraction means the <b>curve</b> itself moves inward, so some bundles become impossible. Underutilisation means the <b>curve</b> stays where it is and the production point sits inside it, so nothing has become impossible — it is just not being produced.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got12"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e13">
-  <div class="entry-head"><span class="entry-num">13</span><h2>Capital goods and future growth</h2><span class="mark exam">★ Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e13-body"><span class="entry-num">13</span><h2>Capital goods and future growth</h2><span class="mark exam">★ Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Capital goods are manufactured goods used to produce other goods.</p>
+  <div class="entry-body" id="e13-body">
   <div class="defn"><span class="lbl">Definition</span><p><b>Capital goods</b> are manufactured goods used to produce other goods. Producing more of them today means fewer consumer goods today — and a further-out PPC tomorrow.</p></div>
   <p class="reading">Textbook page 22, the AP Review graph and MCQ 5.</p>
 
@@ -954,10 +1011,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Not necessarily. It would have the fastest growth and nothing to consume. The right point balances consumption now against capacity later — which is a choice about values, not a fact the diagram settles.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got13"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e14">
-  <div class="entry-head"><span class="entry-num">14</span><h2>Efficient in allocation</h2><span class="mark exam">★ Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e14-body"><span class="entry-num">14</span><h2>Efficient in allocation</h2><span class="mark exam">★ Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>An economy is efficient in allocation when it produces the mix of goods that makes people as well off as possible — not merely the largest quantity.</p>
+  <div class="entry-body" id="e14-body">
   <div class="defn"><span class="lbl">Definition</span><p>An economy is <b>efficient in allocation</b> when it produces the <b>mix</b> of goods that makes people as well off as possible — not merely the largest quantity.</p></div>
   <p class="reading">Textbook page 18. Returns as Topic 3.7, PRD-3.A.5.</p>
 
@@ -995,6 +1055,7 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Whether point B lies <b>on</b> the curve — efficient in production, nothing wasted. The diagram cannot tell you whether the mix at B is the one people want, so it cannot settle allocative efficiency.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got14"> Got it</label>
   </div>
+</div>
 </article>
 
 
@@ -1355,6 +1416,60 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
   });
 })();
 
+</script>
+<script id="entry-toggle-js">
+(function(){
+  var OPENKEY = "micro-mod3-progress-open";
+  var arts = [].slice.call(document.querySelectorAll("article.entry"));
+  function load(){ try { return JSON.parse(localStorage.getItem(OPENKEY) || "{}") || {}; } catch(e){ return {}; } }
+  function save(o){ try { localStorage.setItem(OPENKEY, JSON.stringify(o)); } catch(e){} }
+  function parts(a){ return { btn: a.querySelector(".entry-toggle"), sum: a.querySelector(".entry-sum"),
+                              body: a.querySelector(".entry-body") }; }
+  function set(a, open){
+    var p = parts(a);
+    if (!p.btn || !p.body) return;
+    if (open){ p.body.removeAttribute("hidden"); p.sum.setAttribute("hidden", "hidden"); a.classList.remove("closed"); }
+    else { p.body.setAttribute("hidden", "hidden"); p.sum.removeAttribute("hidden"); a.classList.add("closed"); }
+    p.btn.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+  function count(){
+    var n = arts.filter(function(a){ return !a.classList.contains("closed"); }).length;
+    var c = document.getElementById("entryCount");
+    if (c) c.textContent = n + " of " + arts.length + " open";
+  }
+  function remember(){
+    var o = {};
+    arts.forEach(function(a){ if (a.classList.contains("closed")) o[a.id] = 1; });
+    save(o);
+  }
+  var closed = load();
+  arts.forEach(function(a){
+    if (closed[a.id]) set(a, false);
+    var p = parts(a);
+    if (p.btn) p.btn.addEventListener("click", function(){
+      set(a, a.classList.contains("closed")); remember(); count();
+    });
+  });
+  function all(open){ arts.forEach(function(a){ set(a, open); }); remember(); count(); }
+  var ea = document.getElementById("expandAll"), ca = document.getElementById("collapseAll");
+  if (ea) ea.addEventListener("click", function(){ all(true); });
+  if (ca) ca.addEventListener("click", function(){ all(false); });
+  function openTarget(hash){
+    var m = /^#(e\d+)$/.exec(hash || "");
+    if (!m) return;
+    var a = document.getElementById(m[1]);
+    if (a && a.classList.contains("closed")){ set(a, true); remember(); count(); }
+  }
+  document.addEventListener("click", function(ev){
+    var l = ev.target.closest ? ev.target.closest('a[href^="#e"]') : null;
+    if (l) openTarget(l.getAttribute("href"));
+  }, true);
+  window.addEventListener("hashchange", function(){ openTarget(location.hash); });
+  openTarget(location.hash);
+  var rb = document.getElementById("resetBtn");
+  if (rb) rb.addEventListener("click", function(){ save({}); arts.forEach(function(a){ set(a, true); }); count(); });
+  count();
+})();
 </script>
 </main>
 <script>window.COURSE_NAV={"kicker": "1.3 Production possibilities curve", "title": "Module 3 · The Production Possibilities Curve Model", "map": [{"label": "Course", "items": [{"href": "index.html", "label": "Home", "current": false}, {"href": "spec.html", "label": "Course specification", "current": false}]}, {"label": "Unit 1 · Basic Economic Concepts", "items": [{"href": "m01-student.html", "label": "Module 1 · Student guide", "current": false}, {"href": "m01-notes.html", "label": "Module 1 · Teaching notes", "current": false}, {"href": "m01-test.html", "label": "Module 1 · Test", "current": false}, {"label": "Module 2 · Introduction to Macroeconomics", "planned": true}, {"href": "m03-student.html", "label": "Module 3 · Student guide", "current": true}, {"href": "m03-notes.html", "label": "Module 3 · Teaching notes", "current": false}, {"href": "m03-test.html", "label": "Module 3 · Test", "current": false}, {"href": "m04-student.html", "label": "Module 4 · Student guide", "current": false}, {"href": "m04-notes.html", "label": "Module 4 · Teaching notes", "current": false}, {"href": "m04-test.html", "label": "Module 4 · Test", "current": false}, {"href": "m51-student.html", "label": "Module 51 · Student guide", "current": false}, {"href": "m51-notes.html", "label": "Module 51 · Teaching notes", "current": false}, {"href": "m51-test.html", "label": "Module 51 · Test", "current": false}, {"label": "Unit 1 · Gap analysis", "planned": true}]}, {"label": "Unit 2 · Supply and Demand", "items": [{"href": "m05-student.html", "label": "Module 5 · Student guide", "current": false}, {"href": "m05-notes.html", "label": "Module 5 · Teaching notes", "current": false}, {"href": "m05-test.html", "label": "Module 5 · Test", "current": false}, {"href": "m06-student.html", "label": "Module 6 · Student guide", "current": false}, {"href": "m06-notes.html", "label": "Module 6 · Teaching notes", "current": false}, {"href": "m06-test.html", "label": "Module 6 · Test", "current": false}, {"href": "m07-student.html", "label": "Module 7 · Student guide", "current": false}, {"href": "m07-notes.html", "label": "Module 7 · Teaching notes", "current": false}, {"href": "m07-test.html", "label": "Module 7 · Test", "current": false}, {"href": "m08-student.html", "label": "Module 8 · Student guide", "current": false}, {"href": "m08-notes.html", "label": "Module 8 · Teaching notes", "current": false}, {"href": "m08-test.html", "label": "Module 8 · Test", "current": false}, {"href": "m09-student.html", "label": "Module 9 · Student guide", "current": false}, {"href": "m09-notes.html", "label": "Module 9 · Teaching notes", "current": false}, {"href": "m09-test.html", "label": "Module 9 · Test", "current": false}, {"href": "m46-student.html", "label": "Module 46 · Student guide", "current": false}, {"href": "m46-notes.html", "label": "Module 46 · Teaching notes", "current": false}, {"href": "m46-test.html", "label": "Module 46 · Test", "current": false}, {"href": "m47-student.html", "label": "Module 47 · Student guide", "current": false}, {"href": "m47-notes.html", "label": "Module 47 · Teaching notes", "current": false}, {"href": "m47-test.html", "label": "Module 47 · Test", "current": false}, {"href": "m48-student.html", "label": "Module 48 · Student guide", "current": false}, {"href": "m48-notes.html", "label": "Module 48 · Teaching notes", "current": false}, {"href": "m48-test.html", "label": "Module 48 · Test", "current": false}, {"href": "m49-student.html", "label": "Module 49 · Student guide", "current": false}, {"href": "m49-notes.html", "label": "Module 49 · Teaching notes", "current": false}, {"href": "m49-test.html", "label": "Module 49 · Test", "current": false}, {"href": "m50-student.html", "label": "Module 50 · Student guide", "current": false}, {"href": "m50-notes.html", "label": "Module 50 · Teaching notes", "current": false}, {"href": "m50-test.html", "label": "Module 50 · Test", "current": false}, {"href": "t29-student.html", "label": "Topic 2.9 · Student guide", "current": false}, {"href": "t29-notes.html", "label": "Topic 2.9 · Teaching notes", "current": false}, {"href": "t29-test.html", "label": "Topic 2.9 · Test", "current": false}, {"label": "Unit 2 · Gap analysis", "planned": true}]}, {"label": "Unit 3 · Production, Cost and Perfect Competition", "items": [{"href": "m52-student.html", "label": "Module 52 · Student guide", "current": false}, {"href": "m52-notes.html", "label": "Module 52 · Teaching notes", "current": false}, {"href": "m52-test.html", "label": "Module 52 · Test", "current": false}, {"href": "m53-student.html", "label": "Module 53 · Student guide", "current": false}, {"href": "m53-notes.html", "label": "Module 53 · Teaching notes", "current": false}, {"href": "m53-test.html", "label": "Module 53 · Test", "current": false}, {"href": "m53-lab.html", "label": "Module 53 · Lab", "current": false}, {"href": "m54-student.html", "label": "Module 54 · Student guide", "current": false}, {"href": "m54-notes.html", "label": "Module 54 · Teaching notes", "current": false}, {"href": "m54-test.html", "label": "Module 54 · Test", "current": false}, {"href": "m54-lab.html", "label": "Module 54 · Lab", "current": false}, {"href": "m55-student.html", "label": "Module 55 · Student guide", "current": false}, {"href": "m55-notes.html", "label": "Module 55 · Teaching notes", "current": false}, {"href": "m55-test.html", "label": "Module 55 · Test", "current": false}, {"href": "m55-lab.html", "label": "Module 55 · Lab", "current": false}, {"href": "m56-student.html", "label": "Module 56 · Student guide", "current": false}, {"href": "m56-notes.html", "label": "Module 56 · Teaching notes", "current": false}, {"href": "m56-test.html", "label": "Module 56 · Test", "current": false}, {"href": "m56-lab.html", "label": "Module 56 · Lab", "current": false}, {"label": "Module 57 · Introduction to Market Structure", "planned": true}, {"href": "m57-lab.html", "label": "Module 57 · Lab", "current": false}, {"label": "Modules 58–60 · Perfect Competition", "planned": true}, {"label": "Unit 3 · Gap analysis", "planned": true}]}, {"label": "Unit 4 · Imperfect Competition", "items": [{"label": "Topic 4.1 · Introduction to Imperfect Competition", "planned": true}, {"label": "Modules 61–63 · Monopoly", "planned": true}, {"label": "Modules 67–68 · Monopolistic Competition", "planned": true}, {"label": "Modules 64–66 · Oligopoly and Game Theory", "planned": true}, {"label": "Unit 4 · Gap analysis", "planned": true}]}, {"label": "Unit 5 · Factor Markets", "items": [{"label": "Module 69 · Introduction and Factor Demand", "planned": true}, {"label": "Module 70 · The Markets for Land and Capital", "planned": true}, {"label": "Module 71 · The Market for Labor", "planned": true}, {"label": "Module 72 · The Cost-Minimising Input Combination", "planned": true}, {"label": "Module 73 · Theories of Income Distribution", "planned": true}, {"label": "Unit 5 · Gap analysis", "planned": true}]}, {"label": "Unit 6 · Market Failure and the Role of Government", "items": [{"label": "Modules 74–75 · Externalities", "planned": true}, {"label": "Module 76 · Public Goods", "planned": true}, {"label": "Module 77 · Public Policy to Promote Competition", "planned": true}, {"label": "Module 78 · Income Inequality and Income Distribution", "planned": true}, {"label": "Unit 6 · Gap analysis", "planned": true}]}, {"label": "Practice exams", "items": [{"href": "pe-units-1-2.html", "label": "Practice exam · Units 1 and 2", "current": false}]}, {"label": "Interactive", "items": [{"label": "PPC explorer", "planned": true}, {"label": "Supply and demand explorer", "planned": true}, {"label": "Elasticity and total revenue", "planned": true}, {"label": "Cost curves", "planned": true}, {"label": "Market structure comparison", "planned": true}]}], "prev": {"href": "m01-test.html", "label": "Module 1 · Test"}, "next": {"href": "m03-notes.html", "label": "Module 3 · Teaching notes"}, "variants": [{"href": "m03-student.html", "label": "Student", "current": true}, {"href": "m03-notes.html", "label": "Notes", "current": false}, {"href": "m03-test.html", "label": "Test", "current": false}]};</script>

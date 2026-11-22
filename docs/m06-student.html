@@ -477,6 +477,23 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
 .line-svg .band{stroke:var(--amber-rule,#c98a1e);stroke-width:6;stroke-linecap:round;opacity:.55}
 .line-svg .pt-out{fill:var(--paper);stroke:var(--ink-2);stroke-width:2}
 </style>
+<style id="entry-toggle-css">
+/* collapsible term entries: build/collapsible.py */
+:where(button.entry-toggle){padding:0;margin:0}
+button.entry-toggle{font:inherit;color:inherit;background:none;border:0;width:100%;text-align:left;cursor:pointer}
+button.entry-toggle:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:4px}
+button.entry-toggle::after{content:"\25BE";margin-left:auto;align-self:center;font-family:var(--mono);font-size:15px;color:var(--ink-3);padding-left:8px}
+.entry.closed button.entry-toggle::after{content:"\25B8"}
+.entry-sum{margin:2px 0 0;color:var(--ink-2);font-size:.97em}
+.entry-sum .entry-sum-l{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-right:8px}
+.entry-body[hidden],.entry-sum[hidden]{display:none!important}
+.entry.closed{padding-bottom:14px}
+.entry-tools{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:6px 0 18px}
+.entry-tools button{font:600 13px var(--sans);color:var(--ink);background:var(--surface);border:1px solid var(--rule-strong);border-radius:999px;padding:6px 14px;cursor:pointer}
+.entry-tools button:hover{border-color:var(--accent);color:var(--accent)}
+.entry-tools .entry-count{font-family:var(--mono);font-size:12px;color:var(--ink-3);margin-left:4px}
+@media print{.entry-body[hidden]{display:block!important}.entry-sum,.entry-tools{display:none!important}button.entry-toggle::after{content:none}}
+</style>
 
 
 <div class="bar">
@@ -628,8 +645,12 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
   <h2>The 19 terms</h2>
 </section>
 
+<div class="entry-tools" id="entryTools"><button type="button" id="expandAll">Expand all</button><button type="button" id="collapseAll">Collapse all</button><span class="entry-count" id="entryCount"></span></div>
+
 <article class="entry" id="e1">
-  <div class="entry-head"><span class="entry-num">01</span><h2>Quantity supplied</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e1-body"><span class="entry-num">01</span><h2>Quantity supplied</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>The actual amount of a good or service producers are willing to sell at some specific price.</p>
+  <div class="entry-body" id="e1-body">
   <div class="defn"><span class="lbl">Definition</span><p>The <b>actual amount</b> of a good or service producers are willing to sell <b>at some specific price</b>.</p></div>
   <p class="reading">Textbook page 59.</p>
 
@@ -660,10 +681,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>&ldquo;Specific price.&rdquo; Without a stated price the number is meaningless, which is exactly why it is a point rather than a curve.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got1"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e2">
-  <div class="entry-head"><span class="entry-num">02</span><h2>Supply schedule</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e2-body"><span class="entry-num">02</span><h2>Supply schedule</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>A table showing how much of a good producers will supply at different prices.</p>
+  <div class="entry-body" id="e2-body">
   <div class="defn"><span class="lbl">Definition</span><p>A <b>table</b> showing how much of a good producers will supply at different prices.</p></div>
   <p class="reading">Textbook page 59, the right-hand side of Figure 6.1.</p>
 
@@ -691,10 +715,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Find the price where quantity demanded and quantity supplied are the same number. In the coffee table that is $1.00, where both are 10.0 billion pounds.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got2"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e3">
-  <div class="entry-head"><span class="entry-num">03</span><h2>Supply curve</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e3-body"><span class="entry-num">03</span><h2>Supply curve</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Shows the relationship between quantity supplied and price.</p>
+  <div class="entry-body" id="e3-body">
   <div class="defn"><span class="lbl">Definition</span><p>Shows the relationship between <b>quantity supplied and price</b>. It slopes <b>upward</b>.</p></div>
   <p class="reading">Textbook page 59, Figure 6.1.</p>
 
@@ -730,10 +757,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Marks for labelling, which are awarded separately from the economics &mdash; and possibly the reader&rsquo;s ability to tell which curve you meant to move later in the question.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got3"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e4">
-  <div class="entry-head"><span class="entry-num">04</span><h2>Law of supply</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e4-body"><span class="entry-num">04</span><h2>Law of supply</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Other things being equal, the price and quantity supplied of a good are positively related.</p>
+  <div class="entry-body" id="e4-body">
   <div class="defn"><span class="lbl">Definition</span><p>Other things being equal, the price and quantity supplied of a good are <b>positively related</b>.</p></div>
   <p class="reading">Textbook page 60.</p>
 
@@ -766,10 +796,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>&ldquo;In the opposite direction.&rdquo; The two statements are otherwise the same sentence with the direction swapped.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got4"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e5">
-  <div class="entry-head"><span class="entry-num">05</span><h2>Movement along the supply curve</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e5-body"><span class="entry-num">05</span><h2>Movement along the supply curve</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>A change in the quantity supplied of a good that is the result of a change in that good&rsquo;s own price.</p>
+  <div class="entry-body" id="e5-body">
   <div class="defn"><span class="lbl">Definition</span><p>A change in the quantity supplied of a good that is the result of a change in <b>that good&rsquo;s own price</b>.</p></div>
   <p class="reading">Textbook page 60, and Figure 6.3 on page 62 &mdash; the arrow from A to B.</p>
 
@@ -799,10 +832,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>A movement along the supply curve of construction <b>labour</b> in that area. The good on the horizontal axis is labour, and its price &mdash; the wage &mdash; is what rose.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got5"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e6">
-  <div class="entry-head"><span class="entry-num">06</span><h2>Change in supply &mdash; a shift</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e6-body"><span class="entry-num">06</span><h2>Change in supply &mdash; a shift</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>A shift of the supply curve, which changes the quantity supplied at any given price.</p>
+  <div class="entry-body" id="e6-body">
   <div class="defn"><span class="lbl">Definition</span><p>A <b>shift of the supply curve</b>, which changes the quantity supplied <b>at any given price</b>.</p></div>
   <p class="reading">Textbook pages 60&ndash;62, Figures 6.2 and 6.3 &mdash; the arrow from A to C.</p>
 
@@ -834,10 +870,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because for an upward-sloping curve, down and right are the same movement and it is an <i>increase</i> in supply &mdash; which sounds like the opposite. Use right and left.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got6"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e7">
-  <div class="entry-head"><span class="entry-num">07</span><h2>Input prices</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e7-body"><span class="entry-num">07</span><h2>Input prices</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>An input is anything used to produce a good or service.</p>
+  <div class="entry-body" id="e7-body">
   <div class="defn"><span class="lbl">Definition</span><p>An <b>input</b> is anything used to produce a good or service. A rise in an input&rsquo;s price makes production more costly, so supply <b>decreases</b> &mdash; the curve shifts <b>left</b>.</p></div>
   <p class="reading">Textbook page 62. This is the first of the five supply shift factors.</p>
 
@@ -870,10 +909,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Yes &mdash; cream is an input, and a dearer input raises the cost of producing ice cream at every price. Supply decreases; the curve shifts left.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got7"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e8">
-  <div class="entry-head"><span class="entry-num">08</span><h2>Substitutes and complements in production</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e8-body"><span class="entry-num">08</span><h2>Substitutes and complements in production</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Substitutes in production are goods a producer can make instead of each other.</p>
+  <div class="entry-body" id="e8-body">
   <div class="defn"><span class="lbl">Definition</span><p><b>Substitutes in production</b> are goods a producer can make <i>instead of</i> each other. <b>Complements in production</b> come out <i>together</i>.</p></div>
   <p class="reading">Textbook page 63. This is shift factor 2: prices of related goods or services.</p>
 
@@ -915,10 +957,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. That is a substitute in <b>consumption</b>, so it shifts the <b>demand</b> curve for chicken to the right. Supply is untouched.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got8"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e9">
-  <div class="entry-head"><span class="entry-num">09</span><h2>Technology</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e9-body"><span class="entry-num">09</span><h2>Technology</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>All the methods people can use to turn inputs into useful goods and services.</p>
+  <div class="entry-body" id="e9-body">
   <div class="defn"><span class="lbl">Definition</span><p>All the <b>methods</b> people can use to turn inputs into useful goods and services. Better technology lowers the cost of production, so supply <b>increases</b> &mdash; the curve shifts <b>right</b>.</p></div>
   <p class="reading">Textbook page 63. Shift factor 3.</p>
 
@@ -952,10 +997,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Yes. Technology means any method of turning inputs into output, not just electronics.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got9"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e10">
-  <div class="entry-head"><span class="entry-num">10</span><h2>Expectations</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e10-body"><span class="entry-num">10</span><h2>Expectations</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>If producers expect the price to rise later, they hold stock back and supply less today.</p>
+  <div class="entry-body" id="e10-body">
   <div class="defn"><span class="lbl">Definition</span><p>If producers expect the price to <b>rise</b> later, they hold stock back and supply <b>less</b> today. If they expect it to <b>fall</b>, they sell now and supply <b>more</b> today.</p></div>
   <p class="reading">Textbook pages 63&ndash;64. Shift factor 4.</p>
 
@@ -984,10 +1032,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Demand shifts right (buy now) and supply shifts left (sell later). Both push today&rsquo;s price up.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got10"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e11">
-  <div class="entry-head"><span class="entry-num">11</span><h2>Number of producers</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e11-body"><span class="entry-num">11</span><h2>Number of producers</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>More producers means more supplied at every price, so the market supply curve shifts right.</p>
+  <div class="entry-body" id="e11-body">
   <div class="defn"><span class="lbl">Definition</span><p>More producers means more supplied <b>at every price</b>, so the market supply curve shifts <b>right</b>.</p></div>
   <p class="reading">Textbook page 64. Shift factor 5.</p>
 
@@ -1014,6 +1065,7 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>The number of consumers. Both work by changing how many curves are in the horizontal sum.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got11"> Got it</label>
   </div>
+</div>
 </article>
 
 <!-- ============ THE SORTER ============ -->
@@ -1033,7 +1085,9 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
 </section>
 
 <article class="entry" id="e12">
-  <div class="entry-head"><span class="entry-num">12</span><h2>Individual supply curve</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e12-body"><span class="entry-num">12</span><h2>Individual supply curve</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>The relationship between quantity supplied and price for one producer.</p>
+  <div class="entry-body" id="e12-body">
   <div class="defn"><span class="lbl">Definition</span><p>The relationship between quantity supplied and price for <b>one producer</b>.</p></div>
   <p class="reading">Textbook page 64, panels (a) and (b) of Figure 6.5.</p>
 
@@ -1061,10 +1115,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Yes &mdash; for one producer just as for the market, which is why the horizontal sum slopes upward too.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got12"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e13">
-  <div class="entry-head"><span class="entry-num">13</span><h2>Market supply curve</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e13-body"><span class="entry-num">13</span><h2>Market supply curve</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>The horizontal sum of the individual supply curves of all producers: it shows the quantity supplied by everyone at any given price.</p>
+  <div class="entry-body" id="e13-body">
   <div class="defn"><span class="lbl">Definition</span><p>The <b>horizontal sum</b> of the individual supply curves of all producers: it shows the quantity supplied by everyone at any given price.</p></div>
   <p class="reading">Textbook page 64, panel (c) of Figure 6.5.</p>
 
@@ -1095,10 +1152,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>At a higher price every producer supplies more than before, so the total at the higher price is larger. Add upward-sloping curves and you get an upward-sloping curve.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got13"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e14">
-  <div class="entry-head"><span class="entry-num">14</span><h2>Equilibrium</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e14-body"><span class="entry-num">14</span><h2>Equilibrium</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>An economic situation in which no individual would be better off doing something different.</p>
+  <div class="entry-body" id="e14-body">
   <div class="defn"><span class="lbl">Definition</span><p>An economic situation in which <b>no individual would be better off doing something different</b>.</p></div>
   <p class="reading">Textbook page 66.</p>
 
@@ -1131,10 +1191,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. It means everyone willing to pay the equilibrium price finds a seller. People who will not pay that much simply do not buy, and that is not a shortage.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got14"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e15">
-  <div class="entry-head"><span class="entry-num">15</span><h2>Equilibrium price and equilibrium quantity</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e15-body"><span class="entry-num">15</span><h2>Equilibrium price and equilibrium quantity</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>The equilibrium price is the price at which quantity demanded equals quantity supplied.</p>
+  <div class="entry-body" id="e15-body">
   <div class="defn"><span class="lbl">Definition</span><p>The <b>equilibrium price</b> is the price at which quantity demanded equals quantity supplied. It is also called the <b>market-clearing price</b>. The <b>equilibrium quantity</b> is the quantity bought and sold at that price.</p></div>
   <p class="reading">Textbook page 66, Figure 6.6.</p>
 
@@ -1166,10 +1229,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>$1.00 a pound and 10 billion pounds a year.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got15"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e16">
-  <div class="entry-head"><span class="entry-num">16</span><h2>Surplus</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e16-body"><span class="entry-num">16</span><h2>Surplus</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Quantity supplied exceeds quantity demanded.</p>
+  <div class="entry-body" id="e16-body">
   <div class="defn"><span class="lbl">Definition</span><p>Quantity supplied <b>exceeds</b> quantity demanded. Also called <b>excess supply</b>. It happens when the price is <b>above</b> equilibrium.</p></div>
   <p class="reading">Textbook page 68, Figure 6.7.</p>
 
@@ -1202,10 +1268,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. It means the <b>price</b> is too high. At $1.00 the same market clears completely.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got16"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e17">
-  <div class="entry-head"><span class="entry-num">17</span><h2>Shortage</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e17-body"><span class="entry-num">17</span><h2>Shortage</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Quantity demanded exceeds quantity supplied.</p>
+  <div class="entry-body" id="e17-body">
   <div class="defn"><span class="lbl">Definition</span><p>Quantity demanded <b>exceeds</b> quantity supplied. Also called <b>excess demand</b>. It happens when the price is <b>below</b> equilibrium.</p></div>
   <p class="reading">Textbook page 68, Figure 6.8.</p>
 
@@ -1238,6 +1307,7 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Quantity demanded minus quantity supplied. Demand is the larger of the two below equilibrium, so that order gives a positive number.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got17"> Got it</label>
   </div>
+</div>
 </article>
 
 <!-- ============ CALCULATOR ============ -->
@@ -1269,7 +1339,9 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
 </section>
 
 <article class="entry" id="e18">
-  <div class="entry-head"><span class="entry-num">18</span><h2>Market forces restoring equilibrium</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e18-body"><span class="entry-num">18</span><h2>Market forces restoring equilibrium</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Whenever a market is out of balance, market forces drive the price toward equilibrium: a surplus pushes the price down, a shortage pushes it up.</p>
+  <div class="entry-body" id="e18-body">
   <div class="defn"><span class="lbl">Definition</span><p>Whenever a market is out of balance, <b>market forces drive the price toward equilibrium</b>: a surplus pushes the price <b>down</b>, a shortage pushes it <b>up</b>.</p></div>
   <p class="reading">Textbook pages 68&ndash;69.</p>
 
@@ -1306,10 +1378,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Sellers who cannot find buyers. They cut prices to take business from other sellers and to bring more buyers in.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got18"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e19">
-  <div class="entry-head"><span class="entry-num">19</span><h2>Equilibrium price as a signal</h2><span class="mark flag">&#9733; &#9873;</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e19-body"><span class="entry-num">19</span><h2>Equilibrium price as a signal</h2><span class="mark flag">&#9733; &#9873;</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>The equilibrium price carries information.</p>
+  <div class="entry-body" id="e19-body">
   <div class="defn"><span class="lbl">Definition</span><p>The equilibrium price <b>carries information</b>. A rising price tells producers to put more resources into a good and tells buyers to use less of it; a falling price says the opposite. That is how prices <b>guide the allocation of scarce resources</b>.</p></div>
   <p class="reading">Not in this module. Your textbook makes the point in Module 1, pages 2&ndash;3, and calls prices &ldquo;economic signals&rdquo; much later, on page 627.</p>
 
@@ -1342,6 +1417,7 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because the price <i>is</i> the signal. If it stays below equilibrium, sellers see no reward for supplying more and buyers see no reason to use less, so the shortage persists and resources do not move.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got19"> Got it</label>
   </div>
+</div>
 </article>
 
 <!-- ============ MCQ ============ -->
@@ -1677,6 +1753,61 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       });
     });
   });
+})();
+</script>
+
+<script id="entry-toggle-js">
+(function(){
+  var OPENKEY = "micro-mod6-progress-open";
+  var arts = [].slice.call(document.querySelectorAll("article.entry"));
+  function load(){ try { return JSON.parse(localStorage.getItem(OPENKEY) || "{}") || {}; } catch(e){ return {}; } }
+  function save(o){ try { localStorage.setItem(OPENKEY, JSON.stringify(o)); } catch(e){} }
+  function parts(a){ return { btn: a.querySelector(".entry-toggle"), sum: a.querySelector(".entry-sum"),
+                              body: a.querySelector(".entry-body") }; }
+  function set(a, open){
+    var p = parts(a);
+    if (!p.btn || !p.body) return;
+    if (open){ p.body.removeAttribute("hidden"); p.sum.setAttribute("hidden", "hidden"); a.classList.remove("closed"); }
+    else { p.body.setAttribute("hidden", "hidden"); p.sum.removeAttribute("hidden"); a.classList.add("closed"); }
+    p.btn.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+  function count(){
+    var n = arts.filter(function(a){ return !a.classList.contains("closed"); }).length;
+    var c = document.getElementById("entryCount");
+    if (c) c.textContent = n + " of " + arts.length + " open";
+  }
+  function remember(){
+    var o = {};
+    arts.forEach(function(a){ if (a.classList.contains("closed")) o[a.id] = 1; });
+    save(o);
+  }
+  var closed = load();
+  arts.forEach(function(a){
+    if (closed[a.id]) set(a, false);
+    var p = parts(a);
+    if (p.btn) p.btn.addEventListener("click", function(){
+      set(a, a.classList.contains("closed")); remember(); count();
+    });
+  });
+  function all(open){ arts.forEach(function(a){ set(a, open); }); remember(); count(); }
+  var ea = document.getElementById("expandAll"), ca = document.getElementById("collapseAll");
+  if (ea) ea.addEventListener("click", function(){ all(true); });
+  if (ca) ca.addEventListener("click", function(){ all(false); });
+  function openTarget(hash){
+    var m = /^#(e\d+)$/.exec(hash || "");
+    if (!m) return;
+    var a = document.getElementById(m[1]);
+    if (a && a.classList.contains("closed")){ set(a, true); remember(); count(); }
+  }
+  document.addEventListener("click", function(ev){
+    var l = ev.target.closest ? ev.target.closest('a[href^="#e"]') : null;
+    if (l) openTarget(l.getAttribute("href"));
+  }, true);
+  window.addEventListener("hashchange", function(){ openTarget(location.hash); });
+  openTarget(location.hash);
+  var rb = document.getElementById("resetBtn");
+  if (rb) rb.addEventListener("click", function(){ save({}); arts.forEach(function(a){ set(a, true); }); count(); });
+  count();
 })();
 </script>
 </main>

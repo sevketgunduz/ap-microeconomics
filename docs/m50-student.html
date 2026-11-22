@@ -569,6 +569,23 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
 .inc .step{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);margin:3px 0 0}
 @media (max-width:620px){.inc-grid{grid-template-columns:1fr}}
 </style>
+<style id="entry-toggle-css">
+/* collapsible term entries: build/collapsible.py */
+:where(button.entry-toggle){padding:0;margin:0}
+button.entry-toggle{font:inherit;color:inherit;background:none;border:0;width:100%;text-align:left;cursor:pointer}
+button.entry-toggle:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:4px}
+button.entry-toggle::after{content:"\25BE";margin-left:auto;align-self:center;font-family:var(--mono);font-size:15px;color:var(--ink-3);padding-left:8px}
+.entry.closed button.entry-toggle::after{content:"\25B8"}
+.entry-sum{margin:2px 0 0;color:var(--ink-2);font-size:.97em}
+.entry-sum .entry-sum-l{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-right:8px}
+.entry-body[hidden],.entry-sum[hidden]{display:none!important}
+.entry.closed{padding-bottom:14px}
+.entry-tools{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:6px 0 18px}
+.entry-tools button{font:600 13px var(--sans);color:var(--ink);background:var(--surface);border:1px solid var(--rule-strong);border-radius:999px;padding:6px 14px;cursor:pointer}
+.entry-tools button:hover{border-color:var(--accent);color:var(--accent)}
+.entry-tools .entry-count{font-family:var(--mono);font-size:12px;color:var(--ink-3);margin-left:4px}
+@media print{.entry-body[hidden]{display:block!important}.entry-sum,.entry-tools{display:none!important}button.entry-toggle::after{content:none}}
+</style>
 
 
 <div class="bar">
@@ -771,8 +788,12 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
   <h2>The nineteen terms</h2>
 </section>
 
+<div class="entry-tools" id="entryTools"><button type="button" id="expandAll">Expand all</button><button type="button" id="collapseAll">Collapse all</button><span class="entry-count" id="entryCount"></span></div>
+
 <article class="entry" id="e1">
-  <div class="entry-head"><span class="entry-num">01</span><h2>Total surplus</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e1-body"><span class="entry-num">01</span><h2>Total surplus</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Consumer surplus plus producer surplus &mdash; the whole net gain to everyone from trading in a market.</p>
+  <div class="entry-body" id="e1-body">
   <div class="defn"><span class="lbl">Definition</span><p><b>Consumer surplus plus producer surplus</b> &mdash; the whole net gain to everyone from trading in a market. Your course calls it <b>total economic surplus</b>.</p></div>
   <p class="reading">Textbook page 495.</p>
 
@@ -801,10 +822,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because sellers gain too. Judging a market only by what buyers get would rate a market that ruins its sellers as a success.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got1"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e2">
-  <div class="entry-head"><span class="entry-num">02</span><h2>Why the equilibrium maximises total surplus</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e2-body"><span class="entry-num">02</span><h2>Why the equilibrium maximises total surplus</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>In a competitive market with no market failures, the equilibrium produces the largest possible total surplus.</p>
+  <div class="entry-body" id="e2-body">
   <div class="defn"><span class="lbl">Definition</span><p>In a competitive market with no market failures, the equilibrium produces the <b>largest possible</b> total surplus. That is what calling a market <b>efficient</b> means.</p></div>
   <p class="reading">Textbook pages 495&ndash;498, Figures 50.1 to 50.4.</p>
 
@@ -836,10 +860,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>It limits it. When there are externalities, public goods or market power, the equilibrium can fail to maximise total surplus &mdash; which is the whole of Unit 6.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got2"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e3">
-  <div class="entry-head"><span class="entry-num">03</span><h2>The three reallocation experiments</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e3-body"><span class="entry-num">03</span><h2>The three reallocation experiments</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Move consumption, move sales, or move the quantity &mdash; total surplus falls every time.</p>
+  <div class="entry-body" id="e3-body">
   <div class="defn"><span class="lbl">Definition</span><p>Move consumption, move sales, or move the quantity &mdash; total surplus falls every time.</p></div>
   <p class="reading">Textbook pages 496&ndash;498, Figures 50.2, 50.3 and 50.4.</p>
 
@@ -871,10 +898,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>The third: it changes the quantity traded. That is why a tax creates a deadweight loss.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got3"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e4">
-  <div class="entry-head"><span class="entry-num">04</span><h2>Allocative efficiency</h2><span class="mark flag">&#9733; &#9873;</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e4-body"><span class="entry-num">04</span><h2>Allocative efficiency</h2><span class="mark flag">&#9733; &#9873;</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Resources are allocated so that the goods produced are the ones society values most &mdash; which happens exactly when total surplus is maximised.</p>
+  <div class="entry-body" id="e4-body">
   <div class="defn"><span class="lbl">Definition</span><p>Resources are allocated so that the goods produced are the ones society values most &mdash; which happens exactly when <b>total surplus is maximised</b>.</p></div>
   <p class="reading">Not in Module 50 &mdash; or anywhere else in your textbook.</p>
 
@@ -908,10 +938,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because the equilibrium already maximises total surplus. Any change moves away from the maximum, in whichever direction it pushes the quantity.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got4"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e5">
-  <div class="entry-head"><span class="entry-num">05</span><h2>Equity against efficiency</h2><span class="mark bgm">&#9675; Background</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e5-body"><span class="entry-num">05</span><h2>Equity against efficiency</h2><span class="mark bgm">&#9675; Background</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Efficiency is about the size of the total surplus.</p>
+  <div class="entry-body" id="e5-body">
   <div class="defn"><span class="lbl">Definition</span><p>Efficiency is about the <b>size</b> of the total surplus. Equity is about how <b>fairly</b> it is shared. They are different goals and they often conflict.</p></div>
   <p class="reading">Textbook page 499.</p>
 
@@ -942,10 +975,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>It means nobody can be made better off <i>without making someone else worse off</i>. Redistribution is always possible; it just does not grow the total.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got5"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e6">
-  <div class="entry-head"><span class="entry-num">06</span><h2>An excise tax, or per-unit tax</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e6-body"><span class="entry-num">06</span><h2>An excise tax, or per-unit tax</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>A fixed amount of tax charged on each unit sold.</p>
+  <div class="entry-body" id="e6-body">
   <div class="defn"><span class="lbl">Definition</span><p>A fixed amount of tax charged on <b>each unit</b> sold.</p></div>
   <p class="reading">Textbook page 499.</p>
 
@@ -974,10 +1010,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because a per-unit tax shifts the curve by the same vertical distance at every quantity, which keeps the diagram simple and the arithmetic exact.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got6"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e7">
-  <div class="entry-head"><span class="entry-num">07</span><h2>A tax on sellers shifts supply up</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e7-body"><span class="entry-num">07</span><h2>A tax on sellers shifts supply up</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>A per-unit tax collected from sellers shifts the supply curve up by the amount of the tax: sellers need that much more per unit to supply the same quantity.</p>
+  <div class="entry-body" id="e7-body">
   <div class="defn"><span class="lbl">Definition</span><p>A per-unit tax collected from sellers shifts the supply curve <b>up by the amount of the tax</b>: sellers need that much more per unit to supply the same quantity.</p></div>
   <p class="reading">Textbook pages 500&ndash;501, Figure 50.6.</p>
 
@@ -1006,10 +1045,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because the quantity falls as the price rises, so the market settles part-way. How far depends on the elasticities &mdash; entry 11.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got7"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e8">
-  <div class="entry-head"><span class="entry-num">08</span><h2>A tax on buyers shifts demand down</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e8-body"><span class="entry-num">08</span><h2>A tax on buyers shifts demand down</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>A per-unit tax collected from buyers shifts the demand curve down by the amount of the tax &mdash; and produces exactly the same outcome as a tax on sellers.</p>
+  <div class="entry-body" id="e8-body">
   <div class="defn"><span class="lbl">Definition</span><p>A per-unit tax collected from buyers shifts the demand curve <b>down by the amount of the tax</b> &mdash; and produces exactly the <b>same</b> outcome as a tax on sellers.</p></div>
   <p class="reading">Textbook page 502, Figure 50.7.</p>
 
@@ -1039,10 +1081,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Both, if each matched the diagram to who the tax was levied on &mdash; and they will get identical prices, quantities, revenue and deadweight loss.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got8"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e9">
-  <div class="entry-head"><span class="entry-num">09</span><h2>The tax wedge</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e9-body"><span class="entry-num">09</span><h2>The tax wedge</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>A per-unit tax drives a wedge between the price buyers pay and the price sellers receive.</p>
+  <div class="entry-body" id="e9-body">
   <div class="defn"><span class="lbl">Definition</span><p>A per-unit tax drives a <b>wedge</b> between the price buyers pay and the price sellers receive. The wedge is exactly the size of the tax.</p></div>
   <p class="reading">Textbook page 501.</p>
 
@@ -1073,10 +1118,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>$60. The wedge is $40, so the two prices sit $40 apart.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got9"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e10">
-  <div class="entry-head"><span class="entry-num">10</span><h2>Who hands over the money does not decide who bears the tax</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e10-body"><span class="entry-num">10</span><h2>Who hands over the money does not decide who bears the tax</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>The incidence of a tax &mdash; who really bears it &mdash; is the same whether the government collects it from buyers or from sellers.</p>
+  <div class="entry-body" id="e10-body">
   <div class="defn"><span class="lbl">Definition</span><p>The <b>incidence</b> of a tax &mdash; who really bears it &mdash; is the same whether the government collects it from buyers or from sellers.</p></div>
   <p class="reading">Textbook pages 502&ndash;503.</p>
 
@@ -1106,10 +1154,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because both open the same wedge between what buyers pay and what sellers receive, and the market settles at the quantity where that wedge fits between the two curves.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got10"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e11">
-  <div class="entry-head"><span class="entry-num">11</span><h2>Incidence depends on the elasticities</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e11-body"><span class="entry-num">11</span><h2>Incidence depends on the elasticities</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>The more inelastic side of the market bears more of a per-unit tax.</p>
+  <div class="entry-body" id="e11-body">
   <div class="defn"><span class="lbl">Definition</span><p>The <b>more inelastic</b> side of the market bears <b>more</b> of a per-unit tax.</p></div>
   <p class="reading">Textbook pages 503&ndash;505, Figures 50.8 and 50.9.</p>
 
@@ -1146,10 +1197,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because the quantity cannot change, so the price buyers pay does not move at all. The entire tax comes out of what sellers receive.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got11"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e12">
-  <div class="entry-head"><span class="entry-num">12</span><h2>Tax revenue is a rectangle</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e12-body"><span class="entry-num">12</span><h2>Tax revenue is a rectangle</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Government revenue = tax per unit &times; quantity traded after the tax.</p>
+  <div class="entry-body" id="e12-body">
   <div class="defn"><span class="lbl">Definition</span><p>Government revenue = <b>tax per unit &times; quantity traded after the tax</b>. On the diagram it is the rectangle between the two prices, out to the new quantity.</p></div>
   <p class="reading">Textbook page 505, Figure 50.10.</p>
 
@@ -1180,10 +1234,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because the quantity traded falls as the rate rises. If it falls proportionally faster than the rate rises, revenue goes down.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got12"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e13">
-  <div class="entry-head"><span class="entry-num">13</span><h2>Deadweight loss from a tax</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e13-body"><span class="entry-num">13</span><h2>Deadweight loss from a tax</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>The fall in total surplus caused by the tax, minus the revenue the government collects.</p>
+  <div class="entry-body" id="e13-body">
   <div class="defn"><span class="lbl">Definition</span><p>The <b>fall in total surplus</b> caused by the tax, <b>minus</b> the revenue the government collects. On the diagram it is a <b>triangle</b>.</p></div>
   <p class="reading">Textbook pages 506&ndash;507, Figures 50.11 and 50.12.</p>
 
@@ -1214,10 +1271,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because somebody receives it. It leaves buyers and sellers and arrives at the government, so it is a transfer within society, not a loss to it.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got13"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e14">
-  <div class="entry-head"><span class="entry-num">14</span><h2>The full surplus account</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e14-body"><span class="entry-num">14</span><h2>The full surplus account</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>Loss to buyers + loss to sellers = government revenue + deadweight loss.</p>
+  <div class="entry-body" id="e14-body">
   <div class="defn"><span class="lbl">Definition</span><p>Loss to buyers + loss to sellers = <b>government revenue + deadweight loss</b>. The account always balances.</p></div>
   <p class="reading">Textbook pages 506&ndash;507, Figure 50.11.</p>
 
@@ -1252,10 +1312,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because every pound of surplus either stays with buyers and sellers, moves to the government, or disappears with a trade that no longer happens. There is nowhere else for it to go.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got14"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e15">
-  <div class="entry-head"><span class="entry-num">15</span><h2>When a tax causes no deadweight loss</h2><span class="mark exam">&#9733; Exam</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e15-body"><span class="entry-num">15</span><h2>When a tax causes no deadweight loss</h2><span class="mark exam">&#9733; Exam</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>If the tax does not change the quantity traded, the triangle has no height and the tax is a pure transfer.</p>
+  <div class="entry-body" id="e15-body">
   <div class="defn"><span class="lbl">Definition</span><p>If the tax does <b>not change the quantity traded</b>, the triangle has no height and the tax is a pure <b>transfer</b>.</p></div>
   <p class="reading">Textbook page 507.</p>
 
@@ -1285,10 +1348,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>It makes it efficient, which is not the same as desirable. Somebody still bears it, and whether that is fair is the equity question of entry 5.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got15"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e16">
-  <div class="entry-head"><span class="entry-num">16</span><h2>Subsidies &mdash; the mirror image</h2><span class="mark flag">&#9733; &#9873;</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e16-body"><span class="entry-num">16</span><h2>Subsidies &mdash; the mirror image</h2><span class="mark flag">&#9733; &#9873;</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>A per-unit subsidy is a payment on each unit sold.</p>
+  <div class="entry-body" id="e16-body">
   <div class="defn"><span class="lbl">Definition</span><p>A <b>per-unit subsidy</b> is a payment on each unit sold. Supply shifts <b>down</b> by the subsidy, buyers pay <b>less</b>, sellers receive <b>more</b>, and the quantity rises <b>above</b> the efficient level.</p></div>
   <p class="reading">Not in Module 50 &mdash; the word does not appear in it.</p>
 
@@ -1328,10 +1394,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because it pushes the quantity past the efficient level. The extra units cost more to produce than they are worth to buyers, and the taxpayer covers the difference.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got16"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e17">
-  <div class="entry-head"><span class="entry-num">17</span><h2>Government revenue, or government cost</h2><span class="mark flag">&#9733; &#9873;</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e17-body"><span class="entry-num">17</span><h2>Government revenue, or government cost</h2><span class="mark flag">&#9733; &#9873;</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>A tax raises revenue for the government.</p>
+  <div class="entry-body" id="e17-body">
   <div class="defn"><span class="lbl">Definition</span><p>A tax <b>raises</b> revenue for the government. A subsidy <b>costs</b> it money. Both are rectangles: the per-unit amount &times; the quantity traded.</p></div>
   <p class="reading">Not in Module 50 &mdash; it computes a tax's revenue and never a subsidy's cost.</p>
 
@@ -1370,10 +1439,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because the subsidy raises the quantity while the tax lowers it. The same per-unit amount is multiplied by a larger number.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got17"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e18">
-  <div class="entry-head"><span class="entry-num">18</span><h2>Administrative costs</h2><span class="mark bgm">&#9675; Background</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e18-body"><span class="entry-num">18</span><h2>Administrative costs</h2><span class="mark bgm">&#9675; Background</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>The resources used by government to collect a tax and by taxpayers to pay it &mdash; over and above the tax itself.</p>
+  <div class="entry-body" id="e18-body">
   <div class="defn"><span class="lbl">Definition</span><p>The resources used by government to <b>collect</b> a tax and by taxpayers to <b>pay</b> it &mdash; over and above the tax itself.</p></div>
   <p class="reading">Textbook page 508.</p>
 
@@ -1403,10 +1475,13 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because the administrative costs fall: less time, fewer accountants, less evasion. The triangle may be unchanged while the real cost drops.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got18"> Got it</label>
   </div>
+</div>
 </article>
 
 <article class="entry" id="e19">
-  <div class="entry-head"><span class="entry-num">19</span><h2>Progressive and regressive taxes</h2><span class="mark bgm">&#9675; Background</span></div>
+  <button type="button" class="entry-head entry-toggle" aria-expanded="true" aria-controls="e19-body"><span class="entry-num">19</span><h2>Progressive and regressive taxes</h2><span class="mark bgm">&#9675; Background</span></button>
+  <p class="entry-sum" hidden><span class="entry-sum-l">In short</span>A progressive tax takes a larger share of a richer taxpayer's income; a regressive tax takes a smaller share.</p>
+  <div class="entry-body" id="e19-body">
   <div class="defn"><span class="lbl">Definition</span><p>A <b>progressive</b> tax takes a larger share of a richer taxpayer's income; a <b>regressive</b> tax takes a smaller share.</p></div>
   <p class="reading">Textbook page 499.</p>
 
@@ -1437,6 +1512,7 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. Efficiency is about the deadweight loss; progressivity is about who bears the burden. A tax can be regressive and efficient, or progressive and wasteful.</p></div></details></div>
     <label class="got"><input type="checkbox" class="gotbox" id="got19"> Got it</label>
   </div>
+</div>
 </article>
 
 
@@ -1753,6 +1829,60 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
       }
     })(mcqs[mi]);
   }
+})();
+</script>
+<script id="entry-toggle-js">
+(function(){
+  var OPENKEY = "m50-got-open";
+  var arts = [].slice.call(document.querySelectorAll("article.entry"));
+  function load(){ try { return JSON.parse(localStorage.getItem(OPENKEY) || "{}") || {}; } catch(e){ return {}; } }
+  function save(o){ try { localStorage.setItem(OPENKEY, JSON.stringify(o)); } catch(e){} }
+  function parts(a){ return { btn: a.querySelector(".entry-toggle"), sum: a.querySelector(".entry-sum"),
+                              body: a.querySelector(".entry-body") }; }
+  function set(a, open){
+    var p = parts(a);
+    if (!p.btn || !p.body) return;
+    if (open){ p.body.removeAttribute("hidden"); p.sum.setAttribute("hidden", "hidden"); a.classList.remove("closed"); }
+    else { p.body.setAttribute("hidden", "hidden"); p.sum.removeAttribute("hidden"); a.classList.add("closed"); }
+    p.btn.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+  function count(){
+    var n = arts.filter(function(a){ return !a.classList.contains("closed"); }).length;
+    var c = document.getElementById("entryCount");
+    if (c) c.textContent = n + " of " + arts.length + " open";
+  }
+  function remember(){
+    var o = {};
+    arts.forEach(function(a){ if (a.classList.contains("closed")) o[a.id] = 1; });
+    save(o);
+  }
+  var closed = load();
+  arts.forEach(function(a){
+    if (closed[a.id]) set(a, false);
+    var p = parts(a);
+    if (p.btn) p.btn.addEventListener("click", function(){
+      set(a, a.classList.contains("closed")); remember(); count();
+    });
+  });
+  function all(open){ arts.forEach(function(a){ set(a, open); }); remember(); count(); }
+  var ea = document.getElementById("expandAll"), ca = document.getElementById("collapseAll");
+  if (ea) ea.addEventListener("click", function(){ all(true); });
+  if (ca) ca.addEventListener("click", function(){ all(false); });
+  function openTarget(hash){
+    var m = /^#(e\d+)$/.exec(hash || "");
+    if (!m) return;
+    var a = document.getElementById(m[1]);
+    if (a && a.classList.contains("closed")){ set(a, true); remember(); count(); }
+  }
+  document.addEventListener("click", function(ev){
+    var l = ev.target.closest ? ev.target.closest('a[href^="#e"]') : null;
+    if (l) openTarget(l.getAttribute("href"));
+  }, true);
+  window.addEventListener("hashchange", function(){ openTarget(location.hash); });
+  openTarget(location.hash);
+  var rb = document.getElementById("resetBtn");
+  if (rb) rb.addEventListener("click", function(){ save({}); arts.forEach(function(a){ set(a, true); }); count(); });
+  count();
 })();
 </script>
 </main>

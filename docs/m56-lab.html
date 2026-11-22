@@ -510,7 +510,7 @@ const sb=document.createElement('aside');sb.className='sb';sb.setAttribute('aria
 const title=document.querySelector('.brand').childNodes[0].textContent.trim(),sub=document.querySelector('.brand span').textContent;
 sb.innerHTML=`<a class="home" href="https://sevketgunduz.github.io/ap-microeconomics/">AP Microeconomics</a><div class="sub">${title} · ${sub}</div><p class="lbl">In this lab</p>`+
  secs.map(s=>{const n=s.querySelector('.num'),h=s.querySelector('h2');const t=h?h.childNodes[0].textContent.replace(/[:·].*$/,'').trim():s.id;return `<a class="it" href="#${s.id}" data-id="${s.id}"><span>${n?n.textContent:''}</span><span>${t}</span></a>`}).join('')+
- ``;
+ `<p class="lbl">Same module, old layout</p><div class="links"><a href="m56-student.html">Student guide</a><a href="m56-test.html">Test</a><a href="m56-notes.html">Teaching notes</a></div>`;
 document.body.appendChild(sb);
 const btn=document.createElement('button');btn.className='sbbtn';btn.type='button';btn.textContent='☰ Contents';btn.setAttribute('aria-expanded','false');
 const bar=document.querySelector('.topin');if(bar)bar.insertBefore(btn,bar.firstChild);

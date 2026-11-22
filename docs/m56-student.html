@@ -1,0 +1,1845 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 56 · Long-Run Costs and Economies of Scale · AP Microeconomics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@600;700&display=swap">
+<link rel="stylesheet" href="assets/course.css">
+<style>.page .bar{position:static;background:none;backdrop-filter:none}.page .bar-in{max-width:none;padding-inline:0}.page .wrap{max-width:none;padding-inline:0;padding-block:0 24px}.page .masthead{padding-block:10px 24px}</style></head>
+<body>
+<main class="page">
+<style>
+
+
+:root{
+  --paper:#f3f5f8;
+  --surface:#ffffff;
+  --surface-2:#eef1f6;
+  --ink:#15181f;
+  --ink-2:#4d5566;
+  --ink-3:#737c8e;
+  --rule:#d6dae2;
+  --rule-strong:#b3bac7;
+  --accent:#1d4e89;
+  --accent-soft:#e6edf7;
+  --down:#a3372a;
+  --down-soft:#fbeeeb;
+  --up:#1a6b55;
+  --up-soft:#e6f2ee;
+  --flag:#7a5310;
+  --flag-soft:#f8f0e0;
+  --shadow:0 1px 2px rgba(21,24,31,.06), 0 8px 24px rgba(21,24,31,.05);
+  --serif:"IBM Plex Serif", Georgia, "Times New Roman", serif;
+  --sans:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0f1218;
+    --surface:#171b23;
+    --surface-2:#1e232d;
+    --ink:#e8ebf1;
+    --ink-2:#a3adc0;
+    --ink-3:#7e8799;
+    --rule:#2c323d;
+    --rule-strong:#3c4351;
+    --accent:#7dabe2;
+    --accent-soft:#1a2634;
+    --down:#e5907f;
+    --down-soft:#2a1d1a;
+    --up:#6cc4a7;
+    --up-soft:#16291f;
+    --flag:#d8b169;
+    --flag-soft:#2a2418;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.28);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0f1218;
+  --surface:#171b23;
+  --surface-2:#1e232d;
+  --ink:#e8ebf1;
+  --ink-2:#a3adc0;
+  --ink-3:#7e8799;
+  --rule:#2c323d;
+  --rule-strong:#3c4351;
+  --accent:#7dabe2;
+  --accent-soft:#1a2634;
+  --down:#e5907f;
+  --down-soft:#2a1d1a;
+  --up:#6cc4a7;
+  --up-soft:#16291f;
+  --flag:#d8b169;
+  --flag-soft:#2a2418;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.28);
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.65;
+  margin:0;
+}
+.wrap{max-width:820px;margin:0 auto;padding-inline:18px;padding-block:0 72px}
+
+/* ---------- sticky bar ---------- */
+.bar{
+  position:sticky;
+  top:env(safe-area-inset-top, 0px);
+  z-index:40;
+  background:color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--rule);
+}
+.bar-in{
+  max-width:820px;margin:0 auto;padding-inline:18px;
+  display:flex;align-items:center;gap:14px;min-height:50px;flex-wrap:wrap;
+}
+.bar-title{font-family:var(--mono);font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-2);white-space:nowrap}
+.progress{flex:1 1 140px;min-width:120px;display:flex;align-items:center;gap:9px}
+.progress-track{flex:1;height:5px;border-radius:3px;background:var(--rule);overflow:hidden}
+.progress-fill{height:100%;width:0;background:var(--accent);transition:width .25s ease}
+.progress-num{font-family:var(--mono);font-size:12px;color:var(--ink-2);font-variant-numeric:tabular-nums;white-space:nowrap}
+.bar button{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;
+  background:none;border:1px solid var(--rule-strong);color:var(--ink-2);
+  padding:5px 10px;border-radius:4px;cursor:pointer;
+}
+.bar button:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ---------- masthead ---------- */
+.masthead{padding-block:40px 28px;border-bottom:2px solid var(--ink)}
+.eyebrow{
+  font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);margin:0 0 12px;
+}
+h1{
+  font-family:var(--serif);font-weight:700;font-size:clamp(30px,6.4vw,44px);
+  line-height:1.1;margin:0 0 14px;text-wrap:balance;letter-spacing:-.01em;
+}
+.standfirst{font-size:17.5px;color:var(--ink-2);margin:0;max-width:62ch}
+.source-line{
+  font-family:var(--mono);font-size:12.5px;color:var(--ink-3);margin-top:18px;
+  display:flex;gap:6px 18px;flex-wrap:wrap;
+}
+
+h2{
+  font-family:var(--serif);font-weight:600;font-size:clamp(21px,3.8vw,26px);
+  line-height:1.25;margin:0 0 10px;text-wrap:balance;
+}
+h3{font-family:var(--sans);font-weight:600;font-size:16px;margin:26px 0 8px;letter-spacing:.01em}
+p{margin:0 0 14px}
+a{color:var(--accent)}
+.section{padding-block:34px 4px}
+
+.kicker{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-3);margin:0 0 8px;
+}
+
+/* ---------- entries ---------- */
+.entry{padding-block:34px 10px;border-top:1px solid var(--rule)}
+.entry-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.entry-num{
+  font-family:var(--mono);font-size:13px;font-weight:600;color:var(--accent);
+  font-variant-numeric:tabular-nums;
+}
+.entry h2{margin:0;flex:1 1 auto;min-width:0}
+.mark{
+  font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  padding:3px 8px;border-radius:3px;white-space:nowrap;
+}
+.mark.exam{background:var(--accent-soft);color:var(--accent)}
+.mark.bg{background:var(--surface-2);color:var(--ink-3)}
+.defn{
+  background:var(--surface);border-left:3px solid var(--accent);
+  padding:14px 16px;border-radius:0 5px 5px 0;margin:14px 0 16px;box-shadow:var(--shadow);
+}
+.defn p{margin:0}
+.defn .lbl{
+  display:block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-3);margin-bottom:5px;
+}
+.reading{font-family:var(--mono);font-size:12.5px;color:var(--ink-3);margin:-6px 0 16px}
+
+.watch{
+  background:var(--down-soft);border:1px solid color-mix(in srgb, var(--down) 28%, transparent);
+  border-radius:5px;padding:13px 16px;margin:18px 0;
+}
+.watch p{margin:0;font-size:15.3px}
+.watch b{color:var(--down)}
+
+.notinbook{
+  background:var(--flag-soft);border:1px dashed color-mix(in srgb, var(--flag) 48%, transparent);
+  border-radius:5px;padding:13px 16px;margin:16px 0;
+}
+.notinbook p{margin:0;font-size:15.3px}
+.notinbook b{color:var(--flag)}
+
+.examples{margin:18px 0;display:flex;flex-direction:column;gap:12px}
+.ex{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start}
+.ex-n{
+  font-family:var(--mono);font-size:11px;font-weight:600;color:var(--ink-3);
+  border:1px solid var(--rule-strong);border-radius:3px;padding:1px 6px;margin-top:3px;white-space:nowrap;
+}
+.ex p{margin:0;font-size:15.3px}
+.ex .who{font-weight:600;color:var(--ink)}
+
+.connects{font-size:15.3px;color:var(--ink-2);border-top:1px solid var(--rule);padding-top:12px;margin-top:6px}
+.connects b{color:var(--ink)}
+
+/* ---------- check yourself ---------- */
+.check{margin:20px 0 6px;background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:14px 16px}
+.check > .lbl{
+  font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);display:block;margin-bottom:10px;
+}
+.q{margin-bottom:12px}
+.q:last-child{margin-bottom:0}
+.q > p{margin:0 0 7px;font-size:15.3px}
+.q .qn{font-family:var(--mono);font-weight:600;color:var(--accent);font-size:13.5px;margin-right:4px}
+details.reveal{border-top:1px dashed var(--rule)}
+details.reveal > summary{
+  list-style:none;cursor:pointer;font-family:var(--mono);font-size:11.5px;
+  letter-spacing:.07em;text-transform:uppercase;color:var(--accent);padding:7px 0 0;
+}
+details.reveal > summary::-webkit-details-marker{display:none}
+details.reveal > summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details.reveal[open] > summary::before{content:"▾ "}
+details.reveal > summary:hover{text-decoration:underline}
+details.reveal .ans{font-size:15.3px;color:var(--ink-2);padding:6px 0 4px}
+details.reveal .ans p{margin:0 0 8px}
+details.reveal .ans p:last-child{margin:0}
+
+.got{
+  display:flex;align-items:center;gap:8px;margin-top:16px;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);
+  cursor:pointer;user-select:none;
+}
+.got input{width:15px;height:15px;accent-color:var(--accent);cursor:pointer}
+
+/* ---------- tables ---------- */
+.tablewrap{overflow-x:auto;margin:18px 0;border:1px solid var(--rule);border-radius:6px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:15px;min-width:420px}
+th,td{padding:10px 13px;text-align:left;border-bottom:1px solid var(--rule);vertical-align:top}
+thead th{
+  font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-3);background:var(--surface-2);font-weight:600;
+}
+tbody tr:last-child td{border-bottom:none}
+td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right}
+.tight td,.tight th{padding:8px 12px;font-size:14.5px}
+
+/* ---------- widgets ---------- */
+.widget{
+  background:var(--surface);border:1px solid var(--rule-strong);border-radius:8px;
+  padding:18px;margin:26px 0;box-shadow:var(--shadow);
+}
+.widget-title{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);margin:0 0 4px;
+}
+.widget h3{margin-top:0}
+.widget-note{font-size:14.5px;color:var(--ink-2);margin:12px 0 0}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{
+  font-family:var(--mono);font-size:12px;letter-spacing:.04em;
+  border:1px solid var(--rule-strong);background:var(--surface);color:var(--ink-2);
+  border-radius:16px;padding:5px 13px;cursor:pointer;transition:all .15s;
+}
+.chip:hover{border-color:var(--accent);color:var(--accent)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+:root[data-theme="dark"] .chip[aria-pressed="true"],
+:root:not([data-theme="light"]) .chip[aria-pressed="true"]{color:#0f1218}
+
+.cyclefig{width:100%;height:auto;display:block;overflow:visible}
+.figcap{font-size:14.5px;color:var(--ink-2);margin:10px 0 0;min-height:3em}
+.figcap b{color:var(--ink)}
+
+.svg-dim{opacity:.22;transition:opacity .2s}
+.svg-lit{opacity:1;transition:opacity .2s}
+
+.calc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:14px 0}
+.field label{
+  display:block;font-family:var(--mono);font-size:11px;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--ink-3);margin-bottom:5px;
+}
+.field input[type=number]{
+  width:100%;font-family:var(--mono);font-size:16px;padding:8px 10px;
+  border:1px solid var(--rule-strong);border-radius:5px;background:var(--paper);color:var(--ink);
+}
+.field input[type=range]{width:100%;accent-color:var(--accent)}
+.field input:focus-visible,.chip:focus-visible,button:focus-visible,summary:focus-visible,a:focus-visible{
+  outline:2px solid var(--accent);outline-offset:2px;
+}
+.readouts{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:6px;overflow:hidden;margin-top:6px}
+.ro{background:var(--surface-2);padding:12px 14px}
+.ro .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);display:block;margin-bottom:3px}
+.ro .v{font-family:var(--mono);font-size:22px;font-weight:600;font-variant-numeric:tabular-nums;color:var(--ink)}
+.ro .v.hl{color:var(--accent)}
+
+/* ---------- quiz ---------- */
+.mcq{border-top:1px solid var(--rule);padding-top:18px;margin-top:18px}
+.mcq:first-of-type{border-top:none;padding-top:0;margin-top:0}
+.mcq .stem{font-size:15.6px;margin:0 0 12px}
+.mcq .stem .qn{font-family:var(--mono);font-weight:600;color:var(--accent);margin-right:6px}
+.opts{display:flex;flex-direction:column;gap:7px}
+.opt{
+  display:flex;gap:11px;align-items:flex-start;text-align:left;width:100%;
+  font-family:var(--sans);font-size:15.2px;line-height:1.5;color:var(--ink);
+  background:var(--surface);border:1px solid var(--rule);border-radius:6px;
+  padding:10px 13px;cursor:pointer;transition:border-color .15s,background .15s;
+}
+.opt:hover{border-color:var(--accent)}
+.opt .ltr{font-family:var(--mono);font-weight:600;color:var(--ink-3);flex:0 0 auto}
+.opt .why{display:block;font-size:14.3px;color:var(--ink-2);margin-top:6px}
+.opt[data-state="right"]{border-color:var(--up);background:var(--up-soft)}
+.opt[data-state="right"] .ltr{color:var(--up)}
+.opt[data-state="wrong"]{border-color:var(--down);background:var(--down-soft)}
+.opt[data-state="wrong"] .ltr{color:var(--down)}
+.opt[disabled]{cursor:default}
+.score{
+  font-family:var(--mono);font-size:13px;color:var(--ink-2);
+  border:1px solid var(--rule-strong);border-radius:6px;padding:11px 14px;margin-top:20px;
+  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;
+}
+.score b{color:var(--ink);font-size:15px}
+
+.frq{background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:15px 17px;margin:16px 0}
+.frq .stem{margin:0 0 6px;font-size:15.6px}
+.frq .pts{font-family:var(--mono);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3)}
+.rubric{margin:8px 0 0;padding:0;list-style:none}
+.rubric li{display:grid;grid-template-columns:auto 1fr;gap:10px;padding:7px 0;border-top:1px dotted var(--rule);font-size:15.2px}
+.rubric li .pt{font-family:var(--mono);font-size:11.5px;color:var(--up);white-space:nowrap;padding-top:3px}
+
+.closing{background:var(--accent-soft);border-radius:8px;padding:20px 22px;margin-top:28px}
+.closing h2{margin-top:0}
+.closing ol{margin:0;padding-left:20px}
+.closing li{margin-bottom:10px;font-size:15.5px}
+.closing li:last-child{margin-bottom:0}
+
+.toc{columns:2 220px;column-gap:26px;margin:16px 0 0;padding:0;list-style:none}
+.toc li{break-inside:avoid;padding:3px 0;font-size:15px}
+.toc a{text-decoration:none;color:var(--ink)}
+.toc a:hover{color:var(--accent);text-decoration:underline}
+.toc .n{font-family:var(--mono);font-size:12.5px;color:var(--ink-3);margin-right:7px;font-variant-numeric:tabular-nums}
+.toc .m{font-size:11px;color:var(--ink-3);margin-left:5px}
+
+.footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--rule);font-family:var(--mono);font-size:12px;color:var(--ink-3);line-height:1.8}
+
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+@media print{
+  .bar,.got,.chips{display:none}
+  body{background:#fff}
+  details.reveal > *{display:block!important}
+  .entry{break-inside:avoid-page}
+}
+@media (max-width:520px){
+  .toc{columns:1}
+  .ro .v{font-size:19px}
+}
+
+/* ---------- Module 3 supplement ---------- */
+.mark.flag{background:var(--flag-soft);color:var(--flag)}
+.ppc-wrap{display:grid;grid-template-columns:1fr;gap:14px}
+@media (min-width:720px){.ppc-wrap{grid-template-columns:1fr 210px}}
+.ppc-svg{width:100%;height:auto;display:block;background:var(--surface);
+  border:1px solid var(--rule);border-radius:6px;cursor:crosshair;touch-action:none}
+.ppc-side{display:flex;flex-direction:column;gap:10px}
+.status{font-family:var(--mono);font-size:12.5px;padding:9px 11px;border-radius:5px;
+  border:1px solid var(--rule-strong);background:var(--surface-2);line-height:1.45}
+.status[data-s="on"]{border-color:color-mix(in srgb,var(--up) 45%,transparent);background:var(--up-soft);color:var(--up)}
+.status[data-s="in"]{border-color:var(--rule-strong);color:var(--ink-2)}
+.status[data-s="out"]{border-color:color-mix(in srgb,var(--down) 45%,transparent);background:var(--down-soft);color:var(--down)}
+.ppc-legend{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);line-height:1.6}
+.ppc-legend b{color:var(--ink-2);font-weight:600}
+.chips.tight{gap:6px}
+.tbl{overflow-x:auto;max-width:100%}
+.sumtable{width:100%;border-collapse:collapse;font-size:14.5px;margin:16px 0}
+.sumtable th,.sumtable td{border-bottom:1px solid var(--rule);padding:8px 10px;text-align:left;vertical-align:top}
+.sumtable th{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+.sumtable td.mk{font-family:var(--mono);font-size:12px;white-space:nowrap;color:var(--accent)}
+.sumtable td.mk.bgm{color:var(--ink-3)}
+.sumtable td.mk.flagm{color:var(--flag)}
+.final{background:var(--surface);border:1px solid var(--rule);border-radius:6px;
+  padding:18px 20px;margin:22px 0;box-shadow:var(--shadow)}
+.final ol{margin:0;padding-left:20px}
+.final li{margin:0 0 9px}
+.final li:last-child{margin-bottom:0}
+
+/* ---------- PPC explorer svg ---------- */
+.ppc-svg .ax{stroke:var(--ink);stroke-width:1.6}
+.ppc-svg .tick{stroke:var(--ink-3);stroke-width:1.1}
+.ppc-svg .tl{font-family:var(--mono);font-size:11px;fill:var(--ink-3)}
+.ppc-svg .al{font-family:var(--sans);font-size:12px;font-weight:600;fill:var(--ink-2)}
+.ppc-svg .curve{fill:none;stroke:var(--accent);stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round}
+.ppc-svg .ghost{fill:none;stroke:var(--rule-strong);stroke-width:1.8;stroke-dasharray:6 5}
+.ppc-svg .cl{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--accent)}
+.ppc-svg .drop{stroke:var(--rule-strong);stroke-width:1;stroke-dasharray:3 3}
+.ppc-svg .pt{stroke:var(--surface);stroke-width:2}
+.ppc-svg .pt-on{fill:var(--up)}
+.ppc-svg .pt-in{fill:var(--ink-3)}
+.ppc-svg .pt-out{fill:var(--down)}
+
+
+/* ---------- Module 4 supplement ---------- */
+.two-panel{width:100%;height:auto;display:block;background:var(--surface);
+  border:1px solid var(--rule);border-radius:6px}
+.ca-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:0 0 14px}
+@media (min-width:640px){.ca-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.ca-grid .field{display:flex;flex-direction:column;gap:5px}
+.ca-grid .field span{font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--ink-3)}
+.ca-grid .field b{color:var(--ink-2);font-weight:600;text-transform:none;letter-spacing:0}
+.ca-grid input{font-family:var(--mono);font-size:15px;padding:7px 9px;width:100%;
+  color:var(--ink);background:var(--paper);border:1px solid var(--rule-strong);border-radius:5px}
+.ca-grid input:focus{outline:2px solid var(--accent);outline-offset:1px}
+.catab{width:100%;border-collapse:collapse;font-size:14px;margin:4px 0 14px}
+.catab th,.catab td{border-bottom:1px solid var(--rule);padding:7px 9px;text-align:left}
+.catab th{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:600}
+.catab td.v{font-family:var(--mono);color:var(--ink)}
+.catab td.win{font-family:var(--mono);color:var(--up);font-weight:600}
+.dealrow{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;margin:0 0 12px}
+.dealrow .field{display:flex;flex-direction:column;gap:5px;min-width:190px;flex:1}
+.dealrow .field span{font-family:var(--mono);font-size:11px;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--ink-3)}
+.dealrow input{font-family:var(--mono);font-size:16px;padding:8px 10px;
+  color:var(--ink);background:var(--paper);border:1px solid var(--rule-strong);border-radius:5px}
+.line-svg{width:100%;height:auto;display:block;margin:6px 0 2px}
+.line-svg g[hidden]{display:none}
+.line-svg .band{fill:var(--up-soft);stroke:none}
+.line-svg .axl{stroke:var(--ink);stroke-width:1.6}
+.line-svg .tk{stroke:var(--ink-3);stroke-width:1.1}
+.line-svg .tlb{font-family:var(--mono);font-size:11px;fill:var(--ink-3)}
+.line-svg .edge{stroke:var(--up);stroke-width:2}
+.line-svg .edgel{font-family:var(--mono);font-size:11.5px;font-weight:600;fill:var(--up)}
+.line-svg .prop{stroke:var(--accent);stroke-width:2.4}
+.line-svg .propbad{stroke:var(--down);stroke-width:2.4}
+.line-svg .propl{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--accent)}
+.line-svg .propl.bad{fill:var(--down)}
+.two-panel .ax{stroke:var(--ink);stroke-width:1.6}
+.two-panel .tick{stroke:var(--ink-3);stroke-width:1.1}
+.two-panel .tl{font-family:var(--mono);font-size:10.5px;fill:var(--ink-3)}
+.two-panel .al{font-family:var(--sans);font-size:11.5px;font-weight:600;fill:var(--ink-2)}
+.two-panel .ph{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--ink-2)}
+.two-panel .curve{fill:none;stroke:var(--accent);stroke-width:2.4;stroke-linecap:round}
+.two-panel .slope{font-family:var(--mono);font-size:11px;fill:var(--accent)}
+.two-panel .drop{stroke:var(--rule-strong);stroke-width:1;stroke-dasharray:3 3}
+.two-panel .pt{stroke:var(--surface);stroke-width:2}
+.two-panel .pt-on{fill:var(--ink-2)}
+.two-panel .pt-out{fill:var(--up)}
+.two-panel .ptl{font-family:var(--mono);font-size:11px;fill:var(--ink-2)}
+.two-panel .ptl.good{fill:var(--up);font-weight:600}
+
+
+/* The inherited stylesheet styles .curve, .ax, .tick, .tl, .cl, .pt and .ptl only under .ppc-svg and
+   .two-panel, and its .line-svg .axl rule is for an axis LINE - so give the figure's own classes rules
+   under .line-svg. Without these the curves, axes and ticks have stroke:none and do not render. */
+.line-svg .ax{stroke:var(--ink);stroke-width:1.6}
+.line-svg .tick{stroke:var(--ink-3);stroke-width:1.1}
+.line-svg .tl{font-family:var(--mono);font-size:11px;fill:var(--ink-3)}
+.line-svg text.axl{stroke:none;font-family:var(--mono);font-size:12px;fill:var(--ink-2)}
+.line-svg .curve{fill:none;stroke:var(--accent);stroke-width:2.6;stroke-linecap:round}
+.line-svg .cl{font-family:var(--mono);font-size:13px;font-weight:600;fill:var(--accent)}
+.line-svg .pt{stroke:var(--surface);stroke-width:2}
+.line-svg .pt-on{fill:var(--ink-2)}
+.line-svg .ptl{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--ink-2)}
+/* Module 8 price-control figure */
+.pc-line{stroke:var(--down);stroke-width:2.2;stroke-dasharray:7 4}
+.pc-lab{font-family:var(--mono);font-size:12px;fill:var(--down)}
+.pc-gap{stroke:var(--ink-2);stroke-width:1.4}
+.pc-gl{font-family:var(--mono);font-size:11.5px;fill:var(--ink-2)}
+.pc-dwl{fill:var(--flag-soft);stroke:var(--flag);stroke-width:1}
+.pc-dl{font-family:var(--mono);font-size:11.5px;fill:var(--flag)}
+
+/* Module 9 quota figure */
+.qt-line{stroke:var(--down);stroke-width:2.2;stroke-dasharray:7 4}
+.qt-lab{font-family:var(--mono);font-size:12px;fill:var(--down)}
+.qt-rent{fill:var(--up-soft);stroke:var(--up);stroke-width:1}
+.qt-rl{font-family:var(--mono);font-size:11.5px;fill:var(--up)}
+
+/* Module 46: the base figure classes, the calculator and the sorter */
+.line-svg .ax{stroke:var(--ink);stroke-width:1.6}
+.line-svg text.axl{stroke:none;font-family:var(--mono);font-size:12px;fill:var(--ink-2)}
+.line-svg .tick{stroke:var(--ink-3);stroke-width:1.1}
+.line-svg .tl{font-family:var(--mono);font-size:11px;fill:var(--ink-3)}
+.line-svg .curve{fill:none;stroke:var(--accent);stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round}
+.line-svg .cl{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--accent)}
+.line-svg .pt{stroke:var(--surface);stroke-width:2}
+.line-svg .pt-on{fill:var(--ink-2)}
+.line-svg .ptl{font-family:var(--mono);font-size:11.5px;font-weight:600;fill:var(--ink-2)}
+.formula{font-family:var(--mono);font-size:13.5px;background:var(--surface-2);border-left:3px solid var(--accent);
+  padding:9px 12px;margin:10px 0;border-radius:0 6px 6px 0;line-height:1.5}
+.calc-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:10px 0}
+.calc-grid label{display:flex;flex-direction:column;gap:4px;font-family:var(--mono);font-size:11.5px;color:var(--ink-3)}
+.calc-grid input{font-family:var(--mono);font-size:14px;padding:6px 8px;border:1px solid var(--rule);
+  border-radius:6px;background:var(--surface);color:var(--ink)}
+.two-ways{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}
+.way{border:1px solid var(--rule);border-radius:8px;padding:11px 13px;background:var(--surface-2)}
+.way h4{margin:0 0 7px;font-size:13px;letter-spacing:.02em}
+.way .big{font-family:var(--mono);font-size:22px;font-weight:600;color:var(--accent)}
+.way .step{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);margin:3px 0 0}
+.way.mid .big{color:var(--up)}
+.sorter .opts3{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}
+.sorter .opts3 button{font:inherit;font-size:12.5px;padding:6px 11px;border:1px solid var(--rule);
+  border-radius:999px;background:var(--surface);color:var(--ink);cursor:pointer}
+.sorter .opts3 button:hover{border-color:var(--accent)}
+.sorter .verdict{margin-top:9px;font-size:13.5px}
+.sorter .verdict.ok{color:var(--up)}
+.sorter .verdict.no{color:var(--down)}
+@media (max-width:620px){.calc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .two-ways{grid-template-columns:1fr}}
+
+/* Module 47: the revenue bars and the elasticity zones */
+.line-svg .trbar{fill:var(--accent);opacity:.45}
+.line-svg .trbar.peak{fill:var(--up);opacity:.85}
+.line-svg .zone{font-family:var(--mono);font-size:11.5px;fill:var(--ink-3);text-anchor:middle}
+.line-svg .zone.unit{fill:var(--up);font-weight:600}
+.cases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:12px}
+.case{border:1px solid var(--rule);border-radius:8px;padding:11px 13px;background:var(--surface-2)}
+.case h4{margin:0 0 7px;font-size:13px;letter-spacing:.02em}
+.case .big{font-family:var(--mono);font-size:19px;font-weight:600;color:var(--accent)}
+.case .step{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);margin:3px 0 0}
+.case.up .big{color:var(--up)}
+.case.down .big{color:var(--down)}
+.sorter .opts3{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}
+.sorter .opts3 button{font:inherit;font-size:12.5px;padding:6px 11px;border:1px solid var(--rule);
+  border-radius:999px;background:var(--surface);color:var(--ink);cursor:pointer}
+.sorter .opts3 button:hover{border-color:var(--accent)}
+.sorter .verdict{margin-top:9px;font-size:13.5px}
+.sorter .verdict.ok{color:var(--up)}
+.sorter .verdict.no{color:var(--down)}
+@media (max-width:620px){.cases{grid-template-columns:1fr}}
+
+/* Module 48: the two-panel supply figure and the identifier */
+.line-svg .curve.sup{stroke:var(--up)}
+.line-svg .cl.sup{fill:var(--up)}
+.line-svg .zone{font-family:var(--mono);font-size:11.5px;fill:var(--ink-3);text-anchor:middle}
+.ident-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:10px 0}
+.ident-grid label{display:flex;flex-direction:column;gap:4px;font-family:var(--mono);font-size:11.5px;color:var(--ink-3)}
+.ident-grid input{font-family:var(--mono);font-size:14px;padding:6px 8px;border:1px solid var(--rule);
+  border-radius:6px;background:var(--surface);color:var(--ink)}
+.verdictbox{border:1px solid var(--rule);border-radius:8px;padding:12px 14px;background:var(--surface-2);margin-top:12px}
+.verdictbox .big{font-family:var(--mono);font-size:22px;font-weight:600;color:var(--accent);margin:0}
+.verdictbox .what{font-size:14px;margin:6px 0 0}
+.verdictbox .step{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);margin:4px 0 0}
+.verdictbox.pos .big{color:var(--up)}
+.verdictbox.neg .big{color:var(--down)}
+.sorter .opts3{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}
+.sorter .opts3 button{font:inherit;font-size:12.5px;padding:6px 11px;border:1px solid var(--rule);
+  border-radius:999px;background:var(--surface);color:var(--ink);cursor:pointer}
+.sorter .opts3 button:hover{border-color:var(--accent)}
+.sorter .verdict{margin-top:9px;font-size:13.5px}
+.sorter .verdict.ok{color:var(--up)}
+.sorter .verdict.no{color:var(--down)}
+@media (max-width:620px){.ident-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Module 49: the surplus blocks and the price line */
+.line-svg .cs-block{fill:var(--accent);opacity:.28;stroke:var(--accent);stroke-width:.8}
+.line-svg .ps-block{fill:var(--up);opacity:.28;stroke:var(--up);stroke-width:.8}
+.line-svg .pline{stroke:var(--ink-2);stroke-width:1.6;stroke-dasharray:6 4}
+.line-svg g[hidden]{display:none}
+.sorter .opts3{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}
+.sorter .opts3 button{font:inherit;font-size:12.5px;padding:6px 11px;border:1px solid var(--rule);
+  border-radius:999px;background:var(--surface);color:var(--ink);cursor:pointer}
+.sorter .opts3 button:hover{border-color:var(--accent)}
+.sorter .verdict{margin-top:9px;font-size:13.5px}
+.sorter .verdict.ok{color:var(--up)}
+.sorter .verdict.no{color:var(--down)}
+
+/* Module 50: the surplus, revenue, cost and deadweight-loss areas */
+.line-svg .cs-area{fill:var(--accent);opacity:.26;stroke:var(--accent);stroke-width:.8}
+.line-svg .ps-area{fill:var(--up);opacity:.26;stroke:var(--up);stroke-width:.8}
+.line-svg .rev-area{fill:var(--ink-3);opacity:.30;stroke:var(--ink-2);stroke-width:.8}
+.line-svg .cost-area{fill:var(--amber-rule,#c98a1e);opacity:.30;stroke:var(--amber-rule,#c98a1e);stroke-width:.8}
+.line-svg .dwl-area{fill:var(--down);opacity:.42;stroke:var(--down);stroke-width:.8}
+.line-svg .qline{stroke:var(--ink-3);stroke-width:1.1;stroke-dasharray:4 3}
+.inc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:12px}
+.inc{border:1px solid var(--rule);border-radius:8px;padding:11px 13px;background:var(--surface-2)}
+.inc h4{margin:0 0 7px;font-size:13px;letter-spacing:.02em}
+.inc .big{font-family:var(--mono);font-size:19px;font-weight:600;color:var(--accent);margin:0}
+.inc .step{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);margin:3px 0 0}
+@media (max-width:620px){.inc-grid{grid-template-columns:1fr}}
+
+/* Topic 2.9: the gain-from-trade triangle and the world-price line */
+.line-svg .gain-area{fill:var(--up);opacity:.38;stroke:var(--up);stroke-width:.8}
+.line-svg .wline{stroke:var(--accent);stroke-width:1.8;stroke-dasharray:7 4}
+
+/* Module 56: two plants, the long-run curve and its regions, and the market strip */
+.mark.bgm{background:var(--surface-2);color:var(--ink-3)}
+.line-svg .curve.sm{stroke:var(--accent)}
+.line-svg .curve.lg{stroke:var(--up)}
+.line-svg .curve.env{stroke:var(--ink-2);stroke-width:7;opacity:.18}
+.line-svg .curve.plant{stroke:var(--ink-3);stroke-width:1.8;stroke-dasharray:6 4}
+.line-svg .curve.lr{stroke:var(--accent);stroke-width:3.4}
+.line-svg .cl.sm{fill:var(--accent)}
+.line-svg .cl.lg{fill:var(--up)}
+.line-svg .cl.pl{fill:var(--ink-3)}
+.line-svg .cl.lr{fill:var(--accent)}
+.line-svg .vq{stroke:var(--ink-3);stroke-width:1.4;stroke-dasharray:4 3}
+.line-svg .pt-s{fill:var(--accent)}
+.line-svg .pt-l{fill:var(--up)}
+.line-svg .pt-b{fill:var(--ink-3)}
+.line-svg .pt-x{fill:none;stroke:var(--ink-2);stroke-width:2}
+.line-svg .effband{fill:var(--flag-soft);stroke:none}
+.line-svg .rgl{font-family:var(--mono);font-size:11px;font-weight:600;fill:var(--ink-3)}
+.line-svg .blk{fill:var(--accent-soft);stroke:var(--accent);stroke-width:1.5}
+.line-svg .blk.alt{fill:var(--surface-2)}
+.line-svg .blk.mono{fill:var(--flag-soft);stroke:var(--flag)}
+.line-svg .mkt{stroke:var(--down);stroke-width:3}
+.line-svg .mktl{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--down)}
+.line-svg .mesl{stroke:var(--flag);stroke-width:3}
+.line-svg .mesll{font-family:var(--mono);font-size:12px;font-weight:600;fill:var(--flag)}
+.tblscroll{overflow-x:auto;margin:10px 0}
+.tblscroll .tbl{margin:0}
+</style>
+
+
+<div class="bar">
+  <div class="bar-in">
+    <span class="bar-title">Micro &middot; Module 56</span>
+    <span class="progress">
+      <span class="progress-track"><span class="progress-fill" id="pfill"></span></span>
+      <span class="progress-num" id="pnum">0 / 15</span>
+    </span>
+    <button type="button" id="resetBtn">Reset progress</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+<p class="eyebrow">AP Microeconomics &middot; Unit 3 &middot; Student guide</p>
+  <h1>Long-Run Costs and Economies of Scale</h1>
+  <p class="standfirst">Fifteen terms about the long run, when a firm can choose its plant. The lowest
+  cost at each output makes the long-run average total cost curve; its slope tells you about economies
+  and diseconomies of scale; and the point where it bottoms out decides how many firms a market can
+  hold.</p>
+  <div class="source-line">
+    <span>Krugman pp. 559&ndash;566</span><span>&middot;</span>
+    <span>15 terms</span><span>&middot;</span><span>Topic 3.3</span><span>&middot;</span><span>2 periods</span>
+  </div>
+<section class="section" id="howto">
+  <h2>How to use this guide</h2>
+  <p>Entries 1 to 5 build the long-run cost curve from short-run ones; entries 6 to 8 are economies and
+  diseconomies of scale; entries 9 to 11 are returns to scale; entries 12 to 14 are the bottom of the
+  curve and what it means for a market; entry 15 is sunk cost.</p>
+  <ul>
+    <li><b>&#9733; Exam</b> means the framework can test it.</li>
+    <li><b>&#9733; &#9873;</b> means it is examinable <b>and Module 56 does not teach it</b>. Entries 12,
+      13 and 14 carry the flag.</li>
+    <li><b>&#9675; Background</b> helps you explain, but is not named in the course framework.</li>
+    <li>Every entry ends with two <b>Check yourself</b> questions. Answer them before opening the
+      answer, then tick <b>Got it</b>.</li>
+  </ul>
+  <div class="flag">
+    <p><b>The one picture.</b> Long-run average total cost falls (economies of scale), flattens
+    (efficient scale) and rises (diseconomies of scale). Every short-run curve sits on or above it. The
+    first point of the flat bottom is the minimum efficient scale.</p>
+  </div>
+  <div class="notinbook"><p><b>&#9873; One thing to translate.</b> Your textbook says <i>returns to
+  scale</i> for inputs and output and <i>economies of scale</i> for cost, and keeps them apart. Your
+  exam sometimes calls the flat part of the long-run cost curve <b>constant returns to scale</b>, and
+  its bottom <b>efficient scale</b>.</p></div>
+</section>
+
+<!-- ============ TWO PLANTS ============ -->
+<section class="section" id="diagram1">
+  <h2>Two plants for Selena</h2>
+  <p>Selena's Gourmet Salsas, from Figure 56.1. The blue curve is average total cost with $108 of
+  equipment; the green one with $216. Choose an output: the ring marks the cheaper plant. The grey band
+  under both curves is the lower of the two at each output, a two-plant long-run average total cost.</p>
+  <div class="widget">
+    <div class="widget-title">Selena's Gourmet Salsas: which plant for which output?</div>
+    <div class="chips" id="qChips">
+      <button type="button" class="chip" aria-pressed="false" data-k="q1">1 case</button>
+      <button type="button" class="chip" aria-pressed="false" data-k="q2">2 cases</button>
+      <button type="button" class="chip" aria-pressed="true" data-k="q3">3 cases</button>
+      <button type="button" class="chip" aria-pressed="false" data-k="q4">4 cases</button>
+      <button type="button" class="chip" aria-pressed="false" data-k="q5">5 cases</button>
+      <button type="button" class="chip" aria-pressed="false" data-k="q6">6 cases</button>
+      <button type="button" class="chip" aria-pressed="false" data-k="q7">7 cases</button>
+      <button type="button" class="chip" aria-pressed="false" data-k="q8">8 cases</button>
+      <button type="button" class="chip" aria-pressed="false" data-k="q9">9 cases</button>
+      <button type="button" class="chip" aria-pressed="false" data-k="q10">10 cases</button>
+    </div>
+    <svg class="line-svg" viewBox="0 0 680 400" role="img"
+         aria-label="Selena's Gourmet Salsas: average total cost with $108 of equipment and with $216; the small plant is cheaper up to 4 cases, the large one from 5 cases; the lower of the two is the long-run average total cost">
+      <line class="ax" x1="80" y1="25" x2="80" y2="350"></line>
+      <line class="ax" x1="80" y1="350" x2="640" y2="350"></line>
+      <text class="axl" x="16" y="18" text-anchor="start">Cost of a case</text>
+      <text class="axl" x="640" y="392" text-anchor="end">Cases of salsa a day</text>
+      <line class="tick" x1="76" y1="297.5" x2="80" y2="297.5"></line>
+      <text class="tl" x="70" y="301.5" text-anchor="end">$40</text>
+      <line class="tick" x1="76" y1="245" x2="80" y2="245"></line>
+      <text class="tl" x="70" y="249" text-anchor="end">$80</text>
+      <line class="tick" x1="76" y1="192.5" x2="80" y2="192.5"></line>
+      <text class="tl" x="70" y="196.5" text-anchor="end">$120</text>
+      <line class="tick" x1="76" y1="140" x2="80" y2="140"></line>
+      <text class="tl" x="70" y="144" text-anchor="end">$160</text>
+      <line class="tick" x1="76" y1="87.5" x2="80" y2="87.5"></line>
+      <text class="tl" x="70" y="91.5" text-anchor="end">$200</text>
+      <line class="tick" x1="76" y1="35" x2="80" y2="35"></line>
+      <text class="tl" x="70" y="39" text-anchor="end">$240</text>
+      <line class="tick" x1="129.5" y1="350" x2="129.5" y2="354"></line>
+      <text class="tl" x="129.5" y="368" text-anchor="middle">1</text>
+      <line class="tick" x1="179" y1="350" x2="179" y2="354"></line>
+      <text class="tl" x="179" y="368" text-anchor="middle">2</text>
+      <line class="tick" x1="228.6" y1="350" x2="228.6" y2="354"></line>
+      <text class="tl" x="228.6" y="368" text-anchor="middle">3</text>
+      <line class="tick" x1="278.1" y1="350" x2="278.1" y2="354"></line>
+      <text class="tl" x="278.1" y="368" text-anchor="middle">4</text>
+      <line class="tick" x1="327.6" y1="350" x2="327.6" y2="354"></line>
+      <text class="tl" x="327.6" y="368" text-anchor="middle">5</text>
+      <line class="tick" x1="377.1" y1="350" x2="377.1" y2="354"></line>
+      <text class="tl" x="377.1" y="368" text-anchor="middle">6</text>
+      <line class="tick" x1="426.7" y1="350" x2="426.7" y2="354"></line>
+      <text class="tl" x="426.7" y="368" text-anchor="middle">7</text>
+      <line class="tick" x1="476.2" y1="350" x2="476.2" y2="354"></line>
+      <text class="tl" x="476.2" y="368" text-anchor="middle">8</text>
+      <line class="tick" x1="525.7" y1="350" x2="525.7" y2="354"></line>
+      <text class="tl" x="525.7" y="368" text-anchor="middle">9</text>
+      <line class="tick" x1="575.2" y1="350" x2="575.2" y2="354"></line>
+      <text class="tl" x="575.2" y="368" text-anchor="middle">10</text>
+      <polyline class="curve env" points="129.5,192.5 179,247.6 228.6,255.5 278.1,251.6 327.6,253.9 377.1,255.5 426.7,254.4 476.2,251.6 525.7,247.6 575.2,242.9"></polyline>
+      <polyline class="curve sm" points="129.5,192.5 179,247.6 228.6,255.5 278.1,251.6 327.6,242.9 377.1,231.9 426.7,219.5 476.2,206.3 525.7,192.5 575.2,178.3"></polyline>
+      <polyline class="curve lg" points="129.5,58.6 179,192.5 228.6,231.9 278.1,247.6 327.6,253.9 377.1,255.5 426.7,254.4 476.2,251.6 525.7,247.6 575.2,242.9"></polyline>
+      <text class="cl sm" x="495.7" y="180.5">$108 plant</text>
+      <text class="cl lg" x="139.4" y="62.6">$216 plant</text>
+      <g id="g-q1" hidden="hidden">
+        <line class="vq" x1="129.5" y1="350" x2="129.5" y2="58.6"></line>
+        <circle class="pt pt-s" cx="129.5" cy="192.5" r="5"></circle>
+        <circle class="pt pt-l" cx="129.5" cy="58.6" r="5"></circle>
+        <circle class="pt pt-x" cx="129.5" cy="192.5" r="8.5"></circle>
+      </g>
+      <g id="g-q2" hidden="hidden">
+        <line class="vq" x1="179" y1="350" x2="179" y2="192.5"></line>
+        <circle class="pt pt-s" cx="179" cy="247.6" r="5"></circle>
+        <circle class="pt pt-l" cx="179" cy="192.5" r="5"></circle>
+        <circle class="pt pt-x" cx="179" cy="247.6" r="8.5"></circle>
+      </g>
+      <g id="g-q3">
+        <line class="vq" x1="228.6" y1="350" x2="228.6" y2="231.9"></line>
+        <circle class="pt pt-s" cx="228.6" cy="255.5" r="5"></circle>
+        <circle class="pt pt-l" cx="228.6" cy="231.9" r="5"></circle>
+        <circle class="pt pt-x" cx="228.6" cy="255.5" r="8.5"></circle>
+      </g>
+      <g id="g-q4" hidden="hidden">
+        <line class="vq" x1="278.1" y1="350" x2="278.1" y2="247.6"></line>
+        <circle class="pt pt-s" cx="278.1" cy="251.6" r="5"></circle>
+        <circle class="pt pt-l" cx="278.1" cy="247.6" r="5"></circle>
+        <circle class="pt pt-x" cx="278.1" cy="251.6" r="8.5"></circle>
+      </g>
+      <g id="g-q5" hidden="hidden">
+        <line class="vq" x1="327.6" y1="350" x2="327.6" y2="242.9"></line>
+        <circle class="pt pt-s" cx="327.6" cy="242.9" r="5"></circle>
+        <circle class="pt pt-l" cx="327.6" cy="253.9" r="5"></circle>
+        <circle class="pt pt-x" cx="327.6" cy="253.9" r="8.5"></circle>
+      </g>
+      <g id="g-q6" hidden="hidden">
+        <line class="vq" x1="377.1" y1="350" x2="377.1" y2="231.9"></line>
+        <circle class="pt pt-s" cx="377.1" cy="231.9" r="5"></circle>
+        <circle class="pt pt-l" cx="377.1" cy="255.5" r="5"></circle>
+        <circle class="pt pt-x" cx="377.1" cy="255.5" r="8.5"></circle>
+      </g>
+      <g id="g-q7" hidden="hidden">
+        <line class="vq" x1="426.7" y1="350" x2="426.7" y2="219.5"></line>
+        <circle class="pt pt-s" cx="426.7" cy="219.5" r="5"></circle>
+        <circle class="pt pt-l" cx="426.7" cy="254.4" r="5"></circle>
+        <circle class="pt pt-x" cx="426.7" cy="254.4" r="8.5"></circle>
+      </g>
+      <g id="g-q8" hidden="hidden">
+        <line class="vq" x1="476.2" y1="350" x2="476.2" y2="206.3"></line>
+        <circle class="pt pt-s" cx="476.2" cy="206.3" r="5"></circle>
+        <circle class="pt pt-l" cx="476.2" cy="251.6" r="5"></circle>
+        <circle class="pt pt-x" cx="476.2" cy="251.6" r="8.5"></circle>
+      </g>
+      <g id="g-q9" hidden="hidden">
+        <line class="vq" x1="525.7" y1="350" x2="525.7" y2="192.5"></line>
+        <circle class="pt pt-s" cx="525.7" cy="192.5" r="5"></circle>
+        <circle class="pt pt-l" cx="525.7" cy="247.6" r="5"></circle>
+        <circle class="pt pt-x" cx="525.7" cy="247.6" r="8.5"></circle>
+      </g>
+      <g id="g-q10" hidden="hidden">
+        <line class="vq" x1="575.2" y1="350" x2="575.2" y2="178.3"></line>
+        <circle class="pt pt-s" cx="575.2" cy="178.3" r="5"></circle>
+        <circle class="pt pt-l" cx="575.2" cy="242.9" r="5"></circle>
+        <circle class="pt pt-x" cx="575.2" cy="242.9" r="8.5"></circle>
+      </g>
+    </svg>
+    <div class="readouts">
+      <div class="ro"><span class="k">Cases</span><span class="v" id="qq">3</span></div>
+      <div class="ro"><span class="k">ATC, $108 plant</span><span class="v" id="qs">$72</span></div>
+      <div class="ro"><span class="k">ATC, $216 plant</span><span class="v" id="ql">$90</span></div>
+      <div class="ro"><span class="k">Cheaper</span><span class="v hl" id="qb">$108 plant</span></div>
+    </div>
+    <p class="figcap" id="qcap"></p>
+  </div>
+  <p>Notice where the cheaper plant changes: between 4 and 5 cases. A firm planning a small output
+  keeps a small plant; one planning a large output builds a large one.</p>
+</section>
+
+<!-- ============ THE LONG-RUN CURVE ============ -->
+<section class="section" id="diagram2">
+  <h2>The long-run curve and its three regions</h2>
+  <p>Ridgeline Cycles' industry. The dark curve is long-run average total cost; the dashed curves are
+  three plants, A, B and C. Choose an output: the filled dot is the long-run cost, and the grey dot, if
+  there is one, is the cheapest of the three plants.</p>
+  <div class="widget">
+    <div class="widget-title">Ridgeline Cycles: cost per bicycle in the long run</div>
+    <div class="chips" id="rChips">
+      <button type="button" class="chip" aria-pressed="false" data-k="r1">1 thousand</button>
+      <button type="button" class="chip" aria-pressed="true" data-k="r2">2 thousand</button>
+      <button type="button" class="chip" aria-pressed="false" data-k="r3">3 thousand</button>
+      <button type="button" class="chip" aria-pressed="false" data-k="r4">4 thousand</button>
+      <button type="button" class="chip" aria-pressed="false" data-k="r5">5 thousand</button>
+      <button type="button" class="chip" aria-pressed="false" data-k="r6">6 thousand</button>
+      <button type="button" class="chip" aria-pressed="false" data-k="r7">7 thousand</button>
+      <button type="button" class="chip" aria-pressed="false" data-k="r8">8 thousand</button>
+      <button type="button" class="chip" aria-pressed="false" data-k="r9">9 thousand</button>
+      <button type="button" class="chip" aria-pressed="false" data-k="r10">10 thousand</button>
+    </div>
+    <svg class="line-svg" viewBox="0 0 680 400" role="img"
+         aria-label="Ridgeline Cycles' industry: long-run average total cost falls to $200 at 4 thousand bicycles, stays at $200 until 7 thousand and then rises; three short-run plant curves touch it from above">
+      <line class="ax" x1="80" y1="25" x2="80" y2="350"></line>
+      <line class="ax" x1="80" y1="350" x2="640" y2="350"></line>
+      <text class="axl" x="16" y="18" text-anchor="start">Cost per bicycle</text>
+      <text class="axl" x="640" y="392" text-anchor="end">Thousand bicycles a month</text>
+      <line class="tick" x1="76" y1="271.2" x2="80" y2="271.2"></line>
+      <text class="tl" x="70" y="275.2" text-anchor="end">$100</text>
+      <line class="tick" x1="76" y1="192.5" x2="80" y2="192.5"></line>
+      <text class="tl" x="70" y="196.5" text-anchor="end">$200</text>
+      <line class="tick" x1="76" y1="113.8" x2="80" y2="113.8"></line>
+      <text class="tl" x="70" y="117.8" text-anchor="end">$300</text>
+      <line class="tick" x1="76" y1="35" x2="80" y2="35"></line>
+      <text class="tl" x="70" y="39" text-anchor="end">$400</text>
+      <line class="tick" x1="129.5" y1="350" x2="129.5" y2="354"></line>
+      <text class="tl" x="129.5" y="368" text-anchor="middle">1</text>
+      <line class="tick" x1="179" y1="350" x2="179" y2="354"></line>
+      <text class="tl" x="179" y="368" text-anchor="middle">2</text>
+      <line class="tick" x1="228.6" y1="350" x2="228.6" y2="354"></line>
+      <text class="tl" x="228.6" y="368" text-anchor="middle">3</text>
+      <line class="tick" x1="278.1" y1="350" x2="278.1" y2="354"></line>
+      <text class="tl" x="278.1" y="368" text-anchor="middle">4</text>
+      <line class="tick" x1="327.6" y1="350" x2="327.6" y2="354"></line>
+      <text class="tl" x="327.6" y="368" text-anchor="middle">5</text>
+      <line class="tick" x1="377.1" y1="350" x2="377.1" y2="354"></line>
+      <text class="tl" x="377.1" y="368" text-anchor="middle">6</text>
+      <line class="tick" x1="426.7" y1="350" x2="426.7" y2="354"></line>
+      <text class="tl" x="426.7" y="368" text-anchor="middle">7</text>
+      <line class="tick" x1="476.2" y1="350" x2="476.2" y2="354"></line>
+      <text class="tl" x="476.2" y="368" text-anchor="middle">8</text>
+      <line class="tick" x1="525.7" y1="350" x2="525.7" y2="354"></line>
+      <text class="tl" x="525.7" y="368" text-anchor="middle">9</text>
+      <line class="tick" x1="575.2" y1="350" x2="575.2" y2="354"></line>
+      <text class="tl" x="575.2" y="368" text-anchor="middle">10</text>
+      <rect class="effband" x="278.1" y="25" width="148.6" height="325"></rect>
+      <text class="rgl" x="179" y="44" text-anchor="middle">economies of scale</text>
+      <text class="rgl" x="352.4" y="44" text-anchor="middle">efficient scale</text>
+      <text class="rgl" x="520.8" y="44" text-anchor="middle">diseconomies</text>
+      <polyline class="curve plant" points="129.5,35 132.8,43.3 136.1,51.2 139.4,58.9 142.7,66.4 146,73.5 149.3,80.4 152.6,86.9 155.9,93.2 159.2,99.3 162.5,105 165.8,110.5 169.1,115.6 172.4,120.5 175.7,125.2 179,129.5 182.3,133.6 185.7,137.3 189,140.8 192.3,144.1 195.6,147 198.9,149.7 202.2,152 205.5,154.1 208.8,156 212.1,157.5 215.4,158.8 218.7,159.7 222,160.4 225.3,160.9 228.6,161 231.9,160.9 235.2,160.4 238.5,159.7 241.8,158.8 245.1,157.5 248.4,156 251.7,154.1 255,152 258.3,149.7 261.6,147 264.9,144.1 268.2,140.8 271.5,137.3 274.8,133.6 278.1,129.5 281.4,125.2 284.7,120.5 288,115.6 291.3,110.5 294.6,105 297.9,99.3 301.2,93.2 304.5,86.9 307.8,80.4 311.1,73.5 314.4,66.4 317.7,58.9 321,51.2 324.3,43.3 327.6,35"></polyline>
+      <polyline class="curve plant" points="243.4,40 247.1,50 250.7,59.7 254.3,69 258,78 261.6,86.6 265.2,94.9 268.9,102.9 272.5,110.5 276.1,117.8 279.7,124.7 283.4,131.3 287,137.6 290.6,143.5 294.3,149.1 297.9,154.4 301.5,159.3 305.2,163.9 308.8,168.1 312.4,172 316.1,175.6 319.7,178.8 323.3,181.7 327,184.2 330.6,186.4 334.2,188.3 337.9,189.8 341.5,191 345.1,191.8 348.7,192.3 352.4,192.5 356,192.3 359.6,191.8 363.3,191 366.9,189.8 370.5,188.3 374.2,186.4 377.8,184.2 381.4,181.7 385.1,178.8 388.7,175.6 392.3,172 396,168.1 399.6,163.9 403.2,159.3 406.9,154.4 410.5,149.1 414.1,143.5 417.8,137.6 421.4,131.3 425,124.7 428.6,117.8 432.3,110.5 435.9,102.9 439.5,94.9 443.2,86.6 446.8,78 450.4,69 454.1,59.7 457.7,50 461.3,40"></polyline>
+      <polyline class="curve plant" points="426.7,129.5 429.6,133.1 432.4,136.4 435.3,139.6 438.2,142.5 441.1,145.2 444,147.7 446.9,150 449.8,152 452.7,153.9 455.6,155.5 458.4,157 461.3,158.2 464.2,159.2 467.1,159.9 470,160.5 472.9,160.9 475.8,161 478.7,160.9 481.6,160.6 484.4,160.1 487.3,159.4 490.2,158.5 493.1,157.3 496,156 498.9,154.4 501.8,152.6 504.7,150.6 507.6,148.4 510.4,145.9 513.3,143.3 516.2,140.4 519.1,137.3 522,134 524.9,130.5 527.8,126.8 530.7,122.9 533.6,118.7 536.4,114.4 539.3,109.8 542.2,105 545.1,100 548,94.8 550.9,89.3 553.8,83.7 556.7,77.8 559.6,71.7 562.4,65.4 565.3,58.9 568.2,52.2 571.1,45.3 574,38.1"></polyline>
+      <text class="cl pl" x="127.4" y="62.9" text-anchor="middle">A</text>
+      <text class="cl pl" x="352.4" y="210.5" text-anchor="middle">B</text>
+      <text class="cl pl" x="577.3" y="62.9" text-anchor="middle">C</text>
+      <polyline class="curve lr" points="124.6,41.1 128.4,48.5 129.5,50.8 132.2,55.7 136,62.8 139.8,69.6 143.6,76.3 147.4,82.7 151.1,89 154.9,95.1 158.7,101 162.5,106.8 166.3,112.3 170.1,117.6 173.9,122.8 177.7,127.8 179,129.5 181.5,132.6 185.3,137.2 189.1,141.7 192.9,145.9 196.7,150 200.5,153.8 204.3,157.5 208.1,161 211.9,164.4 215.7,167.5 219.5,170.4 223.3,173.2 227.1,175.8 228.6,176.8 230.9,178.2 234.7,180.4 238.5,182.4 242.3,184.3 246.1,185.9 249.9,187.4 253.7,188.7 257.5,189.8 261.3,190.7 265.1,191.4 268.9,192 272.6,192.3 276.4,192.5 278.1,192.5 280.2,192.5 284,192.5 287.8,192.5 291.6,192.5 295.4,192.5 299.2,192.5 303,192.5 306.8,192.5 310.6,192.5 314.4,192.5 318.2,192.5 322,192.5 325.8,192.5 327.6,192.5 329.6,192.5 333.4,192.5 337.2,192.5 341,192.5 344.8,192.5 348.6,192.5 352.4,192.5 356.2,192.5 360,192.5 363.8,192.5 367.6,192.5 371.4,192.5 375.2,192.5 377.1,192.5 379,192.5 382.8,192.5 386.6,192.5 390.3,192.5 394.1,192.5 397.9,192.5 401.7,192.5 405.5,192.5 409.3,192.5 413.1,192.5 416.9,192.5 420.7,192.5 424.5,192.5 426.7,192.5 428.3,192.5 432.1,192.3 435.9,192 439.7,191.4 443.5,190.7 447.3,189.8 451.1,188.7 454.9,187.4 458.7,185.9 462.5,184.3 466.3,182.4 470.1,180.4 473.9,178.2 476.2,176.8 477.7,175.8 481.5,173.2 485.3,170.4 489.1,167.5 492.9,164.4 496.7,161 500.5,157.5 504.3,153.8 508.1,150 511.8,145.9 515.6,141.7 519.4,137.2 523.2,132.6 525.7,129.5 527,127.8 530.8,122.8 534.6,117.6 538.4,112.3 542.2,106.8 546,101 549.8,95.1 553.6,89 557.4,82.7 561.2,76.3 565,69.6 568.8,62.8 572.6,55.7 575.2,50.8 576.4,48.5 580.2,41.1"></polyline>
+      <circle class="pt pt-x" cx="278.1" cy="192.5" r="7"></circle>
+      <text class="ptl" x="278.1" y="216.5" text-anchor="middle">MES</text>
+      <text class="cl lr" x="498.4" y="77.7">LRATC</text>
+      <g id="g-r1" hidden="hidden">
+        <line class="vq" x1="129.5" y1="350" x2="129.5" y2="35"></line>
+        <circle class="pt pt-b" cx="129.5" cy="35" r="5"></circle>
+        <circle class="pt pt-on" cx="129.5" cy="50.8" r="5.5"></circle>
+      </g>
+      <g id="g-r2">
+        <line class="vq" x1="179" y1="350" x2="179" y2="129.5"></line>
+        <circle class="pt pt-on" cx="179" cy="129.5" r="5.5"></circle>
+      </g>
+      <g id="g-r3" hidden="hidden">
+        <line class="vq" x1="228.6" y1="350" x2="228.6" y2="161"></line>
+        <circle class="pt pt-b" cx="228.6" cy="161" r="5"></circle>
+        <circle class="pt pt-on" cx="228.6" cy="176.8" r="5.5"></circle>
+      </g>
+      <g id="g-r4" hidden="hidden">
+        <line class="vq" x1="278.1" y1="350" x2="278.1" y2="129.5"></line>
+        <circle class="pt pt-b" cx="278.1" cy="129.5" r="5"></circle>
+        <circle class="pt pt-on" cx="278.1" cy="192.5" r="5.5"></circle>
+      </g>
+      <g id="g-r5" hidden="hidden">
+        <line class="vq" x1="327.6" y1="350" x2="327.6" y2="184.6"></line>
+        <circle class="pt pt-b" cx="327.6" cy="184.6" r="5"></circle>
+        <circle class="pt pt-on" cx="327.6" cy="192.5" r="5.5"></circle>
+      </g>
+      <g id="g-r6" hidden="hidden">
+        <line class="vq" x1="377.1" y1="350" x2="377.1" y2="184.6"></line>
+        <circle class="pt pt-b" cx="377.1" cy="184.6" r="5"></circle>
+        <circle class="pt pt-on" cx="377.1" cy="192.5" r="5.5"></circle>
+      </g>
+      <g id="g-r7" hidden="hidden">
+        <line class="vq" x1="426.7" y1="350" x2="426.7" y2="129.5"></line>
+        <circle class="pt pt-b" cx="426.7" cy="129.5" r="5"></circle>
+        <circle class="pt pt-on" cx="426.7" cy="192.5" r="5.5"></circle>
+      </g>
+      <g id="g-r8" hidden="hidden">
+        <line class="vq" x1="476.2" y1="350" x2="476.2" y2="161"></line>
+        <circle class="pt pt-b" cx="476.2" cy="161" r="5"></circle>
+        <circle class="pt pt-on" cx="476.2" cy="176.8" r="5.5"></circle>
+      </g>
+      <g id="g-r9" hidden="hidden">
+        <line class="vq" x1="525.7" y1="350" x2="525.7" y2="129.5"></line>
+        <circle class="pt pt-on" cx="525.7" cy="129.5" r="5.5"></circle>
+      </g>
+      <g id="g-r10" hidden="hidden">
+        <line class="vq" x1="575.2" y1="350" x2="575.2" y2="35"></line>
+        <circle class="pt pt-b" cx="575.2" cy="35" r="5"></circle>
+        <circle class="pt pt-on" cx="575.2" cy="50.8" r="5.5"></circle>
+      </g>
+    </svg>
+    <div class="readouts">
+      <div class="ro"><span class="k">Thousand bicycles</span><span class="v" id="rq">2</span></div>
+      <div class="ro"><span class="k">LRATC</span><span class="v hl" id="rlr">$280</span></div>
+      <div class="ro"><span class="k">Best of A, B, C</span><span class="v" id="rp">A, $280</span></div>
+      <div class="ro"><span class="k">Region</span><span class="v" id="rreg">economies of scale</span></div>
+    </div>
+    <p class="figcap" id="rcap"></p>
+  </div>
+  <p>Notice three things. LRATC falls until 4 thousand, is flat at $200 until 7 thousand, and then
+  rises. Each plant touches LRATC once and is above it everywhere else. And the first point of the flat
+  bottom, 4 thousand bicycles, is the <b>minimum efficient scale</b>.</p>
+</section>
+
+<!-- ============ MES AND THE MARKET ============ -->
+<section class="section" id="diagram3">
+  <h2>How many firms fit?</h2>
+  <p>Ridgeline's minimum efficient scale is 4 thousand bicycles a month. Choose how many bicycles the
+  market buys at the lowest cost: each block is one firm producing at MES.</p>
+  <div class="widget">
+    <div class="widget-title">Market size against the minimum efficient scale</div>
+    <div class="chips" id="mChips">
+      <button type="button" class="chip" aria-pressed="false" data-k="m3">market 3 thousand</button>
+      <button type="button" class="chip" aria-pressed="false" data-k="m8">market 8 thousand</button>
+      <button type="button" class="chip" aria-pressed="true" data-k="m20">market 20 thousand</button>
+      <button type="button" class="chip" aria-pressed="false" data-k="m40">market 40 thousand</button>
+    </div>
+    <svg class="line-svg" viewBox="0 0 680 400" role="img"
+         aria-label="Ridgeline Cycles' industry: the market's purchases at the lowest cost, divided into blocks of 4 thousand bicycles, the minimum efficient scale; each block is one firm producing at the lowest cost">
+      <line class="ax" x1="80" y1="25" x2="80" y2="350"></line>
+      <line class="ax" x1="80" y1="350" x2="640" y2="350"></line>
+      <text class="axl" x="16" y="18" text-anchor="start">Firms producing at MES</text>
+      <text class="axl" x="640" y="392" text-anchor="end">Thousand bicycles a month</text>
+      <line class="tick" x1="80" y1="350" x2="80" y2="354"></line>
+      <text class="tl" x="80" y="368" text-anchor="middle">0</text>
+      <line class="tick" x1="129.5" y1="350" x2="129.5" y2="354"></line>
+      <text class="tl" x="129.5" y="368" text-anchor="middle">4</text>
+      <line class="tick" x1="179" y1="350" x2="179" y2="354"></line>
+      <text class="tl" x="179" y="368" text-anchor="middle">8</text>
+      <line class="tick" x1="228.6" y1="350" x2="228.6" y2="354"></line>
+      <text class="tl" x="228.6" y="368" text-anchor="middle">12</text>
+      <line class="tick" x1="278.1" y1="350" x2="278.1" y2="354"></line>
+      <text class="tl" x="278.1" y="368" text-anchor="middle">16</text>
+      <line class="tick" x1="327.6" y1="350" x2="327.6" y2="354"></line>
+      <text class="tl" x="327.6" y="368" text-anchor="middle">20</text>
+      <line class="tick" x1="377.1" y1="350" x2="377.1" y2="354"></line>
+      <text class="tl" x="377.1" y="368" text-anchor="middle">24</text>
+      <line class="tick" x1="426.7" y1="350" x2="426.7" y2="354"></line>
+      <text class="tl" x="426.7" y="368" text-anchor="middle">28</text>
+      <line class="tick" x1="476.2" y1="350" x2="476.2" y2="354"></line>
+      <text class="tl" x="476.2" y="368" text-anchor="middle">32</text>
+      <line class="tick" x1="525.7" y1="350" x2="525.7" y2="354"></line>
+      <text class="tl" x="525.7" y="368" text-anchor="middle">36</text>
+      <line class="tick" x1="575.2" y1="350" x2="575.2" y2="354"></line>
+      <text class="tl" x="575.2" y="368" text-anchor="middle">40</text>
+      <line class="mesl" x1="80" y1="123.2" x2="129.5" y2="123.2"></line>
+      <text class="mesll" x="204.5" y="115.2" text-anchor="middle">one firm at MES = 4 thousand</text>
+      <g id="g-m3" hidden="hidden">
+        <rect class="blk mono" x="80" y="161" width="37.1" height="189"></rect>
+        <line class="mkt" x1="117.1" y1="79.1" x2="117.1" y2="350"></line>
+        <text class="mktl" x="117.1" y="63.4" text-anchor="start">market: 3 thousand</text>
+      </g>
+      <g id="g-m8" hidden="hidden">
+        <rect class="blk" x="80" y="161" width="49.5" height="189"></rect>
+        <rect class="blk alt" x="129.5" y="161" width="49.5" height="189"></rect>
+        <line class="mkt" x1="179" y1="79.1" x2="179" y2="350"></line>
+        <text class="mktl" x="179" y="63.4" text-anchor="start">market: 8 thousand</text>
+      </g>
+      <g id="g-m20">
+        <rect class="blk" x="80" y="161" width="49.5" height="189"></rect>
+        <rect class="blk alt" x="129.5" y="161" width="49.5" height="189"></rect>
+        <rect class="blk" x="179" y="161" width="49.5" height="189"></rect>
+        <rect class="blk alt" x="228.6" y="161" width="49.5" height="189"></rect>
+        <rect class="blk" x="278.1" y="161" width="49.5" height="189"></rect>
+        <line class="mkt" x1="327.6" y1="79.1" x2="327.6" y2="350"></line>
+        <text class="mktl" x="327.6" y="63.4" text-anchor="start">market: 20 thousand</text>
+      </g>
+      <g id="g-m40" hidden="hidden">
+        <rect class="blk" x="80" y="161" width="49.5" height="189"></rect>
+        <rect class="blk alt" x="129.5" y="161" width="49.5" height="189"></rect>
+        <rect class="blk" x="179" y="161" width="49.5" height="189"></rect>
+        <rect class="blk alt" x="228.6" y="161" width="49.5" height="189"></rect>
+        <rect class="blk" x="278.1" y="161" width="49.5" height="189"></rect>
+        <rect class="blk alt" x="327.6" y="161" width="49.5" height="189"></rect>
+        <rect class="blk" x="377.1" y="161" width="49.5" height="189"></rect>
+        <rect class="blk alt" x="426.7" y="161" width="49.5" height="189"></rect>
+        <rect class="blk" x="476.2" y="161" width="49.5" height="189"></rect>
+        <rect class="blk alt" x="525.7" y="161" width="49.5" height="189"></rect>
+        <line class="mkt" x1="575.2" y1="79.1" x2="575.2" y2="350"></line>
+        <text class="mktl" x="575.2" y="63.4" text-anchor="end">market: 40 thousand</text>
+      </g>
+    </svg>
+    <div class="readouts">
+      <div class="ro"><span class="k">Market</span><span class="v" id="mm">20 thousand</span></div>
+      <div class="ro"><span class="k">Firms at lowest cost</span><span class="v hl" id="mn">5</span></div>
+    </div>
+    <p class="figcap" id="mcap"></p>
+  </div>
+  <p>Notice that the same industry can have one firm or ten. What decides it is the minimum efficient
+  scale <b>compared with</b> the size of the market.</p>
+</section>
+
+<!-- ============ THE DRILL ============ -->
+<section class="section" id="sorter">
+  <h2>Economies, constant returns or diseconomies?</h2>
+  <p>Fifteen firms growing in the long run. Decide what is happening to long-run average total cost.</p>
+  <div class="widget sorter" id="sortWidget">
+    <div class="widget-title">What happens to long-run cost per unit?</div>
+    <p class="stem" id="sortStem"></p>
+    <div class="opts3">
+      <button type="button" data-a="eco">Economies of scale</button>
+      <button type="button" data-a="con">Constant returns to scale</button>
+      <button type="button" data-a="dis">Diseconomies of scale</button>
+    </div>
+    <p class="verdict" id="sortVerdict"></p>
+    <div class="chips">
+      <button type="button" class="chip" id="sortNext">Next firm</button>
+      <span class="progress-num" id="sortScore">0 / 0</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE ENTRIES ============ -->
+<section class="section" id="entries">
+  <h2>The fifteen terms</h2>
+</section>
+
+<article class="entry" id="e1">
+  <div class="entry-head"><span class="entry-num">01</span><h2>Long run</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The period in which a firm can change <b>every</b> input &mdash; its building and machines as well as its workers &mdash; so <b>every cost is variable</b>. Nothing is fixed.</p></div>
+  <p class="reading">Textbook page 559.</p>
+
+  <p>In the short run Selena's equipment is fixed: she can hire more hands or buy more tomatoes,
+  but she cannot change how much kitchen she has. Given time, she can buy more equipment or sell some.
+  Then her &ldquo;fixed&rdquo; cost becomes a choice, like any other cost.</p>
+  <p>So the long run is not a number of months. It is <b>long enough to change every input</b>: a few
+  days for a food truck that can rent a second truck, years for a steel mill that must build a new
+  furnace.</p>
+
+  <div class="watch"><p><b>Watch out.</b> There is no fixed cost in the long run, and so no average fixed cost. Every cost the firm has, it can change.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">A bakery deciding whether to buy a second oven.</span> A long-run decision: the oven is an input it can now change.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">The same bakery next week, with the oven installed.</span> Back in a short run: the oven is fixed again.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A food truck that rents a second truck for the summer.</span> Its long run arrived in days.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> In the long run the firm <a href="#e2">chooses its fixed cost</a> (entry 2); <a href="#e9">returns to scale</a> (entry 9) is the long-run result of growing every input; and money already spent is <a href="#e15">a sunk cost</a> (entry 15).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">1.1</span> Which time period is always the long run: a month, a year, or five years?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>None of them. The long run is defined by which inputs can change, not by a length of time.</p></div></details></div>
+    <div class="q"><p><span class="qn">1.2</span> Why is there no average fixed cost in the long run?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because no cost is fixed: the firm can change every input, so every cost is variable.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got1"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e2">
+  <div class="entry-head"><span class="entry-num">02</span><h2>Choosing the fixed cost</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>In the long run a firm chooses its plant. A <b>bigger plant</b> has a higher fixed cost but a lower variable cost at each output; which plant is cheaper per unit depends on <b>how much the firm plans to produce</b>.</p></div>
+  <p class="reading">Textbook pages 559&ndash;560, Figure 56.1.</p>
+
+  <p>Selena can keep $108 of equipment or double it to $216. More equipment makes each worker more
+  productive, so variable cost halves, from 12Q&sup2; to 6Q&sup2;:</p>
+  <div class="tblscroll"><table class="tbl">
+    <tbody>
+      <tr><th>Cases</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th></tr>
+      <tr><td>ATC, $108 plant</td><td>$120</td><td>$78</td><td>$72</td><td>$75</td><td>$81.60</td><td>$90</td><td>$99.43</td><td>$109.50</td><td>$120</td><td>$130.80</td></tr>
+      <tr><td>ATC, $216 plant</td><td>$222</td><td>$120</td><td>$90</td><td>$78</td><td>$73.20</td><td>$72</td><td>$72.86</td><td>$75</td><td>$78</td><td>$81.60</td></tr>
+    </tbody>
+  </table></div>
+  <p>At 3 cases the small plant costs <b>$72</b> a case and the large one <b>$90</b>: too few cases to
+  spread the extra $108 over. At 9 cases it is the other way round: $120 against <b>$78</b>. Up to 4
+  cases the small plant is cheaper; from 5 cases, the large one.</p>
+
+  <div class="watch"><p><b>Watch out.</b> The bigger plant is not always better. It wins only at outputs large enough to spread its larger fixed cost.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Selena plans 3 cases a day.</span> Keep the $108 plant: $72 a case against $90.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Selena plans 9 cases a day.</span> Buy the equipment: $78 a case against $120.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A city where it rarely snows.</span> It keeps a small snowplow fleet: a low fixed cost for the little snow it expects.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is a decision for <a href="#e1">the long run</a> (entry 1); each plant has its own <a href="#e3">short-run ATC curve</a> (entry 3); the lowest of them at each output is <a href="#e4">long-run average total cost</a> (entry 4); and once the equipment is bought and cannot be resold, its cost is <a href="#e15">sunk</a> (entry 15).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">2.1</span> Using Selena's numbers, which plant should she choose to make 6 cases a day, and what does a case cost?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>The $216 plant: ($216 + $216) &divide; 6 = $72 a case, against ($108 + $432) &divide; 6 = $90 with the small plant.</p></div></details></div>
+    <div class="q"><p><span class="qn">2.2</span> Why does the large plant cost more per case at low output?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Its fixed cost is twice as high, and at low output there are too few cases to spread it over.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got2"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e3">
+  <div class="entry-head"><span class="entry-num">03</span><h2>Short-run average total cost</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Average total cost for <b>one given plant</b>, with its fixed cost already chosen. Each plant has its own U-shaped short-run ATC curve.</p></div>
+  <p class="reading">Textbook pages 560&ndash;561.</p>
+
+  <p>Everything in Module 55 was short-run cost: Selena's ATC with $108 of equipment is one curve,
+  her ATC with $216 is another. Krugman now calls each of them a <b>short-run average total cost
+  curve</b>, to show that its fixed cost is given.</p>
+  <p>A firm with many possible plant sizes has a whole <b>family</b> of short-run ATC curves, one for
+  each plant. At any moment it is on exactly one of them: the one for the plant it has.</p>
+
+  <div class="watch"><p><b>Watch out.</b> A change in output with the plant unchanged is a movement <b>along</b> the same short-run curve. Changing the plant moves the firm to a different curve.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Selena with $108 of equipment.</span> One short-run ATC curve, lowest at 3 cases, $72.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Selena with $216 of equipment.</span> Another, lowest at 6 cases, $72.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A plant built for 9 thousand bicycles.</span> Plant C in the second diagram: cheap near 8 or 9 thousand, dear at 5.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> Each curve comes from <a href="#e2">choosing the fixed cost</a> (entry 2); together they make <a href="#e4">long-run average total cost</a> (entry 4); and a firm <a href="#e5">moves</a> (entry 5) along one before changing it.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">3.1</span> Selena has the $108 plant and makes 5 cases instead of 3. Has she changed short-run curve?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. She has moved along the same curve, from $72 to $81.60 a case.</p></div></details></div>
+    <div class="q"><p><span class="qn">3.2</span> How many short-run ATC curves can a firm be on at one time?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>One: the curve for the plant it actually has.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got3"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e4">
+  <div class="entry-head"><span class="entry-num">04</span><h2>Long-run average total cost</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The lowest average total cost of producing each output <b>when the firm can choose its plant</b>. The LRATC curve touches each short-run ATC curve at one output and lies <b>below or on</b> all of them.</p></div>
+  <p class="reading">Textbook pages 560&ndash;561, Figure 56.2.</p>
+
+  <p>For every output, ask: which plant makes it most cheaply? Join those cheapest points and you
+  have the long-run average total cost curve. With Selena's two plants it is the lower of her two rows:
+  the $108 plant up to 4 cases, the $216 plant after that.</p>
+  <p>With many plant sizes the curve becomes smooth. In the second diagram the dark curve is LRATC for
+  Ridgeline Cycles' industry; the dashed curves are three of the plants under it. Each plant touches
+  LRATC at one output and is above it everywhere else.</p>
+
+  <div class="watch"><p><b>Watch out.</b> LRATC is not the lowest point of each short-run curve joined up. It is the lowest short-run cost <b>at each output</b>, which is why each short-run curve touches it only once.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Selena at 3 cases.</span> The cheapest plant is the $108 one: the long-run cost of 3 cases is $72.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Selena at 9 cases.</span> The $216 plant: the long-run cost of 9 cases is $78.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Ridgeline at 2 thousand bicycles.</span> LRATC is $280, on plant A's curve.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is built from <a href="#e3">short-run ATC curves</a> (entry 3) by <a href="#e2">choosing the fixed cost</a> (entry 2); the firm reaches it in <a href="#e5">the long run</a> (entry 5); its falling part is <a href="#e6">economies of scale</a> (entry 6), its rising part <a href="#e7">diseconomies of scale</a> (entry 7); and its lowest point starts at <a href="#e13">the minimum efficient scale</a> (entry 13).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">4.1</span> A firm has two possible plants. At 10 units, plant X costs $14 a unit and plant Y $11. What is long-run average total cost at 10 units?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>$11: the lower of the two, because in the long run the firm can choose plant Y.</p></div></details></div>
+    <div class="q"><p><span class="qn">4.2</span> Can a short-run ATC curve ever lie below LRATC?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. LRATC is the lowest cost of any plant at each output, so every short-run curve is on or above it.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got4"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e5">
+  <div class="entry-head"><span class="entry-num">05</span><h2>Moving from the short run to the long run</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>When output changes, a firm first moves <b>along its current short-run curve</b>. If the change is expected to last, it later <b>changes its plant</b> and moves onto LRATC, where cost per unit is lower.</p></div>
+  <p class="reading">Textbook pages 561&ndash;562, Figure 56.2.</p>
+
+  <p>Suppose Selena chose the plant that is best for 6 cases, and demand then grows so that she makes
+  9 cases for the foreseeable future. Tomorrow she can only hire more hands for the same kitchen: she
+  moves up her short-run curve to a high cost per case (point Y in the textbook). Given time, she buys
+  more equipment and moves down onto LRATC (point X).</p>
+  <p>The same works in reverse. A firm whose output falls for good keeps paying for a plant that is too
+  big until it can sell some of it.</p>
+
+  <div class="watch"><p><b>Watch out.</b> A temporary change in output is not a reason to change the plant. If output will fall back, the old plant is still the cheapest for the output the firm will usually produce.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Selena on the 6-case plant makes 9 cases tomorrow.</span> Short run: up her plant's curve, above LRATC.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">She expects 9 cases for years.</span> Long run: she buys equipment and moves onto LRATC.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A rise in demand that lasts one month.</span> Stay on the old plant; it is still right for normal output.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> The firm moves along <a href="#e3">a short-run ATC curve</a> (entry 3) and then to <a href="#e4">long-run average total cost</a> (entry 4).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">5.1</span> Ridgeline built plant B, the right plant for 5.5 thousand bicycles, and now makes 8 thousand. Is its cost on or above LRATC?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Above: plant B's cost at 8 thousand is $450 a bicycle, against an LRATC of $220.</p></div></details></div>
+    <div class="q"><p><span class="qn">5.2</span> Why does a firm that must suddenly increase output usually face rising average cost at first?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because in the short run its plant is fixed, so it moves up its short-run ATC curve; only in the long run can it add capacity.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got5"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e6">
+  <div class="entry-head"><span class="entry-num">06</span><h2>Economies of scale</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p><b>Long-run</b> average total cost <b>falls</b> as output increases. It is the downward-sloping part of LRATC.</p></div>
+  <p class="reading">Textbook page 562.</p>
+
+  <p>Ridgeline's LRATC falls from $380 a bicycle at 1 thousand bicycles a month to $200 at 4 thousand.
+  Over that range, a bigger firm makes each bicycle more cheaply: the industry has economies of
+  scale.</p>
+  <p>Economies of scale give big firms a cost advantage over small ones. Where they are strong, small
+  firms cannot survive, and the market ends up with few firms (<a href="#e14">entry 14</a> (entry 14)).</p>
+
+  <div class="watch"><p><b>Watch out.</b> Economies of scale are about cost <b>per unit</b> in the <b>long run</b>. A falling short-run AFC or AVC is not an economy of scale; nor is a fall in total cost.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Ridgeline from 2 to 3 thousand bicycles.</span> LRATC falls from $280 to $220.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Selena from 1 to 3 cases.</span> Her long-run cost falls from $120 to $72 a case.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A diamond mine.</span> A huge set-up cost spread over more output: economies of scale.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the falling part of <a href="#e4">LRATC</a> (entry 4); it ends where <a href="#e13">the minimum efficient scale</a> (entry 13) begins; it is caused by <a href="#e9">increasing returns to scale</a> (entry 9) and <a href="#e8">specialization and set-up costs</a> (entry 8); it gives way to <a href="#e7">diseconomies of scale</a> (entry 7); and it decides <a href="#e14">how many firms fit</a> (entry 14).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">6.1</span> Which observation shows economies of scale: short-run AFC falls, long-run ATC falls, or marginal cost falls?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Long-run ATC falls. The other two are short-run curves.</p></div></details></div>
+    <div class="q"><p><span class="qn">6.2</span> LRATC is $50 at 10,000 units and $42 at 20,000. Economies or diseconomies of scale?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Economies of scale: long-run average total cost falls as output rises.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got6"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e7">
+  <div class="entry-head"><span class="entry-num">07</span><h2>Diseconomies of scale</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p><b>Long-run</b> average total cost <b>rises</b> as output increases. It is the upward-sloping part of LRATC.</p></div>
+  <p class="reading">Textbook pages 562&ndash;563.</p>
+
+  <p>Above 7 thousand bicycles a month Ridgeline's LRATC rises: $220 at 8 thousand, $280 at 9, $380
+  at 10. A firm that grows this large finds each bicycle costing more to make.</p>
+  <p>Diseconomies of scale limit how large firms grow: past the point where they begin, getting bigger
+  raises cost per unit.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Diseconomies of scale are a <b>long-run</b> idea. A rising short-run ATC is caused by diminishing marginal returns to a fixed plant, not by diseconomies of scale.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Ridgeline from 8 to 9 thousand bicycles.</span> LRATC rises from $220 to $280.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">An interior design firm that takes on more projects.</span> Its owner's expertise is spread thin; coordination costs rise.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Selena beyond her best plant.</span> Her textbook says her LRATC rises above 6 cases: diseconomies of scale.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the rising part of <a href="#e4">LRATC</a> (entry 4); it follows <a href="#e6">economies of scale</a> (entry 6); it is caused by <a href="#e10">decreasing returns to scale</a> (entry 10) and by <a href="#e8">coordination problems</a> (entry 8).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">7.1</span> LRATC is $30 at 1 million units and $33 at 2 million. What is happening?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Diseconomies of scale: long-run average total cost rises as output rises.</p></div></details></div>
+    <div class="q"><p><span class="qn">7.2</span> A firm's short-run ATC rises as it hires more workers for the same factory. Is that diseconomies of scale?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. With the factory fixed it is the short run; the rise comes from diminishing marginal returns.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got7"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e8">
+  <div class="entry-head"><span class="entry-num">08</span><h2>Sources of economies and diseconomies of scale</h2><span class="mark bgm">&#9675; Background</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Economies of scale come mainly from <b>specialization</b> and from large <b>set-up costs</b> spread over more output. Diseconomies come mainly from problems of <b>coordination and communication</b> in very large firms.</p></div>
+  <p class="reading">Textbook page 563.</p>
+
+  <p>A bigger operation lets each worker do one narrow task well, and lets the firm use machinery
+  that would be wasted at small scale. Some industries &mdash; car making, electricity, oil refining
+  &mdash; need a very large plant before they produce anything, so cost per unit falls steeply as
+  output grows.</p>
+  <p>Past some size, managing the firm gets harder: more layers of managers, slower decisions, more
+  mistakes in passing information. Those costs rise faster than output.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Specialization appears twice in Unit 3: in the short run it makes marginal cost fall; in the long run it is a source of economies of scale. Say which one a question is about.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">A car maker.</span> Enormous fixed cost in plant and equipment: strong economies of scale.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Software.</span> Writing the program costs a lot; one more copy costs almost nothing.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A company with ten layers of management.</span> Slow decisions and lost information: diseconomies of scale.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> These are the causes of <a href="#e6">economies of scale</a> (entry 6) and <a href="#e7">diseconomies of scale</a> (entry 7).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">8.1</span> Give one reason a bigger factory can make each unit more cheaply.</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Workers can specialize in narrow tasks, or large machines that would be wasted at small scale can be used fully.</p></div></details></div>
+    <div class="q"><p><span class="qn">8.2</span> Why do very large firms sometimes find their cost per unit rising?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Coordination and communication become harder and more costly as the firm grows.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got8"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e9">
+  <div class="entry-head"><span class="entry-num">09</span><h2>Increasing returns to scale</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>When <b>all</b> inputs increase in the same proportion, output increases by <b>more</b> than that proportion. Doubling every input more than doubles output.</p></div>
+  <p class="reading">Textbook page 562.</p>
+
+  <p>A bakery with 2 ovens and 4 bakers makes 500 loaves a day for $1,000. It doubles everything: 4
+  ovens, 8 bakers, $2,000 a day. What happens to output?</p>
+  <div class="tblscroll"><table class="tbl">
+    <tbody>
+      <tr><th>Returns to scale</th><th>Inputs</th><th>Cost</th><th>Loaves</th><th>Cost per loaf</th></tr>
+      <tr><td>Before</td><td>2 ovens, 4 bakers</td><td>$1,000</td><td>500</td><td>$2.00</td></tr>
+      <tr><td>Increasing</td><td>4 ovens, 8 bakers</td><td>$2,000</td><td>1,200</td><td>$1.67</td></tr>
+      <tr><td>Constant</td><td>4 ovens, 8 bakers</td><td>$2,000</td><td>1,000</td><td>$2.00</td></tr>
+      <tr><td>Decreasing</td><td>4 ovens, 8 bakers</td><td>$2,000</td><td>800</td><td>$2.50</td></tr>
+    </tbody>
+  </table></div>
+  <p>With increasing returns, output more than doubles, to 1,200 loaves, while cost only doubles: cost
+  per loaf falls from <b>$2.00</b> to <b>$1.67</b>. Increasing returns to scale bring economies of
+  scale.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Returns to scale are about inputs and output, all inputs together. Economies of scale are about cost. Increasing returns lead to economies, but the two are different ideas.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Inputs double, output rises from 500 to 1,200.</span> Output rises 2.4 times: increasing returns.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Inputs up 10 percent, output up 15 percent.</span> Increasing returns to scale.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Selena doubles everything and makes more than twice as much salsa.</span> Her textbook's own example of increasing returns.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the long-run relationship between inputs and output, so it needs <a href="#e1">the long run</a> (entry 1); it causes <a href="#e6">economies of scale</a> (entry 6); and it contrasts with <a href="#e10">decreasing returns</a> (entry 10) and <a href="#e11">constant returns</a> (entry 11).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">9.1</span> All inputs rise by 50 percent and output rises by 80 percent. Which kind of returns to scale?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Increasing: output rises by more than the inputs.</p></div></details></div>
+    <div class="q"><p><span class="qn">9.2</span> With increasing returns to scale, what happens to long-run average total cost as the firm grows?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>It falls: the firm has economies of scale.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got9"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e10">
+  <div class="entry-head"><span class="entry-num">10</span><h2>Decreasing returns to scale</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>When <b>all</b> inputs increase in the same proportion, output increases by <b>less</b> than that proportion. Doubling every input less than doubles output.</p></div>
+  <p class="reading">Textbook page 563.</p>
+
+  <p>If the bakery doubles every input and output rises only to 800 loaves, cost per loaf rises from
+  $2.00 to <b>$2.50</b>. Decreasing returns to scale bring diseconomies of scale.</p>
+  <p>Do not confuse it with <b>diminishing marginal returns</b>. Diminishing returns change <b>one</b>
+  input with the others fixed, in the short run. Decreasing returns to scale change <b>all</b> inputs
+  together, in the long run.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Your textbook once says Selena has &ldquo;decreasing returns to scale&rdquo; just because her long-run cost rises. Rising LRATC is diseconomies of scale; decreasing returns to scale is a statement about inputs and output.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Inputs double, output rises from 500 to 800.</span> Decreasing returns: cost per loaf rises to $2.50.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Inputs up 20 percent, output up 10 percent.</span> Decreasing returns to scale.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A farm that doubles its land, machinery and workers.</span> If the extra land is poorer, output may less than double.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It causes <a href="#e7">diseconomies of scale</a> (entry 7); and it contrasts with <a href="#e9">increasing returns</a> (entry 9) and <a href="#e11">constant returns</a> (entry 11).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">10.1</span> All inputs double and output rises by 60 percent. Which kind of returns to scale?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Decreasing: output rises by less than the inputs.</p></div></details></div>
+    <div class="q"><p><span class="qn">10.2</span> A firm adds workers to a fixed factory and each adds less output. Is that decreasing returns to scale?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>No. Only one input changes and the factory is fixed: that is diminishing marginal returns, in the short run.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got10"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e11">
+  <div class="entry-head"><span class="entry-num">11</span><h2>Constant returns to scale</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>When <b>all</b> inputs increase in the same proportion, output increases by <b>exactly</b> that proportion. Cost per unit stays the same, so LRATC is <b>flat</b>.</p></div>
+  <p class="reading">Textbook page 563.</p>
+
+  <p>If the bakery doubles every input and makes exactly 1,000 loaves, cost per loaf stays at
+  <b>$2.00</b>. Growing neither helps nor hurts.</p>
+  <p>On the exam, <i>constant returns to scale</i> is also the name for the flat part of LRATC, between
+  economies and diseconomies of scale.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Constant returns to scale does not mean output stays constant. It means output grows in the same proportion as the inputs.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Inputs double, output rises from 500 to 1,000.</span> Constant returns: $2.00 a loaf before and after.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">A chain opening an identical second restaurant.</span> Twice the inputs, roughly twice the meals.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Ridgeline between 4 and 7 thousand bicycles.</span> LRATC is flat at $200.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It sits between <a href="#e9">increasing</a> (entry 9) and <a href="#e10">decreasing returns</a> (entry 10), and it gives <a href="#e12">efficient scale</a> (entry 12).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">11.1</span> All inputs rise by 25 percent and output rises by 25 percent. What happens to long-run average total cost?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Nothing: with constant returns to scale cost per unit is unchanged.</p></div></details></div>
+    <div class="q"><p><span class="qn">11.2</span> What does constant returns to scale look like on an LRATC graph?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>A flat, horizontal stretch of the curve.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got11"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e12">
+  <div class="entry-head"><span class="entry-num">12</span><h2>Efficient scale</h2><span class="mark flag">&#9733; &#9873;</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The range of output over which long-run average total cost is at its <b>lowest and flat</b>: constant returns to scale. A firm anywhere in this range produces at the lowest possible cost per unit.</p></div>
+  <p class="reading">Not in Module 56, or anywhere in your textbook.</p>
+
+  <div class="notinbook"><p><b>&#9873; Not in Module 56 &mdash; learn it from here.</b> Your textbook draws long-run average total cost as a smooth U, with no flat part and no name for its bottom. Your exam calls the bottom efficient scale, and the flat part constant returns to scale.</p></div>
+
+  <p>Ridgeline's LRATC is $200 a bicycle for every output from 4 to 7 thousand a month. A firm making
+  5 thousand and a firm making 7 thousand have the same, lowest, cost per bicycle: both are at efficient
+  scale.</p>
+  <p>Many real industries look like this. Once a firm is big enough, growing further hardly changes its
+  cost per unit.</p>
+
+  <div class="watch"><p><b>Watch out.</b> Efficient scale is a range, not a single output. Its first point has its own name, the minimum efficient scale.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Ridgeline at 5 thousand bicycles.</span> $200 a bicycle: at efficient scale.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Ridgeline at 7 thousand.</span> Still $200: the end of the flat range.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">Ridgeline at 9 thousand.</span> $280: past efficient scale, into diseconomies.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the flat stretch that <a href="#e11">constant returns to scale</a> (entry 11) gives, and it starts at <a href="#e13">the minimum efficient scale</a> (entry 13).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">12.1</span> LRATC is $50 at 10,000, 15,000 and 20,000 units and rises after that. Over what range is the firm at efficient scale?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>From 10,000 to 20,000 units, where LRATC is flat at its lowest.</p></div></details></div>
+    <div class="q"><p><span class="qn">12.2</span> Is a firm at efficient scale making the lowest possible cost per unit?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Yes: efficient scale is where long-run average total cost is at its minimum.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got12"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e13">
+  <div class="entry-head"><span class="entry-num">13</span><h2>Minimum efficient scale</h2><span class="mark flag">&#9733; &#9873;</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>The <b>smallest</b> output at which long-run average total cost reaches its <b>minimum</b>. Below it, the firm still has economies of scale to gain; at it, all have been used up.</p></div>
+  <p class="reading">Not in Module 56, or anywhere in your textbook.</p>
+
+  <div class="notinbook"><p><b>&#9873; Not in Module 56 &mdash; learn it from here.</b> The phrase minimum efficient scale is nowhere in your textbook. Your exam uses it for the first output at the bottom of the long-run average total cost curve.</p></div>
+
+  <p>Ridgeline's LRATC falls until 4 thousand bicycles a month and is flat after that. So the minimum
+  efficient scale is <b>4 thousand bicycles</b>, at <b>$200</b> each. A firm making 2 thousand pays $280
+  a bicycle: it is below the minimum efficient scale.</p>
+  <p>If LRATC is a smooth U with no flat part, the minimum efficient scale is simply its lowest
+  point.</p>
+
+  <div class="watch"><p><b>Watch out.</b> The minimum efficient scale is a <b>cost</b> idea, from the long-run curve. It is not the output that maximizes profit, and it is not the bottom of a short-run ATC curve.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">Ridgeline at 3 thousand bicycles.</span> Below MES: $220, $20 above the lowest cost.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">Ridgeline at 4 thousand.</span> Exactly at MES: $200.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A smooth U-shaped LRATC lowest at 50,000 units.</span> MES is 50,000 units.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is the first point of <a href="#e12">efficient scale</a> (entry 12), where <a href="#e6">economies of scale</a> (entry 6) end; it is the low point of <a href="#e4">LRATC</a> (entry 4); and compared with market demand it decides <a href="#e14">how many firms fit</a> (entry 14).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">13.1</span> LRATC falls until 30,000 units, is flat until 60,000 and then rises. What is the minimum efficient scale?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>30,000 units: the smallest output at which LRATC is at its minimum.</p></div></details></div>
+    <div class="q"><p><span class="qn">13.2</span> A firm produces below its industry's minimum efficient scale. What happens to its long-run cost if it grows?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>It falls: there are still economies of scale to gain.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got13"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e14">
+  <div class="entry-head"><span class="entry-num">14</span><h2>Minimum efficient scale and market structure</h2><span class="mark flag">&#9733; &#9873;</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>Divide the quantity the market buys at the lowest cost by the minimum efficient scale: that is roughly <b>how many firms can produce at the lowest cost</b>. A large MES relative to the market means <b>few firms</b>; a small one leaves room for <b>many</b>.</p></div>
+  <p class="reading">Not in Module 56. Your textbook links economies of scale to the number of firms in Module 57, pages 571 and 573.</p>
+
+  <div class="notinbook"><p><b>&#9873; Not in Module 56 &mdash; learn it from here.</b> Your textbook never compares the minimum efficient scale with the size of the market. Your exam asks how it shapes the number of firms and the market structure.</p></div>
+
+  <p>Ridgeline's minimum efficient scale is 4 thousand bicycles a month. How many firms fit depends on
+  the size of the market:</p>
+  <div class="tblscroll"><table class="tbl">
+    <tbody>
+      <tr><th>Market (thousand bicycles)</th><th>3</th><th>8</th><th>20</th><th>40</th></tr>
+      <tr><td>Market &divide; MES</td><td>0.75</td><td>2</td><td>5</td><td>10</td></tr>
+      <tr><td>Firms at lowest cost</td><td>1</td><td>2</td><td>5</td><td>10</td></tr>
+      <tr><td>Likely structure</td><td>one firm (natural monopoly)</td><td>two firms</td><td>a few firms (oligopoly)</td><td>about ten firms</td></tr>
+    </tbody>
+  </table></div>
+  <p>If the whole market buys less than one firm's MES, long-run cost is still falling where it meets
+  demand: one firm can supply everyone more cheaply than two. That is a <b>natural monopoly</b>. Large
+  economies of scale also keep new firms out, because a small newcomer would have higher costs than the
+  firms already there.</p>
+
+  <div class="watch"><p><b>Watch out.</b> It is the size of MES <b>compared with the market</b> that matters, not its size alone. A large MES in a huge market can still leave room for many firms.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">A market of 8 thousand bicycles.</span> 8 &divide; 4 = 2: room for two firms at the lowest cost.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">A market of 40 thousand.</span> 40 &divide; 4 = 10: room for about ten firms.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A town's water supply.</span> One network serves the whole town more cheaply than two: a natural monopoly.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It compares <a href="#e13">the minimum efficient scale</a> (entry 13) with the market, and <a href="#e6">economies of scale</a> (entry 6) are what make MES large.</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">14.1</span> MES is 50,000 units and the market buys 600,000 units at the lowest cost. About how many firms can produce at minimum cost?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>600,000 &divide; 50,000 = 12 firms.</p></div></details></div>
+    <div class="q"><p><span class="qn">14.2</span> Why might an industry with very large economies of scale have only one firm?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>If LRATC is still falling at the output the whole market buys, one firm producing everything has lower cost than any two firms sharing it.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got14"> Got it</label>
+  </div>
+</article>
+
+<article class="entry" id="e15">
+  <div class="entry-head"><span class="entry-num">15</span><h2>Sunk cost</h2><span class="mark exam">&#9733; Exam</span></div>
+  <div class="defn"><span class="lbl">Definition</span><p>A cost that has <b>already been paid</b> and <b>cannot be recovered</b>. It is the same whatever you decide next, so it should be <b>ignored</b> when deciding.</p></div>
+  <p class="reading">Textbook pages 563&ndash;564.</p>
+
+  <p>You have just paid $250 for new brake pads when you learn the whole brake system must be
+  replaced for $1,500. Or you could sell the car and buy a similar one for $1,600. The $250 is gone
+  either way. Compare only what is still to come: <b>$1,500</b> to repair against <b>$1,600</b> to
+  replace. Repair it.</p>
+  <p>Adding the $250 to the repair &mdash; $1,750 against $1,600 &mdash; would lead to the wrong
+  choice.</p>
+
+  <div class="watch"><p><b>Watch out.</b> A fixed cost and a sunk cost are not the same. A fixed cost does not change with output but may still be avoided in the long run; a sunk cost can never be recovered. Neither should change how much a firm produces.</p></div>
+
+  <div class="examples">
+    <div class="ex"><span class="ex-n">1</span><p><span class="who">The $250 brake pads.</span> Sunk: ignore them; repair for $1,500 rather than replace for $1,600.</p></div>
+    <div class="ex"><span class="ex-n">2</span><p><span class="who">A city's finished metro tunnel.</span> Its cost is sunk; whether to run trains depends on future costs and fares.</p></div>
+    <div class="ex"><span class="ex-n">3</span><p><span class="who">A non-refundable concert ticket on a night you feel ill.</span> Sunk: go only if the concert is still worth going to.</p></div>
+  </div>
+
+  <p class="connects"><b>How it connects.</b> It is a cost that even <a href="#e1">the long run</a> (entry 1) cannot undo, and it often comes from <a href="#e2">choosing the fixed cost</a> (entry 2).</p>
+
+  <div class="check">
+    <span class="lbl">Check yourself</span>
+    <div class="q"><p><span class="qn">15.1</span> A firm has spent $2 million on research for a product that cannot be used elsewhere. Finishing it will cost $3 million more and earn $4 million. Should it finish?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Yes. The $2 million is sunk; finishing costs $3 million and earns $4 million, a gain of $1 million.</p></div></details></div>
+    <div class="q"><p><span class="qn">15.2</span> Why should a sunk cost not affect a decision?</p>
+      <details class="reveal"><summary>Show answer</summary><div class="ans"><p>Because it is the same whatever you choose, so it cannot make one choice better than another.</p></div></details></div>
+    <label class="got"><input type="checkbox" class="gotbox" id="got15"> Got it</label>
+  </div>
+</article>
+
+
+<!-- ============ PRACTICE ============ -->
+<section class="section" id="mcq">
+  <h2>Five questions to try</h2>
+  <p>Click an option to see why it is right or wrong.</p>
+  <div class="mcq" data-key="B">
+    <p class="stem"><span class="qn">1</span> Which of the following indicates economies of scale?</p>
+    <div class="opts">
+      <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>Average fixed cost falls as output rises<span class="why" hidden>&#10007; AFC falls in the short run for every firm; it says nothing about scale.</span></span></button>
+      <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>Long-run average total cost falls as output rises<span class="why" hidden>&#10003; That is the definition.</span></span></button>
+      <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>Marginal cost falls as output rises<span class="why" hidden>&#10007; A short-run effect of specialization with a fixed plant.</span></span></button>
+      <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>Total cost rises less than output<span class="why" hidden>&#10007; Close, but stated for total cost without saying the long run; a short-run firm spreading fixed cost can do this too.</span></span></button>
+      <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>Short-run average variable cost falls<span class="why" hidden>&#10007; A short-run curve, not the long-run one.</span></span></button>
+    </div>
+  </div>
+  <div class="mcq" data-key="D">
+    <p class="stem"><span class="qn">2</span> A firm increases all its inputs by 50 percent and its output rises by 30 percent. The firm has</p>
+    <div class="opts">
+      <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>increasing returns to scale<span class="why" hidden>&#10007; Output would have to rise by more than 50 percent.</span></span></button>
+      <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>constant returns to scale<span class="why" hidden>&#10007; Output would have to rise by exactly 50 percent.</span></span></button>
+      <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>diminishing marginal returns<span class="why" hidden>&#10007; All inputs changed, not one; that is the long run.</span></span></button>
+      <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>decreasing returns to scale<span class="why" hidden>&#10003; Output rose by less than the inputs.</span></span></button>
+      <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>economies of scale<span class="why" hidden>&#10007; Decreasing returns raise long-run cost per unit: diseconomies.</span></span></button>
+    </div>
+  </div>
+  <div class="mcq" data-key="A">
+    <p class="stem"><span class="qn">3</span> Long-run average total cost falls until 40,000 units, is flat until 90,000 and then rises. What is the minimum efficient scale?</p>
+    <div class="opts">
+      <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>40,000 units<span class="why" hidden>&#10003; The smallest output at which LRATC reaches its minimum.</span></span></button>
+      <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>90,000 units<span class="why" hidden>&#10007; The end of efficient scale, not its start.</span></span></button>
+      <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>65,000 units<span class="why" hidden>&#10007; The middle of the flat range.</span></span></button>
+      <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>Any output from 0 to 40,000<span class="why" hidden>&#10007; Over that range there are still economies of scale to gain.</span></span></button>
+      <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>It cannot be known without the price<span class="why" hidden>&#10007; MES is a cost idea; price is not needed.</span></span></button>
+    </div>
+  </div>
+  <div class="mcq" data-key="E">
+    <p class="stem"><span class="qn">4</span> In an industry the minimum efficient scale is 25,000 units, and the market buys 50,000 units at the lowest average cost. The industry is most likely to be</p>
+    <div class="opts">
+      <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>perfectly competitive, with many firms<span class="why" hidden>&#10007; Only two firms can each produce at MES.</span></span></button>
+      <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>monopolistically competitive, with free entry<span class="why" hidden>&#10007; Two firms is far too few for that.</span></span></button>
+      <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>a market with constant returns to scale everywhere<span class="why" hidden>&#10007; Says nothing about how many firms fit.</span></span></button>
+      <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>a monopoly by law<span class="why" hidden>&#10007; Nothing here is a legal barrier.</span></span></button>
+      <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>an oligopoly of about two firms<span class="why" hidden>&#10003; 50,000 &divide; 25,000 = 2 firms at the lowest cost.</span></span></button>
+    </div>
+  </div>
+  <div class="mcq" data-key="C">
+    <p class="stem"><span class="qn">5</span> A firm has spent $40,000 on a machine that cannot be resold. A cheaper process would save $10,000 a year from now on if it scrapped the machine. In deciding, the firm should</p>
+    <div class="opts">
+      <button type="button" class="opt" data-l="A"><span class="ltr">A</span><span>count the $40,000 as a cost of switching<span class="why" hidden>&#10007; The $40,000 is spent whatever it does.</span></span></button>
+      <button type="button" class="opt" data-l="B"><span class="ltr">B</span><span>keep the machine until it has earned back $40,000<span class="why" hidden>&#10007; Trying to recover a sunk cost.</span></span></button>
+      <button type="button" class="opt" data-l="C"><span class="ltr">C</span><span>ignore the $40,000 and compare only future costs and benefits<span class="why" hidden>&#10003; The $40,000 is sunk.</span></span></button>
+      <button type="button" class="opt" data-l="D"><span class="ltr">D</span><span>switch only if the saving is more than $40,000 a year<span class="why" hidden>&#10007; Adds the sunk cost to the comparison.</span></span></button>
+      <button type="button" class="opt" data-l="E"><span class="ltr">E</span><span>treat the $40,000 as a variable cost<span class="why" hidden>&#10007; It is neither variable nor avoidable.</span></span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FREE RESPONSE ============ -->
+<section class="section" id="frq">
+  <h2>A free-response question</h2>
+
+  <div class="frq">
+    <p class="stem"><b>1.</b> (6 points) A firm can build one of two plants. Its average total cost at
+    three outputs is shown.</p>
+    <div class="tblscroll"><table class="tbl">
+    <tbody>
+      <tr><th>Output (units)</th><th>10,000</th><th>20,000</th><th>40,000</th></tr>
+      <tr><td>Plant X: fixed cost $20,000, AVC $3</td><td>$5</td><td>$4</td><td>$3.50</td></tr>
+      <tr><td>Plant Y: fixed cost $60,000, AVC $1</td><td>$7</td><td>$4</td><td>$2.50</td></tr>
+    </tbody>
+  </table></div>
+    <p><b>(a)</b> Which plant should it build to produce 10,000 units? To produce 40,000? <b>(b)</b> What
+    is the firm's long-run average total cost at 20,000 units? Explain. <b>(c)</b> Over the range 10,000
+    to 40,000 units, does the firm have economies or diseconomies of scale? Explain. <b>(d)</b> Draw a
+    correctly labeled long-run average total cost curve that shows economies of scale, efficient scale
+    and diseconomies of scale, and label the minimum efficient scale.</p>
+    <details class="reveal"><summary>Show the mark scheme</summary><div class="ans">
+      <p><b>(a) 2 points</b> &mdash; plant <b>X</b> for 10,000 units ($5.00 against $7.00), and plant
+      <b>Y</b> for 40,000 ($2.50 against $3.50).</p>
+      <p><b>(b) 1 point</b> &mdash; <b>$4.00</b>: at 20,000 units both plants cost $4.00, and long-run
+      cost is the lowest cost of any plant.</p>
+      <p><b>(c) 1 point</b> &mdash; <b>economies of scale</b>: the lowest available cost falls from $5.00 to
+      $4.00 to $2.50 as output rises.</p>
+      <p><b>(d) 2 points</b> &mdash; a curve labeled LRATC on cost and quantity axes that falls, is flat
+      and rises, with the three regions labeled (1 point), and MES marked at the start of the flat part
+      (1 point).</p>
+    </div></details>
+  </div>
+</section>
+
+<!-- ============ SUMMARY ============ -->
+<section class="section" id="summary">
+  <h2>One page to revise from</h2>
+  <table class="tbl">
+    <thead><tr><th>Term</th><th>In one line</th></tr></thead>
+    <tbody>
+      <tr><td>Long run</td><td>Every input can change, so every cost is variable. Defined by inputs, not by time.</td></tr>
+      <tr><td>Choosing the fixed cost</td><td>A bigger plant: higher fixed cost, lower variable cost. Best for large planned output.</td></tr>
+      <tr><td>Short-run ATC</td><td>ATC for one given plant. Changing output moves the firm along it.</td></tr>
+      <tr><td>Long-run ATC</td><td>The lowest ATC at each output over all plants: on or below every short-run curve.</td></tr>
+      <tr><td>Short run to long run</td><td>Output changes: first along the plant's curve, then, given time, onto LRATC.</td></tr>
+      <tr><td>Economies of scale</td><td>LRATC falls as output rises.</td></tr>
+      <tr><td>Diseconomies of scale</td><td>LRATC rises as output rises.</td></tr>
+      <tr><td>Sources</td><td>Specialization and set-up costs lower long-run cost; coordination problems raise it.</td></tr>
+      <tr><td>Increasing returns to scale</td><td>All inputs up x percent, output up more: brings economies of scale.</td></tr>
+      <tr><td>Decreasing returns to scale</td><td>All inputs up x percent, output up less: brings diseconomies. Not diminishing returns.</td></tr>
+      <tr><td>Constant returns to scale</td><td>All inputs up x percent, output up x percent: LRATC flat.</td></tr>
+      <tr><td>Efficient scale</td><td>The flat bottom of LRATC: the lowest cost per unit.</td></tr>
+      <tr><td>Minimum efficient scale</td><td>The smallest output at which LRATC is at its minimum.</td></tr>
+      <tr><td>MES and market structure</td><td>Market demand &divide; MES = roughly how many firms fit: few if MES is large.</td></tr>
+      <tr><td>Sunk cost</td><td>Already paid, never recoverable: ignore it when deciding.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="section" id="getright">
+  <h2>Things to get right</h2>
+  <ul>
+    <li><b>The long run is about inputs,</b> not months: every input can change.</li>
+    <li><b>LRATC is the lowest short-run cost at each output.</b> Every short-run curve is on or above it.</li>
+    <li><b>Economies and diseconomies of scale are long-run ideas.</b> Falling AFC or rising short-run ATC are not.</li>
+    <li><b>Returns to scale change all inputs together.</b> Diminishing marginal returns change one.</li>
+    <li><b>Increasing returns bring economies of scale;</b> decreasing returns bring diseconomies.</li>
+    <li><b>The minimum efficient scale</b> is the first output at the bottom of LRATC.</li>
+    <li><b>Market demand &divide; MES</b> gives roughly how many firms can produce at the lowest cost.</li>
+    <li><b>Ignore sunk costs</b> when deciding what to do next.</li>
+  </ul>
+</section>
+
+</div>
+
+<script>
+(function(){
+  var N = 15;
+  function $(id){ return document.getElementById(id); }
+
+  /* progress */
+  var KEY = "m56-got";
+  function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ return {}; } }
+  function save(o){ try { localStorage.setItem(KEY, JSON.stringify(o)); } catch(e){} }
+  function paint(){
+    var o = load(), n = 0, i;
+    for (i = 1; i <= N; i++){ var b = $("got" + i); if (b){ b.checked = !!o[i]; if (o[i]) n++; } }
+    $("pnum").textContent = n + " / " + N;
+    $("pfill").style.width = (100 * n / N) + "%";
+  }
+  var boxes = document.querySelectorAll(".gotbox"), bi;
+  for (bi = 0; bi < boxes.length; bi++){
+    boxes[bi].addEventListener("change", function(){
+      var o = load(); o[this.id.replace("got", "")] = this.checked; save(o); paint();
+    });
+  }
+  $("resetBtn").addEventListener("click", function(){ save({}); paint(); });
+  paint();
+
+  function pick(secId, chipsId, rows, apply){
+    function show(k){
+      var s = null, i;
+      for (i = 0; i < rows.length; i++){ if (rows[i].k === k) s = rows[i]; }
+      if (!s) return;
+      var gs = document.querySelectorAll("#" + secId + " svg g[id^='g-']");
+      for (i = 0; i < gs.length; i++){
+        if (gs[i].id === "g-" + k) gs[i].removeAttribute("hidden"); else gs[i].setAttribute("hidden", "hidden");
+      }
+      var chips = document.querySelectorAll("#" + chipsId + " .chip");
+      for (i = 0; i < chips.length; i++){
+        chips[i].setAttribute("aria-pressed", chips[i].getAttribute("data-k") === k ? "true" : "false");
+      }
+      apply(s);
+    }
+    var cs = document.querySelectorAll("#" + chipsId + " .chip"), ci;
+    for (ci = 0; ci < cs.length; ci++){
+      cs[ci].addEventListener("click", function(){ show(this.getAttribute("data-k")); });
+    }
+    return show;
+  }
+
+  /* two plants */
+  var QROWS = [
+    { k: "q1", q: 1, s: "$120", l: "$222", best: "$108 plant" },
+    { k: "q2", q: 2, s: "$78", l: "$120", best: "$108 plant" },
+    { k: "q3", q: 3, s: "$72", l: "$90", best: "$108 plant" },
+    { k: "q4", q: 4, s: "$75", l: "$78", best: "$108 plant" },
+    { k: "q5", q: 5, s: "$81.60", l: "$73.20", best: "$216 plant" },
+    { k: "q6", q: 6, s: "$90", l: "$72", best: "$216 plant" },
+    { k: "q7", q: 7, s: "$99.43", l: "$72.86", best: "$216 plant" },
+    { k: "q8", q: 8, s: "$109.50", l: "$75", best: "$216 plant" },
+    { k: "q9", q: 9, s: "$120", l: "$78", best: "$216 plant" },
+    { k: "q10", q: 10, s: "$130.80", l: "$81.60", best: "$216 plant" }
+  ];
+  pick("diagram1", "qChips", QROWS, function(s){
+    $("qq").textContent = s.q;
+    $("qs").textContent = s.s;
+    $("ql").textContent = s.l;
+    $("qb").textContent = s.best;
+    $("qcap").textContent = "At " + s.q + (s.q === 1 ? " case" : " cases") + " a day, a case costs " + s.s
+      + " with the $108 plant and " + s.l + " with the $216 plant, so the " + s.best
+      + " is cheaper. In the long run Selena would choose it.";
+  })("q3");
+
+  /* the long-run curve */
+  var RROWS = [
+    { k: "r1", q: 1, lr: "$380", plant: "A", pc: "$400", reg: "economies of scale" },
+    { k: "r2", q: 2, lr: "$280", plant: "A", pc: "$280", reg: "economies of scale" },
+    { k: "r3", q: 3, lr: "$220", plant: "A", pc: "$240", reg: "economies of scale" },
+    { k: "r4", q: 4, lr: "$200", plant: "A", pc: "$280", reg: "efficient scale" },
+    { k: "r5", q: 5, lr: "$200", plant: "B", pc: "$210", reg: "efficient scale" },
+    { k: "r6", q: 6, lr: "$200", plant: "B", pc: "$210", reg: "efficient scale" },
+    { k: "r7", q: 7, lr: "$200", plant: "C", pc: "$280", reg: "efficient scale" },
+    { k: "r8", q: 8, lr: "$220", plant: "C", pc: "$240", reg: "diseconomies of scale" },
+    { k: "r9", q: 9, lr: "$280", plant: "C", pc: "$280", reg: "diseconomies of scale" },
+    { k: "r10", q: 10, lr: "$380", plant: "C", pc: "$400", reg: "diseconomies of scale" }
+  ];
+  pick("diagram2", "rChips", RROWS, function(s){
+    $("rq").textContent = s.q;
+    $("rlr").textContent = s.lr;
+    $("rp").textContent = s.plant + ", " + s.pc;
+    $("rreg").textContent = s.reg;
+    $("rcap").textContent = "At " + s.q + " thousand bicycles the lowest possible cost is " + s.lr
+      + " a bicycle (" + s.reg + "). Of the three plants drawn, " + s.plant + " is cheapest, at " + s.pc
+      + (s.pc === s.lr ? ": it touches LRATC here." : ": a plant built for this output would do better.");
+  })("r2");
+
+  /* how many firms fit */
+  var MROWS = [
+    { k: "m3", m: 3, n: 1 },
+    { k: "m8", m: 8, n: 2 },
+    { k: "m20", m: 20, n: 5 },
+    { k: "m40", m: 40, n: 10 }
+  ];
+  pick("diagram3", "mChips", MROWS, function(s){
+    $("mm").textContent = s.m + " thousand";
+    $("mn").textContent = s.n;
+    $("mcap").textContent = s.m < 4
+      ? "The market buys only " + s.m + " thousand bicycles, less than one firm's MES. Long-run cost is still falling where it meets demand: one firm can serve everyone more cheaply than two. A natural monopoly."
+      : s.m + " \u00f7 4 = " + (s.m / 4) + ": room for " + s.n + " firms each producing at the lowest cost"
+        + (s.n <= 2 ? ". Too few for competition: an oligopoly." : s.n <= 5 ? ". A few firms: an oligopoly is likely." : ". Enough for real competition between several firms.");
+  })("m20");
+
+  /* economies, constant returns or diseconomies? */
+  var SORT = [
+    { t: "A car maker doubles every input and its output more than doubles.", a: "eco",
+      w: "Increasing returns to scale: cost per car falls as the firm grows." },
+    { t: "A firm's long-run average total cost is the same at 10,000 and at 20,000 units.", a: "con",
+      w: "LRATC is flat over this range: constant returns to scale." },
+    { t: "A company grows so large that decisions take months to pass through its managers, and cost per unit rises.", a: "dis",
+      w: "Coordination problems in a very large firm: diseconomies of scale." },
+    { t: "A retailer opens more stores and buys in bulk at a lower price per item.", a: "eco",
+      w: "Cost per unit falls as the firm grows: economies of scale." },
+    { t: "All inputs rise by 20 percent and output rises by 10 percent.", a: "dis",
+      w: "Decreasing returns to scale raise long-run cost per unit." },
+    { t: "A chain opens a 300th identical store; its cost per customer is the same as at 200 stores.", a: "con",
+      w: "Long-run cost per unit is unchanged as it grows: constant returns to scale." },
+    { t: "A new software firm spreads its large development cost over millions of copies.", a: "eco",
+      w: "A large set-up cost spread over more output lowers long-run cost per unit." },
+    { t: "A farm doubles its land, machinery and workers and grows exactly twice as much wheat.", a: "con",
+      w: "Output rises in the same proportion as all inputs: constant returns to scale." },
+    { t: "A global firm finds each new country harder and costlier to manage than the last.", a: "dis",
+      w: "Long-run cost per unit rises with size: diseconomies of scale." },
+    { t: "Long-run average total cost falls from $50 to $42 as output doubles.", a: "eco",
+      w: "LRATC falls as output rises: economies of scale." },
+    { t: "A firm's inputs rise by 50 percent and its output by 50 percent.", a: "con",
+      w: "Output and inputs grow in the same proportion: constant returns to scale." },
+    { t: "Long-run average total cost rises from $30 to $33 as output doubles.", a: "dis",
+      w: "LRATC rises as output rises: diseconomies of scale." },
+    { t: "A larger factory lets each worker specialize in one narrow task.", a: "eco",
+      w: "Specialization is a source of economies of scale." },
+    { t: "A bakery twice the size of its rival has exactly the same cost per loaf.", a: "con",
+      w: "Equal cost per unit at different sizes: the flat part of LRATC." },
+    { t: "A hospital grows so large that patients' records are lost between departments, raising its cost per patient.", a: "dis",
+      w: "Communication problems as the organization grows: diseconomies of scale." }
+  ];
+  var sAt = 0, score = 0, done = 0, answered = false;
+  function card(){
+    answered = false;
+    $("sortStem").innerHTML = SORT[sAt].t;
+    $("sortVerdict").textContent = "";
+    $("sortVerdict").className = "verdict";
+  }
+  var opts = document.querySelectorAll("#sortWidget .opts3 button"), oi;
+  for (oi = 0; oi < opts.length; oi++){
+    opts[oi].addEventListener("click", function(){
+      if (answered) return;
+      answered = true; done++;
+      var c = SORT[sAt], ok = (this.getAttribute("data-a") === c.a);
+      if (ok) score++;
+      $("sortVerdict").innerHTML = (ok ? "\u2713 " : "\u2717 ") + c.w;
+      $("sortVerdict").className = "verdict " + (ok ? "ok" : "no");
+      $("sortScore").textContent = score + " / " + done;
+    });
+  }
+  $("sortNext").addEventListener("click", function(){ sAt = (sAt + 1) % SORT.length; card(); });
+  card();
+
+  /* the practice questions */
+  var mcqs = document.querySelectorAll(".mcq"), mi;
+  for (mi = 0; mi < mcqs.length; mi++){
+    (function(box){
+      var os = box.querySelectorAll(".opt"), j;
+      for (j = 0; j < os.length; j++){
+        os[j].addEventListener("click", function(){
+          var w = this.querySelector(".why");
+          if (w) w.hidden = !w.hidden;
+          this.classList.toggle("open");
+        });
+      }
+    })(mcqs[mi]);
+  }
+})();
+</script>
+</main>
+<script>window.COURSE_NAV={"kicker": "3.3 Long-run production costs", "title": "Module 56 · Long-Run Costs and Economies of Scale", "map": [{"label": "Course", "items": [{"href": "index.html", "label": "Home", "current": false}, {"href": "spec.html", "label": "Course specification", "current": false}]}, {"label": "Unit 1 · Basic Economic Concepts", "items": [{"href": "m01-student.html", "label": "Module 1 · Student guide", "current": false}, {"href": "m01-notes.html", "label": "Module 1 · Teaching notes", "current": false}, {"href": "m01-test.html", "label": "Module 1 · Test", "current": false}, {"label": "Module 2 · Introduction to Macroeconomics", "planned": true}, {"href": "m03-student.html", "label": "Module 3 · Student guide", "current": false}, {"href": "m03-notes.html", "label": "Module 3 · Teaching notes", "current": false}, {"href": "m03-test.html", "label": "Module 3 · Test", "current": false}, {"href": "m04-student.html", "label": "Module 4 · Student guide", "current": false}, {"href": "m04-notes.html", "label": "Module 4 · Teaching notes", "current": false}, {"href": "m04-test.html", "label": "Module 4 · Test", "current": false}, {"href": "m51-student.html", "label": "Module 51 · Student guide", "current": false}, {"href": "m51-notes.html", "label": "Module 51 · Teaching notes", "current": false}, {"href": "m51-test.html", "label": "Module 51 · Test", "current": false}, {"label": "Unit 1 · Gap analysis", "planned": true}]}, {"label": "Unit 2 · Supply and Demand", "items": [{"href": "m05-student.html", "label": "Module 5 · Student guide", "current": false}, {"href": "m05-notes.html", "label": "Module 5 · Teaching notes", "current": false}, {"href": "m05-test.html", "label": "Module 5 · Test", "current": false}, {"href": "m06-student.html", "label": "Module 6 · Student guide", "current": false}, {"href": "m06-notes.html", "label": "Module 6 · Teaching notes", "current": false}, {"href": "m06-test.html", "label": "Module 6 · Test", "current": false}, {"href": "m07-student.html", "label": "Module 7 · Student guide", "current": false}, {"href": "m07-notes.html", "label": "Module 7 · Teaching notes", "current": false}, {"href": "m07-test.html", "label": "Module 7 · Test", "current": false}, {"href": "m08-student.html", "label": "Module 8 · Student guide", "current": false}, {"href": "m08-notes.html", "label": "Module 8 · Teaching notes", "current": false}, {"href": "m08-test.html", "label": "Module 8 · Test", "current": false}, {"href": "m09-student.html", "label": "Module 9 · Student guide", "current": false}, {"href": "m09-notes.html", "label": "Module 9 · Teaching notes", "current": false}, {"href": "m09-test.html", "label": "Module 9 · Test", "current": false}, {"href": "m46-student.html", "label": "Module 46 · Student guide", "current": false}, {"href": "m46-notes.html", "label": "Module 46 · Teaching notes", "current": false}, {"href": "m46-test.html", "label": "Module 46 · Test", "current": false}, {"href": "m47-student.html", "label": "Module 47 · Student guide", "current": false}, {"href": "m47-notes.html", "label": "Module 47 · Teaching notes", "current": false}, {"href": "m47-test.html", "label": "Module 47 · Test", "current": false}, {"href": "m48-student.html", "label": "Module 48 · Student guide", "current": false}, {"href": "m48-notes.html", "label": "Module 48 · Teaching notes", "current": false}, {"href": "m48-test.html", "label": "Module 48 · Test", "current": false}, {"href": "m49-student.html", "label": "Module 49 · Student guide", "current": false}, {"href": "m49-notes.html", "label": "Module 49 · Teaching notes", "current": false}, {"href": "m49-test.html", "label": "Module 49 · Test", "current": false}, {"href": "m50-student.html", "label": "Module 50 · Student guide", "current": false}, {"href": "m50-notes.html", "label": "Module 50 · Teaching notes", "current": false}, {"href": "m50-test.html", "label": "Module 50 · Test", "current": false}, {"href": "t29-student.html", "label": "Topic 2.9 · Student guide", "current": false}, {"href": "t29-notes.html", "label": "Topic 2.9 · Teaching notes", "current": false}, {"href": "t29-test.html", "label": "Topic 2.9 · Test", "current": false}, {"label": "Unit 2 · Gap analysis", "planned": true}]}, {"label": "Unit 3 · Production, Cost and Perfect Competition", "items": [{"href": "m52-student.html", "label": "Module 52 · Student guide", "current": false}, {"href": "m52-notes.html", "label": "Module 52 · Teaching notes", "current": false}, {"href": "m52-test.html", "label": "Module 52 · Test", "current": false}, {"href": "m53-student.html", "label": "Module 53 · Student guide", "current": false}, {"href": "m53-notes.html", "label": "Module 53 · Teaching notes", "current": false}, {"href": "m53-test.html", "label": "Module 53 · Test", "current": false}, {"href": "m53-lab.html", "label": "Module 53 · Lab", "current": false}, {"href": "m54-student.html", "label": "Module 54 · Student guide", "current": false}, {"href": "m54-notes.html", "label": "Module 54 · Teaching notes", "current": false}, {"href": "m54-test.html", "label": "Module 54 · Test", "current": false}, {"href": "m54-lab.html", "label": "Module 54 · Lab", "current": false}, {"href": "m55-student.html", "label": "Module 55 · Student guide", "current": false}, {"href": "m55-notes.html", "label": "Module 55 · Teaching notes", "current": false}, {"href": "m55-test.html", "label": "Module 55 · Test", "current": false}, {"href": "m55-lab.html", "label": "Module 55 · Lab", "current": false}, {"href": "m56-student.html", "label": "Module 56 · Student guide", "current": true}, {"href": "m56-notes.html", "label": "Module 56 · Teaching notes", "current": false}, {"href": "m56-test.html", "label": "Module 56 · Test", "current": false}, {"href": "m56-lab.html", "label": "Module 56 · Lab", "current": false}, {"label": "Module 57 · Introduction to Market Structure", "planned": true}, {"href": "m57-lab.html", "label": "Module 57 · Lab", "current": false}, {"label": "Modules 58–60 · Perfect Competition", "planned": true}, {"label": "Unit 3 · Gap analysis", "planned": true}]}, {"label": "Unit 4 · Imperfect Competition", "items": [{"label": "Topic 4.1 · Introduction to Imperfect Competition", "planned": true}, {"label": "Modules 61–63 · Monopoly", "planned": true}, {"label": "Modules 67–68 · Monopolistic Competition", "planned": true}, {"label": "Modules 64–66 · Oligopoly and Game Theory", "planned": true}, {"label": "Unit 4 · Gap analysis", "planned": true}]}, {"label": "Unit 5 · Factor Markets", "items": [{"label": "Module 69 · Introduction and Factor Demand", "planned": true}, {"label": "Module 70 · The Markets for Land and Capital", "planned": true}, {"label": "Module 71 · The Market for Labor", "planned": true}, {"label": "Module 72 · The Cost-Minimising Input Combination", "planned": true}, {"label": "Module 73 · Theories of Income Distribution", "planned": true}, {"label": "Unit 5 · Gap analysis", "planned": true}]}, {"label": "Unit 6 · Market Failure and the Role of Government", "items": [{"label": "Modules 74–75 · Externalities", "planned": true}, {"label": "Module 76 · Public Goods", "planned": true}, {"label": "Module 77 · Public Policy to Promote Competition", "planned": true}, {"label": "Module 78 · Income Inequality and Income Distribution", "planned": true}, {"label": "Unit 6 · Gap analysis", "planned": true}]}, {"label": "Practice exams", "items": [{"href": "pe-units-1-2.html", "label": "Practice exam · Units 1 and 2", "current": false}]}, {"label": "Interactive", "items": [{"label": "PPC explorer", "planned": true}, {"label": "Supply and demand explorer", "planned": true}, {"label": "Elasticity and total revenue", "planned": true}, {"label": "Cost curves", "planned": true}, {"label": "Market structure comparison", "planned": true}]}], "prev": {"href": "m55-lab.html", "label": "Module 55 · Lab"}, "next": {"href": "m56-notes.html", "label": "Module 56 · Teaching notes"}, "variants": [{"href": "m56-student.html", "label": "Student", "current": true}, {"href": "m56-notes.html", "label": "Notes", "current": false}, {"href": "m56-test.html", "label": "Test", "current": false}, {"href": "m56-lab.html", "label": "Lab", "current": false}]};</script>
+<script src="assets/course.js"></script>
+</body>
+</html>
